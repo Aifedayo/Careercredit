@@ -1,0 +1,89 @@
+nav {
+    background-color:#6c63ff ;
+    box-shadow: none;
+    border-bottom: 1px;
+    
+}
+
+.nav-wrapper {
+  padding-left: 35px;
+  padding-right: 30px;
+}
+
+.logo {
+  height: 15%;
+  width: 15%;
+  margin-top: 17px
+  }
+  
+  .logo-text {
+  position: absolute;
+  padding-left: 3px;
+  font-weight: 700;
+  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.7rem;
+  
+  }
+
+nav ul a:hover {
+  
+  border-bottom: 4px solid #6c63ff;
+}
+
+#login_username {
+    display: block!important;
+    height:1.82rem!important;
+    padding: .5rem!important;
+    border: 1px solid #cdd1d4de;
+    transition: all 1s;
+    border-radius: .25rem!important;
+    box-shadow: none;
+    width: 96%!important;
+  }
+  
+    #login_password {
+    display: block!important;
+    height:1.82rem!important;
+    padding: .5rem!important;
+    border: 1px solid #cdd1d4de;
+    transition: all 1s;
+    border-radius: .25rem!important;
+    box-shadow: none;
+    width: 96%!important;
+  }
+  
+  #login_project {
+    display: block!important;
+    height:1.82rem!important;
+    padding: .5rem!important;
+    border: 1px solid #cdd1d4de;
+    transition: all 1s;
+    border-radius: .25rem!important;
+    box-shadow: none;
+    width: 96%!important;
+  }
+  
+  .submit {
+    width:100%!important;
+    background-color:#6c63ff
+  }
+
+  #home_login {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 1.2rem;
+      font-weight: bolder;
+      color: rgba(90, 84, 84, 0.61);
+  }
+
+  a {
+      text-decoration: none;
+  }
+
+  .click {
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      text-align: center;
+      
+      margin-right: auto;
+      margin-left: auto;
+  }

@@ -1,0 +1,47 @@
+<div class="navbar ">
+  <nav>
+    <div class="nav-wrapper">
+      <div class="container-fluid">
+          <a routerLink="" routerLinkActive class="brand-logo"><img src="/src/assets/image/Final-Logo.png" alt="nav-logo" class="logo"><span class="logo-text">ClassRoom</span></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a routerLink="/login" routerLinkActive>LOGIN</a></li>
+          <li><a routerLink="/signup" routerLinkActive>REGISTER</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<br>
+<div class="row">
+
+<div class="container">
+<div class="col m6 s12 login_section">
+  <p>{{dataservice.message}}</p>
+  <div class="login_wrapper">
+      <br><br>
+      <h4 class="bold center" id="home_login">LOGIN</h4>
+      <form (ngSubmit)="login()">
+          <div class="form-group">
+              <input required class="form-control" type="text" id="login_username" [(ngModel)]="dataservice.login_username" name="username" placeholder="Username">
+          </div>
+          <br>
+          <div class="form-group">
+              <input required class="form-control" type="password" id="login_password" [(ngModel)]="dataservice.login_password" name="password" placeholder="Password">
+          </div>
+          <br>
+
+          <div class="form-group">
+              <input class="form-control btn btn-default submit" (click)="login()" type="submit" value="LOGIN">
+          </div>
+      </form>
+      <br>
+
+  </div>
+</div>
+<div class="col m6 s12">
+  <img src="/src/assets/image/programming.png" alt="Banner">
+</div>
+</div>
+</div>
+

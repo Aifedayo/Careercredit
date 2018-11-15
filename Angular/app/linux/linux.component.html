@@ -1,0 +1,79 @@
+
+
+<div class="navbar ">
+  <nav>
+    <div class="nav-wrapper">
+      <div class="container-fluid">
+        <div class="row">
+
+          <div class="col l3 m3 s3">
+            <a class="brand-logo"><img src="/src/assets/image/Final-Logo.png" alt="nav-logo" class="logo"><span class="logo-text">ClassRoom</span></a>
+          </div>
+
+          <div class="col l3 m3 s3">
+            <a materialize="dropdown" class="dropdown-button dropdown" data-activates="dropdown1" style="cursor: pointer;">Linux Fundamentals<i class="material-icons right">arrow_drop_down</i></a>
+            <!-- Dropdown Structure -->
+            <ul id="dropdown1" class="dropdown-content">
+                <li><a routerLink="/classroom" routerLinkActive>Django</a></li>
+                <li class="divider"></li>
+                <li><a >Linux Fundamentals</a></li>
+            </ul>
+
+          </div>
+
+            <div class="col l6 m6 s6">
+              <ul class="right">
+                <li><a>{{dataservice.username}}</a></li>
+                <li><a (click)="logout()" id="logout">LOGOUT</a></li>
+              </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col l3 m3 s3" style="background-color:#4d394b; height: 100%;">
+      <h6 style="text-align: center; font-weight: bold;">Registered Students | {{users.length}}</h6>
+      <div style="height:450px; overflow: auto;">
+        <ul>
+          <li id="students" style="color:darkgrey; font-weight: bolder; font-size: 15px;"
+              *ngFor="let user of users"><a> {{ user.username }} </a>
+          </li><br>
+        </ul>
+      </div>
+    </div>
+    <div class="col l6 m6 s9">
+      <ul style="display:flex;">
+        <li><a routerLink= "./videos" routerLinkActive="active" id="video">Video</a></li> |
+        <li><a href= "" target="_blank" id="lab">Labs</a></li> |
+        <li><a [routerLink]="['./linux-chat']" routerLinkActive="router-link-active" id="chat" > Chat</a></li>
+      </ul>
+      <hr>
+      <div style="max-height:600px; overflow: auto;">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    <div class="col l3 m3 s12">
+      <div class="">
+
+          <h5 style="text-align:center; font-weight: bolder;">Topics</h5>
+          <div class="course_topic_area" style="height: 450px; overflow: auto;">
+          <ul class="collection">
+
+              <li class="collection-item avatar">
+                <i class="material-icons circle red">play_arrow</i>
+
+                <a routerLink='./linux-chat'>Demo Topic Here</a>
+
+              </li>
+
+            </ul>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+

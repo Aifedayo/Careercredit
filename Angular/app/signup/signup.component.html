@@ -1,0 +1,43 @@
+<div class="navbar ">
+    <nav>
+      <div class="nav-wrapper">
+        <div class="container-fluid">
+            <a routerLink="" routerLinkActive class="brand-logo"><img src="/src/assets/image/Final-Logo.png" alt="nav-logo" class="logo"><span class="logo-text">ClassRoom</span></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a routerLink="/signup" routerLinkActive>REGISTER</a></li>
+            <li><a routerLink="/login" routerLinkActive>LOGIN</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+<div class="">
+  <div class="container-fluid">
+      <div class="row">
+      <div class="col m4"></div>
+      <div class="col m4">
+          <p>{{dataservice.message}}</p>
+          <h4 class="bold center" id="signUpheader">SIGN-UP</h4>
+
+          <form (ngSubmit)="createUser()" id="signUp">
+              <div class="form-group">
+                  <input required="required" class="form-control" type="text" id="email" [(ngModel)]="dataservice.createuser_email" name="email" placeholder="Email" required>
+              </div>
+              <br>
+              <div class="form-group">
+                  <input required="required" class="form-control" type="password" id="password" [(ngModel)]="dataservice.createuser_password" name="password" placeholder="Password" required>
+              </div>
+              <br>
+              <div class="form-group">
+                  <input required="required" class="form-control" type="text" id="username" [(ngModel)]="dataservice.createuser_username" name="username" placeholder="Username" required>
+              </div>
+
+              <input class="btn btn-default submit" type="submit" value="Sign Up" id="create_user">
+          </form>
+      </div>
+      <div class="col m4"></div>
+      </div>
+  </div>
+</div>
