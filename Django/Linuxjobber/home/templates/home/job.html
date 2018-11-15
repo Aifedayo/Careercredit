@@ -1,0 +1,135 @@
+{% extends 'home/base.html' %}
+{% load staticfiles%}
+{% block title %}
+Jobs | Linuxjobber
+{% endblock %}
+{% block content %}
+	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+      	<!-- Indicators -->
+      	<div class="carousel-inner" role="listbox">
+        <div class="item active">
+          
+        </div>      
+      	</div>      
+    </div>
+    <style>
+	p{ font-size:22px;}	
+.fadeInUp li { font-size:15px;}	
+</style>
+
+<section class="col-xs-12 aboutusmain animate-box">
+	<div class="row raise-to-banner2">
+		<div class="col-md-8 col-md-offset-2 text-center">
+			<div class="display-t">
+				<div class="display-tc animate-box h1-bg" data-animate-effect="fadeIn">
+					<h1>Jobs</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+				
+	<span>Join Us</span>
+	<p>As we continue to expand our services, our need to increase in talent capacity is also growing at a corresponding rate. We would love to have you join us!</p>
+				
+	<div class="col-md-7 jobbertext col-xs-12">
+		<p>Working with Linuxjobber is very trendy. Our work moves with the pace of technology according to our clients' requests. This means that many of the positions are remote and involve telecommuting requiring professionals to be self disciplined and work without supervision. Unlike traditional companies that measure office time, we measure output. Consequently, it takes certain personalities to fit into the Linuxjobber culture and people who enjoy the culture often turn out to be super-excited with Linuxjobber. If you feel that you are a self-starter and a technically inclined person, please find and apply for any position of your interest below and we will be happy to consider you. It takes FUN! </p>
+	</div>
+	<div class="col-md-5 jobberimg col-xs-12">
+		<img src="{% static "/home/images/infodash.png" %}" />
+	</div>  
+	</div>
+</section> 
+
+<section class="col-xs-12 aboutusmain animate-box">
+	<div class="container">
+	<div>&nbsp;<br />&nbsp;</div>
+	<span><h2>Positions</h2></span>
+
+	<div><br />
+		<div class='animate-box'><h4>Part-time Front-end Developer</h4></div>
+			<div class="container">
+				<p>We need a frontend developer with skills in HTML/CSS and AngularJS technologies</p>
+				<p>
+					<div class="job_padding">    
+					<strong>Responsibilities <br /></strong>
+					    Ability to create HTML/CSS images from wireframe � Current languages used in our existing code is HTML/CSS, JavaScript, and PHP. Should have some familiarity with all of those.<br>Familiarity with GIT is a big plus<br>We are a completely remote team so independence is important<br>Ability to work without direct supervision<br>Ability to work remotely					            </div>
+				</p>
+			            	
+				<div class="col-xs-12 nextbtn animate-box"> 
+     		    	<a href="{% url 'home:jobapplication' %}">Apply</a>
+     		    </div>
+			    </div>
+			    </div>
+				 
+				<div><br />
+				<div class='animate-box'><h4>Part-time Java Developer</h4></div>
+			        <div class="container">
+					    <p>The Java developer will provide programming support for our existing desktop application, build new features and support devops tasks when needed</p>
+					    <p>
+					        <div class="job_padding">    
+					            <strong>Responsibilities <br /></strong>
+					                Ability to work remotely and maintain online presence during daytime hours <br> Must be able to work without direct supervision<br>Must have strong familiarity with Java and willingness to learn JavaFX<br>Fundamental understanding of Structured Query Languages
+					        </div>
+					    </p>
+			            	
+				        <div class="col-xs-12 nextbtn animate-box"> 
+     		    	        <a href="{% url 'home:jobapplication' %}">Apply</a>
+     		            </div>
+			            </div>
+			        </div>
+				 
+				    <div><br />
+					    <div class='animate-box'><h4>AWS Cloud Architect</h4></div>
+			            <div class="container">
+					        <p>AWS professional to configure and maintain all areas of cloud infrastructure existing on Amazon Web Services</p>
+					        <p>
+					            <div class="job_padding">    
+					                <strong>Responsibilities <br /></strong>
+					                Plan layout of our cloud infrastructure <br> Optimize our cloud resources for optimal efficiency and cost reduction <br> Plan and implement security <br> Perform backups and restoration <br> Troubleshoot all infrastructure problems <br> Maintain cloud servers					            </div>
+					        </p>
+			            	
+				            <div class="col-xs-12 nextbtn animate-box"> 
+     		    	            <a href="{% url 'home:jobapplication' %}">Apply</a>
+     		                </div>
+			            </div>
+			        </div>
+				 
+				    <div><br />
+					    <div class='animate-box'><h4>Linux Administrator</h4></div>
+			            <div class="container">
+					        <p>Linux professional to keep our systems up, secure and running</p>
+					        <p>
+					            <div class="job_padding">    
+					                <strong>Responsibilities <br /></strong>
+					                Perform system backups <br> Manage network users and groups<br>Mentor junior admins <br> Plan and implement security <br> Install, manage and maintain web servers <br> Troubleshoot and fix network/system problems <br> Maintain cloud servers					            </div>
+					        </p>
+			            	
+				            <div class="col-xs-12 nextbtn animate-box"> 
+     		    	            <a href="{% url 'home:jobapplication' %}">Apply</a>
+     		                </div>
+			            </div>
+			        </div>
+				 
+				    <div><br />
+					    <div class='animate-box'><h4>Web Frontend Developer</h4></div>
+			            <div class="container">
+					        <p>We need a frontend developer with skills in HTML/CSS and AngularJS technologies</p>
+					        <p>
+					            <div class="job_padding">    
+					                <strong>Responsibilities <br /></strong>
+					                Ability to create HTML/CSS images from wireframe – Current languages used in our existing code is HTML/CSS, JavaScript, and PHP. Should have some familiarity with all of those.<br>Experience working with a development team – Using Eclipse, Sublime Text, Subversion, Maven etc. Using Git or Redmine to document progress, understanding of Agile development process. <br>Web Development/UI experience<br>Ability to work without direct supervision<br>Ability to work remotely					            </div>
+					        </p>
+			            	
+				            <div class="col-xs-12 nextbtn animate-box"> 
+     		    	            <a href="{% url 'home:jobapplication' %}">Apply</a>
+     		                </div>
+			            </div>
+			        </div>
+			</div>
+		</section>
+
+
+
+{%endblock%}
+

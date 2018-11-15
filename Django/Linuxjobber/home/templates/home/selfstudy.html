@@ -1,0 +1,90 @@
+{% extends 'home/base.html' %}
+{% load staticfiles%}
+{% block content %}
+
+                <div class="selfs" role="listbox">
+                    <div class="item active">
+
+                        <div class=" text-center selfie" >
+                   <h1>Linux <br> Certification Class</h1>
+
+
+
+
+
+                        </div>
+                      </div>
+                    </div>
+
+
+
+                <br>
+                <section class="selfstudy">
+                  <div class="container">
+                    <div class="row border-back">
+                      <div class="col-xs-12 col-sm-12 col-lg-6">
+                        <i class="fa fa-lightbulb-o rnd-back"></i>
+                        <h3 class="hblue">RCHSA Certification - Instructor Led </h3>
+                        <p class="mgg-20">This Red Hat Linux certification course is designed to help you pass the RHCSA EX200 Examination and earn the certificate.
+                          The course covers all the materials on the exam by using the curriculum provided by the Red Hat vendor for the purpose of passing the exam.
+                          It is best suited for people who have completed Linux training and are just interested in passing the exam.
+                    </p>
+                      </div>
+                      <div class="col-xs-12 col-sm-12 col-lg-6 text-center checkout-col">
+                        <h3 class="hblue mgb30">$799 One Time</h3>
+
+                        <a href="#"><button class="btn btn-checkout" id = "packages-self">Check Out</button></a>
+                      </div>
+                      </div>
+
+                    <br>
+
+                    <br>
+                  </div>
+                </section>
+
+
+
+                    <section class="trial-container-study">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-12 col-lg-6">
+                      <img class = "thanks-img" src="{% static 'home/images/ab.png' %}" class="img-responsive">
+
+
+                      </div>
+                      <div class="col-xs-12 col-sm-12 col-lg-6">
+                        <div class="text-center thanks-text">
+
+                        <h2 id="thank">Thankfully</h2>
+
+                        <p style="font-size:16px"> I passed the exam in one shot. <br>
+                        I am very excited to have my Red Hat Certificate (RHCSA) in my hands. <br>
+                        Linuxjobber course materials helped me prepare for, and pass, the exam. <br>
+                        I am very happy.</p>
+                        <p id="name">- Azeem A.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+
+            <section class="sub">
+                  <div class="container">
+                    <div class="row ">
+                      <div class="text-center">
+                      <h5>Subscribe To Our Newsletter.</h5>
+
+                      <form class="form-inline sub-main">
+              <label class="sr-only" for="inlineFormInputName2">Name</label>
+              <input type="text" class="form-control mb-2 mr-sm-2 sub-form" id="inlineFormInputName2" placeholder="Enter your email"/>
+            <button type="submit" class="btn btn-b mb-2">Submit</button>
+            </form>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+
+                {% endblock %}

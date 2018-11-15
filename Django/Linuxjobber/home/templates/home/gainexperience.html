@@ -1,0 +1,177 @@
+{% extends 'home/base.html' %}
+{% load staticfiles%}
+{% block title %}
+Gain Experience | Linuxjobber
+{% endblock %}
+{% block content %}
+<section class="hero">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-7">
+				<strong><h1> Work Experience While You Learn </h1><br> <h2>Altogether !</h2></strong>
+				<a href="#currentprojects" class="btn btn-primary">Discover more</a>
+			</div>
+			<div class="col-sm-5">
+				<img src="https://linuxjobber.com/imgs/herotxt.png" alt="img">
+			</div>
+		</div>
+	</div>
+</section>
+<section class="cntnt text-center">
+   <div id="currentprojects">
+	<h2 class="">Current Projects, Get Involved</h2>
+	<br>
+	<h5 class=""><i class="fa fa-arrow-circle-down fa-2x"></i></h5>
+   <div>
+</section>
+<section class="ftr">
+	<div class="">
+		<div class="row">
+			<div class="col-sm-6 part part1">
+				<h3>Auffline Desktop </h3>
+				<p style="color:black" class="lead">Get involved in building this non-profit java desktop distance learning application used to deliver video content to offline students. This application is extremely important in countries where internet is unaffordable to the majority.</p>
+				<a href="#chooseone" class="btn">Join</a>
+			</div>
+			<div class="col-sm-6 part part2">
+				<h3>Fullstackit</h3>
+				<p style="color:black"class="lead">Join the team that is creating the multi-tier web frontend and user interface for Auffline administration. They are building a database driven website with modern technologies (HTML, CSS, Javascript, AngularJS, Node.js) for Auffline clients. </p>
+				<a href="#chooseone" class="btn">Join</a>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="bnft">
+	<div class="container">
+		<h3>Benefits of hands-on learning: </h3>
+		<p style="color:black"><b>Greater Retention of Program Material</b></p>
+		<p style="color:black">Students who practice what the/ re learning in a hands-on environment can often retain three and half times as much .</p>
+		<p style="color:black"><b>Access to Materials and Programs used on a Job In Real -Time </b></p>
+		<p style="color:black">Students a better feel for the training material at hand as well as exposure to current technologies used by employers. </p>
+		<p style="color:black"><b>Supervision of a Professional </b></p>
+		<p style="color:black">Students' work are closely monitored by industry professionals to maximize adherence to best practicing situation as a result. </p>
+		<p style="color:black"><b>Critical Thinking Skills that can Be Developed </b></p>
+		<p style="color:black">By solving real-world problems, students engage in critical thinking and thereby maximizing their potential. </p>
+	</div>
+</section>
+<section class="chs text-center">
+	<br>
+	<h2 class="" id="chooseone">Choose one</h2>
+	<div class="row">
+		<div class="col-sm-6 part part1">
+			<img src="{% static '/home/css/newhomepage/imgs/arr.png' %}" alt=""r width="60px" style="float: right;margin-right: 80px;">
+			<div class="clearfix"></div>
+			<div class="txt">
+				<h3>Student Internship</h3>
+				<img src="{% static '/home/css/newhomepage/imgs/s1.png' %}" alt="" class="">
+				<h3>Eligibility </h3>
+				<p style="color:black"><i class="fa fa-arrow-circle-o-right"> Currently enrolled or recent graduate </i></p>
+				<p><i style="color:black" class="fa fa-arrow-circle-o-right"> Have access to computer &amp; internet </i></p>
+				<p><i  style="color:black" class="fa fa-arrow-circle-o-right"> Minimum 18 years old </i></p>
+				<a href="{% url 'home:internships' %}" class="btn">Select</a>
+			</div>
+		</div>
+		<div class="col-sm-6 part part2">
+			<img src="{% static '/home/css/newhomepage/imgs/arr1.png' %}" alt=""r width="60px" style="float:left;margin-left: 80px;">
+			<div class="clearfix"></div>
+			<div class="txt">
+				<h3>Adult Work Experience </h3>
+				<img src="{% static '/home/css/newhomepage/imgs/s2.png' %}" alt="" class="">
+				<h3>Eligibility </h3>
+				<p style="color:black"><i class="fa fa-arrow-circle-o-right"> Authorization to work legally</i></p>
+				<p style="color:black" class="i"><i class="fa fa-arrow-circle-o-right"> Prior training in area of interest  </i></p>
+				
+				<a href="{% url 'home:workexperience' %}" class="btn">Select</a>
+				
+			</div>
+		</div>
+	</div>
+</section>
+<section class="srvs">
+	<div class="container">
+		<br>
+		<h3 class="text-center">The benefits of <br class="hidden-sm"> using our service.</h3>
+		<br>
+		<div class="row">
+			<div class="col-md-4 col-sm-6">
+				<br>
+				<div class="row">
+					<div class="col-xs-3">
+						<img src="{% static '/home/css/newhomepage/imgs/b1.png' %}" class="img-responsive" alt="">
+					</div>
+					<div class="col-xs-9">
+						<h4>Real Experience</h4>
+						<p>Truthfully gain experience as part of a team working on useful real-world applications</p>
+					</div>
+				</div>
+				<br>
+			</div>
+			<div class="col-md-4 col-sm-6">
+				<br>
+				<div class="row">
+					<div class="col-xs-3">
+						<img src="{% static '/home/css/newhomepage/imgs/b2.png' %}" class="img-responsive" alt="">
+					</div>
+					<div class="col-xs-9">
+						<h4>Upgrade Resume</h4>
+						<p>Use standard industry specific tools. Include the tools in your resume for better visibility</p>
+					</div>
+				</div>
+				<br>
+			</div>
+			<div class="col-md-4 col-sm-6">
+				<br>
+				<div class="row">
+					<div class="col-xs-3">
+						<img src="{% static '/home/css/newhomepage/imgs/b3.png' %}" class="img-responsive" alt="">
+					</div>
+					<div class="col-xs-9">
+						<h4>Save the money</h4>
+						<p>Searching for jobs and getting rejected is called LOSS OF INCOME. Avoid it and start here now!</p>
+					</div>
+				</div>
+				<br>
+			</div>
+			<div class="col-md-4 col-sm-6">
+				<br>
+				<div class="row">
+					<div class="col-xs-3">
+						<img src="{% static '/home/css/newhomepage/imgs/b4.png' %}" class="img-responsive" alt="">
+					</div>
+					<div class="col-xs-9">
+						<h4>Supervision by Experts</h4>
+						<p>This is the best value: Let professionals guide you while you develop your skills and build experience</p>
+					</div>
+				</div>
+				<br>
+			</div>
+			<div class="col-md-4 col-sm-6">
+				<br>
+				<div class="row">
+					<div class="col-xs-3">
+						<img src="{% static '/home/css/newhomepage/imgs/b5.png' %}" class="img-responsive" alt="">
+					</div>
+					<div class="col-xs-9">
+						<h4>Use Current Tools</h4>
+						<p>Become more marketable by getting exposure to mordern tools used by employers</p>
+					</div>
+				</div>
+				<br>
+			</div>
+			<div class="col-md-4 col-sm-6">
+				<br>
+				<div class="row">
+					<div class="col-xs-3">
+						<img src="{% static '/home/css/newhomepage/imgs/b6.png' %}" class="img-responsive" alt="">
+					</div>
+					<div class="col-xs-9">
+						<h4>Learn Better</h4>
+						<p>Nothing beats hands-on experience. Most people understand better when they do it themselves</p>
+					</div>
+				</div>
+				<br>
+			</div>
+		</div>
+		<br><br>
+	</div>
+</section>
+{%endblock%}

@@ -1,0 +1,20 @@
+
+in style.css file on line 719 should be changed to code below
+
+sldbtnd .get {
+	border-radius: 0px;
+}
+
+
+in stylenew.css file on line 379 should be changed to code below
+
+.btn-submit {
+	border-radius: 0px;
+}
+
+
+in newstyle2.css file on line 2972 should be changed to code below
+
+.btn-submit2 {
+	border-radius: 0px;
+}

@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'HelveticaLTStdCondensed';
+    src: url('helveticaltstd-cond.eot');
+    src: url('helveticaltstd-cond.eot') format('embedded-opentype'),
+         url('helveticaltstd-cond.woff2') format('woff2'),
+         url('helveticaltstd-cond.woff') format('woff'),
+         url('helveticaltstd-cond.ttf') format('truetype'),
+         url('helveticaltstd-cond.svg#HelveticaLTStdCondensed') format('svg');
+}

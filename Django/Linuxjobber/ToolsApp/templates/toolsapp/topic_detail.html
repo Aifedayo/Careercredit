@@ -1,0 +1,95 @@
+{% extends 'home/base.html' %}
+
+{% load staticfiles%}
+
+{% block content %}
+  
+  
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <section class="col-xs-12 locationmain">
+    <div class="row raise-to-banner2">
+      <div class="col-md-8 col-md-offset-2 text-center">
+        <div class="display-t">
+          <div class="display-tc animate-box h1-bg fadeIn animated-fast" data-animate-effect="fadeIn">
+            <h1>{{ tool.tool_name }}</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+   </section>
+
+<div class="col-md-12 lab-details">
+    <div class="row raise-to-banner">
+        <div class="col-md-8 col-md-offset-2 text-center">
+            <div class="display-t">
+                <div class="display-tc animate-box fadeIn animated-fast" data-animate-effect>
+                    <h1>
+                        
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<section class="col-xs-12 fundamentalmain">
+	<div class="container">
+		<div class="col-md-3 blank col-xs-12"></div>
+		<div class="col-md-12 modal-content popupform col-xs-12">
+			<div class="modal-header">
+				<h6 class="videoname">
+					{{ topic }}
+					<a class="btn btn-primary" href="{% url 'ToolsApp:topics' topic.tool.tool_name %}" style="float :right;">Back</a>
+				</h6>
+			</div>
+			<div class="col-md-12 share-mg">
+				<span class="st_sharethis_large" displaytext="ShareThis"></span>
+				<span class="st_facebook_large" displaytext="Facebook"></span>
+				<span class="st_googleplus_large" displaytext="Google +"></span>
+				<span class="st_linkedin_large" displaytext="LinkedIn"></span>
+				<span class="st_pinterest_large" displaytext="Pinterest"></span>
+				<span class="st_myspace_large" displaytext="MySpace"></span>
+			</div>
+			<div class="col-md-9 modal-content popupform col-xs-12">
+				<video value= "{{ topic.video }}" id="video-active" src="{{ topic.video }}" autoplay width="100%" controls="">
+				</video>
+			</div>
+			<div class="col-md-3 modal-content popupform col-xs-12" style="height:auto; margin-bottom: 68px; padding: 15px;">
+				<h4 style="text-align: :center;">Next Video</h4>
+				<ul id="lftid" type="1">
+					{% for eachtopic in next_vid %}
+					<li>
+						
+						<a href="{% url 'ToolsApp:topic_details' eachtopic.tool.tool_name eachtopic.topic_number %}">{{ eachtopic.lab_name }}</a>
+						
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="col-md-12 video-size video-descr">
+				<h2>Description</h2>
+			</div>
+			<div class="col-md-12 video-descr-border2 video-descr">
+				<h5></h5>
+			</div>
+		</div>
+		<div class="col-md-3 blank col-xs-12"></div>
+	</div>
+	
+</section>
+
+
+
+{% endblock %}
+

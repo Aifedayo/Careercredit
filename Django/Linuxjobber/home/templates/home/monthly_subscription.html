@@ -1,0 +1,90 @@
+{% extends 'home/base.html' %}
+{% load staticfiles%}
+{% block content %}
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          
+        </div>      
+      </div>      
+    </div>
+	
+	<div class="main-container">
+
+        <div class="container"> 
+        	{% if messages %}
+          {% for message in messages %}
+          <div class="alert alert-{{message.tags}}" role="alert">
+            {% if message.tags == "success" %}
+            <p style="color:#155724;">{{message}}</p>
+            {%else%}
+            <p style="color:#721c24;">{{message}}</p>
+            {%endif%}
+          </div>
+          {% endfor %}
+        {% endif %}
+            <div class="row">
+						<br>						
+						<div class="col-md-1"></div>
+                <div class="col-md-6 page-content">
+                    <div class="inner-box category-content"  style="height:200px;">
+                        <h2 class="title-4"><i class="icon-user-add"></i>
+						
+						14 days free trial												
+						</h2>
+						<hr class='hr-color'/>
+                        <div class="row">
+                            <div class="col-sm-12">
+							
+								
+							<form action="" method="POST" id='stripejsfilemain'>
+								{% csrf_token %}
+								<div class="form-group required">
+									<div  class="col-md-4"></div>
+									<div class="col-md-8">
+										<script id='stripejsfile'
+										src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+										data-key="pk_test_1zBTca83q29gl9iwRw1oIBvD"
+										data-amount="2900"
+										data-email="{{email}}"
+										data-name="Linuxjobber"
+										data-description="Linuxjobber_monthly"
+										data-image="https://linuxjobber.com/images/logo.png"
+										data-locale="auto"
+										data-allow-remember-me="false"
+										data-currency="usd">
+										</script>
+									</div>
+									
+								</div>	
+
+								<p style="font-size:14px !important;margin-bottom: 20px; color:black;"><small>Please note that you will be charged 
+								$29     upfront.  However, you may cancel at any time within 14 days for a full refund. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you $29/Monthly  </small></p>
+                                <p> </p>
+							</form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.page-content -->
+
+                <div class="col-md-4 reg-sidebar">
+                    <div class="reg-sidebar-inner text-center">
+                        <div class="promo-text-box"><i class=" icon-picture fa fa-4x icon-color-1"></i>
+
+                            <h3><strong>Step up your Game</strong></h3>
+                            <p style="color:black;"> Access all courses, videos, labs and tests with a <br>14-day free trial. </p>
+                        </div><br>
+                        <h3>Monthly subscription<h3>
+												<h1 class='title-4'>$29</h1> <p class='bg_change' style="color:black;">Per Month</p>                       
+                    </div>
+                </div>
+				                <div class="col-md-1"></div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </div>
+			
+{%endblock%}

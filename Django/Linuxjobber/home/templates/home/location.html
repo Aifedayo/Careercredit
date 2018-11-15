@@ -1,0 +1,63 @@
+{% extends 'home/base.html' %}
+
+{% load staticfiles%}
+
+{% block content %}
+  
+  
+
+
+
+
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <section class="col-xs-12 locationmain">
+    <div class="row raise-to-banner2">
+      <div class="col-md-8 col-md-offset-2 text-center">
+        <div class="display-t">
+          <div class="display-tc animate-box h1-bg fadeIn animated-fast" data-animate-effect="fadeIn">
+            <h1>Training Location</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <br>
+      <br>
+      <div class="col-md-6 locationlefttext col-xs-12">
+        <p>
+          The location is situated at a prominent location at Exit 23 of the Capital Beltway (I-95/I-495). It is easily accessible by both bus and metro train. Parking is also available.
+        </p>
+        <span>
+          <i class="fa fa-map-marker"></i>
+           Suite 700, 6301 Ivy Lane
+        </span>
+        <!--whitespace only text node -->
+        <span>
+          <i class="fa fa-location-arrow"></i>
+           Greenbelt, USA
+        </span>
+        <!--whitespace only text node -->
+        <span>
+          <i class="fa fa-phone"></i>
+           1.443.538 0988
+        </span>
+      </div>
+      <div class="col-md-6 locationmaparea col-xs-12">
+        <img src="{% static 'home/images/locationmap.png' %}">
+      </div>
+    </div>
+    
+  </section>
+
+     
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'home/base.html' %}
+{% block content %}
+
+<div class="req" role="listbox">
+    <div class=" text-center projs" >
+  
+    </div>
+</div>
+
+<section>
+<div class="container">
+<div class="row">
+	<div class="col-md-2"></div>
+	<br>
+	<div class="col-md-8 modal-content mid">
+		{% if issue_lvl is 1 %}
+			<div class="modal-head">
+				<br>
+				<h2>Job Requirement Not Met</h2>
+			</div>
+			<hr>
+			<div class="alert alert-danger">
+				<span>{{ msg }}</span>
+			</div>
+			<p class="req-p">{{ redirinfo.msg }}</p><br>
+			<div class="sldbtnd">
+				<a href="{{ redirinfo.url }}" class="btn btn-primary get">{{ redirinfo.txt }}</a>
+				{% if level and level == 'snr' %}
+				<a href="{% url 'home:jobplacements' %}" class="btn pull-right can">No</a>
+				{% endif issue_lvl is 2 %}
+			</div>
+			<br>
+		{% elif  %}
+			<div class="modal-head">
+				<br>
+				<h2>Duplicate application</h2>
+			</div>
+		{% endif %}
+	</div>
+	<div class="col-md-2"></div>
+</div>
+</div>
+</section>
+<br>
+
+
+{% endblock %}

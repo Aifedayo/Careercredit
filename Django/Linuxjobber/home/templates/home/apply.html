@@ -1,0 +1,162 @@
+{% extends 'home/base.html' %} {% block content %}
+
+
+<div class="req" role="listbox">
+	<div class="item active">
+
+		<div class=" text-center projs">
+			<!-- <h1>Project Videos</h1> -->
+
+		</div>
+	</div>
+</div>
+
+<style>
+.ValidationErrors {
+	color: red !important;
+	font-size: 15px;
+}
+
+#but:hover {
+	background-color: #333;
+	color: white;
+	border: 1px solid #333;
+}
+</style>
+<div class="container jobforms-req">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3 modal-content">
+			<div class="modal-header text-center">
+				<h2 class="title-4">
+					{% if level == 'snr' %} Senior Level {% else %} Junior Level {% endif %} <br> Application Form 
+				</h2>
+			</div>
+			<br>
+			<form role="form" action="{% url 'home:apply' level %}" id="app"
+				enctype="multipart/form-data" method="post" accept-charset="utf-8">
+				{% csrf_token %}
+				<div class="form-group">
+					<label class="space1">Highest Level Of Education</label>
+					<select name="education" class="form-control inputarea data[Jobplacements][education]" id="id_education">
+						<option>None</option>
+						<option value="Some High School">Some High School</option>
+						<option value="High School Diploma">High School Diploma</option>
+						<option value="Associate degree">Associate degree</option>
+						<option value="Bachelor's degree">Bachelor's degree</option>
+						<option value="Master's degree">Master's degree</option>
+						<option value="Phd">Phd</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label class="space1">Resume / CV</label>
+					<div class="input file">
+						<input type="file" name="resume" class="data[Jobplacements][resume]" id="id_resume" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="space1">Career Of Interest</label>
+					<select class="form-control" id="id_career" name="career">
+						<option>System Administration</option>
+						<option>DevOps</option>
+						<option>Architecture</option>
+						<option>QA</option>
+						<option>Cloud Administration</option>
+						<option>Database</option>
+						<option>Java Development</option>
+						<option>Python Development</option>
+						<option>CyberSecurity Analysis</option>
+					</select>
+				</div>
+				
+				<div class="form-group">
+					<label class="space1">Years Of Experience</label>
+					<select class="form-control" id="id_experience" name="experience">
+						<option>0</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+						<option>6</option>
+						<option>7</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label class="space1">Any certification(s) in this field?</label>
+					<select class="form-control" id="id_is_certified" name="is_certified">
+						<option>Yes</option>
+						<option>No</option>
+					</select>
+				</div>
+				<div class="form-group" id="certificate">
+					<label class="space1">Certification</label>
+					<div class="input file">
+						<input type="file" name="certificates" class="files multiple" id="id_certificates" required multiple="multiple">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="space1">Had any training in this field?</label>
+					<select class="form-control" id="id_training" name="training">
+						<option>Yes</option>
+						<option>No</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label class="space1">Are u willing to relocate?</label>
+					<select class="form-control" id="id_can_relocate" name="can_relocate">
+						<option>Yes</option>
+						<option>No</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label class="space1">Where did you hear about this program?</label>
+					<select class="form-control" id="awareness1" name="awareness1">
+						<option>LinkedIn</option>
+						<option>Email</option>
+						<option>From A Friend</option>
+						<option>Others</option>
+					</select>
+				</div>
+				<div class="form-group"  id="awareness2">
+					<label class="space1">Please specify</label>
+					<input type="text" class="form-control inputarea" name="awareness2">
+				</div>
+
+				<br>
+				<div class="sldbtnd text-center">
+					<input class="btn btn-primary get" value="Submit" type="submit">
+					<a href="javascript:window.history.back();"
+						class="btn btn-primary can" id="but">Cancel</a>
+				</div>
+				<br>
+			</form>
+			<br>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	jQuery(function() {
+		$("#id_is_certified").change(function() {
+			if ($(this).val() == "No") {
+				$("#certificate").hide();
+				$("#id_certificates").prop('disabled', true);
+			} else {
+				$("#certificate").show();
+				$("#id_certificates").prop('disabled', false);
+			}
+			});
+		$("#awareness2").hide();
+		$("#awareness1").change(function() {
+			if ($(this).val() == "Others") {
+				$("#awareness2").show();
+				$("#awareness2").prop('disabled', false);
+			}
+			});
+	});
+</script>
+
+{% endblock %}

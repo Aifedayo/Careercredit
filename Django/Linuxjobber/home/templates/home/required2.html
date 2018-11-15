@@ -1,0 +1,35 @@
+{% extends 'home/base.html' %}
+{% block content %}
+
+<div class="req" role="listbox">
+    <div class=" text-center projs" >
+  
+    </div>
+</div>
+
+<section>
+<div class="container">
+<div class="row">
+	<div class="col-md-2"></div>
+	<br>
+	<div class="col-md-8 modal-content mid">
+		<div class="modal-head">
+		<br>
+		<h2>Job Requirement Not Met</h2>
+		</div>
+		<hr>
+		
+		<p class="req-p">Click the Get Certificate button below to apply for our certification course.</p><br>
+		<div class="sldbtnd">
+		<a href="{% url 'home:selfstudy' %}" class="btn btn-primary get">Get Certificate</a>
+		
+		</div>
+		<br>
+	</div>
+	<div class="col-md-2"></div>
+</div>
+</div>
+</section>
+<br>
+
+{% endblock %}
