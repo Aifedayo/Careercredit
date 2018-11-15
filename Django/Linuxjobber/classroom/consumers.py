@@ -4,7 +4,7 @@ from classroom.models import DjangoStudent, ChatRoom, ChatMessage
 import json
 import hashlib
 
-
+"""
 class ChatConsumer(AsyncWebsocketConsumer):
     async def connect(self):
         await self.accept()
@@ -93,4 +93,3 @@ class ChatConsumer(AsyncWebsocketConsumer):
         user = event['user']
         message = event['message']
         await self.send(text_data=json.dumps({'user': user, 'message': message}))
-"""
