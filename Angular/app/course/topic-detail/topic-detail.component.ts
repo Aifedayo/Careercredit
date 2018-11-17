@@ -9,18 +9,22 @@ import { Topic } from '../topic.model';
   styleUrls: ['./topic-detail.component.css']
 })
 export class TopicDetailComponent implements OnInit {
-  // public topics: Array<object> = [];
-  topic: {id: number, title: string, videoPath: string};
+  public topics: Array<object> = [];
+  topic: Topic;
   // id: number;
   // title: string;
   // videoPath: string;
   constructor(private route: ActivatedRoute, private courseService: CourseService) { }
 
   ngOnInit() {
-    const id = +this.route.snapshot.params['id'];
-    this.topic = this.courseService.getSingleTopic(id);
+    this.topics = this.courseService.getTopics();
+    this.topic = {
+      id: +this.route.snapshot.params['id'],
+      title: this.route.snapshot.params['title'],
+      videoPath: this.route.snapshot.params['videoPath']
+    };
     this.route.params.subscribe((params: Params) => {
-      this.topic = this.courseService.getSingleTopic(+params[id]);
+      this.topic = this.courseService.getSingleTopic(+params['id']);
     });
   }
 

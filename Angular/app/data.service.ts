@@ -8,6 +8,7 @@ import { Router} from '@angular/router';
 export class DataService {
 
   public URL = '54.244.162.68:8001';
+  // public URL = '127.0.0.1:8000';
 
   public message;
   public login_username;
@@ -31,8 +32,23 @@ export class DataService {
   // }
   djangostudents() {
     return this.http.get('http://' + this.URL + '/classroom/djangostudent-api/djangostudent/');
-
   }
+  // studentArray() {
+  //   this.users [];
+  //   this.djangostudents().subscribe((data: Array<object>) => {
+  //     this.users = data;
+  //     return this.users;
+  //   });
+  // }
+  // getSingleStudent(id: number) {
+  //   const user = this.users.find(
+  //     (data) => {
+  //       return data.id === id;
+  //       console.log(data);
+  //     }
+  //   );
+  //   return user;
+  // }
   createUser() {
     this.http.post('http://' + this.URL + '/classroom/djangostudent-api/djangostudent/', JSON.stringify({'email': this.createuser_email, 'password': this.createuser_password, 'username': this.createuser_username}), this.httpOptions).subscribe(
         data => {
@@ -58,7 +74,6 @@ export class DataService {
 
             sessionStorage.setItem('username', data['name']);
             sessionStorage.setItem('token', data['token']);
-            localStorage.setItem('token', data['token']);
             sessionStorage.setItem('id', data['id']);
 
             this.username = this.login_username;
@@ -95,7 +110,6 @@ export class DataService {
     this.router.navigate(['login']);
     sessionStorage.removeItem('username');
     sessionStorage.removeItem('token');
-    localStorage.removeItem('token');
     sessionStorage.removeItem('id');
   }
 }

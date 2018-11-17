@@ -12,21 +12,13 @@ export class TopicChatComponent implements OnInit {
 
 
   public URL = '54.244.162.68:8001';
-
   public users: Array<object> = [];
-  private images: Array<object> = [];
-  private selectedFile: File = null;
-  private onFileSelected;
   public chat_text  = '';
   public messages = [];
   public websocket;
   public email;
 
   constructor(public dataservice: DataService, private http: HttpClient) {
-    this.onFileSelected = (event) => {
-      this.selectedFile = <File>event.target.files[0];
-      // console.log(event);
-    };
     this.dataservice.username = sessionStorage.getItem('username');
     this.websocket = new WebSocket('ws://' + '54.244.162.68:8001');
     this.websocket.onopen = (evt) => {

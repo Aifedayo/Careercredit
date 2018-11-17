@@ -1,8 +1,8 @@
+import { CourseService } from './course.service';
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
-
 
 import { CourseComponent } from './course.component';
 import { TopicChatComponent} from './topic-chat.component';
@@ -40,17 +40,15 @@ const courseRoutes: Routes = [
 
       children: [
         { path: 'topic-chat', component: TopicChatComponent },
+        { path: 'labs', component: LabsComponent},
         { path: 'videos', component: VideosComponent},
-        {
-          path: '',
 
-          children: [
-            { path: 'topic-detail', component: TopicDetailComponent },
-            { path: 'labs', component: LabsComponent},
-            { path: 'private-chat:id', component: PrivateChatComponent,
-              children: [
-                { path: 'id', component: PrivateChatComponent}
-            ] },
+        { path: 'topic-detail', component: TopicDetailComponent, children: [
+          { path: ':id', component: TopicDetailComponent},
+        ] },
+        { path: 'private-chat', component: PrivateChatComponent, children: [
+          { path: ':id', component: PrivateChatComponent},
+        ]},
 
             { path: 'video2', component: Video2Component},
             { path: 'video3', component: Video3Component},
@@ -70,8 +68,7 @@ const courseRoutes: Routes = [
             { path: 'video17', component: Video17Component},
             { path: 'video18', component: Video18Component},
             { path: 'video19', component: Video19Component}
-          ]
-        }
+
       ]
     }
   ];
@@ -81,6 +78,6 @@ const courseRoutes: Routes = [
     RouterModule.forChild(courseRoutes),
   ],
   exports: [RouterModule],
-  providers: [AuthGuard]
+  providers: [AuthGuard, CourseService]
 })
 export class CourseRoutingModule { }

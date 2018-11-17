@@ -1,4 +1,4 @@
-import { TopicDetailComponent } from './course/topic-detail/topic-detail.component';
+
 import { LinuxComponent } from './linux/linux.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';

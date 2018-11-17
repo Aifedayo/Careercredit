@@ -39,7 +39,7 @@
       <div style="height:450px; overflow: auto;">
         <ul>
           <li id="students" style="color:darkgrey; font-weight: bolder; font-size: 15px;"
-              *ngFor="let user of users"><a [routerLink]="['./private-chat']" routerLinkActive="active" > {{ user.username }} </a>
+              *ngFor="let user of users"><a [routerLink]="['./private-chat', user.id]" routerLinkActive="active" > {{user.username}} </a>
           </li><br>
         </ul>
       </div>
@@ -64,11 +64,11 @@
             <!-- <ul class="collection">
               <li class="collection-item avatar" *ngFor="let topic of topics">
                 <i class="material-icons circle red">play_arrow</i>
-                <a [routerLink]="['/topic-detail']" routerLinkActive="active">{{ topic.title }}</a>
+                <a [routerLink]="['./topic-detail', topic.id]" routerLinkActive="active">{{topic.title}}</a>
               </li>
             </ul> -->
-          <ul class="collection">
 
+          <ul class="collection">
               <li class="collection-item avatar">
                 <i class="material-icons circle red">play_arrow</i>
 
