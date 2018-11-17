@@ -1,3 +1,4 @@
+import { CourseService } from './course/course.service';
 import { TopicDetailComponent } from './course/topic-detail/topic-detail.component';
 import { LinuxChatComponent } from './linux/linux-chat/linux-chat.component';
 import { LinuxRoutingModule } from './linux/linux-routing.module';
@@ -5,7 +6,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { FileSelectDirective } from 'ng2-file-upload';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatVideoModule } from 'mat-video';
 import { AppComponent } from './app.component';
@@ -48,7 +48,6 @@ import { LinuxComponent } from './linux/linux.component';
   declarations: [
 
     AppComponent,
-    FileSelectDirective,
     LinuxChatComponent,
     LinuxComponent,
     SignupComponent,
@@ -91,7 +90,7 @@ import { LinuxComponent } from './linux/linux.component';
     CourseRoutingModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [CourseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

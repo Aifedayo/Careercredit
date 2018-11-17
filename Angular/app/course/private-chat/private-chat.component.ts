@@ -1,3 +1,4 @@
+import { ActivatedRoute, Params } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../data.service';
 import { HttpClient } from '@angular/common/http';
@@ -11,15 +12,16 @@ import { HttpClient } from '@angular/common/http';
 
 export class PrivateChatComponent implements OnInit {
 
-  public URL = '54.244.162.68:8001';
-
+    public URL = '54.244.162.68:8001';
+  // public URL = '127.0.0.1:8000';
   private users: Array<object> = [];
   public chat_text = '';
   public messages = [];
   public websocket;
   public email;
+  private user: {id: number, username: string};
 
-  constructor( public dataservice: DataService, private http: HttpClient) {
+  constructor( public dataservice: DataService, private http: HttpClient, private route: ActivatedRoute) {
     this.dataservice.username = sessionStorage.getItem('username');
     this.websocket = new WebSocket('ws://' + '54.244.162.68:8001');
     this.websocket.onopen = (evt) => {
@@ -42,6 +44,11 @@ export class PrivateChatComponent implements OnInit {
     };
    }
   ngOnInit() {
+    // const id = +this.route.snapshot.params['id'];
+    // this.user = this.dataservice.getSingleStudent(id);
+    // this.route.params.subscribe((params: Params) => {
+    //   this.user = this.dataservice.getSingleStudent(+params[id]);
+    // });
   }
 
 

@@ -10,8 +10,8 @@ import { MaterializeModule} from 'angular2-materialize';
 })
 export class LinuxComponent implements OnInit {
 
-  public users: Array<object> = [];
-  public options = {};
+   users: any = [];
+   options = {};
 
   constructor(public dataservice: DataService, private http: HttpClient, public materializedirective: MaterializeModule ) {
 
@@ -29,7 +29,7 @@ export class LinuxComponent implements OnInit {
     //   this.users = data;
     //   console.log(data);
     // });
-    this.dataservice.djangostudents().subscribe((data: Array<object>) => {
+    this.dataservice.djangostudents().subscribe((data) => {
       this.users = data;
     });
   }

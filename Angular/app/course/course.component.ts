@@ -12,10 +12,10 @@ import { MaterializeModule } from 'angular2-materialize';
   providers: [MaterializeModule, CourseService],
 })
 export class CourseComponent implements OnInit {
-  topic: {id: number, title: string, videoPath: string};
-  public users: Array<object> = [];
-  public topics: Array<object> = [];
-  public options = {};
+  topic: {id: number};
+  public users: Array<object>  = [];
+  topics: any  = [];
+  options = {};
 
   constructor(
     public dataservice: DataService,
@@ -38,10 +38,11 @@ export class CourseComponent implements OnInit {
       console.log(data);
     });
     this.topics = this.courseService.getTopics();
-    const id = +this.route.snapshot.params['id'];
-    this.topic = this.courseService.getSingleTopic(id);
+    this.topic = {
+      id: +this.route.snapshot.params['id']
+    };
     this.route.params.subscribe((params: Params) => {
-      this.topic = this.courseService.getSingleTopic(+params[id]);
+      this.topic = this.courseService.getSingleTopic(+params['id']);
     });
   }
 

@@ -10,10 +10,7 @@ export class LinuxChatComponent implements OnInit {
 
   public URL = '54.244.162.68:8001';
 
-  private users: Array<object> = [];
-  private images: Array<object> = [];
-  private selectedFile: File = null;
-  private onFileSelected;
+  users: any = [];
   public chat_text  = '';
   public messages = [];
   public websocket;
@@ -57,7 +54,7 @@ export class LinuxChatComponent implements OnInit {
   //     this.users = data;
   //     console.log(data);
   // });
-  this.dataservice.djangostudents().subscribe((data: Array<object>) => {
+  this.dataservice.djangostudents().subscribe((data) => {
     this.users = data;
   });
   }
