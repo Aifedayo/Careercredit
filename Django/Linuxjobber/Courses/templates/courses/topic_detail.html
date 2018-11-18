@@ -1,0 +1,22 @@
+{% extends 'courses/base.html' %}
+{% block title %}
+	Topics Page
+{% endblock %}
+
+
+{% block head %}
+    {{topic.course}}<span> > {{topic}}</span>
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <section class="col-md-12 fundamentalmain">
+        <p>{{topic}}</p>
+        <p>{{topic.video}}</p>
+		<a class="page-link" href="{% url 'Courses:labs' topic.course.course_title.split|join:'_' topic.topic_number %}" style="text-decoration: none;">
+                        <span> Proceed to Lab</span>   </a>
+    </section>
+</div>
+{% endblock %}
+

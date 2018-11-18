@@ -1,0 +1,34 @@
+{% extends 'courses/base.html' %}
+
+{% block title %}
+	{{ coursetopic.course }} - Lab {{ coursetopic.topic_number }} Results
+{% endblock %}
+
+{% block head %}
+	{{coursetopic.course}}
+{% endblock%}
+
+{%block content%}
+
+<div class="container">
+	<section class="col-md-12 fundamentalmain">
+
+		<div class="workshop">
+			<h6>Lab {{ coursetopic.topic_number }}: Results</h6>
+			<br>
+		</div>
+		
+        {%for entry in result.all %}
+        	<li>{{entry.task_no}} : {{entry.grade}}</li>
+        {% empty %}
+            <strong>No result for this lab(course topic)</strong>
+            <strong> {{gradingerror}}</strong>
+        {%endfor%}
+        
+	</section>
+	<a href="{% url 'Courses:topics' coursetopic.course.course_title.split|join:'_' %}">click here to proceed with other labs</a>
+</div>
+{% endblock %}
+
+
+

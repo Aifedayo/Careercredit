@@ -1,0 +1,116 @@
+{% extends 'home/base.html' %}
+
+{% load staticfiles%}
+
+{% block content %}
+  
+  
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+<div class="col-md-12 lab-details">
+    <div class="row raise-to-banner">
+        <div class="col-md-8 col-md-offset-2 text-center">
+            <div class="display-t">
+                <div class="display-tc animate-box fadeIn animated-fast" data-animate-effect>
+                    <h1>
+                        
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"></div>
+
+        <div class="col-xs-12 lab-details">
+            <br>
+            <br>
+            <br>
+            
+
+            <div class="row topic-bg">
+                <div class="col-md-2"></div>
+                <div class="col-md-4 topic-class">
+                    <h4>
+                        Topics
+                    </h4>
+                </div>
+                <div class="col-md-2 topic-class">
+                    <h4>Notes</h4>
+                </div>
+                <div class="col-md-2 topic-class">
+                    <h4>Lab</h4>
+                </div>
+            </div>
+
+
+<div id="myList">
+    {% for topic in object_list %}
+    <div style="display: none;" class="row line-ht">
+        <div class="col-md-2">
+            <a href="{% url 'ToolsApp:topic_details' tool.tool_name.split|join:'_' topic.topic_number %}">
+                <img  src="{% static 'home/images/Movie-icon.jpg' %}" alt="{{topic.lab_name}}">
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'ToolsApp:topic_details' tool.tool_name.split|join:'_' topic.topic_number %}">{{topic.topic}}</a>
+        </div>
+        <div class="col-md-2">
+            <a href="">View</a>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'ToolsApp:labs' tool.tool_name.split|join:'_' topic.topic_number %}">{{topic.lab_name}}</a>
+        </div>
+    </div>
+    {% endfor %}
+    <br>
+    <div id="loadMore" class="col-md-6">
+        <a class="btn btn-primary my-button-css">Load More Tools</a>
+    </div>
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+    <br>
+    <br>
+    <br>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+    $("div").slice(30, 40).show();
+    $("#loadMore").on('click', function (e) {
+        e.preventDefault();
+        $("div:hidden").slice(15, 100).slideDown();
+        $("#loadMore").hide();
+        if ($("div:hidden").length == 0) {
+            $("#load").fadeOut('slow');
+        }
+    });
+});
+
+</script>
+
+{% endblock %}
+

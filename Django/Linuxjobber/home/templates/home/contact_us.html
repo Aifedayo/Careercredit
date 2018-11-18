@@ -1,0 +1,106 @@
+{% extends 'home/base.html' %}
+
+{% load staticfiles%}
+
+{% block content %}
+
+
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<div class="carousel-inner" role="listbox">
+  <div class="item active">
+    
+  </div>
+</div>
+</div>
+
+<section class="col-xs-12 locationmain">
+	<div class="row raise-to-banner2">
+				<div class="col-md-8 col-md-offset-2 text-center">
+					<div class="display-t">
+						<div class="display-tc animate-box h1-bg" data-animate-effect="fadeIn">
+							<h1>Chat with Us</h1>
+							
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4"></div>
+			</div>
+			<div id="fh5co-contact">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h6></h6>
+				</div>
+				<div class="col-md-6 animate-box">
+					
+					<div class="fh5co-contact-info">
+						<h3>Contact Information</h3>
+						<ul>
+							<li class="address">Suite 700, 6301 Ivy Lane, <br> Greenbelt, Maryland </li><br>
+							<li class="phone"><a href="#">1.443.538 0988</a></li><br>
+							<li class="email"><a href="mailto:"></a></li>
+						</ul>
+					</div>
+
+				</div>
+				<div class="col-md-6 animate-box">
+
+					<h3>Get In Touch</h3>
+					<form method='post'>
+						{% csrf_token %}
+						<div class="row form-group">
+							<div class="col-md-6">
+								<!-- <label for="fname">First Name</label> -->
+								<input type="text" name='full_name' id="fname" class="form-control" placeholder="Your Full Name" required="">
+							</div>
+							<div class="col-md-6">
+								<!-- <label for="lname">Last Name</label> -->
+								<input type="text" name='phonenumber' id="phone" class="form-control" placeholder="Your Phone Number" required>
+							</div>
+						</div>
+
+						<div class="row form-group">
+							<div class="col-md-12">
+								<!-- <label for="email">Email</label> -->
+								<input type="email" name='email' id="email" class="form-control" placeholder="Your email address" required>
+							</div>
+						</div>
+
+						<div class="row form-group">
+							<div class="col-md-12">
+								<!-- <label for="subject">Subject</label> -->
+								<input type="text" name='subject' id="subject" class="form-control" placeholder="Your subject of this message" required>
+							</div>
+						</div>
+
+						<div class="row form-group">
+							<div class="col-md-12">
+								<!-- <label for="message">Message</label> -->
+								<textarea name="message" name='message' id="message" cols="30" rows="10" class="form-control" placeholder="Say something about us"  required=""></textarea>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-md-12">
+								<input type="submit" value="Send Message" class="btn btn-primary msg-color">
+							</div>
+						</div>
+
+						{% if error != '' %}
+							<p>Your message was not sent please try again! </p>
+						{% endif %}
+						{% if success != '' %}
+							<p>Message sent!</p>
+						{% endif %}
+						
+
+					</form>		
+				</div>
+			</div>
+			
+		</div>
+	</div>
+		</section>
+
+
+{% endblock %}

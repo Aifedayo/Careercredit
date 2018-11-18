@@ -1,0 +1,314 @@
+{% extends 'home/base.html' %} {% load staticfiles%}
+{% block title %}
+Work Experience | Linuxjobber
+{% endblock %}
+{% block content %}
+
+
+
+<div class="wkex">
+	<div class="headernew">
+		<h3>WORK EXPERIENCE</h3>
+		<h1>
+			Need more skills and <br> experience to get your <br> DREAM
+			JOB?
+		</h1>
+		<p>
+			Begin your own success story now. <br> Join the LinuxJobber Work
+			Experience Program
+		</p>
+	</div>
+</div>
+
+<section class="wk-content1">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-12 col-md-5">
+				<div class="abouttext">
+					<h2 class="text-left">About the Program</h2>
+					<p class="">Our 4-month Work Experience program is designed to
+						help graduates who need the skills and work experience to get
+						employers’ attention; and IT professionals who are looking to
+						switch careers, but need to upgrade their skills and get more work
+						experience to get better jobs. Training is totally remote and
+						meetings are done online, Monday to Friday, 3pm EST (1pm PST, 9pm
+						WAT)</p>
+
+				</div>
+			</div>
+
+			<div class="col-12 col-md-7">
+				<div class="aboutimg">
+					<!-- <img src="<?php echo SITEURL?>img/ct.jpg" class="img-responsive"> -->
+
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+<section class="wk-content">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-12 col-md-7">
+				<div class="aboutim">
+					<img src="{% static 'home/images/aoc.png' %}"
+						class="img-responsive">
+
+				</div>
+
+			</div>
+			<div class="col-12 col-md-5">
+				<div class="abouttext2">
+					<h2 class="text-left">Areas of Specialization</h2>
+					<ul class="l-d">
+						<li>Linux Administration</li>
+						<li>Cloud Administration & Architecture</li>
+						<li>DevOps Administration</li>
+						<li>Database Administration</li>
+						<li>Fullstack Development</li>
+						<li>Java Development</li>
+					</ul>
+					<br>
+					{% if user.is_authenticated %}
+						<h4 id="marg">$399 + 8% of First Year Salary</h4>
+					{% endif %}
+
+					<div class="text-center">
+						<a class="btn btn-lg btn-primary buttoons"
+							href="{% url 'home:pay' %}" role="button" style="float: left;">Apply
+							Now</a>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+
+
+	</div>
+</section>
+
+
+
+
+<section class="-content">
+
+	<div class="container">
+		<div class="text-center h">
+			<h2 style="margin-bottom: 0px;">How it Works</h2>
+		</div>
+
+
+
+		<div class="row text-center h">
+
+			<div class="col-12  col-md-4 hiw">
+				<i class="fa fa-mouse-pointer fa-2x"></i>
+				<p>Choose a career path to build your experience from our Areas
+					of Specialization</p>
+			</div>
+			<div class="col-12 col-md-4 hiw">
+				<i class="fa fa-credit-card  fa-2x"></i>
+				<p>Complete the application, upload your resume and determine
+					eligibility.</p>
+			</div>
+			<div class="col-12 col-md-4 hiw">
+				<i class="fa fa-users fa-2x"></i>
+				<p>Join our team and start building your work experience.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+<section class="wk-content">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-12 col-md-5">
+				<div class="abouttext4">
+					<h2 class="text-left">For Entry Level</h2>
+					<p>Only about 25% of graduates get their desired jobs, after
+						graduation. We understand the unique challenges you face, and can
+						empower you with the skills and experience that employers are
+						looking for.</p>
+					{% if user.is_authenticated %}
+						<h4 id="marg">$399 + 8% of First Year Salary</h4>
+					{% endif %}
+					<br>
+					<div class="text-center">
+						<a class="btn btn-lg btn-primary buttoons"
+							href="{% url 'home:pay' %}" role="button" style="float: left;">Apply
+							Now</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-12 col-md-7">
+				<div class="aboutim">
+					<img src="{% static 'home/images/graduate.png' %}"
+						class="img-responsive" id="grad">
+
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+<section class="wk-content">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-12 col-md-7">
+				<div class="aboutim">
+					<img src="{% static 'home/images/prooo.png' %}"
+						class="img-responsive">
+
+				</div>
+
+			</div>
+
+			<div class="col-12 col-md-5">
+				<div class="abouttext3">
+					<h2 class="text-left">For Professionals</h2>
+					<p class="">You need to upgrade your skills to stay relevant in
+						the workplace, or you want to switch careers and earn more. We can
+						help you boost your skills and work experience, so you can get
+						your dream job.</p>
+					{% if user.is_authenticated %}
+						<h4 id="marg">$399 + 8% of First Year Salary</h4>
+					{% endif %}
+					<br>
+					<div class="text-center">
+						<a class="btn btn-lg btn-primary buttoons"
+							href="{% url 'home:pay' %}" role="button" style="float: left;">Apply
+							Now</a>
+					</div>
+				</div>
+
+
+			</div>
+
+
+			<!-- <div class="text-center">
+<a class="btn btn-lg btn-primary buttoons" href="<?php echo $this->webroot; ?>freeuser" role="button">Join Now</a>
+</div> -->
+
+
+		</div>
+	</div>
+</section>
+
+
+
+
+
+<section class="benefits">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-12 col-md-6">
+				<div class="benefits-text">
+					<h2>Benefits of our Program</h2>
+
+					<ul>
+						<li>Work closely with our experienced development team and
+							build experience.</li>
+						<li>Learn with the most current technologies used in today’s
+							workplace.</li>
+						<li>Get your resume reviewed for best results in job search.</li>
+						<li>Let us find the jobs for you, when you signup for our Job
+							Placement service.</li>
+						<li>We maintain Work History Record for each trainee, as
+							proof of tasks accomplished and tender for employment purposes.</li>
+						<li>The training is totally remote.</li>
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+<section class="purchase_se">
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<br>
+				<h3 style="text-transform: uppercase; text-align: center;">Some
+					Linuxjobber Success Stories</h3>
+				<br>
+
+				<div class="col-md-4" style="height: 250px">
+
+					<video width="100%" height="250" controls>
+						<source
+							src="http://videos.linuxjobber.com/s3/precious_Chidera_Linux_Administrator.mp4"
+							type="video/mp4">
+					</video>
+					<h5 style="text-align: center; color: #13BFEC; margin: 5px 0px;">Jessica
+						Diane. Bowie, MD.</h5>
+					<h6 style="text-align: center;" class="col-md-10 col-md-offset-1">
+						"I already had a certificate as AWS Solutions Architect but
+						Linuxjobber helped me get my first tech job"</h6>
+				</div>
+
+				<div class="col-md-4" style="height: 250px">
+
+					<video width="100%" height="250" controls>
+						<source
+							src="http://videos.linuxjobber.com/s3/jcappsiv_linux_administrator.mp4"
+							type="video/mp4">
+					</video>
+
+					<h5 style="text-align: center; color: #13BFEC; margin: 5px 0px;">Joseph
+						Williams. Alpharetta, GA.</h5>
+					<h6 style="text-align: center;" class="col-md-10 col-md-offset-1">
+						"I finished my Linux training but did not pass job interviews.
+						Linuxjobber helped me bridge the gap"</h6>
+
+				</div>
+
+
+				<div class="col-md-4" style="height: 250px">
+
+					<video width="100%" height="250" controls>
+						<source
+							src="http://videos.linuxjobber.com/s3/janadini_linux_administrator.mp4"
+							type="video/mp4">
+					</video>
+
+					<h5 style="text-align: center; color: #13BFEC; margin: 5px 0px;">Jana
+						Hale. Lafayette, IL.</h5>
+					<h6 style="text-align: center; margin-bottom: 50px;"
+						class="col-md-10 col-md-offset-1">"I just needed work
+						experience because I have never worked in the field. Linuxjobber
+						gave me the opportunity"</h6>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+</section>
+<div class="text-center">
+	<h4>
+		You've got any questions? <a href="{% url 'home:faq' %}">FAQs</a>
+	</h4>
+</div>
+
+
+{% endblock %}

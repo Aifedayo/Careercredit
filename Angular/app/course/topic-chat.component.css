@@ -1,0 +1,32 @@
+#message_box {
+    display: block!important;
+    height:1.7rem!important;
+    padding: .5rem!important;
+    border: 2px solid #636566de;
+    transition: all 1s;
+    border-radius: .5rem!important;
+    box-shadow: none;
+    width: 98%!important;
+  }
+
+
+#submit {
+    height: 2.9rem!important;
+    border-top-right-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+    appearance: none;
+    margin-left: -50px;
+    padding-right: 10px;
+    border-right: 2px solid #636566de;
+    border-top: 2px solid #636566de;
+    border-bottom: 2px solid #636566de;
+    box-shadow: none;
+    padding-right: 10px;
+    padding-left: auto;
+    margin-bottom: 0px;
+}
+
+
+#send_icon {
+    margin-left: -10px;
+}

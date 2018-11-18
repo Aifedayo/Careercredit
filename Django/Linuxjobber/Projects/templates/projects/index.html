@@ -1,0 +1,51 @@
+{% extends 'home/base.html' %} {% load staticfiles%} 
+{% block title %}
+	Linuxjobber Project Groups
+ {% endblock %}
+{% block content %}
+
+<div class="proj" role="listbox">
+	<div class="item active">
+
+		<div class=" text-center projs">
+			<h1>Project Groups</h1>
+
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row features">
+		{% for group in project_grps %}
+			<div class="col-lg-3 col-md-3 proj-wrap">
+				<img src="{{ group.background_image.url }}"
+					class="fea-img"> <img
+					src="{{ group.icon.url }}"
+					class="fea-icon" style="height: 50px; width: 50px;">
+				<div class="border" style="background: {{ group.color }}"></div>
+				<h3>{{ group.group_name }}</h3>
+				<p>{{ group.description }}</p>
+				<h5 id="viewmore"><a href="{% url 'Projects:listgrpcourses' group.group_name %}">Show Projects</a></h5>
+			</div>
+		{% empty %}
+			<div class="col-lg-3 col-md-3 proj-wrap">
+				<img src="https://linuxjobber.com/img/1528804297_label.png"
+					class="fea-img"> <img
+					src="https://linuxjobber.com/img/1528804297_devops.png"
+					class="fea-icon" style="height: 50px; width: 50px;">
+				<div class="border" style="background: grey"></div>
+				<h3>Dummy group</h3>
+				<p>This project will deal....</p>
+				<a href=""><h5
+						id="viewmore">Show Projects</h5></a>
+			</div>
+		{% endfor %}
+	</div>
+
+</div>
+
+{% endblock %}
+
+
+
+

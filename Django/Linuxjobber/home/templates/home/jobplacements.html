@@ -1,0 +1,208 @@
+{% extends 'home/base.html' %}
+{% load staticfiles%}
+{% block title %}
+Job Placement | Linuxjobber
+{% endblock %}
+{% block content %}
+
+
+        <div class="place" role="listbox">
+                <div class="item active">
+                    <!-- <div class="carousel-caption"> -->
+        
+                    <div class=" text-right places" >
+               <h1 id="job">Job</h1>
+               <h1 id="place">Placement</h1>
+                  
+                      
+                <!-- </div> -->
+                      
+        
+                    </div>
+                  </div>
+                </div>
+        
+ 
+        
+          <section class="job-section">
+              <div class="container">
+                <div class="row job-img-col">
+                  <div class="col-xs-12 col-sm-12 col-lg-6">
+                    
+                   <img src="{% static 'home/images/$0pay.png' %}" id="job-img">
+        
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-lg-6 intern-col">
+                    <h3 class="text-left p-title">Partners for your IT career success</h3>
+                    <p class="text-left mgg-20">We vet your skills and help you find opportunites that match your skillset.</p>
+                    <a href="{% url 'home:apply' 'snr' %}" class="btn btn-lg reg-sub">Get Started</a>
+                  </div>
+                 
+                  </div>
+              </div>
+          </section>
+        
+          <section class="job-sections">
+              <div class="container">
+                <div class="row job-img-col">
+                            
+        
+                  <div class="col-xs-12 col-sm-12 col-lg-6">
+                   <img src="{% static 'home/images/br2.png' %}" id="job-img">
+        
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-lg-6">
+                  <h3  class="text-left p-title">How It Works</h3>
+                   
+                    <p class="mgg-20">Step 1: Create free account and upload resume</p>
+                    <p class="mgg-20">Step 2: Free review of your resume for the relevant skills, plus training recommendations.</p>
+                    <p class="mgg-20">Step 3: Interview preparation and job placement.<br/>Cost: $0 payment unless we get you a job!</p>
+                  </div>
+                  </div>
+              </div>
+        
+            </section>
+        
+          <section class="jp-content" >
+                <div class="container">
+                    <div class="row">
+        
+                        <div class="col-12 col-md-5">
+                            <div class="fresh-text">
+                              <h2 class="text-left">Entry Level</h2>
+                              <p>Our Entry Level programme provides young professionals (interested in
+                              pursuing a career in development) with an exceptional opportunity to acquire
+                              hands-on experience.</p>
+                              <!-- <h4 id="marg">Only $399</h4> -->
+                              <br>
+                              <br>
+                              <div class="text-center">
+                              <a href="{% url 'home:apply' 'jnr' %}" class="btn btn-lg reg-sub">Get Started</a>
+                                
+                              </div>
+                        </div>
+                    </div>
+        
+                        <div class="col-12 col-md-7">
+                           <div class="aboutim">
+                              <img src="{% static 'home/images/ent.png' %}" class="img-responsive" id="entry" >
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- </section> -->
+          
+        
+              <!-- <section class="jp2-content" > -->
+                <div class="container">
+                  <div class=" jp2-content">
+                    <div class="row">
+        
+                        <div class="col-12 col-md-7">
+                              <div class="aboutim">
+                              <img src="{% static 'home/images/seno.png' %}" class="img-responsive">
+                                
+                              </div>
+                       
+                        </div>
+        
+                            <div class="col-12 col-md-5">
+                            <div class="fresh-text2">
+                              <h2 class="text-left">Senior Level</h2>
+                              <p class="">Our Senior Entry Level assists professionals,
+                              managers, and executives in finding or  upgrading their
+                              employability. The program includes hands-on practical
+                              training, one-on-one coaching and professional-level job leads.</p>
+                              <!-- <h4 id="marg">Only $399</h4> -->
+                              <br>
+                              <div class="text-center">
+                               <a href="{% url 'home:apply' 'snr' %}" class="btn btn-lg reg-sub">Get Started</a>
+                              </div>
+                    </div>
+                   </div>
+                   </div>
+                </div>
+            </section>
+        
+        
+          <section class="g-aoc" id = "g">
+              <div class="container">
+                <div class="row p80 a-s">
+                  <div class="text-center">
+                  <h3  class="p-title">Areas of Specialization</h3>
+                <br>
+                <div>
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                  <i class="fa fa-linux fa-2x"></i>
+                    <p class="mgg-20">Linux Administration</p>
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                  <i class="fa fa-github  fa-2x"></i>
+                    <p class="mgg-20">DevOps</p>
+                  </div>
+                  <!-- <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                  <i class="fa fa-linux fa-2x"></i>
+                    <p class="mgg-20">Linux</p>
+                  </div> -->
+                  <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                  <i class="fa fa-bitbucket fa-2x"></i>
+                    <p class="mgg-20">Database Administration</p>
+                  </div>
+        
+        
+                  <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                  <i class="fa fa-linux fa-2x"></i>
+                    <p class="mgg-20">Cloud Administration and Architecture</p>
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                  <i class="fa fa-android fa-2x"></i>
+                    <p class="mgg-20">Java Development</p>
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                  <i class="fa fa-gitlab fa-2x"></i>
+                    <p class="mgg-20">Fullstack Development</p>
+                  </div>
+                </div>
+                
+             
+                  </div>
+                   
+                </div>
+              </div>
+          </section>
+          
+            
+              </div>
+              
+            </div>
+          </div>
+        </section>
+        <section class="jobplace-action jobplaces">
+            <!-- <img src="{% static 'home/images/race.png' %}" class="img-responsive"> -->
+        
+
+          <div class="container">
+            <div class="row p100">
+              <div class="text-center">
+                <h3 class="hblue gt">Get Started Today</h3>
+                <p class=" gtitles">LinuxJobbers job placement program matches <br> you to top paying tech jobs easily.</p>
+	            <a href="{% url 'home:apply' 'snr' %}" class="btn btn-lg reg-submits">Get Started</a>
+                
+              </div>
+              
+            </div>
+          </div>
+        </section>
+
+        <style>
+            .jobplaces {
+               background-color: #f2f2f2;
+               background-image: url({% static 'home/images/race.png' %});
+            </style>
+
+        {% endblock %}
+        
+         
+
+        
+    

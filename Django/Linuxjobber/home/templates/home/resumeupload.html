@@ -1,0 +1,97 @@
+{% extends 'home/base.html' %}
+{% load staticfiles%}
+{% block title %}
+Resume | Linuxjobber
+{% endblock %}
+{% block content %}
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+          <!-- <img class="first-slide" src="images/slide1.png" alt="First slide"> -->
+        <div class="container">
+        <div class="carousel-caption">
+				<div class="col-md-4 animate-box"></div>              
+        <div class="col-md-4 animate-box" style="margin-top:29px">
+          <span style="font-size: 30px;">UPLOAD RESUME </span>
+				</div>
+              <div class="col-md-4 animate-box">
+							  </div>
+        </div>
+      </div>
+    </div>      
+  </div>      
+</div>
+<style>
+	.padd-tb{
+		padding-top:50px;
+		padding-bottom:50px;
+	}
+	.inner-box.category-content{
+		padding: 25px 0 15px;
+	}
+	.ValidationErrors{
+		color: #f00;
+	}
+</style>
+
+<div class="main-container">
+
+        <div class="container">
+        {% if messages %}
+          {% for message in messages %}
+          <div class="alert alert-{{message.tags}}" role="alert">
+            {% if message.tags == "success" %}
+            <p style="color:#155724">{{message}}</p>
+            {%else%}
+            <p style="color:#721c24">{{message}}</p>
+            {%endif%}
+          </div>
+          {%endfor%}
+        {%endif%}
+            <div class="row">
+						<br>			<div class="col-md-3"></div>
+                <div class="col-md-6 page-content padd-tb">
+                    <div class="inner-box category-content">
+                        <h2 class="title-4"><i class="icon-user-add"></i>
+						
+						Resume File Upload												
+						</h2>
+						<hr class='hr-color'/>
+                        <div class="row">
+                            <div class="col-sm-12">
+							<form  action="" method="post" name="frmPayPal1" enctype="multipart/form-data">
+                                {% csrf_token %}
+								                                   <fieldset>                                      
+                                        <!-- Text input-->                                        
+										
+										<div class="form-group required">
+                                            <div  class="col-md-2"></div>
+                                            <div class="col-md-10">
+												{{ form.resume }}
+                                            </div>
+                                        </div>
+										 <div class="form-group required">
+                                            <div  class="col-md-2"></div>
+                                            <div class="col-md-10">
+												<div>
+													<input type="submit" value="upload" class="btn btn-primary">
+													<!--div class="col-xs-12 paycards"><img src="/images/paycards.gif" /></div-->
+												</div>
+                                            </div>
+                                        </div>
+										                                      
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.page-content -->
+               <div class="col-md-3"></div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </div>
+{% endblock %}

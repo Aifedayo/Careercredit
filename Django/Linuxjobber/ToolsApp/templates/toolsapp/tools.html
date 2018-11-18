@@ -1,0 +1,36 @@
+
+
+
+
+{% block title %}
+	 Linuxjobber Tools
+{% endblock %}
+
+
+{% block head %}
+	Linuxjobber Tools
+{% endblock %}
+
+{% block content %}
+
+
+
+    <div class="container">
+ 
+
+		<section class="col-md-12 fundamentalmain">
+				{% for tool in tools %}
+						<a href="{% url 'ToolsApp:topics' tool.tool_name.split|join:'_' %}">
+							<div class="list_div table-cell">
+								<strong>{{ tool.tool_name }}</strong>
+							</div>
+						</a>
+				{% empty %}
+					<span> No courses available at the moment</span>
+				{% endfor %}
+		</section>
+
+	</div>
+
+
+{% endblock %}

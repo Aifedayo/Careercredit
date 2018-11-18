@@ -1,0 +1,38 @@
+{% extends 'courses/base.html' %}
+
+{% block title %}
+    Topics | {{course}} | Linuxjobber
+{% endblock %}
+
+
+{% block head %}
+    {{course}} - Topics
+{% endblock %}
+
+
+{% block content %}
+
+<section class="col-md-12 fundamentalmain">
+
+
+        <table style="width: 1000px;">
+            {% for topic in object_list %}
+                <tr>
+                    <td style=" width: 30px;">  <span>{{ topic.topic_number  }}</span></td>
+                    <td>
+                        <a class="page-link" href="{% url 'Courses:topic_details' course.course_title.split|join:'_' topic.topic_number %}" style="text-decoration: none;">
+                            <span>{{ topic.topic  }}</span>
+                        </a>
+                    </td>
+                    <td style=" width: 10px;">
+                        <a class="page-link" href="{% url 'Courses:labs' course.course_title.split|join:'_' topic.topic_number %}" style="text-decoration: none;">
+                        <span>Tasks</span>   </a>
+                    </td>
+                    <td style=" width: 10px;"><a class="page-link" href="#"> Notes </a> </td>
+                </tr>
+             {% endfor %}
+        </table>
+</section>
+
+{% endblock %}
+

@@ -1,0 +1,67 @@
+{% extends 'courses/base.html' %}
+
+{% block title %}
+	{{object.course}} - Lab {{object.topic_number}}
+{% endblock %}
+
+
+{% block head %}
+    {{object.course}}
+{% endblock%}
+
+{%block content%}
+
+<div class="container">
+    <section class="col-md-12 fundamentalmain">
+
+        <div class="workshop">
+                <h6>Lab {{object.topic_number}}: {{object.topic}}</h6><br>
+
+            </div>
+
+        {% if object.tasks.all %}
+        {%for data in object.tasks.all%}
+  
+
+
+            <p>
+                <strong>{{ data.task_number }}.) </strong>
+                {{ data.comment }} <br><br>
+            </p>
+            <strong>Note: </strong> {{ data.note }} <br><br>
+            <strong>Task: </strong> {{ data.task }} <br><br>
+            {% if data.hint %}
+            <strong>Hint: </strong> {{ data.hint }} <br><br>
+            {% endif %}
+            {% if results %}            
+                {%for result in results%}
+                    {% if forloop.counter == forloop.parentloop.counter %}
+                       <strong>Result: </strong> {{result}}<br><br><br><br>
+                    {% endif %}
+               
+                {%endfor%}
+            {% endif %}
+            
+        {%endfor%}
+
+
+        <form method="post" enctype="multipart/form-data">
+
+            {% csrf_token %}
+            
+            {{ form.as_p }}
+           
+
+            <button type="submit"> Submit </button>
+        </form>
+        {%else%}
+               <strong>No tasks for this lab(course topic)</strong> 
+        {% endif %}
+
+
+    </section>
+</div>
+{% endblock %}
+
+
+

@@ -1,0 +1,275 @@
+{% extends 'home/base.html' %}
+{% load staticfiles%}
+{% block title %}
+Home | Linuxjobber
+{% endblock %}
+{% block content %}
+
+                <div class="slides" role="listbox">
+                    <div class=" text-center headernew2" >
+                    <h1>Work Experience and Job Placement</h1>
+                        <p>Training Included</p>
+                    <div class="sldbtnd">
+                     <a class="btn btn-lg btn-warning buttonss" href="{% url 'home:workexperience' %}" role="button">Learn More</a>
+                    </div>
+                 </div>
+                </div>
+<!-- Get 1 on 1 Training        -->
+
+<div class="container oneonone">
+        <div class="row">
+          <div class="col-md-6 col-sm-6">
+            <h2>
+                Get 1:1 <span> live training</span><br> tailored to you</h2>
+                <div class="row">
+
+                      <div class="col-md-6 col-sm-6 btns2">
+                      <a href="/tutorials/basics_of_linux_lectures"><img src="{% static 'home/images/linuxx.png' %}" alt="First slide"></a>
+                      </div>
+
+                      <div class="col-md-6 col-sm-6 btns2">
+                      <a href="/tutorials/java"><img src="{% static 'home/images/java.png' %}" alt="First slide"></a>
+                      </div>
+
+                      <div class="col-md-6 col-sm-6 btns2">
+                      <a href="/tutorials/aws"><img src="{% static 'home/images/awssa.png' %}" alt="First slide"></a>
+                      </div>
+
+                      <div class="col-md-6 col-sm-6">
+                      <a href="/tutorials/userinterest"><img src="{% static 'home/images/views.png' %}" class="btns2"></a>
+                      <a href="<?php echo SITEURL.'/freeuser'; ?>"><img src="{% static 'home/images/btns.png' %}" class="btns">
+                      </div></a>
+                   </div>
+          </div>
+            <div class="col-md-6 col-sm-12 oneon">
+              <img src="{% static 'home/images/training.png' %}" class="img-responsive">
+              </div>
+
+        </div>
+
+      </div>
+
+
+       <!-- Pick your hands-on training -->
+      <div class="container pick">
+          <div class="header-section text-center ">
+            <h3>
+              Pick your hands-on training category</h3>
+          </div>
+                <div class="row">
+                  <div class="col-md-6 col-sm-12" >
+                  <div class="box">
+                  <h2>Certification Class</h2> <br>
+                  <p>One-On-One <br> 30 days</p> <br>
+                   <div id= "cert">
+                    <img class="cert img-responsive" src="{% static 'home/images/pupet.png' %}" alt="" >
+                    </div>
+                    <a href="{% url 'home:selfstudy' %}">
+                    <div class="col-md-4 col-sm-12 col-xs-12 lin btns2">
+                      <h4>Linux</h4>
+                      <div class="lin-border"></div>
+                    </div></a>
+
+                    <a href="#">
+                    <div class="col-md-4 col-sm-12 col-xs-12 aws btns2">
+                      <h4>AWS</h4>
+                      <div class="aws-border"></div>
+                    </div></a>
+
+                    <a href="#">
+                    <div class="col-md-4 col-sm-12 col-xs-12 oracle btns2">
+                      <h4>Oracle <br>Database</h4>
+                      <div class="oracle-border"></div>
+                    </div></a>
+                    </div>
+                  </div>
+
+            <div class="col-md-6 col-sm-12">
+              <div class="box">
+              <h2 id="box-1">Full Training Course</h2> <br>
+              <h2 id="box-2">Full Training Course</h2> <br>
+                <p id="force-p">One-On-One <br> 3 months</p> <br>
+                  <div id= "puppet">
+                    <img class="cert img-responsive" src="{% static 'home/images/pupett.png' %}">
+                  </div>
+                  <a href="#">
+                  <div class="col-md-4 col-sm-12 col-xs-12 lin btns2" id="force-b">
+                      <h4>Linux</h4>
+                      <div class="lin-border"></div>
+                  </div></a>
+
+                  <a href="#">
+                    <div class="col-md-4 col-sm-12 col-xs-12 aws btns2" id="force-b">
+                      <h4>AWS</h4>
+                      <div class="aws-border"></div>
+                  </div></a>
+
+                  <a href="#">
+                    <div class="col-md-4 col-sm-12 col-xs-12 oracle btns2" id="force-bb">
+                      <h4>Oracle <br>Database</h4>
+                    <div class="oracle-border"></div>
+                  </div></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <!-- work experience -->
+
+      <div class = "wrapper-2">
+        <div class="container">
+           <div class="row">
+            <div class="col-md-7 col-sm-12 wkeximg" >
+            <img class="img-responsive" src="{% static 'home/images/experience.png' %}" alt="">
+            </div>
+            <div class="col-md-5 col-sm-12">
+            <div class="header-sec">
+                  <h2>
+                  Work Experience</h2>
+                <p>By training with our current <br>tools and methods.</p>
+
+
+
+                  <a href="{% url 'home:workexperience' %}" class="">
+                   <button class="btn btn-lg btn-warning butons" id="wkexbtn" style="">Learn More
+                   </button></a>
+                 </div>
+               </div>
+               <br>
+
+               <!-- <button class="btn btn-lg btn-warning buttons" style="margin-top:30px; margin-left:15px;">Learn More</button> -->
+          </div>
+        </div>
+
+      <!-- Job Placement -->
+
+        <div class="container jobs">
+
+       <div class="row">
+         <!-- <div id="job"> -->
+        <div class="col-md-5 col-sm-12 ">
+          <h2>Job Placement</h2>
+          <br>
+          <p>
+          Join Our Job placement program.<br> No payment made unless we get you that job!</p>
+
+          <a href="{% url 'home:jobplacements' %}">
+                   <button class="btn btn-lg btn-primary ">Learn More
+                   </button></a>
+          <!-- <button class="btn btn-lg btn-primary" style="margin-top:30px;">Learn More</button> -->
+            </div>
+            <div class="col-md-7 col-sm-12">
+            <img class="img-responsive jobimg" src="{% static 'home/images/placement.png' %}" alt="First slide">
+            </div>
+        </div>
+        </div>
+      </div>
+
+
+      <!-- what you get -->
+      <div class= "">
+        <div class="container wrapper ">
+        <div class="header-section text-center what">
+                  <h3>What you get signing up on <span> Linuxjobber</span></h3>
+                </div>
+          <div class="row">
+            <div class="col-md-4 col-sm-12">
+             <div class="wrap">
+              <img class="first-slide" src="{% static 'home/images/engine2.png' %}" alt="First slide">
+              <h3>A variety of technologies</h3>
+              <p>From Linux,Puppet,RHCSA, Java, AWS SA to keep up to speed with good programming practices.</p>
+             </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+              <div class="wrap2">
+                <img class="first-slide" src="{% static 'home/images/tutor.png' %}" alt="First slide">
+                <h3>Help from experienced tutors</h3>
+                <p>Our mentors go through a strict application and vetting process that evaluates their coding skills.</p>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+              <div class="wrap3">
+                <img class="first-slide" src="{% static 'home/images/kid.png' %}" alt="First slide">
+                <h3>Getting started is easy</h3>
+                <p>Take advantage of our easy set up and billing process to connect with a <br> trainer right away.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Testimonial -->
+
+
+
+            <div class="container">
+              <div class="row">
+                <div class="test">
+                <div class="col-md-2 col-sm-4">
+                <div class="q1">
+                <img src="{% static 'home/images/q1.png' %}">
+                </div>
+                </div>
+
+                <div class="col-md-8 col-sm-6">
+                <div class="text-center" >
+                  <div class="tests">
+                  <h2>Testimonials</h2><br>
+                  <div class="test-img">
+                   <img src="{% static 'home/images/dre.png' %}">
+                  </div>
+                  <div>
+                    <p>
+                      I will definitely recommend this work experience program.
+                    <br> If you have already acquired tech training and employers
+                    <br> need you to have work experience,
+                    this program will save you. <br> <span> It is what you need.</span></p><br>
+                    <div class="img-round1">
+                    <img src="{% static 'home/images/22.png' %}">
+                    </div>
+                    <div class="img-round2">
+                    <img src="{% static 'home/images/33.png' %}">
+                    </div>
+                    <div class="img-round3">
+                    <img src="{% static 'home/images/44.png' %}">
+                    </div>
+
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="col-md-2 col-sm-4 q2">
+                <img src="{% static 'home/images/q2.png' %}">
+                </div>
+                </div>
+              </div>
+              <br>
+              <hr>
+            </div>
+
+
+
+
+      <section class="clients">
+            <div class="container">
+              <div class="cliente">
+              <div class="row">
+              <div class="col-md-12">
+                <div  class=" text-center">
+                  <h2 style= "color: #2F80ED;">Our Clients</h2>
+                  <br>
+                  <div class="logo">
+                  <img src="{% static 'home/images/hotels.png' %}" alt="" style=" width: 227px; height: 80px; margin: 20px;">
+                  <img src="{% static 'home/images/ontario.png' %}" alt="" style= "width: 198px; height: 91px; margin: 20px;">
+                  <img src="{% static 'home/images/hotelsafrica.png' %}" alt="" style= "width: 195px; height: 84px; margin: 20px;">
+                </div>
+                </div>
+                </div>
+              </div>
+              </div>
+            </div>
+          </section>
+
+     
+          {% endblock %}

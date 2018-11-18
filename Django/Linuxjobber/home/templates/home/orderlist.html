@@ -1,0 +1,91 @@
+{% extends 'home/base.html' %}
+
+{% load staticfiles%}
+
+{% block content %}
+  
+  
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        
+      </div>
+    </div>
+  </div>
+
+  <style>
+      .raise-to-banner h1 { margin-top: 19px !important; ; margin-left: 37%; color:#000; font-size: 29px }
+  </style>
+
+
+
+    <div class="col-md-12 lab-details">
+        <div class="container">
+            <div class="row raise-to-banner">
+                <div class="col-md-8 col-md-offset-1 text-center">
+                    <div class="row raise-to-banner">
+                        <div class="display-tc animate-box fadeIn animated-fast" data-animate-effect="fadeIn">
+                            <h1>Order Detail List</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="row topic-bg">
+                <div class="col-md-2 topic-class">
+                    <h4>OrderId</h4>
+                </div>
+                <div class="col-md-2 topic-class">
+                    <h4>Amount</h4>
+                </div>
+                <div class="col-md-2 topic-class">
+                    <h4>Subscription</h4>
+                </div>
+                <div class="col-md-2 topic-class">
+                    <h4>Status</h4>
+                </div>
+                <div class="col-md-2 topic-class">
+                    <h4>Paid Date</h4>
+                </div>
+                <div class="col-md-2 topic-class">
+                    <h4>Action</h4>
+                </div>
+            </div>
+            <div id="myList">
+                {% for orders in order %}
+                <div class="row line-ht">
+                    <div class="col-md-2">
+                        <p style="color: black;">{{ orders.order_id }}</p>
+                    </div>
+                    <div class="col-md-2">
+                        <p style="color: black;">{{ orders.order_amount }}</p>
+                    </div>
+                    <div class="col-md-2">
+                        <p style="color: black;">{{ orders.subscription }}</p>
+                    </div>
+                    <div class="col-md-2">
+                        <p style="color: black;">{{ orders.status }}</p>
+                    </div>
+                    <div class="col-md-2">
+                        <p style="color: black;">{{ orders.paid_date }}</p>
+                    </div>
+                    <div class="col-md-2">
+                        <p style="color: black;">{{ orders.action }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <br>
+            <br>
+            <div id="loadMore" class="col-md-6" style="display: none;">
+                <a class="btn btn-primary my-button-css">Load More</a>
+            </div>
+
+        </div>
+    </div>
+
+
+
+{% endblock %}
+

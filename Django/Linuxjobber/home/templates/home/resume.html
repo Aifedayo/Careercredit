@@ -1,0 +1,173 @@
+{% extends 'home/base.html' %}
+{% load staticfiles%}
+{% block title %}
+Resume | Linuxjobber
+{% endblock %}
+{% block content %}
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+          <!-- <img class="first-slide" src="images/slide1.png" alt="First slide"> -->
+        <div class="container">
+        <div class="carousel-caption">
+				<div class="col-md-4 animate-box"></div>              
+        <div class="col-md-4 animate-box" style="margin-top:29px">
+          <span style="font-size: 30px;">RESUME PREPARATION </span>
+				</div>
+              <div class="col-md-4 animate-box">
+							  </div>
+        </div>
+      </div>
+    </div>      
+  </div>      
+</div>
+<br><br><br><br>
+<section class="purchase_sec">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="purchase_sec_left">
+          <img src="{% static "/home/images/lady.png" %}" class="img-responsive">
+        </div>
+      </div>
+        
+        <div class="col-md-8">
+          <div class="purchase_sec_right">
+            <h3>PURCHASE OUR RESUME PREPARATION SERVICE</h3>
+            <p>Open doors by showcasing your skills, qualifications, and strengths with a keyword-rich resume from industry experts targeting employers that are ready to hire in your area of specialization.</p>
+            <h1>Starting now at <span>$199</span></h1>
+            <a href="https://linuxjobber.com/homes/paynow" class="bynw_btn">Buy Now</a>
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
+<section class="op_sec">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12 col-sm-12">
+          <h2 class="op_sec_heading">OUR PROCESS</h2>
+          <div class="red_line"></div>
+        </div>
+      </div>
+      <div class="row text-center bg_line">
+        <div class="col-md-4 text-center">
+          <div class="op_sec_left">
+            <img src="{% static "/home/images/how_works.jpg" %}" class="img-responsive">
+          </div>
+        </div>
+        
+        <div class="col-md-2 col-sm-6">
+          <div class="op_sec_inner">
+            <div class="black_icon">
+              1
+            </div>
+            <div class="red_icon">
+              <img src="{% static "/home/images/uprs.png" %}" class="img-responsive">
+            </div>
+            <h4>User purchase<br>resume service</h4>
+          </div>
+        </div>
+        
+        <div class="col-md-2 col-sm-6">
+          <div class="op_sec_inner">
+            <div class="black_icon">
+              2
+            </div>
+            <div class="red_icon">
+              <img src="{% static "/home/images/uusr.png" %}" class="img-responsive">
+            </div>
+            <h4>User uploads<br>sample resume</h4>
+          </div>
+        </div>
+        
+        <div class="col-md-2 col-sm-6">
+          <div class="op_sec_inner">
+            <div class="black_icon">
+              3
+            </div>
+            <div class="red_icon">
+              <img src="{% static "/home/images/lpgu.png" %}" class="img-responsive">
+            </div>
+            <h4>Live professional<br>guides user</h4>
+          </div>
+        </div>
+        
+        <div class="col-md-2 col-sm-6">
+          <div class="op_sec_inner">
+            <div class="black_icon">
+              4
+            </div>
+            <div class="red_icon">
+              <img src="{% static "/home/images/prcar.png" %}" class="img-responsive">
+            </div>
+            <h4>Complete and review resume</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="r_testimonial">
+    <div class="container">
+      <div class="row">
+      <div class='col-md-offset-1 col-md-10 hc_head'>
+      <h5>HAPPY CLIENTS</h5>
+      <h3>TESTIMONIALS</h3>
+      </div>
+      </div>
+      <div class='row'>
+      <div class='col-md-12'>
+        <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+        <!-- Bottom Carousel Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#quote-carousel" data-slide-to="0" class="active"></li>
+          <li data-target="#quote-carousel" data-slide-to="1"></li>
+          <!--li data-target="#quote-carousel" data-slide-to="2"></li-->
+        </ol>
+        
+        <!-- Carousel Slides / Quotes -->
+        <div class="carousel-inner" role="listbox">
+        
+          <!-- Quote 1 -->
+          <div class="item active">
+          <div class="carousel-caption">
+            
+              <p><span class="q_icon_left"><img src="https://linuxjobber.com/img/left_icon.png" class="img-responsive"></span> "I just had my biggest earning year at $107,000. Your revised resume played a very important role when they were choosing the candidate for this current job." Raymond J., Systems Administrator, Springfield, IL<span class="q_icon_right"><img src="https://linuxjobber.com/img/right_icon.png" class="img-responsive"></span></p>
+             
+              <div class="sm_red_line"></div>
+            </div>
+           
+          </div>
+          <!-- Quote 2 -->
+          <div class="item">
+          <div class="carousel-caption">
+            
+              <p> <span class="q_icon_left"><img src="https://linuxjobber.com/img/left_icon.png" class="img-responsive"></span>"I look forward to working with you again as well. Three years later, my current Chairperson still speaks of my resume [that you wrote for me] that I submitted when I applied for my current job."<span class="q_icon_right"><img src="https://linuxjobber.com/img/right_icon.png" class="img-responsive"></span></p>
+              
+              <div class="sm_red_line"></div>
+            </div>
+            
+          </div>
+        </div>                          
+      </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section class="contactus">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <div class="contactus_inner">
+            <h2>Need any resume preparation service information?</h2>
+            <p>Let our experienced team handle the job of creating the best possible resume for you. Feel free to contact us if have questions.</p>
+            <a href="https://linuxjobber.com/companys/contact" class="conus_btn">Contacts Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
