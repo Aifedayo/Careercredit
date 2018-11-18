@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../data.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { MaterializeModule } from 'angular2-materialize';
 @Component({
   selector: 'app-linux-chat',
   templateUrl: './linux-chat.component.html',
-  styleUrls: ['./linux-chat.component.css']
+  styleUrls: ['./linux-chat.component.css'],
+  providers: [MaterializeModule]
 })
 export class LinuxChatComponent implements OnInit {
 
@@ -16,7 +18,7 @@ export class LinuxChatComponent implements OnInit {
   public websocket;
   public email;
 
-  constructor(public dataservice: DataService, private http: HttpClient) {
+  constructor(public dataservice: DataService, private http: HttpClient, public materializedirective: MaterializeModule) {
     this.dataservice.username = sessionStorage.getItem('username');
     this.websocket = new WebSocket('ws://' + '54.244.162.68:8001');
     this.websocket.onopen = (evt) => {
