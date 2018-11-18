@@ -1,7 +1,6 @@
 import { TopicDetailComponent } from './topic-detail/topic-detail.component';
 import { MaterializeModule } from 'angular2-materialize';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { BrowserModule} from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatVideoModule } from 'mat-video';
@@ -22,7 +21,6 @@ import { LabsComponent } from './labs/labs.component';
     BrowserAnimationsModule,
     MatVideoModule,
     BrowserModule,
-    CommonModule,
     CourseRoutingModule,
     MaterializeModule,
   ],
