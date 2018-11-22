@@ -103,9 +103,9 @@ WSGI_APPLICATION = 'Linuxjobber.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'linuxjobber',
+        'NAME': 'mylinuxjobber',
         'USER': 'linuxjobber',
-        'PASSWORD': '8iu7*IU&',
+        'PASSWORD': 'linuxjobber',
         'HOST': 'localhost',
     }
 }

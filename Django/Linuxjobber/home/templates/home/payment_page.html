@@ -1,0 +1,83 @@
+{% extends 'home/base.html' %}
+
+{% load staticfiles%}
+
+{% block content %}
+
+
+
+
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <div class="carousel-caption">
+        	
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="main-container">
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-6 page-content">
+			<div class="inner-box category-content">
+				<h2 class="title-4">
+					<i class="icon-user-add"></i>
+					Pay For Live Help
+				</h2>
+				<hr class="hr-color">
+				<div class="row">
+					<div class="col-sm-12">
+						<form action method="post" id="stripejsfilemain">
+							<div class="form-group required">
+								<div class="col-md-4"></div>
+								<div class="col-md-8">
+									<script id="stripejsfile" src="https://checkout.stripe.com/checkout.js" class="stripe-button active" data-key="" data-amount='39900' data-email="" data-name="Linuxjobber" data-description="" data-image="https://linuxjobber.com/images/logo.png" data-locale="auto" data-allow-remenber-me="false" data-currency="usd"></script>
+									<button type="submit" class="stripe-button-el" style="visibility:visible;">
+										<span style="display: block; min-height: 30px;">Pay with Card</span>
+									</button>
+								</div>
+							</div>
+							<p style="font-size: 14px !important;margin-bottom: 20px;; color: #000;">
+								<small>
+									Please note that you will be charged $399 upfront.  However, you may cancel at any time. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you $399
+								</small>
+							</p>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 reg-sidebar">
+			<div class="reg-sidebar-inner text-center">
+				<div class="promo-text-box">
+					<i class="icon-picture fa fa-4x icon-color-1"></i>
+					<p style="color: black">
+						Pay For Live Help
+					</p>
+				</div>
+				<br>
+				<h3>One Time</h3>
+				<h3></h3>
+				<h1 class="title-4">$399</h1>
+			</div>
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

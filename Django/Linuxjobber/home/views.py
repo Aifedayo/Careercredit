@@ -1,5 +1,6 @@
 import stripe
 import csv, io
+import logging
 import subprocess, json, os
 from urllib.parse import urlparse
 from django.conf import settings
@@ -22,6 +23,13 @@ fs = FileSystemStorage(location= settings.MEDIA_ROOT+'/uploads')
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
+#Error Logging Instances
+'''Log database errors with the dbalogger instance. example dblogger.level_of_error()
+Log non database errors with the standard_logger instance'''
+standard_logger = logging.getLogger(__name__)
+dbalogger = logging.getLogger('dba')
+
+
 
 def get_courses():
     return Course.objects.all()
@@ -33,28 +41,6 @@ def get_tools():
 #INDEX VIEW
 def index(request):
     return render (request, 'home/index.html', {'courses' : get_courses(), 'tools' : get_tools()})
-
-#SIGNUP VIEW
-'''def signup(request):
-    if request.method == "POST":
-        firstname = request.POST['fullname'].split()[0]
-        lastname = request.POST['fullname'].split()[1] if len(request.POST['fullname'].split()) > 1 else request.POST['fullname'].split()[0]
-        email = request.POST['email']
-        password = request.POST['password']
-        username = email.split('@')[0]
-
-        if (firstname):
-            user = User.objects.create_user(username, email, password)
-            user.first_name = firstname
-            user.last_name = lastname
-            user.save()
-            send_mail('Linuxjobber Free Account Creation', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + '\n Follow this link http://35.167.153.1:8001/login to login to you account\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
-            return render(request, "home/registration/success.html", {'user': user})
-        else:
-            error = True
-            return render(request, 'home/registration/signup.html', {'error':error})
-    else:
-        return render(request, 'home/registration/signup.html')'''
 
 
 def signup(request):
@@ -873,3 +859,49 @@ def stopmachine(request, machine_id):
 
 def order_list(request):
     return render(request, 'home/orderlist.html', {'order': UserOrder.objects.filter(user=request.user),'courses' : get_courses(), 'tools' : get_tools() })
+
+
+def students_packages(request):
+    news_letter_message = ''
+    if request.method == 'POST':
+        email = request.POST['email']
+        try:
+            subscriber = NewsLetterSubscribers(email = email)
+            subscriber.save()
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            return render (request, 'home/students_packages.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
+        except Exception as e:
+            standard_logger.error('error')
+            return render (request, 'home/students_packages.html', {'news_letter_message': 'Something went wrong please try again!', 'courses' : get_courses(), 'tools' : get_tools()})
+    else:
+        return render(request, 'home/students_packages.html', {'news_letter_message': news_letter_message ,'courses' : get_courses(), 'tools' : get_tools()})
+
+
+
+
+def server_service(request):
+    news_letter_message = ''
+    if request.method == 'POST':
+        email = request.POST['email']
+        try:
+            subscriber = NewsLetterSubscribers(email = email)
+            subscriber.save()
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            return render (request, 'home/server_service.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
+        except Exception as e:
+            standard_logger.error('error')
+            return render (request, 'home/server_service.html', {'news_letter_message': 'Something went wrong please try again!', 'courses' : get_courses(), 'tools' : get_tools()})
+    else:
+        return render(request, 'home/server_service.html', {'news_letter_message': news_letter_message ,'courses' : get_courses(), 'tools' : get_tools()})
+
+
+
+def live_help(request):
+    return render(request, 'home/live_help.html', {'courses' : get_courses(), 'tools' : get_tools()} )
+
+def pay_live_help(request):
+    return render(request,'home/payment_page.html', {})
+
+
+def in_person_training(request):
+    return render(request, 'home/in_person_training.html', {'courses' : get_courses(), 'tools' : get_tools()})

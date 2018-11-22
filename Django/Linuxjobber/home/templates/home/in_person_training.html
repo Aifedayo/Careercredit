@@ -1,0 +1,201 @@
+{% extends 'home/base.html' %}
+
+{% load staticfiles%}
+
+{% block content %}
+
+
+
+
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner" role="listbox" style="padding: 201px 0 9px;">
+      <div class="item active">
+        <div class="carousel-caption">
+        	<h1>Attend In-Person</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <section class="purchase_sec">
+  	<div>&nbsp;</div>
+  	<div class="container">
+  		<div class="row">
+  			<div class="col-md-4">
+  				<div class="purchase_sec_left">
+  					<img src="https://linuxjobber.com/img/lady.png" class="img-responsive">
+  				</div>
+  			</div>
+  			<div class="col-md-8">
+  				<div class="purchase_sec_right">
+  					<h3>
+  						ATTEND IN-PERSON LESSONS WITH LIVE INSTRUCTOR
+  					</h3>
+  					<p>
+  						In-person lessons led by a physical live instructor is ideal for people who may not feel satisfied with online recorded videos. Such people can sit, one-on-one, with a live instructor and cover the course materials at the student's pace. The course material is the same as the online self-study course.
+  					</p>
+  					<h1>
+  						<br>
+  						<span>Starting now at $199 per month</span>
+  					</h1>
+  					<a href="{% url 'home:pay_live_help' %}" class="bynw_btn">Buy Now</a>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+  </section>
+
+  <section class="op_sec">
+  	<div class="container">
+  		<div class="row text-center">
+  			
+  			<div class="col-md-12 col-sm-12">
+  				<h2 class="op_sec_heading" style="line-height: 50px; font-size: 40px">
+  					 Get the 
+            <strong>best value</strong>.
+  					<br>
+  					Let a 
+  					<strong>live instructor</strong>
+  					<br>answer all your questions and  
+  					<br>
+            practice with you on the spot.
+  				</h2>
+  				<div>&nbsp;</div>
+  				<div class="red_line">
+  					
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+  </section>
+
+
+
+
+
+
+  <section class="r_testimonial">
+    <div class="container">
+      <div class="row">
+      <div class="col-md-offset-1 col-md-10 hc_head">
+      <h5>PAST STUDENTS</h5>
+      <h3>TESTIMONIALS</h3>
+      </div>
+      </div>
+      <div class="row">
+      <div class="col-md-12">
+        <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+        <!-- Bottom Carousel Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#quote-carousel" data-slide-to="0" class=""></li>
+          <li data-target="#quote-carousel" data-slide-to="1" class="active"></li>
+          <!--li data-target="#quote-carousel" data-slide-to="2"></li-->
+        </ol>
+        
+        <!-- Carousel Slides / Quotes -->
+        <div class="carousel-inner" role="listbox">
+        
+          <!-- Quote 1 -->
+          <div class="item">
+          <div class="carousel-caption">
+            
+              <p><span class="q_icon_left"><img src="https://linuxjobber.com/img/left_icon.png" class="img-responsive"></span> "When I needed to add Systems Administration skills to my Oracle DBA background, I used Linuxjobber services and I was impressed with the quality of the materials as well as the personal attention I received." Kenna - Boston, MA<span class="q_icon_right"><img src="https://linuxjobber.com/img/right_icon.png" class="img-responsive"></span></p>
+             
+              <div class="sm_red_line"></div>
+            </div>
+           
+          </div>
+          <!-- Quote 2 -->
+          <div class="item active">
+          <div class="carousel-caption">
+            
+              <p> <span class="q_icon_left"><img src="https://linuxjobber.com/img/left_icon.png" class="img-responsive"></span>"Hands-on practice from Linuxjobber helped my understand the materials quickly. I worked hard to finish the labs but I couldn't have completed the materials and gotten a job quickly without Linuxjobber." Fu-Yuan - philadelphia, PA<span class="q_icon_right"><img src="https://linuxjobber.com/img/right_icon.png" class="img-responsive"></span></p>
+              
+              <div class="sm_red_line"></div>
+            </div>
+            
+          </div>
+        
+          <!--div class="item">
+          <div class="carousel-caption">
+            
+            
+              <p><span class="q_icon_left"><img src="https://linuxjobber.com/img/left_icon.png" class="img-responsive"></span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit in arcu blandit, eget pretium nisl accumsan. Sed ultricies commodo tortor, eu pretium mauris.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit in arcu blandit, eget pretium nisl accumsan. Sed ultricies commodo tortor, eu pretium mauris.<span class="q_icon_right"><img src="https://linuxjobber.com/img/right_icon.png" class="img-responsive"></span></p>
+               
+              <div class="sm_red_line"></div>
+            
+            
+          </div>
+        </div-->
+        
+        <!-- Carousel Buttons Next/Prev -->
+        <!-- <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a> -->
+        <!-- <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a> -->
+        </div>                          
+      </div>
+      </div>
+    </div>
+    
+    <!--div class="row">
+      <div class="col-md-3 col-md-offset-1">
+        <div class="clien_thumbnail">
+          <div class="client_dp">
+            <img src="https://linuxjobber.com/img/client_dp.jpg" class="img-circle">
+          </div>
+          <div class="client_info">
+            <h5>CLIENT NAME</h5>
+            <small>Designation</small>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-3">
+        <div class="clien_thumbnail">
+          <div class="client_dp">
+            <img src="https://linuxjobber.com/img/client_dp.jpg" class="img-circle">
+          </div>
+          <div class="client_info">
+            <h5>CLIENT NAME</h5>
+            <small>Designation</small>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-3">
+        <div class="clien_thumbnail">
+          <div class="client_dp">
+            <img src="https://linuxjobber.com/img/client_dp.jpg" class="img-circle">
+          </div>
+          <div class="client_info">
+            <h5>CLIENT NAME</h5>
+            <small>Designation</small>
+          </div>
+        </div>
+      </div>
+    </div-->
+    </div>
+  </section>
+
+
+  <section class="contactus">
+  	<div class="container">
+  		<div class="row">
+  			<div class="col-md-12 text-center">
+  				<div class="contactus_inner">
+  					<h2>
+  						Need physical presence to understand the materials?
+  					</h2>
+  					<p>You are in good hands with qualified instructors from Linuxjobber</p>
+  					<a href="{% url 'home:contact_us' %}" class="conus_btn">Contact Us</a>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+  </section>
+
+
+
+
+
+{% endblock %}
