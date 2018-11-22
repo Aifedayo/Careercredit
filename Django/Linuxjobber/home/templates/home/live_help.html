@@ -1,0 +1,113 @@
+{% extends 'home/base.html' %}
+
+{% load staticfiles%}
+
+{% block content %}
+
+
+
+
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner" role="listbox" style="padding: 201px 0 9px;">
+      <div class="item active">
+        <div class="carousel-caption">
+        	<h1>Live Help Available</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <section class="purchase_sec">
+  	<div>&nbsp;</div>
+  	<div class="container">
+  		<div class="row">
+  			<div class="col-md-4">
+  				<div class="purchase_sec_left">
+  					<img src="https://linuxjobber.com/img/lady.png" class="img-responsive">
+  				</div>
+  			</div>
+  			<div class="col-md-8">
+  				<div class="purchase_sec_right">
+  					<h3>
+  						LIVE HELP AVAILABLE IF YOU EVER GET STUCK
+  					</h3>
+  					<p>
+  						Complete the course easily with help from live instructors. A live instructore can be with you on your own computer assisting you every step of the way. Never get stuck, never get frustrated. Let our experienced lab instructor help you achieve your dream.
+  					</p>
+  					<h1>
+  						<br>
+  						<span>Only $399</span>
+  					</h1>
+  					<a href="{% url 'home:pay_live_help' %}" class="bynw_btn">Buy Now</a>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+  </section>
+
+  <section class="op_sec">
+  	<div class="container">
+  		<div class="row text-center">
+  			
+  			<div class="col-md-12 col-sm-12">
+  				<h2 class="op_sec_heading" style="line-height: 50px; font-size: 40px">
+  					<strong>Live lab instructors</strong>
+  					<br>
+  					will
+  					<strong>fix one problem</strong>
+  					<br>
+  					at<strong> one time</strong>
+  					<br>
+  					for you.
+  				</h2>
+  				<div>&nbsp;</div>
+  				<div class="red_line">
+  					
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+  </section>
+
+
+  <section class="r_testimonial">
+  	<div class="item active">
+  		<div class="carousel-caption" style="text-shadow: none !important;">
+  			<p style="color: #000;">
+  				<span class="q_icon_left">
+  					<img src="https://linuxjobber.com/img/left_icon.png" class="img-responsive">
+  				</span>
+  				 "When I needed to add Systems Administration skills to my Oracle DBA background, I used Linuxjobber services and I was impressed with the quality of the materials as well as the personal attention I received." Kenna - Boston, MA
+
+  				 <span class="q_icon_right">
+  				 	<img src="https://linuxjobber.com/img/right_icon.png" class="img-responsive">
+  				 </span>
+  			</p>
+  			<div class="sm_red_line"></div>
+  		</div>
+  	</div>
+  </section>
+
+
+  <section class="contactus">
+  	<div class="container">
+  		<div class="row">
+  			<div class="col-md-12 text-center">
+  				<div class="contactus_inner">
+  					<h2>
+  						Need physical presence to understand the materials?
+  					</h2>
+  					<p>You are in good hands with qualified instructors from Linuxjobber</p>
+  					<a href="{% url 'home:contact_us' %}" class="conus_btn">Contact Us</a>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+  </section>
+
+
+
+
+
+{% endblock %}

@@ -186,3 +186,6 @@ class UserOrder(models.Model):
     def __str__(self):
         return self.user.email
 
+
+class NewsLetterSubscribers(models.Model):
+    email = models.EmailField(max_length = 200)
