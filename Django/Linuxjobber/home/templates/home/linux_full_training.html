@@ -1,0 +1,94 @@
+{% extends 'home/base.html' %}
+{% load staticfiles%}
+{% block content %}
+
+                <div class="selfs" role="listbox">
+                    <div class="item active">
+
+                        <div class=" text-center selfie" >
+                   <h1>Linux <br> Full Training Course</h1>
+
+
+
+
+
+                        </div>
+                      </div>
+                    </div>
+
+
+
+                <br><br><br>
+               <section class="instructors">
+      <div class="container">
+        <div class="row border-back">
+          <div class="col-xs-12 col-sm-12 col-lg-6">
+            <i class="fa fa-diamond rnd-back"></i>
+            <h3 class="hblue">One-on-One with Live Instructor</h3>
+            <p class="mgg-20">Step-by-step walk-through of the entire course with a live professional.
+Get the dedicated attention, schedule and time of an active professional going through the entire course  materials with you..</p>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-lg-6 text-center checkout-col">
+            <h3 class="hblue mgb30">$2,495 One Time</h3>
+            
+            <a href="https://linuxjobber.com/tryservices/package/premium"><button class="btn btn-checkout" id="packages-self" style="margin-right: 25px;">Check Out</button></a>
+          </div>
+          </div>
+
+
+          <div class="row text-center mgtop50">
+            <h3 class="hblue mgb30">Packages Benefits</h3>
+
+               <div class="col-md-3 mgg-20">
+                  <span>Full Access</span>
+                </div>
+                  <div class="col-md-3 mgg-20">
+                  <span>Resume Support</span>
+                </div>
+                  <div class="col-md-3 mgg-20">
+                  <span>Training Reminders</span>
+                </div>
+                  <div class="col-md-3 mgg-20">
+                  <span>Live Professional</span>
+                </div>
+
+                <div class="col-md-3 mgg-20">
+                  <span>Interview Preparation</span>
+                </div>
+                  <div class="col-md-3 mgg-20">
+                  <span>Technical Support</span>
+                </div>
+                  <div class="col-md-3 mgg-20">
+                  <span>Job Preparation</span>
+                </div>
+                 <div class="col-md-3 mgg-20">
+                  <span>Live Online Class</span>
+                </div>
+          </div>
+
+        <p class="mgg-20">Not found a course of interest yet? <a href="">click here</a></p>
+      </div>
+    </section>
+
+
+            <section class="sub">
+                  <div class="container">
+                    <div class="row ">
+                      <div class="text-center">
+                      <h5>Subscribe To Our Newsletter.</h5>
+                      <p style="margin-left: 0px; color: green; font-size: 15px">{{ news_letter_message }}</p>
+
+                      <form class="form-inline sub-main" method="post">
+                        {% csrf_token %}
+                          <label class="sr-only" for="inlineFormInputName2">Name</label>
+                          <input type="email" name='email' class="form-control mb-2 mr-sm-2 sub-form" id="inlineFormInputName2" placeholder="Enter your email" required />
+                          <button type="submit" class="btn btn-b mb-2">Submit</button><br>
+                      </form>
+
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+
+                {% endblock %}

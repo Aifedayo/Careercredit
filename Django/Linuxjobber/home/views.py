@@ -40,7 +40,7 @@ def get_tools():
 
 #INDEX VIEW
 def index(request):
-    return render (request, 'home/index.html', {'courses' : get_courses(), 'tools' : get_tools()})
+    return render (request, 'home/index.html', {'courses' : get_courses(), 'tools' : get_tools(),})
 
 
 def signup(request):
@@ -222,8 +222,103 @@ def log_out(request):
     logout(request)
     return redirect("home:login")
 
+
+
+def linux_full_training(request):
+    news_letter_message = ''
+    if request.method == 'POST':
+        email = request.POST['email']
+        try:
+            subscriber = NewsLetterSubscribers(email = email)
+            subscriber.save()
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            return render (request, 'home/linux_full_training.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
+        except Exception as e:
+            standard_logger.error('error')
+            return render (request, 'home/linux_full_training.html', {'news_letter_message': 'Something went wrong please try again!', 'courses' : get_courses(), 'tools' : get_tools()})
+    else:
+        return render(request, 'home/linux_full_training.html', {'news_letter_message': news_letter_message ,'courses' : get_courses(), 'tools' : get_tools()})
+
+
+def aws_full_training(request):
+    news_letter_message = ''
+    if request.method == 'POST':
+        email = request.POST['email']
+        try:
+            subscriber = NewsLetterSubscribers(email = email)
+            subscriber.save()
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            return render (request, 'home/aws_full_training.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
+        except Exception as e:
+            standard_logger.error('error')
+            return render (request, 'home/aws_full_training.html', {'news_letter_message': 'Something went wrong please try again!', 'courses' : get_courses(), 'tools' : get_tools()})
+    else:
+        return render(request, 'home/aws_full_training.html', {'news_letter_message': news_letter_message ,'courses' : get_courses(), 'tools' : get_tools()})
+
+
+def oracledb_full_training(request):
+    news_letter_message = ''
+    if request.method == 'POST':
+        email = request.POST['email']
+        try:
+            subscriber = NewsLetterSubscribers(email = email)
+            subscriber.save()
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            return render (request, 'home/oracledb_full_training.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
+        except Exception as e:
+            standard_logger.error('error')
+            return render (request, 'home/oracledb_full_training.html', {'news_letter_message': 'Something went wrong please try again!', 'courses' : get_courses(), 'tools' : get_tools()})
+    else:
+        return render(request, 'home/oracledb_full_training.html', {'news_letter_message': news_letter_message ,'courses' : get_courses(), 'tools' : get_tools()})
+
+
 def linux_certification(request):
-    return render(request, 'home/linux_certification.html', {'courses' : get_courses(), 'tools' : get_tools()})
+    news_letter_message = ''
+    if request.method == 'POST':
+        email = request.POST['email']
+        try:
+            subscriber = NewsLetterSubscribers(email = email)
+            subscriber.save()
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            return render (request, 'home/linux_certification.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
+        except Exception as e:
+            standard_logger.error('error')
+            return render (request, 'home/linux_certification.html', {'news_letter_message': 'Something went wrong please try again!', 'courses' : get_courses(), 'tools' : get_tools()})
+    else:
+        return render(request, 'home/linux_certification.html', {'news_letter_message': news_letter_message ,'courses' : get_courses(), 'tools' : get_tools()})
+
+def aws_certification(request):
+    news_letter_message = ''
+    if request.method == 'POST':
+        email = request.POST['email']
+        try:
+            subscriber = NewsLetterSubscribers(email = email)
+            subscriber.save()
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            return render (request, 'home/aws_certification.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
+        except Exception as e:
+            standard_logger.error('error')
+            return render (request, 'home/aws_certification.html', {'news_letter_message': 'Something went wrong please try again!', 'courses' : get_courses(), 'tools' : get_tools()})
+    else:
+        return render(request, 'home/aws_certification.html', {'news_letter_message': news_letter_message ,'courses' : get_courses(), 'tools' : get_tools()})
+
+def oracledb_certification(request):
+    news_letter_message = ''
+    if request.method == 'POST':
+        email = request.POST['email']
+        try:
+            subscriber = NewsLetterSubscribers(email = email)
+            subscriber.save()
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            return render (request, 'home/oracledb_certification.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
+        except Exception as e:
+            standard_logger.error('error')
+            return render (request, 'home/oracledb_certification.html', {'news_letter_message': 'Something went wrong please try again!', 'courses' : get_courses(), 'tools' : get_tools()})
+    else:
+        return render(request, 'home/oracledb_certification.html', {'news_letter_message': news_letter_message ,'courses' : get_courses(), 'tools' : get_tools()})
+
+
+
 
 
 def workexperience(request):
