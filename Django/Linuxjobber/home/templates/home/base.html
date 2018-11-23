@@ -227,7 +227,7 @@
 									</div></li>
 
 								<li class=" sub-menu "><a class=""
-									href="javascript:void(0)">Try Free</a></li>
+									href="{% url 'home:tryfree' '14daysPlan' %}">Try Free</a></li>
 							</ul>
 						</nav>
 					</div>
@@ -257,7 +257,7 @@
 											<div class="col-md-4 col-sm-6">
 												<ul>							
 													<li><a href="/users/orderlist"><span class="link-icon"><img src="https://linuxjobber.com/images/icon1.png" alt="" /></span>Order List</a></li>
-													<li><a href="/users/order_details"><span class="link-icon"><img src="https://linuxjobber.com/images/icon1.png" alt="" /></span>RHCSA Order</a></li>
+													<li><a href="{% url 'home:rhcsa_order' %}"><span class="link-icon"><img src="https://linuxjobber.com/images/icon1.png" alt="" /></span>RHCSA Order</a></li>
 												</ul>
 											</div>		
 											<div class="col-md-4 col-sm-6">

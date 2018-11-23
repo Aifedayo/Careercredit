@@ -58,4 +58,7 @@ urlpatterns = [
     path('home/pay/livehelp', views.pay_live_help, name='pay_live_help'),
     path('home/server/service', views.server_service, name='server_service'),
     path('home/liveinstructor', views.in_person_training, name='in_person_training'),
+    path('tryfree/<slug:sub_plan>/', views.tryfree, name='tryfree'),
+    path('user/RHCSA/order_details', views.rhcsa_order, name='rhcsa_order'),
+    path('tutorials/userinterest', views.user_interest, name='user_interest'),
 ]

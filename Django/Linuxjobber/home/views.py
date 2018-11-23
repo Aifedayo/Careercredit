@@ -1000,3 +1000,35 @@ def pay_live_help(request):
 
 def in_person_training(request):
     return render(request, 'home/in_person_training.html', {'courses' : get_courses(), 'tools' : get_tools()})
+
+@login_required
+def tryfree(request, sub_plan):
+
+    if sub_plan == 'standardPlan':
+        amount = 29
+        return render(request, 'home/tryfree.html', { 'amount':amount, 'courses' : get_courses(), 'tools' : get_tools()})
+    elif sub_plan == 'fullPlan':
+        amount = 399
+        return render(request, 'home/tryfree.html', { 'amount':amount, 'courses' : get_courses(), 'tools' : get_tools()})
+    elif sub_plan == 'premiumPlan':
+        amount = 2495
+        return render(request, 'home/tryfree.html', { 'amount':amount, 'courses' : get_courses(), 'tools' : get_tools()})
+    else:
+        amount = 29
+        return render(request, 'home/tryfree.html', { 'amount':amount, 'courses' : get_courses(), 'tools' : get_tools()})
+
+
+
+
+@login_required
+def rhcsa_order(request):
+
+    orders = RHCSAOrder.objects.filter(user=request.user)
+    orders_not_empty = RHCSAOrder.objects.filter(user=request.user).exists()
+
+    return render(request, 'home/rhcsa_order.html', {  'orders_not_empty':orders_not_empty, 'orders':orders, 'courses' : get_courses(), 'tools' : get_tools()} )
+
+
+def user_interest(request):
+
+    return render(request, 'home/user_interest.html', {'courses' : get_courses(), 'tools' : get_tools()})
