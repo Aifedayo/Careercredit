@@ -28,6 +28,7 @@ urlpatterns = [
     path('accepted', views.accepted, name='accepted'),
     path('groupCourse', views.group, name='group'),
     path('groupCourse/pay/', views.group_pay, name='group_pay'),
+    path('groupCourse/success/', views.group_success, name='group_success'),
     path('access_course', views.monthly_subscription, name='monthly_subscription'),
     path('logout', views.log_out, name="logout"),
     path('forgot/password', views.forgot_password, name='forgot_password'),

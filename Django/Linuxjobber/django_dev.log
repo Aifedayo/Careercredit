@@ -133,3 +133,871 @@ django.db.utils.ProgrammingError: (1146, "Table 'linuxjobber.courses_course' doe
 [2018-11-15 14:37:27] INFO [django.server.log_message:124] "GET /static/home/images/bannerr.png HTTP/1.1" 200 77329
 [2018-11-15 14:37:28] WARNING [django.request.get_response:93] Not Found: /favicon.ico
 [2018-11-15 14:37:28] WARNING [django.server.log_message:124] "GET /favicon.ico HTTP/1.1" 404 8845
+[2018-11-19 21:52:41] WARNING [django.request.get_response:93] Not Found: /robots.txt
+[2018-11-19 21:52:42] WARNING [django.server.log_message:124] "GET /robots.txt HTTP/1.1" 404 8842
+[2018-11-19 21:52:43] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 21944
+[2018-11-19 21:52:43] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 200 1163
+[2018-11-19 21:52:43] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 200 3979
+[2018-11-19 21:52:44] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 200 5356
+[2018-11-19 21:52:44] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 200 825
+[2018-11-19 21:52:44] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 39923
+[2018-11-19 21:52:44] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 200 7177
+[2018-11-19 21:52:44] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 200 29115
+[2018-11-19 21:52:44] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2018-11-19 21:52:44] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 134612
+[2018-11-19 21:52:44] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2018-11-19 21:52:44] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 200 3066
+[2018-11-19 21:52:44] WARNING [django.request.get_response:93] Not Found: /images/icon5.png
+[2018-11-19 21:52:44] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 8860
+[2018-11-19 21:52:44] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 200 9198
+[2018-11-19 21:52:44] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 200 4488
+[2018-11-19 21:52:45] INFO [django.server.log_message:124] "GET /static/faq/js/jquery-2.1.1.js HTTP/1.1" 200 256541
+[2018-11-19 21:52:45] INFO [django.server.log_message:124] "GET /static/home/images/linuxx.png HTTP/1.1" 200 13722
+[2018-11-19 21:52:45] INFO [django.server.log_message:124] "GET /static/home/images/awssa.png HTTP/1.1" 200 13411
+[2018-11-19 21:52:45] INFO [django.server.log_message:124] "GET /static/home/images/btns.png HTTP/1.1" 200 3954
+[2018-11-19 21:52:45] INFO [django.server.log_message:124] "GET /static/home/images/java.png HTTP/1.1" 200 14813
+[2018-11-19 21:52:45] INFO [django.server.log_message:124] "GET /static/home/images/views.png HTTP/1.1" 200 5544
+[2018-11-19 21:52:45] INFO [django.server.log_message:124] "GET /static/home/images/pupet.png HTTP/1.1" 200 5198
+[2018-11-19 21:52:45] INFO [django.server.log_message:124] "GET /static/home/images/pupett.png HTTP/1.1" 200 8770
+[2018-11-19 21:52:45] INFO [django.server.log_message:124] "GET /static/home/images/engine2.png HTTP/1.1" 200 4246
+[2018-11-19 21:52:45] INFO [django.server.log_message:124] "GET /static/home/images/experience.png HTTP/1.1" 200 279224
+[2018-11-19 21:52:45] INFO [django.server.log_message:124] "GET /static/home/images/training.png HTTP/1.1" 200 154154
+[2018-11-19 21:52:45] INFO [django.server.log_message:124] "GET /static/home/images/placement.png HTTP/1.1" 200 98335
+[2018-11-19 21:52:45] INFO [django.server.log_message:124] "GET /static/home/images/kid.png HTTP/1.1" 200 13920
+[2018-11-19 21:52:46] INFO [django.server.log_message:124] "GET /static/home/images/tutor.png HTTP/1.1" 200 11460
+[2018-11-19 21:52:46] INFO [django.server.log_message:124] "GET /static/home/images/44.png HTTP/1.1" 200 58580
+[2018-11-19 21:52:46] INFO [django.server.log_message:124] "GET /static/home/images/q1.png HTTP/1.1" 200 1961
+[2018-11-19 21:52:46] INFO [django.server.log_message:124] "GET /static/home/images/33.png HTTP/1.1" 200 62653
+[2018-11-19 21:52:46] INFO [django.server.log_message:124] "GET /static/home/images/q2.png HTTP/1.1" 200 1949
+[2018-11-19 21:52:46] INFO [django.server.log_message:124] "GET /static/home/images/22.png HTTP/1.1" 200 62724
+[2018-11-19 21:52:46] INFO [django.server.log_message:124] "GET /static/home/images/dre.png HTTP/1.1" 200 22180
+[2018-11-19 21:52:46] INFO [django.server.log_message:124] "GET /static/home/images/hotels.png HTTP/1.1" 200 14387
+[2018-11-19 21:52:46] INFO [django.server.log_message:124] "GET /static/home/images/bannerr.png HTTP/1.1" 200 77329
+[2018-11-19 21:52:47] INFO [django.server.log_message:124] "GET /static/home/images/ontario.png HTTP/1.1" 200 61470
+[2018-11-19 21:52:47] INFO [django.server.log_message:124] "GET /static/home/images/hotelsafrica.png HTTP/1.1" 200 45205
+[2018-11-19 21:52:52] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2018-11-19 21:52:52] WARNING [django.server.log_message:124] "GET /favicon.ico HTTP/1.1" 404 8845
+[2018-11-19 21:53:57] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/images/bannerr.png HTTP/1.1" 200 77329
+[2018-11-20 12:36:13] WARNING [django.request.get_response:93] Not Found: /robots.txt
+[2018-11-20 12:36:13] WARNING [django.request.get_response:93] Not Found: /add
+[2018-11-20 12:36:13] WARNING [django.server.log_message:124] "GET /robots.txt HTTP/1.1" 404 8842
+[2018-11-20 12:36:13] WARNING [django.server.log_message:124] "GET /add HTTP/1.1" 404 8821
+[2018-11-22 10:50:39] WARNING [django.request.get_response:93] Not Found: /robots.txt
+[2018-11-22 10:50:40] WARNING [django.server.log_message:124] "GET /robots.txt HTTP/1.1" 404 8842
+[2018-11-22 10:50:44] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 21944
+[2018-11-22 10:50:45] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2018-11-22 10:50:45] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2018-11-22 10:50:45] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 39923
+[2018-11-22 10:50:46] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 200 1163
+[2018-11-22 10:50:46] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 134612
+[2018-11-22 10:50:46] WARNING [django.request.get_response:93] Not Found: /images/icon5.png
+[2018-11-22 10:50:46] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 8860
+[2018-11-22 10:50:46] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 200 825
+[2018-11-22 10:50:46] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 200 3979
+[2018-11-22 10:50:46] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 200 5356
+[2018-11-22 10:50:46] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 200 29115
+[2018-11-22 10:50:46] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 200 7177
+[2018-11-22 10:50:47] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 200 9198
+[2018-11-22 10:50:47] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 200 4488
+[2018-11-22 10:50:47] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 200 3066
+[2018-11-22 10:50:47] INFO [django.server.log_message:124] "GET /static/faq/js/jquery-2.1.1.js HTTP/1.1" 200 256541
+[2018-11-22 10:50:47] INFO [django.server.log_message:124] "GET /static/home/images/awssa.png HTTP/1.1" 200 13411
+[2018-11-22 10:50:47] INFO [django.server.log_message:124] "GET /static/home/images/linuxx.png HTTP/1.1" 200 13722
+[2018-11-22 10:50:47] INFO [django.server.log_message:124] "GET /static/home/images/views.png HTTP/1.1" 200 5544
+[2018-11-22 10:50:47] INFO [django.server.log_message:124] "GET /static/home/images/btns.png HTTP/1.1" 200 3954
+[2018-11-22 10:50:47] INFO [django.server.log_message:124] "GET /static/home/images/java.png HTTP/1.1" 200 14813
+[2018-11-22 10:50:48] INFO [django.server.log_message:124] "GET /static/home/images/placement.png HTTP/1.1" 200 98335
+[2018-11-22 10:50:48] INFO [django.server.log_message:124] "GET /static/home/images/pupet.png HTTP/1.1" 200 5198
+[2018-11-22 10:50:48] INFO [django.server.log_message:124] "GET /static/home/images/pupett.png HTTP/1.1" 200 8770
+[2018-11-22 10:50:48] INFO [django.server.log_message:124] "GET /static/home/images/bannerr.png HTTP/1.1" 200 77329
+[2018-11-22 10:50:48] INFO [django.server.log_message:124] "GET /static/home/images/training.png HTTP/1.1" 200 154154
+[2018-11-22 10:50:48] INFO [django.server.log_message:124] "GET /static/home/images/experience.png HTTP/1.1" 200 279224
+[2018-11-22 10:50:49] INFO [django.server.log_message:124] "GET /static/home/images/q1.png HTTP/1.1" 200 1961
+[2018-11-22 10:50:49] INFO [django.server.log_message:124] "GET /static/home/images/22.png HTTP/1.1" 200 62724
+[2018-11-22 10:50:49] INFO [django.server.log_message:124] "GET /static/home/images/tutor.png HTTP/1.1" 200 11460
+[2018-11-22 10:50:49] INFO [django.server.log_message:124] "GET /static/home/images/kid.png HTTP/1.1" 200 13920
+[2018-11-22 10:50:49] INFO [django.server.log_message:124] "GET /static/home/images/dre.png HTTP/1.1" 200 22180
+[2018-11-22 10:50:49] INFO [django.server.log_message:124] "GET /static/home/images/engine2.png HTTP/1.1" 200 4246
+[2018-11-22 10:50:49] INFO [django.server.log_message:124] "GET /static/home/images/33.png HTTP/1.1" 200 62653
+[2018-11-22 10:50:49] INFO [django.server.log_message:124] "GET /static/home/images/ontario.png HTTP/1.1" 200 61470
+[2018-11-22 10:50:49] INFO [django.server.log_message:124] "GET /static/home/images/hotels.png HTTP/1.1" 200 14387
+[2018-11-22 10:50:49] INFO [django.server.log_message:124] "GET /static/home/images/44.png HTTP/1.1" 200 58580
+[2018-11-22 10:50:49] INFO [django.server.log_message:124] "GET /static/home/images/hotelsafrica.png HTTP/1.1" 200 45205
+[2018-11-22 10:50:50] INFO [django.server.log_message:124] "GET /static/home/images/q2.png HTTP/1.1" 200 1949
+[2018-11-22 10:50:51] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2018-11-22 10:50:51] WARNING [django.server.log_message:124] "GET /favicon.ico HTTP/1.1" 404 8845
+[2018-11-22 10:51:31] INFO [django.server.log_message:124] "GET /groupCourse HTTP/1.1" 200 21485
+[2018-11-22 10:51:31] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/my-style.css HTTP/1.1" 200 48791
+[2018-11-22 10:51:31] WARNING [django.request.get_response:93] Not Found: /images/icon5.png
+[2018-11-22 10:51:31] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 8860
+[2018-11-22 10:51:32] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-11-22 10:51:32] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/school-coding.jpg HTTP/1.1" 200 160021
+[2018-11-22 10:51:33] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/gothamrnd-bold.ttf HTTP/1.1" 200 63312
+[2018-11-22 11:20:19] INFO [django.server.log_message:124] "GET /groupCourse/success HTTP/1.1" 301 0
+[2018-11-22 11:20:19] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /groupCourse/success/
+Traceback (most recent call last):
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Mololuwa\Desktop\SamuelLinuxjobber\Django\Linuxjobber\home\views.py", line 535, in group_success
+    return render(request, 'home/group_success.html', context)
+NameError: name 'context' is not defined
+[2018-11-22 11:20:19] ERROR [django.server.log_message:124] "GET /groupCourse/success/ HTTP/1.1" 500 73051
+[2018-11-22 11:20:38] INFO [django.server.log_message:124] "GET /groupCourse/success/ HTTP/1.1" 200 12334
+[2018-11-22 11:20:39] WARNING [django.request.get_response:93] Not Found: /groupCourse/success/images/icon5.png
+[2018-11-22 11:20:39] WARNING [django.server.log_message:124] "GET /groupCourse/success/images/icon5.png HTTP/1.1" 404 9109
+[2018-11-22 11:30:50] INFO [django.server.log_message:124] "GET /groupCourse/success/ HTTP/1.1" 200 12334
+[2018-11-22 11:30:51] WARNING [django.request.get_response:93] Not Found: /groupCourse/success/images/icon5.png
+[2018-11-22 11:30:51] WARNING [django.server.log_message:124] "GET /groupCourse/success/images/icon5.png HTTP/1.1" 404 9109
+[2018-11-22 11:30:59] INFO [django.server.log_message:124] "GET /groupCourse HTTP/1.1" 200 21485
+[2018-11-22 11:31:00] WARNING [django.request.get_response:93] Not Found: /images/icon5.png
+[2018-11-22 11:31:00] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 9049
+[2018-11-22 11:31:00] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-11-22 11:31:25] WARNING [django.request.get_response:93] Not Found: /robots.txt
+[2018-11-22 11:31:25] WARNING [django.server.log_message:124] "GET /robots.txt HTTP/1.1" 404 9031
+[2018-11-22 11:31:31] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /groupCourse
+Traceback (most recent call last):
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Mololuwa\Desktop\SamuelLinuxjobber\Django\Linuxjobber\home\views.py", line 488, in group
+    send_mail('Linuxjobber Group Class', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Group Class, you will be contacted shortly.', 'settings.EMAIL_HOST_USER', [email])
+UnboundLocalError: local variable 'firstname' referenced before assignment
+[2018-11-22 11:31:31] ERROR [django.server.log_message:124] "POST /groupCourse HTTP/1.1" 500 76634
+[2018-11-22 11:31:35] INFO [django.server.log_message:124] "POST /groupCourse HTTP/1.1" 302 0
+[2018-11-22 11:31:35] ERROR [django.server.log_message:124] "POST /groupCourse HTTP/1.1" 500 59
+[2018-11-22 11:32:54] INFO [django.server.log_message:124] "GET /groupCourse HTTP/1.1" 200 21485
+[2018-11-22 11:32:55] WARNING [django.request.get_response:93] Not Found: /images/icon5.png
+[2018-11-22 11:32:55] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 9049
+[2018-11-22 11:32:56] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-11-22 11:33:28] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /groupCourse
+Traceback (most recent call last):
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Mololuwa\Desktop\SamuelLinuxjobber\Django\Linuxjobber\home\views.py", line 488, in group
+    send_mail('Linuxjobber Group Class', 'Hello '+ user.firstname +' ' + user.lastname + ',\n' + 'Thank you for registering on Group Class, you will be contacted shortly.', 'settings.EMAIL_HOST_USER', [email])
+AttributeError: 'CustomUser' object has no attribute 'firstname'
+[2018-11-22 11:33:29] ERROR [django.server.log_message:124] "POST /groupCourse HTTP/1.1" 500 76640
+[2018-11-22 11:34:22] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /groupCourse
+Traceback (most recent call last):
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Mololuwa\Desktop\SamuelLinuxjobber\Django\Linuxjobber\home\views.py", line 489, in group
+    send_mail('Linuxjobber Group Class', 'Hello '+ user.firstname +' ' + user.lastname + ',\n' + 'Thank you for registering on Group Class, you will be contacted shortly.', 'settings.EMAIL_HOST_USER', [email])
+AttributeError: 'CustomUser' object has no attribute 'firstname'
+[2018-11-22 11:34:22] ERROR [django.server.log_message:124] "POST /groupCourse HTTP/1.1" 500 76662
+[2018-11-22 11:41:36] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /groupCourse
+Traceback (most recent call last):
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Mololuwa\Desktop\SamuelLinuxjobber\Django\Linuxjobber\home\views.py", line 488, in group
+    send_mail('Linuxjobber Group Class', 'Hello '+ request.user.firstname +' ' + request.user.lastname + ',\n' + 'Thank you for registering on Group Class, you will be contacted shortly.', 'settings.EMAIL_HOST_USER', [email])
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\utils\functional.py", line 216, in inner
+    return func(self._wrapped, *args)
+AttributeError: 'AnonymousUser' object has no attribute 'firstname'
+[2018-11-22 11:41:36] ERROR [django.server.log_message:124] "POST /groupCourse HTTP/1.1" 500 80329
+[2018-11-22 11:43:01] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /groupCourse
+Traceback (most recent call last):
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Mololuwa\Desktop\SamuelLinuxjobber\Django\Linuxjobber\home\views.py", line 490, in group
+    send_mail('Linuxjobber Group Class', 'Hello '+ request.user.firstname +' ' + request.user.lastname + ',\n' + 'Thank you for registering on Group Class, you will be contacted shortly.', 'settings.EMAIL_HOST_USER', [email])
+AttributeError: 'CustomUser' object has no attribute 'firstname'
+[2018-11-22 11:43:01] ERROR [django.server.log_message:124] "POST /groupCourse HTTP/1.1" 500 76803
+[2018-11-22 11:45:56] INFO [django.server.log_message:124] "GET /admin HTTP/1.1" 301 0
+[2018-11-22 11:45:57] INFO [django.server.log_message:124] "GET /admin/ HTTP/1.1" 302 0
+[2018-11-22 11:45:58] INFO [django.server.log_message:124] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1855
+[2018-11-22 11:45:59] INFO [django.server.log_message:124] "GET /static/admin/css/responsive.css HTTP/1.1" 200 18884
+[2018-11-22 11:45:59] INFO [django.server.log_message:124] "GET /static/admin/css/login.css HTTP/1.1" 200 1281
+[2018-11-22 11:45:59] INFO [django.server.log_message:124] "GET /static/admin/css/base.css HTTP/1.1" 200 17084
+[2018-11-22 11:46:00] INFO [django.server.log_message:124] "GET /static/admin/css/fonts.css HTTP/1.1" 200 443
+[2018-11-22 11:46:00] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+[2018-11-22 11:46:00] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+[2018-11-22 11:46:03] INFO [django.server.log_message:124] "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[2018-11-22 11:46:04] INFO [django.server.log_message:124] "GET /admin/ HTTP/1.1" 200 18333
+[2018-11-22 11:46:04] INFO [django.server.log_message:124] "GET /static/admin/css/dashboard.css HTTP/1.1" 200 439
+[2018-11-22 11:46:05] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 82564
+[2018-11-22 11:46:05] INFO [django.server.log_message:124] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 334
+[2018-11-22 11:46:05] INFO [django.server.log_message:124] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 383
+[2018-11-22 11:46:05] INFO [django.server.log_message:124] "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 395
+[2018-11-22 11:46:18] INFO [django.server.log_message:124] "GET /admin/users/customuser/ HTTP/1.1" 200 6512
+[2018-11-22 11:46:18] INFO [django.server.log_message:124] "GET /static/admin/css/changelists.css HTTP/1.1" 200 6514
+[2018-11-22 11:46:19] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2018-11-22 11:46:19] INFO [django.server.log_message:124] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 371
+[2018-11-22 11:46:19] INFO [django.server.log_message:124] "GET /static/admin/js/core.js HTTP/1.1" 200 7346
+[2018-11-22 11:46:19] INFO [django.server.log_message:124] "GET /static/admin/js/actions.js HTTP/1.1" 200 6655
+[2018-11-22 11:46:19] INFO [django.server.log_message:124] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 7078
+[2018-11-22 11:46:19] INFO [django.server.log_message:124] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 268490
+[2018-11-22 11:46:19] INFO [django.server.log_message:124] "GET /static/admin/js/urlify.js HTTP/1.1" 200 8918
+[2018-11-22 11:46:19] INFO [django.server.log_message:124] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1580
+[2018-11-22 11:46:19] INFO [django.server.log_message:124] "GET /static/admin/img/search.svg HTTP/1.1" 200 461
+[2018-11-22 11:46:20] INFO [django.server.log_message:124] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 131128
+[2018-11-22 11:46:20] INFO [django.server.log_message:124] "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 334
+[2018-11-22 11:46:20] INFO [django.server.log_message:124] "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1116
+[2018-11-22 11:46:27] INFO [django.server.log_message:124] "GET /admin/users/customuser/1/change/ HTTP/1.1" 200 21855
+[2018-11-22 11:46:27] INFO [django.server.log_message:124] "GET /static/admin/css/forms.css HTTP/1.1" 200 8688
+[2018-11-22 11:46:27] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2018-11-22 11:46:28] INFO [django.server.log_message:124] "GET /static/admin/js/SelectBox.js HTTP/1.1" 200 5899
+[2018-11-22 11:46:28] INFO [django.server.log_message:124] "GET /static/admin/js/change_form.js HTTP/1.1" 200 732
+[2018-11-22 11:46:28] INFO [django.server.log_message:124] "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 12932
+[2018-11-22 11:46:28] INFO [django.server.log_message:124] "GET /static/admin/css/widgets.css HTTP/1.1" 200 10905
+[2018-11-22 11:46:28] INFO [django.server.log_message:124] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 505
+[2018-11-22 11:46:28] INFO [django.server.log_message:124] "GET /static/admin/js/calendar.js HTTP/1.1" 200 7985
+[2018-11-22 11:46:28] INFO [django.server.log_message:124] "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 20709
+[2018-11-22 11:46:29] INFO [django.server.log_message:124] "GET /static/admin/img/icon-unknown-alt.svg HTTP/1.1" 200 658
+[2018-11-22 11:46:29] INFO [django.server.log_message:124] "GET /static/admin/img/icon-unknown.svg HTTP/1.1" 200 658
+[2018-11-22 11:46:29] INFO [django.server.log_message:124] "GET /static/admin/img/selector-icons.svg HTTP/1.1" 200 3325
+[2018-11-22 11:46:29] INFO [django.server.log_message:124] "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 686
+[2018-11-22 11:46:29] INFO [django.server.log_message:124] "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1095
+[2018-11-22 11:46:37] INFO [django.server.log_message:124] "GET /admin/users/customuser/ HTTP/1.1" 200 6512
+[2018-11-22 11:46:41] INFO [django.server.log_message:124] "GET /admin/users/customuser/2/change/ HTTP/1.1" 200 21829
+[2018-11-22 11:46:41] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2018-11-22 11:49:42] INFO [django.server.log_message:124] "GET /admin/logout/ HTTP/1.1" 200 1215
+[2018-11-22 11:49:51] WARNING [django.security.csrf._reject:153] Forbidden (CSRF token missing or incorrect.): /groupCourse
+[2018-11-22 11:49:51] WARNING [django.server.log_message:124] "POST /groupCourse HTTP/1.1" 403 2513
+[2018-11-22 11:49:59] INFO [django.server.log_message:124] "GET /groupCourse HTTP/1.1" 200 21485
+[2018-11-22 11:50:00] WARNING [django.request.get_response:93] Not Found: /images/icon5.png
+[2018-11-22 11:50:00] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 9049
+[2018-11-22 11:50:00] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-11-22 11:50:17] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /groupCourse
+Traceback (most recent call last):
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Mololuwa\Desktop\SamuelLinuxjobber\Django\Linuxjobber\home\views.py", line 490, in group
+    send_mail('Linuxjobber Group Class', 'Hello '+ request.user.firstname +' ' + request.user.lastname + ',\n' + 'Thank you for registering on Group Class, you will be contacted shortly.', 'settings.EMAIL_HOST_USER', [email])
+AttributeError: 'CustomUser' object has no attribute 'firstname'
+[2018-11-22 11:50:17] ERROR [django.server.log_message:124] "POST /groupCourse HTTP/1.1" 500 76672
+[2018-11-22 11:52:59] WARNING [django.security.csrf._reject:153] Forbidden (CSRF token missing or incorrect.): /groupCourse
+[2018-11-22 11:52:59] WARNING [django.server.log_message:124] "POST /groupCourse HTTP/1.1" 403 2513
+[2018-11-22 11:53:02] INFO [django.server.log_message:124] "GET /groupCourse HTTP/1.1" 200 21485
+[2018-11-22 11:53:03] WARNING [django.request.get_response:93] Not Found: /images/icon5.png
+[2018-11-22 11:53:03] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 9049
+[2018-11-22 11:53:03] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-11-22 11:53:20] INFO [django.server.log_message:124] "POST /groupCourse HTTP/1.1" 302 0
+[2018-11-22 11:53:20] INFO [django.server.log_message:124] "GET /groupCourse/pay/ HTTP/1.1" 200 15697
+[2018-11-22 11:53:21] WARNING [django.request.get_response:93] Not Found: /groupCourse/pay/images/icon5.png
+[2018-11-22 11:53:21] WARNING [django.server.log_message:124] "GET /groupCourse/pay/images/icon5.png HTTP/1.1" 404 9097
+[2018-11-22 11:53:21] INFO [django.server.log_message:124] "GET /static/home/images/logout1.png HTTP/1.1" 200 1899
+[2018-11-22 11:56:01] INFO [django.server.log_message:124] "POST /groupCourse/pay/ HTTP/1.1" 302 0
+[2018-11-22 11:56:01] INFO [django.server.log_message:124] "GET /groupCourse/success/ HTTP/1.1" 200 13725
+[2018-11-22 11:56:02] WARNING [django.request.get_response:93] Not Found: /groupCourse/success/images/icon5.png
+[2018-11-22 11:56:02] WARNING [django.server.log_message:124] "GET /groupCourse/success/images/icon5.png HTTP/1.1" 404 9109
+[2018-11-22 11:56:30] INFO [django.server.log_message:124] "GET /groupCourse/success/ HTTP/1.1" 200 13946
+[2018-11-22 11:56:30] WARNING [django.request.get_response:93] Not Found: /groupCourse/success/images/icon5.png
+[2018-11-22 11:56:30] WARNING [django.server.log_message:124] "GET /groupCourse/success/images/icon5.png HTTP/1.1" 404 9109
+[2018-11-22 11:56:47] INFO [django.server.log_message:124] "GET /groupCourse/success/ HTTP/1.1" 200 13735
+[2018-11-22 11:56:47] WARNING [django.request.get_response:93] Not Found: /groupCourse/success/images/icon5.png
+[2018-11-22 11:56:47] WARNING [django.server.log_message:124] "GET /groupCourse/success/images/icon5.png HTTP/1.1" 404 9109
+[2018-11-22 14:49:33] INFO [django.server.log_message:124] "GET /admin HTTP/1.1" 301 0
+[2018-11-22 14:49:33] WARNING [django.request.get_response:93] Not Found: /robots.txt
+[2018-11-22 14:49:33] WARNING [django.server.log_message:124] "GET /robots.txt HTTP/1.1" 404 9031
+[2018-11-22 14:49:35] INFO [django.server.log_message:124] "GET /admin/ HTTP/1.1" 302 0
+[2018-11-22 14:49:37] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 23335
+[2018-11-22 14:49:37] INFO [django.server.log_message:124] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 2011
+[2018-11-22 14:49:37] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2018-11-22 14:49:37] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 39923
+[2018-11-22 14:49:37] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2018-11-22 14:49:38] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 200 1163
+[2018-11-22 14:49:38] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 134612
+[2018-11-22 14:49:38] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 200 3979
+[2018-11-22 14:49:38] ERROR [django.server.log_message:124] "GET /admin/login/?next=/admin/ HTTP/1.1" 500 59
+[2018-11-22 14:49:39] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 200 5356
+[2018-11-22 14:49:39] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 200 825
+[2018-11-22 14:49:39] WARNING [django.request.get_response:93] Not Found: /images/icon5.png
+[2018-11-22 14:49:39] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 9049
+[2018-11-22 14:49:39] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 200 3066
+[2018-11-22 14:49:39] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 200 29115
+[2018-11-22 14:49:39] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 200 7177
+[2018-11-22 14:49:40] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 200 9198
+[2018-11-22 14:49:40] INFO [django.server.log_message:124] "GET /static/faq/js/jquery-2.1.1.js HTTP/1.1" 200 256541
+[2018-11-22 14:49:40] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 200 4488
+[2018-11-22 14:49:40] INFO [django.server.log_message:124] "GET /static/home/images/btns.png HTTP/1.1" 200 3954
+[2018-11-22 14:49:40] INFO [django.server.log_message:124] "GET /static/home/images/java.png HTTP/1.1" 200 14813
+[2018-11-22 14:49:40] INFO [django.server.log_message:124] "GET /static/home/images/awssa.png HTTP/1.1" 200 13411
+[2018-11-22 14:49:40] INFO [django.server.log_message:124] "GET /static/home/images/logout1.png HTTP/1.1" 200 1899
+[2018-11-22 14:49:40] INFO [django.server.log_message:124] "GET /static/home/images/linuxx.png HTTP/1.1" 200 13722
+[2018-11-22 14:49:40] INFO [django.server.log_message:124] "GET /static/home/images/views.png HTTP/1.1" 200 5544
+[2018-11-22 14:49:40] INFO [django.server.log_message:124] "GET /static/home/images/training.png HTTP/1.1" 200 154154
+[2018-11-22 14:49:40] INFO [django.server.log_message:124] "GET /static/home/images/pupett.png HTTP/1.1" 200 8770
+[2018-11-22 14:49:40] INFO [django.server.log_message:124] "GET /static/home/images/placement.png HTTP/1.1" 200 98335
+[2018-11-22 14:49:40] INFO [django.server.log_message:124] "GET /static/home/images/pupet.png HTTP/1.1" 200 5198
+[2018-11-22 14:49:40] INFO [django.server.log_message:124] "GET /static/home/images/engine2.png HTTP/1.1" 200 4246
+[2018-11-22 14:49:40] INFO [django.server.log_message:124] "GET /static/home/images/tutor.png HTTP/1.1" 200 11460
+[2018-11-22 14:49:41] INFO [django.server.log_message:124] "GET /static/home/images/experience.png HTTP/1.1" 200 279224
+[2018-11-22 14:49:41] INFO [django.server.log_message:124] "GET /static/home/images/kid.png HTTP/1.1" 200 13920
+[2018-11-22 14:49:42] INFO [django.server.log_message:124] "GET /static/home/images/22.png HTTP/1.1" 200 62724
+[2018-11-22 14:49:42] INFO [django.server.log_message:124] "GET /static/home/images/dre.png HTTP/1.1" 200 22180
+[2018-11-22 14:49:42] INFO [django.server.log_message:124] "GET /static/home/images/q1.png HTTP/1.1" 200 1961
+[2018-11-22 14:49:42] INFO [django.server.log_message:124] "GET /static/home/images/44.png HTTP/1.1" 200 58580
+[2018-11-22 14:49:42] INFO [django.server.log_message:124] "GET /static/home/images/q2.png HTTP/1.1" 200 1949
+[2018-11-22 14:49:42] INFO [django.server.log_message:124] "GET /static/home/images/33.png HTTP/1.1" 200 62653
+[2018-11-22 14:49:42] INFO [django.server.log_message:124] "GET /static/home/images/hotels.png HTTP/1.1" 200 14387
+[2018-11-22 14:49:43] INFO [django.server.log_message:124] "GET /static/home/images/ontario.png HTTP/1.1" 200 61470
+[2018-11-22 14:49:43] INFO [django.server.log_message:124] "GET /static/home/images/bannerr.png HTTP/1.1" 200 77329
+[2018-11-22 14:49:43] INFO [django.server.log_message:124] "GET /static/home/images/hotelsafrica.png HTTP/1.1" 200 45205
+[2018-11-22 14:49:44] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2018-11-22 14:49:44] WARNING [django.server.log_message:124] "GET /favicon.ico HTTP/1.1" 404 9034
+[2018-11-22 14:49:47] INFO [django.server.log_message:124] "GET /logout HTTP/1.1" 302 0
+[2018-11-22 14:49:47] INFO [django.server.log_message:124] "GET /login HTTP/1.1" 200 3396
+[2018-11-22 14:49:47] INFO [django.server.log_message:124] "GET /static/home/css/styles.css HTTP/1.1" 200 7692
+[2018-11-22 14:49:48] INFO [django.server.log_message:124] "GET /static/home/images/imgback.jpg HTTP/1.1" 200 1032219
+[2018-11-22 14:49:51] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 21944
+[2018-11-22 14:49:51] WARNING [django.request.get_response:93] Not Found: /images/icon5.png
+[2018-11-22 14:49:51] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 9049
+[2018-11-22 14:49:57] INFO [django.server.log_message:124] "GET /groupCourse HTTP/1.1" 200 21485
+[2018-11-22 14:49:57] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/my-style.css HTTP/1.1" 200 48791
+[2018-11-22 14:49:57] WARNING [django.request.get_response:93] Not Found: /images/icon5.png
+[2018-11-22 14:49:57] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 9049
+[2018-11-22 14:49:58] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/school-coding.jpg HTTP/1.1" 200 160021
+[2018-11-22 14:49:58] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-11-22 14:49:58] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/gothamrnd-bold.ttf HTTP/1.1" 200 63312
+[2018-11-22 14:52:14] INFO [django.server.log_message:124] "POST /groupCourse HTTP/1.1" 302 0
+[2018-11-22 14:52:15] INFO [django.server.log_message:124] "GET /groupCourse/pay/ HTTP/1.1" 200 15689
+[2018-11-22 14:52:15] WARNING [django.request.get_response:93] Not Found: /groupCourse/pay/images/icon5.png
+[2018-11-22 14:52:15] WARNING [django.server.log_message:124] "GET /groupCourse/pay/images/icon5.png HTTP/1.1" 404 9097
+[2018-11-22 14:54:08] INFO [django.server.log_message:124] "POST /groupCourse/pay/ HTTP/1.1" 302 0
+[2018-11-22 14:54:08] INFO [django.server.log_message:124] "GET /groupCourse/success/ HTTP/1.1" 200 13951
+[2018-11-22 14:54:10] WARNING [django.request.get_response:93] Not Found: /groupCourse/success/images/icon5.png
+[2018-11-22 14:54:10] WARNING [django.server.log_message:124] "GET /groupCourse/success/images/icon5.png HTTP/1.1" 404 9109
+[2018-11-22 14:56:42] INFO [django.server.log_message:124] "GET /groupCourse/success/ HTTP/1.1" 200 13743
+[2018-11-22 14:56:43] WARNING [django.request.get_response:93] Not Found: /groupCourse/success/images/icon5.png
+[2018-11-22 14:56:43] WARNING [django.server.log_message:124] "GET /groupCourse/success/images/icon5.png HTTP/1.1" 404 9109
+[2018-11-22 14:56:52] INFO [django.server.log_message:124] "GET /groupCourse/success/ HTTP/1.1" 200 13747
+[2018-11-22 14:56:52] WARNING [django.request.get_response:93] Not Found: /groupCourse/success/images/icon5.png
+[2018-11-22 14:56:52] WARNING [django.server.log_message:124] "GET /groupCourse/success/images/icon5.png HTTP/1.1" 404 9109
+[2018-11-22 14:56:59] INFO [django.server.log_message:124] "GET /groupCourse/pay/ HTTP/1.1" 200 15689
+[2018-11-22 14:57:33] INFO [django.server.log_message:124] "POST /groupCourse/pay/ HTTP/1.1" 302 0
+[2018-11-22 14:57:33] INFO [django.server.log_message:124] "GET /groupCourse/success/ HTTP/1.1" 200 13967
+[2018-11-22 14:57:34] WARNING [django.request.get_response:93] Not Found: /groupCourse/success/images/icon5.png
+[2018-11-22 14:57:34] WARNING [django.server.log_message:124] "GET /groupCourse/success/images/icon5.png HTTP/1.1" 404 9109
+[2018-11-22 14:58:33] INFO [django.server.log_message:124] "GET /groupCourse/success/ HTTP/1.1" 200 13782
+[2018-11-22 14:58:34] WARNING [django.request.get_response:93] Not Found: /groupCourse/success/images/icon5.png
+[2018-11-22 14:58:34] WARNING [django.server.log_message:124] "GET /groupCourse/success/images/icon5.png HTTP/1.1" 404 9109
+[2018-11-22 14:58:36] INFO [django.server.log_message:124] "GET /groupCourse/pay/ HTTP/1.1" 200 15689
+[2018-11-22 14:59:11] INFO [django.server.log_message:124] "POST /groupCourse/pay/ HTTP/1.1" 302 0
+[2018-11-22 14:59:11] INFO [django.server.log_message:124] "GET /groupCourse/success/ HTTP/1.1" 200 14002
+[2018-11-22 14:59:12] WARNING [django.request.get_response:93] Not Found: /groupCourse/success/images/icon5.png
+[2018-11-22 14:59:12] WARNING [django.server.log_message:124] "GET /groupCourse/success/images/icon5.png HTTP/1.1" 404 9109
+[2018-11-22 14:59:37] INFO [django.server.log_message:124] "GET /groupCourse/success/ HTTP/1.1" 200 13365
+[2018-11-22 14:59:38] WARNING [django.request.get_response:93] Not Found: /groupCourse/success/images/icon5.png
+[2018-11-22 14:59:38] WARNING [django.server.log_message:124] "GET /groupCourse/success/images/icon5.png HTTP/1.1" 404 9109
+[2018-11-22 14:59:42] INFO [django.server.log_message:124] "GET /groupCourse/pay/ HTTP/1.1" 200 15689
+[2018-11-22 14:59:47] WARNING [django.request.get_response:93] Not Found: /robots.txt
+[2018-11-22 14:59:47] WARNING [django.server.log_message:124] "GET /robots.txt HTTP/1.1" 404 9031
+[2018-11-22 15:00:10] INFO [django.server.log_message:124] "POST /groupCourse/pay/ HTTP/1.1" 302 0
+[2018-11-22 15:00:10] INFO [django.server.log_message:124] "GET /groupCourse/success/ HTTP/1.1" 200 13585
+[2018-11-22 15:00:10] WARNING [django.request.get_response:93] Not Found: /groupCourse/success/images/icon5.png
+[2018-11-22 15:00:10] WARNING [django.server.log_message:124] "GET /groupCourse/success/images/icon5.png HTTP/1.1" 404 9109
+[2018-11-22 15:00:30] INFO [django.server.log_message:124] "GET /groupCourse/pay/ HTTP/1.1" 200 15689
+[2018-11-22 15:01:02] INFO [django.server.log_message:124] "POST /groupCourse/pay/ HTTP/1.1" 302 0
+[2018-11-22 15:01:03] INFO [django.server.log_message:124] "GET /groupCourse/success/ HTTP/1.1" 200 13592
+[2018-11-22 15:01:03] WARNING [django.request.get_response:93] Not Found: /groupCourse/success/images/icon5.png
+[2018-11-22 15:01:03] WARNING [django.server.log_message:124] "GET /groupCourse/success/images/icon5.png HTTP/1.1" 404 9109
+[2018-11-22 15:01:08] INFO [django.server.log_message:124] "GET /groupCourse/success/ HTTP/1.1" 200 13365
+[2018-11-22 15:01:08] WARNING [django.request.get_response:93] Not Found: /groupCourse/success/images/icon5.png
+[2018-11-22 15:01:08] WARNING [django.server.log_message:124] "GET /groupCourse/success/images/icon5.png HTTP/1.1" 404 9109
+[2018-11-22 16:22:16] WARNING [django.request.get_response:93] Not Found: /robots.txt
+[2018-11-22 16:22:16] WARNING [django.server.log_message:124] "GET /robots.txt HTTP/1.1" 404 9031
+[2018-11-22 16:22:16] INFO [django.server.log_message:124] "GET /admin/ HTTP/1.1" 302 0
+[2018-11-22 16:22:17] INFO [django.server.log_message:124] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 2007
+[2018-11-22 16:22:17] INFO [django.server.log_message:124] "GET /static/admin/css/login.css HTTP/1.1" 200 1281
+[2018-11-22 16:22:17] INFO [django.server.log_message:124] "GET /static/admin/css/responsive.css HTTP/1.1" 200 18884
+[2018-11-22 16:22:17] INFO [django.server.log_message:124] "GET /static/admin/css/base.css HTTP/1.1" 200 17084
+[2018-11-22 16:22:17] INFO [django.server.log_message:124] "GET /static/admin/css/fonts.css HTTP/1.1" 200 443
+[2018-11-22 16:22:17] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+[2018-11-22 16:22:17] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+[2018-11-22 16:22:17] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 82564
+[2018-11-22 16:22:21] INFO [django.server.log_message:124] "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[2018-11-22 16:22:21] INFO [django.server.log_message:124] "GET /admin/ HTTP/1.1" 200 18761
+[2018-11-22 16:22:21] INFO [django.server.log_message:124] "GET /static/admin/css/dashboard.css HTTP/1.1" 200 439
+[2018-11-22 16:22:22] INFO [django.server.log_message:124] "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 395
+[2018-11-22 16:22:22] INFO [django.server.log_message:124] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 383
+[2018-11-22 16:22:22] INFO [django.server.log_message:124] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 334
+[2018-11-22 16:22:29] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /admin/home/stripepayment/
+Traceback (most recent call last):
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\MySQLdb\connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
+    res = self._query(query)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
+    db.query(q)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\MySQLdb\connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+_mysql_exceptions.ProgrammingError: (1146, "Table 'mylinuxjobber.home_stripepayment' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\admin\options.py", line 574, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\admin\sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\utils\decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\utils\decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\admin\options.py", line 1570, in changelist_view
+    cl = self.get_changelist_instance(request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\admin\options.py", line 705, in get_changelist_instance
+    self,
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\admin\views\main.py", line 77, in __init__
+    self.get_results(request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\admin\views\main.py", line 175, in get_results
+    result_count = paginator.count
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\utils\functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\paginator.py", line 85, in count
+    return self.object_list.count()
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 387, in count
+    return self.query.get_count(using=self.db)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\sql\query.py", line 491, in get_count
+    number = obj.get_aggregation(using, ['__count'])['__count']
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\sql\query.py", line 476, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\sql\compiler.py", line 1064, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\MySQLdb\connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
+    res = self._query(query)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
+    db.query(q)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\MySQLdb\connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1146, "Table 'mylinuxjobber.home_stripepayment' doesn't exist")
+[2018-11-22 16:22:30] ERROR [django.server.log_message:124] "GET /admin/home/stripepayment/ HTTP/1.1" 500 234354
+[2018-11-22 16:22:34] INFO [django.server.log_message:124] "GET /admin/ HTTP/1.1" 200 18761
+[2018-11-22 16:27:56] INFO [django.server.log_message:124] "GET /admin/ HTTP/1.1" 200 18761
+[2018-11-22 16:27:59] INFO [django.server.log_message:124] "GET /admin/home/stripepayment/ HTTP/1.1" 200 3294
+[2018-11-22 16:27:59] INFO [django.server.log_message:124] "GET /static/admin/css/changelists.css HTTP/1.1" 200 6514
+[2018-11-22 16:27:59] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2018-11-22 16:28:00] INFO [django.server.log_message:124] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 371
+[2018-11-22 16:28:00] INFO [django.server.log_message:124] "GET /static/admin/js/actions.js HTTP/1.1" 200 6655
+[2018-11-22 16:28:00] INFO [django.server.log_message:124] "GET /static/admin/js/core.js HTTP/1.1" 200 7346
+[2018-11-22 16:28:00] INFO [django.server.log_message:124] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 7078
+[2018-11-22 16:28:00] INFO [django.server.log_message:124] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 268490
+[2018-11-22 16:28:00] INFO [django.server.log_message:124] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1580
+[2018-11-22 16:28:00] INFO [django.server.log_message:124] "GET /static/admin/js/urlify.js HTTP/1.1" 200 8918
+[2018-11-22 16:28:00] INFO [django.server.log_message:124] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 131128
+[2018-11-22 16:28:00] INFO [django.server.log_message:124] "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 334
+[2018-11-22 16:28:03] INFO [django.server.log_message:124] "GET /admin/home/stripepayment/add/ HTTP/1.1" 200 5114
+[2018-11-22 16:28:03] INFO [django.server.log_message:124] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 505
+[2018-11-22 16:28:03] INFO [django.server.log_message:124] "GET /static/admin/css/forms.css HTTP/1.1" 200 8688
+[2018-11-22 16:28:03] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2018-11-22 16:28:03] INFO [django.server.log_message:124] "GET /static/admin/js/change_form.js HTTP/1.1" 200 732
+[2018-11-22 16:28:03] INFO [django.server.log_message:124] "GET /static/admin/css/widgets.css HTTP/1.1" 200 10905
+[2018-11-22 16:30:09] INFO [django.server.log_message:124] "POST /admin/home/stripepayment/add/ HTTP/1.1" 302 0
+[2018-11-22 16:30:10] INFO [django.server.log_message:124] "GET /admin/home/stripepayment/ HTTP/1.1" 200 4691
+[2018-11-22 16:30:10] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2018-11-22 16:30:10] INFO [django.server.log_message:124] "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 439
+[2018-11-22 16:37:29] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 23334
+[2018-11-22 16:37:30] WARNING [django.request.get_response:93] Not Found: /images/icon5.png
+[2018-11-22 16:37:30] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 9049
+[2018-11-22 16:37:40] INFO [django.server.log_message:124] "GET /groupCourse HTTP/1.1" 200 22883
+[2018-11-22 16:37:41] WARNING [django.request.get_response:93] Not Found: /images/icon5.png
+[2018-11-22 16:37:41] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 9049
+[2018-11-22 16:37:41] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-11-22 16:38:10] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /access_course
+Traceback (most recent call last):
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Mololuwa\Desktop\SamuelLinuxjobber\Django\Linuxjobber\home\views.py", line 407, in monthly_subscription
+    plan_id = stripeset.planid
+AttributeError: 'QuerySet' object has no attribute 'planid'
+[2018-11-22 16:38:10] ERROR [django.server.log_message:124] "GET /access_course HTTP/1.1" 500 78611
+[2018-11-22 16:40:11] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /access_course
+Traceback (most recent call last):
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Mololuwa\Desktop\SamuelLinuxjobber\Django\Linuxjobber\home\views.py", line 408, in monthly_subscription
+    plan_id = stripeset.planid
+AttributeError: 'QuerySet' object has no attribute 'planid'
+[2018-11-22 16:40:11] ERROR [django.server.log_message:124] "GET /access_course HTTP/1.1" 500 78766
+[2018-11-22 16:40:16] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /access_course
+Traceback (most recent call last):
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Mololuwa\Desktop\SamuelLinuxjobber\Django\Linuxjobber\home\views.py", line 408, in monthly_subscription
+    plan_id = stripeset.planid
+AttributeError: 'QuerySet' object has no attribute 'planid'
+[2018-11-22 16:40:16] ERROR [django.server.log_message:124] "GET /access_course HTTP/1.1" 500 78766
+[2018-11-22 16:40:52] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /access_course
+Traceback (most recent call last):
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Mololuwa\Desktop\SamuelLinuxjobber\Django\Linuxjobber\home\views.py", line 406, in monthly_subscription
+    print(stripeset.secretkey)
+AttributeError: 'QuerySet' object has no attribute 'secretkey'
+[2018-11-22 16:40:52] ERROR [django.server.log_message:124] "GET /access_course HTTP/1.1" 500 78554
+[2018-11-22 16:41:15] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /access_course
+Traceback (most recent call last):
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Mololuwa\Desktop\SamuelLinuxjobber\Django\Linuxjobber\home\views.py", line 408, in monthly_subscription
+    plan_id = stripeset.planid
+AttributeError: 'QuerySet' object has no attribute 'planid'
+[2018-11-22 16:41:16] ERROR [django.server.log_message:124] "GET /access_course HTTP/1.1" 500 78765
+[2018-11-22 16:41:45] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /access_course
+Traceback (most recent call last):
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Mololuwa\Desktop\SamuelLinuxjobber\Django\Linuxjobber\home\views.py", line 406, in monthly_subscription
+    print(stripeset.StripePayment)
+AttributeError: 'QuerySet' object has no attribute 'StripePayment'
+[2018-11-22 16:41:45] ERROR [django.server.log_message:124] "GET /access_course HTTP/1.1" 500 78578
+[2018-11-22 16:45:35] INFO [django.server.log_message:124] "GET /access_course HTTP/1.1" 200 16076
+[2018-11-22 16:45:35] WARNING [django.request.get_response:93] Not Found: /images/icon5.png
+[2018-11-22 16:45:35] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 9049
+[2018-11-22 16:46:13] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /access_course
+Traceback (most recent call last):
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Mololuwa\Desktop\SamuelLinuxjobber\Django\Linuxjobber\home\views.py", line 408, in monthly_subscription
+    plan_id = stripeset.planid
+AttributeError: 'QuerySet' object has no attribute 'planid'
+[2018-11-22 16:46:13] ERROR [django.server.log_message:124] "GET /access_course HTTP/1.1" 500 78768
+[2018-11-22 16:48:35] INFO [django.server.log_message:124] "GET /access_course HTTP/1.1" 200 16076
+[2018-11-22 16:48:36] WARNING [django.request.get_response:93] Not Found: /images/icon5.png
+[2018-11-22 16:48:36] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 9049
+[2018-11-22 16:48:38] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 23334
+[2018-11-22 16:48:39] WARNING [django.request.get_response:93] Not Found: /images/icon5.png
+[2018-11-22 16:48:39] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 9049
+[2018-11-22 16:55:05] WARNING [django.request.get_response:93] Not Found: /robots.txt
+[2018-11-22 16:55:05] WARNING [django.server.log_message:124] "GET /robots.txt HTTP/1.1" 404 9031
+[2018-11-22 16:55:05] INFO [django.server.log_message:124] "GET /access_course HTTP/1.1" 200 16076
+[2018-11-22 16:55:05] WARNING [django.request.get_response:93] Not Found: /images/icon5.png
+[2018-11-22 16:55:05] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 9049
+[2018-11-22 16:56:57] INFO [django.server.log_message:124] "GET /access_course HTTP/1.1" 200 16076
+[2018-11-22 16:56:58] WARNING [django.request.get_response:93] Not Found: /images/icon5.png
+[2018-11-22 16:56:58] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 9049
+[2018-11-22 16:59:56] INFO [django.server.log_message:124] "GET /access_course HTTP/1.1" 200 16076
+[2018-11-22 16:59:56] WARNING [django.request.get_response:93] Not Found: /images/icon5.png
+[2018-11-22 16:59:56] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 9049
+[2018-11-22 17:03:15] INFO [django.server.log_message:124] "GET /access_course HTTP/1.1" 200 16076
+[2018-11-22 17:03:16] WARNING [django.request.get_response:93] Not Found: /images/icon5.png
+[2018-11-22 17:03:16] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 9049
+[2018-11-22 17:03:33] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /groupCourse/pay/
+Traceback (most recent call last):
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Mololuwa\Desktop\SamuelLinuxjobber\Django\Linuxjobber\home\views.py", line 507, in group_pay
+    email = request.session['email']
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\sessions\backends\base.py", line 55, in __getitem__
+    return self._session[key]
+KeyError: 'email'
+[2018-11-22 17:03:33] ERROR [django.server.log_message:124] "GET /groupCourse/pay/ HTTP/1.1" 500 81545
+[2018-11-22 17:06:43] WARNING [django.request.get_response:93] Not Found: /resume/pay
+[2018-11-22 17:06:43] WARNING [django.server.log_message:124] "GET /resume/pay HTTP/1.1" 404 9031
+[2018-11-22 17:06:52] INFO [django.server.log_message:124] "GET /resumeservice/pay HTTP/1.1" 200 15742
+[2018-11-22 17:06:52] WARNING [django.request.get_response:93] Not Found: /resumeservice/images/icon5.png
+[2018-11-22 17:06:52] WARNING [django.server.log_message:124] "GET /resumeservice/images/icon5.png HTTP/1.1" 404 9091
+[2018-11-22 17:29:07] INFO [django.server.log_message:124] "GET /resumeservice/pay HTTP/1.1" 200 15742
+[2018-11-22 17:29:07] WARNING [django.request.get_response:93] Not Found: /resumeservice/images/icon5.png
+[2018-11-22 17:29:07] WARNING [django.server.log_message:124] "GET /resumeservice/images/icon5.png HTTP/1.1" 404 9091
+[2018-11-22 17:33:31] INFO [django.server.log_message:124] "GET /access_course HTTP/1.1" 200 16076
+[2018-11-22 17:33:32] WARNING [django.request.get_response:93] Not Found: /images/icon5.png
+[2018-11-22 17:33:32] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 9049
+[2018-11-22 20:14:53] WARNING [django.request.get_response:93] Not Found: /robots.txt
+[2018-11-22 20:14:53] WARNING [django.server.log_message:124] "GET /robots.txt HTTP/1.1" 404 9031
+[2018-11-22 20:14:55] INFO [django.server.log_message:124] "GET /access_course HTTP/1.1" 200 16076
+[2018-11-22 20:14:56] WARNING [django.request.get_response:93] Not Found: /images/icon5.png
+[2018-11-22 20:14:56] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 9049
+[2018-11-22 20:17:28] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /access_course
+Traceback (most recent call last):
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\urllib3\connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\urllib3\util\connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\socket.py", line 743, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\urllib3\connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\urllib3\connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\urllib3\connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\urllib3\connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\urllib3\connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x0758BD10>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\requests\adapters.py", line 440, in send
+    timeout=timeout
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\urllib3\connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\urllib3\util\retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.stripe.com', port=443): Max retries exceeded with url: /v1/customers (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x0758BD10>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\stripe\http_client.py", line 197, in request
+    **kwargs)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\requests\sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\requests\sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\requests\adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.stripe.com', port=443): Max retries exceeded with url: /v1/customers (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x0758BD10>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Mololuwa\Desktop\SamuelLinuxjobber\Django\Linuxjobber\home\views.py", line 420, in monthly_subscription
+    email = request.user.email,
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\stripe\api_resources\abstract\createable_api_resource.py", line 17, in create
+    response, api_key = requestor.request('post', url, params, headers)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\stripe\api_requestor.py", line 94, in request
+    method.lower(), url, params, headers)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\stripe\api_requestor.py", line 291, in request_raw
+    method, abs_url, headers, post_data)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\stripe\http_client.py", line 123, in request_with_retries
+    raise connection_error
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\stripe\http_client.py", line 103, in request_with_retries
+    response = self.request(method, url, headers, post_data)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\stripe\http_client.py", line 215, in request
+    self._handle_request_error(e)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\stripe\http_client.py", line 257, in _handle_request_error
+    raise error.APIConnectionError(msg, should_retry=should_retry)
+stripe.error.APIConnectionError: Unexpected error communicating with Stripe.  If this problem persists,
+let us know at support@stripe.com.
+
+(Network error: ConnectionError: HTTPSConnectionPool(host='api.stripe.com', port=443): Max retries exceeded with url: /v1/customers (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x0758BD10>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed',)))
+[2018-11-22 20:17:29] ERROR [django.server.log_message:124] "POST /access_course HTTP/1.1" 500 208559
+[2018-11-22 20:17:47] INFO [django.server.log_message:124] "GET /access_course HTTP/1.1" 200 16076
+[2018-11-22 20:17:48] WARNING [django.request.get_response:93] Not Found: /images/icon5.png
+[2018-11-22 20:17:48] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 9049
+[2018-11-22 20:18:00] INFO [django.server.log_message:124] "GET /access_course HTTP/1.1" 200 16076
+[2018-11-22 20:18:00] WARNING [django.request.get_response:93] Not Found: /images/icon5.png
+[2018-11-22 20:18:00] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 9049
+[2018-11-22 20:18:52] INFO [django.server.log_message:124] "GET /access_course HTTP/1.1" 200 16076
+[2018-11-22 20:18:52] WARNING [django.request.get_response:93] Not Found: /images/icon5.png
+[2018-11-22 20:18:52] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 9049
+[2018-11-23 08:19:48] WARNING [django.request.get_response:93] Not Found: /robots.txt
+[2018-11-23 08:19:49] WARNING [django.server.log_message:124] "GET /robots.txt HTTP/1.1" 404 9031
+[2018-11-23 08:19:50] INFO [django.server.log_message:124] "GET /admin/ HTTP/1.1" 200 18811
+[2018-11-23 08:19:50] INFO [django.server.log_message:124] "GET /admin/ HTTP/1.1" 200 18811
+[2018-11-23 08:19:56] INFO [django.server.log_message:124] "GET /admin/home/stripepayment/ HTTP/1.1" 200 4472
+[2018-11-23 08:19:56] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2018-11-23 08:19:59] INFO [django.server.log_message:124] "GET /admin/home/stripepayment/1/change/ HTTP/1.1" 200 5421
+[2018-11-23 08:19:59] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2018-11-23 08:30:12] INFO [django.server.log_message:124] "GET /faq HTTP/1.1" 200 28370
+[2018-11-23 08:30:13] WARNING [django.request.get_response:93] Not Found: /images/icon5.png
+[2018-11-23 08:30:13] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 9049
+[2018-11-23 08:33:59] INFO [django.server.log_message:124] "GET /groupCourse HTTP/1.1" 200 22883
+[2018-11-23 08:34:00] WARNING [django.request.get_response:93] Not Found: /images/icon5.png
+[2018-11-23 08:34:00] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 9049
+[2018-11-23 08:34:01] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-11-23 08:34:22] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 23334
+[2018-11-23 08:34:23] WARNING [django.request.get_response:93] Not Found: /images/icon5.png
+[2018-11-23 08:34:23] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 9049
+[2018-11-23 08:34:27] INFO [django.server.log_message:124] "GET /logout HTTP/1.1" 302 0
+[2018-11-23 08:34:28] INFO [django.server.log_message:124] "GET /login HTTP/1.1" 200 3396
+[2018-11-23 08:34:36] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 21944
+[2018-11-23 08:34:37] WARNING [django.request.get_response:93] Not Found: /images/icon5.png
+[2018-11-23 08:34:37] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 9049
+[2018-11-23 08:34:43] WARNING [django.request.get_response:93] Not Found: /robots.txt
+[2018-11-23 08:34:44] WARNING [django.server.log_message:124] "GET /robots.txt HTTP/1.1" 404 9031
+[2018-11-23 08:34:44] INFO [django.server.log_message:124] "GET /groupCourse HTTP/1.1" 200 21485
+[2018-11-23 08:34:44] WARNING [django.request.get_response:93] Not Found: /images/icon5.png
+[2018-11-23 08:34:44] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 9049
+[2018-11-23 08:34:44] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-11-23 08:41:00] INFO [django.server.log_message:124] "GET /workexperience/ HTTP/1.1" 200 19080
+[2018-11-23 08:41:01] WARNING [django.request.get_response:93] Not Found: /workexperience/images/icon5.png
+[2018-11-23 08:41:01] WARNING [django.server.log_message:124] "GET /workexperience/images/icon5.png HTTP/1.1" 404 9389
+[2018-11-23 08:41:01] INFO [django.server.log_message:124] "GET /static/home/images/aoc.png HTTP/1.1" 200 103405
+[2018-11-23 08:41:01] INFO [django.server.log_message:124] "GET /static/home/images/graduate.png HTTP/1.1" 200 316928
+[2018-11-23 08:41:01] INFO [django.server.log_message:124] "GET /static/home/images/prooo.png HTTP/1.1" 200 542089
+[2018-11-23 08:41:02] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/radio1.png HTTP/1.1" 200 442
+[2018-11-23 08:41:02] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/womann.jpg HTTP/1.1" 200 105056
+[2018-11-23 08:41:02] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/aboutrec.png HTTP/1.1" 200 590531
+[2018-11-23 08:41:02] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/wok.png HTTP/1.1" 200 281569
+[2018-11-23 08:41:19] INFO [django.server.log_message:124] "GET /workexperience/pay/ HTTP/1.1" 302 0
+[2018-11-23 08:41:19] INFO [django.server.log_message:124] "GET /login?next=/workexperience/pay/ HTTP/1.1" 200 3396
+[2018-11-23 08:41:24] INFO [django.server.log_message:124] "POST /login HTTP/1.1" 302 0
+[2018-11-23 08:41:24] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 23334
+[2018-11-23 08:41:25] WARNING [django.request.get_response:93] Not Found: /images/icon5.png
+[2018-11-23 08:41:25] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 9049
+[2018-11-23 08:41:30] INFO [django.server.log_message:124] "GET /workexperience/ HTTP/1.1" 200 20656
+[2018-11-23 08:41:30] WARNING [django.request.get_response:93] Not Found: /workexperience/images/icon5.png
+[2018-11-23 08:41:30] WARNING [django.server.log_message:124] "GET /workexperience/images/icon5.png HTTP/1.1" 404 9389
+[2018-11-23 08:41:43] INFO [django.server.log_message:124] "GET /workexperience/pay/ HTTP/1.1" 200 16684
+[2018-11-23 08:41:43] WARNING [django.request.get_response:93] Not Found: /workexperience/pay/images/icon5.png
+[2018-11-23 08:41:43] WARNING [django.server.log_message:124] "GET /workexperience/pay/images/icon5.png HTTP/1.1" 404 9401
+[2018-11-23 08:42:04] INFO [django.server.log_message:124] "GET /workexperience/pay/ HTTP/1.1" 200 16684
+[2018-11-23 08:42:04] WARNING [django.request.get_response:93] Not Found: /workexperience/pay/images/icon5.png
+[2018-11-23 08:42:04] WARNING [django.server.log_message:124] "GET /workexperience/pay/images/icon5.png HTTP/1.1" 404 9401
+[2018-11-23 08:42:30] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /workexperience/pay/
+Traceback (most recent call last):
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Mololuwa\Desktop\SamuelLinuxjobber\Django\Linuxjobber\home\views.py", line 324, in pay
+    description = PAY_FOR
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\stripe\api_resources\abstract\createable_api_resource.py", line 17, in create
+    response, api_key = requestor.request('post', url, params, headers)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\stripe\api_requestor.py", line 94, in request
+    method.lower(), url, params, headers)
+  File "C:\Users\Mololuwa\AppData\Local\Programs\Python\Python36-32\lib\site-packages\stripe\api_requestor.py", line 244, in request_raw
+    'No API key provided. (HINT: set your API key using '
+stripe.error.AuthenticationError: No API key provided. (HINT: set your API key using "stripe.api_key = <API-KEY>"). You can generate API keys from the Stripe web interface.  See https://stripe.com/api for details, or email support@stripe.com if you have any questions.
+[2018-11-23 08:42:30] ERROR [django.server.log_message:124] "POST /workexperience/pay/ HTTP/1.1" 500 95316
+[2018-11-23 08:46:04] INFO [django.server.log_message:124] "GET /workexperience/pay/ HTTP/1.1" 200 16684
+[2018-11-23 08:46:05] WARNING [django.request.get_response:93] Not Found: /workexperience/pay/images/icon5.png
+[2018-11-23 08:46:05] WARNING [django.server.log_message:124] "GET /workexperience/pay/images/icon5.png HTTP/1.1" 404 9401
+[2018-11-23 08:46:40] INFO [django.server.log_message:124] "POST /workexperience/pay/ HTTP/1.1" 200 14055
+[2018-11-23 08:46:41] WARNING [django.request.get_response:93] Not Found: /workexperience/pay/images/icon5.png
+[2018-11-23 08:46:41] WARNING [django.server.log_message:124] "GET /workexperience/pay/images/icon5.png HTTP/1.1" 404 9401
+[2018-11-23 08:46:41] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/proj-list.png HTTP/1.1" 200 208259
+[2018-11-23 08:49:26] INFO [django.server.log_message:124] "GET /jobplacements/ HTTP/1.1" 200 21102
+[2018-11-23 08:49:26] WARNING [django.request.get_response:93] Not Found: /jobplacements/images/icon5.png
+[2018-11-23 08:49:26] WARNING [django.server.log_message:124] "GET /jobplacements/images/icon5.png HTTP/1.1" 404 9406
+[2018-11-23 08:49:26] INFO [django.server.log_message:124] "GET /static/home/images/%240pay.png HTTP/1.1" 200 11502
+[2018-11-23 08:49:27] INFO [django.server.log_message:124] "GET /static/home/images/br2.png HTTP/1.1" 200 11092
+[2018-11-23 08:49:27] INFO [django.server.log_message:124] "GET /static/home/images/ent.png HTTP/1.1" 200 38086
+[2018-11-23 08:49:27] INFO [django.server.log_message:124] "GET /static/home/images/seno.png HTTP/1.1" 200 44722
+[2018-11-23 08:49:27] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs//init.jpg HTTP/1.1" 200 59613
+[2018-11-23 08:49:27] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/jobhead.png HTTP/1.1" 200 269377
+[2018-11-23 08:49:27] INFO [django.server.log_message:124] "GET /static/home/images/race.png HTTP/1.1" 200 402259
+[2018-11-23 08:49:32] INFO [django.server.log_message:124] "GET /jobplacements/apply/snr/ HTTP/1.1" 200 17989
+[2018-11-23 08:49:32] WARNING [django.request.get_response:93] Not Found: /jobplacements/apply/snr/images/icon5.png
+[2018-11-23 08:49:32] WARNING [django.server.log_message:124] "GET /jobplacements/apply/snr/images/icon5.png HTTP/1.1" 404 9436
+[2018-11-23 08:49:59] INFO [django.server.log_message:124] "POST /jobplacements/apply/snr/ HTTP/1.1" 200 14055
+[2018-11-23 08:50:00] WARNING [django.request.get_response:93] Not Found: /jobplacements/apply/snr/images/icon5.png
+[2018-11-23 08:50:00] WARNING [django.server.log_message:124] "GET /jobplacements/apply/snr/images/icon5.png HTTP/1.1" 404 9436

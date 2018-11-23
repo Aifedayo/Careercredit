@@ -19,7 +19,6 @@ from users.forms import CustomUserCreationForm
 from .forms import JobPlacementForm, JobApplicationForm, AWSCredUpload, InternshipForm, ResumeForm
 
 fs = FileSystemStorage(location= settings.MEDIA_ROOT+'/uploads')
-stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
 
@@ -314,6 +313,8 @@ def pay(request):
     mode = "One Time"
     PAY_FOR = "Work Experience"
     DISCLMR = "Please note that you will be charged ${} upfront. However, you may cancel at any time. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ${}".format(PRICE,PRICE)
+    stripeset = StripePayment.objects.all()
+    stripe.api_key = stripeset[0].secretkey
     if request.method == "POST":
         token = request.POST.get("stripeToken")
         try:
@@ -335,7 +336,7 @@ def pay(request):
                 print(error)
                 return redirect("home:index")
     else:
-        context = { "stripe_key": settings.STRIPE_PUBLIC_KEY,
+        context = { "stripe_key": stripeset[0].publickey,
                    'price': PRICE,
                    'amount': str(PRICE)+'00',
                    'mode': mode,
@@ -402,9 +403,11 @@ def check_subscription_status(request):
 
 @login_required
 def monthly_subscription(request):
+    stripeset = StripePayment.objects.all()
     email = request.user.email
-    plan_id = "3"
-    stripe.api_key = "sk_test_FInuRlOzwpM1b3RIw5fwirtv"
+    plan_id = stripeset[0].planid
+    stripe.api_key = stripeset[0].secretkey
+    publickey = stripeset[0].publickey
 
     if request.method == "POST":
         token = request.POST.get("stripeToken")
@@ -437,7 +440,7 @@ def monthly_subscription(request):
         except stripe.error.CardError as ce:
             return False, ce
 
-    return render(request, 'home/monthly_subscription.html', {'email':email})
+    return render(request, 'home/monthly_subscription.html', {'email':email, 'publickey': publickey })
 
 def group(request):
     group = Groupclass.objects.all()
@@ -469,6 +472,7 @@ def group(request):
 
                 groupreg = GroupClassRegister.objects.create(user= user, is_paid=0, amount=29, type_of_class = type_of_class)
                 groupreg.save()
+                send_mail('Linuxjobber Group Class', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Group Class, you will be contacted shortly.', 'settings.EMAIL_HOST_USER', [email])
 
                 new_user = authenticate(username=username,
                                     password=password,
@@ -484,8 +488,9 @@ def group(request):
 
             groupreg = GroupClassRegister.objects.create(user= user, is_paid = 0, amount=29, type_of_class = type_of_class)
             groupreg.save()
-
+            
             login(request, user)
+            send_mail('Linuxjobber Group Class', 'Hello '+ user.first_name +' ' + user.last_name + ',\n' + 'Thank you for registering on Group Class, you will be contacted shortly.', 'settings.EMAIL_HOST_USER', [email])
 
             if int(choice) == 1:
                 return redirect("home:monthly_subscription")
@@ -502,12 +507,13 @@ def group_pay(request):
     amount = request.session['amount']
     amount = int(amount) * 100
     type_class = request.session['class']
+    stripeset = StripePayment.objects.all()
 
-    context = { "stripe_key": settings.STRIPE_PUBLIC_KEY,
+    context = { "stripe_key": stripeset[0].secretkey,
                    'amount': amount }
 
     if request.method == "POST":
-        stripe.api_key = "sk_test_FInuRlOzwpM1b3RIw5fwirtv"
+        stripe.api_key = stripeset[0].secretkey
         token = request.POST.get("stripeToken")
 
         try:
@@ -524,10 +530,13 @@ def group_pay(request):
                 amount=29,
                 type_of_class= type_class,
             )
-            return redirect("home:group")
+            return redirect("home:group_success")
         except stripe.error.CardError as ce:
             return False, ce
     return render(request, 'home/group_pay.html', context)
+
+def  group_success(request):
+    return render(request, 'home/group_success.html')
 
 
 def contact_us(request):
