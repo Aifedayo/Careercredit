@@ -1,0 +1,29 @@
+{% extends 'home/base.html' %}
+{% load staticfiles%}
+{% block title %}
+Group Class | Linuxjobber
+{% endblock %}
+{% block content %}
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          
+        </div>      
+      </div>      
+    </div>
+<div class="main-container">
+<br><br><br><br><br><br>
+{% if messages %}
+          {% for message in messages %}
+          <div class="alert alert-{{message.tags}}" role="alert">
+            {% if message.tags == "success" %}
+            <p style="color:#155724"><b>{{message}}</b></p>
+            {%else%}
+            <p style="color:#721c24">{{message}}</p>
+            {%endif%}
+          </div>
+          {%endfor%}
+        {%endif%}
+</div>
+{%endblock%}
