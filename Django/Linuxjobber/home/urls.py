@@ -30,6 +30,7 @@ urlpatterns = [
     path('groupCourse/pay/', views.group_pay, name='group_pay'),
     path('groupCourse/success/', views.group_success, name='group_success'),
     path('access_course', views.monthly_subscription, name='monthly_subscription'),
+    path('subscriptionstatus', views.check_subscription_status, name='check_subscription_status'),
     path('logout', views.log_out, name="logout"),
     path('forgot/password', views.forgot_password, name='forgot_password'),
     path('reset_password/<str:u_id>/', views.reset_password, name='reset_password'),
