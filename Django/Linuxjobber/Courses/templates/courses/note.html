@@ -1,0 +1,20 @@
+{% extends 'home/base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          
+        </div>      
+      </div>      
+</div>
+<section class="col-md-12 fundamentalmain">
+    <div class="container">
+{{note.Detail|safe}}
+	</div>
+</section>
+{%endblock%}

@@ -33,6 +33,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'channels',
+    'ckeditor',
     'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -232,6 +233,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'asset'),
     )
+
+#CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'

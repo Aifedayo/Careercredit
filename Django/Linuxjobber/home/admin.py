@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import FAQ, Job, UserOrder, Document, MainModel, AwsCredential, Jobplacement, Groupclass, BillingHistory, GroupClassRegister, StripePayment
+from .models import FAQ, Job, Location, UserOrder, Document, MainModel, AwsCredential, Jobplacement, Groupclass, BillingHistory, GroupClassRegister, StripePayment
 
 admin.site.register(FAQ)
 admin.site.register(Job)
@@ -13,3 +13,4 @@ admin.site.register(Groupclass)
 admin.site.register(GroupClassRegister)
 admin.site.register(BillingHistory)
 admin.site.register(StripePayment)
+admin.site.register(Location)

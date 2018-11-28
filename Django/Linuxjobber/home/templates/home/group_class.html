@@ -48,17 +48,6 @@
 <div class="heading">
     <div class="jumbotron">
       <div class="container text-center">
-        {% if messages %}
-          {% for message in messages %}
-          <div class="alert alert-{{message.tags}}" role="alert">
-            {% if message.tags == "success" %}
-            <p style="color:#155724">{{message}}</p>
-            {%else%}
-            <p style="color:#721c24">{{message}}</p>
-            {%endif%}
-          </div>
-          {%endfor%}
-        {%endif%}
     <h1 class="display-4 pt-4">Group Crash Course</h1>
         <h1 class="display-4 pt-4">Join Others. Enjoy a Collaborative Class</h1>
         <p class="p-3 intro-text">Register today to learn the best of programming from world class tutors around the world. Earn certificates by completing our courses and increase your chance of getting a job</p>
