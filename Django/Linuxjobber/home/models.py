@@ -205,7 +205,6 @@ class Location(models.Model):
     country = models.CharField(max_length= 100,blank=True)
     region = models.CharField(max_length= 100,blank=True)
     latitude = models.CharField(max_length=20,blank=True)
-    zipcode = models.CharField(max_length=20,blank=True)
     longtitude = models.CharField(max_length=20,blank=True)
     date_created = models.DateTimeField(default=timezone.now, null=False)
 
