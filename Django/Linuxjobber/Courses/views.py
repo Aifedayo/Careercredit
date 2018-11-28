@@ -61,7 +61,7 @@ def add_location(ip,user):
         r = requests.get(url)
         details = r.json()
         if details['country_name'] is not None:
-            locuser = Location(user=user,ipaddress=ip,country=details['country_name'],region=details['region_name'],zipcode=details['zip'],latitude=details['latitude'],longtitude=details['longitude'],)
+            locuser = Location(user=user,ipaddress=ip,country=details['country_name'],region=details['region_name'],latitude=details['latitude'],longtitude=details['longitude'],)
             locuser.save()
         else:
             pass
