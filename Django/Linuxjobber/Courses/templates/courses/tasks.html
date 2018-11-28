@@ -1,24 +1,30 @@
-{% extends 'courses/base.html' %}
+{% extends 'home/base.html' %}
 
-{% block title %}
-	{{object.course}} - Lab {{object.topic_number}}
-{% endblock %}
+{% load staticfiles %}
 
+{% block content %}
 
-{% block head %}
-    {{object.course}}
-{% endblock%}
-
-{%block content%}
-
-<div class="container">
-    <section class="col-md-12 fundamentalmain">
-
-        <div class="workshop">
-                <h6>Lab {{object.topic_number}}: {{object.topic}}</h6><br>
-
+ <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          
+        </div>      
+      </div>      
+</div>
+<section class="col-md-12 fundamentalmain">
+    <div class="container">
+    
+        <div class="modal-header">
+            <div class="text-center"><b><p></p></b></div>
+            <h6>
+            <span class="videoname">Lab Detail: {{object.topic}}</span>
+            </h6>
             </div>
-
+        
+        <div class="col-md-12">
+            <div class="container physicalstorage">
+            
         {% if object.tasks.all %}
         {%for data in object.tasks.all%}
   
@@ -43,25 +49,14 @@
             {% endif %}
             
         {%endfor%}
-
-
-        <form method="post" enctype="multipart/form-data">
-
-            {% csrf_token %}
-            
-            {{ form.as_p }}
-           
-
-            <button type="submit"> Submit </button>
-        </form>
         {%else%}
                <strong>No tasks for this lab(course topic)</strong> 
         {% endif %}
 
+            </div>
+        </div>
+    </div>
 
-    </section>
-</div>
-{% endblock %}
+</section>
 
-
-
+{%endblock%}

@@ -1,4 +1,4 @@
-import subprocess, json, os
+import subprocess, json, os, requests
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseBadRequest
 from django.shortcuts import render, redirect, get_object_or_404
@@ -8,7 +8,8 @@ from django.conf import settings
 
 #################################################
 #    IMPORTS FROM WITHIN Linuxjobber APPLICATION  #
-from .models import GradesReport, Course, CourseTopic
+from .models import GradesReport, Course, CourseTopic, CourseDescription, CoursePermission, Note
+from home.models import Location
 from .forms import *
 from .utils.djangolabsutils import grade_django_lab
 
@@ -36,8 +37,16 @@ class CourseTopicsView(generic.ListView):
         return CourseTopic.objects.filter(course__course_title = self.kwargs.get('course_name').replace("_", " "))
  
     def get_context_data(self, **kwargs):
+        ip = get_client_ip(self.request)
+        add_location(ip,self.request.user)
+
         context = super().get_context_data(**kwargs)
         context['course'] = Course.objects.get(course_title = self.kwargs.get('course_name').replace("_", " "))
+        if self.request.user.role == 4:
+            try:
+                context['permission'] = CoursePermission.objects.get(user=self.request.user,course=context['course'])
+            except CoursePermission.DoesNotExist:
+                context['permission'] = 0
         return context
 
 
@@ -46,6 +55,25 @@ class CourseTopicsView(generic.ListView):
     As in the topics listing view, we also use the manager here to obtain the specific topic,
         using the topic number provided and the course name
 """
+def add_location(ip,user):
+    url = 'http://api.ipstack.com/'+str(ip)+'?access_key=456c503b74c8697e41cf68f67655842d'
+    try:
+        r = requests.get(url)
+        details = r.json()
+        if details['country_name'] is not None:
+            locuser = Location(user=user,ipaddress=ip,country=details['country_name'],region=details['region_name'],zipcode=details['zip'],latitude=details['latitude'],longtitude=details['longitude'],)
+            locuser.save()
+        else:
+            pass
+    except requests.exceptions.RequestException as e:
+        pass
+
+def TopicNote(request, course_name, lab_no):
+
+    Notes = Note.objects.get(Topic=lab_no)
+
+    return render(request, 'courses/note.html', {'note':Notes})
+
 @login_required
 def topicdetails(request, course_name, lab_no):
     context ={
@@ -86,6 +114,8 @@ def get_gradingform(course_topic, user_obj):
         form.fields['machine'].widget = HiddenInput()
         form.fields['machine'].label = "User_email"
     return form
+
+
 
 
 """
@@ -158,3 +188,21 @@ def handle_rslts(obj,userr,topic):
                                                              defaults={"score": 0}) # defaults used here will be replaced by score = get_scrore(blablabla)
         # here record and created can be used to ascertain when a record is either created or updated.
     os.remove(obj)
+
+def description(request, course_name):
+    course = course_name.replace("_"," ")
+    #course = Course.objects.get(course=course)
+    description = CourseDescription.objects.get(course__course_title=course)
+    return render(request, 'courses/coursedescription.html', {'description':description})
+
+def userinterest(request):
+    return render(request, 'courses/userinterest.html')
+
+#Get users IP address
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    return ip
