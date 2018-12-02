@@ -7,6 +7,8 @@ from django.conf import settings
 from django.shortcuts import render,redirect, reverse, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.template.response import TemplateResponse
+from django.utils.datastructures import MultiValueDictKeyError
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
 from django.core.mail import send_mail
@@ -425,22 +427,40 @@ def monthly_subscription(request):
 
     return render(request, 'home/monthly_subscription.html', {'email':email})
 
-def group(request):
-    group = Groupclass.objects.all()
-
+def group(request,pk):
+    group_item = get_object_or_404(Groupclass,pk=pk)
+    user = None
+    if request.user.is_authenticated:
+        print('user authenticated')
+        user=CustomUser.objects.get(email=request.user)
+    # try:
+    #     user = CustomUser.objects.get(email=request.user)
+    # except CustomUser.DoesNotExist:
+    #     pass
+    # finally:
     if request.method == "POST":
         email = request.POST['email']
         choice = request.POST['choice']
-        type_of_class = request.POST['name']
-        amount = request.POST['price']
 
-        request.session['email'] = email
-        request.session['amount'] = amount
-        request.session['class'] = type_of_class
+        # type_of_class = request.POST['name']
+        # amount = request.POST['price']
 
+        # request.session['email'] = email
+        # request.session['amount'] = amount
+        # request.session['class'] = type_of_class
         try:
+            password = request.POST['password']
             user = CustomUser.objects.get(email=email)
-   
+            the_user = authenticate(email=email,password=password)
+
+            if the_user:
+                login(request,the_user)
+            else:
+                messages.error(request, 'Account found, invalid password entered.')
+
+        except MultiValueDictKeyError:
+            print('Error')
+
         except CustomUser.DoesNotExist:
             firstname = request.POST['fullname'].split()[0]
             lastname = request.POST['fullname'].split()[1] if len(request.POST['fullname'].split()) > 1 else request.POST['fullname'].split()[0]
@@ -451,9 +471,9 @@ def group(request):
                 user.first_name = firstname
                 user.last_name = lastname
                 user.save()
-                send_mail('Linuxjobber Free Account Creation', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + '\n Follow this link http://35.167.153.1:8001/login to login to you account\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+                # send_mail('Linuxjobber Free Account Creation', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + '\n Follow this link http://35.167.153.1:8001/login to login to you account\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
 
-                groupreg = GroupClassRegister.objects.create(user= user, is_paid=0, amount=29, type_of_class = type_of_class)
+                groupreg = GroupClassRegister.objects.create(user= user, is_paid=0, amount=29, type_of_class = group_item.type_of_class)
                 groupreg.save()
 
                 new_user = authenticate(username=username,
@@ -464,38 +484,36 @@ def group(request):
                 if int(choice) == 1:
                     return redirect("home:monthly_subscription")
 
-                return redirect("home:group_pay")
+                return redirect("home:group_pay",pk=group_item.pk)
 
         if user:
-
-            groupreg = GroupClassRegister.objects.create(user= user, is_paid = 0, amount=29, type_of_class = type_of_class)
+            groupreg = GroupClassRegister.objects.create(user= user, is_paid = 0, amount=29, type_of_class = group_item.type_of_class)
             groupreg.save()
-
             login(request, user)
-
             if int(choice) == 1:
                 return redirect("home:monthly_subscription")
-
-            return redirect("home:group_pay")
-
-                
-        
-    return render(request, 'home/group_class.html', {'groups' : group})
+            return redirect("home:group_pay",pk=group_item.pk)
+    return render(request, 'home/group_class_item.html', {'group' : group_item, 'user':user})
 
 @login_required
-def group_pay(request):
-    email = request.session['email']
-    amount = request.session['amount']
-    amount = int(amount) * 100
-    type_class = request.session['class']
-
+def group_pay(request,pk):
+    # email = request.session['email']
+    # amount = request.session['amount']
+    # amount = int(amount) * 100
+    # type_class = request.session['class']
+    group_item=get_object_or_404(Groupclass,pk=pk)
+    amount=group_item.price * 100
+    print(amount)
+    # Stripe uses cent notation for amount 10 USD = 10 * 100
     context = { "stripe_key": settings.STRIPE_PUBLIC_KEY,
-                   'amount': amount }
+                   'amount': amount,
+                'group':group_item
+                }
+
 
     if request.method == "POST":
         stripe.api_key = "sk_test_FInuRlOzwpM1b3RIw5fwirtv"
         token = request.POST.get("stripeToken")
-
         try:
             charge = stripe.Charge.create(
                 amount= amount,
@@ -508,9 +526,12 @@ def group_pay(request):
                 user=request.user,
                 is_paid=1,
                 amount=29,
-                type_of_class= type_class,
+                type_of_class = group_item.type_of_class,
             )
-            return redirect("home:group")
+            # After payment, add user to the group
+            user=get_object_or_404(CustomUser,email=request.user.email)
+            group_item.users.add(user)
+            return redirect("home:group",pk=pk)
         except stripe.error.CardError as ce:
             return False, ce
     return render(request, 'home/group_pay.html', context)
@@ -905,3 +926,8 @@ def pay_live_help(request):
 
 def in_person_training(request):
     return render(request, 'home/in_person_training.html', {'courses' : get_courses(), 'tools' : get_tools()})
+
+
+def group_list(request):
+
+    return TemplateResponse(request,'home/groupclass_list.html',{'groups': Groupclass.objects.all()})

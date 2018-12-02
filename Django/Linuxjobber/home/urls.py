@@ -1,3 +1,4 @@
+from django.contrib import admin
 from django.urls import path, include, re_path
 from . import views
 
@@ -16,6 +17,7 @@ wp_patterns = [
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('admin',admin.site.urls),
     path('login', views.log_in, name = 'login'),
     path('signup', views.signup, name='signup'),
     path('selfstudy', views.selfstudy, name='selfstudy'),
@@ -26,8 +28,10 @@ urlpatterns = [
     path('internships', views.internships, name='internships'),
     path('jobplacements/', include(jp_patterns)),
     path('accepted', views.accepted, name='accepted'),
-    path('groupCourse', views.group, name='group'),
-    path('groupCourse/pay/', views.group_pay, name='group_pay'),
+    path('groupCourse/',views.group_list,name='group'),
+    # path('groupCourse', views.group, name='group'),
+    path('groupCourse/<int:pk>',views.group,name='group'),
+    path('groupCourse/<int:pk>/pay/', views.group_pay, name='group_pay'),
     path('access_course', views.monthly_subscription, name='monthly_subscription'),
     path('logout', views.log_out, name="logout"),
     path('forgot/password', views.forgot_password, name='forgot_password'),

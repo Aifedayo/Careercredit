@@ -34,7 +34,9 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
 
     'rest_framework',
-    'channels',
+    'rest_framework.authtoken',
+    'rest_auth',
+    # 'channels',
     'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -43,11 +45,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
-    'home.apps.HomeConfig',
+    # 'home.apps.HomeConfig',
+    'home',
     'Courses.apps.CoursesConfig',
     'Projects.apps.ProjectsConfig',
     'ToolsApp.apps.ToolsappConfig',
     'classroom.apps.ClassroomConfig',
+    'sso_api'
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -56,13 +60,20 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
-    ]
+        # 'rest_framework.permissions.AllowAny',
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ),
 }
 
 JWT_AUTH = {
     'JWT_RESPONSE_PAYLOAD_HANDLER': 'classroom.views.jwt_response_payload_handler',
     'JWT_EXPIRATION_DELTA': datetime.timedelta(hours=24),
+    'JWT_ALLOW_REFRESH': True,
 }
 
 MIDDLEWARE = [
@@ -245,7 +256,7 @@ LOGIN_REDIRECT_URL = '/home'
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '587'
-EMAIL_HOST_USER = '4linuxjobber@gmail.com'
+EMAIL_HOST_USER = 'linuxjobber@gmail.com'
 EMAIL_HOST_PASSWORD = 'L1nuxj0bber'
 EMAIL_USE_TLS = True
 

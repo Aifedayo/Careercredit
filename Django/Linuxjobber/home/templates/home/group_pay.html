@@ -22,7 +22,7 @@
 							
                         <h2 class="title-4"><i class="icon-user-add"></i>
 						
-						Group Course Payment												
+						{{ group.name }} Course Payment
 						</h2>
 						<hr class='hr-color'/>
                         <div class="row">
@@ -37,8 +37,8 @@
 										<script id='stripejsfile'
 										src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 										data-key="pk_test_1zBTca83q29gl9iwRw1oIBvD"
-										data-amount="{{amount}}"
-										data-email="{{ request.session.email }}"
+										data-amount="{{ amount }}"
+										data-email="{{ request.user.email }}"
 										data-name="Linuxjobber"
 										data-description="Group Course Payment"
 										data-image="https://linuxjobber.com/images/logo.png"
@@ -50,7 +50,7 @@
 								</div>	
 								
 
-								<p style="font-size:14px !important;margin-bottom: 20px;;"><small>Please note that you will be charged ${{ request.session.amount }} upfront. However, you may cancel at any time. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ${{ request.session.amount }}</small></p>
+								<p style="font-size:14px !important;margin-bottom: 20px;;"><small>Please note that you will be charged ${{ group.price }} upfront for {{ group.name }}. However, you may cancel at any time. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ${{ group.price }}</small></p>
 							</form>
 							
                             </div>
@@ -64,7 +64,7 @@
                         <div class="promo-text-box"><i class=" icon-picture fa fa-4x icon-color-1"></i>                         				
 							<p style="color:black;"> Access all courses, labs and tests. </p><br>						
 							<h3>One Time Payment <h3>
-							<h1 class='title-4'>${{ request.session.amount }}</h1>             
+							<h1 class='title-4'>${{ group.price }}</h1>
 					</div>
                 </div>
                 <div class="col-md-1"></div>
