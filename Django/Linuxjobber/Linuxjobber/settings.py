@@ -21,8 +21,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'y@my*7-t9p1rzf&2ryw*m+@1w-*-e5d=)5l_9)5ibtw7v7#2z_')
-STRIPE_PUBLIC_KEY = os.environ.get("STRIPE_PUBL_KEY", "pk_test_q9KJ1eh5JBIJwqrZJIV6zXUf")
-STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY", "sk_test_YQMyw8C53kEkfLuTRikizQ31")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
@@ -34,9 +32,8 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
 
     'rest_framework',
-    'rest_framework.authtoken',
-    'rest_auth',
-    # 'channels',
+    'channels',
+    'ckeditor',
     'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -45,13 +42,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
-    # 'home.apps.HomeConfig',
-    'home',
+    'home.apps.HomeConfig',
     'Courses.apps.CoursesConfig',
     'Projects.apps.ProjectsConfig',
     'ToolsApp.apps.ToolsappConfig',
     'classroom.apps.ClassroomConfig',
-    'sso_api'
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -60,20 +55,13 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        # 'rest_framework.permissions.AllowAny',
-        'rest_framework.permissions.IsAuthenticated',
-    ],
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.BasicAuthentication',
-    ),
+        'rest_framework.permissions.AllowAny',
+    ]
 }
 
 JWT_AUTH = {
     'JWT_RESPONSE_PAYLOAD_HANDLER': 'classroom.views.jwt_response_payload_handler',
     'JWT_EXPIRATION_DELTA': datetime.timedelta(hours=24),
-    'JWT_ALLOW_REFRESH': True,
 }
 
 MIDDLEWARE = [
@@ -111,12 +99,13 @@ WSGI_APPLICATION = 'Linuxjobber.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
+#Here I made use of a mysql database for expense application
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mylinuxjobber',
+        'NAME': 'linuxjobber',
         'USER': 'linuxjobber',
-        'PASSWORD': 'linuxjobber',
+        'PASSWORD': '8iu7*IU&',
         'HOST': 'localhost',
     }
 }
@@ -245,6 +234,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'asset'),
     )
 
+#CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor"
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 LOGIN_URL = '/login'
@@ -256,7 +247,7 @@ LOGIN_REDIRECT_URL = '/home'
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '587'
-EMAIL_HOST_USER = 'linuxjobber@gmail.com'
+EMAIL_HOST_USER = '4linuxjobber@gmail.com'
 EMAIL_HOST_PASSWORD = 'L1nuxj0bber'
 EMAIL_USE_TLS = True
 

@@ -23,6 +23,15 @@ class Course(models.Model):
     def __str__(self):
         return self.course_title
 
+class CoursePermission(models.Model):
+    course = models.ForeignKey(Course, on_delete = models.CASCADE)
+    user = models.ForeignKey(CustomUser,on_delete = models.CASCADE, limit_choices_to={'role': 4})
+    permission = models.IntegerField(default=1 ,choices=((0, 'No'), (1, 'Yes')))
+
+    def __str__(self):
+        return self.user.email
+
+
 
 class CourseTopic(models.Model):
     course = models.ForeignKey(Course, on_delete = models.CASCADE, related_name='topics',related_query_name='topic')
@@ -36,6 +45,40 @@ class CourseTopic(models.Model):
     
     def __str__(self):
         return self.topic
+
+class Note(models.Model):
+    Topic = models.OneToOneField(CourseTopic, on_delete = models.CASCADE)
+    Detail = models.TextField()
+
+    def __str__(self):
+        return self.Topic.topic
+
+
+class NoteComment(models.Model):
+    User = models.ForeignKey(CustomUser, on_delete = models.CASCADE)
+    Note = models.ForeignKey(Note, on_delete = models.CASCADE)
+    Comment = models.CharField(max_length = 200)
+
+    def __str__(self):
+        return self.Comment
+
+
+class CourseDescription(models.Model):
+    course = models.OneToOneField(Course, on_delete = models.CASCADE)
+    course_detail = models.TextField()
+    why_course = models.TextField()
+    opportunity = models.TextField()
+    prerequisite = models.TextField()
+    course_duration = models.PositiveSmallIntegerField()
+    study_plan = models.TextField()
+    salary = models.IntegerField(default=0)
+    salary_source = models.CharField(max_length = 200)
+    syllabus_content = models.TextField()
+    syllabus_topic = models.TextField()
+    certificate = models.CharField(max_length = 20)
+    
+    def __str__(self):
+        return self.course.course_title 
 
 
 class LabTask(models.Model):

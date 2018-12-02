@@ -1,0 +1,152 @@
+{% extends 'home/base.html' %} {% load staticfiles%} 
+
+{% block content %}
+
+
+
+
+
+<div class="userinterest">
+    <div class=" text-center usersint">
+       <h2>{{description.course}}</h2>
+    </div>
+</div>
+
+<section>
+      <div class = "container">
+        <div class = "row m10">
+          <div class = "course-intro">
+            <p class = "course-intro-title text-center text-white">{{description.course}}</p>
+            <p class = "course-details text-white">{{description.course_detail}}</p>
+            {% if user.is_authenticated %}
+			<a href="{% url 'Courses:topics' description.course.course_title.split|join:'_' %}"><button class = "btn btn-get">GET STARTED NOW</button></a>
+            {%else%}
+            <a href="{% url 'home:signup' %}"><button class = "btn btn-get">GET STARTED NOW</button></a>
+            {%endif%}
+          </div>
+        </div> 
+
+         <div class = "row">
+     
+          <div class = "col-xs-12 col-sm-6 col-lg-4">
+            <div class = "course-box-des">
+             <p class = "text-center purple-bd ">COURSE CURRICULUM</p>
+              <p class = "text-black">Tailored and specifically choosen for effective learning adequate and proper understanding of the course.</p>
+    
+            </div>
+            </div>
+            <div class = "col-xs-12 col-sm-6 col-lg-4">
+             <div class = "course-box-des">
+             <p class = "text-center purple-bd">KNOWLEDGE TEST</p>
+              <p class = "text-black">Designed to refresh and test your knowledge at the completion of each topics in the course.</p>
+    
+            </div>
+            </div>
+              <div class = "col-xs-12 col-sm-6 col-lg-4">
+             <div class = "course-box-des">
+             <p class = "text-center purple-bd">PRACTICE PROJECTS</p>
+              <p class = "text-black">Get practical hands-on experience working on projects to reinforce what you have learnt.</p>
+    
+            </div>
+            </div>
+        </div>        
+        </div>
+    </section>
+
+<section>
+      <div class = "container">
+        <div class = "row">
+          <div class = "why-where">
+            <div class = "why">
+              <div class = "col-xs-12 col-sm-6 col-lg-6">
+                <h2 class = "why-title text-center">
+                  <i class = "fa fa-quote-left"></i>Why Take This Course?<i class = "fa fa-quote-right"></i>
+                </h2>
+                <p class = "why-content text-black">
+                  {{description.why_course}}           </p>
+              </div>
+            </div>
+            <div class = "where">
+              <div class = "col-xs-12 col-sm-6 col-lg-6">
+              <h2 class = "why-title text-center">
+                  <i class = "fa fa-location-arrow"></i>Where Does It Lead Me?
+                </h2>
+                <p class = "why-content text-black">
+                      {{description.opportunity}}             </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class = "trial-container">
+      <div class = "container">
+        <div class = "row">
+          <div class = "trial-section">
+            <h3 class = "text-center text-white mgb30">At $29/Month</h3>
+            <p class = "text-center text-white mgb30">Access all courses, videos, labs and tests with a 14-day free trial.</p>
+             <a href="#"><button class = "btn btn-get-t">TRY IT NOW</button></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+  <section class = "syllabus-section">
+    <div class = "container">
+         <div class = "row syllabus-one">
+     
+          <div class = "col-xs-12 col-sm-6 col-lg-4">
+            <div class = "course-box-sx">
+             <p class = "text-center purple-bd">Prerequisites</p>
+              <p class = "text-black">{{description.prerequisite}}  </p>
+    
+            </div>
+            </div>
+            <div class = "col-xs-12 col-sm-6 col-lg-4">
+             <div class = "course-box-s">
+             <p class = "text-center purple-bd">Study Plan</p>
+              <p class = "bold text-center text-black">{{description.course_duration}} weeks </p> 
+              <p class="text-black">{{description.study_plan}} </p>
+    
+            </div>
+            </div>
+              <div class = "col-xs-12 col-sm-6 col-lg-4">
+             <div class = "course-box-s">
+             <p class = "text-center purple-bd">Annual Salary Outlook</p>
+              <p class = "bold text-center text-black">${{description.salary}} </p>
+              <p class="text-black">Source: {{description.salary_source}} </p>
+    
+            </div>
+            </div>
+          </div> 
+
+
+
+
+          <div class = "row ">
+            <div class = "syllabustwo">
+                <button class = "btn btn-get-s"><i class = "fa fa-hourglass"></i>SYLLABUS</button>
+                <button class = "btn btn-get-p pull-right"><i class = "fa fa-certificate"></i>Certificates?<span>{{description.certificate}}</span></button>
+                <h3 class = "syllabus-title">{{description.course}}</h3>
+
+                <p class = "syllabus-content text-black">{{description.syllabus_content }}</p>
+
+                <div class = "row topics">
+                <div class = "col-xs-12 col-sm-12 col-lg-6">
+                  <ul type ="circle" class = "">
+									{{description.syllabus_topic|linebreaksbr }}
+                                        
+                                      </ul>
+                </div>
+                <div class = "col-xs-12 col-sm-12 col-lg-6">
+                </div>
+              </div>
+                 <a href="{% url 'Courses:topics' description.course.course_title.split|join:'_' %}"><button class = "btn btn-get2 pull-right">ENROLL NOW</button></a>
+              </div>
+          </div>
+
+    </div>
+  </section>
+
+{%endblock%}
