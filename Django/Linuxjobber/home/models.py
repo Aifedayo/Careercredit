@@ -101,6 +101,15 @@ class GroupClassRegister(models.Model):
     def __str__(self):
         return self.user.email
 
+class StripePayment(models.Model):
+    secretkey = models.TextField()
+    publickey = models.TextField()
+    planid = models.TextField()
+
+    def __str__(self):
+        return self.secretkey
+
+
 class BillingHistory(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     amount = models.IntegerField(default=0)
@@ -206,3 +215,16 @@ class RHCSAOrder(models.Model):
 
 class NewsLetterSubscribers(models.Model):
     email = models.EmailField(max_length = 200)
+
+class Location(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete = models.CASCADE)
+    ipaddress = models.CharField(max_length = 50)
+    country = models.CharField(max_length= 100,blank=True)
+    region = models.CharField(max_length= 100,blank=True)
+    latitude = models.CharField(max_length=20,blank=True)
+    longtitude = models.CharField(max_length=20,blank=True)
+    date_created = models.DateTimeField(default=timezone.now, null=False)
+
+
+    def __str__(self):
+        return self.user.email

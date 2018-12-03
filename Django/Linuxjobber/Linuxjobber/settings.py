@@ -21,8 +21,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'y@my*7-t9p1rzf&2ryw*m+@1w-*-e5d=)5l_9)5ibtw7v7#2z_')
-STRIPE_PUBLIC_KEY = os.environ.get("STRIPE_PUBL_KEY", "pk_test_q9KJ1eh5JBIJwqrZJIV6zXUf")
-STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY", "sk_test_YQMyw8C53kEkfLuTRikizQ31")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
@@ -35,6 +33,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'channels',
+    'ckeditor',
     'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -100,12 +99,13 @@ WSGI_APPLICATION = 'Linuxjobber.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
+#Here I made use of a mysql database for expense application
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mylinuxjobber',
+        'NAME': 'linuxjobber',
         'USER': 'linuxjobber',
-        'PASSWORD': 'linuxjobber',
+        'PASSWORD': '8iu7*IU&',
         'HOST': 'localhost',
     }
 }
@@ -233,6 +233,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'asset'),
     )
+
+#CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'

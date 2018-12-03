@@ -1,38 +1,200 @@
-{% extends 'courses/base.html' %}
+{% extends 'home/base.html' %}
 
-{% block title %}
-    Topics | {{course}} | Linuxjobber
-{% endblock %}
-
-
-{% block head %}
-    {{course}} - Topics
-{% endblock %}
-
+{% load staticfiles %}
 
 {% block content %}
+<style>
+#myCarousel .carousel-inner{height: 250px; padding: 70px 0 20px !important;}
+.popover { max-width:160px !important;}
+</style>
+    
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <div class="container">
+                <div class="carousel-caption">
+                <div class="col-md-4 animate-box"></div>              
+            <div class="col-md-4 animate-box" style="margin-top:29px">
+                <span style="font-size: 30px;"> <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>   {{course}} </span>
+                </div>
+              <div class="col-md-4 animate-box">
+                    
+                    <span style="float:right;"> 
+                        <div class="row border-box" style="height: 100px;font-size: 15px;">
+                        <div class="col-md-4" style="margin:20px 0;">Linux Skill</div>                      
+                        <div class="col-md-2">
+                        <canvas id="demo-3" style="demo"></canvas>
+                        <!--div class="easy-pie-chart percentage" data-size="30" data-color="#468AC6" data-percent=""></div-->
+                        </div>                      
+                        <div class="col-md-6 text-right" style="margin:20px 0;ight:66px;"><span class="percents">0</span>% completed</div>  
+                        </div>
+                    </span>                     
+                              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
 
-<section class="col-md-12 fundamentalmain">
+        <div class="container">             
+            <div class="col-xs-12 lab-details">
+                        <br><br>    
+            <div class="container">             
+            <div class="col-xs-12 lab-details">
+                <div class ='row topic-bg'>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-5 topic-class"><h4>Topics</h4></div>
+                    <div class="col-md-2 topic-class"><h4>Notes</h4></div>
+                    <div class="col-md-2 topic-class"><h4>Lab</h4></div>
+                    <div class="col-md-2 topic-class"><h4>Status</h4></div>
+                </div>   
+
+                <div id="myList">
+                {% if request.user.role >= 1 and request.user.role <= 3 %}  
+                {% for topic in object_list %}         
+                <div class ="row line-ht">
+                    
+                    
+                    <div class="col-md-1">
+                        <a href="{% url 'Courses:topic_details' course.course_title.split|join:'_' topic.topic_number %}"><img src="{% static 'home/images/Movie-icon.jpg' %}" alt="Topic" /></a>
+                    </div>
+                    <div class="col-md-5">
+                        <a href="{% url 'Courses:topic_details' course.course_title.split|join:'_' topic.topic_number %}">{{ topic }}</a>
+                    </div>
+                    <div class="col-md-2"><a href="{% url 'Courses:Note' topic.course.course_title.split|join:'_' topic.topic_number %}">View</a></div>
+                    <div class="col-md-1"><a href="{% url 'Courses:labs' topic.course.course_title.split|join:'_' topic.topic_number %}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a></div>
+                    <div class="col-md-3" data-toggle="popover" title="Topic Stats" data-content="Video : 0% of 100%     ">
+                        <div class="prgbarin" >
+                                    <div class="row">
+                                    <div class="col-md-4">
+                                    <div class="progress" style="width:60px;">
+                                    <div class="progress-bar progress-bar-primary" role="progressbar"
+                                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">0% Complete </div>
+                                <div class="col-md-2"></div>
+                                    
+                                </div>
+                                 </div>
+                    </div>
+                    
+                    
+                </div>
+                {%endfor%}
+
+                {%elif request.user.role == 4%}
+                    {%if permission.permission == 1 %}
+                    {% for topic in object_list %}         
+                    <div class ="row line-ht">
+                        
+                        
+                        <div class="col-md-1">
+                            <a href="{% url 'Courses:topic_details' course.course_title.split|join:'_' topic.topic_number %}"><img src="{% static 'home/images/Movie-icon.jpg' %}" alt="Topic" /></a>
+                        </div>
+                        <div class="col-md-5">
+                            <a href="{% url 'Courses:topic_details' course.course_title.split|join:'_' topic.topic_number %}">{{ topic }}</a>
+                        </div>
+                        <div class="col-md-2"><a href="{% url 'Courses:Note' topic.course.course_title.split|join:'_' topic.topic_number %}">View</a></div>
+                        <div class="col-md-1"><a href="{% url 'Courses:labs' topic.course.course_title.split|join:'_' topic.topic_number %}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a></div>
+                        <div class="col-md-3" data-toggle="popover" title="Topic Stats" data-content="Video : 0% of 100%     ">
+                            <div class="prgbarin" >
+                                        <div class="row">
+                                        <div class="col-md-4">
+                                        <div class="progress" style="width:60px;">
+                                        <div class="progress-bar progress-bar-primary" role="progressbar"
+                                        aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">0% Complete </div>
+                                    <div class="col-md-2"></div>
+                                        
+                                    </div>
+                                     </div>
+                        </div>
+                        
+                        
+                    </div>
+                    {%endfor%}
+                    {%else%}
+                        {% for topic in object_list %}
+                         <div class ="row line-ht">
+                    <div class="col-md-1">
+                        <a href="{% url 'home:monthly_subscription'%}"><img src="{% static 'home/images/Movie-icon.jpg' %}" alt="Topic" /></a>
+                    </div>
+                    <div class="col-md-5">
+                        <a href="{% url 'home:monthly_subscription'%}">{{ topic }}</a>
+                    </div>
+                    <div class="col-md-2"><a href="{% url 'home:monthly_subscription'%}">View</a></div>
+                    <div class="col-md-1"><a href="{% url 'home:monthly_subscription'%}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a></div>
+                    <div class="col-md-3" data-toggle="popover" title="Topic Stats" data-content="Video : 0% of 100%     ">
+                       <div class="prgbarin" >
+                                    <div class="row">
+                                    <div class="col-md-4">
+                                    <div class="progress" style="width:60px;">
+                                    <div class="progress-bar progress-bar-primary" role="progressbar"
+                                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">0% Complete </div>
+                                <div class="col-md-2"></div>
+                                    
+                                </div>
+                                 </div>
+                    </div>
+                </div>
+                    {%endfor%}
+                    {%endif%}
+                {%else%}
+                    {% for topic in object_list %}
+                     <div class ="row line-ht">
+                    <div class="col-md-1">
+                        <a href="{% url 'home:monthly_subscription'%}"><img src="{% static 'home/images/Movie-icon.jpg' %}" alt="Topic" /></a>
+                    </div>
+                    <div class="col-md-5">
+                        <a href="{% url 'home:monthly_subscription'%}">{{ topic }}</a>
+                    </div>
+                    <div class="col-md-2"><a href="{% url 'home:monthly_subscription'%}">View</a></div>
+                    <div class="col-md-1"><a href="{% url 'home:monthly_subscription'%}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a></div>
+                    <div class="col-md-3" data-toggle="popover" title="Topic Stats" data-content="Video : 0% of 100%     ">
+                       <div class="prgbarin" >
+                                    <div class="row">
+                                    <div class="col-md-4">
+                                    <div class="progress" style="width:60px;">
+                                    <div class="progress-bar progress-bar-primary" role="progressbar"
+                                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">0% Complete </div>
+                                <div class="col-md-2"></div>
+                                    
+                                </div>
+                                 </div>
+                    </div>
+                </div>
+                    {%endfor%}
+                {%endif%}
+                </div>  
+            </div>              
+                             
+                </div>
+            </div>
+        </div>      
 
 
-        <table style="width: 1000px;">
-            {% for topic in object_list %}
-                <tr>
-                    <td style=" width: 30px;">  <span>{{ topic.topic_number  }}</span></td>
-                    <td>
-                        <a class="page-link" href="{% url 'Courses:topic_details' course.course_title.split|join:'_' topic.topic_number %}" style="text-decoration: none;">
-                            <span>{{ topic.topic  }}</span>
-                        </a>
-                    </td>
-                    <td style=" width: 10px;">
-                        <a class="page-link" href="{% url 'Courses:labs' course.course_title.split|join:'_' topic.topic_number %}" style="text-decoration: none;">
-                        <span>Tasks</span>   </a>
-                    </td>
-                    <td style=" width: 10px;"><a class="page-link" href="#"> Notes </a> </td>
-                </tr>
-             {% endfor %}
-        </table>
-</section>
+<script type="text/javascript">
+    $(function () {
+    $("div").slice(30, 40).show();
+    $("#loadMore").on('click', function (e) {
+        e.preventDefault();
+        $("div:hidden").slice(15, 100).slideDown();
+        $("#loadMore").hide();
+        if ($("div:hidden").length == 0) {
+            $("#load").fadeOut('slow');
+        }
+    });
+});
 
+</script>
 {% endblock %}
 
