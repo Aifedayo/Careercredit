@@ -4358,3 +4358,7 @@ django.core.exceptions.FieldError: Cannot resolve keyword 'tasks' into field. Ch
 [2018-12-03 11:45:37] ERROR [django.server.log_message:124] "GET /sso_api/group/1/ HTTP/1.1" 500 22063
 [2018-12-03 11:46:17] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 301 0
 [2018-12-03 11:46:17] INFO [django.server.log_message:124] "GET /sso_api/group/1/ HTTP/1.1" 200 870
+[2018-12-03 12:15:43] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 301 0
+[2018-12-03 12:15:43] INFO [django.server.log_message:124] "GET /sso_api/group/1/ HTTP/1.1" 200 870
+[2018-12-03 12:15:59] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 301 0
+[2018-12-03 12:15:59] INFO [django.server.log_message:124] "GET /sso_api/group/1/ HTTP/1.1" 200 870

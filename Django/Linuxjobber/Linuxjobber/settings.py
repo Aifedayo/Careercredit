@@ -32,7 +32,7 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
 
     'rest_framework',
-    #'channels',
+    'channels',
     'ckeditor',
     'corsheaders',
     'django.contrib.admin',
@@ -101,13 +101,14 @@ WSGI_APPLICATION = 'Linuxjobber.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
+# Todo Before Push modify to original credentials
 #Here I made use of a mysql database for expense application
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'linuxjobber',
         'USER': 'root',
-        # 'PASSWORD': '&',
+         'PASSWORD': 'P@ssword12345*',
         'HOST': 'localhost',
     }
 }
