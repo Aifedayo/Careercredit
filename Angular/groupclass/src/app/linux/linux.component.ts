@@ -6,8 +6,7 @@ import { MaterializeModule} from 'angular2-materialize';
 @Component({
   selector: 'app-linux',
   templateUrl: './linux.component.html',
-  styleUrls: ['./linux.component.css'],
-  providers: [MaterializeModule]
+  styleUrls: ['./linux.component.css']
 })
 export class LinuxComponent implements OnInit {
 

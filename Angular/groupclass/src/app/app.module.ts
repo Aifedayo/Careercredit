@@ -38,6 +38,7 @@ import { Video17Component } from './course/video17/video17.component';
 import { Video18Component } from './course/video18/video18.component';
 import { Video19Component } from './course/video19/video19.component';
 import { PrivateChatComponent } from './course/private-chat/private-chat.component';
+import { Course2Component } from './course2/course2.component';
 import { LinuxComponent } from './linux/linux.component';
 
 
@@ -75,6 +76,7 @@ import { LinuxComponent } from './linux/linux.component';
     Video18Component,
     Video19Component,
     PrivateChatComponent,
+    Course2Component,
     TopicDetailComponent
   ],
   imports: [

@@ -5,11 +5,6 @@ from rest_framework import authentication, permissions, status
 from rest_framework.authtoken.models import Token
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny,IsAuthenticated
-from rest_framework.status import (
-    HTTP_400_BAD_REQUEST,
-    HTTP_404_NOT_FOUND,
-    HTTP_200_OK
-)
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -17,12 +12,9 @@ from users.models import CustomUser
 
 from home.models import Groupclass
 
-from sso_api.serializers import GroupClassSerializer
+from .serializers import GroupClassSerializer,UserSerializer,CourseSerializer,CourseTopicSerializer
+from Courses.models import Course,CourseTopic
 
-from sso_api.serializers import UserSerializer
-
-from Courses.models import Course
-from sso_api.serializers import CourseSerializer
 
 
 @csrf_exempt
@@ -33,14 +25,14 @@ def login(request):
     password = request.data.get("password")
     if username is None or password is None:
         return Response({'error': 'Please provide both username and password'},
-                        status=HTTP_400_BAD_REQUEST)
+                        status=status.HTTP_403_FORBIDDEN)
     user = authenticate(username=username, password=password)
     if not user:
         return Response({'error': 'Invalid Credentials'},
-                        status=HTTP_404_NOT_FOUND)
+                        status=status.HTTP_404_NOT_FOUND)
     token, _ = Token.objects.get_or_create(user=user)
     return Response({'token': token.key},
-                    status=HTTP_200_OK)
+                    status=status.HTTP_200_OK)
 @csrf_exempt
 @api_view(["GET"])
 @permission_classes((IsAuthenticated,))
@@ -54,14 +46,14 @@ class Groups(APIView):
         return None
 
 
-class GroupUsers(APIView):
+class UserGroups(APIView):
     """
     View to list all groups in the system.
 
     * Requires token authentication.
     """
     authentication_classes = (authentication.TokenAuthentication,)
-    permission_classes = (permissions.IsAdminUser,)
+    # permission_classes = (permissions.IsAdminUser,)
 
     def get(self, request, group_id=0):
         """
@@ -72,14 +64,18 @@ class GroupUsers(APIView):
         item= GroupClassSerializer(group_item,many=True)
         return Response(item.data)
 
-class CourseDetail(APIView):
-    def get(self,request):
-        id=request.get['course_id']
+class GroupCourse(APIView):
+    authentication_classes = (authentication.TokenAuthentication,)
+    def get(self,request,group_id):
         try:
-            course=Course.objects.get(pk=id)
-            data=CourseSerializer(course,many=True)
-            return Response(data.data)
-
+            group_item=Groupclass.objects.get(pk=group_id)
+            if request.user in group_item.users.all():
+                data=CourseTopicSerializer(CourseTopic.objects.filter(course=group_item.course),many=True)
+                return Response(data.data)
+            else:
+                return Response(status=status.HTTP_403_FORBIDDEN)
+        except Groupclass.DoesNotExist:
+            pass
         except Course.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
 

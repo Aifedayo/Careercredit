@@ -32,7 +32,7 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
 
     'rest_framework',
-    'channels',
+    #'channels',
     'ckeditor',
     'corsheaders',
     'django.contrib.admin',
@@ -42,11 +42,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
-    'home.apps.HomeConfig',
+    # 'home.apps.HomeConfig',
+    'home',
     'Courses.apps.CoursesConfig',
     'Projects.apps.ProjectsConfig',
     'ToolsApp.apps.ToolsappConfig',
     'classroom.apps.ClassroomConfig',
+    'rest_framework.authtoken'
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -55,7 +57,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
+        'rest_framework.permissions.IsAuthenticated',
     ]
 }
 
@@ -104,8 +106,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'linuxjobber',
-        'USER': 'linuxjobber',
-        'PASSWORD': '8iu7*IU&',
+        'USER': 'root',
+        # 'PASSWORD': '&',
         'HOST': 'localhost',
     }
 }

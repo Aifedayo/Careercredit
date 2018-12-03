@@ -6,6 +6,10 @@ from Courses.models import Course
 
 from Courses.models import CourseTopic
 
+from Courses.models import LabTask
+
+from Courses.models import Note
+
 
 class GroupClassSerializer(serializers.ModelSerializer):
     course=serializers.StringRelatedField()
@@ -19,16 +23,40 @@ class UserSerializer(serializers.ModelSerializer):
         model = CustomUser
         fields = "__all__"
 
-class CourseSerializer(serializers.ModelSerializer):
+class LabTaskSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = LabTask
+        fields = ['id','comment','note','task','hint','instruction']
 
+class CourseNoteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Note
+        fields = ['id','note']
+
+class CourseTopicSerializer(serializers.ModelSerializer):
+    # tasks=LabTaskSerializer(many=True)
+    tasks=serializers.SerializerMethodField()
+    note= serializers.StringRelatedField()
+    class Meta:
+        model = CourseTopic
+        fields = ['id','topic','video','tasks','note']
+
+    def get_tasks(self,obj):
+        q=LabTask.objects.filter(lab_id=obj.pk).order_by('pk')
+        s=LabTaskSerializer(q,many=True)
+        return s.data
+
+class CourseSerializer(serializers.ModelSerializer):
+    topics=CourseTopicSerializer(many=True)
     class Meta:
         model = Course
         fields = "__all__"
 
-
-class CourseTopicSerializer(serializers.ModelSerializer):
-
+class TopicLabSerializer(serializers.ModelSerializer):
+    course=CourseSerializer()
     class Meta:
         model = CourseTopic
         fields = "__all__"
-        depth=1
+        ord
+
+

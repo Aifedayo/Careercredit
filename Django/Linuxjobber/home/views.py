@@ -18,11 +18,10 @@ from .models import *
 from Courses.models import Course
 from ToolsApp.models import Tool
 from users.models import CustomUser
-from users.forms import CustomUserCreationForm
 from .forms import JobPlacementForm, JobApplicationForm, AWSCredUpload, InternshipForm, ResumeForm
 
 fs = FileSystemStorage(location= settings.MEDIA_ROOT+'/uploads')
-stripe.api_key = settings.STRIPE_SECRET_KEY
+# stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
 #Error Logging Instances

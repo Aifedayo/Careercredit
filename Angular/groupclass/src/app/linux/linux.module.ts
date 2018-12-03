@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { LinuxChatComponent } from './linux-chat/linux-chat.component';
 import { BrowserModule} from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -11,6 +12,7 @@ import { LinuxRoutingModule } from './linux-routing.module';
 
 @NgModule({
   imports: [
+    CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
     MatVideoModule,

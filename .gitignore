@@ -1,0 +1,9 @@
+*.py[cod]
+*\.idea*
+!.gitignore
+*.pyc
+db.sqlite3
+*.ini
+settings.ini
+*.log
+**/node_modules*
