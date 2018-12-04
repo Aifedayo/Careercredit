@@ -209,7 +209,7 @@ def log_in(request):
         
         if user is not None:
             login(request, user)
-            return redirect("home:index")
+            return redirect("Courses:userinterest")
         else:
             error_message = "yes"
             return render(request, "home/registration/login.html", {'error_message' : error_message})

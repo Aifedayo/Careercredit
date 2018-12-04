@@ -1,0 +1,46 @@
+{% load static %}
+<style>
+.ErrorField{ border-color:red !important; }
+</style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" >
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+<link rel="stylesheet" href="{% static 'vistorpage.css' %}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+<script src="{% static 'home/css/newdesigner/js/validation/jquery.validate.js' %}"></script>
+<section id = "introduction-visitor">
+ <nav class="navbar navbar-toggleable-md">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="{% url 'home:index' %}"><img src="{% static 'home/images/logo.png' %}" alt="logo"></a>
+  
+
+</nav>
+<div class = "container">
+		<div class = "banner">		   
+			<div class = "row fill-viewport text-center justify-content-center align-items-center">  
+					  
+				<div class = "welcome-v">
+					<h1 class = "text-white">Linuxjobber</h1>
+					<h5  class = "text-white w2">We teach and groom you on the latest technologies.</h5>
+									</div>
+				<p id= "above"><br>Already a member? <a class = "red" href="{% url 'home:login' %}">Login</a></p>
+				<form class="input-group"  method="post" action="{% url 'Courses:signup' %}" id = "searchbar-v">
+					{% csrf_token %}
+					<input type="hidden" name="username" id="username" />					
+					<input class="form-control mr-sm-2" type="text" placeholder="Full name"  name="fullname" id="name" required>
+					<input class="form-control mr-sm-2" type="email" placeholder="Email address" name="email" id = "email" required>
+					<button class="btn btn-search my-2 my-sm-0" style="cursor:pointer" type="submit" id = "btn-search">Get free access</button>   
+				</form>
+				<a href="#notes" class = "ball" onclick="hideIntro()"><i class="fa fa-chevron-circle-down fa-3x "></i></a>						
+			</div>
+		</div>
+	</div>
+</section>
+
+<script type="text/javascript">
+function hideIntro(){
+	$("#introduction-visitor").hide();
+}
+</script>
+{% block content %} {% endblock %}

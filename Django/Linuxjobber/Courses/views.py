@@ -1,15 +1,17 @@
-import subprocess, json, os, requests
+import subprocess, json, os, requests, random
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseBadRequest
 from django.shortcuts import render, redirect, get_object_or_404
 from django import template as temp#, forms
 from django.views import generic
 from django.conf import settings
+from django.core.mail import send_mail
 
 #################################################
 #    IMPORTS FROM WITHIN Linuxjobber APPLICATION  #
-from .models import GradesReport, Course, CourseTopic, CourseDescription, CoursePermission, Note
+from .models import GradesReport, Course, CourseTopic, CourseDescription, CoursePermission, Note, NoteComment, TopicStatus
 from home.models import Location
+from users.models import CustomUser
 from .forms import *
 from .utils.djangolabsutils import grade_django_lab
 
@@ -42,6 +44,7 @@ class CourseTopicsView(generic.ListView):
 
         context = super().get_context_data(**kwargs)
         context['course'] = Course.objects.get(course_title = self.kwargs.get('course_name').replace("_", " "))
+        #context['topicstatus'] = TopicStatus.objects.get(topic)
         if self.request.user.role == 4:
             try:
                 context['permission'] = CoursePermission.objects.get(user=self.request.user,course=context['course'])
@@ -70,9 +73,59 @@ def add_location(ip,user):
 
 def TopicNote(request, course_name, lab_no):
 
-    Notes = Note.objects.get(Topic=lab_no)
+    if request.user.is_authenticated:
+        template = 'home/base.html'
+    else:
+        template = 'courses/visitor.html'
 
-    return render(request, 'courses/note.html', {'note':Notes})
+    Notes = Note.objects.get(Topic=lab_no)
+    Topics = CourseTopic.objects.filter(course__course_title = course_name.replace("_", " "))
+    Random = random.sample(list(Topics), 3)
+    try:
+        comments = NoteComment.objects.filter(Note=Notes)
+    except NoteComment.DoesNotExist:
+        comments = False
+
+    if request.method == "POST":
+        comment = request.POST['comment']
+
+        if comment:
+            com = NoteComment(User=request.user,Note=Notes,Comment=comment)
+            com.save()
+            return render(request, 'courses/note.html', {'template':template, 'note':Notes, 'randoms': Random, 'course': course_name, 'comments':comments})
+        else:
+            error = True
+            return render(request, 'courses/note.html', {'template':template,'note':Notes, 'randoms': Random, 'course': course_name, 'error':error,  'comments':comments})
+
+
+
+    return render(request, 'courses/note.html', {'template':template, 'note':Notes, 'randoms': Random, 'course': course_name, 'comments':comments})
+
+
+def signup(request):
+    if request.method == "POST":
+        firstname = request.POST['fullname'].split()[0]
+        lastname = request.POST['fullname'].split()[1] if len(request.POST['fullname'].split()) > 1 else request.POST['fullname'].split()[0]
+        email = request.POST['email']
+        password = CustomUser.objects.make_random_password()
+        username = email.split('@')[0]
+
+        if (firstname):
+            user = CustomUser(username=username, email=email)
+            user.set_password(password)
+            user.first_name = firstname
+            user.last_name = lastname
+            user.save()
+            send_mail('Linuxjobber Free Account Creation', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + 'and password is: '+ password +'\nFollow this link http://35.167.153.1:8001/login to login to you account\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            return render(request, "courses/success.html", {'user': user})
+        else:
+            error = True
+            return render(request, 'home/registration/signup.html', {'error':error})
+    else:
+        return render(request, 'home/registration/signup.html') 
+
+def success(request):
+    return render(request, 'courses/success.html')
 
 @login_required
 def topicdetails(request, course_name, lab_no):
