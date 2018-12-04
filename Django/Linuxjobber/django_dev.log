@@ -4362,3 +4362,165 @@ django.core.exceptions.FieldError: Cannot resolve keyword 'tasks' into field. Ch
 [2018-12-03 12:15:43] INFO [django.server.log_message:124] "GET /sso_api/group/1/ HTTP/1.1" 200 870
 [2018-12-03 12:15:59] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 301 0
 [2018-12-03 12:15:59] INFO [django.server.log_message:124] "GET /sso_api/group/1/ HTTP/1.1" 200 870
+[2018-12-04 14:06:57] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 21300
+[2018-12-04 14:06:57] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 200 1163
+[2018-12-04 14:06:58] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2018-12-04 14:06:58] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2018-12-04 14:06:58] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 39923
+[2018-12-04 14:06:58] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 134612
+[2018-12-04 14:06:58] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 200 825
+[2018-12-04 14:06:58] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 200 5356
+[2018-12-04 14:06:58] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 200 3979
+[2018-12-04 14:06:58] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 200 3066
+[2018-12-04 14:06:58] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 200 29115
+[2018-12-04 14:06:58] INFO [django.server.log_message:124] "GET /static/faq/js/jquery-2.1.1.js HTTP/1.1" 200 256541
+[2018-12-04 14:06:58] INFO [django.server.log_message:124] "GET /static/home/images/bannerr.png HTTP/1.1" 200 77329
+[2018-12-04 14:06:58] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 200 4488
+[2018-12-04 14:06:58] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 200 9198
+[2018-12-04 14:06:58] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 200 7177
+[2018-12-04 14:06:59] INFO [django.server.log_message:124] "GET /static/home/images/logout1.png HTTP/1.1" 200 1899
+[2018-12-04 14:06:59] INFO [django.server.log_message:124] "GET /static/home/images/linuxx.png HTTP/1.1" 200 13722
+[2018-12-04 14:06:59] INFO [django.server.log_message:124] "GET /static/home/images/java.png HTTP/1.1" 200 14813
+[2018-12-04 14:06:59] INFO [django.server.log_message:124] "GET /static/home/images/awssa.png HTTP/1.1" 200 13411
+[2018-12-04 14:06:59] INFO [django.server.log_message:124] "GET /static/home/images/views.png HTTP/1.1" 200 5544
+[2018-12-04 14:06:59] INFO [django.server.log_message:124] "GET /static/home/images/btns.png HTTP/1.1" 200 3954
+[2018-12-04 14:06:59] INFO [django.server.log_message:124] "GET /static/home/images/training.png HTTP/1.1" 200 154154
+[2018-12-04 14:06:59] INFO [django.server.log_message:124] "GET /static/home/images/pupet.png HTTP/1.1" 200 5198
+[2018-12-04 14:06:59] INFO [django.server.log_message:124] "GET /static/home/images/experience.png HTTP/1.1" 200 279224
+[2018-12-04 14:06:59] INFO [django.server.log_message:124] "GET /static/home/images/engine2.png HTTP/1.1" 200 4246
+[2018-12-04 14:06:59] INFO [django.server.log_message:124] "GET /static/home/images/pupett.png HTTP/1.1" 200 8770
+[2018-12-04 14:06:59] INFO [django.server.log_message:124] "GET /static/home/images/tutor.png HTTP/1.1" 200 11460
+[2018-12-04 14:06:59] INFO [django.server.log_message:124] "GET /static/home/images/kid.png HTTP/1.1" 200 13920
+[2018-12-04 14:06:59] INFO [django.server.log_message:124] "GET /static/home/images/placement.png HTTP/1.1" 200 98335
+[2018-12-04 14:06:59] INFO [django.server.log_message:124] "GET /static/home/images/dre.png HTTP/1.1" 200 22180
+[2018-12-04 14:06:59] INFO [django.server.log_message:124] "GET /static/home/images/22.png HTTP/1.1" 200 62724
+[2018-12-04 14:06:59] INFO [django.server.log_message:124] "GET /static/home/images/33.png HTTP/1.1" 200 62653
+[2018-12-04 14:06:59] INFO [django.server.log_message:124] "GET /static/home/images/44.png HTTP/1.1" 200 58580
+[2018-12-04 14:07:00] INFO [django.server.log_message:124] "GET /static/home/images/q1.png HTTP/1.1" 200 1961
+[2018-12-04 14:07:00] INFO [django.server.log_message:124] "GET /static/home/images/q2.png HTTP/1.1" 200 1949
+[2018-12-04 14:07:00] INFO [django.server.log_message:124] "GET /static/home/images/hotels.png HTTP/1.1" 200 14387
+[2018-12-04 14:07:00] INFO [django.server.log_message:124] "GET /static/home/images/ontario.png HTTP/1.1" 200 61470
+[2018-12-04 14:07:00] INFO [django.server.log_message:124] "GET /static/home/images/hotelsafrica.png HTTP/1.1" 200 45205
+[2018-12-04 14:07:03] INFO [django.server.log_message:124] "GET /groupCourse/ HTTP/1.1" 200 20075
+[2018-12-04 14:07:03] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/my-style.css HTTP/1.1" 200 48791
+[2018-12-04 14:07:03] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-04 14:07:03] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 10291
+[2018-12-04 14:07:03] WARNING [django.server.log_message:124] "GET /static/ HTTP/1.1" 404 1748
+[2018-12-04 14:07:03] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/school-coding.jpg HTTP/1.1" 200 160021
+[2018-12-04 14:07:03] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-04 14:07:03] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/gothamrnd-bold.ttf HTTP/1.1" 200 63312
+[2018-12-04 14:07:06] INFO [django.server.log_message:124] "GET /groupCourse/1 HTTP/1.1" 200 20624
+[2018-12-04 14:07:07] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-04 14:07:07] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 10291
+[2018-12-04 14:07:07] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-04 14:07:14] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 21300
+[2018-12-04 14:07:16] INFO [django.server.log_message:124] "GET /logout HTTP/1.1" 302 0
+[2018-12-04 14:07:17] INFO [django.server.log_message:124] "GET /login HTTP/1.1" 200 3396
+[2018-12-04 14:07:17] INFO [django.server.log_message:124] "GET /static/home/css/styles.css HTTP/1.1" 200 7692
+[2018-12-04 14:07:18] INFO [django.server.log_message:124] "GET /static/home/images/imgback.jpg HTTP/1.1" 200 1032219
+[2018-12-04 14:07:20] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 19909
+[2018-12-04 14:07:24] INFO [django.server.log_message:124] "GET /groupCourse/ HTTP/1.1" 200 18684
+[2018-12-04 14:07:24] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-04 14:07:24] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 10291
+[2018-12-04 14:07:24] WARNING [django.server.log_message:124] "GET /static/ HTTP/1.1" 404 1748
+[2018-12-04 14:07:24] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-04 14:07:28] INFO [django.server.log_message:124] "GET /groupCourse/2 HTTP/1.1" 200 21407
+[2018-12-04 14:07:28] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-04 14:07:28] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-04 14:07:28] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 10291
+[2018-12-04 14:07:52] INFO [django.server.log_message:124] "POST /groupCourse/2 HTTP/1.1" 302 0
+[2018-12-04 14:07:52] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /groupCourse/2/pay/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso\Django\Linuxjobber\home\views.py", line 507, in group_pay
+    context = { "stripe_key": settings.STRIPE_PUBLIC_KEY,
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\conf\__init__.py", line 57, in __getattr__
+    val = getattr(self._wrapped, name)
+AttributeError: 'Settings' object has no attribute 'STRIPE_PUBLIC_KEY'
+[2018-12-04 14:07:52] ERROR [django.server.log_message:124] "GET /groupCourse/2/pay/ HTTP/1.1" 500 82615
+[2018-12-04 14:08:59] INFO [django.server.log_message:124] "GET /groupCourse/2/pay/ HTTP/1.1" 200 15756
+[2018-12-04 14:08:59] WARNING [django.request.get_response:93] Not Found: /groupCourse/2/pay/images/icon5.png
+[2018-12-04 14:08:59] WARNING [django.server.log_message:124] "GET /groupCourse/2/pay/images/icon5.png HTTP/1.1" 404 10309
+[2018-12-04 14:09:29] INFO [django.server.log_message:124] "POST /groupCourse/2/pay/ HTTP/1.1" 302 0
+[2018-12-04 14:09:30] INFO [django.server.log_message:124] "GET /groupCourse/2 HTTP/1.1" 200 20832
+[2018-12-04 14:09:30] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-04 14:09:30] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-04 14:09:30] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 10291
+[2018-12-04 14:11:31] INFO [django.server.log_message:124] "GET /admin HTTP/1.1" 302 0
+[2018-12-04 14:11:31] INFO [django.server.log_message:124] "GET /admin/login/?next=/admin HTTP/1.1" 200 2004
+[2018-12-04 14:11:31] INFO [django.server.log_message:124] "GET /static/admin/css/login.css HTTP/1.1" 200 1281
+[2018-12-04 14:11:45] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 21295
+[2018-12-04 19:25:24] INFO [django.server.log_message:124] "GET /groupCourse/ HTTP/1.1" 200 20114
+[2018-12-04 19:25:24] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-04 19:25:24] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 10291
+[2018-12-04 19:25:24] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-04 19:27:36] INFO [django.server.log_message:124] "GET /groupCourse/ HTTP/1.1" 200 19986
+[2018-12-04 19:27:36] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-04 19:27:36] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 10291
+[2018-12-04 19:27:36] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-04 19:27:51] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/css/bootstrap.min.css.map HTTP/1.1" 404 1876
+[2018-12-04 19:29:32] INFO [django.server.log_message:124] "GET /groupCourse/ HTTP/1.1" 200 19986
+[2018-12-04 19:29:32] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-04 19:29:32] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 10291
+[2018-12-04 19:29:33] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-04 19:30:12] INFO [django.server.log_message:124] "GET /groupCourse/ HTTP/1.1" 200 19870
+[2018-12-04 19:30:12] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-04 19:30:12] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 10291
+[2018-12-04 19:30:12] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-04 19:30:39] INFO [django.server.log_message:124] "GET /groupCourse/ HTTP/1.1" 200 19986
+[2018-12-04 19:30:39] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-04 19:30:39] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 10291
+[2018-12-04 19:30:39] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-04 19:31:35] INFO [django.server.log_message:124] "GET /groupCourse/ HTTP/1.1" 200 20005
+[2018-12-04 19:31:35] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-04 19:31:35] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 10291
+[2018-12-04 19:31:35] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-04 19:32:26] INFO [django.server.log_message:124] "GET /groupCourse/ HTTP/1.1" 200 20029
+[2018-12-04 19:32:26] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-04 19:32:26] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 10291
+[2018-12-04 19:32:27] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-04 19:32:48] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/css/bootstrap.min.css.map HTTP/1.1" 404 1876
+[2018-12-04 19:33:39] INFO [django.server.log_message:124] "GET /groupCourse/ HTTP/1.1" 200 19930
+[2018-12-04 19:33:39] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-04 19:33:39] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 10291
+[2018-12-04 19:33:39] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-04 19:33:52] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/css/bootstrap.min.css.map HTTP/1.1" 404 1876
+[2018-12-04 19:33:57] INFO [django.server.log_message:124] "GET /groupCourse/ HTTP/1.1" 200 19930
+[2018-12-04 19:33:57] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2018-12-04 19:33:57] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2018-12-04 19:33:57] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 39923
+[2018-12-04 19:33:57] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 134612
+[2018-12-04 19:33:57] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 200 825
+[2018-12-04 19:33:57] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 200 5356
+[2018-12-04 19:33:58] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/my-style.css HTTP/1.1" 200 48791
+[2018-12-04 19:33:58] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 200 1163
+[2018-12-04 19:33:58] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 200 3979
+[2018-12-04 19:33:58] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 200 7177
+[2018-12-04 19:33:58] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-04 19:33:58] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 10291
+[2018-12-04 19:33:58] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 200 3066
+[2018-12-04 19:33:58] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 200 29115
+[2018-12-04 19:33:58] INFO [django.server.log_message:124] "GET /static/faq/js/jquery-2.1.1.js HTTP/1.1" 200 256541
+[2018-12-04 19:33:58] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 200 9198
+[2018-12-04 19:33:58] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 200 4488
+[2018-12-04 19:33:58] INFO [django.server.log_message:124] "GET /static/home/images/logout1.png HTTP/1.1" 200 1899
+[2018-12-04 19:33:58] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/css/bootstrap.min.css.map HTTP/1.1" 404 1876
+[2018-12-04 19:33:58] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/school-coding.jpg HTTP/1.1" 200 160021
+[2018-12-04 19:33:58] INFO [django.server.log_message:124] "GET /static/home/images/pupett.png HTTP/1.1" 200 8770
+[2018-12-04 19:33:59] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-04 19:33:59] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/gothamrnd-bold.ttf HTTP/1.1" 200 63312
+[2018-12-04 19:34:47] INFO [django.server.log_message:124] "GET /groupCourse/ HTTP/1.1" 200 20029
+[2018-12-04 19:34:48] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-04 19:34:48] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 10291
+[2018-12-04 19:34:48] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-04 19:35:33] INFO [django.server.log_message:124] "GET /groupCourse/ HTTP/1.1" 200 20021
+[2018-12-04 19:35:33] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-04 19:35:33] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 10291
+[2018-12-04 19:35:34] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882

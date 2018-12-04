@@ -68,32 +68,12 @@
     </div>
   </div>
   {%if groups %}
-      <p class="text-center"> See available group classes below</p>
-  {%for groupd in groups%}
-  <div class="widget mx-auto container">
-{#    <h2 class="text-center pt-4"><p class="text-muted d-inline" style="font-size: 1.2rem" >CLASS:</p> {{groupd.name}}</h2>#}
-{#    <div class="row course-detail p-5">#}
-{#      <div class="col-md-4 px-3 text-center">#}
-{#        <h4 class="head mb-5">STARTS:</h4>#}
-{#        <div class="text">{{groupd.start_date}}</div>#}
-{#      </div>#}
-{#      <div class="col-md-4 px-3 text-center">#}
-{#        <h4 class="head mb-5">DURATION:</h4>#}
-{#        <div class="text">{{groupd.duration}} Days</div>#}
-{#      </div>#}
-{#      <div class="col-md-4 px-3 text-center">#}
-{#        <h4 class="head mb-5">TYPE:</h4>#}
-{#        <div class="text">{{groupd.type_of_class}}</div>#}
-{#      </div>#}
-{#    </div>#}
-{#    <div class="row foot p-2 text-center">#}
-{#      <div class="col-sm-6 py-3">#}
-{#        CLASS MEETS: {{groupd.class_meet}}      </div>#}
-{#      <div class="col-sm-6 py-3">#}
-{#    Cost: ${{groupd.price}}       <!--  PRICE: $29 /MONTH -->#}
-{#      </div>#}
-{#    </div>#}
+
+        <div class="widget mx-auto container" style="border: 0;">
       <div class="row">
+      <div class="row"><h2 class=" mx-auto text-center"> Available Group Classes</h2></div>
+  {%for groupd in groups%}
+
            <div class="col-md-6 col-sm-12">
               <div class="box">
               <h2 id="box-1">{{ groupd.name }}</h2> <br>
@@ -101,7 +81,7 @@
                 <p id="force-p">{{ groupd.type_of_class }} <br> {{ groupd.duration }}</p> <br>
                   <div id="puppet">
                       {% load static %}
-                    <img class="cert img-responsive" src="{% static groupd.icon %}">
+                    <img class="cert img-responsive" src="/static/home/images/pupett.png">
                   </div>
                   <a href="{% url 'home:group' groupd.pk %}">
                   <div class="col-md-4 col-sm-12 col-xs-12 lin btns2" id="force-b">
@@ -109,13 +89,15 @@
                       <div class="lin-border"></div>
                   </div></a>
               </div>
-            </div>
-      </div>
+
+
 
 
 
   </div>
   {%endfor%}
+  </div>
+        </div>
       {% else %}
 
       <p class="text-center,"> No available sessions at the moment, Please check this space later for more</p>

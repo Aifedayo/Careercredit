@@ -108,7 +108,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'linuxjobber',
         'USER': 'root',
-         'PASSWORD': 'P@ssword12345*',
+        'PASSWORD': 'P@ssword12345*',
         'HOST': 'localhost',
     }
 }
@@ -255,7 +255,8 @@ EMAIL_HOST_USER = '4linuxjobber@gmail.com'
 EMAIL_HOST_PASSWORD = 'L1nuxj0bber'
 EMAIL_USE_TLS = True
 
-
+STRIPE_PUBLIC_KEY="pk_test_1zBTca83q29gl9iwRw1oIBvD"
+STRIPE_SECRET_KEY = "Something"
 AUTH_USER_MODEL = 'users.CustomUser'
 
 # Channels
