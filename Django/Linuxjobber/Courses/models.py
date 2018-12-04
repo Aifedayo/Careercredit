@@ -4,6 +4,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from users.models import CustomUser
 from django.core.files.storage import FileSystemStorage
+from django.core.validators import MaxValueValidator
 
 fs = FileSystemStorage(location='/media/uploads')
 
@@ -39,12 +40,28 @@ class CourseTopic(models.Model):
     topic =  models.CharField(max_length = 200)
     lab_name = models.CharField(max_length = 50)
     video = models.TextField()
+    has_notes = models.IntegerField(default=1 ,choices=((0, 'No'), (1, 'Yes')))
+    has_labs = models.IntegerField(default=1 ,choices=((0, 'No'), (1, 'Yes')))
+    free = models.IntegerField(default=0 ,choices=((0, 'No'), (1, 'Yes')))
     
     class Meta:
         verbose_name_plural = 'Course Topics'
     
     def __str__(self):
         return self.topic
+
+    def get_status(self):
+        return self.topicstatus_set.filter()
+
+class TopicStatus(models.Model):
+    topic = models.ForeignKey(CourseTopic, on_delete = models.CASCADE)
+    user = models.ForeignKey(CustomUser, on_delete = models.CASCADE)
+    video = models.IntegerField(default=0, validators=[MaxValueValidator(50)])
+    lab = models.IntegerField(default=0, validators=[MaxValueValidator(50)])
+    total = models.IntegerField(default=0, validators=[MaxValueValidator(100)])
+
+    def __str__(self):
+        return self.user.email    
 
 class Note(models.Model):
     Topic = models.OneToOneField(CourseTopic, on_delete = models.CASCADE)
@@ -53,11 +70,11 @@ class Note(models.Model):
     def __str__(self):
         return self.Topic.topic
 
-
 class NoteComment(models.Model):
     User = models.ForeignKey(CustomUser, on_delete = models.CASCADE)
     Note = models.ForeignKey(Note, on_delete = models.CASCADE)
     Comment = models.CharField(max_length = 200)
+    date_created = models.DateTimeField(default=timezone.now, null=False)
 
     def __str__(self):
         return self.Comment
