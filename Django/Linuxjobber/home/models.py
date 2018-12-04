@@ -196,6 +196,21 @@ class UserOrder(models.Model):
         return self.user.email
 
 
+class RHCSAOrder(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete = models.CASCADE)
+    membership_plan = models.CharField(max_length=20)
+    order_amount = models.IntegerField(default=0)
+    transaction_id = models.CharField(max_length=20)
+    status = models.CharField(max_length=20)
+    date = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        verbose_name_plural = "RHCSA Orders"
+
+    def __str__(self):
+        return self.transaction_id
+
+
 class NewsLetterSubscribers(models.Model):
     email = models.EmailField(max_length = 200)
 

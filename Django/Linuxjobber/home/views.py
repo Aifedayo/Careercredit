@@ -39,7 +39,7 @@ def get_tools():
 
 #INDEX VIEW
 def index(request):
-    return render (request, 'home/index.html', {'courses' : get_courses(), 'tools' : get_tools()})
+    return render (request, 'home/index.html', {'courses' : get_courses(), 'tools' : get_tools(),})
 
 
 def signup(request):
@@ -56,7 +56,7 @@ def signup(request):
             user.first_name = firstname
             user.last_name = lastname
             user.save()
-            send_mail('Linuxjobber Free Account Creation', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + '\n Follow this link http://35.167.153.1:8001/login to login to you account\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            send_mail('Linuxjobber Free Account Creation', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + '\n Follow this link http://35.167.153.1:8001/login to login to you account\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
             return render(request, "home/registration/success.html", {'user': user})
         else:
             error = True
@@ -221,8 +221,103 @@ def log_out(request):
     logout(request)
     return redirect("home:login")
 
+
+
+def linux_full_training(request):
+    news_letter_message = ''
+    if request.method == 'POST':
+        email = request.POST['email']
+        try:
+            subscriber = NewsLetterSubscribers(email = email)
+            subscriber.save()
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            return render (request, 'home/linux_full_training.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
+        except Exception as e:
+            standard_logger.error('error')
+            return render (request, 'home/linux_full_training.html', {'news_letter_message': 'Something went wrong please try again!', 'courses' : get_courses(), 'tools' : get_tools()})
+    else:
+        return render(request, 'home/linux_full_training.html', {'news_letter_message': news_letter_message ,'courses' : get_courses(), 'tools' : get_tools()})
+
+
+def aws_full_training(request):
+    news_letter_message = ''
+    if request.method == 'POST':
+        email = request.POST['email']
+        try:
+            subscriber = NewsLetterSubscribers(email = email)
+            subscriber.save()
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            return render (request, 'home/aws_full_training.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
+        except Exception as e:
+            standard_logger.error('error')
+            return render (request, 'home/aws_full_training.html', {'news_letter_message': 'Something went wrong please try again!', 'courses' : get_courses(), 'tools' : get_tools()})
+    else:
+        return render(request, 'home/aws_full_training.html', {'news_letter_message': news_letter_message ,'courses' : get_courses(), 'tools' : get_tools()})
+
+
+def oracledb_full_training(request):
+    news_letter_message = ''
+    if request.method == 'POST':
+        email = request.POST['email']
+        try:
+            subscriber = NewsLetterSubscribers(email = email)
+            subscriber.save()
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            return render (request, 'home/oracledb_full_training.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
+        except Exception as e:
+            standard_logger.error('error')
+            return render (request, 'home/oracledb_full_training.html', {'news_letter_message': 'Something went wrong please try again!', 'courses' : get_courses(), 'tools' : get_tools()})
+    else:
+        return render(request, 'home/oracledb_full_training.html', {'news_letter_message': news_letter_message ,'courses' : get_courses(), 'tools' : get_tools()})
+
+
 def linux_certification(request):
-    return render(request, 'home/linux_certification.html', {'courses' : get_courses(), 'tools' : get_tools()})
+    news_letter_message = ''
+    if request.method == 'POST':
+        email = request.POST['email']
+        try:
+            subscriber = NewsLetterSubscribers(email = email)
+            subscriber.save()
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            return render (request, 'home/linux_certification.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
+        except Exception as e:
+            standard_logger.error('error')
+            return render (request, 'home/linux_certification.html', {'news_letter_message': 'Something went wrong please try again!', 'courses' : get_courses(), 'tools' : get_tools()})
+    else:
+        return render(request, 'home/linux_certification.html', {'news_letter_message': news_letter_message ,'courses' : get_courses(), 'tools' : get_tools()})
+
+def aws_certification(request):
+    news_letter_message = ''
+    if request.method == 'POST':
+        email = request.POST['email']
+        try:
+            subscriber = NewsLetterSubscribers(email = email)
+            subscriber.save()
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            return render (request, 'home/aws_certification.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
+        except Exception as e:
+            standard_logger.error('error')
+            return render (request, 'home/aws_certification.html', {'news_letter_message': 'Something went wrong please try again!', 'courses' : get_courses(), 'tools' : get_tools()})
+    else:
+        return render(request, 'home/aws_certification.html', {'news_letter_message': news_letter_message ,'courses' : get_courses(), 'tools' : get_tools()})
+
+def oracledb_certification(request):
+    news_letter_message = ''
+    if request.method == 'POST':
+        email = request.POST['email']
+        try:
+            subscriber = NewsLetterSubscribers(email = email)
+            subscriber.save()
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            return render (request, 'home/oracledb_certification.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
+        except Exception as e:
+            standard_logger.error('error')
+            return render (request, 'home/oracledb_certification.html', {'news_letter_message': 'Something went wrong please try again!', 'courses' : get_courses(), 'tools' : get_tools()})
+    else:
+        return render(request, 'home/oracledb_certification.html', {'news_letter_message': news_letter_message ,'courses' : get_courses(), 'tools' : get_tools()})
+
+
+
 
 
 def workexperience(request):
@@ -914,3 +1009,35 @@ def pay_live_help(request):
 
 def in_person_training(request):
     return render(request, 'home/in_person_training.html', {'courses' : get_courses(), 'tools' : get_tools()})
+
+@login_required
+def tryfree(request, sub_plan):
+
+    if sub_plan == 'standardPlan':
+        amount = 29
+        return render(request, 'home/tryfree.html', { 'amount':amount, 'courses' : get_courses(), 'tools' : get_tools()})
+    elif sub_plan == 'fullPlan':
+        amount = 399
+        return render(request, 'home/tryfree.html', { 'amount':amount, 'courses' : get_courses(), 'tools' : get_tools()})
+    elif sub_plan == 'premiumPlan':
+        amount = 2495
+        return render(request, 'home/tryfree.html', { 'amount':amount, 'courses' : get_courses(), 'tools' : get_tools()})
+    else:
+        amount = 29
+        return render(request, 'home/tryfree.html', { 'amount':amount, 'courses' : get_courses(), 'tools' : get_tools()})
+
+
+
+
+@login_required
+def rhcsa_order(request):
+
+    orders = RHCSAOrder.objects.filter(user=request.user)
+    orders_not_empty = RHCSAOrder.objects.filter(user=request.user).exists()
+
+    return render(request, 'home/rhcsa_order.html', {  'orders_not_empty':orders_not_empty, 'orders':orders, 'courses' : get_courses(), 'tools' : get_tools()} )
+
+
+def user_interest(request):
+
+    return render(request, 'home/user_interest.html', {'courses' : get_courses(), 'tools' : get_tools()})
