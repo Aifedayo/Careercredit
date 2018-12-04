@@ -209,8 +209,6 @@ class RHCSAOrder(models.Model):
 
     def __str__(self):
         return self.transaction_id
-              
-
 
 
 class NewsLetterSubscribers(models.Model):
