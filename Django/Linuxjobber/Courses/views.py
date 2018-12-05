@@ -6,11 +6,12 @@ from django import template as temp#, forms
 from django.views import generic
 from django.conf import settings
 from django.core.mail import send_mail
+from django.views.decorators.csrf import csrf_exempt
 
 #################################################
 #    IMPORTS FROM WITHIN Linuxjobber APPLICATION  #
 from .models import GradesReport, Course, CourseTopic, CourseDescription, CoursePermission, Note, NoteComment, TopicStatus
-from home.models import Location
+from home.models import Location, AwsCredential
 from users.models import CustomUser
 from .forms import *
 from .utils.djangolabsutils import grade_django_lab
@@ -41,10 +42,12 @@ class CourseTopicsView(generic.ListView):
     def get_context_data(self, **kwargs):
         ip = get_client_ip(self.request)
         add_location(ip,self.request.user)
+        stat = checkstat(self.request.user,Course.objects.get(course_title = self.kwargs.get('course_name').replace("_", " ")))
 
         context = super().get_context_data(**kwargs)
         context['course'] = Course.objects.get(course_title = self.kwargs.get('course_name').replace("_", " "))
-        #context['topicstatus'] = TopicStatus.objects.get(topic)
+        context['aws'] = check_aws(self.request.user)
+
         if self.request.user.role == 4:
             try:
                 context['permission'] = CoursePermission.objects.get(user=self.request.user,course=context['course'])
@@ -70,6 +73,13 @@ def add_location(ip,user):
             pass
     except requests.exceptions.RequestException as e:
         pass
+
+def check_aws(user):
+    try:
+        aws = AwsCredential.objects.get(user=user)
+        return True
+    except AwsCredential.DoesNotExist:
+        return False
 
 def TopicNote(request, course_name, lab_no):
 
@@ -101,7 +111,37 @@ def TopicNote(request, course_name, lab_no):
 
     return render(request, 'courses/note.html', {'template':template, 'note':Notes, 'randoms': Random, 'course': course_name, 'comments':comments})
 
+@csrf_exempt
+def videostat(request, topic):
+    if request.method == "POST":
+        topic = topic.replace("_"," ")
+        topic = CourseTopic.objects.get(topic=topic)
+        stat = TopicStatus.objects.get(topic=topic,user=request.user)
 
+        #does not have lab
+        if topic.has_labs == 0:
+            stat.video = 50
+            stat.lab = 50
+            stat.save(update_fields=['video','lab'])
+        #has lab
+        else:
+            stat.video = 50
+            stat.save(update_fields=['video'])
+        return HttpResponse("Result:done")
+
+#def totalstat(user,course):
+
+
+def checkstat(user,course):
+    topics = CourseTopic.objects.filter(course=course)
+    for topic in topics:
+
+        try:
+            stat = TopicStatus.objects.get(user=user,topic=topic)
+        except TopicStatus.DoesNotExist:
+            stat = TopicStatus(user=user,topic=topic,lab=0,video=0)
+            stat.save()
+        
 def signup(request):
     if request.method == "POST":
         firstname = request.POST['fullname'].split()[0]
@@ -162,10 +202,7 @@ def get_gradingform(course_topic, user_obj):
 #         (3, 'submit from repo')
 #     ))
     else:
-        form = MachineGradingForm({'machine': user_obj.email,
-                                   'user_id': user_obj.id})
-        form.fields['machine'].widget = HiddenInput()
-        form.fields['machine'].label = "User_email"
+        form = None
     return form
 
 
@@ -184,6 +221,9 @@ class LabDetailsView(generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['form'] = get_gradingform(context['coursetopic'], self.request.user)
+        context['course'] = Course.objects.get(course_title=self.kwargs.get('course_name').replace("_", " "))
+        if context['course'].lab_submission_type == 2:
+            context['machine'] = get_machine(self.request.user)
         return context
 
     def post(self, request, *args, **kwargs):
@@ -225,6 +265,52 @@ class LabDetailsView(generic.DetailView):
             handle_rslts(settings.BASE_DIR+"/Courses/utils/"+user_Add,request.user,topic)
         result = GradesReport.objects.filter(user = user_ID, course_topic = topic_id,)
         return render(request, 'courses/result.html',{'result':result,'coursetopic':topic})
+
+
+def get_machine(user):
+    try:
+        awscred = AwsCredential.objects.get(user = user)
+    except AwsCredential.DoesNotExist:
+        return False
+
+    #Running instance
+    running_machine = []
+    RUNING_AWS_ACTION = 'instance_running';
+    RUNING_MACHINE_ID = 'running';
+    command = ['python3.6 '+ settings.BASE_DIR+"/home/utils/s3_sample.py %s %s %s %s" %(awscred.accesskey,awscred.secretkey,RUNING_AWS_ACTION,RUNING_MACHINE_ID) ]
+        
+    try:
+        outputs = subprocess.check_output(command, shell=True )
+        return_code = 0
+        outputs = bytes(outputs)
+        output = outputs.decode()
+        
+        output = output.split(",")
+
+        for i in range(0,len(output)-1):
+            out = output[i].split()
+            running_machine.append(out)
+
+        for machine in running_machine:
+
+            command = ['sshpass -p 8iu7*IU& ssh -o StrictHostKeyChecking=no -o LogLevel=ERROR -o UserKnownHostsFile=/dev/null sysadmin@'+machine[1]+ ' whoami']
+            try:
+                outps = subprocess.check_output(command, shell=True)
+                outps = bytes(outps)
+
+                if outps == "sysadmin":
+                    machine['access']= True
+
+            except subprocess.CalledProcessError as grepexc:
+               machine['access']= False 
+
+        return running_machine    
+
+    except subprocess.CalledProcessError as grepexc:
+        print("error code", grepexc.returncode, grepexc.output)
+        return_code = grepexc.returncode
+        output = grepexc.output
+        return False
 
 
 """

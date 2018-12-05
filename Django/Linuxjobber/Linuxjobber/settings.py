@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os, sys, datetime
-import my_extras
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -104,9 +103,9 @@ WSGI_APPLICATION = 'Linuxjobber.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ljb',
+        'NAME': 'linuxjobber',
         'USER': 'linuxjobber',
-        'PASSWORD': 'linuxjobber',
+        'PASSWORD': '8iu7*IU&',
         'HOST': 'localhost',
     }
 }
@@ -246,10 +245,10 @@ LOGIN_REDIRECT_URL = '/home'
 #EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = 'smtp.linuxjobber.com'
+EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '587'
-EMAIL_HOST_USER = 'admin@linuxjobber.com'
-EMAIL_HOST_PASSWORD = my_extras.LINUXJOBBER_ADMIN_EMAIL_PWD
+EMAIL_HOST_USER = '4linuxjobber@gmail.com'
+EMAIL_HOST_PASSWORD = 'L1nuxj0bber'
 EMAIL_USE_TLS = True
 
 

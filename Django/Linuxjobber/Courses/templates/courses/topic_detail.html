@@ -68,9 +68,19 @@ jQuery(function(){
  	$('.videoname').hide();
  	$('.aftervideo').show();
  	$('.lab').show();
-
+ 	end();
  });
 
+function end(){
+	$.ajax({
+		type: 'POST',
+		data:'', 
+		url: '{% url "Courses:videostat" topic.topic.split|join:'_' %}',
+		success: function (result) {
+			setTimeout(function(){ updatesession(); },1000);
+		}
+	});
+}
  
 });
 </script>		

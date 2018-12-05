@@ -9,6 +9,7 @@ from django.core.validators import MaxValueValidator
 fs = FileSystemStorage(location='/media/uploads')
 
 LAB_SUBMISSION= (
+        (0, 'none'),
         (1, 'submit by uploading document'),
         (2, 'submit by machine ID'),
         (3, 'submit from repo')
@@ -17,6 +18,8 @@ LAB_SUBMISSION= (
 class Course(models.Model):
     course_title = models.CharField(max_length = 200)
     lab_submission_type = models.PositiveSmallIntegerField(default=1, choices=LAB_SUBMISSION)
+    aws_credential_required = models.IntegerField(default=0 ,choices=((0, 'No'), (1, 'Yes')))
+
     
     class Meta:
         verbose_name_plural = 'Courses'
@@ -58,7 +61,6 @@ class TopicStatus(models.Model):
     user = models.ForeignKey(CustomUser, on_delete = models.CASCADE)
     video = models.IntegerField(default=0, validators=[MaxValueValidator(50)])
     lab = models.IntegerField(default=0, validators=[MaxValueValidator(50)])
-    total = models.IntegerField(default=0, validators=[MaxValueValidator(100)])
 
     def __str__(self):
         return self.user.email    
