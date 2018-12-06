@@ -1004,7 +1004,40 @@ def live_help(request):
     return render(request, 'home/live_help.html', {'courses' : get_courses(), 'tools' : get_tools()} )
 
 def pay_live_help(request):
-    return render(request,'home/payment_page.html', {})
+    PRICE = 399
+    mode = "One Time"
+    PAY_FOR = "Live Help"
+    DISCLMR = "Please note that you will be charged ${} upfront. However, you may cancel at any time. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ${}".format(PRICE,PRICE)
+    stripeset = StripePayment.objects.all()
+    stripe.api_key = stripeset[0].secretkey
+    if request.method == "POST":
+        token = request.POST.get("stripeToken")
+        try:
+            charge = stripe.Charge.create(
+                amount = PRICE * 100,
+                currency = "usd",
+                source = token,
+                description = PAY_FOR
+            )
+        except stripe.error.CardError as ce:
+            return False, ce
+        else:
+            try:
+                UserPayment.objects.create(user=request.user, amount=PRICE,
+                                            trans_id = charge.id, pay_for = charge.description,
+                                            )
+                return render(request,'home/live_help_pay_success.html')
+            except Exception as error:
+                print(error)
+                return redirect("home:index")
+    else:
+        context = { "stripe_key": stripeset[0].publickey,
+                   'price': PRICE,
+                   'amount': str(PRICE)+'00',
+                   'mode': mode,
+                   'PAY_FOR': PAY_FOR,
+                   'DISCLMR': DISCLMR}
+        return render(request, 'home/live_help_pay.html', context)
 
 
 def in_person_training(request):
