@@ -103,7 +103,7 @@ WSGI_APPLICATION = 'Linuxjobber.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'linuxjobber',
+        'NAME': 'mylinuxjobber',
         'USER': 'linuxjobber',
         'PASSWORD': '8iu7*IU&',
         'HOST': 'localhost',
@@ -264,3 +264,8 @@ CHANNEL_LAYERS = {
         },
     },
 }
+
+#SERVER details
+SERVER_IP = "34.221.68.130"
+SERVER_USER = "sysadmin"
+SERVER_PASSWORD = "8iu7*IU&"

@@ -7,10 +7,11 @@ from django.views import generic
 from django.conf import settings
 from django.core.mail import send_mail
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib import messages
 
 #################################################
 #    IMPORTS FROM WITHIN Linuxjobber APPLICATION  #
-from .models import GradesReport, Course, CourseTopic, CourseDescription, CoursePermission, Note, NoteComment, TopicStatus
+from .models import GradesReport, Course, CourseTopic, CourseDescription, CoursePermission, Note, NoteComment, TopicStatus, LabTask
 from home.models import Location, AwsCredential
 from users.models import CustomUser
 from .forms import *
@@ -228,7 +229,8 @@ class LabDetailsView(generic.DetailView):
 
     def post(self, request, *args, **kwargs):
         topic = self.get_object()
-        course = topic.course.course_title.split()[0].upper()
+        #course = topic.course.course_title.split()[0].upper()
+        course = Course.objects.get(course_title=topic.course.course_title)
         topic_id = str(topic.id)
         topic_slug = topic.lab_name
         user_ID = request.POST.get('user_id')
@@ -248,13 +250,33 @@ class LabDetailsView(generic.DetailView):
             else:
                 return HttpResponse(output)
         elif sub_type == 2:
+            IP = request.POST['ip_address']
+            
+            outps = subprocess.Popen(["sshpass","-p", settings.SERVER_PASSWORD, "ssh", "-o StrictHostKeyChecking=no", "-o LogLevel=ERROR", "-o UserKnownHostsFile=/dev/null", settings.SERVER_USER+"@"+str(IP), "python /tmp/GraderClient.py", settings.SERVER_USER,settings.SERVER_IP,str(topic.id),str(request.user.id)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+            print(outps)
+            if outps:
+                labs = LabTask.objects.filter(lab=topic)
+
+                for lab in labs:
+                    try:
+                        get_grade = GradesReport.objects.get(user=request.user,course_topic=topic,lab=lab)
+                        get_grade.grade = "Grading"
+                        get_grade.score= 0
+                        get_grade.save(update_fields=['score','grade'])
+                    except GradesReport.DoesNotExist:
+                        grade = GradesReport(user=request.user,course_topic=topic,score=0,lab=lab,grade="pending")
+                        grade.save()
+
+            messages.success(request, "Please wait your task is currently being graded! Click <a href='/courses/"+str(self.kwargs.get('course_name'))+"/lab/"+str(topic.topic_number)+"/result'>here</a> to refresh in 2 minutes")
+            return redirect("Courses:linux_result")
             # GraderServer "machine" data['machine'] "sysadmin" topic_id course data['user_id']
-            command = [ settings.BASE_DIR+"/Courses/utils/GraderServer.py","machine",user_Add, "sysadmin", topic_id, course, user_ID ]
+            """command = [ settings.BASE_DIR+"/Courses/utils/GraderServer.py","machine",user_Add, "sysadmin", topic_id, course, user_ID ]
             try:
                 subprocess.check_call(command, stderr=subprocess.STDOUT, bufsize=-1)
             except:
                 return render(request,'courses/result.html',{'gradingerror':"There was an error encountered during grading",'coursetopic':topic})
             handle_rslts(settings.BASE_DIR+"/Courses/utils/"+user_Add,request.user,topic)
+            """
         else:
             # /path/to/where/GraderServer.py "repo" course topic_id topic_slug data['user_id'] user_IP 
             command = [ settings.BASE_DIR+"/Courses/utils/GraderServer.py","repo", course, topic_id, topic_slug, user_ID, user_Add ]
@@ -265,6 +287,63 @@ class LabDetailsView(generic.DetailView):
             handle_rslts(settings.BASE_DIR+"/Courses/utils/"+user_Add,request.user,topic)
         result = GradesReport.objects.filter(user = user_ID, course_topic = topic_id,)
         return render(request, 'courses/result.html',{'result':result,'coursetopic':topic})
+
+def linux_result(request,course_name=None,lab_no=None):
+    
+    if course_name:
+
+        topic = CourseTopic.objects.get(course__course_title = course_name.replace("_"," "), topic_number = lab_no)
+        try:
+            next_topic = CourseTopic.objects.get(course__course_title = course_name.replace("_"," "), topic_number = int(lab_no)+1)
+        except CourseTopic.DoesNotExist:
+            next_topic = None
+        context = {
+            'topic' : topic,
+            'result' : GradesReport.objects.filter(user=request.user,course_topic=topic),
+            'course_name' : course_name,
+            'lab_no': lab_no,
+            'next_topic': next_topic
+        }
+
+
+    else:
+        context = None
+    return render(request, 'courses/linux_result.html', context)
+
+@csrf_exempt
+def store_lab_result(request):
+    scored =0
+    if request.method == "POST":
+        
+        topic_id = request.POST['lab_id']
+        user_ID = request.POST['userID']
+        reports = GradesReport.objects.filter(course_topic__id=topic_id,user__id=user_ID)
+        
+        for report in reports:
+            report.grade = request.POST[str(report.lab.task_number)]
+            report.score = 1
+            report.save(update_fields=['grade','score'])
+
+        #add status
+        reports = GradesReport.objects.filter(course_topic__id=topic_id,user__id=user_ID)
+        for report in reports:
+            if report.grade == "passed":
+                scored = scored + 1
+        expected = len(reports)
+        total = (scored / expected) * 100
+
+        status = TopicStatus.objects.get(user__id =user_ID,topic__id=topic_id)
+        if total >= 70:
+            status.lab = 50
+            status.save(update_fields=['lab'])
+        elif total >= 50:
+            status.lab = 25
+            status.save(update_fields=['lab'])
+        else:
+            status.lab = 0
+            status.save(update_fields=['lab'])
+        return HttpResponse("Result:saved")
+
 
 
 def get_machine(user):
@@ -293,17 +372,25 @@ def get_machine(user):
 
         for machine in running_machine:
 
-            command = ['sshpass -p 8iu7*IU& ssh -o StrictHostKeyChecking=no -o LogLevel=ERROR -o UserKnownHostsFile=/dev/null sysadmin@'+machine[1]+ ' whoami']
-            try:
-                outps = subprocess.check_output(command, shell=True)
-                outps = bytes(outps)
+            outps = subprocess.Popen(["sshpass","-p", settings.SERVER_PASSWORD, "ssh", "-o StrictHostKeyChecking=no", "-o LogLevel=ERROR", "-o UserKnownHostsFile=/dev/null", settings.SERVER_USER+"@"+machine[1], " whoami"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+            
+            outps = bytes(outps[0])
+            outps = outps.decode('UTF-8')
+            
+            #Check if users machine is accessible, if it is check if GraderClient is deploy or not, if not, deploy!
+            if "sysadmin" in outps:
+                machine.append(True)
+                outs = subprocess.Popen(["sshpass","-p", settings.SERVER_PASSWORD, "ssh", "-o StrictHostKeyChecking=no", "-o LogLevel=ERROR", "-o UserKnownHostsFile=/dev/null", settings.SERVER_USER+"@"+machine[1], " [ -f /tmp/GraderClient.py ] && echo $?"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+                outs = bytes(outs[0])
+                outs = outs.decode('UTF-8')
 
-                if outps == "sysadmin":
-                    machine['access']= True
-
-            except subprocess.CalledProcessError as grepexc:
-               machine['access']= False 
-
+                if "0" in str(outs):
+                    pass
+                else:
+                    out = subprocess.Popen(["/bin/bash", settings.BASE_DIR+"/home/utils/deploy_clientapp.sh", machine[1], "/tmp"])  
+            else:
+                machine.append(False)
+            
         return running_machine    
 
     except subprocess.CalledProcessError as grepexc:

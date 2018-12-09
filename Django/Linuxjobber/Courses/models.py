@@ -124,12 +124,13 @@ class GradesReport(models.Model):
     course_topic = models.ForeignKey(CourseTopic, on_delete = models.CASCADE, related_name='grades',related_query_name='grade')
     score = models.PositiveSmallIntegerField(default=0)
     grade = models.CharField(default='not graded', max_length=20)
+    lab = models.ForeignKey(LabTask, on_delete = models.CASCADE)
     
     class Meta:
         verbose_name_plural = 'Grades Reports'
     
     def __str__(self):
-        return self.grade, self.date, self.score
+        return self.user.email
 
 
 def content_file_name(instance, filename):

@@ -15,4 +15,7 @@ urlpatterns = [
     path('signup', views.signup, name='signup'),
     path('success', views.success, name='success'),
     path('videostat/<slug:topic>', views.videostat, name='videostat'),
+    path('store_lab_result', views.store_lab_result, name='store_lab_result'),
+    path('<slug:course_name>/lab/<int:lab_no>/result', views.linux_result, name='linux_result'),
+    path('grading', views.linux_result, name='linux_result')
     ]
