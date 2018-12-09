@@ -6,7 +6,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { CourseComponent } from './course.component';
 import { TopicChatComponent} from './topic-chat.component';
 import {PrivateChatComponent } from './private-chat/private-chat.component';
-import { TopicDetailComponent } from './topic-detail/topic-detail.component';
 import { AuthGuard } from '../auth.guard';
 import {TopicVideoComponent} from "./topic-video/topic-video.component";
 import {TopicLabComponent} from "./topic-lab/topic-lab.component";

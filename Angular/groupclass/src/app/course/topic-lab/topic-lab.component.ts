@@ -24,7 +24,6 @@ export class TopicLabComponent implements OnInit {
     this.topic = this.apiService.getActiveTopic();
         this.apiService.data$.subscribe(data=>{
       this.topic=data;
-      console.log(this.topic)
       this._task= this.apiService.data$
     })
   }

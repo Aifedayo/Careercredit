@@ -9,12 +9,16 @@
           </div>
 
           <div class="col l3 m3 s3">
-            <a materialize="dropdown" class="dropdown-button dropdown" data-activates="dropdown1" style="cursor:pointer;">Django<i class="material-icons right">arrow_drop_down</i></a>
+            <a materialize="dropdown" class="dropdown-button dropdown" data-activates="dropdown1" style="cursor:pointer;">
+                Select Course
+                <i class="material-icons right">arrow_drop_down</i>
+            </a>
             <!-- Dropdown Structure -->
             <ul style="cursor: pointer;" id="dropdown1" class="dropdown-content">
-                <li><a >Django</a></li>
-                <li class="divider"></li>
-                <li><a routerLink="/linux" routerLinkActive>Linux Fundamental</a></li>
+                <li *ngFor="let item of classes |async ">
+                    <a [routerLink]="['./',item.id]" >{{ item.name }}</a>
+                </li>
+
             </ul>
           </div>
             <div class="col l6 m6 s6">
@@ -38,13 +42,16 @@
           <li id="students" style="color:darkgrey; font-weight: bolder; font-size: 15px;"
               *ngFor="let user of users"><a [routerLink]="['./private-chat', user.id]" routerLinkActive="active" > {{user.username}} </a>
           </li><br>
+
+
         </ul>
       </div>
     </div>
     <div class="col l6 m6 s9">
       <ul style="display:flex;">
         <li><a [routerLink]="['./video']" routerLinkActive="active" id="video">Video</a></li> |
-        <li *ngIf="activeTopic"><a (click)="goToLab()">Lab</a></li> |
+        <li *ngIf="activeTopic"><a (click)="goToLab()"> Lab </a></li> |
+        <li *ngIf="activeTopic"><a (click)="goToNote()"> Note </a></li> |
         <li><a [routerLink]="['./labs']" routerLinkActive="active" id="chat"> Chat</a></li>
       </ul>
       <hr>
@@ -59,14 +66,7 @@
           <h5 style="text-align:center; font-weight: bolder;">Topics</h5>
           <div class="course_topic_area" style="height: 450px; overflow: auto;">
 
-            <!-- <ul class="collection">
-              <li class="collection-item avatar" *ngFor="let topic of topics">
-                <i class="material-icons circle red">play_arrow</i>
-                <a [routerLink]="['./topic-detail', topic.id]" routerLinkActive="active">{{topic.title}}</a>
-              </li>
-            </ul> -->
-
-          <ul class="collection">
+         <ul class="collection">
 
               <li class="collection-item avatar" *ngFor="let topic of topics ">
 
