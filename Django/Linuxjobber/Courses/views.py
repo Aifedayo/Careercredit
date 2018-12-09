@@ -253,7 +253,6 @@ class LabDetailsView(generic.DetailView):
             IP = request.POST['ip_address']
             
             outps = subprocess.Popen(["sshpass","-p", settings.SERVER_PASSWORD, "ssh", "-o StrictHostKeyChecking=no", "-o LogLevel=ERROR", "-o UserKnownHostsFile=/dev/null", settings.SERVER_USER+"@"+str(IP), "python /tmp/GraderClient.py", settings.SERVER_USER,settings.SERVER_IP,str(topic.id),str(request.user.id)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
-            print(outps)
             if outps:
                 labs = LabTask.objects.filter(lab=topic)
 
@@ -318,7 +317,7 @@ def store_lab_result(request):
         topic_id = request.POST['lab_id']
         user_ID = request.POST['userID']
         reports = GradesReport.objects.filter(course_topic__id=topic_id,user__id=user_ID)
-        
+
         for report in reports:
             report.grade = request.POST[str(report.lab.task_number)]
             report.score = 1
