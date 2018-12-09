@@ -7,8 +7,8 @@ import { Router} from '@angular/router';
 })
 export class DataService {
 
-  public URL = '54.244.162.68:8001';
-  // public URL = '127.0.0.1:8000';
+  // public URL = '54.244.162.68:8001';
+  public URL = '127.0.0.1:8000';
 
   public message;
   public login_username;
@@ -31,7 +31,7 @@ export class DataService {
   //     return this.http.get('http://' + this.URL + '/api/v1/groupclass-api/groupclassusers/');
   // }
   djangostudents() {
-    return this.http.get('http://' + this.URL + '/classroom/djangostudent-api/djangostudent/');
+    return this.http.get('http://' + this.URL + '');
   }
   // studentArray() {
   //   this.users [];
@@ -50,7 +50,7 @@ export class DataService {
   //   return user;
   // }
   createUser() {
-    this.http.post('http://' + this.URL + '/classroom/djangostudent-api/djangostudent/', JSON.stringify({'email': this.createuser_email, 'password': this.createuser_password, 'username': this.createuser_username}), this.httpOptions).subscribe(
+    this.http.post('http://' + this.URL + '/sso_api/login', JSON.stringify({'email': this.createuser_email, 'password': this.createuser_password, 'username': this.createuser_username}), this.httpOptions).subscribe(
         data => {
             this.message = data['message'];
             this.createuser_email = '';
@@ -69,13 +69,12 @@ export class DataService {
   }
 
   login() {
-    this.http.post('http://' + this.URL + '/classroom/api-token-auth/', JSON.stringify({'username': this.login_username, 'password': this.login_password}), this.httpOptions).subscribe(
+    this.http.post('http://' + this.URL + '/sso_api/api-token-auth/', JSON.stringify({'username': this.login_username, 'password': this.login_password}), this.httpOptions).subscribe(
         data => {
 
             sessionStorage.setItem('username', data['name']);
             sessionStorage.setItem('token', data['token']);
             sessionStorage.setItem('id', data['id']);
-
             this.username = this.login_username;
             this.router.navigate(['classroom']);
             this.login_username = '';

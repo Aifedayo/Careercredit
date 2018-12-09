@@ -40,12 +40,7 @@ class CourseTopicSerializer(serializers.ModelSerializer):
     class Meta:
         model = CourseTopic
         fields = ['id','topic','video','tasks','note']
-        ordering="-id"
-
-    def get_tasks(self,obj):
-        q=LabTask.objects.filter(lab_id=obj.pk).order_by('pk')
-        s=LabTaskSerializer(q,many=True)
-        return s.data
+        ordering="id"
 
 class CourseSerializer(serializers.ModelSerializer):
     topics=CourseTopicSerializer(many=True)

@@ -58,19 +58,23 @@ class UserGroups(APIView):
     def get(self, request, group_id=0):
         """
         Return a list of all users in the group.
-        Returns list og groups associated to the user as well
+        Returns list of groups associated to the user as well
         """
-        group_item= Groupclass.objects.filter(users__email=request.user)
-        item= GroupClassSerializer(group_item,many=True)
+        group_list= Groupclass.objects.filter(users__email=request.user)
+        item= GroupClassSerializer(group_list,many=True)
         return Response(item.data)
 
-class GroupCourse(APIView):
+class GroupCourseDetail(APIView):
     authentication_classes = (authentication.TokenAuthentication,)
     def get(self,request,group_id):
         try:
             group_item=Groupclass.objects.get(pk=group_id)
             if request.user in group_item.users.all():
-                data=CourseTopicSerializer(CourseTopic.objects.filter(course=group_item.course),many=True)
+                # data=CourseTopicSerializer(CourseTopic.objects.filter(course=group_item.course),many=True)
+                data=CourseSerializer(group_item.course)
+                group_list = Groupclass.objects.filter(users__email=request.user)
+                item = GroupClassSerializer(group_list, many=True)
+                context={'sessions':item.data,'course_data':data.data}
                 return Response(data.data)
             else:
                 return Response(status=status.HTTP_403_FORBIDDEN)
@@ -78,5 +82,3 @@ class GroupCourse(APIView):
             pass
         except Course.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
-
-

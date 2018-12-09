@@ -1,11 +1,30 @@
 import { Topic } from './topic.model';
 import { Injectable } from '@angular/core';
+import {ApiService} from "../share/api.service";
+import {CourseTopicModel} from "../share/course-topic-model";
+import {Observable} from "rxjs/index";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CourseService {
 
+  all_topics=[]
+  public course_details:Observable<any[]>
+  constructor(private apiService: ApiService){
+    this.apiService.getCourseDetails(1)
+      .subscribe(res=>{
+        res['topics'].forEach(entry=>{
+          let topic = new CourseTopicModel()
+        topic.id=entry.id;
+        topic.note= entry.note;
+        topic.video=entry.video;
+        topic.tasks=entry.tasks;
+        this.all_topics.push(topic);
+        })
+      });
+    console.log(this.all_topics)
+  }
 private topics: Topic [] = [
   new Topic (1, 'Django Definition and Installation', '/src/assets/videos/connect_sqlite.mp4'),
   new Topic (2, 'Creating Your First Django Project and Your First Django Application', '/assets/videos/connect_sqlite.mp4'),
@@ -29,14 +48,16 @@ private topics: Topic [] = [
   new Topic (20, 'Adding CSS, Cascading Stylesheets, to Django Templates', '')
 ];
 
+
 getTopics() {
-  return this.topics.slice();
+  // return this.topics.slice();
+  return this.all_topics.slice();
   }
 // getSingleTopic(index: number) {
 //   return this.topics[index];
 //   }
 getSingleTopic(id: number) {
-  const topic = this.topics.find(
+  const topic = this.all_topics.find(
     (data) => {
       return data.id === id;
     }

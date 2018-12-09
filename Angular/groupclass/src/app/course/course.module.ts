@@ -9,13 +9,11 @@ import { CourseComponent } from './course.component';
 import { TopicChatComponent } from './topic-chat.component';
 import { CourseService } from './course.service';
 import { CourseRoutingModule } from './course-routing.module';
-import { VideosComponent } from './videos/videos.component';
-import { LabsComponent } from './labs/labs.component';
-
-
-
-
-
+import { TopicListComponent } from './topic-list/topic-list.component';
+import { TopicLabComponent } from './topic-lab/topic-lab.component';
+import { TopicNotesComponent } from './topic-notes/topic-notes.component';
+import { TopicVideoComponent } from './topic-video/topic-video.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   imports: [
@@ -25,13 +23,16 @@ import { LabsComponent } from './labs/labs.component';
     CommonModule,
     CourseRoutingModule,
     MaterializeModule,
+    FormsModule
   ],
   declarations: [
     CourseComponent,
     TopicChatComponent,
-    VideosComponent,
-    LabsComponent,
-    TopicDetailComponent
+    TopicDetailComponent,
+    TopicListComponent,
+    TopicLabComponent,
+    TopicNotesComponent,
+    TopicVideoComponent
   ],
   providers: [CourseService],
   bootstrap: [CourseComponent]
