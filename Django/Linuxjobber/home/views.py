@@ -1074,6 +1074,9 @@ def tryfree(request, sub_plan):
                     UserPayment.objects.create(user=request.user, amount=PRICE,
                                                 trans_id = charge.id, pay_for = charge.description,
                                                 )
+                    user = request.user
+                    user.role = 3
+                    user.save()
                     send_mail('Linuxjobber Standard Plan Subscription', 'Hello, you have successfuly subscribed for our Standard Plan package.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.user.email])
                     return render(request,'home/standardPlan_pay_success.html')
                 except SMTPException as error:
