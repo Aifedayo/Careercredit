@@ -1004,6 +1004,7 @@ def server_service(request):
 def live_help(request):
     return render(request, 'home/live_help.html', {'courses' : get_courses(), 'tools' : get_tools()} )
 
+@login_required
 def pay_live_help(request):
     PRICE = 399
     mode = "One Time"
