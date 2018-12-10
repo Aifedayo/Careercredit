@@ -32,7 +32,7 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
 
     'rest_framework',
-    #'channels',
+    'channels',
     'ckeditor',
     'corsheaders',
     'django.contrib.admin',
@@ -110,6 +110,7 @@ DATABASES = {
         'USER': 'linuxjobber',
         'PASSWORD': '8iu7*IU&',
         'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
@@ -269,3 +270,5 @@ CHANNEL_LAYERS = {
         },
     },
 }
+#todo Always change to appropriate before pushing
+GROUP_CLASS_URL= 'http://localhost:4200/classroom/'
