@@ -23,12 +23,12 @@ export class CourseComponent implements OnInit {
   private  selectedTopic:number = 0;
   private  selectedGroup:number = 0;
   private videoActive:boolean=false;
-  private activeTopic:CourseTopicModel;
+  public activeTopic:CourseTopicModel;
 
   constructor(
     private apiService:ApiService,
     private route: ActivatedRoute,
-    private dataservice:DataService ,
+    public dataservice:DataService ,
     private router:Router,
     private location:Location)
   {
