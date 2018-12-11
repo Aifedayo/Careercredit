@@ -7,6 +7,7 @@ import { MatVideoModule } from 'mat-video';
 import { MaterializeModule } from 'angular2-materialize';
 import { LinuxComponent } from './linux.component';
 import { LinuxRoutingModule } from './linux-routing.module';
+import {FormsModule} from "@angular/forms";
 
 
 
@@ -17,7 +18,8 @@ import { LinuxRoutingModule } from './linux-routing.module';
     BrowserAnimationsModule,
     MatVideoModule,
     MaterializeModule,
-    LinuxRoutingModule
+    LinuxRoutingModule,
+    FormsModule
   ],
   declarations: [
     LinuxChatComponent,
