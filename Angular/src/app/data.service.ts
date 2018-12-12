@@ -28,7 +28,7 @@ export class DataService {
   constructor(private http: HttpClient, private router: Router) { }
 
   djangostudents() {
-    return this.http.get('http://' + this.URL + '');
+    return this.http.get('http://' + environment.API_URL + '');
   }
 
   createUser() {
