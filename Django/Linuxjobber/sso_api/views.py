@@ -27,11 +27,16 @@ def login(request):
         return Response({'error': 'Please provide both username and password'},
                         status=status.HTTP_403_FORBIDDEN)
     user = authenticate(username=username, password=password)
-    if not user:
+    user1= authenticate(email=username, password=password)
+    if not user or not user1:
         return Response({'error': 'Invalid Credentials'},
                         status=status.HTTP_404_NOT_FOUND)
-    token, _ = Token.objects.get_or_create(user=user)
-    return Response({'token': token.key},
+    if user:
+        token, _ = Token.objects.get_or_create(user=user)
+        return Response({'token': token.key,'name':user.username},
+                        status=status.HTTP_200_OK)
+    token, _ = Token.objects.get_or_create(user=user1)
+    return Response({'token': token.key, 'name': user1.username},
                     status=status.HTTP_200_OK)
 @csrf_exempt
 @api_view(["GET"])

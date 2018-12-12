@@ -271,4 +271,4 @@ CHANNEL_LAYERS = {
     },
 }
 #todo Always change to appropriate before pushing
-GROUP_CLASS_URL= 'http://localhost:4200/classroom/'
+GROUP_CLASS_URL= 'http://localhost:4000/classroom/'
