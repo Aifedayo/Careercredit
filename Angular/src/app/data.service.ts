@@ -27,6 +27,10 @@ export class DataService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
+  djangostudents() {
+    return this.http.get('http://' + this.URL + '');
+  }
+
   createUser() {
     this.http.post('http://' + environment.API_URL + '/sso_api/login', JSON.stringify({'email': this.createuser_email, 'password': this.createuser_password, 'username': this.createuser_username}), this.httpOptions).subscribe(
         data => {
