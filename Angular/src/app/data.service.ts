@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Router} from '@angular/router';
+import {environment} from "../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,6 @@ import { Router} from '@angular/router';
 export class DataService {
 
   // public URL = '54.244.162.68:8001';
-  public URL = '127.0.0.1:8000';
 
   public message;
   public login_username;
@@ -27,30 +27,8 @@ export class DataService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  // groupclassusers() {
-  //     return this.http.get('http://' + this.URL + '/api/v1/groupclass-api/groupclassusers/');
-  // }
-  djangostudents() {
-    return this.http.get('http://' + this.URL + '');
-  }
-  // studentArray() {
-  //   this.users [];
-  //   this.djangostudents().subscribe((data: Array<object>) => {
-  //     this.users = data;
-  //     return this.users;
-  //   });
-  // }
-  // getSingleStudent(id: number) {
-  //   const user = this.users.find(
-  //     (data) => {
-  //       return data.id === id;
-  //       console.log(data);
-  //     }
-  //   );
-  //   return user;
-  // }
   createUser() {
-    this.http.post('http://' + this.URL + '/sso_api/login', JSON.stringify({'email': this.createuser_email, 'password': this.createuser_password, 'username': this.createuser_username}), this.httpOptions).subscribe(
+    this.http.post('http://' + environment.API_URL + '/sso_api/login', JSON.stringify({'email': this.createuser_email, 'password': this.createuser_password, 'username': this.createuser_username}), this.httpOptions).subscribe(
         data => {
             this.message = data['message'];
             this.createuser_email = '';
@@ -69,7 +47,7 @@ export class DataService {
   }
 
   login() {
-    this.http.post('http://' + this.URL + '/sso_api/api-token-auth/', JSON.stringify({'username': this.login_username, 'password': this.login_password}), this.httpOptions).subscribe(
+    this.http.post('http://' + environment.API_URL + '/sso_api/api-token-auth/', JSON.stringify({'username': this.login_username, 'password': this.login_password}), this.httpOptions).subscribe(
         data => {
 
             sessionStorage.setItem('username', data['name']);
