@@ -28,11 +28,11 @@ export class DataService {
   constructor(private http: HttpClient, private router: Router) { }
 
   djangostudents() {
-    return this.http.get('http://' + environment.API_URL + '');
+    return this.http.get( environment.API_URL + '');
   }
 
   createUser() {
-    this.http.post('http://' + environment.API_URL + '/sso_api/login', JSON.stringify({'email': this.createuser_email, 'password': this.createuser_password, 'username': this.createuser_username}), this.httpOptions).subscribe(
+    this.http.post( environment.API_URL + '/sso_api/login', JSON.stringify({'email': this.createuser_email, 'password': this.createuser_password, 'username': this.createuser_username}), this.httpOptions).subscribe(
         data => {
             this.message = data['message'];
             this.createuser_email = '';
@@ -51,7 +51,7 @@ export class DataService {
   }
 
   login() {
-    this.http.post('http://' + environment.API_URL + '/sso_api/api-token-auth/', JSON.stringify({'username': this.login_username, 'password': this.login_password}), this.httpOptions).subscribe(
+    this.http.post( environment.API_URL + '/sso_api/api-token-auth/', JSON.stringify({'username': this.login_username, 'password': this.login_password}), this.httpOptions).subscribe(
         data => {
 
             sessionStorage.setItem('username', data['name']);
