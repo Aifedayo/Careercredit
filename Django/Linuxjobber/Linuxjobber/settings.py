@@ -32,7 +32,7 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
 
     'rest_framework',
-    'channels',
+    #'channels',
     'ckeditor',
     'corsheaders',
     'django.contrib.admin',
@@ -103,7 +103,7 @@ WSGI_APPLICATION = 'Linuxjobber.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mylinuxjobber',
+        'NAME': 'linuxjobber',
         'USER': 'linuxjobber',
         'PASSWORD': '8iu7*IU&',
         'HOST': 'localhost',
@@ -266,6 +266,6 @@ CHANNEL_LAYERS = {
 }
 
 #SERVER details
-SERVER_IP = "34.221.68.130"
+SERVER_IP = "52.88.199.218"
 SERVER_USER = "sysadmin"
 SERVER_PASSWORD = "8iu7*IU&"
