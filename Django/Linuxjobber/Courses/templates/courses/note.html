@@ -125,9 +125,15 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-12 col-md-6">
+						{%if user.is_authenticated %}
+
+						{%else%}
 					<div class="sticky text-center">
 						<a href="{% url 'home:signup' %}"><img style="height: 70px;" src="{% static 'home/images/sticky.png' %}"></a>
 					</div>
+					{%endif%}
+				</div>
+				<div class="col-12 col-md-6">
 				</div>
 			</div>
 		</div>
