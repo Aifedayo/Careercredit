@@ -1,0 +1,98 @@
+{% extends 'home/base.html' %}
+{% load staticfiles%}
+{% block title %}
+Pay | {{ PAY_FOR }} | Linuxjobber
+{% endblock %}
+{% block content %}
+
+<style>
+    .pay {
+    height: 30vh;
+    width: 100%;
+    background: url("{% static 'home/images/bannerr.png' %}");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+</style>
+
+
+<div class="pay" role="listbox">
+    <div class="item active">
+
+        <div class=" text-center projs" >
+   <!-- <h1>Project Videos</h1> -->
+
+        </div>
+      </div>
+    </div>
+
+<div class="main-container">
+
+    <div class="container"> 
+        <div class="row">
+        
+            
+        <div class="col-md-1"></div>
+            <div class="col-md-6 page-content">
+                <div class="inner-box category-content" style="box-shadow: 0px 4px 30px rgba(255, 255, 255); !important">
+                	
+                    <h2 class="title-4"><i class="icon-user-add"></i>
+                    
+                        Pay For {{ PAY_FOR }}
+                                            
+                    </h2>
+                    <hr class='hr-color'/>
+                    <div class="row">
+                        <div class="col-sm-12">
+                        
+                       	
+                        <form action="{% url 'home:pay_live_help' %}" method="POST" id='stripejsfilemain'>
+                            <div class="form-group required">
+                                <div  class="col-md-4"></div>
+                                <div class="col-md-8">
+                                {% csrf_token %}
+                                	<script id='stripejsfile' src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+	                                    data-key="{{ stripe_key }}"
+	                                    data-amount="{{ amount }}"
+	                                    data-email="{{ user.email }}"
+	                                    data-name="Linuxjobber"
+	                                    data-description="{{ PAY_FOR }}"
+	                                    data-image="{% static 'home/images/logo.png' %}"
+	                                    data-locale="auto"
+	                                    data-allow-remember-me="false"
+	                                    data-currency="usd">
+                                    </script>
+                             
+                                </div>
+                            </div>	
+                                                    
+                            <p style="font-size:14px !important; color: #000;">
+                                <small>{{ DISCLMR }}</small></p>
+                        </form>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+
+            <div class="col-md-4 reg-sidebar">
+                <div class="reg-sidebar-inner text-center">
+                    <div class="promo-text-box"><i class=" icon-picture fa fa-4x icon-color-1"></i>
+                     
+                            <p style="color: #000;">Pay For {{ PAY_FOR }}</p>
+                            </div><br>						
+                            <h3>{{ mode }}<h3>
+                            <h1 class='title-4'>${{ price }}</h1>                  
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</div>
+
+
+{% endblock %}

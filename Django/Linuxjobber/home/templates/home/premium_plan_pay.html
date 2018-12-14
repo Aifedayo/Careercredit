@@ -1,0 +1,95 @@
+{% extends 'home/base.html' %}
+{% load staticfiles%}
+{% block title %}
+Pay | {{ PAY_FOR }} | Linuxjobber
+{% endblock %}
+{% block content %}
+
+<style>
+    .pay {
+    height: 30vh;
+    width: 100%;
+    background: url("{% static 'home/images/bannerr.png' %}");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+</style>
+
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active"></div>      
+    </div>      
+</div>
+
+<div class="main-container">
+
+    <div class="container"> 
+        <div class="row">
+        
+            
+        <div class="col-md-1"></div>
+            <div class="col-md-6 page-content">
+                <div class="inner-box category-content" style="box-shadow: 0px 4px 30px rgba(255, 255, 255);height: 200px">
+                	
+                    <h2 class="title-4"><i class="icon-user-add"></i>
+                    
+                        {{ PAY_FOR }}
+                                            
+                    </h2>
+                    <hr class='hr-color'/>
+                    <div class="row">
+                        <div class="col-sm-12">
+                        
+                       	
+                            <form action="" method="POST" id='stripejsfilemain'>
+                                <div class="form-group required">
+                                    <div  class="col-md-4"></div>
+                                    <div class="col-md-8">
+                                    {% csrf_token %}
+                                    	<script id='stripejsfile' src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    	                                    data-key="{{ stripe_key }}"
+    	                                    data-amount="{{ amount }}"
+    	                                    data-email="{{ user.email }}"
+    	                                    data-name="Linuxjobber"
+    	                                    data-description="{{ PAY_FOR }}"
+    	                                    data-image="{% static 'home/images/logo.png' %}"
+    	                                    data-locale="auto"
+    	                                    data-allow-remember-me="false"
+    	                                    data-currency="usd">
+                                        </script>
+                                 
+                                    </div>
+                                </div>	
+                            </form>
+                            <p style="font-size:14px !important; color: #000;"><small>{{ DISCLMR }}</small></p>                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+
+            <div class="col-md-4 reg-sidebar">
+                <div class="reg-sidebar-inner text-center">
+                    <div class="promo-text-box"><i class=" icon-picture fa fa-4x icon-color-1"></i>
+                     
+                            <h3>{{ mode }}</h3>
+                            <p style="color: #000;">Access all courses, Training Reminders, Technical Support, Live Support,Resume Assistance, Live Professional, Interview Preparation, Job Preparation.
+                            
+                            </div>					
+                            
+                            <h1 class='title-4'>${{ price }}</h1><span style="color: #000;" >
+
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</div>
+
+
+{% endblock %}

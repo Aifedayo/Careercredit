@@ -1,0 +1,38 @@
+{% extends 'home/base.html' %}
+{% block content %}
+
+<div class="req" role="listbox">
+    <div class=" text-center projs" >
+  
+    </div>
+</div>
+<br>
+<div class="container">
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8 modal-content">
+		<br>
+		<h2>Live help subscription</h2>
+		<hr>
+		<div class="alert alert-success">
+			<span>Congratulations, you have successfully subscribed for live help</span>
+		</div>
+		<p class="req-p">Send us an email at admin@linuxjobber.com containing your Skype ID so we can add you up on skype. </p>
+		<!--<p class="req-p space1">Please Note</p>
+		<ul>
+			<li>- To verify authorization to work in the United States, the agreement requires Social Security Number.</li>
+			<li>- To verify registrant identity, the agreement requires Bank Information.</li>
+		</ul>
+		<br>-->
+		<div class="sldbtnd">
+		<a href="{% url 'home:index' %}" class="btn btn-primary get">Return to home</a>
+		</div>
+		<br><br>
+		
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+</div>
+<br><br>
+
+{% endblock %}
