@@ -1,15 +1,19 @@
-import subprocess, json, os, requests
+import subprocess, json, os, requests, random
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseBadRequest
 from django.shortcuts import render, redirect, get_object_or_404
 from django import template as temp#, forms
 from django.views import generic
 from django.conf import settings
+from django.core.mail import send_mail
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib import messages
 
 #################################################
 #    IMPORTS FROM WITHIN Linuxjobber APPLICATION  #
-from .models import GradesReport, Course, CourseTopic, CourseDescription, CoursePermission, Note
-from home.models import Location
+from .models import GradesReport, Course, CourseTopic, CourseDescription, CoursePermission, Note, NoteComment, TopicStatus, LabTask
+from home.models import Location, AwsCredential
+from users.models import CustomUser
 from .forms import *
 from .utils.djangolabsutils import grade_django_lab
 
@@ -39,9 +43,12 @@ class CourseTopicsView(generic.ListView):
     def get_context_data(self, **kwargs):
         ip = get_client_ip(self.request)
         add_location(ip,self.request.user)
+        stat = checkstat(self.request.user,Course.objects.get(course_title = self.kwargs.get('course_name').replace("_", " ")))
 
         context = super().get_context_data(**kwargs)
         context['course'] = Course.objects.get(course_title = self.kwargs.get('course_name').replace("_", " "))
+        context['aws'] = check_aws(self.request.user)
+
         if self.request.user.role == 4:
             try:
                 context['permission'] = CoursePermission.objects.get(user=self.request.user,course=context['course'])
@@ -68,11 +75,98 @@ def add_location(ip,user):
     except requests.exceptions.RequestException as e:
         pass
 
+def check_aws(user):
+    try:
+        aws = AwsCredential.objects.get(user=user)
+        return True
+    except AwsCredential.DoesNotExist:
+        return False
+
 def TopicNote(request, course_name, lab_no):
 
-    Notes = Note.objects.get(Topic=lab_no)
+    if request.user.is_authenticated:
+        template = 'home/base.html'
+    else:
+        template = 'courses/visitor.html'
 
-    return render(request, 'courses/note.html', {'note':Notes})
+    Notes = Note.objects.get(Topic=lab_no)
+    Topics = CourseTopic.objects.filter(course__course_title = course_name.replace("_", " "))
+    Random = random.sample(list(Topics), 3)
+    try:
+        comments = NoteComment.objects.filter(Note=Notes)
+    except NoteComment.DoesNotExist:
+        comments = False
+
+    if request.method == "POST":
+        comment = request.POST['comment']
+
+        if comment:
+            com = NoteComment(User=request.user,Note=Notes,Comment=comment)
+            com.save()
+            return render(request, 'courses/note.html', {'template':template, 'note':Notes, 'randoms': Random, 'course': course_name, 'comments':comments})
+        else:
+            error = True
+            return render(request, 'courses/note.html', {'template':template,'note':Notes, 'randoms': Random, 'course': course_name, 'error':error,  'comments':comments})
+
+
+
+    return render(request, 'courses/note.html', {'template':template, 'note':Notes, 'randoms': Random, 'course': course_name, 'comments':comments})
+
+@csrf_exempt
+def videostat(request, topic):
+    if request.method == "POST":
+        topic = topic.replace("_"," ")
+        topic = CourseTopic.objects.get(topic=topic)
+        stat = TopicStatus.objects.get(topic=topic,user=request.user)
+
+        #does not have lab
+        if topic.has_labs == 0:
+            stat.video = 50
+            stat.lab = 50
+            stat.save(update_fields=['video','lab'])
+        #has lab
+        else:
+            stat.video = 50
+            stat.save(update_fields=['video'])
+        return HttpResponse("Result:done")
+
+#def totalstat(user,course):
+
+
+def checkstat(user,course):
+    topics = CourseTopic.objects.filter(course=course)
+    for topic in topics:
+
+        try:
+            stat = TopicStatus.objects.get(user=user,topic=topic)
+        except TopicStatus.DoesNotExist:
+            stat = TopicStatus(user=user,topic=topic,lab=0,video=0)
+            stat.save()
+        
+def signup(request):
+    if request.method == "POST":
+        firstname = request.POST['fullname'].split()[0]
+        lastname = request.POST['fullname'].split()[1] if len(request.POST['fullname'].split()) > 1 else request.POST['fullname'].split()[0]
+        email = request.POST['email']
+        password = CustomUser.objects.make_random_password()
+        username = email.split('@')[0]
+
+        if (firstname):
+            user = CustomUser(username=username, email=email)
+            user.set_password(password)
+            user.first_name = firstname
+            user.last_name = lastname
+            user.save()
+            send_mail('Linuxjobber Free Account Creation', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + 'and password is: '+ password +'\nFollow this link http://35.167.153.1:8001/login to login to you account\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            return render(request, "courses/success.html", {'user': user})
+        else:
+            error = True
+            return render(request, 'home/registration/signup.html', {'error':error})
+    else:
+        return render(request, 'home/registration/signup.html') 
+
+def success(request):
+    return render(request, 'courses/success.html')
 
 @login_required
 def topicdetails(request, course_name, lab_no):
@@ -109,10 +203,7 @@ def get_gradingform(course_topic, user_obj):
 #         (3, 'submit from repo')
 #     ))
     else:
-        form = MachineGradingForm({'machine': user_obj.email,
-                                   'user_id': user_obj.id})
-        form.fields['machine'].widget = HiddenInput()
-        form.fields['machine'].label = "User_email"
+        form = None
     return form
 
 
@@ -131,11 +222,15 @@ class LabDetailsView(generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['form'] = get_gradingform(context['coursetopic'], self.request.user)
+        context['course'] = Course.objects.get(course_title=self.kwargs.get('course_name').replace("_", " "))
+        if context['course'].lab_submission_type == 2:
+            context['machine'] = get_machine(self.request.user)
         return context
 
     def post(self, request, *args, **kwargs):
         topic = self.get_object()
-        course = topic.course.course_title.split()[0].upper()
+        #course = topic.course.course_title.split()[0].upper()
+        course = Course.objects.get(course_title=topic.course.course_title)
         topic_id = str(topic.id)
         topic_slug = topic.lab_name
         user_ID = request.POST.get('user_id')
@@ -155,13 +250,32 @@ class LabDetailsView(generic.DetailView):
             else:
                 return HttpResponse(output)
         elif sub_type == 2:
+            IP = request.POST['ip_address']
+            
+            outps = subprocess.Popen(["sshpass","-p", settings.SERVER_PASSWORD, "ssh", "-o StrictHostKeyChecking=no", "-o LogLevel=ERROR", "-o UserKnownHostsFile=/dev/null", settings.SERVER_USER+"@"+str(IP), "python /tmp/GraderClient.py", settings.SERVER_USER,settings.SERVER_IP,str(topic.id),str(request.user.id)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+            if outps:
+                labs = LabTask.objects.filter(lab=topic)
+
+                for lab in labs:
+                    try:
+                        get_grade = GradesReport.objects.get(user=request.user,course_topic=topic,lab=lab)
+                        get_grade.grade = "Grading"
+                        get_grade.score= 0
+                        get_grade.save(update_fields=['score','grade'])
+                    except GradesReport.DoesNotExist:
+                        grade = GradesReport(user=request.user,course_topic=topic,score=0,lab=lab,grade="pending")
+                        grade.save()
+
+            messages.success(request, "Please wait your task is currently being graded! Click <a href='/courses/"+str(self.kwargs.get('course_name'))+"/lab/"+str(topic.topic_number)+"/result'>here</a> to refresh in 2 minutes")
+            return redirect("Courses:linux_result")
             # GraderServer "machine" data['machine'] "sysadmin" topic_id course data['user_id']
-            command = [ settings.BASE_DIR+"/Courses/utils/GraderServer.py","machine",user_Add, "sysadmin", topic_id, course, user_ID ]
+            """command = [ settings.BASE_DIR+"/Courses/utils/GraderServer.py","machine",user_Add, "sysadmin", topic_id, course, user_ID ]
             try:
                 subprocess.check_call(command, stderr=subprocess.STDOUT, bufsize=-1)
             except:
                 return render(request,'courses/result.html',{'gradingerror':"There was an error encountered during grading",'coursetopic':topic})
             handle_rslts(settings.BASE_DIR+"/Courses/utils/"+user_Add,request.user,topic)
+            """
         else:
             # /path/to/where/GraderServer.py "repo" course topic_id topic_slug data['user_id'] user_IP 
             command = [ settings.BASE_DIR+"/Courses/utils/GraderServer.py","repo", course, topic_id, topic_slug, user_ID, user_Add ]
@@ -172,6 +286,117 @@ class LabDetailsView(generic.DetailView):
             handle_rslts(settings.BASE_DIR+"/Courses/utils/"+user_Add,request.user,topic)
         result = GradesReport.objects.filter(user = user_ID, course_topic = topic_id,)
         return render(request, 'courses/result.html',{'result':result,'coursetopic':topic})
+
+def linux_result(request,course_name=None,lab_no=None):
+    
+    if course_name:
+
+        topic = CourseTopic.objects.get(course__course_title = course_name.replace("_"," "), topic_number = lab_no)
+        try:
+            next_topic = CourseTopic.objects.get(course__course_title = course_name.replace("_"," "), topic_number = int(lab_no)+1)
+        except CourseTopic.DoesNotExist:
+            next_topic = None
+        context = {
+            'topic' : topic,
+            'result' : GradesReport.objects.filter(user=request.user,course_topic=topic),
+            'course_name' : course_name,
+            'lab_no': lab_no,
+            'next_topic': next_topic
+        }
+
+
+    else:
+        context = None
+    return render(request, 'courses/linux_result.html', context)
+
+@csrf_exempt
+def store_lab_result(request):
+    scored =0
+    if request.method == "POST":
+        
+        topic_id = request.POST['lab_id']
+        user_ID = request.POST['userID']
+        reports = GradesReport.objects.filter(course_topic__id=topic_id,user__id=user_ID)
+
+        for report in reports:
+            report.grade = request.POST[str(report.lab.task_number)]
+            report.score = 1
+            report.save(update_fields=['grade','score'])
+
+        #add status
+        reports = GradesReport.objects.filter(course_topic__id=topic_id,user__id=user_ID)
+        for report in reports:
+            if report.grade == "passed":
+                scored = scored + 1
+        expected = len(reports)
+        total = (scored / expected) * 100
+
+        status = TopicStatus.objects.get(user__id =user_ID,topic__id=topic_id)
+        if total >= 70:
+            status.lab = 50
+            status.save(update_fields=['lab'])
+        elif total >= 50:
+            status.lab = 25
+            status.save(update_fields=['lab'])
+        else:
+            status.lab = 0
+            status.save(update_fields=['lab'])
+        return HttpResponse("Result:saved")
+
+
+
+def get_machine(user):
+    try:
+        awscred = AwsCredential.objects.get(user = user)
+    except AwsCredential.DoesNotExist:
+        return False
+
+    #Running instance
+    running_machine = []
+    RUNING_AWS_ACTION = 'instance_running';
+    RUNING_MACHINE_ID = 'running';
+    command = ['python3.6 '+ settings.BASE_DIR+"/home/utils/s3_sample.py %s %s %s %s" %(awscred.accesskey,awscred.secretkey,RUNING_AWS_ACTION,RUNING_MACHINE_ID) ]
+        
+    try:
+        outputs = subprocess.check_output(command, shell=True )
+        return_code = 0
+        outputs = bytes(outputs)
+        output = outputs.decode()
+        
+        output = output.split(",")
+
+        for i in range(0,len(output)-1):
+            out = output[i].split()
+            running_machine.append(out)
+
+        for machine in running_machine:
+
+            outps = subprocess.Popen(["sshpass","-p", settings.SERVER_PASSWORD, "ssh", "-o StrictHostKeyChecking=no", "-o LogLevel=ERROR", "-o UserKnownHostsFile=/dev/null", settings.SERVER_USER+"@"+machine[1], " whoami"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+            
+            outps = bytes(outps[0])
+            outps = outps.decode('UTF-8')
+            
+            #Check if users machine is accessible, if it is check if GraderClient is deploy or not, if not, deploy!
+            if "sysadmin" in outps:
+                machine.append(True)
+                outs = subprocess.Popen(["sshpass","-p", settings.SERVER_PASSWORD, "ssh", "-o StrictHostKeyChecking=no", "-o LogLevel=ERROR", "-o UserKnownHostsFile=/dev/null", settings.SERVER_USER+"@"+machine[1], " [ -f /tmp/GraderClient.py ] && echo $?"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+                outs = bytes(outs[0])
+                outs = outs.decode('UTF-8')
+
+                if "0" in str(outs):
+                    pass
+                else:
+                    out = subprocess.Popen(["/bin/bash", settings.BASE_DIR+"/home/utils/deploy_clientapp.sh", machine[1], "/tmp"])  
+            else:
+                machine.append(False)
+            
+        return running_machine    
+
+    except subprocess.CalledProcessError as grepexc:
+        print("error code", grepexc.returncode, grepexc.output)
+        return_code = grepexc.returncode
+        output = grepexc.output
+        return False
 
 
 """
