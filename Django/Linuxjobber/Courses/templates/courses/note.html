@@ -33,9 +33,13 @@
     		</div>
     		<div class="col-md-8">{{note.Detail|safe}}</div>
     		<div class="col-md-2">
+    			{%if user.is_authenticated %}
+
+    			{%else%}
     			<div class="banner-sidebar">
                    	<a href="{% url 'home:signup' %}"> <img src="{% static 'home/images/bannerlinux.png' %}" class="pro-img"></a>
                 </div>
+                {%endif%}
     		</div>
     	</div>
 	</div>

@@ -43,6 +43,7 @@ class CourseTopic(models.Model):
     topic =  models.CharField(max_length = 200)
     lab_name = models.CharField(max_length = 50)
     video = models.TextField()
+    description = models.TextField(default="nil")
     has_notes = models.IntegerField(default=1 ,choices=((0, 'No'), (1, 'Yes')))
     has_labs = models.IntegerField(default=1 ,choices=((0, 'No'), (1, 'Yes')))
     free = models.IntegerField(default=0 ,choices=((0, 'No'), (1, 'Yes')))
@@ -124,12 +125,13 @@ class GradesReport(models.Model):
     course_topic = models.ForeignKey(CourseTopic, on_delete = models.CASCADE, related_name='grades',related_query_name='grade')
     score = models.PositiveSmallIntegerField(default=0)
     grade = models.CharField(default='not graded', max_length=20)
+    lab = models.ForeignKey(LabTask, on_delete = models.CASCADE)
     
     class Meta:
         verbose_name_plural = 'Grades Reports'
     
     def __str__(self):
-        return self.grade, self.date, self.score
+        return self.user.email
 
 
 def content_file_name(instance, filename):

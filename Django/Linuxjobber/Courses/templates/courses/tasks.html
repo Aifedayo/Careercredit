@@ -49,8 +49,47 @@
             {% endif %}
             
         {%endfor%}
-
-        {{course.lab_submission_type}}
+            
+            {%if course.lab_submission_type == 2%}
+            <form method="post" action="">
+                {% csrf_token %}
+                {%if machine%}
+                    {%if machine|length > 1%}
+                        {%for machines in machine%}
+                            <div class="row -center">
+                                <div class="col-12 col-md-4 col-lg-4">
+                                    <div class="labox">
+                                        <input type="radio" name="ip_address" value="{{machines.1}}">
+                                        {%if machines.2 %}<span class="glyphicon glyphicon-ok corr"></span> {%else%} <span class="glyphicon glyphicon-remove wron"></span> {%endif%}
+                                        <span class="groupboxt">{{machines.1}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        {%endfor%}
+                    {%else%}
+                        {%for machines in machine%}
+                            <input type="hidden" name="ip_address" value="{{machines.1}}">
+                            <p>Instance IP: {{machines.1}}</p>
+                            <p>Machine Accessibility: {%if machines.2 %}<span class="glyphicon glyphicon-ok corr"></span> {%else%} <span class="glyphicon glyphicon-remove wron"></span> {%endif%}</p>
+                        {%endfor%}
+                    {%endif%}
+                    <div class="submit"><input type="submit" class="btn btn-primary"> </div>
+                {%else%}
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <br /><strong>When you have finished all the tasks, enter your IP address and submit</strong> <br />
+                            <strong>ONLY IF YOU ARE DONE</strong> 
+                        <div class="input-group">
+                        <span class="input-group-addon">IP Address</span>
+                        <input type="text" name="ip_address" class="form-control" placeholder="Enter your IP address" id="IP_address">
+                        </div>
+                        </div>
+                        <div class="col-md-6"></div>
+                    </div>
+                    <div class="submit"><input type="submit" class="btn btn-primary" disabled> </div>
+                {%endif%}
+            </form>
+            {%endif%}
         {%else%}
                <strong>No tasks for this lab(course topic)</strong> 
         {% endif %}

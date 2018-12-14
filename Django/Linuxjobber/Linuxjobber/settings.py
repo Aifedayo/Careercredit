@@ -32,7 +32,7 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
 
     'rest_framework',
-    'channels',
+    #'channels',
     'ckeditor',
     'corsheaders',
     'django.contrib.admin',
@@ -264,3 +264,8 @@ CHANNEL_LAYERS = {
         },
     },
 }
+
+#SERVER details
+SERVER_IP = "52.88.199.218"
+SERVER_USER = "sysadmin"
+SERVER_PASSWORD = "8iu7*IU&"
