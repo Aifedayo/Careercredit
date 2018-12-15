@@ -32,7 +32,7 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
 
     'rest_framework',
-    #'channels',
+    'channels',
     'ckeditor',
     'corsheaders',
     'django.contrib.admin',
@@ -107,9 +107,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'linuxjobber',
-        'USER': 'linuxjobber',
+        'USER': 'linuxjobber2',
         'PASSWORD': '8iu7*IU&',
-        'HOST': 'localhost',
+        'HOST': '172.31.39.237',
+        'PORT': '3306',
     }
 }
 
@@ -270,7 +271,10 @@ CHANNEL_LAYERS = {
     },
 }
 
+
+# todo Always change to appropriate before pushing
 #SERVER details
 SERVER_IP = "52.88.199.218"
 SERVER_USER = "sysadmin"
 SERVER_PASSWORD = "8iu7*IU&"
+GROUP_CLASS_URL= 'http://localhost:4000/classroom/'

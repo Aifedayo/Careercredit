@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import {ApiService} from "../../share/api.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {Observable} from "rxjs/index";
+import {ApiService} from "../../share/api.service";
 
 @Component({
-  selector: 'app-topic-lab',
-  templateUrl: './topic-lab.component.html',
-  styleUrls: ['./topic-lab.component.css']
+  selector: 'app-topic-notes',
+  templateUrl: './topic-notes.component.html',
+  styleUrls: ['./topic-notes.component.css']
 })
-export class TopicLabComponent implements OnInit {
-  route:any ;
+export class TopicNotesComponent implements OnInit {
+
+ route:any ;
   public topic:any = null;
-  public _task:Observable<any>=null;
   constructor(private apiService:ApiService,route:ActivatedRoute,private router:Router) {
     this.route=route;
         this.route.params.subscribe(params => {
@@ -25,7 +24,6 @@ export class TopicLabComponent implements OnInit {
         this.apiService.data$.subscribe(data=>{
       this.topic=data;
       console.log(this.topic)
-      this._task= this.apiService.data$
     })
   }
   ngOnInit() {

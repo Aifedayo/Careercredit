@@ -2,7 +2,6 @@
 import { LinuxComponent } from './linux/linux.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { Course2Component } from './course2/course2.component';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent} from './signup/signup.component';
 import { LoginComponent } from './login/login.component';

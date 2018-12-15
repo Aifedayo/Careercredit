@@ -1,4 +1,3 @@
-import { TopicDetailComponent } from './topic-detail/topic-detail.component';
 import { MaterializeModule } from 'angular2-materialize';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -9,7 +8,6 @@ import { CourseComponent } from './course.component';
 import { TopicChatComponent } from './topic-chat.component';
 import { CourseService } from './course.service';
 import { CourseRoutingModule } from './course-routing.module';
-import { TopicListComponent } from './topic-list/topic-list.component';
 import { TopicLabComponent } from './topic-lab/topic-lab.component';
 import { TopicNotesComponent } from './topic-notes/topic-notes.component';
 import { TopicVideoComponent } from './topic-video/topic-video.component';
@@ -28,8 +26,6 @@ import {FormsModule} from "@angular/forms";
   declarations: [
     CourseComponent,
     TopicChatComponent,
-    TopicDetailComponent,
-    TopicListComponent,
     TopicLabComponent,
     TopicNotesComponent,
     TopicVideoComponent

@@ -1,30 +1,30 @@
-import { DataService } from './../data.service';
-import { Course2Component } from './course2.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LinuxChatComponent } from './linux-chat/linux-chat.component';
 import { BrowserModule} from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatVideoModule } from 'mat-video';
-import { CourseChatComponent } from './course-chat/course-chat.component';
-import { Course2RoutingModule } from './course2-routing.module';
 import { MaterializeModule } from 'angular2-materialize';
+import { LinuxComponent } from './linux.component';
+import { LinuxRoutingModule } from './linux-routing.module';
+import {FormsModule} from "@angular/forms";
+
 
 
 @NgModule({
   imports: [
+    CommonModule,
+    BrowserModule,
     BrowserAnimationsModule,
     MatVideoModule,
-    BrowserModule,
-    CommonModule,
-    Course2RoutingModule,
     MaterializeModule,
-    DataService
+    LinuxRoutingModule,
+    FormsModule
   ],
   declarations: [
-    Course2Component,
-    CourseChatComponent,
+    LinuxChatComponent,
+    LinuxComponent
   ],
-  providers: [],
-  bootstrap: [Course2Component]
+  bootstrap: [LinuxComponent]
 })
-export class Course2Module { }
+export class LinuxModule { }

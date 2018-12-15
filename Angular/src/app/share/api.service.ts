@@ -6,16 +6,16 @@ import {ActivatedRoute} from "@angular/router";
 import {Location} from "@angular/common";
 import {Observable, of, Subject} from "rxjs/index";
 import {Topic} from "../course/topic.model";
+import {ClassModel} from "./class-model";
+import {UserModel} from "./user-model";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
+  CurrentClasses=[];
   private sharedTopic;
-  public AllClasses=[];
-  public ActiveClass:number;
   public CurrentTopics=[];
-  public ActiveTopic:number;
   private _data = new Subject();
   data$ = this._data.asObservable();
 
@@ -28,8 +28,6 @@ export class ApiService {
 
 
   }
-
-  emitTopic(){}
 
    setActiveTopic(id){
     this.sharedTopic=this.getTopic(id)
@@ -50,8 +48,15 @@ export class ApiService {
       return data.id === id;
     }
   )
-
-
+}
+  getUsers(id: number) {
+   const _class = this.CurrentClasses.find(
+    (data) => {
+      return data.id === id;
+    }
+  );
+    console.log(_class);
+    return _class
 }
   LoadData(selectedClass){
     this.getCourseDetails(selectedClass)
@@ -66,11 +71,21 @@ export class ApiService {
         this.CurrentTopics.push(topic);
         })
       });
+
+    // this.CurrentClasses = this.getAvailableClasses()
+    //   .subscribe(data=>{
+    //     data.forEach(entry=>{
+    //       let _class = new ClassModel();
+    //       _class.id=entry.id;
+    //       _class.users=entry.users;
+    //       this.CurrentClasses.push(_class);
+    //     })
+    //   })
   }
   getCourseDetails(id){
     return this.httpClient.get(environment.API_URL + `sso_api/group/` + id,{headers:this.headers})
   }
-  getAvailableClasses(){
-    return this.httpClient.get(environment.API_URL + `sso_api/groups/`,{headers:this.headers})
+  getAvailableClasses():Observable<ClassModel[]>{
+    return this.httpClient.get<ClassModel[]>(environment.API_URL + `sso_api/groups`,{headers:this.headers})
   }
 }

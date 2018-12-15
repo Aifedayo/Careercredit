@@ -1,5 +1,4 @@
 import { CourseService } from './course/course.service';
-import { TopicDetailComponent } from './course/topic-detail/topic-detail.component';
 import { LinuxChatComponent } from './linux/linux-chat/linux-chat.component';
 import { LinuxRoutingModule } from './linux/linux-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -18,14 +17,10 @@ import { MaterializeModule } from 'angular2-materialize';
 import { CourseRoutingModule } from './course/course-routing.module';
 import { AppRoutingModule } from './app-routing.module';
 import { PrivateChatComponent } from './course/private-chat/private-chat.component';
-import { Course2Component } from './course2/course2.component';
-import { LinuxComponent } from './linux/linux.component';
 import {DataService} from './data.service';
 import {Location} from "@angular/common";
-import {TopicVideoComponent} from "./course/topic-video/topic-video.component";
-import {TopicLabComponent} from "./course/topic-lab/topic-lab.component";
-import {TopicNotesComponent} from "./course/topic-notes/topic-notes.component";
 import {CourseModule} from "./course/course.module";
+import {LinuxModule} from "./linux/linux.module";
 
 
 
@@ -34,19 +29,10 @@ import {CourseModule} from "./course/course.module";
   declarations: [
 
     AppComponent,
-    LinuxChatComponent,
-    LinuxComponent,
     SignupComponent,
     HomeComponent,
     LoginComponent,
-    // CourseComponent,
     PrivateChatComponent,
-    Course2Component,
-    // TopicChatComponent,
-    // TopicDetailComponent,
-    // TopicVideoComponent,
-    // TopicLabComponent,
-    // TopicNotesComponent
   ],
   imports: [
     BrowserModule,
@@ -56,9 +42,9 @@ import {CourseModule} from "./course/course.module";
     MatVideoModule,
     MaterializeModule,
     LinuxRoutingModule,
-    // CourseRoutingModule,
     AppRoutingModule,
-    CourseModule
+    CourseModule,
+    LinuxModule
   ],
   providers: [DataService,Location ],
   bootstrap: [AppComponent]

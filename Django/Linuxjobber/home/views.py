@@ -588,7 +588,7 @@ def group(request,pk):
             if int(choice) == 1:
                 return redirect("home:monthly_subscription")
             return redirect("home:group_pay",pk=group_item.pk)
-    return render(request, 'home/group_class_item.html', {'group' : group_item, 'user':user})
+    return render(request, 'home/group_class_item.html', {'group' : group_item, 'user':user,'GROUP_URL':settings.GROUP_CLASS_URL})
 
 @login_required
 def group_pay(request,pk):
@@ -602,10 +602,9 @@ def group_pay(request,pk):
     # Stripe uses cent notation for amount 10 USD = 10 * 100
     context = { "stripe_key": settings.STRIPE_PUBLIC_KEY,
                    'amount': amount,
-                'group':group_item
+                'group':group_item,
+
                 }
-
-
     if request.method == "POST":
         stripe.api_key = "sk_test_FInuRlOzwpM1b3RIw5fwirtv"
         token = request.POST.get("stripeToken")
@@ -1059,7 +1058,6 @@ def pay_live_help(request):
 
 def in_person_training(request):
     return render(request, 'home/in_person_training.html', {'courses' : get_courses(), 'tools' : get_tools()})
-
 
 @login_required
 def tryfree(request, sub_plan):

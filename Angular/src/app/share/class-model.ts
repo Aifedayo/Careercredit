@@ -1,9 +1,8 @@
 export class ClassModel {
   id:number;
-  topic: string;
-  video:string;
-  tasks=[];
-  note:string
+  course:string;
+  name:string;
+  users=[];
   constructor(){
 
   }
