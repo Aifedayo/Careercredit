@@ -32,9 +32,13 @@
 			<a href="javascript:window.history.back();" class="btn btn-primary" style="float :left;">Back</a>			
 				
 			<span class="videoname">{{topic}}</span>
-			<span class="aftervideo">Completed Video </span>	
-			
-						<a href="#" class="btn btn-primary" style="float :right;">Proceed To Notes</a>						</center>	
+			<span class="aftervideo">Completed Video </span>
+			{%if topic.has_labs == 1 %}
+			<a href="{% url 'Courses:labs' topic.course.course_title.split|join:'_' topic.topic_number %}" class="btn btn-primary lab" style="float :right;">Proceed To Labs</a>	
+			{%endif%}
+			{%if topic.has_notes == 1 %}
+						<a href="{% url 'Courses:Note' topic.course.course_title.split|join:'_' topic.topic_number %}" class="btn btn-primary" style="float :right;">Proceed To Notes</a>						</center>	
+			{%endif%}
 
 			</h6>
 		</div>	
@@ -50,10 +54,36 @@
 	<div class='video-descr'>
 			<h2>Description:</h2>
 			<div class='video-descr-border'>
+				{{topic.description}}
 			</div>
 	</div>
 	<div class="col-md-2 blank col-xs-12"></div>
 </div>
 </section>
+<script>
+jQuery(function(){
+ $('.aftervideo').hide();
+ $('.lab').hide();
+
+ $('#myVideo').bind("ended", function(){
+ 	$('.videoname').hide();
+ 	$('.aftervideo').show();
+ 	$('.lab').show();
+ 	end();
+ });
+
+function end(){
+	$.ajax({
+		type: 'POST',
+		data:'', 
+		url: '{% url "Courses:videostat" topic.topic.split|join:'_' %}',
+		success: function (result) {
+			setTimeout(function(){ updatesession(); },1000);
+		}
+	});
+}
+ 
+});
+</script>		
 
 {%endblock%}

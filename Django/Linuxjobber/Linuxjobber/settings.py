@@ -270,5 +270,11 @@ CHANNEL_LAYERS = {
         },
     },
 }
-#todo Always change to appropriate before pushing
+
+
+# todo Always change to appropriate before pushing
+#SERVER details
+SERVER_IP = "52.88.199.218"
+SERVER_USER = "sysadmin"
+SERVER_PASSWORD = "8iu7*IU&"
 GROUP_CLASS_URL= 'http://localhost:4000/classroom/'

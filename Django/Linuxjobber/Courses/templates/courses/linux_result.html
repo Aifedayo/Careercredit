@@ -1,0 +1,63 @@
+{% extends 'home/base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          
+        </div>      
+      </div>      
+</div>
+<style type="text/css">
+	h3{
+		color: black;
+	}
+	.pass{
+		color: green;
+	}
+	.fail{
+		color: red;
+	}
+	.midd{
+		box-shadow: 3px 6px 5px 3px; #888888;
+	}
+</style>
+<div class="col-md-12">
+	<div class="container physicalstorage">
+		{% if messages %}
+          {% for message in messages %}
+          <div class="alert alert-{{message.tags}}" role="alert">
+            {% if message.tags == "success" %}
+            <p style="color:#155724;">{{message | safe}}</p>
+            {%else%}
+            <p style="color:#721c24;">{{message | safe}}</p>
+            {%endif%}
+          </div>
+          {% endfor %}
+        {% endif %}
+	<div class="col-md-3"></div>
+	<div class="col-md-6 midd">
+		{%if result%}
+			{%for results in result%}
+				<br>
+				<h4 class="text-center">Your result for task {{results.lab.task_number}} is : {%if results.grade == "passed" %}<strong><span class='pass'>{{results.grade}}</span></strong>{%else%}<strong><span class='fail'>{{results.grade}}</span></strong>{%endif%}</h4>
+			{%endfor%}
+		{%endif%}
+		{%if topic%}
+		<a href="{% url 'Courses:labs' topic.course.course_title.split|join:'_' topic.topic_number %}" class="btn btn-mini btn-info">Revisit</a>
+		{%if next_topic %}
+		<a href="{% url 'Courses:topic_details' topic.course.course_title.split|join:'_' next_topic.topic_number %}" class="btn btn-mini btn-info pull-right">Next</a>
+		{%else%}
+		<a href="{% url 'Courses:topics' topic.course.course_title.split|join:'_' %}" class="btn btn-mini btn-info pull-right">Finish</a>	
+		{%endif%}
+		{%endif%}
+		<br><br>
+	</div>
+	<div class="col-md-3"></div>
+</div>
+</div>
+{%endblock%}
