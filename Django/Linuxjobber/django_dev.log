@@ -1,4 +1,4 @@
-[2018-11-25 08:15:16] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /
+2018-11-25 08:15:16] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /
 Traceback (most recent call last):
   File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
     return self.cursor.execute(sql, params)
