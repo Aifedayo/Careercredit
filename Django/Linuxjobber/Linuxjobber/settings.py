@@ -269,3 +269,8 @@ CHANNEL_LAYERS = {
         },
     },
 }
+
+#SERVER details
+SERVER_IP = "52.88.199.218"
+SERVER_USER = "sysadmin"
+SERVER_PASSWORD = "8iu7*IU&"

@@ -1,0 +1,110 @@
+{% extends 'home/base.html' %}
+
+{% load staticfiles%}
+
+{% block content %}
+  
+  
+
+
+
+
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        
+      </div>
+    </div>
+  </div>
+
+
+<style>
+.raise-to-banner h1 {
+	margin-top: 19px !important; ; 
+    margin-left: 37%;
+	color:#000;
+	font-size:29px;
+	float:left;
+}
+</style>
+
+
+
+	<div class="col-md-12 lab-details">
+		<div class="row raise-to-banner">
+			<div class="col-md-8 col-md-offset-2 text-center">
+				<div class="">
+					<div class="display-tc animate-box fadeIn animated-fast" data-animate-effect="fadeIn">
+						<h1>RHCSA Exam EX200</h1>							
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<br><br>		
+		<div class="row topic-bg">
+		
+			<div class="col-md-2 topic-class"><h4>Name</h4></div>						
+			<div class="col-md-3 topic-class"><h4>Member Plan</h4></div>	
+			<div class="col-md-1 topic-class"><h4>Amount</h4></div>			
+			<div class="col-md-2 topic-class"><h4>Transactionid</h4></div>	
+			<div class="col-md-2 topic-class"><h4>Status</h4></div>			
+			<div class="col-md-2 topic-class"><h4>Date</h4></div>
+
+		</div>
+        <div id="myList">
+
+        	{% if orders_not_empty %}
+
+	            {% for order in orders %}
+		            <div class="row line-ht">
+		                <div class="col-md-2">
+		                    <p style="color: black;">{{ order.user.email }}</p>
+		                </div>
+		                <div class="col-md-3">
+		                    <p style="color: black;">{{ order.membership_plan }}</p>
+		                </div>
+		                <div class="col-md-1">
+		                    <p style="color: black;">{{ order.order_amount }}</p>
+		                </div>
+		                <div class="col-md-2">
+		                    <p style="color: black;">{{ order.transaction_id }}</p>
+		                </div>
+		                <div class="col-md-2">
+		                    <p style="color: black;">{{ order.status }}</p>
+		                </div>
+		                <div class="col-md-2">
+		                    <p style="color: black;">{{ order.date }}</p>
+		                </div>
+		            </div>
+	            {% endfor %}
+
+            {% else %}
+            	<center>No Record Found</center>
+
+            {% endif %}
+
+
+
+
+
+        </div>
+					
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

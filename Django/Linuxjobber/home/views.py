@@ -2,6 +2,7 @@ import stripe
 import csv, io
 import logging
 import subprocess, json, os
+from smtplib import SMTPException
 from urllib.parse import urlparse
 from django.conf import settings
 from django.shortcuts import render,redirect, reverse, get_object_or_404
@@ -41,7 +42,7 @@ def get_tools():
 
 #INDEX VIEW
 def index(request):
-    return render (request, 'home/index.html', {'courses' : get_courses(), 'tools' : get_tools()})
+    return render (request, 'home/index.html', {'courses' : get_courses(), 'tools' : get_tools(),})
 
 
 def signup(request):
@@ -58,7 +59,7 @@ def signup(request):
             user.first_name = firstname
             user.last_name = lastname
             user.save()
-            send_mail('Linuxjobber Free Account Creation', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + '\n Follow this link http://35.167.153.1:8001/login to login to you account\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            send_mail('Linuxjobber Free Account Creation', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + '\n Follow this link http://35.167.153.1:8001/login to login to you account\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
             return render(request, "home/registration/success.html", {'user': user})
         else:
             error = True
@@ -211,7 +212,7 @@ def log_in(request):
         
         if user is not None:
             login(request, user)
-            return redirect("home:index")
+            return redirect("Courses:userinterest")
         else:
             error_message = "yes"
             return render(request, "home/registration/login.html", {'error_message' : error_message})
@@ -223,8 +224,103 @@ def log_out(request):
     logout(request)
     return redirect("home:login")
 
+
+
+def linux_full_training(request):
+    news_letter_message = ''
+    if request.method == 'POST':
+        email = request.POST['email']
+        try:
+            subscriber = NewsLetterSubscribers(email = email)
+            subscriber.save()
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            return render (request, 'home/linux_full_training.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
+        except Exception as e:
+            standard_logger.error('error')
+            return render (request, 'home/linux_full_training.html', {'news_letter_message': 'Something went wrong please try again!', 'courses' : get_courses(), 'tools' : get_tools()})
+    else:
+        return render(request, 'home/linux_full_training.html', {'news_letter_message': news_letter_message ,'courses' : get_courses(), 'tools' : get_tools()})
+
+
+def aws_full_training(request):
+    news_letter_message = ''
+    if request.method == 'POST':
+        email = request.POST['email']
+        try:
+            subscriber = NewsLetterSubscribers(email = email)
+            subscriber.save()
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            return render (request, 'home/aws_full_training.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
+        except Exception as e:
+            standard_logger.error('error')
+            return render (request, 'home/aws_full_training.html', {'news_letter_message': 'Something went wrong please try again!', 'courses' : get_courses(), 'tools' : get_tools()})
+    else:
+        return render(request, 'home/aws_full_training.html', {'news_letter_message': news_letter_message ,'courses' : get_courses(), 'tools' : get_tools()})
+
+
+def oracledb_full_training(request):
+    news_letter_message = ''
+    if request.method == 'POST':
+        email = request.POST['email']
+        try:
+            subscriber = NewsLetterSubscribers(email = email)
+            subscriber.save()
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            return render (request, 'home/oracledb_full_training.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
+        except Exception as e:
+            standard_logger.error('error')
+            return render (request, 'home/oracledb_full_training.html', {'news_letter_message': 'Something went wrong please try again!', 'courses' : get_courses(), 'tools' : get_tools()})
+    else:
+        return render(request, 'home/oracledb_full_training.html', {'news_letter_message': news_letter_message ,'courses' : get_courses(), 'tools' : get_tools()})
+
+
 def linux_certification(request):
-    return render(request, 'home/linux_certification.html', {'courses' : get_courses(), 'tools' : get_tools()})
+    news_letter_message = ''
+    if request.method == 'POST':
+        email = request.POST['email']
+        try:
+            subscriber = NewsLetterSubscribers(email = email)
+            subscriber.save()
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            return render (request, 'home/linux_certification.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
+        except Exception as e:
+            standard_logger.error('error')
+            return render (request, 'home/linux_certification.html', {'news_letter_message': 'Something went wrong please try again!', 'courses' : get_courses(), 'tools' : get_tools()})
+    else:
+        return render(request, 'home/linux_certification.html', {'news_letter_message': news_letter_message ,'courses' : get_courses(), 'tools' : get_tools()})
+
+def aws_certification(request):
+    news_letter_message = ''
+    if request.method == 'POST':
+        email = request.POST['email']
+        try:
+            subscriber = NewsLetterSubscribers(email = email)
+            subscriber.save()
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            return render (request, 'home/aws_certification.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
+        except Exception as e:
+            standard_logger.error('error')
+            return render (request, 'home/aws_certification.html', {'news_letter_message': 'Something went wrong please try again!', 'courses' : get_courses(), 'tools' : get_tools()})
+    else:
+        return render(request, 'home/aws_certification.html', {'news_letter_message': news_letter_message ,'courses' : get_courses(), 'tools' : get_tools()})
+
+def oracledb_certification(request):
+    news_letter_message = ''
+    if request.method == 'POST':
+        email = request.POST['email']
+        try:
+            subscriber = NewsLetterSubscribers(email = email)
+            subscriber.save()
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            return render (request, 'home/oracledb_certification.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
+        except Exception as e:
+            standard_logger.error('error')
+            return render (request, 'home/oracledb_certification.html', {'news_letter_message': 'Something went wrong please try again!', 'courses' : get_courses(), 'tools' : get_tools()})
+    else:
+        return render(request, 'home/oracledb_certification.html', {'news_letter_message': news_letter_message ,'courses' : get_courses(), 'tools' : get_tools()})
+
+
+
 
 
 def workexperience(request):
@@ -919,14 +1015,158 @@ def server_service(request):
 def live_help(request):
     return render(request, 'home/live_help.html', {'courses' : get_courses(), 'tools' : get_tools()} )
 
+@login_required
 def pay_live_help(request):
-    return render(request,'home/payment_page.html', {})
+    PRICE = 399
+    mode = "One Time"
+    PAY_FOR = "Live Help"
+    DISCLMR = "Please note that you will be charged ${} upfront. However, you may cancel at any time. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ${}".format(PRICE,PRICE)
+    stripeset = StripePayment.objects.all()
+    stripe.api_key = stripeset[0].secretkey
+    if request.method == "POST":
+        token = request.POST.get("stripeToken")
+        try:
+            charge = stripe.Charge.create(
+                amount = PRICE * 100,
+                currency = "usd",
+                source = token,
+                description = PAY_FOR
+            )
+        except stripe.error.CardError as ce:
+            return False, ce
+        else:
+            try:
+                UserPayment.objects.create(user=request.user, amount=PRICE,
+                                            trans_id = charge.id, pay_for = charge.description,
+                                            )
+                send_mail('Linuxjobber Live Help Subscription', 'Hello, you have successfuly subscribed for Live Help on Linuxjobber.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.user.email])
+                return render(request,'home/live_help_pay_success.html')
+            except SMTPException as error:
+                print(error)
+                return render(request,'home/live_help_pay_success.html')
+            except Exception as error:
+                print(error)
+                return redirect("home:index")
+    else:
+        context = { "stripe_key": stripeset[0].publickey,
+                   'price': PRICE,
+                   'amount': str(PRICE)+'00',
+                   'mode': mode,
+                   'PAY_FOR': PAY_FOR,
+                   'DISCLMR': DISCLMR}
+        return render(request, 'home/live_help_pay.html', context)
 
 
 def in_person_training(request):
     return render(request, 'home/in_person_training.html', {'courses' : get_courses(), 'tools' : get_tools()})
 
 
+@login_required
+def tryfree(request, sub_plan):
+
+    if sub_plan == 'standardPlan':
+        PRICE = 29
+        mode = "Monthly Subscription"
+        PAY_FOR = "14 days free trial"
+        DISCLMR = "Please note that you will be charged ${} upfront. However, you may cancel at any time within 14 days for a full refund. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ${}/Monthly".format(PRICE,PRICE)
+        stripeset = StripePayment.objects.all()
+        stripe.api_key = stripeset[0].secretkey
+        if request.method == "POST":
+            token = request.POST.get("stripeToken")
+            try:
+                charge = stripe.Charge.create(
+                    amount = PRICE *100,
+                    currency = "usd",
+                    source = token,
+                    description = sub_plan.lower()
+                )
+            except stripe.error.CardError as ce:
+                return False, ce
+            else:
+                try:
+                    UserPayment.objects.create(user=request.user, amount=PRICE,
+                                                trans_id = charge.id, pay_for = charge.description,
+                                                )
+                    user = request.user
+                    user.role = 3
+                    user.save()
+                    send_mail('Linuxjobber Standard Plan Subscription', 'Hello, you have successfuly subscribed for our Standard Plan package.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.user.email])
+                    return render(request,'home/standardPlan_pay_success.html')
+                except SMTPException as error:
+                    print(error)
+                    return render(request,'home/standardPlan_pay_success.html')
+                except Exception as error:
+                    print(error)
+                    return redirect("home:index")
+        else:
+            context = { "stripe_key": stripeset[0].publickey,
+                       'price': PRICE,
+                       'amount': str(PRICE)+'00',
+                       'mode': mode,
+                       'PAY_FOR': PAY_FOR,
+                       'DISCLMR': DISCLMR,
+                       'courses' : get_courses(),
+                       'tools' : get_tools()}
+            return render(request, 'home/standard_plan_pay.html', context)
+    else:
+        PRICE = 2499
+        mode = "One Time Payment"
+        PAY_FOR = "PREMIUM PLAN"
+        DISCLMR = "Please note that you will be charged ${} upfront. However, you may cancel at any time within 14 days for a full refund. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ONE TIME ${}".format(PRICE,PRICE)
+        stripeset = StripePayment.objects.all()
+        stripe.api_key = stripeset[0].secretkey
+        if request.method == "POST":
+            token = request.POST.get("stripeToken")
+            try:
+                charge = stripe.Charge.create(
+                    amount = PRICE,
+                    currency = "usd",
+                    source = token,
+                    description = sub_plan.lower()
+                )
+            except stripe.error.CardError as ce:
+                return False, ce
+            else:
+                try:
+                    UserPayment.objects.create(user=request.user, amount=PRICE,
+                                                trans_id = charge.id, pay_for = charge.description,
+                                                )
+                    send_mail('Linuxjobber Premium Plan Subscription', 'Hello, you have successfuly subscribed for our Premium Plan package.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.user.email])
+                    return render(request,'home/premiumPlan_pay_success.html')
+                except SMTPException as error:
+                    print(error)
+                    return render(request,'home/premiumPlan_pay_success.html')
+                except Exception as error:
+                    print(error)
+                    return redirect("home:index")
+        else:
+            context = { "stripe_key": stripeset[0].publickey,
+                       'price': PRICE,
+                       'amount': str(PRICE)+'00',
+                       'mode': mode,
+                       'PAY_FOR': PAY_FOR,
+                       'DISCLMR': DISCLMR,
+                       'courses' : get_courses(),
+                       'tools' : get_tools()}
+            return render(request, 'home/premium_plan_pay.html', context)
+
+
+
+
+@login_required
+def rhcsa_order(request):
+
+    orders = RHCSAOrder.objects.filter(user=request.user)
+    orders_not_empty = RHCSAOrder.objects.filter(user=request.user).exists()
+
+    return render(request, 'home/rhcsa_order.html', {  'orders_not_empty':orders_not_empty, 'orders':orders, 'courses' : get_courses(), 'tools' : get_tools()} )
+
+
+def user_interest(request):
+
+    return render(request, 'home/user_interest.html', {'courses' : get_courses(), 'tools' : get_tools()})
+
 def group_list(request):
 
     return TemplateResponse(request,'home/groupclass_list.html',{'groups': Groupclass.objects.all()})
+

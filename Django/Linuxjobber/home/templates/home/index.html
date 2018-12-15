@@ -22,22 +22,41 @@ Home | Linuxjobber
             <h2>
                 Get 1:1 <span> live training</span><br> tailored to you</h2>
                 <div class="row">
-
+                      {% for course in courses %} 
+                    
+                      {% if course.course_title.lower == 'linux' %}
                       <div class="col-md-6 col-sm-6 btns2">
-                      <a href="/tutorials/basics_of_linux_lectures"><img src="{% static 'home/images/linuxx.png' %}" alt="First slide"></a>
+                      <a href="{% url 'Courses:topics' course.course_title.split|join:'_' %}"><img src="{% static 'home/images/linuxx.png' %}" alt="First slide"></a>
                       </div>
+                      {% endif %}
 
+                      {% if course.course_title.lower == 'java' %} 
                       <div class="col-md-6 col-sm-6 btns2">
-                      <a href="/tutorials/java"><img src="{% static 'home/images/java.png' %}" alt="First slide"></a>
+                      <a href="{% url 'Courses:topics' course.course_title.split|join:'_' %}"><img src="{% static 'home/images/java.png' %}" alt="First slide"></a>
                       </div>
+                      {% endif %}
 
+
+                      {% if course.course_title.lower == 'aws' %} 
                       <div class="col-md-6 col-sm-6 btns2">
-                      <a href="/tutorials/aws"><img src="{% static 'home/images/awssa.png' %}" alt="First slide"></a>
+                      <a href="{% url 'Courses:topics' course.course_title.split|join:'_' %}"><img src="{% static 'home/images/awssa.png' %}" alt="First slide"></a>
                       </div>
+                      {% endif %}
+
+
+                      {% endfor %}
+
+
+
+                      <!--<div class="col-md-6 col-sm-6 btns2">
+                      <a href="{{b}}"><img src="{% static 'home/images/java.png' %}" alt="First slide"></a>
+                      </div>-->
+
+
 
                       <div class="col-md-6 col-sm-6">
-                      <a href="/tutorials/userinterest"><img src="{% static 'home/images/views.png' %}" class="btns2"></a>
-                      <a href="<?php echo SITEURL.'/freeuser'; ?>"><img src="{% static 'home/images/btns.png' %}" class="btns">
+                      <a href="{% url 'home:user_interest' %}"><img src="{% static 'home/images/views.png' %}" class="btns2"></a>
+                      <a href="{% url 'home:signup' %}"><img src="{% static 'home/images/btns.png' %}" class="btns">
                       </div></a>
                    </div>
           </div>
@@ -64,19 +83,19 @@ Home | Linuxjobber
                    <div id= "cert">
                     <img class="cert img-responsive" src="{% static 'home/images/pupet.png' %}" alt="" >
                     </div>
-                    <a href="{% url 'home:selfstudy' %}">
+                    <a href="{% url 'home:linux_certification' %}">
                     <div class="col-md-4 col-sm-12 col-xs-12 lin btns2">
                       <h4>Linux</h4>
                       <div class="lin-border"></div>
                     </div></a>
 
-                    <a href="#">
+                    <a href="{% url 'home:aws_certification' %}">
                     <div class="col-md-4 col-sm-12 col-xs-12 aws btns2">
                       <h4>AWS</h4>
                       <div class="aws-border"></div>
                     </div></a>
 
-                    <a href="#">
+                    <a href="{% url 'home:oracledb_certification' %}">
                     <div class="col-md-4 col-sm-12 col-xs-12 oracle btns2">
                       <h4>Oracle <br>Database</h4>
                       <div class="oracle-border"></div>
@@ -92,19 +111,19 @@ Home | Linuxjobber
                   <div id= "puppet">
                     <img class="cert img-responsive" src="{% static 'home/images/pupett.png' %}">
                   </div>
-                  <a href="#">
+                  <a href="{% url 'home:linux_full_training' %}">
                   <div class="col-md-4 col-sm-12 col-xs-12 lin btns2" id="force-b">
                       <h4>Linux</h4>
                       <div class="lin-border"></div>
                   </div></a>
 
-                  <a href="#">
+                  <a href="{% url 'home:aws_full_training' %}">
                     <div class="col-md-4 col-sm-12 col-xs-12 aws btns2" id="force-b">
                       <h4>AWS</h4>
                       <div class="aws-border"></div>
                   </div></a>
 
-                  <a href="#">
+                  <a href="{% url 'home:oracledb_full_training' %}">
                     <div class="col-md-4 col-sm-12 col-xs-12 oracle btns2" id="force-bb">
                       <h4>Oracle <br>Database</h4>
                     <div class="oracle-border"></div>

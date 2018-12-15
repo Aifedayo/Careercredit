@@ -1,0 +1,92 @@
+{% extends 'home/base.html' %}
+{% load staticfiles%}
+{% block content %}
+
+                <div class="selfs" role="listbox">
+                    <div class="item active">
+
+                        <div class=" text-center selfie" >
+                   <h1>Oracle Database <br> Certification Class</h1>
+
+
+
+
+
+                        </div>
+                      </div>
+                    </div>
+
+
+
+                <br>
+                <section class="selfstudy">
+                  <div class="container">
+                    <div class="row border-back">
+                      <div class="col-xs-12 col-sm-12 col-lg-6">
+                        <i class="fa fa-lightbulb-o rnd-back"></i>
+                        <h3 class="hblue">Oracle Certification - Instructor Led
+ </h3>
+                        <p class="mgg-20">Oracle DBAs manage the industry's most advanced information systems and command some of the highest salaries. This course is your first step towards success as an Oracle professional, designed to give you a firm foundation in database administration.
+                    </p>
+                      </div>
+                      <div class="col-xs-12 col-sm-12 col-lg-6 text-center checkout-col">
+                        <h3 class="hblue mgb30">$799 One Time</h3>
+
+                        <a href="#"><button class="btn btn-checkout" id = "packages-self">Check Out</button></a>
+                      </div>
+                      </div>
+
+                    <br>
+
+                    <br>
+                  </div>
+                </section>
+
+
+
+        <section class="trial-container-study">
+              <div class="container">
+                <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-lg-6">
+                  <img class="thanks-im" src="https://linuxjobber.com/img/cliente.png" style="">
+                  
+                    <!-- <img class = "thanks-img" src="https://linuxjobber.com/newhomepage/img/drey.png"> -->
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-lg-6">
+                    <div class="text-center thanks-text">
+                    
+                    <h2 id="thank">Thankfully</h2>
+                    
+                    <p style="font-size:16px; color: black"> I passed the exam in one shot. <br>
+                    I am very excited on the completion of the Oracle Database Certification. <br>
+                    Linuxjobber course materials helped me prepare for, and pass, the exam. <br>
+                    I am very happy.</p>
+                    <p id="name">- James S.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+
+            <section class="sub">
+                  <div class="container">
+                    <div class="row ">
+                      <div class="text-center">
+                      <h5>Subscribe To Our Newsletter.</h5>
+                      <p style="margin-left: 0px; color: green; font-size: 15px">{{ news_letter_message }}</p>
+
+                      <form class="form-inline sub-main" method="post">
+                        {% csrf_token %}
+                          <label class="sr-only" for="inlineFormInputName2">Name</label>
+                          <input type="email" name='email' class="form-control mb-2 mr-sm-2 sub-form" id="inlineFormInputName2" placeholder="Enter your email" required />
+                          <button type="submit" class="btn btn-b mb-2">Submit</button><br>
+                      </form>
+
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+
+                {% endblock %}

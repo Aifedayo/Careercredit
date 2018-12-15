@@ -11,5 +11,11 @@ urlpatterns = [
     path('<slug:course_name>/notes/<int:lab_no>/', views.TopicNote, name='Note'),
     path('<slug:course_name>/labs/<int:lab_no>/', login_required(views.LabDetailsView.as_view()), name='labs'),
     path('userinterest', views.userinterest, name='userinterest'),
-    path('description/<slug:course_name>', views.description, name='description')
+    path('description/<slug:course_name>', views.description, name='description'),
+    path('signup', views.signup, name='signup'),
+    path('success', views.success, name='success'),
+    path('videostat/<slug:topic>', views.videostat, name='videostat'),
+    path('store_lab_result', views.store_lab_result, name='store_lab_result'),
+    path('<slug:course_name>/lab/<int:lab_no>/result', views.linux_result, name='linux_result'),
+    path('grading', views.linux_result, name='linux_result')
     ]
