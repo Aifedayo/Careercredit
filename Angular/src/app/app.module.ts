@@ -46,7 +46,7 @@ import {LinuxModule} from "./linux/linux.module";
     CourseModule,
     LinuxModule
   ],
-  providers: [DataService,Location ],
+  providers: [DataService,Location],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

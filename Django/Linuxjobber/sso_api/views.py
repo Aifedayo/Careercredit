@@ -28,27 +28,27 @@ def login(request):
                         status=status.HTTP_403_FORBIDDEN)
     user = authenticate(username=username, password=password)
     user1= authenticate(email=username, password=password)
-    if not user or not user1:
+    if not user and not user1:
         return Response({'error': 'Invalid Credentials'},
-                        status=status.HTTP_404_NOT_FOUND)
+                        status=status.HTTP_400_BAD_REQUEST)
     if user:
         token, _ = Token.objects.get_or_create(user=user)
-        return Response({'token': token.key,'name':user.username},
+        return Response({'token': token.key,'username':user.get_full_name()},
                         status=status.HTTP_200_OK)
     token, _ = Token.objects.get_or_create(user=user1)
-    return Response({'token': token.key, 'name': user1.username},
+    return Response({'token': token.key, 'username': user1.get_full_name()},
                     status=status.HTTP_200_OK)
+
 @csrf_exempt
-@api_view(["GET"])
-@permission_classes((IsAuthenticated,))
-def groups(request):
-
-    return Response("Something")
-
-class Groups(APIView):
-    def get(self,request):
-
-        return None
+@api_view(["POST"])
+@permission_classes((AllowAny,))
+def confirm_api(request):
+    token = request.data.get("token")
+    try:
+        token= Token.objects.get(key=token)
+        return Response({'username':token.user.username,'token':token.key},status=status.HTTP_202_ACCEPTED)
+    except Token.DoesNotExist:
+        return Response("Nothing",status=status.HTTP_403_FORBIDDEN)
 
 
 class UserGroups(APIView):

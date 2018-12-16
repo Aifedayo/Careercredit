@@ -4,7 +4,7 @@
 *.pyc
 db.sqlite3
 *.ini
-settings.ini
+**.ini
 *.log
 **/node_modules*
 **/static*

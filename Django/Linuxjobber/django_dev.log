@@ -6249,3 +6249,1005 @@ AssertionError: Expected a `Response`, `HttpResponse` or `HttpStreamingResponse`
 [2018-12-09 19:20:58] INFO [django.server.log_message:124] "GET /sso_api/group/2/ HTTP/1.1" 200 950
 [2018-12-09 19:21:30] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 619
 [2018-12-09 19:21:30] INFO [django.server.log_message:124] "GET /sso_api/group/2/ HTTP/1.1" 200 950
+[2018-12-15 19:09:47] INFO [django.server.log_message:124] "OPTIONS //sso_api/api-token-auth/ HTTP/1.1" 200 0
+[2018-12-15 19:09:47] INFO [django.server.log_message:124] "OPTIONS //sso_api/api-token-auth/ HTTP/1.1" 200 0
+[2018-12-15 19:09:47] WARNING [django.request.get_response:93] Not Found: //sso_api/api-token-auth/
+[2018-12-15 19:09:47] WARNING [django.server.log_message:124] "POST //sso_api/api-token-auth/ HTTP/1.1" 404 11829
+[2018-12-15 19:09:47] WARNING [django.request.get_response:93] Not Found: //sso_api/api-token-auth/
+[2018-12-15 19:09:47] WARNING [django.server.log_message:124] "POST //sso_api/api-token-auth/ HTTP/1.1" 404 11829
+[2018-12-15 19:10:26] WARNING [django.server.log_message:124] "GET /sso_api/login HTTP/1.1" 405 5534
+[2018-12-15 19:10:27] INFO [django.server.log_message:124] "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 200 121205
+[2018-12-15 19:10:27] INFO [django.server.log_message:124] "GET /static/rest_framework/css/prettify.css HTTP/1.1" 200 846
+[2018-12-15 19:10:27] INFO [django.server.log_message:124] "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 200 3618
+[2018-12-15 19:10:27] INFO [django.server.log_message:124] "GET /static/rest_framework/css/default.css HTTP/1.1" 200 1213
+[2018-12-15 19:10:27] INFO [django.server.log_message:124] "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 200 3724
+[2018-12-15 19:10:27] INFO [django.server.log_message:124] "GET /static/rest_framework/js/csrf.js HTTP/1.1" 200 1787
+[2018-12-15 19:10:27] INFO [django.server.log_message:124] "GET /static/rest_framework/js/jquery-3.3.1.min.js HTTP/1.1" 200 86929
+[2018-12-15 19:10:27] INFO [django.server.log_message:124] "GET /static/rest_framework/js/default.js HTTP/1.1" 200 1309
+[2018-12-15 19:10:27] INFO [django.server.log_message:124] "GET /static/rest_framework/img/grid.png HTTP/1.1" 200 1458
+[2018-12-15 19:10:27] INFO [django.server.log_message:124] "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 200 13660
+[2018-12-15 19:10:27] INFO [django.server.log_message:124] "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 200 37051
+[2018-12-15 19:10:28] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2018-12-15 19:10:28] WARNING [django.server.log_message:124] "GET /favicon.ico HTTP/1.1" 404 11789
+[2018-12-15 19:12:09] INFO [django.server.log_message:124] "OPTIONS //sso_api/login/ HTTP/1.1" 200 0
+[2018-12-15 19:12:09] INFO [django.server.log_message:124] "OPTIONS //sso_api/login/ HTTP/1.1" 200 0
+[2018-12-15 19:12:09] WARNING [django.request.get_response:93] Not Found: //sso_api/login/
+[2018-12-15 19:12:09] WARNING [django.server.log_message:124] "POST //sso_api/login/ HTTP/1.1" 404 11802
+[2018-12-15 19:12:09] WARNING [django.request.get_response:93] Not Found: //sso_api/login/
+[2018-12-15 19:12:09] WARNING [django.server.log_message:124] "POST //sso_api/login/ HTTP/1.1" 404 11802
+[2018-12-15 19:13:47] INFO [django.server.log_message:124] "OPTIONS /sso_api/login/ HTTP/1.1" 200 0
+[2018-12-15 19:13:47] INFO [django.server.log_message:124] "OPTIONS /sso_api/login/ HTTP/1.1" 200 0
+[2018-12-15 19:13:47] WARNING [django.request.get_response:93] Not Found: /sso_api/login/
+[2018-12-15 19:13:47] WARNING [django.server.log_message:124] "POST /sso_api/login/ HTTP/1.1" 404 12524
+[2018-12-15 19:13:47] WARNING [django.request.get_response:93] Not Found: /sso_api/login/
+[2018-12-15 19:13:47] WARNING [django.server.log_message:124] "POST /sso_api/login/ HTTP/1.1" 404 12524
+[2018-12-15 19:17:28] INFO [django.server.log_message:124] "OPTIONS /sso_api/login HTTP/1.1" 200 0
+[2018-12-15 19:17:28] INFO [django.server.log_message:124] "OPTIONS /sso_api/login HTTP/1.1" 200 0
+[2018-12-15 19:17:28] WARNING [django.request.get_response:93] Not Found: /sso_api/login
+[2018-12-15 19:17:28] WARNING [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 404 31
+[2018-12-15 19:17:28] WARNING [django.request.get_response:93] Not Found: /sso_api/login
+[2018-12-15 19:17:28] WARNING [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 404 31
+[2018-12-15 19:20:15] WARNING [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 400 31
+[2018-12-15 19:20:15] WARNING [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 400 31
+[2018-12-15 19:25:44] WARNING [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 400 31
+[2018-12-15 19:25:44] WARNING [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 400 31
+[2018-12-15 19:25:51] WARNING [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 400 31
+[2018-12-15 19:25:51] WARNING [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 400 31
+[2018-12-15 19:26:04] INFO [django.server.log_message:124] "GET /groupCourse/ HTTP/1.1" 200 20223
+[2018-12-15 19:26:04] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2018-12-15 19:26:04] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 39923
+[2018-12-15 19:26:04] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 134612
+[2018-12-15 19:26:04] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 200 825
+[2018-12-15 19:26:04] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 200 5356
+[2018-12-15 19:26:04] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/my-style.css HTTP/1.1" 200 48791
+[2018-12-15 19:26:04] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2018-12-15 19:26:05] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 200 1163
+[2018-12-15 19:26:05] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 200 7177
+[2018-12-15 19:26:05] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 200 3979
+[2018-12-15 19:26:05] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 200 3066
+[2018-12-15 19:26:05] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-15 19:26:05] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 200 4488
+[2018-12-15 19:26:05] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 200 9198
+[2018-12-15 19:26:05] INFO [django.server.log_message:124] "GET /static/js/waterbubble.js HTTP/1.1" 200 6268
+[2018-12-15 19:26:05] INFO [django.server.log_message:124] "GET /static/faq/js/jquery-2.1.1.js HTTP/1.1" 200 256541
+[2018-12-15 19:26:05] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 200 29115
+[2018-12-15 19:26:05] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/gothamrnd-bold.ttf HTTP/1.1" 200 63312
+[2018-12-15 19:26:05] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-15 19:26:05] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 11840
+[2018-12-15 19:26:05] INFO [django.server.log_message:124] "GET /static/home/images/logout1.png HTTP/1.1" 200 1899
+[2018-12-15 19:26:05] INFO [django.server.log_message:124] "GET /static/home/images/pupett.png HTTP/1.1" 200 8770
+[2018-12-15 19:26:05] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/school-coding.jpg HTTP/1.1" 200 160021
+[2018-12-15 19:26:12] WARNING [django.request.get_response:93] Not Found: /labprofiles
+[2018-12-15 19:26:12] WARNING [django.server.log_message:124] "GET /labprofiles HTTP/1.1" 404 11789
+[2018-12-15 19:26:18] INFO [django.server.log_message:124] "GET /admin HTTP/1.1" 200 23946
+[2018-12-15 19:26:19] INFO [django.server.log_message:124] "GET /static/admin/css/responsive.css HTTP/1.1" 200 18884
+[2018-12-15 19:26:19] INFO [django.server.log_message:124] "GET /static/admin/css/base.css HTTP/1.1" 200 17084
+[2018-12-15 19:26:19] INFO [django.server.log_message:124] "GET /static/admin/css/dashboard.css HTTP/1.1" 200 439
+[2018-12-15 19:26:19] INFO [django.server.log_message:124] "GET /static/admin/css/fonts.css HTTP/1.1" 200 443
+[2018-12-15 19:26:19] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+[2018-12-15 19:26:19] INFO [django.server.log_message:124] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 334
+[2018-12-15 19:26:19] INFO [django.server.log_message:124] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 383
+[2018-12-15 19:26:19] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 82564
+[2018-12-15 19:26:19] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+[2018-12-15 19:26:25] INFO [django.server.log_message:124] "GET /admin/authtoken/token/ HTTP/1.1" 200 5164
+[2018-12-15 19:26:25] INFO [django.server.log_message:124] "GET /static/admin/css/changelists.css HTTP/1.1" 200 6514
+[2018-12-15 19:26:25] INFO [django.server.log_message:124] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 371
+[2018-12-15 19:26:25] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2018-12-15 19:26:25] INFO [django.server.log_message:124] "GET /static/admin/js/core.js HTTP/1.1" 200 7346
+[2018-12-15 19:26:25] INFO [django.server.log_message:124] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 7078
+[2018-12-15 19:26:25] INFO [django.server.log_message:124] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 268490
+[2018-12-15 19:26:25] INFO [django.server.log_message:124] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1580
+[2018-12-15 19:26:26] INFO [django.server.log_message:124] "GET /static/admin/js/actions.js HTTP/1.1" 200 6655
+[2018-12-15 19:26:26] INFO [django.server.log_message:124] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 131128
+[2018-12-15 19:26:26] INFO [django.server.log_message:124] "GET /static/admin/js/urlify.js HTTP/1.1" 200 8918
+[2018-12-15 19:26:26] INFO [django.server.log_message:124] "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 334
+[2018-12-15 19:26:26] INFO [django.server.log_message:124] "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1116
+[2018-12-15 19:26:37] WARNING [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 400 31
+[2018-12-15 19:26:37] WARNING [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 400 31
+[2018-12-15 19:26:45] WARNING [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 400 31
+[2018-12-15 19:26:45] WARNING [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 400 31
+[2018-12-15 19:28:36] INFO [django.server.log_message:124] "OPTIONS /sso_api/login HTTP/1.1" 200 0
+[2018-12-15 19:28:36] INFO [django.server.log_message:124] "OPTIONS /sso_api/login HTTP/1.1" 200 0
+[2018-12-15 19:28:36] WARNING [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 400 31
+[2018-12-15 19:28:36] WARNING [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 400 31
+[2018-12-15 19:28:39] WARNING [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 400 31
+[2018-12-15 19:28:39] WARNING [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 400 31
+[2018-12-15 19:28:45] WARNING [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 400 31
+[2018-12-15 19:28:45] WARNING [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 400 31
+[2018-12-15 19:29:22] INFO [django.server.log_message:124] "GET /admin/authtoken/token/add/ HTTP/1.1" 200 5026
+[2018-12-15 19:29:22] INFO [django.server.log_message:124] "GET /static/admin/css/forms.css HTTP/1.1" 200 8688
+[2018-12-15 19:29:22] INFO [django.server.log_message:124] "GET /static/admin/css/widgets.css HTTP/1.1" 200 10905
+[2018-12-15 19:29:22] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2018-12-15 19:29:22] INFO [django.server.log_message:124] "GET /static/admin/js/change_form.js HTTP/1.1" 200 732
+[2018-12-15 19:29:22] INFO [django.server.log_message:124] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 505
+[2018-12-15 19:29:34] INFO [django.server.log_message:124] "POST /admin/authtoken/token/add/ HTTP/1.1" 302 0
+[2018-12-15 19:29:35] INFO [django.server.log_message:124] "GET /admin/authtoken/token/ HTTP/1.1" 200 5865
+[2018-12-15 19:29:35] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2018-12-15 19:29:35] INFO [django.server.log_message:124] "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 439
+[2018-12-15 19:32:18] INFO [django.server.log_message:124] "GET /admin/authtoken/token/add/ HTTP/1.1" 200 5026
+[2018-12-15 19:32:18] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2018-12-15 19:32:27] INFO [django.server.log_message:124] "POST /admin/authtoken/token/add/ HTTP/1.1" 302 0
+[2018-12-15 19:32:28] INFO [django.server.log_message:124] "GET /admin/authtoken/token/ HTTP/1.1" 200 6307
+[2018-12-15 19:32:28] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2018-12-15 19:32:44] WARNING [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 400 31
+[2018-12-15 19:32:44] WARNING [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 400 31
+[2018-12-15 19:32:46] WARNING [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 400 31
+[2018-12-15 19:32:46] WARNING [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 400 31
+[2018-12-15 19:32:59] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
+    res = self._query(query)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
+    db.query(q)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+_mysql_exceptions.OperationalError: (1054, "Unknown column 'Courses_course.aws_credential_required' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\PycharmProjects\sso\Django\Linuxjobber\home\views.py", line 45, in index
+    return render (request, 'home/index.html', {'courses' : get_courses(), 'tools' : get_tools(),})
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\loader_tags.py", line 155, in render
+    return compiled_parent._render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\defaulttags.py", line 313, in render
+    if match:
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 276, in __bool__
+    self._fetch_all()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\compiler.py", line 1068, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
+    res = self._query(query)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
+    db.query(q)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+django.db.utils.OperationalError: (1054, "Unknown column 'Courses_course.aws_credential_required' in 'field list'")
+[2018-12-15 19:32:59] ERROR [django.server.log_message:124] "GET / HTTP/1.1" 500 252729
+[2018-12-15 19:33:51] INFO [django.server.log_message:124] "GET /groupCourse HTTP/1.1" 301 0
+[2018-12-15 19:33:51] INFO [django.server.log_message:124] "GET /groupCourse/ HTTP/1.1" 200 20223
+[2018-12-15 19:33:51] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-15 19:33:51] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 11840
+[2018-12-15 19:33:52] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-15 19:34:05] INFO [django.server.log_message:124] "GET /groupCourse/2 HTTP/1.1" 200 20793
+[2018-12-15 19:34:05] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-15 19:34:05] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 11840
+[2018-12-15 19:34:05] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-15 19:34:10] INFO [django.server.log_message:124] "GET /groupCourse/2 HTTP/1.1" 200 20793
+[2018-12-15 19:34:10] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-15 19:34:10] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 11840
+[2018-12-15 19:34:10] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-15 19:34:13] INFO [django.server.log_message:124] "GET /groupCourse/2 HTTP/1.1" 200 20793
+[2018-12-15 19:34:13] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-15 19:34:13] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 11840
+[2018-12-15 19:34:13] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-15 19:34:29] INFO [django.server.log_message:124] "GET /groupCourse/2 HTTP/1.1" 200 20793
+[2018-12-15 19:34:29] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-15 19:34:29] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 11840
+[2018-12-15 19:34:29] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-15 19:34:43] INFO [django.server.log_message:124] "GET /groupCourse/2 HTTP/1.1" 200 20793
+[2018-12-15 19:34:44] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-15 19:34:44] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 11840
+[2018-12-15 19:34:44] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-15 19:34:47] INFO [django.server.log_message:124] "GET /groupCourse/ HTTP/1.1" 200 20223
+[2018-12-15 19:34:47] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-15 19:34:47] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 11840
+[2018-12-15 19:34:47] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-15 19:34:57] INFO [django.server.log_message:124] "GET /logout HTTP/1.1" 302 0
+[2018-12-15 19:34:57] INFO [django.server.log_message:124] "GET /login HTTP/1.1" 200 3396
+[2018-12-15 19:34:58] INFO [django.server.log_message:124] "GET /static/home/css/styles.css HTTP/1.1" 200 7692
+[2018-12-15 19:34:58] INFO [django.server.log_message:124] "GET /static/home/images/imgback.jpg HTTP/1.1" 200 1032219
+[2018-12-15 19:35:05] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
+    res = self._query(query)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
+    db.query(q)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+_mysql_exceptions.OperationalError: (1054, "Unknown column 'Courses_course.aws_credential_required' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\PycharmProjects\sso\Django\Linuxjobber\home\views.py", line 45, in index
+    return render (request, 'home/index.html', {'courses' : get_courses(), 'tools' : get_tools(),})
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\loader_tags.py", line 155, in render
+    return compiled_parent._render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\defaulttags.py", line 313, in render
+    if match:
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 276, in __bool__
+    self._fetch_all()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\compiler.py", line 1068, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
+    res = self._query(query)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
+    db.query(q)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+django.db.utils.OperationalError: (1054, "Unknown column 'Courses_course.aws_credential_required' in 'field list'")
+[2018-12-15 19:35:05] ERROR [django.server.log_message:124] "GET / HTTP/1.1" 500 252652
+[2018-12-15 19:35:10] INFO [django.server.log_message:124] "GET /groupCourse/ HTTP/1.1" 200 18827
+[2018-12-15 19:35:10] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-15 19:35:10] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 11840
+[2018-12-15 19:35:10] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-15 19:35:13] INFO [django.server.log_message:124] "GET /groupCourse/1 HTTP/1.1" 200 21560
+[2018-12-15 19:35:13] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-15 19:35:13] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 11840
+[2018-12-15 19:35:13] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-15 19:35:38] INFO [django.server.log_message:124] "POST /groupCourse/1 HTTP/1.1" 302 0
+[2018-12-15 19:35:38] INFO [django.server.log_message:124] "GET /groupCourse/1/pay/ HTTP/1.1" 200 15927
+[2018-12-15 19:35:38] WARNING [django.request.get_response:93] Not Found: /groupCourse/1/pay/images/icon5.png
+[2018-12-15 19:35:38] WARNING [django.server.log_message:124] "GET /groupCourse/1/pay/images/icon5.png HTTP/1.1" 404 11858
+[2018-12-15 19:35:39] INFO [django.server.log_message:124] "GET /static/home/images/bannerr.png HTTP/1.1" 200 77329
+[2018-12-15 19:36:02] INFO [django.server.log_message:124] "POST /groupCourse/1/pay/ HTTP/1.1" 302 0
+[2018-12-15 19:36:02] INFO [django.server.log_message:124] "GET /groupCourse/1 HTTP/1.1" 200 21015
+[2018-12-15 19:36:02] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-15 19:36:02] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 11840
+[2018-12-15 19:36:03] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-15 19:36:10] INFO [django.server.log_message:124] "GET /groupCourse/1 HTTP/1.1" 200 20795
+[2018-12-15 19:36:10] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-15 19:36:10] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 11840
+[2018-12-15 19:36:11] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-15 19:36:22] INFO [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 200 66
+[2018-12-15 19:36:22] INFO [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 200 66
+[2018-12-15 19:36:22] INFO [django.server.log_message:124] "OPTIONS /sso_api/groups HTTP/1.1" 200 0
+[2018-12-15 19:36:23] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /sso_api/groups
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\related_descriptors.py", line 158, in __get__
+    rel_obj = self.field.get_cached_value(instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\mixins.py", line 13, in get_cached_value
+    return instance._state.fields_cache[cache_name]
+KeyError: 'course'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
+    res = self._query(query)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
+    db.query(q)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+_mysql_exceptions.OperationalError: (1054, "Unknown column 'Courses_course.aws_credential_required' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso\Django\Linuxjobber\sso_api\views.py", line 74, in get
+    return Response(item.data)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 765, in data
+    ret = super(ListSerializer, self).data
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 262, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 683, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 683, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 514, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\relations.py", line 177, in get_attribute
+    return super(RelatedField, self).get_attribute(instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 441, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 100, in get_attribute
+    instance = getattr(instance, attr)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\related_descriptors.py", line 164, in __get__
+    rel_obj = self.get_object(instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\related_descriptors.py", line 139, in get_object
+    return qs.get(self.field.get_reverse_related_filter(instance))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 397, in get
+    num = len(clone)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 254, in __len__
+    self._fetch_all()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\compiler.py", line 1068, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
+    res = self._query(query)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
+    db.query(q)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+django.db.utils.OperationalError: (1054, "Unknown column 'Courses_course.aws_credential_required' in 'field list'")
+[2018-12-15 19:36:23] ERROR [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 500 26811
+[2018-12-15 19:41:25] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /sso_api/groups
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\related_descriptors.py", line 158, in __get__
+    rel_obj = self.field.get_cached_value(instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\mixins.py", line 13, in get_cached_value
+    return instance._state.fields_cache[cache_name]
+KeyError: 'course'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
+    res = self._query(query)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
+    db.query(q)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+_mysql_exceptions.OperationalError: (1054, "Unknown column 'Courses_course.aws_credential_required' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso\Django\Linuxjobber\sso_api\views.py", line 62, in get
+    return Response(item.data)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 765, in data
+    ret = super(ListSerializer, self).data
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 262, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 683, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 683, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 514, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\relations.py", line 177, in get_attribute
+    return super(RelatedField, self).get_attribute(instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 441, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 100, in get_attribute
+    instance = getattr(instance, attr)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\related_descriptors.py", line 164, in __get__
+    rel_obj = self.get_object(instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\related_descriptors.py", line 139, in get_object
+    return qs.get(self.field.get_reverse_related_filter(instance))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 397, in get
+    num = len(clone)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 254, in __len__
+    self._fetch_all()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\compiler.py", line 1068, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
+    res = self._query(query)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
+    db.query(q)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+django.db.utils.OperationalError: (1054, "Unknown column 'Courses_course.aws_credential_required' in 'field list'")
+[2018-12-15 19:41:25] ERROR [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 500 26810
+[2018-12-15 19:42:11] INFO [django.server.log_message:124] "GET /admin/authtoken/token/ HTTP/1.1" 302 0
+[2018-12-15 19:42:12] INFO [django.server.log_message:124] "GET /admin/login/?next=/admin/authtoken/token/ HTTP/1.1" 200 2038
+[2018-12-15 19:42:12] INFO [django.server.log_message:124] "GET /static/admin/css/login.css HTTP/1.1" 200 1281
+[2018-12-15 19:42:25] INFO [django.server.log_message:124] "POST /admin/login/?next=/admin/authtoken/token/ HTTP/1.1" 302 0
+[2018-12-15 19:42:25] INFO [django.server.log_message:124] "GET /admin/authtoken/token/ HTTP/1.1" 200 6495
+[2018-12-15 19:42:25] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2018-12-15 19:43:57] INFO [django.server.log_message:124] "GET /admin/authtoken/token/1d6cbf781274b66b9bcee6f711c2d6ef5252fa15/change/ HTTP/1.1" 200 5411
+[2018-12-15 19:43:57] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2018-12-15 19:44:00] INFO [django.server.log_message:124] "GET /admin/authtoken/token/ HTTP/1.1" 200 6495
+[2018-12-15 19:46:17] WARNING [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 400 31
+[2018-12-15 19:49:36] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /sso_api/groups
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\related_descriptors.py", line 158, in __get__
+    rel_obj = self.field.get_cached_value(instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\mixins.py", line 13, in get_cached_value
+    return instance._state.fields_cache[cache_name]
+KeyError: 'course'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
+    res = self._query(query)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
+    db.query(q)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+_mysql_exceptions.OperationalError: (1054, "Unknown column 'Courses_course.aws_credential_required' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso\Django\Linuxjobber\sso_api\views.py", line 62, in get
+    return Response(item.data)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 765, in data
+    ret = super(ListSerializer, self).data
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 262, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 683, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 683, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 514, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\relations.py", line 177, in get_attribute
+    return super(RelatedField, self).get_attribute(instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 441, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 100, in get_attribute
+    instance = getattr(instance, attr)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\related_descriptors.py", line 164, in __get__
+    rel_obj = self.get_object(instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\related_descriptors.py", line 139, in get_object
+    return qs.get(self.field.get_reverse_related_filter(instance))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 397, in get
+    num = len(clone)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 254, in __len__
+    self._fetch_all()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\compiler.py", line 1068, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
+    res = self._query(query)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
+    db.query(q)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+django.db.utils.OperationalError: (1054, "Unknown column 'Courses_course.aws_credential_required' in 'field list'")
+[2018-12-15 19:49:36] ERROR [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 500 26600
+[2018-12-15 19:51:32] WARNING [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 403 53
+[2018-12-15 19:51:48] WARNING [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 403 53
+[2018-12-15 20:04:36] INFO [django.server.log_message:124] "OPTIONS /sso_api/groups HTTP/1.1" 200 0
+[2018-12-15 20:04:36] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-15 20:04:43] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/1 HTTP/1.1" 200 0
+[2018-12-15 20:04:43] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-15 20:04:44] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 200 251
+[2018-12-15 20:07:18] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 200 251
+[2018-12-15 20:07:18] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-15 20:08:28] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 200 251
+[2018-12-15 20:08:28] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-15 20:11:04] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 200 251
+[2018-12-15 20:11:04] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-15 20:18:30] INFO [django.server.log_message:124] "OPTIONS /sso_api/login HTTP/1.1" 200 0
+[2018-12-15 20:18:30] INFO [django.server.log_message:124] "OPTIONS /sso_api/login HTTP/1.1" 200 0
+[2018-12-15 20:18:31] INFO [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 200 66
+[2018-12-15 20:18:31] INFO [django.server.log_message:124] "OPTIONS /sso_api/groups HTTP/1.1" 200 0
+[2018-12-15 20:18:31] INFO [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 200 66
+[2018-12-15 20:18:31] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-15 20:34:33] INFO [django.server.log_message:124] "OPTIONS /sso_api/groups HTTP/1.1" 200 0
+[2018-12-15 20:34:33] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-15 20:53:31] INFO [django.server.log_message:124] "OPTIONS /sso_api/login HTTP/1.1" 200 0
+[2018-12-15 20:53:31] INFO [django.server.log_message:124] "OPTIONS /sso_api/login HTTP/1.1" 200 0
+[2018-12-15 20:53:32] INFO [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 200 66
+[2018-12-15 20:53:32] INFO [django.server.log_message:124] "OPTIONS /sso_api/groups HTTP/1.1" 200 0
+[2018-12-15 20:53:32] INFO [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 200 66
+[2018-12-15 20:53:33] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-15 20:54:31] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-15 20:55:48] INFO [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 200 66
+[2018-12-15 20:55:48] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-15 20:55:48] INFO [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 200 66
+[2018-12-15 20:56:20] INFO [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 200 66
+[2018-12-15 20:56:20] INFO [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 200 66
+[2018-12-15 20:56:20] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-15 20:57:43] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-15 20:57:51] INFO [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 200 66
+[2018-12-15 20:57:51] INFO [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 200 66
+[2018-12-15 20:57:51] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-15 20:59:06] INFO [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 200 66
+[2018-12-15 20:59:06] INFO [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 200 66
+[2018-12-15 20:59:07] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-15 21:01:13] INFO [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 200 75
+[2018-12-15 21:01:13] INFO [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 200 75
+[2018-12-15 21:01:13] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-15 21:01:48] INFO [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 200 75
+[2018-12-15 21:01:48] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-15 21:02:58] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-15 21:03:21] INFO [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 200 75
+[2018-12-15 21:03:21] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-15 21:05:05] INFO [django.server.log_message:124] "OPTIONS /sso_api/groups HTTP/1.1" 200 0
+[2018-12-15 21:05:05] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-15 21:05:14] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/1 HTTP/1.1" 200 0
+[2018-12-15 21:05:14] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-15 21:05:14] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 200 251
+[2018-12-15 21:05:34] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 200 251
+[2018-12-15 21:05:34] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-15 21:10:00] INFO [django.server.log_message:124] "OPTIONS /sso_api/login HTTP/1.1" 200 0
+[2018-12-15 21:10:00] INFO [django.server.log_message:124] "OPTIONS /sso_api/login HTTP/1.1" 200 0
+[2018-12-15 21:10:01] INFO [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 200 75
+[2018-12-15 21:10:01] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-15 21:10:01] INFO [django.server.log_message:124] "POST /sso_api/login HTTP/1.1" 200 75
+[2018-12-15 21:10:27] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-15 21:10:39] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-15 21:10:39] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 200 251
+[2018-12-15 21:15:07] INFO [django.server.log_message:124] "OPTIONS /sso_api/groups HTTP/1.1" 200 0
+[2018-12-15 21:15:07] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 200 251
+[2018-12-15 21:15:07] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-15 21:15:21] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/1 HTTP/1.1" 200 0
+[2018-12-15 21:15:21] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-15 21:15:22] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 200 251
+[2018-12-15 21:42:20] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/1 HTTP/1.1" 200 0
+[2018-12-15 21:42:20] INFO [django.server.log_message:124] "OPTIONS /sso_api/groups HTTP/1.1" 200 0
+[2018-12-15 21:42:20] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 200 251
+[2018-12-15 21:42:20] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-16 09:19:27] INFO [django.server.log_message:124] "GET /groupCourse/2 HTTP/1.1" 200 21553
+[2018-12-16 09:19:27] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-16 09:19:27] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 11840
+[2018-12-16 09:19:28] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-16 09:19:28] INFO [django.server.log_message:124] "GET /static/js/waterbubble.js HTTP/1.1" 304 0
+[2018-12-16 09:19:28] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2018-12-16 09:19:28] WARNING [django.server.log_message:124] "GET /favicon.ico HTTP/1.1" 404 11789
+[2018-12-16 09:19:35] INFO [django.server.log_message:124] "GET /groupCourse/1 HTTP/1.1" 200 21560
+[2018-12-16 09:19:36] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-16 09:19:36] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 11840
+[2018-12-16 09:19:36] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-16 09:19:43] INFO [django.server.log_message:124] "GET /login HTTP/1.1" 200 3396
+[2018-12-16 09:19:55] INFO [django.server.log_message:124] "POST /login HTTP/1.1" 302 0
+[2018-12-16 09:19:55] INFO [django.server.log_message:124] "GET /courses/userinterest HTTP/1.1" 200 19065
+[2018-12-16 09:19:56] WARNING [django.request.get_response:93] Not Found: /courses/images/icon5.png
+[2018-12-16 09:19:56] WARNING [django.server.log_message:124] "GET /courses/images/icon5.png HTTP/1.1" 404 14318
+[2018-12-16 09:19:56] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs//list-bg.png HTTP/1.1" 200 279917
+[2018-12-16 09:19:56] INFO [django.server.log_message:124] "GET /static/home/images/lin-logo.png HTTP/1.1" 200 9301
+[2018-12-16 09:19:56] INFO [django.server.log_message:124] "GET /static/home/images/button-left.png HTTP/1.1" 200 2071
+[2018-12-16 09:19:56] INFO [django.server.log_message:124] "GET /static/home/images/amazons.png HTTP/1.1" 200 10409
+[2018-12-16 09:19:56] INFO [django.server.log_message:124] "GET /static/home/images/ppt.png HTTP/1.1" 200 964
+[2018-12-16 09:19:56] INFO [django.server.log_message:124] "GET /static/home/images/jjava.png HTTP/1.1" 200 10506
+[2018-12-16 09:19:56] INFO [django.server.log_message:124] "GET /static/home/images/rchsaa.png HTTP/1.1" 200 6733
+[2018-12-16 09:19:56] INFO [django.server.log_message:124] "GET /static/home/images/ajs.png HTTP/1.1" 200 6757
+[2018-12-16 09:19:56] INFO [django.server.log_message:124] "GET /static/home/images/csecurity.png HTTP/1.1" 200 5664
+[2018-12-16 09:19:56] INFO [django.server.log_message:124] "GET /static/home/images/biz.png HTTP/1.1" 200 7859
+[2018-12-16 09:19:56] INFO [django.server.log_message:124] "GET /static/home/images/dba.png HTTP/1.1" 200 5461
+[2018-12-16 09:19:56] INFO [django.server.log_message:124] "GET /static/home/images/py.png HTTP/1.1" 200 5447
+[2018-12-16 09:21:02] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /courses/description/Linux_Proficiency
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\PycharmProjects\sso\Django\Linuxjobber\Courses\views.py", line 420, in description
+    description = CourseDescription.objects.get(course__course_title=course)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 403, in get
+    self.model._meta.object_name
+Courses.models.DoesNotExist: CourseDescription matching query does not exist.
+[2018-12-16 09:21:03] ERROR [django.server.log_message:124] "GET /courses/description/Linux_Proficiency HTTP/1.1" 500 83603
+[2018-12-16 09:21:07] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /courses/description/Linux_Fundamentals
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\PycharmProjects\sso\Django\Linuxjobber\Courses\views.py", line 420, in description
+    description = CourseDescription.objects.get(course__course_title=course)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 403, in get
+    self.model._meta.object_name
+Courses.models.DoesNotExist: CourseDescription matching query does not exist.
+[2018-12-16 09:21:07] ERROR [django.server.log_message:124] "GET /courses/description/Linux_Fundamentals HTTP/1.1" 500 83622
+[2018-12-16 09:24:59] INFO [django.server.log_message:124] "GET /admin/authtoken/token/ HTTP/1.1" 302 0
+[2018-12-16 09:24:59] INFO [django.server.log_message:124] "GET /admin/login/?next=/admin/authtoken/token/ HTTP/1.1" 200 2038
+[2018-12-16 09:33:37] INFO [django.server.log_message:124] "GET /groupCourse/ HTTP/1.1" 200 20218
+[2018-12-16 09:33:37] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-16 09:33:37] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 11840
+[2018-12-16 09:33:38] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-16 09:33:41] INFO [django.server.log_message:124] "GET /groupCourse/2 HTTP/1.1" 200 22837
+[2018-12-16 09:33:41] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-16 09:33:41] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 11840
+[2018-12-16 09:33:41] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-16 09:33:46] INFO [django.server.log_message:124] "GET /groupCourse/1 HTTP/1.1" 200 20795
+[2018-12-16 09:33:46] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-16 09:33:46] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 11840
+[2018-12-16 09:33:46] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-16 09:33:48] INFO [django.server.log_message:124] "GET /groupCourse/1 HTTP/1.1" 200 20795
+[2018-12-16 09:33:49] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-16 09:33:49] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 11840
+[2018-12-16 09:33:49] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-16 09:37:27] INFO [django.server.log_message:124] "GET /groupCourse/1 HTTP/1.1" 200 20795
+[2018-12-16 09:37:27] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-16 09:37:27] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 11840
+[2018-12-16 09:37:27] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-16 09:37:31] INFO [django.server.log_message:124] "GET /groupCourse/1 HTTP/1.1" 200 20795
+[2018-12-16 09:37:31] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-16 09:37:31] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-16 09:37:31] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 11840
+[2018-12-16 09:37:41] INFO [django.server.log_message:124] "GET /groupCourse/ HTTP/1.1" 200 20218
+[2018-12-16 09:37:41] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-16 09:37:41] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-16 09:37:41] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 11840
+[2018-12-16 09:37:43] INFO [django.server.log_message:124] "GET /groupCourse/1 HTTP/1.1" 200 20795
+[2018-12-16 09:37:44] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-16 09:37:44] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-16 09:37:44] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 11840
+[2018-12-16 09:37:46] INFO [django.server.log_message:124] "GET /groupCourse/1 HTTP/1.1" 200 20795
+[2018-12-16 09:37:47] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-16 09:37:47] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-16 09:37:47] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 11840
+[2018-12-16 09:38:05] INFO [django.server.log_message:124] "GET /groupCourse/1 HTTP/1.1" 200 20827
+[2018-12-16 09:38:05] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-16 09:38:05] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 11840
+[2018-12-16 09:38:05] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-16 09:49:36] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /groupCourse/1
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\PycharmProjects\sso\Django\Linuxjobber\home\views.py", line 593, in group
+    return render(request, 'home/group_class_item.html', {'group':group_item,'user':user,'GROUP_URL':settings.GROUP_CLASS_URL,'token':user_token})
+UnboundLocalError: local variable 'user_token' referenced before assignment
+[2018-12-16 09:49:36] ERROR [django.server.log_message:124] "GET /groupCourse/1 HTTP/1.1" 500 75095
+[2018-12-16 09:50:46] INFO [django.server.log_message:124] "GET /groupCourse/1 HTTP/1.1" 200 20868
+[2018-12-16 09:50:46] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-16 09:50:46] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 11840
+[2018-12-16 09:50:47] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-16 09:52:22] INFO [django.server.log_message:124] "GET /groupCourse/1 HTTP/1.1" 200 20874
+[2018-12-16 09:52:22] WARNING [django.request.get_response:93] Not Found: /groupCourse/images/icon5.png
+[2018-12-16 09:52:22] WARNING [django.server.log_message:124] "GET /groupCourse/images/icon5.png HTTP/1.1" 404 11840
+[2018-12-16 09:52:22] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2018-12-16 13:17:25] WARNING [django.server.log_message:124] "POST /sso_api/groups HTTP/1.1" 401 58
+[2018-12-16 13:31:32] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /sso_api/confirm_key
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso\Django\Linuxjobber\sso_api\views.py", line 48, in confirm_api
+    token= Token.objects.get(token=token)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 394, in get
+    clone = self.filter(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 836, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 854, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\query.py", line 1253, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\query.py", line 1277, in _add_q
+    split_subq=split_subq,
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\query.py", line 1153, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\query.py", line 1015, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\query.py", line 1379, in names_to_path
+    "Choices are: %s" % (name, ", ".join(available)))
+django.core.exceptions.FieldError: Cannot resolve keyword 'token' into field. Choices are: created, key, user, user_id
+[2018-12-16 13:31:32] ERROR [django.server.log_message:124] "POST /sso_api/confirm_key HTTP/1.1" 500 21862
+[2018-12-16 13:32:09] WARNING [django.server.log_message:124] "POST /sso_api/confirm_key HTTP/1.1" 403 0
+[2018-12-16 13:32:43] WARNING [django.server.log_message:124] "POST /sso_api/confirm_key HTTP/1.1" 403 9
+[2018-12-16 13:33:18] WARNING [django.server.log_message:124] "POST /sso_api/confirm_key HTTP/1.1" 403 9
+[2018-12-16 13:33:19] WARNING [django.server.log_message:124] "POST /sso_api/confirm_key HTTP/1.1" 403 9
+[2018-12-16 13:33:19] WARNING [django.server.log_message:124] "POST /sso_api/confirm_key HTTP/1.1" 403 9
+[2018-12-16 13:36:15] INFO [django.server.log_message:124] "POST /sso_api/confirm_key HTTP/1.1" 202 70
+[2018-12-16 13:38:28] INFO [django.server.log_message:124] "OPTIONS /sso_api/confirm_key HTTP/1.1" 200 0
+[2018-12-16 13:38:29] INFO [django.server.log_message:124] "POST /sso_api/confirm_key HTTP/1.1" 202 70
+[2018-12-16 13:38:31] INFO [django.server.log_message:124] "POST /sso_api/confirm_key HTTP/1.1" 202 70
+[2018-12-16 13:39:23] INFO [django.server.log_message:124] "POST /sso_api/confirm_key HTTP/1.1" 202 70
+[2018-12-16 13:41:35] INFO [django.server.log_message:124] "POST /sso_api/confirm_key HTTP/1.1" 202 70
+[2018-12-16 13:41:49] INFO [django.server.log_message:124] "OPTIONS /sso_api/groups HTTP/1.1" 200 0
+[2018-12-16 13:41:49] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-16 13:41:54] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/1 HTTP/1.1" 200 0
+[2018-12-16 13:41:55] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-16 13:41:55] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 200 251
+[2018-12-16 13:43:06] INFO [django.server.log_message:124] "POST /sso_api/confirm_key HTTP/1.1" 202 70
+[2018-12-16 13:44:02] INFO [django.server.log_message:124] "POST /sso_api/confirm_key HTTP/1.1" 202 70
+[2018-12-16 13:49:15] INFO [django.server.log_message:124] "OPTIONS /sso_api/confirm_key HTTP/1.1" 200 0
+[2018-12-16 13:49:16] INFO [django.server.log_message:124] "POST /sso_api/confirm_key HTTP/1.1" 202 70
+[2018-12-16 13:50:16] INFO [django.server.log_message:124] "POST /sso_api/confirm_key HTTP/1.1" 202 70
+[2018-12-16 13:50:21] INFO [django.server.log_message:124] "POST /sso_api/confirm_key HTTP/1.1" 202 70
+[2018-12-16 13:52:40] INFO [django.server.log_message:124] "POST /sso_api/confirm_key HTTP/1.1" 202 70
+[2018-12-16 14:01:36] INFO [django.server.log_message:124] "OPTIONS /sso_api/confirm_key HTTP/1.1" 200 0
+[2018-12-16 14:01:37] INFO [django.server.log_message:124] "POST /sso_api/confirm_key HTTP/1.1" 202 70
+[2018-12-16 14:11:14] INFO [django.server.log_message:124] "POST /sso_api/confirm_key HTTP/1.1" 202 70
+[2018-12-16 14:12:27] INFO [django.server.log_message:124] "OPTIONS /sso_api/confirm_key HTTP/1.1" 200 0
+[2018-12-16 14:12:27] INFO [django.server.log_message:124] "POST /sso_api/confirm_key HTTP/1.1" 202 70
+[2018-12-16 14:13:18] INFO [django.server.log_message:124] "POST /sso_api/confirm_key HTTP/1.1" 202 70
+[2018-12-16 14:14:42] INFO [django.server.log_message:124] "POST /sso_api/confirm_key HTTP/1.1" 202 70
+[2018-12-16 14:15:43] INFO [django.server.log_message:124] "POST /sso_api/confirm_key HTTP/1.1" 202 70
+[2018-12-16 14:17:29] INFO [django.server.log_message:124] "POST /sso_api/confirm_key HTTP/1.1" 202 70
+[2018-12-16 14:33:39] INFO [django.server.log_message:124] "OPTIONS /sso_api/confirm_key HTTP/1.1" 200 0
+[2018-12-16 14:33:39] INFO [django.server.log_message:124] "POST /sso_api/confirm_key HTTP/1.1" 202 70
+[2018-12-16 14:33:41] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/1 HTTP/1.1" 200 0
+[2018-12-16 14:33:41] INFO [django.server.log_message:124] "OPTIONS /sso_api/groups HTTP/1.1" 200 0
+[2018-12-16 14:33:41] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 200 251
+[2018-12-16 14:33:41] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-16 14:42:13] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-16 14:42:13] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 200 251
+[2018-12-16 14:43:21] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-16 14:43:21] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 200 251
+[2018-12-16 14:45:39] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/1 HTTP/1.1" 200 0
+[2018-12-16 14:45:39] INFO [django.server.log_message:124] "OPTIONS /sso_api/groups HTTP/1.1" 200 0
+[2018-12-16 14:45:39] INFO [django.server.log_message:124] "OPTIONS /sso_api/groups HTTP/1.1" 200 0
+[2018-12-16 14:45:39] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 200 251
+[2018-12-16 14:45:39] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-16 14:45:39] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-16 14:46:24] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-16 14:46:24] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 200 251
+[2018-12-16 14:46:24] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-16 14:47:17] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-16 14:47:17] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 200 251
+[2018-12-16 14:47:17] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-16 14:48:05] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-16 14:48:05] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 200 251
+[2018-12-16 14:48:05] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-16 14:50:05] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-16 14:50:05] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 200 251
+[2018-12-16 14:50:05] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-16 14:50:34] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348
+[2018-12-16 14:50:34] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 200 251
+[2018-12-16 14:50:34] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 348

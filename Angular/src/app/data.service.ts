@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
-import { Router} from '@angular/router';
+import {ActivatedRoute,  Router} from '@angular/router';
 import {environment} from "../environments/environment";
+import {Location} from "@angular/common";
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-
-  // public URL = '54.244.162.68:8001';
 
   public message;
   public login_username;
@@ -25,14 +24,14 @@ export class DataService {
   };
   public authOptions;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router,private route: ActivatedRoute,location:Location) { }
 
   djangostudents() {
     return this.http.get( environment.API_URL + '');
   }
 
   createUser() {
-    this.http.post( environment.API_URL + '/sso_api/login', JSON.stringify({'email': this.createuser_email, 'password': this.createuser_password, 'username': this.createuser_username}), this.httpOptions).subscribe(
+    this.http.post( environment.API_URL + 'sso_api/login', JSON.stringify({'email': this.createuser_email, 'password': this.createuser_password, 'username': this.createuser_username}), this.httpOptions).subscribe(
         data => {
             this.message = data['message'];
             this.createuser_email = '';
@@ -51,20 +50,14 @@ export class DataService {
   }
 
   login() {
-    this.http.post( environment.API_URL + '/sso_api/api-token-auth/', JSON.stringify({'username': this.login_username, 'password': this.login_password}), this.httpOptions).subscribe(
+    this.http.post( environment.API_URL + 'sso_api/login', JSON.stringify({'username': this.login_username, 'password': this.login_password}), this.httpOptions).subscribe(
         data => {
 
-            sessionStorage.setItem('username', data['name']);
+            sessionStorage.setItem('username', data['username']);
             sessionStorage.setItem('token', data['token']);
             sessionStorage.setItem('id', data['id']);
-            this.username = this.login_username;
             this.router.navigate(['classroom']);
-            this.login_username = '';
-            this.login_password = '';
-            this.id = '';
-            console.log(this.username);
-            console.log(this.id);
-
+            this.username=sessionStorage.getItem('username');
             this.authOptions = {
                 headers: new HttpHeaders({'Content-Type': 'application/json', 'Authorization': 'JWT ' + data['token']})
             };
@@ -82,7 +75,7 @@ export class DataService {
     );
   }
 
-  islogin() {
+  static islogin() {
       return !!sessionStorage.getItem('token');
   }
 
@@ -92,6 +85,28 @@ export class DataService {
     sessionStorage.removeItem('username');
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('id');
+  }
+
+  confirm_token(){
+  }
+
+
+  sessionSet(token:string,group_id:string) {
+    this.http.post(environment.API_URL + 'sso_api/confirm_key',JSON.stringify({'token':token}),this.httpOptions).subscribe(data=>{
+      sessionStorage.clear();
+      sessionStorage.setItem('username', data['username']);
+      sessionStorage.setItem('token', data['token']);
+      sessionStorage.setItem('id', data['id']);
+      alert('Signed in! Moving to class');
+      this.router.navigate(['/classroom',group_id]);
+      return true;
+
+    },error => {
+      console.log(error);
+      return false;
+
+    })
+
   }
 }
 

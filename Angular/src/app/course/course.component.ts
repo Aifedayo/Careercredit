@@ -12,7 +12,7 @@ import {ClassModel} from "../share/class-model";
   selector: 'app-course',
   templateUrl: './course.component2.html',
   styleUrls: ['./course.component.css'],
-  // providers: [MaterializeModule, CourseService],
+  providers: [MaterializeModule],
 })
 export class CourseComponent implements OnInit {
   items: ClassModel[];
@@ -32,6 +32,13 @@ export class CourseComponent implements OnInit {
     private router:Router,
     private location:Location)
   {
+
+  }
+
+
+
+  ngOnInit() {
+    this.classes=this.apiService.getAvailableClasses();
     const selectedClass = + this.route.snapshot.params["group_id"];
     const selectedTopic = + this.route.snapshot.params["topic_id"];
     this.selectedGroup=selectedClass;
@@ -43,12 +50,6 @@ export class CourseComponent implements OnInit {
     if(this.selectedTopic){
       this.setTopic(selectedTopic)
     }
-  }
-
-
-
-  ngOnInit() {
-    this.classes=this.apiService.getAvailableClasses();
   }
 
   public setTopic(id){
