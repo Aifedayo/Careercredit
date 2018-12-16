@@ -22,11 +22,6 @@
             </ul>
 
           </div>
-            <div class="select">
-  <select [(ngModel)]="selectedClass">
-    <option *ngFor="let item of classes |async"  [ngValue]="item.id">{{ item.name }}</option>
-  </select>
-</div>
             <div class="col l6 m6 s6">
               <ul class="right">
                 <li><a>{{dataservice.username}}</a></li>
