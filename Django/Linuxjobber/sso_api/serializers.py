@@ -13,7 +13,7 @@ from Courses.models import Note
 
 class GroupClassSerializer(serializers.ModelSerializer):
     course=serializers.StringRelatedField()
-    users=serializers.StringRelatedField(many=True)
+    users="UserSerializer"
     class Meta:
         model = Groupclass
         fields = "__all__"
@@ -21,7 +21,7 @@ class GroupClassSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
-        fields = "__all__"
+        fields = ['id','username','email','first_name','last_name']
 
 class LabTaskSerializer(serializers.ModelSerializer):
     class Meta:

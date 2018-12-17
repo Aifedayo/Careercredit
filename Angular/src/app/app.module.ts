@@ -21,6 +21,7 @@ import {DataService} from './data.service';
 import {Location} from "@angular/common";
 import {CourseModule} from "./course/course.module";
 import {LinuxModule} from "./linux/linux.module";
+import {ApiService} from "./share/api.service";
 
 
 
@@ -46,7 +47,7 @@ import {LinuxModule} from "./linux/linux.module";
     CourseModule,
     LinuxModule
   ],
-  providers: [DataService,Location],
+  providers: [DataService,Location,ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

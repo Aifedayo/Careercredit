@@ -51,6 +51,7 @@ def confirm_api(request):
         return Response("Nothing",status=status.HTTP_403_FORBIDDEN)
 
 
+
 class UserGroups(APIView):
     """
     View to list all groups in the system.
@@ -68,6 +69,29 @@ class UserGroups(APIView):
         group_list= Groupclass.objects.filter(users__email=request.user)
         item= GroupClassSerializer(group_list,many=True)
         return Response(item.data)
+
+
+class GroupMembers(APIView):
+    """
+    View to list all groups in the system.
+
+    * Requires token authentication.
+    """
+    authentication_classes = (authentication.TokenAuthentication,)
+
+    # permission_classes = (permissions.IsAdminUser,)
+
+    def get(self, request, group_id=0):
+        """
+        Return a list of all users in the group.
+        Returns list of groups associated to the user as well
+        """
+        try:
+            g=Groupclass.objects.get(id=group_id)
+            users=UserSerializer(g.users,many=True)
+            return Response(users.data)
+        except Groupclass.DoesNotExist:
+            return Response("Not found",status.HTTP_404_NOT_FOUND)
 
 class GroupCourseDetail(APIView):
     authentication_classes = (authentication.TokenAuthentication,)

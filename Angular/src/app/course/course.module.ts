@@ -20,7 +20,6 @@ import {FormsModule} from "@angular/forms";
     BrowserModule,
     CommonModule,
     CourseRoutingModule,
-    MaterializeModule,
     FormsModule
   ],
   declarations: [
@@ -30,7 +29,7 @@ import {FormsModule} from "@angular/forms";
     TopicNotesComponent,
     TopicVideoComponent
   ],
-  providers: [CourseService],
+  providers: [],
   bootstrap: [CourseComponent]
 })
 export class CourseModule { }

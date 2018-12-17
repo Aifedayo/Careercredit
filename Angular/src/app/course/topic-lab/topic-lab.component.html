@@ -1,4 +1,4 @@
- <div class="card medium" style="max-height: 500px;">
+ <div class="card medium" style="max-height: 500px;" *ngIf="_task |async as topic">
      <div class="card-header">{{ topic.topic }}</div>
   <div class="card-content" style="overflow:auto" id="chat_div_space">
       <div class="" *ngFor="let item of topic.tasks">
