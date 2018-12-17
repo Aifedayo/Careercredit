@@ -20,7 +20,7 @@ export class CourseComponent implements OnInit {
   topicsSub:any;
   classes: Observable<ClassModel[]>;
   topics = [];
-  private  selectedTopic:number = 0;
+  public  selectedTopic:number = 0;
   username:string;
   private  selectedGroup:number = 0;
   public groupMembers$: Observable<UserModel[]>;

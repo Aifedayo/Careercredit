@@ -8065,3 +8065,15 @@ django.core.exceptions.ImproperlyConfigured: Field name `firstname` is not valid
 [2018-12-17 23:29:00] INFO [django.server.log_message:124] "GET /sso_api/group/1/users HTTP/1.1" 200 501
 [2018-12-17 23:29:00] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 200 251
 [2018-12-17 23:29:00] INFO [django.server.log_message:124] "GET /sso_api/group/1/users HTTP/1.1" 200 501
+[2018-12-17 23:30:40] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 200 251
+[2018-12-17 23:30:40] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 521
+[2018-12-17 23:30:40] INFO [django.server.log_message:124] "GET /sso_api/group/1/users HTTP/1.1" 200 501
+[2018-12-17 23:30:40] INFO [django.server.log_message:124] "GET /sso_api/group/1/users HTTP/1.1" 200 501
+[2018-12-17 23:31:26] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 521
+[2018-12-17 23:31:26] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 200 251
+[2018-12-17 23:31:26] INFO [django.server.log_message:124] "GET /sso_api/group/1/users HTTP/1.1" 200 501
+[2018-12-17 23:31:26] INFO [django.server.log_message:124] "GET /sso_api/group/1/users HTTP/1.1" 200 501
+[2018-12-17 23:31:34] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 200 251
+[2018-12-17 23:31:34] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 521
+[2018-12-17 23:31:34] INFO [django.server.log_message:124] "GET /sso_api/group/1/users HTTP/1.1" 200 501
+[2018-12-17 23:31:34] INFO [django.server.log_message:124] "GET /sso_api/group/1/users HTTP/1.1" 200 501

@@ -10,7 +10,7 @@ import {ApiService} from "../../share/api.service";
 export class TopicNotesComponent implements OnInit {
 
  route:any ;
-  private data$: any;
+  public data$: any;
   constructor(private apiService:ApiService,route:ActivatedRoute,private router:Router) {
     this.route=route;
  this.data$=this.apiService.data$
