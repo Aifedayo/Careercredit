@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { HttpClient } from '@angular/common/http';
+import {environment} from "../../environments/environment.prod";
+import {ApiService} from "../share/api.service";
 
 
 @Component({
@@ -10,19 +12,16 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TopicChatComponent implements OnInit {
 
-
-  public URL = '54.244.162.68:8001';
   public users: Array<object> = [];
   public chat_text  = '';
   public messages = [];
   public websocket;
   public email;
 
-  constructor(public dataservice: DataService, private http: HttpClient) {
-    this.dataservice.username = sessionStorage.getItem('username');
-    this.websocket = new WebSocket('ws://' + '54.244.162.68:8001');
+  constructor(private http: HttpClient) {
+    this.websocket = new WebSocket(environment.WS_URL);
     this.websocket.onopen = (evt) => {
-      this.websocket.send(JSON.stringify({'user': this.dataservice.username, 'message': '!join DjangoClass'}));
+      this.websocket.send(JSON.stringify({'user': sessionStorage.getItem('username'), 'message': '!join DjangoClass'}));
       };
 
       this.websocket.onmessage = (evt) => {
@@ -42,19 +41,19 @@ export class TopicChatComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.dataservice.djangostudents().subscribe((data: Array<object>) => {
-      this.users = data;
-    });
+    // this.dataservice.djangostudents().subscribe((data: Array<object>) => {
+    //   this.users = data;
+    // });
   }
 
   public allUsers() {
-    this.dataservice.djangostudents().subscribe((data: Array<object>) => {
-      this.users = data;
-    });
+    // this.dataservice.djangostudents().subscribe((data: Array<object>) => {
+    //   this.users = data;
+    // });
   }
 
   sendMessage(message) {
-    this.websocket.send(JSON.stringify({'user': this.dataservice.username, 'message': this.chat_text}));
+    this.websocket.send(JSON.stringify({'user': sessionStorage.getItem('username'), 'message': this.chat_text}));
     this.chat_text = '';
   }
 }

@@ -88,10 +88,6 @@ export class DataService {
     sessionStorage.removeItem('id');
   }
 
-  confirm_token(){
-  }
-
-
   sessionSet(token:string,group_id:string) {
     this.http.post(environment.API_URL + 'sso_api/confirm_key',JSON.stringify({'token':token}),this.httpOptions).subscribe(data=>{
       sessionStorage.clear();
