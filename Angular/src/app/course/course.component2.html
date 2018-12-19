@@ -53,7 +53,7 @@
         <li><a [routerLink]="['./video']" routerLinkActive="active" id="video">Video</a></li> |
         <li *ngIf="selectedTopic"><a (click)="goToLab()"> Lab </a></li> |
         <li *ngIf="selectedTopic"><a (click)="goToNote()"> Note </a></li> |
-        <li><a [routerLink]="['./labs']" routerLinkActive="active" id="chat"> Chat</a></li>
+        <li><a [routerLink]="['./topic-chat']" routerLinkActive="active"id="chat"> Chat</a></li>
       </ul>
       <hr>
       <div style="max-height:600px; overflow: auto;">
