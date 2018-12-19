@@ -34,7 +34,7 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
 
     'rest_framework',
-    #'channels',
+    'channels',
     'ckeditor',
     'corsheaders',
     'django.contrib.admin',
