@@ -2779,7 +2779,177 @@ a.mrbtn {
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+/**lABS PAGE**/
+.labbackground{
+    background-color: #EFEEEE;
+    padding-bottom: 60px; 
+}
 
+.labcard{
+    margin-bottom: 15px;
+    background-color: #FFFFFF;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.25);
+    min-height: 300px;
+    padding:20px;
+}
+
+.labcard p{
+    color: #000000;
+}
+
+.labcardpar{
+    background-color: #1B539E;
+    min-height: 4px;
+    width: 181px;
+    border-radius: 18px;
+    margin-bottom: 50px;
+}
+
+.labcardcom{
+    font-size: 16px;
+}
+
+.labload{
+    background-color: #1B539E;
+    width: 15.4px;
+    min-height: 15.4px;
+    left: 141.4px;
+    top: 650px;
+    border-radius: 45px;
+    margin-bottom: 10px;
+}
+
+.btn-lab{
+    color: rgba(0, 0, 0, 0.8);
+    padding-top: 10px;
+    background: #C4C4C4;
+    border-radius: 50px;
+    width: 128px;
+    min-height: 43px;
+    top: 4517px;
+}
+
+.btn-lab-w{
+    color: rgba(0, 0, 0, 0.8);
+    padding-top: 10px;
+    top: 4517px;
+    width: 128px;
+    min-height: 43px;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    border-radius: 50px;
+}
+
+.labform{
+    background: rgba(196, 196, 196, 0.2);
+    left: 225px;
+    top: 4451px;
+    border-radius: 0px;
+}
+
+.labunload{
+    background-color: #C4C4C4;
+    width: 15.4px;
+    min-height: 15.4px;
+    left: 141.4px;
+    top: 650px;
+    border-radius: 45px;
+    margin-bottom: 10px;
+}
+
+.labcardtask{
+    line-height: 24px;
+    font-size: 16px;
+}
+
+.labtop{
+    margin-top: 250px;
+    margin-bottom: 50px;
+}
+
+.labtop p{
+    color: #000000;
+}
+
+.labcardt{
+    font-size: 18px;
+}
+
+.lableft{
+    background-color: #fff;
+    color: rgba(0, 0, 0, 0.8);
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+.lableft p{
+    color: #000000;
+}
+
+.labright{
+    background-color: #C4C4C4;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+.labrinner{
+    padding: 40px;
+}
+
+.labrightr{
+    
+}
+
+.labright p {
+    color: rgba(0, 0, 0, 0.8);
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.labresult{
+    width: 278px;
+    height: 278px;
+    border-radius: 50%;
+    background: #1B539E;
+}
+
+.labcheck {
+    background: #1B539E;
+    border-radius: 50%;
+    padding:5px;
+    padding-top: 15px;
+}
+
+.labimg{
+    width: 22.49px;
+    height: 22.49px;
+}
+
+.labimg2{
+    width: 32.49px;
+    height: 36.49px;
+}
+
+.labcheckp{
+    display:inline-block;
+}
+
+.labpresult{
+    vertical-align: middle;
+    text-align:center;
+    left:23%;
+    position:relative;
+}
+
+.labresult span{
+    padding-top: 50px;
+    padding-bottom: 500px;
+    color: #fff;
+    font-size: 70px;
+}
+
+.labresult p{
+    color: #fff;
+    font-size: 20px;
+}
 /**New Course List and Course Description Page **/
 
 .m100 {
@@ -4473,7 +4643,6 @@ i.fa.fa-certificate {
         width: max-content;
     }
 }
-
 
 
 /* new section styles */

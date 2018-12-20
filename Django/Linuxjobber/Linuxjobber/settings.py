@@ -32,7 +32,7 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
 
     'rest_framework',
-    'channels',
+    #'channels',
     'ckeditor',
     'corsheaders',
     'django.contrib.admin',
@@ -88,6 +88,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'home.context_processors.courses',
+                'home.context_processors.tools',
             ],
         },
     },
