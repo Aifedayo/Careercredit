@@ -268,7 +268,7 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [config('',default="127.0.0.1,6379",cast=Csv(post_process=tuple))],
+            "hosts": [config('channel_hosts',default="127.0.0.1,6379",cast=Csv(post_process=tuple))],
         },
     },
 }
