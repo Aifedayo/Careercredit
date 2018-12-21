@@ -22,6 +22,7 @@ import {Location} from "@angular/common";
 import {CourseModule} from "./course/course.module";
 import {LinuxModule} from "./linux/linux.module";
 import {ApiService} from "./share/api.service";
+import { SafePipe } from './share/safe.pipe';
 
 
 
@@ -34,6 +35,7 @@ import {ApiService} from "./share/api.service";
     HomeComponent,
     LoginComponent,
     PrivateChatComponent,
+
   ],
   imports: [
     BrowserModule,

@@ -3,11 +3,13 @@ import {ApiService} from "../../share/api.service";
 import {CourseTopicModel} from "../../share/course-topic-model";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Observable} from "rxjs/index";
+import {SafePipe} from "../../share/safe.pipe";
 
 @Component({
   selector: 'app-topic-video',
   templateUrl: './topic-video.component.html',
   styleUrls: ['./topic-video.component.css']
+
 })
 export class TopicVideoComponent implements OnInit {
 
@@ -17,6 +19,9 @@ export class TopicVideoComponent implements OnInit {
   constructor(private apiService:ApiService,route:ActivatedRoute,private router:Router) {
     this.route=route
   }
+
+
+
   ngOnInit() {
 
     this.data$ = this.apiService.data$
@@ -28,6 +33,7 @@ export class TopicVideoComponent implements OnInit {
      //      }
      //
      //    });
+
 
 
   }
