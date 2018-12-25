@@ -12,45 +12,83 @@
         </div>      
       </div>      
 </div>
-<section class="col-md-12 fundamentalmain">
+<section class="labbackground">
     <div class="container">
     
-        <div class="modal-header">
+        <div class="text-center labtop">
             <div class="text-center"><b><p></p></b></div>
-            <h6>
-            <span class="videoname">Lab Detail: {{object.topic}}</span>
-            </h6>
+            <h1>
+                {{object.lab_name}}
+            </h1>
+            <br>
+            <p>{{object.lab_description}}</p>
             </div>
-        
-        <div class="col-md-12">
-            <div class="container physicalstorage">
             
         {% if object.tasks.all %}
         {%for data in object.tasks.all%}
   
-
-
-            <p>
-                <strong>{{ data.task_number }}.) </strong>
-                {{ data.comment }} <br><br>
-            </p>
-            <strong>Note: </strong> {{ data.note }} <br><br>
-            <strong>Task: </strong> {{ data.task }} <br><br>
-            {% if data.hint %}
-            <strong>Hint: </strong> {{ data.hint }} <br><br>
-            {% endif %}
-            {% if results %}            
-                {%for result in results%}
-                    {% if forloop.counter == forloop.parentloop.counter %}
-                       <strong>Result: </strong> {{result}}<br><br><br><br>
+            <div class="labcard col-md-12">
+                <div class="col-md-1 col-xs-1"></div>
+                <div class="col-md-11 col-xs-11">
+                    <h1>{{data.task_number}}<span class="labcardt">/{{object.tasks.all|length}}</span></h1>
+                    <div class="labcardpar"></div>
+                </div>
+                
+                <div class="row">
+                <div class="col-md-1 col-xs-1">
+                    <ul>
+                        {%for i in object.tasks.all %}
+                            {%if forloop.counter <= data.task_number%}
+                                <li class="labload"></li>
+                            {%else%}
+                                <li class="labunload"></li>
+                            {%endif%}
+                        {%endfor%}
+                    </ul>
+                </div>
+                <div class="col-md-11 col-xs-11">
+                    
+                    <span>
+                       <p class="labcardcom"> {{ data.comment }}</p>
+                    <p>
+                        Note: {{ data.note }} <br><br>
+                    </p>
+                    
+                    <p class="labcardtask"> <b>Your task is to  {{ data.task }} <br><br> </b></p>
+                    {% if data.hint %}
+                    <strong>Hint: </strong> {{ data.hint }} <br><br>
                     {% endif %}
-               
-                {%endfor%}
-            {% endif %}
+                    {% if results %}            
+                        {%for result in results%}
+                            {% if forloop.counter == forloop.parentloop.counter %}
+                               <strong>Result: </strong> {{result}}<br><br><br><br>
+                            {% endif %}
+                       
+                        {%endfor%}
+                    {% endif %}
+                    {%if course.lab_submission_type == 2%}
+                        <span class="labcheckp labundone{{data.task_number}}">
+                            <img src="{% static 'home/images/Ellipse.png' %}">
+                            <span class="labcardtask">Task not completed </span>
+                        </span>
+                        <span class="labcheckp labdone{{data.task_number}}">
+                           <span class="labcheck"><img class="labimg" src="{% static 'home/images/Rectangle.png' %}"></span>
+                            <span class="labcardtask">Task completed </span>
+                        </span>
+                        
+                    {%endif%}
+                    </span>
+                    </div>
+                </div>
+            </div>
             
         {%endfor%}
-            
-            {%if course.lab_submission_type == 2%}
+            <div class="labcard col-md-12">
+                <div class="col-md-1"></div>
+                <div class="col-md-11"><span class="labcardtask">Lab Complete</span>
+                    <div class="labcardpar"></div>
+
+                    {%if course.lab_submission_type == 2%}
             <form method="post" action="">
                 {% csrf_token %}
                 {%if machine%}
@@ -73,31 +111,63 @@
                             <p>Machine Accessibility: {%if machines.2 %}<span class="glyphicon glyphicon-ok corr"></span> {%else%} <span class="glyphicon glyphicon-remove wron"></span> {%endif%}</p>
                         {%endfor%}
                     {%endif%}
-                    <div class="submit"><input type="submit" class="btn btn-primary"> </div>
+                    <div class="submit"><input type="submit" class="btn btn-lab"> </div>
                 {%else%}
-                    <div class="row">
-                        <div class="form-group col-md-6">
-                            <br /><strong>When you have finished all the tasks, enter your IP address and submit</strong> <br />
-                            <strong>ONLY IF YOU ARE DONE</strong> 
-                        <div class="input-group">
-                        <span class="input-group-addon">IP Address</span>
-                        <input type="text" name="ip_address" class="form-control" placeholder="Enter your IP address" id="IP_address">
-                        </div>
+                    
+                        
+                        <div class="row">
+                        <div class="col-md-6">
+                        <span>Enter your IP address to submit</span>
+                        <input type="text" name="ip_address" class="form-control labform" placeholder="Enter your IP address" id="IP_address">
+                        <br>
+                        <div class="submit"><input type="submit" class="btn btn-lab"> </div>
                         </div>
                         <div class="col-md-6"></div>
-                    </div>
-                    <div class="submit"><input type="submit" class="btn btn-primary" disabled> </div>
+                        </div>
+                        
+                        
+                       
+                    
+                    
                 {%endif%}
             </form>
             {%endif%}
+                </div>
+                
+            
+        </div>
         {%else%}
                <strong>No tasks for this lab(course topic)</strong> 
         {% endif %}
 
-            </div>
-        </div>
+           
     </div>
 
 </section>
 
+<script>
+jQuery(function(){
+    $('.labcheckp').hide();
+    $('.labcheckp').hide();
+    {%for task in object.tasks.all%}
+    
+        $.ajax({
+            type: 'GET',
+            data:'', 
+            url: '{% url "Courses:task_update" object.id task.task_number %}',
+            success: function (data) {
+                $.each(data, function(index, value){
+                    if(value == "done"){
+                        $('.labdone'+'{{task.task_number}}').show();
+                    }
+                    else{
+                        $('.labundone'+'{{task.task_number}}').show();
+                    }
+                });
+            }
+        })
+
+    {%endfor%}
+});
+</script>
 {%endblock%}

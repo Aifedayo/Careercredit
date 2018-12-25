@@ -19,10 +19,13 @@ class Course(models.Model):
     course_title = models.CharField(max_length = 200)
     lab_submission_type = models.PositiveSmallIntegerField(default=1, choices=LAB_SUBMISSION)
     aws_credential_required = models.IntegerField(default=0 ,choices=((0, 'No'), (1, 'Yes')))
+    icon = models.CharField(max_length = 200, null=True)
+    weight = models.IntegerField(unique=True, null=True)
 
     
     class Meta:
         verbose_name_plural = 'Courses'
+        ordering = ('weight',)
     
     def __str__(self):
         return self.course_title
@@ -44,13 +47,14 @@ class CourseTopic(models.Model):
     lab_name = models.CharField(max_length = 50)
     video = models.TextField()
     description = models.TextField(default="nil")
+    lab_description = models.TextField(null=True)
     has_notes = models.IntegerField(default=1 ,choices=((0, 'No'), (1, 'Yes')))
     has_labs = models.IntegerField(default=1 ,choices=((0, 'No'), (1, 'Yes')))
     free = models.IntegerField(default=0 ,choices=((0, 'No'), (1, 'Yes')))
     
     class Meta:
         verbose_name_plural = 'Course Topics'
-    
+        
     def __str__(self):
         return self.topic
 

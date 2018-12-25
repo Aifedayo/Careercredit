@@ -62,12 +62,7 @@
 	a{ font-weight:500 ; }
 
 </style>
-<!-- FAQ -->
-<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 
-	<link href="{% static 'faq/css/reset.css' %}" rel="stylesheet">
-    <link href="{% static 'faq/css/faq_style.css' %}" rel="stylesheet">
-    <script src="{% static 'faq/js/modernizr.js' %} "></script> -->
 </head>
 
 <body>
@@ -93,7 +88,7 @@
 											<div class="col-md-3 col-sm-4">
 												<ul>
 											{% endif %}
-													<li><a href="{% url 'Courses:topics' course.course_title.split|join:'_' %}"><span class="link-icon"><i class="fa fa-linux fa-2x"></i></span>{{course.course_title}}</a></li>
+													<li><a href="{% url 'Courses:topics' course.course_title.split|join:'_' %}"><span class="link-icon"><i class="fa {{course.icon}} fa-2x"></i></span>{{course.course_title}}</a></li>
 													{% if forloop.counter|divisibleby:4 %}
 												</ul>
 											</div>
