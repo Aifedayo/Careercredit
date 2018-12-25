@@ -8,6 +8,8 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
+from django.http import JsonResponse
+from django.core import serializers
 
 #################################################
 #    IMPORTS FROM WITHIN Linuxjobber APPLICATION  #
@@ -16,6 +18,11 @@ from home.models import Location, AwsCredential
 from users.models import CustomUser
 from .forms import *
 from .utils.djangolabsutils import grade_django_lab
+#from .serializers import *
+from rest_framework import viewsets
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+
 
 register = temp.Library()
 
@@ -89,7 +96,7 @@ def TopicNote(request, course_name, lab_no):
     else:
         template = 'courses/visitor.html'
 
-    Notes = Note.objects.get(Topic=lab_no)
+    Notes = Note.objects.get(Topic__topic_number=lab_no,)
     Topics = CourseTopic.objects.filter(course__course_title = course_name.replace("_", " "))
     Random = random.sample(list(Topics), 3)
     try:
@@ -115,8 +122,7 @@ def TopicNote(request, course_name, lab_no):
 @csrf_exempt
 def videostat(request, topic):
     if request.method == "POST":
-        topic = topic.replace("_"," ")
-        topic = CourseTopic.objects.get(topic=topic)
+        topic = CourseTopic.objects.get(id=topic)
         stat = TopicStatus.objects.get(topic=topic,user=request.user)
 
         #does not have lab
@@ -229,7 +235,6 @@ class LabDetailsView(generic.DetailView):
 
     def post(self, request, *args, **kwargs):
         topic = self.get_object()
-        #course = topic.course.course_title.split()[0].upper()
         course = Course.objects.get(course_title=topic.course.course_title)
         topic_id = str(topic.id)
         topic_slug = topic.lab_name
@@ -251,7 +256,7 @@ class LabDetailsView(generic.DetailView):
                 return HttpResponse(output)
         elif sub_type == 2:
             IP = request.POST['ip_address']
-            
+            outps = None
             outps = subprocess.Popen(["sshpass","-p", settings.SERVER_PASSWORD, "ssh", "-o StrictHostKeyChecking=no", "-o LogLevel=ERROR", "-o UserKnownHostsFile=/dev/null", settings.SERVER_USER+"@"+str(IP), "python /tmp/GraderClient.py", settings.SERVER_USER,settings.SERVER_IP,str(topic.id),str(request.user.id)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
             if outps:
                 labs = LabTask.objects.filter(lab=topic)
@@ -266,16 +271,10 @@ class LabDetailsView(generic.DetailView):
                         grade = GradesReport(user=request.user,course_topic=topic,score=0,lab=lab,grade="pending")
                         grade.save()
 
-            messages.success(request, "Please wait your task is currently being graded! Click <a href='/courses/"+str(self.kwargs.get('course_name'))+"/lab/"+str(topic.topic_number)+"/result'>here</a> to refresh in 2 minutes")
-            return redirect("Courses:linux_result")
-            # GraderServer "machine" data['machine'] "sysadmin" topic_id course data['user_id']
-            """command = [ settings.BASE_DIR+"/Courses/utils/GraderServer.py","machine",user_Add, "sysadmin", topic_id, course, user_ID ]
-            try:
-                subprocess.check_call(command, stderr=subprocess.STDOUT, bufsize=-1)
-            except:
-                return render(request,'courses/result.html',{'gradingerror':"There was an error encountered during grading",'coursetopic':topic})
-            handle_rslts(settings.BASE_DIR+"/Courses/utils/"+user_Add,request.user,topic)
-            """
+            messages.success(request, "Please wait your task is currently being graded!")
+            
+            return redirect("Courses:linux_result", course_name=self.kwargs.get('course_name'), lab_no= topic.topic_number)
+            
         else:
             # /path/to/where/GraderServer.py "repo" course topic_id topic_slug data['user_id'] user_IP 
             command = [ settings.BASE_DIR+"/Courses/utils/GraderServer.py","repo", course, topic_id, topic_slug, user_ID, user_Add ]
@@ -287,27 +286,160 @@ class LabDetailsView(generic.DetailView):
         result = GradesReport.objects.filter(user = user_ID, course_topic = topic_id,)
         return render(request, 'courses/result.html',{'result':result,'coursetopic':topic})
 
+
+#Yet to be unleashed, an endpoint for graderserver to consume while grading.
+"""@api_view(['GET', 'POST'])
+def grader(request,topic):
+    topicd = CourseTopic.objects.get(id = topic)
+    queryset = LabTask.objects.filter(lab = topicd)
+    serializer = GraderSerializer(queryset, many=True)
+    data = serializer.data
+
+    if request.method == 'POST':
+        topic__id = request.POST['lab_id']
+        user_ID = request.POST['userID']
+
+        for report in reports:
+            report.grade = request.POST[str(report.lab.task_number)]
+            report.score = 1
+            report.save(update_fields=['grade','score'])
+
+        #add status
+        reports = GradesReport.objects.filter(course_topic__id=topic_id,user__id=user_ID)
+        for report in reports:
+            if report.grade == "passed":
+                scored = scored + 1
+        expected = len(reports)
+        total = (scored / expected) * 100
+
+        status = TopicStatus.objects.get(user__id =user_ID,topic__id=topic_id)
+        if total >= 70:
+            status.lab = 50
+            status.save(update_fields=['lab'])
+        elif total >= 50:
+            status.lab = 25
+            status.save(update_fields=['lab'])
+        else:
+            status.lab = 0
+            status.save(update_fields=['lab'])
+        return HttpResponse("Result:saved")
+
+
+    return Response(data)
+ """   
 def linux_result(request,course_name=None,lab_no=None):
     
     if course_name:
-
+        score = 0
+        percent = 0
+        stat = 0
+        leng = 0
         topic = CourseTopic.objects.get(course__course_title = course_name.replace("_"," "), topic_number = lab_no)
         try:
             next_topic = CourseTopic.objects.get(course__course_title = course_name.replace("_"," "), topic_number = int(lab_no)+1)
         except CourseTopic.DoesNotExist:
             next_topic = None
+
+        grades = GradesReport.objects.filter(user=request.user,course_topic=topic),
+        for grade in grades:
+
+            for gra in grade:
+                leng = leng+1 
+                if gra.grade == "passed":
+                    score = score + 1
+
+        percent = (score/ leng) * 100
+        
+        if percent > 70:
+            stat = "Passed"
+        else:
+            stat = "Failed"
+
+        #check if still grading
+        for grade in grades:
+            for gra in grade:
+                if gra.grade == "Grading":
+                    stat = "Grading"
+
         context = {
             'topic' : topic,
             'result' : GradesReport.objects.filter(user=request.user,course_topic=topic),
+            'related_topic': CourseTopic.objects.filter(course=topic.course),
             'course_name' : course_name,
             'lab_no': lab_no,
-            'next_topic': next_topic
+            'next_topic': next_topic,
+            'percent': int(percent),
+            'stat': stat
         }
-
 
     else:
         context = None
     return render(request, 'courses/linux_result.html', context)
+
+def topic_stat(request,lab_no):
+    leng=0
+    score = 0
+    percent = 0
+    stat = 0
+    try:
+        grades = GradesReport.objects.filter(user=request.user,course_topic__id=lab_no),
+        for grade in grades:
+            if not grade:
+                stat ={'stat': "not attempted"}
+                return JsonResponse(stat)
+            for gra in grade:
+                leng = leng+1 
+                if gra.grade == "passed":
+                    score = score + 1
+                elif gra.grade == "Grading":
+                    stat ={'stat': "Grading"}
+                    return JsonResponse(stat)
+
+        percent = (score/ leng) * 100
+            
+        if percent > 70:
+            stat ={'stat': "Passed"}
+        else:
+            stat ={'stat': "Failed"}
+
+        #check if still grading
+        for grade in grades:
+            for gra in grade:
+                if gra.grade == "Grading":
+                    stat ={'stat': "Grading"}
+        return JsonResponse(stat)
+    except GradesReport.DoesNotExist:
+        stat ={'stat': "not attempted"}
+        return JsonResponse(stat)
+
+def task_update(request,lab_no,task_no):
+    lab = LabTask.objects.get(lab__id=lab_no,task_number=task_no)
+    try:
+        reports = GradesReport.objects.get(user=request.user,course_topic__id=lab_no,lab=lab)
+        if reports.grade == "passed":
+            report={'result':'done'}
+            return JsonResponse(report)
+        else:
+            report={'result':'Not done'}
+            return JsonResponse(report)
+    except GradesReport.DoesNotExist:
+        report={'result':'Not done'}
+        return JsonResponse(report)
+    return JsonResponse(report)
+
+def linux_result_update(request,lab_no):
+    reports = GradesReport.objects.filter(user=request.user,course_topic__id=lab_no),
+    linuxresult = []
+    for report in reports:
+        for re in report:
+            linuxresult.append(re.grade)
+
+    data = {
+        'results' : linuxresult,
+    }
+    return JsonResponse(data)
+        
+
 
 @csrf_exempt
 def store_lab_result(request):

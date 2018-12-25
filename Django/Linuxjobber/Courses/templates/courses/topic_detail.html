@@ -76,7 +76,7 @@ function end(){
 	$.ajax({
 		type: 'POST',
 		data:'', 
-		url: '{% url "Courses:videostat" topic.topic.split|join:'_' %}',
+		url: '{% url "Courses:videostat" topic.id %}',
 		success: function (result) {
 			setTimeout(function(){ updatesession(); },1000);
 		}

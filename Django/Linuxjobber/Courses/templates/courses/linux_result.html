@@ -26,8 +26,16 @@
 		box-shadow: 3px 6px 5px 3px; #888888;
 	}
 </style>
-<div class="col-md-12">
-	<div class="container physicalstorage">
+<section class="labbackground">
+	<div class="container">
+		<div class="text-center labtop">
+	        <div class="text-center"><b><p></p></b></div>
+	        	<h1>
+	                {{topic.lab_name}} Results
+	            </h1>
+	            <br>
+	            <p>{{topic.lab_description}}</p>
+	    </div>
 		{% if messages %}
           {% for message in messages %}
           <div class="alert alert-{{message.tags}}" role="alert">
@@ -38,26 +46,139 @@
             {%endif%}
           </div>
           {% endfor %}
-        {% endif %}
-	<div class="col-md-3"></div>
-	<div class="col-md-6 midd">
-		{%if result%}
-			{%for results in result%}
-				<br>
-				<h4 class="text-center">Your result for task {{results.lab.task_number}} is : {%if results.grade == "passed" %}<strong><span class='pass'>{{results.grade}}</span></strong>{%else%}<strong><span class='fail'>{{results.grade}}</span></strong>{%endif%}</h4>
-			{%endfor%}
-		{%endif%}
-		{%if topic%}
-		<a href="{% url 'Courses:labs' topic.course.course_title.split|join:'_' topic.topic_number %}" class="btn btn-mini btn-info">Revisit</a>
-		{%if next_topic %}
-		<a href="{% url 'Courses:topic_details' topic.course.course_title.split|join:'_' next_topic.topic_number %}" class="btn btn-mini btn-info pull-right">Next</a>
-		{%else%}
-		<a href="{% url 'Courses:topics' topic.course.course_title.split|join:'_' %}" class="btn btn-mini btn-info pull-right">Finish</a>	
-		{%endif%}
-		{%endif%}
-		<br><br>
+        {% endif %}	
+	    <div class="row">
+	    	<div class="col-md-6 lableft">
+	    		<div class="text-center">
+	    			<br><br>
+	    			<h4 class="text-center">{{topic}}</h4>
+	    			<br>
+
+	    		</div>
+	    		<div class="labpresult">
+	    			<div class="labresult"><br><br><br><br><span class="scoper">{{percent}}</span><span>%</span><p class="scoresult">{{stat}}</p></div>
+	    		</div>
+	    		<br>
+	    		<div class="text-center">
+	    			{%for results in result%}
+						<h4 class="text-center">Task {{results.lab.task_number}}: {%if results.grade == "passed" %}<strong><span class='pass'>{{results.grade}}</span></strong>{%else%}<strong><span class='fail'>{{results.grade}}</span></strong>{%endif%}</h4>
+					{%endfor%}
+	    			<a href="{% url 'Courses:labs' topic.course.course_title.split|join:'_' topic.topic_number %}" class="btn btn-lab-w">Revisit</a>
+		    			{%if next_topic %}
+						<a href="{% url 'Courses:topic_details' topic.course.course_title.split|join:'_' next_topic.topic_number %}" class="btn btn-lab">Next</a>
+						{%else%}
+						<a href="{% url 'Courses:topics' topic.course.course_title.split|join:'_' %}" class="btn btn-lab">Finish</a>	
+						{%endif%}
+						<br><br><br><br>
+	    		</div>
+	    	</div>
+	    	<div class="col-md-6 labright">
+	    		<div class="labrinner">
+	    			{%for topic in related_topic%}
+	    			{%if topic.has_labs == 0%}
+	    			{%else%}
+	    			<a id="relink{{topic.id}}" href="{% url 'Courses:linux_result' topic.course.course_title.split|join:'_' topic.topic_number %}"><h4>{{topic}}</h4></a>
+	    			<h4 id="rel{{topic.id}}"></h4>
+	    			{%endif%}
+	    			{%endfor%}
+	    		</div>
+	    	</div>
+	    </div>
 	</div>
-	<div class="col-md-3"></div>
-</div>
-</div>
+</section>
+
+<script>
+jQuery(function(){
+
+	$('.alert').fadeOut(5000);
+	setTimeout(function() {
+		update();
+	}, 5000);
+
+	{%for topicsd in related_topic%}
+		{%if topicsd.has_labs == 1%}
+			$.ajax({
+				type: 'GET',
+				data:'', 
+				url: '{% url "Courses:topic_stat" topicsd.id %}',
+				success: function (data) {
+					$.each(data, function(index, value){
+						if(value == "Passed"){
+							color = 'green';
+						}
+						else if(value == "not attempted"){
+							color =  'grey';
+							$('#'+'relink'+'{{topicsd.id}}').replaceWith(function() { return"<h4>{{topicsd}}</h4>"});
+            			}
+						else{
+							color ='red';
+						}
+						
+						$('#'+'rel'+'{{topicsd.id}}').replaceWith(function() { return"<h4 style='color:"+color+";'>"+value+"</h4>"});
+					});
+				}
+			});
+		{%endif%}
+	{%endfor%}
+
+
+	function update(){
+	$.ajax({
+		type: 'GET',
+		data:'', 
+		url: '{% url "Courses:linux_result_update" topic.id %}',
+		success: function (data) {
+			$.each(data, function(index, value){
+            	score = 0;
+            	total = 0;
+            	percent = 0;
+            	{%for results in result%}
+            		total = parseInt('{{result|length}}')
+            		if (value[{{forloop.counter0}}] === "passed"){
+            			color="green";
+            			score = score+1;
+            		}
+            		else{
+            			color="red";
+            		}
+
+            		$('#'+'{{results.lab.task_number}}').replaceWith(function() { return"<span style='color:"+color+";'>"+value[{{forloop.counter0}}]+"</span>"});
+            	{%endfor%}
+
+            	if(value[0] == "Grading" && score == 0){
+            		$(".scoper").replaceWith(function() { return"<span class='scoper'>0</span>"});
+            	}
+            	else{
+            		percent = (score / total) * 100;
+	            	loadup(percent);
+	            	if(percent>=70){
+	            		$('.scoresult').replaceWith(function() { return"<p>Passed</p>"});
+	            	}
+	            	else{
+	            		$('.scoresult').replaceWith(function() { return"<p>Failed</p>"});
+	            	}
+            	}	
+            	
+            	
+        	});	
+		}
+	});
+	}
+
+	function loadup(score){
+	    function count($this){
+	        var current = parseInt($this.html(), 10);
+	        $this.html(++current);
+	        if(current !== $this.data('count')){
+	            setTimeout(function(){count($this)}, 50);
+	        }
+	    }        
+	  	$(".scoper").each(function() {
+	      $(this).data('count', parseInt(percent, 10));
+	      $(this).html('0');
+	      count($(this));
+	  	});
+	}
+});
+</script>
 {%endblock%}
