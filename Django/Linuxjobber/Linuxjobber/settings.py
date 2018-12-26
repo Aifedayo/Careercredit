@@ -90,6 +90,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'home.context_processors.courses',
+                'home.context_processors.tools',
             ],
         },
     },
@@ -106,11 +108,11 @@ WSGI_APPLICATION = 'Linuxjobber.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'linuxjobber',
-        'USER': 'linuxjobber2',
-        'PASSWORD': '8iu7*IU&',
-        'HOST': '172.31.39.237',
-        'PORT': '3306',
+        'NAME': 'youlinuxjobber',
+        'USER': 'root',
+        'PASSWORD': 'pass',
+        'HOST': 'localhost',
+
     }
 }
 

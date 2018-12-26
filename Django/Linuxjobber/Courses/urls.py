@@ -1,8 +1,10 @@
 from . import views
 from django.urls import path
 from django.contrib.auth.decorators import login_required
+from rest_framework.routers import DefaultRouter
+from django.conf.urls import url, include
 
-app_name = 'Courses'
+app_name = "Courses"
 
 urlpatterns = [
     path('', views.courses,name='courses'),
@@ -14,8 +16,12 @@ urlpatterns = [
     path('description/<slug:course_name>', views.description, name='description'),
     path('signup', views.signup, name='signup'),
     path('success', views.success, name='success'),
-    path('videostat/<slug:topic>', views.videostat, name='videostat'),
+    path('videostat/<int:topic>', views.videostat, name='videostat'),
     path('store_lab_result', views.store_lab_result, name='store_lab_result'),
     path('<slug:course_name>/lab/<int:lab_no>/result', views.linux_result, name='linux_result'),
-    path('grading', views.linux_result, name='linux_result')
+    #path('grading', views.linux_result, name='linux_result'),
+    #path('grader/<int:topic>', views.grader, name= 'grader'),
+    path('update/<int:lab_no>', views.linux_result_update, name='linux_result_update'),
+    path('topic_stat/<int:lab_no>', views.topic_stat, name='topic_stat'),
+    path('task_update/<int:lab_no>/<int:task_no>/', views.task_update, name='task_update'),
     ]
