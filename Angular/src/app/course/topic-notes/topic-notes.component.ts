@@ -10,23 +10,24 @@ import {ApiService} from "../../share/api.service";
 export class TopicNotesComponent implements OnInit {
 
  route:any ;
-  public topic:any = null;
+  public data$: any;
   constructor(private apiService:ApiService,route:ActivatedRoute,private router:Router) {
     this.route=route;
-        this.route.params.subscribe(params => {
-      const selectedClass = + params["group_id"];
-    if (selectedClass){
-      this.apiService.LoadData(selectedClass);
-    this.apiService.setActiveTopic(+params["topic_id"]);
-       }
-        });
-    this.topic = this.apiService.getActiveTopic();
-        this.apiService.data$.subscribe(data=>{
-      this.topic=data;
-      console.log(this.topic)
-    })
+ this.data$=this.apiService.data$
+
   }
   ngOnInit() {
+
+    // this.route.params.subscribe(params => {
+    //   const selectedClass = + params["group_id"];
+    // if (selectedClass){
+    //   // this.apiService.LoadData(selectedClass);
+    // this.apiService.setActiveTopic(+params["topic_id"]);
+    //    }
+    // });
+    //
+    //
+
   }
 
 }

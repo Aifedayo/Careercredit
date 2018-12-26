@@ -6,7 +6,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0014_remove_location_zipcode'),
+       ('home', '0014_remove_location_zipcode'),
         ('home', '0010_auto_20181128_0031'),
     ]
 

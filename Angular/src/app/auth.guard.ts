@@ -1,23 +1,37 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import {CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot, ActivatedRoute} from '@angular/router';
 import { Observable } from 'rxjs';
 import { DataService } from './data.service';
+import has = Reflect.has;
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
+  _hash:string;
 
-  constructor(private dataservice: DataService, private router: Router) {}
 
-    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot)
+  constructor(private dataservice: DataService, private router: Router) {  }
+
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot)
     : Observable<boolean> | Promise<boolean> | boolean {
-      if (this.dataservice.islogin()) {
+      if (DataService.islogin()) {
         return true;
-      } else {
-          alert('Please Login to Access');
-        this.router.navigate(['/login']);
-        return false;
+      }
+      else {
+        const hash = route.queryParamMap.get('hash');
+        if (hash){
+          const group_id=route.params['group_id'];
+          console.log(group_id)
+          if(this.dataservice.sessionSet(hash,group_id))
+          return true
+
+        }
+        else{
+          this.router.navigate(['/login']);
+          return false;
+        }
+
       }
   }
 

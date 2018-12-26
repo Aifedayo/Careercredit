@@ -5,25 +5,25 @@ import { MaterializeModule } from 'angular2-materialize';
 import {ApiService} from "../share/api.service";
 import {CourseTopicModel} from "../share/course-topic-model";
 import {Location} from "@angular/common";
-import {Observable, Subscription} from "rxjs/index";
+import {Observable, Subject, Subscription} from "rxjs/index";
 import {ClassModel} from "../share/class-model";
+import {UserModel} from "../share/user-model";
 
 @Component({
   selector: 'app-course',
   templateUrl: './course.component2.html',
   styleUrls: ['./course.component.css'],
-  // providers: [MaterializeModule, CourseService],
+  providers: [MaterializeModule],
 })
 export class CourseComponent implements OnInit {
   items: ClassModel[];
+  topicsSub:any;
   classes: Observable<ClassModel[]>;
-  public users: Array<object>  = [];
   topics = [];
-  options = {};
-  private  selectedTopic:number = 0;
+  public  selectedTopic:number = 0;
+  username:string;
   private  selectedGroup:number = 0;
-  private videoActive:boolean=false;
-  public activeTopic:CourseTopicModel;
+  public groupMembers$: Observable<UserModel[]>;
 
   constructor(
     private apiService:ApiService,
@@ -31,58 +31,58 @@ export class CourseComponent implements OnInit {
     public dataservice:DataService ,
     private router:Router,
     private location:Location)
+
   {
-    const selectedClass = + this.route.snapshot.params["group_id"];
-    const selectedTopic = + this.route.snapshot.params["topic_id"];
-    this.selectedGroup=selectedClass;
-    if (selectedClass){
-      this.apiService.LoadData(selectedClass);
-      this.topics=this.apiService.CurrentTopics;
-      console.log(this.apiService.getUsers(selectedClass))
-    }
-    if(this.selectedTopic){
-      this.setTopic(selectedTopic)
-    }
+    this.username=sessionStorage.getItem('username');
+
   }
 
-
-
   ngOnInit() {
+    this.route.params.subscribe(params=> {
     this.classes=this.apiService.getAvailableClasses();
+    const selectedClass = + params["group_id"];
+    this.selectedGroup=selectedClass;
+    if (selectedClass){
+      const selectedTopic = + params["topic_id"];
+      this.apiService.LoadData(selectedClass);
+      this.topicsSub=this.apiService._allTopics$;
+      this.groupMembers$ = this.apiService.getGroupMembers(selectedClass);
+
+    }if(this.selectedTopic){
+        this.setTopic(this.selectedTopic)
+      }
+    })
+
   }
 
   public setTopic(id){
     this.selectedTopic=id;
     this.apiService.setActiveTopic(id);
-    this.activeTopic=this.apiService.getActiveTopic();
     this.goToVideo();
   }
 
   reset(){
-     this.videoActive=false;
 
   }
   goToVideo(){
     this.reset();
-    this.router.navigate([ '/classroom/'+ this.selectedGroup +'/topic/'+this.activeTopic.id+''])
+        this.apiService.setActiveTopic(this.selectedTopic);
+    this.router.navigate([ '/classroom/'+ this.selectedGroup +'/topic/'+this.selectedTopic+''])
   }
-  goToLab(){
+  goToLab(id){
     this.reset();
     this.apiService.setActiveTopic(this.selectedTopic);
-    this.activeTopic=this.apiService.getActiveTopic();
-    this.router.navigate([ '/classroom/'+ this.selectedGroup +'/topic/'+this.activeTopic.id+'/lab'])
+    this.router.navigate([ '/classroom/'+ this.selectedGroup +'/topic/'+this.selectedTopic+'/lab'])
   }
   goToNote(){
     this.reset();
     this.apiService.setActiveTopic(this.selectedTopic);
-    this.activeTopic=this.apiService.getActiveTopic();
-    this.router.navigate([ '/classroom/'+ this.selectedGroup +'/topic/'+this.activeTopic.id+'/notes'])
+    this.router.navigate([ '/classroom/'+ this.selectedGroup +'/topic/'+this.selectedTopic+'/notes'])
   }
   goToChat(){
     this.reset();
-    this.router.navigate([this.location.path()+'topic/'+this.activeTopic.id+'/chat'])
+    this.router.navigate([this.location.path()+'topic/'+this.selectedTopic+'/chat'])
   }
-
   getTopic(id: number) {
   const topic = this.topics.find(
     (data) => {

@@ -146,7 +146,7 @@
     </div>
     </form>
           {% else %}
-<p class="text-center enroll-btn"><a class="btn btn-primary btn-lg" href="{{ GROUP_URL }}{{ group.id }}" target="_blank" role="button" style="padding:9px 27px !important; border-radius:20px;">Go to class</a></p>
+<p class="text-center enroll-btn"><a class="btn btn-primary btn-lg" href="{{ GROUP_URL }}{{ group.id }}?hash={{token}}" target="_blank" role="button" style="padding:9px 27px !important; border-radius:20px;">Go to class </a></p>
           {% endif %}
 
   {%endif%}

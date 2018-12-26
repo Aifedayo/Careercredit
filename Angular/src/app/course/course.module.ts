@@ -12,6 +12,7 @@ import { TopicLabComponent } from './topic-lab/topic-lab.component';
 import { TopicNotesComponent } from './topic-notes/topic-notes.component';
 import { TopicVideoComponent } from './topic-video/topic-video.component';
 import {FormsModule} from "@angular/forms";
+import {SafePipe} from "../share/safe.pipe";
 
 @NgModule({
   imports: [
@@ -20,17 +21,18 @@ import {FormsModule} from "@angular/forms";
     BrowserModule,
     CommonModule,
     CourseRoutingModule,
-    MaterializeModule,
-    FormsModule
+    FormsModule,
+
   ],
   declarations: [
     CourseComponent,
     TopicChatComponent,
     TopicLabComponent,
     TopicNotesComponent,
-    TopicVideoComponent
+    TopicVideoComponent,
+    SafePipe
   ],
-  providers: [CourseService],
+  providers: [],
   bootstrap: [CourseComponent]
 })
 export class CourseModule { }

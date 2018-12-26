@@ -15,15 +15,16 @@
             </a>
             <!-- Dropdown Structure -->
             <ul style="cursor: pointer;" id="dropdown1" class="dropdown-content">
-                <li *ngFor="let item of classes |async ">
-                    <a [routerLink]="['./',item.id]" >{{ item.name }}</a>
+                <li *ngFor="let item of classes | async ">
+                    <a [routerLink]="['/classroom',item.id]" >{{ item.name }}</a>
                 </li>
 
             </ul>
+
           </div>
             <div class="col l6 m6 s6">
               <ul class="right">
-                <li><a>{{dataservice.username}}</a></li>
+                <li><a>{{username}}</a></li>
                 <li><a (click)="logout()" id="logout">LOGOUT</a></li>
               </ul>
             </div>
@@ -36,11 +37,11 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col l3 m3 s3" style="background-color:#4d394b; height: 100%;">
-      <h6 style="text-align: center; font-weight: bold;"> Registered Students | {{users.length}}</h6>
+      <h6 style="text-align: center; font-weight: bold;"> Registered Students | <span *ngIf="groupMembers$|async as members ">{{ members.length}}</span></h6>
       <div style="height:450px; overflow: auto;">
         <ul>
           <li id="students" style="color:darkgrey; font-weight: bolder; font-size: 15px;"
-              *ngFor="let user of users"><a [routerLink]="['./private-chat', user.id]" routerLinkActive="active" > {{user.username}} </a>
+              *ngFor="let user of groupMembers$ |async"><a [routerLink]="['./private-chat', user.id]" routerLinkActive="active" > {{user.username}} </a>
           </li><br>
 
 
@@ -50,9 +51,9 @@
     <div class="col l6 m6 s9">
       <ul style="display:flex;">
         <li><a [routerLink]="['./video']" routerLinkActive="active" id="video">Video</a></li> |
-        <li *ngIf="activeTopic"><a (click)="goToLab()"> Lab </a></li> |
-        <li *ngIf="activeTopic"><a (click)="goToNote()"> Note </a></li> |
-        <li><a [routerLink]="['./labs']" routerLinkActive="active" id="chat"> Chat</a></li>
+        <li *ngIf="selectedTopic"><a (click)="goToLab()"> Lab </a></li> |
+        <li *ngIf="selectedTopic"><a (click)="goToNote()"> Note </a></li> |
+        <li><a [routerLink]="['./topic-chat']" routerLinkActive="active"id="chat"> Chat</a></li>
       </ul>
       <hr>
       <div style="max-height:600px; overflow: auto;">
@@ -68,7 +69,7 @@
 
          <ul class="collection">
 
-              <li class="collection-item avatar" *ngFor="let topic of topics ">
+              <li class="collection-item avatar" *ngFor="let topic of topicsSub | async">
 
 
                 <a (click)="setTopic(topic.id)"> {{topic.topic}}

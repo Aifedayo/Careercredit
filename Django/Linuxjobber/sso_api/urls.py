@@ -3,11 +3,10 @@ from rest_framework.authtoken import views as auth
 from . import views
 
 urlpatterns = [
-
     path('login',views.login),
-    path('group',views.groups),
-    # path('group',views.GroupUsers.as_view()),
     path('groups',views.UserGroups.as_view()),
-    path('group/<int:group_id>/',views.GroupCourseDetail.as_view()),
-    path('api-token-auth/',auth.obtain_auth_token)
+    path('group/<int:group_id>',views.GroupCourseDetail.as_view()),
+    path('group/<int:group_id>/users',views.GroupMembers.as_view()),
+    path('confirm_key',views.confirm_api),
+    path('api-token-auth',auth.obtain_auth_token)
 ]
