@@ -6,6 +6,8 @@ from django.core.files.storage import FileSystemStorage
 
 from users.models import CustomUser
 
+from Courses.models import Course
+
 
 class FAQ(models.Model):
     question = models.CharField(max_length = 200)
@@ -86,10 +88,14 @@ class Groupclass(models.Model):
     class_meet = models.CharField(max_length= 50)
     type_of_class = models.CharField(max_length= 100)
     date = models.DateTimeField(default=timezone.now, null=False)
+    # New Relationship for groupclass
+    users=models.ManyToManyField(CustomUser,blank=True,null=True)
+    course=models.ForeignKey(Course,on_delete=models.CASCADE,null=True)
 
     def __str__(self):
         return self.name
 
+# To-do Unmap this model
 class GroupClassRegister(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     is_paid = models.IntegerField(default=0)

@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import os, sys, datetime
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from decouple import config, Csv
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -42,11 +44,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
-    'home.apps.HomeConfig',
+    # 'home.apps.HomeConfig',
+    'home',
     'Courses.apps.CoursesConfig',
     'Projects.apps.ProjectsConfig',
     'ToolsApp.apps.ToolsappConfig',
     'classroom.apps.ClassroomConfig',
+    'rest_framework.authtoken'
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -55,7 +59,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
+        'rest_framework.permissions.IsAuthenticated',
     ]
 }
 
@@ -101,14 +105,17 @@ WSGI_APPLICATION = 'Linuxjobber.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
+# Todo Before Push modify to original credentials
 #Here I made use of a mysql database for expense application
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'youlinuxjobber',
-        'USER': 'root',
-        'PASSWORD': 'pass',
-        'HOST': 'localhost',
+        'NAME': config('DATABASE_NAME','linuxjobber'),
+        'USER': config('DATABASE_USER','linuxjobber2'),
+        'PASSWORD':config('DATABASE_PASSWORD','8iu7*IU&'),
+        'HOST': config('DATABASE_HOST','172.31.39.237'),
+        'PORT': config('DATABASE_PORT','3306'),
+
     }
 }
 
@@ -231,6 +238,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'asset'),
@@ -247,13 +255,14 @@ LOGIN_REDIRECT_URL = '/home'
 #EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = '587'
-EMAIL_HOST_USER = '4linuxjobber@gmail.com'
-EMAIL_HOST_PASSWORD = 'L1nuxj0bber'
+EMAIL_HOST = config('EMAIL_HOST','smtp.gmail.com')
+EMAIL_PORT = config('EMAIL_PORT','587')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER','4linuxjobber@gmail.com')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD','L1nuxj0bber')
 EMAIL_USE_TLS = True
 
-
+STRIPE_PUBLIC_KEY="pk_test_1zBTca83q29gl9iwRw1oIBvD"
+STRIPE_SECRET_KEY = "Something"
 AUTH_USER_MODEL = 'users.CustomUser'
 
 # Channels
@@ -262,12 +271,15 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],
+            "hosts": [config('channel_hosts',default="127.0.0.1,6379",cast=Csv(post_process=tuple))],
         },
     },
 }
 
+
+# todo Always change to appropriate before pushing
 #SERVER details
-SERVER_IP = "52.88.199.218"
-SERVER_USER = "sysadmin"
-SERVER_PASSWORD = "8iu7*IU&"
+SERVER_IP = config('SERVER_IP',"52.88.199.218")
+SERVER_USER = config('SERVER_USER',"sysadmin")
+SERVER_PASSWORD = config('SERVER_PASSWORD',"8iu7*IU&")
+GROUP_CLASS_URL= config('GROUP_CLASS_URL','http://localhost:4200/classroom/')
