@@ -51,8 +51,8 @@
     <div class="col l6 m6 s9">
       <ul style="display:flex;">
         <li><a [routerLink]="['./video']" routerLinkActive="active" id="video">Video</a></li> |
-        <li *ngIf="selectedTopic"><a (click)="goToLab()"> Lab </a></li> |
-        <li *ngIf="selectedTopic"><a (click)="goToNote()"> Note </a></li> |
+        <li *ngIf="selectedTopic"><a routerLinkActive="" (click)="goToLab()"> Lab </a></li> |
+        <li *ngIf="selectedTopic"><a routerLinkActive="" (click)="goToNote()"> Note </a></li> |
         <li><a [routerLink]="['./topic-chat']" routerLinkActive="active"id="chat"> Chat</a></li>
       </ul>
       <hr>
@@ -72,7 +72,7 @@
               <li class="collection-item avatar" *ngFor="let topic of topicsSub | async">
 
 
-                <a (click)="setTopic(topic.id)"> {{topic.topic}}
+                <a class (click)="setTopic(topic.id)"> {{topic.topic}}
                     <i class="material-icons circle red">play_arrow</i>
                 </a>
               </li>

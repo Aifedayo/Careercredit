@@ -82,10 +82,11 @@ export class DataService {
 
   logout() {
     this.username = '';
-    this.router.navigate(['login']);
+
     sessionStorage.removeItem('username');
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('id');
+    window.location.replace(environment.API_URL)
   }
 
   sessionSet(token:string,group_id:string) {

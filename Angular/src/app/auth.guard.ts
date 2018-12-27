@@ -3,6 +3,7 @@ import {CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot, Activa
 import { Observable } from 'rxjs';
 import { DataService } from './data.service';
 import has = Reflect.has;
+import {environment} from "../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +29,8 @@ export class AuthGuard implements CanActivate {
 
         }
         else{
-          this.router.navigate(['/login']);
+          alert("Session expired, redirecting back to linuxjobber")
+          window.location.replace(environment.API_URL);
           return false;
         }
 
