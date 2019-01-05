@@ -96,3 +96,13 @@ nav ul a:hover {
 #send_icon {
     margin-left: -10px;
 }
+
+
+#sidenav {
+    background: #a8a599;
+    /*float: left; Instead of float, use absolute position*/
+    position: absolute;
+    width: 20%;
+    height: 100%;
+}
+

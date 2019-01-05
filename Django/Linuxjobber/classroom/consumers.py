@@ -51,8 +51,8 @@ class ChatConsumer(AsyncWebsocketConsumer):
         new_message.save()
 
     async def connect(self):
-        # self.room_group_name = hashlib.sha256(b'._global_chat_.').hexdigest()
-        self.room_group_name = self.scope['url_route']['kwargs']['group_id']
+        self.room_group_name = hashlib.sha256(b'._global_chat_.').hexdigest()
+        # self.room_group_name = self.scope['url_route']['kwargs']['group_id']
         await self.channel_layer.group_add(self.room_group_name, self.channel_name)
         await self.accept()
 
