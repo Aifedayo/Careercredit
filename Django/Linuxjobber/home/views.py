@@ -336,8 +336,15 @@ def oracledb_certification(request):
 def workexperience(request):
     return render(request, 'home/workexperience.html')
 
+@login_required
 def workexpform(request):
-    weps = wepeoples.objects.get(user=request.user)
+
+    try:
+        weps = wepeoples.objects.get(user=request.user)
+        student = False
+    except wepeoples.DoesNotExist:
+        student = True
+
 
     if request.method == 'POST':
         trainee = request.POST['trainee_position']
@@ -347,27 +354,35 @@ def workexpform(request):
         relocate = request.POST['relocate']
         person = request.POST['type']
 
+
         if person == "Graduant" or person == "Student":
             graduation = request.POST['gdate']
         else:
             now = timezone.now()
             graduation = now + timedelta(days=120)
-               
-        weps.trainee_position = trainee
-        weps.current_position = current
-        weps.person_type = person
-        weps.state = state
-        weps.income = income
-        weps.relocation = relocate
-        weps.last_verification = None
-        weps.Paystub = None
-        weps.graduation_date = graduation
-        weps.save()
-       
+        
+        try:
+            weps = wepeoples.objects.get(user=request.user)
+            weps.trainee_position = trainee
+            weps.current_position = current
+            weps.person_type = person
+            weps.state = state
+            weps.income = income
+            weps.relocation = relocate
+            weps.last_verification = None
+            weps.Paystub = None
+            weps.graduation_date = graduation
+            weps.save()
+        except wepeoples.DoesNotExist:
+            weps = wepeoples.objects.create(user=request.user,trainee_position=trainee,
+                current_position=current,person_type=person,state=state,income=income,
+                relocation=relocate,last_verification=None,Paystub=None,graduation_date=graduation)
+            weps.save()
         return redirect("home:workexprofile")
     else:
-        return render(request, 'home/workexpform.html')
+        return render(request, 'home/workexpform.html',{'student':student})
 
+@login_required
 def workexprofile(request):
     
     weps = wepeoples.objects.get(user=request.user)

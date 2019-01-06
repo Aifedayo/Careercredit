@@ -56,12 +56,23 @@
 				</div>
 				<div class="form-group">
 					<label class="space1">Person Type</label>
+					{%if not student%}
 					<select type="text" name="type" class="form-control" id="id_type" required>
 						<option value="Trainee">Trainee</option>
 						<option value="Graduant">Graduant</option>
 						<option value="Student">Student</option>
 					</select>
+					{%else%}
+						<input type="text" name="type" class="form-control" id="id_resume" value="Student" readonly required>
+					{%endif%}
 				</div>
+
+				{%if student%}
+					<div class="form-group" id="id_grad">
+						<label class="space1">Graduation Date</label>
+						<input type="date" name="gdate" class="form-control" >
+					</div>
+				{%endif%}
 				<div class="form-group" id="id_grad">
 					<label class="space1">Graduation Date</label>
 					<input type="date" name="gdate" class="form-control" >
