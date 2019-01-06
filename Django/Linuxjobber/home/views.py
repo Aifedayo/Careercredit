@@ -1153,3 +1153,22 @@ def rhcsa_order(request):
 def user_interest(request):
 
     return render(request, 'home/user_interest.html', {'courses' : get_courses(), 'tools' : get_tools()})
+
+
+def upload_profile_pic(request):
+    update_feedback = ''
+    if request.method == 'POST' and request.FILES['profile_picture']:
+        if request.FILES['profile_picture'].name.endswith('.png') or request.FILES['profile_picture'].name.endswith('.jpg'):
+            picture = request.FILES['profile_picture']
+            filename = FileSystemStorage().save(picture.name, picture)
+            picture_url = FileSystemStorage().url(filename)
+            current_user = request.user
+            current_user.profile_img = picture_url
+            current_user.save()
+            update_feedback = 'Your profile update was successful'
+            return render(request,'home/upload_profile_pic.html',{'update_feedback':update_feedback})
+        else:
+            update_feedback = 'This file format is not supported'
+            return render(request,'home/upload_profile_pic.html',{'update_feedback':update_feedback})
+    else:
+        return render(request,'home/upload_profile_pic.html')

@@ -1,0 +1,16 @@
+{% load staticfiles%} 
+{% block title %}
+	Linuxjobber Project
+ {% endblock %}
+
+<br>
+<br>
+<h5>{{ course_title }} Projects</h5><br>
+<p>{{ course_description }}</p>
+{% block content %}
+
+	{% for lab in course_labs %}
+		<a href="{% url 'Projects:lab_tasks' lab.lab_title.split|join:'_' %}">{{ lab.lab_title }}</a>
+	{% endfor %}
+
+{% endblock %}

@@ -149,8 +149,14 @@
 
 .btn-loginform  {
 	width: -webkit-fill-available;
-	background-color: #1472C8;
+	background-color: white;
 	font-weight: 700;
+}
+
+.signin-btn {
+	background-color: white;
+	font-weight: 700;
+	border-radius: 15px;
 }
 
 .text-red {

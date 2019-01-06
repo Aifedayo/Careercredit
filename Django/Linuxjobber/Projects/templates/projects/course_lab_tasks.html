@@ -1,0 +1,16 @@
+{% load staticfiles%} 
+{% block title %}
+	Linuxjobber Project
+ {% endblock %}
+
+<br>
+<br>
+{% block content %}
+
+	{% for lab in lab_tasks %}
+		{{ lab.task_comment }}<br>
+		{{ lab.task_note }}<br>
+		{{ lab.task }}<br>
+	{% endfor %}
+
+{% endblock %}
