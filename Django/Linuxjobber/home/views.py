@@ -604,13 +604,15 @@ def group_pay(request,pk):
     amount=group_item.price * 100
     print(amount)
     # Stripe uses cent notation for amount 10 USD = 10 * 100
-    context = { "stripe_key": settings.STRIPE_PUBLIC_KEY,
+    stripeset = StripePayment.objects.all()
+    stripe.api_key = stripeset[0].secretkey
+    context = { "stripe_key": stripeset[0].publickey,
                    'amount': amount,
                 'group':group_item,
 
                 }
     if request.method == "POST":
-        stripe.api_key = "sk_test_FInuRlOzwpM1b3RIw5fwirtv"
+       # stripe.api_key = "sk_test_FInuRlOzwpM1b3RIw5fwirtv"
         token = request.POST.get("stripeToken")
         try:
             charge = stripe.Charge.create(
