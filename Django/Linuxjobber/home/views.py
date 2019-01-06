@@ -8,19 +8,23 @@ from django.conf import settings
 from django.shortcuts import render,redirect, reverse, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.template.response import TemplateResponse
+from django.utils.datastructures import MultiValueDictKeyError
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.http import HttpResponse
+from rest_framework.authtoken.models import Token
+from datetime import timedelta
 
 from .models import *
 from Courses.models import Course
 from ToolsApp.models import Tool
 from users.models import CustomUser
-from users.forms import CustomUserCreationForm
 from .forms import JobPlacementForm, JobApplicationForm, AWSCredUpload, InternshipForm, ResumeForm
 
 fs = FileSystemStorage(location= settings.MEDIA_ROOT+'/uploads')
+# stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
 #Error Logging Instances
@@ -134,8 +138,9 @@ def resumeservice(request):
 @csrf_exempt
 def resumepay(request):
     form = ResumeForm()
+    stripeset = StripePayment.objects.all()
     if request.method == "POST":
-        stripe.api_key = "sk_test_FInuRlOzwpM1b3RIw5fwirtv"
+        stripe.api_key = stripeset[0].secretkey
         token = request.POST.get("stripeToken")
         try:
             charge = stripe.Charge.create(
@@ -210,7 +215,14 @@ def log_in(request):
         
         if user is not None:
             login(request, user)
-            return redirect("home:index")
+            #check if user paid for work experience and has not filled the form
+            try:
+                weps = wepeoples.objects.get(user=request.user)
+                if not weps.trainee_position:
+                    return redirect("home:workexpform")
+            except wepeoples.DoesNotExist:
+                return redirect("Courses:userinterest")
+            return redirect("Courses:userinterest")
         else:
             error_message = "yes"
             return render(request, "home/registration/login.html", {'error_message' : error_message})
@@ -322,8 +334,63 @@ def oracledb_certification(request):
 
 
 def workexperience(request):
-    return render(request, 'home/workexperience.html', {'courses' : get_courses(), 'tools' : get_tools()})
+    return render(request, 'home/workexperience.html')
 
+def workexpform(request):
+    weps = wepeoples.objects.get(user=request.user)
+
+    if request.method == 'POST':
+        trainee = request.POST['trainee_position']
+        current = request.POST['current_position']
+        state = request.POST['state']
+        income = request.POST['income']
+        relocate = request.POST['relocate']
+        person = request.POST['type']
+
+        if person == "Graduant" or person == "Student":
+            graduation = request.POST['gdate']
+        else:
+            now = timezone.now()
+            graduation = now + timedelta(days=120)
+               
+        weps.trainee_position = trainee
+        weps.current_position = current
+        weps.person_type = person
+        weps.state = state
+        weps.income = income
+        weps.relocation = relocate
+        weps.last_verification = None
+        weps.Paystub = None
+        weps.graduation_date = graduation
+        weps.save()
+       
+        return redirect("home:workexprofile")
+    else:
+        return render(request, 'home/workexpform.html')
+
+def workexprofile(request):
+    
+    weps = wepeoples.objects.get(user=request.user)
+
+    if not weps.trainee_position:
+        return redirect("home:workexpform")
+
+    if request.method == "POST":
+        print(request.POST['type'])
+        if request.POST['type'] == '1':
+            last_verify = request.FILES['verify']
+            weps.Paystub = last_verify
+            weps.save(update_fields=["Paystub"])
+            messages.success(request, 'Paystub uploaded successfully, Last verification would be updated as soon as Paystub is verified')
+            return redirect("home:workexprofile")
+        else:
+            income = request.POST['income']
+            weps.income = income
+            weps.save(update_fields=['income'])
+            messages.success(request, 'Total monthly income updated successfully')
+            return redirect("home:workexprofile")
+
+    return render(request, 'home/workexprofile.html',{'weps': weps})
 
 def jobplacements(request):
     return render(request, 'home/jobplacements.html',{'courses' : get_courses(), 'tools' : get_tools()})
@@ -413,6 +480,9 @@ def pay(request):
                 UserPayment.objects.create(user=request.user, amount=PRICE,
                                             trans_id = charge.id, pay_for = charge.description,
                                             )
+                _, created = wepeoples.objects.update_or_create(user=request.user,trainee_position=None,current_position=None,
+                                                        person_type=None,state=None,income=None,relocation=None,
+                                                        last_verification=None,Paystub=None,graduation_date=None)
                 return render(request,'home/accepted.html')
             except Exception as error:
                 print(error)
@@ -485,11 +555,11 @@ def check_subscription_status(request):
 
 @login_required
 def monthly_subscription(request):
-    stripeset = StripePayment.objects.all()
     email = request.user.email
-    plan_id = stripeset[0].planid
+    
+    stripeset = StripePayment.objects.all()
     stripe.api_key = stripeset[0].secretkey
-    publickey = stripeset[0].publickey
+    plan_id = stripeset[0].planid
 
     if request.method == "POST":
         token = request.POST.get("stripeToken")
@@ -522,24 +592,42 @@ def monthly_subscription(request):
         except stripe.error.CardError as ce:
             return False, ce
 
-    return render(request, 'home/monthly_subscription.html', {'email':email, 'publickey': publickey })
+    return render(request, 'home/monthly_subscription.html', {'email':email,'publickey':stripeset[0].publickey})
 
-def group(request):
-    group = Groupclass.objects.all()
-
+def group(request,pk):
+    group_item = get_object_or_404(Groupclass,pk=pk)
+    user = None
+    if request.user.is_authenticated:
+        print('user authenticated')
+        user=CustomUser.objects.get(email=request.user)
+    # try:
+    #     user = CustomUser.objects.get(email=request.user)
+    # except CustomUser.DoesNotExist:
+    #     pass
+    # finally:
     if request.method == "POST":
         email = request.POST['email']
         choice = request.POST['choice']
-        type_of_class = request.POST['name']
-        amount = request.POST['price']
 
-        request.session['email'] = email
-        request.session['amount'] = amount
-        request.session['class'] = type_of_class
+        # type_of_class = request.POST['name']
+        # amount = request.POST['price']
 
+        # request.session['email'] = email
+        # request.session['amount'] = amount
+        # request.session['class'] = type_of_class
         try:
+            password = request.POST['password']
             user = CustomUser.objects.get(email=email)
-   
+            the_user = authenticate(email=email,password=password)
+
+            if the_user:
+                login(request,the_user)
+            else:
+                messages.error(request, 'Account found, invalid password entered.')
+
+        except MultiValueDictKeyError:
+            print('Error')
+
         except CustomUser.DoesNotExist:
             firstname = request.POST['fullname'].split()[0]
             lastname = request.POST['fullname'].split()[1] if len(request.POST['fullname'].split()) > 1 else request.POST['fullname'].split()[0]
@@ -550,11 +638,10 @@ def group(request):
                 user.first_name = firstname
                 user.last_name = lastname
                 user.save()
-                send_mail('Linuxjobber Free Account Creation', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + '\n Follow this link http://35.167.153.1:8001/login to login to you account\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+                # send_mail('Linuxjobber Free Account Creation', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + '\n Follow this link http://35.167.153.1:8001/login to login to you account\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
 
-                groupreg = GroupClassRegister.objects.create(user= user, is_paid=0, amount=29, type_of_class = type_of_class)
+                groupreg = GroupClassRegister.objects.create(user= user, is_paid=0, amount=29, type_of_class = group_item.type_of_class)
                 groupreg.save()
-                send_mail('Linuxjobber Group Class', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Group Class, you will be contacted shortly.', 'settings.EMAIL_HOST_USER', [email])
 
                 new_user = authenticate(username=username,
                                     password=password,
@@ -564,40 +651,36 @@ def group(request):
                 if int(choice) == 1:
                     return redirect("home:monthly_subscription")
 
-                return redirect("home:group_pay")
+                return redirect("home:group_pay",pk=group_item.pk)
 
         if user:
-
-            groupreg = GroupClassRegister.objects.create(user= user, is_paid = 0, amount=29, type_of_class = type_of_class)
+            groupreg = GroupClassRegister.objects.create(user= user, is_paid = 0, amount=29, type_of_class = group_item.type_of_class)
             groupreg.save()
-            
             login(request, user)
-            send_mail('Linuxjobber Group Class', 'Hello '+ user.first_name +' ' + user.last_name + ',\n' + 'Thank you for registering on Group Class, you will be contacted shortly.', 'settings.EMAIL_HOST_USER', [email])
-
             if int(choice) == 1:
                 return redirect("home:monthly_subscription")
-
-            return redirect("home:group_pay")
-
-                
-        
-    return render(request, 'home/group_class.html', {'groups' : group})
+            return redirect("home:group_pay",pk=group_item.pk)
+    user_token,_=Token.objects.get_or_create(user=user)
+    return render(request, 'home/group_class_item.html', {'group':group_item,'user':user,'GROUP_URL':settings.GROUP_CLASS_URL,'token':user_token})
 
 @login_required
-def group_pay(request):
-    email = request.session['email']
-    amount = request.session['amount']
-    amount = int(amount) * 100
-    type_class = request.session['class']
+def group_pay(request,pk):
+    # email = request.session['email']
+    # amount = request.session['amount']
+    # amount = int(amount) * 100
+    # type_class = request.session['class']
+    group_item=get_object_or_404(Groupclass,pk=pk)
+    amount=group_item.price * 100
     stripeset = StripePayment.objects.all()
+    # Stripe uses cent notation for amount 10 USD = 10 * 100
+    context = { "stripe_key": stripeset[0].publickey,
+                   'amount': amount,
+                'group':group_item,
 
-    context = { "stripe_key": stripeset[0].secretkey,
-                   'amount': amount }
-
+                }
     if request.method == "POST":
         stripe.api_key = stripeset[0].secretkey
         token = request.POST.get("stripeToken")
-
         try:
             charge = stripe.Charge.create(
                 amount= amount,
@@ -610,15 +693,15 @@ def group_pay(request):
                 user=request.user,
                 is_paid=1,
                 amount=29,
-                type_of_class= type_class,
+                type_of_class = group_item.type_of_class,
             )
-            return redirect("home:group_success")
+            # After payment, add user to the group
+            user=get_object_or_404(CustomUser,email=request.user.email)
+            group_item.users.add(user)
+            return redirect("home:group",pk=pk)
         except stripe.error.CardError as ce:
             return False, ce
     return render(request, 'home/group_pay.html', context)
-
-def  group_success(request):
-    return render(request, 'home/group_success.html')
 
 
 def contact_us(request):
@@ -1154,7 +1237,6 @@ def user_interest(request):
 
     return render(request, 'home/user_interest.html', {'courses' : get_courses(), 'tools' : get_tools()})
 
-
 def upload_profile_pic(request):
     update_feedback = ''
     if request.method == 'POST' and request.FILES['profile_picture']:
@@ -1172,3 +1254,8 @@ def upload_profile_pic(request):
             return render(request,'home/upload_profile_pic.html',{'update_feedback':update_feedback})
     else:
         return render(request,'home/upload_profile_pic.html')
+
+def group_list(request):
+
+    return TemplateResponse(request,'home/groupclass_list.html',{'groups': Groupclass.objects.all()})
+

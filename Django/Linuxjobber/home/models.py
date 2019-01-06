@@ -6,6 +6,8 @@ from django.core.files.storage import FileSystemStorage
 
 from users.models import CustomUser
 
+from Courses.models import Course
+
 
 class FAQ(models.Model):
     question = models.CharField(max_length = 200)
@@ -86,10 +88,14 @@ class Groupclass(models.Model):
     class_meet = models.CharField(max_length= 50)
     type_of_class = models.CharField(max_length= 100)
     date = models.DateTimeField(default=timezone.now, null=False)
+    # New Relationship for groupclass
+    users=models.ManyToManyField(CustomUser,blank=True,null=True)
+    course=models.ForeignKey(Course,on_delete=models.CASCADE,null=True)
 
     def __str__(self):
         return self.name
 
+# To-do Unmap this model
 class GroupClassRegister(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     is_paid = models.IntegerField(default=0)
@@ -223,6 +229,22 @@ class Location(models.Model):
     longtitude = models.CharField(max_length=20,blank=True)
     date_created = models.DateTimeField(default=timezone.now, null=False)
 
+
+    def __str__(self):
+        return self.user.email
+
+class wepeoples(models.Model):
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+    trainee_position = models.CharField(max_length = 20, null=True)
+    current_position = models.CharField(max_length = 20, null=True)
+    state = models.CharField(max_length = 20, null=True)
+    income = models.CharField(max_length = 20, null=True)
+    relocation = models.CharField(max_length = 5, null=True)
+    Paystub = models.ImageField(upload_to = 'resume', null=True) 
+    last_verification = models.DateTimeField(default=timezone.now, null=True)
+    start_date = models.DateTimeField(default=timezone.now, null=True)
+    graduation_date = models.DateTimeField(default=timezone.now, null=True)
+    person_type = models.CharField(max_length = 20,null=True)
 
     def __str__(self):
         return self.user.email

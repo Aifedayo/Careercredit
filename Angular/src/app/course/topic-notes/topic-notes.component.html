@@ -1,0 +1,8 @@
+ <div class="card medium" style="max-height: 500px;" *ngIf="data$ |async as topic">
+     <div class="card-title">Notes for {{ topic.topic }}</div>
+  <div class="card-content" style="overflow:auto" id="chat_div_space">
+      <div>
+          <p>{{ topic.notes }}</p>
+           </div>
+</div>
+ </div>

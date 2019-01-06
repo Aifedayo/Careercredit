@@ -62,8 +62,6 @@
 	a{ font-weight:500 ; }
 
 </style>
-<!-- FAQ -->
-<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 
 	<link href="{% static 'faq/css/reset.css' %}" rel="stylesheet">
     <link href="{% static 'faq/css/faq_style.css' %}" rel="stylesheet">
@@ -71,8 +69,6 @@
 
 	<!-- PROJECTS APPLICATION CUSTOM STYLESHEET -->
 	<link rel="stylesheet" type="text/css" href="{% static 'Projects/custom/css/projects.css' %}">
-
-
 
 </head>
 
@@ -99,64 +95,13 @@
 											<div class="col-md-3 col-sm-4">
 												<ul>
 											{% endif %}
-													<li><a href="{% url 'Courses:topics' course.course_title.split|join:'_' %}"><span class="link-icon"><i class="fa fa-linux fa-2x"></i></span>{{course.course_title}}</a></li>
+													<li><a href="{% url 'Courses:topics' course.course_title.split|join:'_' %}"><span class="link-icon"><i class="fa {{course.icon}} fa-2x"></i></span>{{course.course_title}}</a></li>
 													{% if forloop.counter|divisibleby:4 %}
 												</ul>
 											</div>
 											{% endif %} {% endwith %} {% endfor %} {% else %}
-											<div class="col-md-3 col-sm-4">
-												<ul class="">
-													<li><a href="#"><span class="link-icon"><i
-																class="fa fa-linux fa-2x"></i></span>Linux Fundamentals</a> <a
-														href="#"><span class="link-icon"><i
-																class="fa fa-linux fa-2x"></i></span>Linux Proficiency</a></li>
-													<li><a href="#"><span class="link-icon"><i
-																class="fa fa-terminal fa-2x"></i></span>HTML/CSS</a></li>
-												</ul>
-											</div>
-											<div class="col-md-3 col-sm-4">
-												<ul class="">
-													<!--li></li-->
-
-													<li><a href="#"><span class="link-icon"><i
-																class="fa fa-cloud fa-2x"></i></span>Amazon AWS</a></li>
-													<li><a href="#"><span class="link-icon"><i
-																class="fa fa-cogs fa-2x"></i></span>PUPPET Training</a></li>
-
-													<li><a href="#"><span class="link-icon"><i
-																class="fa fa-file-code-o fa-2x"></i></span>JS/AngularJs v4</a></li>
-
-
-
-												</ul>
-											</div>
-											<div class="col-md-3 col-sm-4">
-												<ul class="">
-													<!--li></li-->
-													<li><a href="#"><span class="link-icon"><i
-																class="fa fa-server fa-2x"></i></span>RHCSA</a></li>
-													<li><a href="#"><span class="link-icon"><i
-																class="fa fa-file-code-o fa-2x"></i></span>Java</a></li>
-													<li><a href="#"><span class="link-icon"><i
-																class="fa fa-lock fa-2x"></i></span>Cybersecurity</a></li>
-
-												</ul>
-											</div>
-											<div class="col-md-3 col-sm-4">
-												<ul class="">
-
-													<li><a href="#"><span class="link-icon"><i
-																class="fa fa-pencil-square-o fa-2x"></i></span>Independent
-															Authors</a></li>
-
-													<li><a href="#"><span class="link-icon"><i
-																class="fa fa-line-chart fa-2x"></i></span>Business Analysis</a></li>
-
-													<li><a href="#"><span class="link-icon"><i
-																class="fa fa-server fa-2x"></i></span>Database</a></li>
-
-												</ul>
-											</div>
+											
+											
 
 
 
@@ -257,14 +202,14 @@
 										<div class="container text-1 ">
 											<div class="col-md-4 col-sm-6">
 												<ul>
-													<li><a  href="/labprofiles"><span class="link-icon"><img src="https://linuxjobber.com/images/icon1.png" alt="" /></span>My Profile</a></li>
-													<li><a href="{% url 'home:account_settings' %}"><span class="link-icon"><img src="https://linuxjobber.com/images/icon1.png" alt="" /></span>Account Settings</a></li>								
+													<li><a  href="/labprofiles"><span class="link-icon"><img src="{% static 'home/images/icon1.png' %}" alt="" /></span>My Profile</a></li>
+													<li><a href="{% url 'home:account_settings' %}"><span class="link-icon"><img src="{% static 'home/images/icon1.png' %}" alt="" /></span>Account Settings</a></li>								
 												</ul>
 											</div>
 											<div class="col-md-4 col-sm-6">
 												<ul>							
 													<li><a href="/users/orderlist"><span class="link-icon"><img src="https://linuxjobber.com/images/icon1.png" alt="" /></span>Order List</a></li>
-													<li><a href="{% url 'home:rhcsa_order' %}"><span class="link-icon"><img src="https://linuxjobber.com/images/icon1.png" alt="" /></span>RHCSA Order</a></li>
+													<li><a href="{% url 'home:rhcsa_order' %}"><span class="link-icon"><img src="{% static 'home/images/icon1.png' %}" alt="" /></span>RHCSA Order</a></li>
 												</ul>
 											</div>		
 											<div class="col-md-4 col-sm-6">
@@ -272,6 +217,13 @@
 													<li><a href="{% url 'home:logout' %}"><span class="link-icon"><img src="{% static 'home/images/logout1.png' %}" alt="" /></span>Logout</a></li>
 												</ul>
 											</div>
+											{%if workexp%}
+											<div class="col-md-4 col-sm-6">
+												<ul>	
+													<li><a href="{% url 'home:workexprofile' %}"><span class="link-icon"><img src="{% static 'home/images/icon1.png' %}" alt="" /></span>Work Experience Profile</a></li>
+												</ul>
+											</div>
+											{%endif%}
 										</div>
 									</div>	
 								</li>
@@ -321,6 +273,7 @@
 						<li><a href="{% url 'home:live_help' %}">Live
 								help</a></li>
 						<li><a href="{% url 'Projects:index' %}">Projects</a></li>
+						<li><a href="{% url 'Courses:userinterest' %}">Course Descriptions</a></li>
 					</ul>
 				</div>
 
@@ -367,12 +320,12 @@
 						class="fa fa-facebook fa-fw"></i></a></li>
 				<li><a href="https://www.twitter.com/linuxjobber"><i
 						class="fa fa-twitter fa-fw"></i></a></li>
-				<li><a href="#link"><i class="fa fa-instagram fa-fw"></i></a></li>
+				<li><a href="https://www.instagram.com/linuxjobber_/"><i class="fa fa-instagram fa-fw"></i></a></li>
 				<li><a href="https://www.linkedin.com/company/linuxjobber"><i
 						class="fa fa-linkedin fa-fw"></i></a></li>
-				<li><a href=""><i class="fa fa-google-plus fa-fw"></i></a></li>
+				<li><a href="https://plus.google.com/u/1/104352481273501435159"><i class="fa fa-google-plus fa-fw"></i></a></li>
 			</ul>
-			<br> <br> ©2018 LinuxJobber Inc. All rights reserved
+			<br> <br> ©{% now "Y" %} LinuxJobber Inc. All rights reserved
 		</section>
 	</footer>
 	<!--/ Footer-->
@@ -431,5 +384,8 @@
 	<script src="{% static 'faq/js/jquery-2.1.1.js' %} "></script>
 	<script src="{% static 'faq/js/jquery.mobile.custom.min.js' %} "></script>
 	<script src="{% static 'faq/js/main.js' %} "></script>
+	<script src="http://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
+<script src="{% static 'js/waterbubble.js' %}"></script>
+
 </body>
 </html>

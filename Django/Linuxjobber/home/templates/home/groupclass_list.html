@@ -1,0 +1,190 @@
+{% extends 'home/base.html' %}
+{% load staticfiles%}
+{% block content %}
+
+<link href="{% static 'home/css/newhomepage/css/my-style.css' %}" rel="stylesheet">
+<style>
+#myCarousel .carousel-inner {
+  padding: 18px 0 51px !important; 
+   background: #1E1E1E none repeat scroll 0 0 !important; 
+   
+}
+
+.black-header {
+    height: 70px;
+    background-color: #000;
+}
+
+.heading p {
+  text-align: left;
+}
+
+.ErrorField{ border-bottom :1px solid red !important; }
+
+.groupbox{
+    margin-top: 90px;
+    padding: 5px;
+    margin-bottom: 90px;
+    border: 1px solid #E0E0E0;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 0px;
+}
+
+.groupbot{
+    background-color: #6173F4;
+    height: 4px;
+    margin-left: -5px;
+    margin-right: -5px;
+    margin-bottom: -5px;
+}
+
+.groupboxg{
+    background-color: gray;
+}
+
+</style>
+<div class="black-header"></div>
+<div class="heading">
+    <div class="jumbotron">
+      <div class="container text-center">
+        {% if messages %}
+          {% for message in messages %}
+          <div class="alert alert-{{message.tags}}" role="alert">
+            {% if message.tags == "success" %}
+            <p style="color:#155724">{{message}}</p>
+            {%else%}
+            <p style="color:#721c24">{{message}}</p>
+            {%endif%}
+          </div>
+          {%endfor%}
+        {%endif%}
+    <h1 class="display-4 pt-4">Group Crash Course</h1>
+        <h1 class="display-4 pt-4">Join Others. Enjoy a Collaborative Class</h1>
+        <p class="p-3 intro-text">Enroll in one our available group class sessions today to learn from world class tutors around the world. Earn certificates by completing our courses and increase your chance of getting a job</p>
+
+      </div>
+      
+    </div>
+  </div>
+  {%if groups %}
+
+        <div class="widget mx-auto container" style="border: 0;">
+      <div class="row">
+      <div class="row"><h2 class=" mx-auto text-center"> Available Group Classes</h2></div>
+  {%for groupd in groups%}
+
+           <div class="col-md-6 col-sm-12">
+              <div class="box">
+              <h2 id="box-1">{{ groupd.name }}</h2> <br>
+              <h2 id="box-2">{{ groupd.name }}</h2> <br>
+                <p id="force-p" style="font-size:20px">{{ groupd.type_of_class }} <br> {{ groupd.duration }}</p> <br>
+                  <div id="puppet">
+                      {% load static %}
+                    <img class="cert img-responsive" src="/static/home/images/pupett.png">
+                  </div>
+                  <a href="{% url 'home:group' groupd.pk %}">
+                  <div class="col-md-4 col-sm-12 col-xs-12 lin btns2" id="force-b">
+                      <h4>Enroll</h4>
+                      <div class="lin-border"></div>
+                  </div></a>
+              </div>
+
+
+
+
+
+  </div>
+  {%endfor%}
+  </div>
+        </div>
+      {% else %}
+        <div class="row"><h2 class=" mx-auto text-center"> No available sessions at the moment, Please check this space later for more</h2></div>
+  {%endif%}
+    <div class="featurette py-5 my-5 with-bg">
+      <div class="col-12 py-5 text-center">
+        <h2>The Best of Online Learning</h2>
+        <p class="lead py-3">Work with a group where everyone is just like you. Get motivated by the group members. </p>
+      </div>
+    </div>
+  
+
+  <h2 class="featurette-heading text-center py-5">Why Join Group Class?</h2>
+
+
+
+  <div class="container features">
+    <div class="row featurette mb-5">
+      <div class="col-md-8 col-sm-12 py-3">
+        <h4>Participants Have a Common Goal</h4>
+        <p class="lead py-3">In a group class, all the participants are focused on achieving the same goal and they typically have similar background so learning is easier and collaboration with other members often yield better results. </p>
+      </div>
+    </div>
+
+  <div class="container features">
+    <div class="row featurette mb-5">
+      <div class="col-md-8 offset-md-4 col-sm-12 text-right py-3">
+        <h4>Learning + Networking + Socializing.</h4>
+        <p class="lead py-3">The group works together on the hands-on tasks and every individual is free to contribute as much as he or she is willing to contribute. This encourages talking, learning, explaining, and knowledge sharing from all participants. </p>
+      </div>
+    </div>
+
+  <div class="container features">
+    <div class="row featurette mb-5">
+      <div class="col-md-8 col-sm-12 py-3">
+        <h4>Team Motivation = Success</h4>
+        <p class="lead py-3">You will be inspired by other teammates who are accomplishing tasks and that is usually sufficient to motivate most people to get involved, take learning steps, and perform practical tasks that will lead to successsful completion of the online course </p>
+      </div>
+    </div>
+
+
+
+    <div id="fh5co-testimonials" data-section="testimonials py-3">    
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 py-5 section-heading text-center">
+            <h2 class="fadeInUp text-center">Past Students Say...</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="box-testimony fadeInUp">
+              <blockquote>
+                <span class="quote"><span><i class="fa fa-quote-left"></i></span></span>
+                <p>“While trying to learn Linux, I tried many online services and the only strategy that worked for me is this group class. Here, I felt more like I was participating in fun activities than I was left alone in a study room.”</p>
+              </blockquote>
+              <p class="author">Anderson, Ken <a href="#" target="_blank"></a> <span class="subtext">Linux Admin</span></p>
+            </div>
+            
+          </div>
+          <div class="col-md-4">
+            <div class="box-testimony fadeInUp">
+              <blockquote>
+                <span class="quote"><span><i class="fa fa-quote-left"></i></span></span>
+                <p>“I learned a lot from my group members because I did not have any technical experience. They really helped me”</p>
+              </blockquote>
+              <p class="author">Ionnetta Mbogo <a href="#" target="_blank"></a> <span class="subtext">Developer</span></p>
+            </div>
+            
+            
+          </div>
+          <div class="col-md-4">
+            <div class="box-testimony fadeInUp">
+              <blockquote>
+                <span class="quote"><span><i class="fa fa-quote-left"></i></span></span>
+                <p>“I recommend the group class to anyone that is considering online class. The experience is very different from studying alone. For every module, someone in my group has an answer and they are always reachable.”</p>
+              </blockquote>
+              <p class="author">Allison Wright <span class="subtext">Student</span></p>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+
+
+
+{% endblock%}

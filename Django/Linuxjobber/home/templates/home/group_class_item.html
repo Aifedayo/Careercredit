@@ -1,0 +1,269 @@
+{% extends 'home/base.html' %}
+{% load staticfiles%}
+{% block content %}
+
+<link href="{% static 'home/css/newhomepage/css/my-style.css' %}" rel="stylesheet">
+<style>
+#myCarousel .carousel-inner {
+  padding: 18px 0 51px !important; 
+   background: #1E1E1E none repeat scroll 0 0 !important; 
+   
+}
+
+.black-header {
+    height: 70px;
+    background-color: #000;
+}
+
+.heading p {
+  text-align: left;
+}
+
+.ErrorField{ border-bottom :1px solid red !important; }
+
+.groupbox{
+    margin-top: 90px;
+    padding: 5px;
+    margin-bottom: 90px;
+    border: 1px solid #E0E0E0;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 0px;
+}
+
+.groupbot{
+    background-color: #6173F4;
+    height: 4px;
+    margin-left: -5px;
+    margin-right: -5px;
+    margin-bottom: -5px;
+}
+
+.groupboxg{
+    background-color: gray;
+}
+
+</style>
+<div class="black-header"></div>
+<div class="heading">
+    <div class="jumbotron">
+      <div class="container text-center">
+        {% if messages %}
+          {% for message in messages %}
+          <div class="alert alert-{{message.tags}}" role="alert">
+            {% if message.tags == "success" %}
+            <p style="color:#155724">{{message}}</p>
+            {%else%}
+            <p style="color:#721c24">{{message}}</p>
+            {%endif%}
+          </div>
+          {%endfor%}
+        {%endif%}
+    <h1 class="display-4 pt-4">Group Crash Course</h1>
+        <h1 class="display-4 pt-4">Join Others. Enjoy a Collaborative Class</h1>
+        <p class="p-3 intro-text">Register today to learn the best of programming from world class tutors around the world. Earn certificates by completing our courses and increase your chance of getting a job</p>
+      </div>
+      
+    </div>
+  </div>
+  {%if group %}
+  <div class="widget mx-auto container">
+    <h2 class="text-center pt-4"><p class="text-muted d-inline" style="font-size: 1.2rem" >CLASS:</p> {{group.name}}</h2>
+    <div class="row course-detail p-5">
+      <div class="col-md-4 px-3 text-center">
+        <h4 class="head mb-5">STARTS:</h4>
+        <div class="text">{{group.start_date}}</div>
+      </div>
+      <div class="col-md-4 px-3 text-center">
+        <h4 class="head mb-5">DURATION:</h4>
+        <div class="text">{{group.duration}} Days</div>
+      </div>
+      <div class="col-md-4 px-3 text-center">
+        <h4 class="head mb-5">TYPE:</h4>
+        <div class="text">{{group.type_of_class}}</div>
+      </div>
+    </div>
+    <div class="row foot p-2 text-center">
+      <div class="col-sm-6 py-3">
+        CLASS MEETS: {{group.class_meet}}      </div>
+      <div class="col-sm-6 py-3">
+    Cost: ${{group.price}}       <!--  PRICE: $29 /MONTH -->
+      </div>
+    </div>
+  </div>
+      {% if user not in group.users.all %}
+       <form action="" style="text-align: center" class="mb-5" enctype="multipart/form-data" method="post" >
+  {% csrf_token %}
+  <div class="row">
+        <div class="col-12 col-md-4 col-lg-4">
+          <div class="groupbox">
+            <p class="groupboxth">Access only this course video</p>
+            <p class="groupboxt">$29 one time fee  </p>
+            <input type="radio" name="choice" value="0" id="c1">
+            <div class="groupbot1 groupbot"></div>
+           </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-4" id="change">
+          <div class="groupbox">
+            <p class="groupboxth">Access all videos and labs on Linuxjobber</p>
+            <p class="groupboxt">$29 monthly subscription </p>
+            <input type="radio" name="choice" value="1" id="c2">
+            <div class="groupbot2 groupbot"></div>
+          </div>
+        </div>
+                  <div class="col-12 col-md-4 col-lg-4" id="change">
+            <div class="groupbox groupboxg">
+          <p class="groupboxth">No, I do not want access to any videos</p>
+          <p class="groupboxt">$0</p>
+          <input type="radio" name="choice" value="2" disabled>
+        </div>
+        </div>
+          </div>
+      <div class="featurette sign-up py-5 container" id="register" >
+        <div  id="invalid-f" class="alert alert-danger mx-5 groupbat" role="alert">
+          Select any of the options above
+        </div>
+
+        <h1 class="text-center">Enroll Now </h1>
+        <input type="hidden" name="name"  value="{{groupd.name}}" >
+        <input type="hidden" name="price"  value="{{groupd.price}}" >
+        {% if user.is_authenticated %}
+
+        <input type="text"  placeholder="Fullname" name="fullname" id="fullname" value="{{request.user.get_full_name}}" readonly="readonly">
+         <input type="email"  placeholder="E-mail" name="email" id="email" value="{{request.user.email}}" readonly="readonly">
+        {%else%}
+        <input type="text"  placeholder="Fullname" name="fullname" id="fullname" >
+         <input type="email"  placeholder="E-mail" name="email" id="email" >
+         <input type="password" placeholder="Password" name="password" id="password">
+            <p class="subtitle"> Note: This automatically creates a linuxjobber profile for you </p>
+        {%endif%}
+
+        <div id="invalid-form" class="alert alert-danger hidden-xs-up fade show mx-5" style="display: inline-block" role="alert">
+          Input fields on red are incorret
+        </div>
+        <button  class="submit" id="button">Register Now</button>
+
+    </div>
+    </form>
+          {% else %}
+<p class="text-center enroll-btn"><a class="btn btn-primary btn-lg" href="{{ GROUP_URL }}{{ group.id }}?hash={{token}}" target="_blank" role="button" style="padding:9px 27px !important; border-radius:20px;">Go to class </a></p>
+          {% endif %}
+
+  {%endif%}
+    <div class="featurette py-5 my-5 with-bg">
+      <div class="col-12 py-5 text-center">
+        <h2>The Best of Online Learning</h2>
+        <p class="lead py-3">Work with a group where everyone is just like you. Get motivated by the group members. </p>
+      </div>
+    </div>
+  
+
+  <h2 class="featurette-heading text-center py-5">Why Join Group Class?</h2>
+
+
+
+  <div class="container features">
+    <div class="row featurette mb-5">
+      <div class="col-md-8 col-sm-12 py-3">
+        <h4>Participants Have a Common Goal</h4>
+        <p class="lead py-3">In a group class, all the participants are focused on achieving the same goal and they typically have similar background so learning is easier and collaboration with other members often yield better results. </p>
+      </div>
+    </div>
+
+  <div class="container features">
+    <div class="row featurette mb-5">
+      <div class="col-md-8 offset-md-4 col-sm-12 text-right py-3">
+        <h4>Learning + Networking + Socializing.</h4>
+        <p class="lead py-3">The group works together on the hands-on tasks and every individual is free to contribute as much as he or she is willing to contribute. This encourages talking, learning, explaining, and knowledge sharing from all participants. </p>
+      </div>
+    </div>
+
+  <div class="container features">
+    <div class="row featurette mb-5">
+      <div class="col-md-8 col-sm-12 py-3">
+        <h4>Team Motivation = Success</h4>
+        <p class="lead py-3">You will be inspired by other teammates who are accomplishing tasks and that is usually sufficient to motivate most people to get involved, take learning steps, and perform practical tasks that will lead to successsful completion of the online course </p>
+      </div>
+    </div>
+
+
+
+    <div id="fh5co-testimonials" data-section="testimonials py-3">    
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 py-5 section-heading text-center">
+            <h2 class="fadeInUp text-center">Past Students Say...</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="box-testimony fadeInUp">
+              <blockquote>
+                <span class="quote"><span><i class="fa fa-quote-left"></i></span></span>
+                <p>“While trying to learn Linux, I tried many online services and the only strategy that worked for me is this group class. Here, I felt more like I was participating in fun activities than I was left alone in a study room.”</p>
+              </blockquote>
+              <p class="author">Anderson, Ken <a href="#" target="_blank"></a> <span class="subtext">Linux Admin</span></p>
+            </div>
+            
+          </div>
+          <div class="col-md-4">
+            <div class="box-testimony fadeInUp">
+              <blockquote>
+                <span class="quote"><span><i class="fa fa-quote-left"></i></span></span>
+                <p>“I learned a lot from my group members because I did not have any technical experience. They really helped me”</p>
+              </blockquote>
+              <p class="author">Ionnetta Mbogo <a href="#" target="_blank"></a> <span class="subtext">Developer</span></p>
+            </div>
+            
+            
+          </div>
+          <div class="col-md-4">
+            <div class="box-testimony fadeInUp">
+              <blockquote>
+                <span class="quote"><span><i class="fa fa-quote-left"></i></span></span>
+                <p>“I recommend the group class to anyone that is considering online class. The experience is very different from studying alone. For every module, someone in my group has an answer and they are always reachable.”</p>
+              </blockquote>
+              <p class="author">Allison Wright <span class="subtext">Student</span></p>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </div>
+  </div>
+  <script>
+  jQuery(function(){
+    $('#invalid-f').hide();
+    $('.groupbot1').hide();
+    $('.groupbot2').hide();
+    $('.groupbot3').hide();
+
+    $('input[type="radio"]').click(function() {
+      if($('#c1').is(':checked')) {$('.groupbot1').fadeIn(); }else{$('.groupbot1').fadeOut();}
+      if($('#c2').is(':checked')) {$('.groupbot2').fadeIn(); }else{$('.groupbot2').fadeOut(); }
+      if($('#c3').is(':checked')) {$('.groupbot3').fadeIn(); }else{$('.groupbot3').fadeOut(); }
+    });
+    
+    $("#button").click( function(){ if($('input[type="radio"]:checked').length == 0){ $('#invalid-f').show(); return false; } });
+
+  $("#fullname").validate({
+     expression: "if (VAL) return true; else return false;",
+    message: ""
+  });$("#password").validate({
+     expression: "if (VAL) return true; else return false;",
+    message: ""
+  });$("#email").validate({
+     expression: "if (VAL) return true; else return false;",
+    message: ""
+  });$("#email").validate({
+        expression: "if (VAL.match(/^[^\\W][a-zA-Z0-9\\_\\-\\.]+([a-zA-Z0-9\\_\\-\\.]+)*\\@[a-zA-Z0-9_]+(\\.[a-zA-Z0-9_]+)*\\.[a-zA-Z]{2,4}$/)) return true; else return false;",
+             message: ""
+    });
+});
+  </script>
+
+
+{% endblock%}

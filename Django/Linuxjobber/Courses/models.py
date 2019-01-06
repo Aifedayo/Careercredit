@@ -4,10 +4,12 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from users.models import CustomUser
 from django.core.files.storage import FileSystemStorage
+from django.core.validators import MaxValueValidator
 
 fs = FileSystemStorage(location='/media/uploads')
 
 LAB_SUBMISSION= (
+        (0, 'none'),
         (1, 'submit by uploading document'),
         (2, 'submit by machine ID'),
         (3, 'submit from repo')
@@ -16,9 +18,14 @@ LAB_SUBMISSION= (
 class Course(models.Model):
     course_title = models.CharField(max_length = 200)
     lab_submission_type = models.PositiveSmallIntegerField(default=1, choices=LAB_SUBMISSION)
+    aws_credential_required = models.IntegerField(default=0 ,choices=((0, 'No'), (1, 'Yes')))
+    icon = models.CharField(max_length = 200, null=True)
+    weight = models.IntegerField(unique=True, null=True)
+
     
     class Meta:
         verbose_name_plural = 'Courses'
+        ordering = ('weight',)
     
     def __str__(self):
         return self.course_title
@@ -39,12 +46,29 @@ class CourseTopic(models.Model):
     topic =  models.CharField(max_length = 200)
     lab_name = models.CharField(max_length = 50)
     video = models.TextField()
+    description = models.TextField(default="nil")
+    lab_description = models.TextField(null=True)
+    has_notes = models.IntegerField(default=1 ,choices=((0, 'No'), (1, 'Yes')))
+    has_labs = models.IntegerField(default=1 ,choices=((0, 'No'), (1, 'Yes')))
+    free = models.IntegerField(default=0 ,choices=((0, 'No'), (1, 'Yes')))
     
     class Meta:
         verbose_name_plural = 'Course Topics'
-    
+        
     def __str__(self):
         return self.topic
+
+    def get_status(self):
+        return self.topicstatus_set.filter()
+
+class TopicStatus(models.Model):
+    topic = models.ForeignKey(CourseTopic, on_delete = models.CASCADE)
+    user = models.ForeignKey(CustomUser, on_delete = models.CASCADE)
+    video = models.IntegerField(default=0, validators=[MaxValueValidator(50)])
+    lab = models.IntegerField(default=0, validators=[MaxValueValidator(50)])
+
+    def __str__(self):
+        return self.user.email    
 
 class Note(models.Model):
     Topic = models.OneToOneField(CourseTopic, on_delete = models.CASCADE)
@@ -53,11 +77,11 @@ class Note(models.Model):
     def __str__(self):
         return self.Topic.topic
 
-
 class NoteComment(models.Model):
     User = models.ForeignKey(CustomUser, on_delete = models.CASCADE)
     Note = models.ForeignKey(Note, on_delete = models.CASCADE)
     Comment = models.CharField(max_length = 200)
+    date_created = models.DateTimeField(default=timezone.now, null=False)
 
     def __str__(self):
         return self.Comment
@@ -105,12 +129,13 @@ class GradesReport(models.Model):
     course_topic = models.ForeignKey(CourseTopic, on_delete = models.CASCADE, related_name='grades',related_query_name='grade')
     score = models.PositiveSmallIntegerField(default=0)
     grade = models.CharField(default='not graded', max_length=20)
+    lab = models.ForeignKey(LabTask, on_delete = models.CASCADE)
     
     class Meta:
         verbose_name_plural = 'Grades Reports'
     
     def __str__(self):
-        return self.grade, self.date, self.score
+        return self.user.email
 
 
 def content_file_name(instance, filename):

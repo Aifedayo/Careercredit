@@ -1,6 +1,7 @@
 from django.contrib import admin
 
-from .models import FAQ, Job, RHCSAOrder, Location, NewsLetterSubscribers, UserOrder, Document, MainModel, AwsCredential, Jobplacement, Groupclass, BillingHistory, GroupClassRegister, StripePayment, UserPayment
+from .models import FAQ, Job, RHCSAOrder, Internship, Location, NewsLetterSubscribers, UserOrder, Document, MainModel, AwsCredential, Jobplacement, Groupclass, BillingHistory, GroupClassRegister, StripePayment, UserPayment, wepeoples
+
 
 admin.site.register(FAQ)
 admin.site.register(Job)
@@ -16,5 +17,6 @@ admin.site.register(RHCSAOrder)
 admin.site.register(NewsLetterSubscribers)
 admin.site.register(StripePayment)
 admin.site.register(Location)
+admin.site.register(Internship)
 admin.site.register(UserPayment)
-
+admin.site.register(wepeoples)

@@ -1,7 +1,8 @@
 from django.urls import path, include
+from simple_sso.sso_client.client import Client
 
 from . import views
-
+client = Client()
 urlpatterns = [
 	path('', views.ListCourses.as_view()),
 	path('<int:pk>/', views.DetailCourse.as_view()),

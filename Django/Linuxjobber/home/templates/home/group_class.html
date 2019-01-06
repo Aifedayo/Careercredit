@@ -199,15 +199,14 @@
           Select any of the options above
         </div>
 
-        <h1 class="text-center">Register</h1>
-        {% if user.is_authenticated %}
+        <h1 class="text-center">Enroll Now </h1>
         <input type="hidden" name="name"  value="{{groupd.name}}" >
         <input type="hidden" name="price"  value="{{groupd.price}}" >
+        {% if user.is_authenticated %}
+
         <input type="text"  placeholder="Fullname" name="fullname" id="fullname" value="{{request.user.get_full_name}}" readonly="readonly">
-         <input type="text"  placeholder="E-mail" name="email" id="email" value="{{request.user.email}}" readonly="readonly">
-        {%else%}   
-        <input type="hidden" name="name"  value="{{groupd.name}}" >
-        <input type="hidden" name="price"  value="{{groupd.price}}">
+         <input type="email"  placeholder="E-mail" name="email" id="email" value="{{request.user.email}}" readonly="readonly">
+        {%else%}
         <input type="text"  placeholder="Fullname" name="fullname" id="fullname" >
          <input type="email"  placeholder="E-mail" name="email" id="email" >
          <input type="password" placeholder="Password" name="password" id="password">
