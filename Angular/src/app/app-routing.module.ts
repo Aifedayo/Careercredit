@@ -13,7 +13,7 @@ import { AuthGuard } from './auth.guard';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full'},
+  { path: '', redirectTo: '/classroom', pathMatch: 'full'},
   { path: 'classroom', component: CourseComponent, canActivate: [AuthGuard]},
   { path: 'linux', component: LinuxComponent, canActivate: [AuthGuard]},
   { path: 'signup', component: SignupComponent },

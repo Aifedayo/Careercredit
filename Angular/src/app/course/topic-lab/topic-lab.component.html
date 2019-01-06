@@ -1,11 +1,18 @@
- <div class="card medium" style="max-height: 500px;" *ngIf="_task |async as topic">
-     <div class="card-header">{{ topic.topic }}</div>
-  <div class="card-content" style="overflow:auto" id="chat_div_space">
-      <div class="" *ngFor="let item of topic.tasks">
-          <p>{{ item.id }}. {{ item.instruction }}</p>
-          <p> Note : {{ item.note }} </p>
-          <p> Task {{ item.id }}: {{ item.task }}</p>
-          <p> Hint {{ item.id }}: {{ item.hint }}</p>
-      </div>
+<div class="section" style="max-height: 100vmin;overflow: scroll;">
+<div class="card"  *ngIf="_task |async as topic">
+     <div class="card-title">{{ topic.topic }}</div>
+  <div class="card-content" id="chat_div_space">
+      <ol>
+          <li  class="" *ngFor="let item of topic.tasks">
+              <ul>
+                  <li>{{ item.comment }}</li>
+                  <li> <b >Note :</b> <p>{{ item.note }}</p> </li>
+                  <li> <b>Task: </b>{{ item.task }}</li>
+                  <li><b> Hint: </b>{{ item.hint }}</li>
+              </ul>
+              <br>
+          </li>
+      </ol>
   </div>
+</div>
 </div>

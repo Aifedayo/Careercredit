@@ -660,7 +660,9 @@ def group(request,pk):
             if int(choice) == 1:
                 return redirect("home:monthly_subscription")
             return redirect("home:group_pay",pk=group_item.pk)
-    user_token,_=Token.objects.get_or_create(user=user)
+    user_token=""
+    if user:
+        user_token,_=Token.objects.get_or_create(user=user)
     return render(request, 'home/group_class_item.html', {'group':group_item,'user':user,'GROUP_URL':settings.GROUP_CLASS_URL,'token':user_token})
 
 @login_required
@@ -673,12 +675,16 @@ def group_pay(request,pk):
     amount=group_item.price * 100
     stripeset = StripePayment.objects.all()
     # Stripe uses cent notation for amount 10 USD = 10 * 100
+    stripeset = StripePayment.objects.all()
+    stripe.api_key = stripeset[0].secretkey
     context = { "stripe_key": stripeset[0].publickey,
                    'amount': amount,
                 'group':group_item,
 
                 }
     if request.method == "POST":
+
+       # stripe.api_key = "sk_test_FInuRlOzwpM1b3RIw5fwirtv"
         stripe.api_key = stripeset[0].secretkey
         token = request.POST.get("stripeToken")
         try:
