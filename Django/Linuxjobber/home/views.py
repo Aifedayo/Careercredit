@@ -662,7 +662,7 @@ def group(request,pk):
             return redirect("home:group_pay",pk=group_item.pk)
     user_token=""
     if user:
-    	user_token,_=Token.objects.get_or_create(user=user)
+        user_token,_=Token.objects.get_or_create(user=user)
     return render(request, 'home/group_class_item.html', {'group':group_item,'user':user,'GROUP_URL':settings.GROUP_CLASS_URL,'token':user_token})
 
 @login_required
