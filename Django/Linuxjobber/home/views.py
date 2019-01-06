@@ -15,6 +15,7 @@ from django.contrib import messages
 from django.core.mail import send_mail
 from django.http import HttpResponse
 from rest_framework.authtoken.models import Token
+from datetime import timedelta
 
 from .models import *
 from Courses.models import Course
@@ -137,8 +138,9 @@ def resumeservice(request):
 @csrf_exempt
 def resumepay(request):
     form = ResumeForm()
+    stripeset = StripePayment.objects.all()
     if request.method == "POST":
-        stripe.api_key = "sk_test_FInuRlOzwpM1b3RIw5fwirtv"
+        stripe.api_key = stripeset[0].secretkey
         token = request.POST.get("stripeToken")
         try:
             charge = stripe.Charge.create(
@@ -213,6 +215,13 @@ def log_in(request):
         
         if user is not None:
             login(request, user)
+            #check if user paid for work experience and has not filled the form
+            try:
+                weps = wepeoples.objects.get(user=request.user)
+                if not weps.trainee_position:
+                    return redirect("home:workexpform")
+            except wepeoples.DoesNotExist:
+                return redirect("Courses:userinterest")
             return redirect("Courses:userinterest")
         else:
             error_message = "yes"
@@ -325,8 +334,63 @@ def oracledb_certification(request):
 
 
 def workexperience(request):
-    return render(request, 'home/workexperience.html', {'courses' : get_courses(), 'tools' : get_tools()})
+    return render(request, 'home/workexperience.html')
 
+def workexpform(request):
+    weps = wepeoples.objects.get(user=request.user)
+
+    if request.method == 'POST':
+        trainee = request.POST['trainee_position']
+        current = request.POST['current_position']
+        state = request.POST['state']
+        income = request.POST['income']
+        relocate = request.POST['relocate']
+        person = request.POST['type']
+
+        if person == "Graduant" or person == "Student":
+            graduation = request.POST['gdate']
+        else:
+            now = timezone.now()
+            graduation = now + timedelta(days=120)
+               
+        weps.trainee_position = trainee
+        weps.current_position = current
+        weps.person_type = person
+        weps.state = state
+        weps.income = income
+        weps.relocation = relocate
+        weps.last_verification = None
+        weps.Paystub = None
+        weps.graduation_date = graduation
+        weps.save()
+       
+        return redirect("home:workexprofile")
+    else:
+        return render(request, 'home/workexpform.html')
+
+def workexprofile(request):
+    
+    weps = wepeoples.objects.get(user=request.user)
+
+    if not weps.trainee_position:
+        return redirect("home:workexpform")
+
+    if request.method == "POST":
+        print(request.POST['type'])
+        if request.POST['type'] == '1':
+            last_verify = request.FILES['verify']
+            weps.Paystub = last_verify
+            weps.save(update_fields=["Paystub"])
+            messages.success(request, 'Paystub uploaded successfully, Last verification would be updated as soon as Paystub is verified')
+            return redirect("home:workexprofile")
+        else:
+            income = request.POST['income']
+            weps.income = income
+            weps.save(update_fields=['income'])
+            messages.success(request, 'Total monthly income updated successfully')
+            return redirect("home:workexprofile")
+
+    return render(request, 'home/workexprofile.html',{'weps': weps})
 
 def jobplacements(request):
     return render(request, 'home/jobplacements.html',{'courses' : get_courses(), 'tools' : get_tools()})
@@ -398,6 +462,8 @@ def pay(request):
     mode = "One Time"
     PAY_FOR = "Work Experience"
     DISCLMR = "Please note that you will be charged ${} upfront. However, you may cancel at any time. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ${}".format(PRICE,PRICE)
+    stripeset = StripePayment.objects.all()
+    stripe.api_key = stripeset[0].secretkey
     if request.method == "POST":
         token = request.POST.get("stripeToken")
         try:
@@ -414,12 +480,15 @@ def pay(request):
                 UserPayment.objects.create(user=request.user, amount=PRICE,
                                             trans_id = charge.id, pay_for = charge.description,
                                             )
+                _, created = wepeoples.objects.update_or_create(user=request.user,trainee_position=None,current_position=None,
+                                                        person_type=None,state=None,income=None,relocation=None,
+                                                        last_verification=None,Paystub=None,graduation_date=None)
                 return render(request,'home/accepted.html')
             except Exception as error:
                 print(error)
                 return redirect("home:index")
     else:
-        context = { "stripe_key": settings.STRIPE_PUBLIC_KEY,
+        context = { "stripe_key": stripeset[0].publickey,
                    'price': PRICE,
                    'amount': str(PRICE)+'00',
                    'mode': mode,
@@ -487,8 +556,10 @@ def check_subscription_status(request):
 @login_required
 def monthly_subscription(request):
     email = request.user.email
-    plan_id = "3"
-    stripe.api_key = "sk_test_FInuRlOzwpM1b3RIw5fwirtv"
+    
+    stripeset = StripePayment.objects.all()
+    stripe.api_key = stripeset[0].secretkey
+    plan_id = stripeset[0].planid
 
     if request.method == "POST":
         token = request.POST.get("stripeToken")
@@ -521,7 +592,7 @@ def monthly_subscription(request):
         except stripe.error.CardError as ce:
             return False, ce
 
-    return render(request, 'home/monthly_subscription.html', {'email':email})
+    return render(request, 'home/monthly_subscription.html', {'email':email,'publickey':stripeset[0].publickey})
 
 def group(request,pk):
     group_item = get_object_or_404(Groupclass,pk=pk)
@@ -602,7 +673,7 @@ def group_pay(request,pk):
     # type_class = request.session['class']
     group_item=get_object_or_404(Groupclass,pk=pk)
     amount=group_item.price * 100
-    print(amount)
+    stripeset = StripePayment.objects.all()
     # Stripe uses cent notation for amount 10 USD = 10 * 100
     stripeset = StripePayment.objects.all()
     stripe.api_key = stripeset[0].secretkey
@@ -612,7 +683,9 @@ def group_pay(request,pk):
 
                 }
     if request.method == "POST":
+
        # stripe.api_key = "sk_test_FInuRlOzwpM1b3RIw5fwirtv"
+        stripe.api_key = stripeset[0].secretkey
         token = request.POST.get("stripeToken")
         try:
             charge = stripe.Charge.create(

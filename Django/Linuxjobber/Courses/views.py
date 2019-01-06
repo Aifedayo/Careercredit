@@ -55,6 +55,7 @@ class CourseTopicsView(generic.ListView):
         context = super().get_context_data(**kwargs)
         context['course'] = Course.objects.get(course_title = self.kwargs.get('course_name').replace("_", " "))
         context['aws'] = check_aws(self.request.user)
+        context['totalstats'] = totalstat(self.request.user,Course.objects.get(course_title = self.kwargs.get('course_name').replace("_", " ")))
 
         if self.request.user.role == 4:
             try:
@@ -96,7 +97,7 @@ def TopicNote(request, course_name, lab_no):
     else:
         template = 'courses/visitor.html'
 
-    Notes = Note.objects.get(Topic__topic_number=lab_no,)
+    Notes = Note.objects.get(Topic__topic_number=lab_no,Topic__course__course_title = course_name.replace("_", " "))
     Topics = CourseTopic.objects.filter(course__course_title = course_name.replace("_", " "))
     Random = random.sample(list(Topics), 3)
     try:
@@ -136,7 +137,16 @@ def videostat(request, topic):
             stat.save(update_fields=['video'])
         return HttpResponse("Result:done")
 
-#def totalstat(user,course):
+def totalstat(user,course):
+    topics = CourseTopic.objects.filter(course=course)
+    tostat = total = 0
+    for topic in topics:
+        stat = TopicStatus.objects.get(topic=topic, user=user)
+        tostat = tostat + stat.video + stat.lab
+    
+    total = tostat / len(topics)
+
+    return int(total)
 
 
 def checkstat(user,course):
@@ -254,6 +264,7 @@ class LabDetailsView(generic.DetailView):
                 return HttpResponse("Result: " + output +" \n <a href='/courses/Django/labs/"+str(topic.topic_number)+"/'>Click here to try again</a>")
             else:
                 return HttpResponse(output)
+        #For Linux and Rscha labs        
         elif sub_type == 2:
             IP = request.POST['ip_address']
             outps = None

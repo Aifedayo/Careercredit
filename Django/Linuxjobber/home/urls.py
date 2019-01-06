@@ -12,6 +12,8 @@ jp_patterns = [
 wp_patterns = [
     path('', views.workexperience, name='workexperience'),
     path('pay/', views.pay, name='pay'),
+    path('apply/', views.workexpform, name='workexpform'),
+    path('profile/',views.workexprofile, name='workexprofile'),
     ]
 
 

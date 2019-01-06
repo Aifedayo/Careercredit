@@ -232,3 +232,19 @@ class Location(models.Model):
 
     def __str__(self):
         return self.user.email
+
+class wepeoples(models.Model):
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+    trainee_position = models.CharField(max_length = 20, null=True)
+    current_position = models.CharField(max_length = 20, null=True)
+    state = models.CharField(max_length = 20, null=True)
+    income = models.CharField(max_length = 20, null=True)
+    relocation = models.CharField(max_length = 5, null=True)
+    Paystub = models.ImageField(upload_to = 'resume', null=True) 
+    last_verification = models.DateTimeField(default=timezone.now, null=True)
+    start_date = models.DateTimeField(default=timezone.now, null=True)
+    graduation_date = models.DateTimeField(default=timezone.now, null=True)
+    person_type = models.CharField(max_length = 20,null=True)
+
+    def __str__(self):
+        return self.user.email

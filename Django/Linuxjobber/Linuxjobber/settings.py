@@ -94,6 +94,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'home.context_processors.courses',
                 'home.context_processors.tools',
+                'home.context_processors.workexperience',
             ],
         },
     },
@@ -111,9 +112,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': config('DATABASE_NAME','linuxjobber'),
-        'USER': config('DATABASE_USER','linuxjobber2'),
-        'PASSWORD':config('DATABASE_PASSWORD','8iu7*IU&'),
-        'HOST': config('DATABASE_HOST','172.31.39.237'),
+        'USER': config('DATABASE_USER','root'),
+        'PASSWORD':config('DATABASE_PASSWORD','samjam1989'),
+        'HOST': config('DATABASE_HOST','localhost'),
         'PORT': config('DATABASE_PORT','3306'),
 
     }

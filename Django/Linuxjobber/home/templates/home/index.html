@@ -22,29 +22,25 @@ Home | Linuxjobber
             <h2>
                 Get 1:1 <span> live training</span><br> tailored to you</h2>
                 <div class="row">
-                      {% for course in courses %} 
+                      
+                      <div class="col-md-6 col-sm-6 btns2">
+                      <a href="{% url 'Courses:topics' 'Linux_Fundamentals' %}"><img src="{% static 'home/images/linuxx.png' %}" alt="First slide"></a>
+                      </div>
+                      
+                      <div class="col-md-6 col-sm-6 btns2">
+                      <a href="{% url 'Courses:topics' 'Java' %}"><img src="{% static 'home/images/java.png' %}" alt="First slide"></a>
+                      </div>
+                      
+
+
+                      
+                      <div class="col-md-6 col-sm-6 btns2">
+                      <a href="{% url 'Courses:topics' 'Amazon_AWS' %}"><img src="{% static 'home/images/awssa.png' %}" alt="First slide"></a>
+                      </div>
+                      
+
+
                     
-                      {% if course.course_title.lower == 'linux' %}
-                      <div class="col-md-6 col-sm-6 btns2">
-                      <a href="{% url 'Courses:topics' course.course_title.split|join:'_' %}"><img src="{% static 'home/images/linuxx.png' %}" alt="First slide"></a>
-                      </div>
-                      {% endif %}
-
-                      {% if course.course_title.lower == 'java' %} 
-                      <div class="col-md-6 col-sm-6 btns2">
-                      <a href="{% url 'Courses:topics' course.course_title.split|join:'_' %}"><img src="{% static 'home/images/java.png' %}" alt="First slide"></a>
-                      </div>
-                      {% endif %}
-
-
-                      {% if course.course_title.lower == 'aws' %} 
-                      <div class="col-md-6 col-sm-6 btns2">
-                      <a href="{% url 'Courses:topics' course.course_title.split|join:'_' %}"><img src="{% static 'home/images/awssa.png' %}" alt="First slide"></a>
-                      </div>
-                      {% endif %}
-
-
-                      {% endfor %}
 
 
 
