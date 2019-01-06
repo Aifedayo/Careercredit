@@ -13,7 +13,7 @@ def tools(request):
 	}
 
 def workexperience(request):
-	if request.user.is_authenticated():
+	if request.user.is_authenticated:
 		try:
 			workexp = wepeoples.objects.get(user=request.user)
 			workex = True
