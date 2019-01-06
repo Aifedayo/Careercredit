@@ -13,13 +13,20 @@ def tools(request):
 	}
 
 def workexperience(request):
-	try:
-		workexp = wepeoples.objects.get(user=request.user)
-		workex = True
-	except wepeoples.DoesNotExist:
+	if request.user.is_authenticated():
+		try:
+			workexp = wepeoples.objects.get(user=request.user)
+			workex = True
+		except wepeoples.DoesNotExist:
+			workex = False
+
+		
+		return{
+			'workexp': workex
+		}
+	else:
 		workex = False
 
-	
-	return{
-		'workexp': workex
-	}
+		return{
+			'workexp': workex
+		}
