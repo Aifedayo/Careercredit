@@ -2,6 +2,7 @@ import stripe
 import csv, io
 import logging
 import subprocess, json, os
+import random, string
 from smtplib import SMTPException
 from urllib.parse import urlparse
 from django.conf import settings
@@ -61,7 +62,7 @@ def signup(request):
             user.first_name = firstname
             user.last_name = lastname
             user.save()
-            send_mail('Linuxjobber Free Account Creation', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + '\n Follow this link http://54.184.127.122:8005/login to login to you account\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
+            send_mail('Linuxjobber Free Account Creation', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + '\n Follow this link http://stage.linuxjobber.com/login to login to you account\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
             return render(request, "home/registration/success.html", {'user': user})
         else:
             error = True
@@ -77,8 +78,10 @@ def forgot_password(request):
         email = request.POST['email']
         if CustomUser.objects.filter(email=email).exists():
             u = CustomUser.objects.get(email=email)
-            password_reset_link = 'reset_password/'+str(u.id)
-            send_mail('Linuxjobber Account Password Reset', 'Hello, \n' + 'You are receiving this email because we received a request to reset your password,\nignore this message if you did not initiate the request else click the link below to reset your password.\n'+'http://54.149.10.37:8000/'+password_reset_link+'\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            u.pwd_reset_token = ''.join(random.choice(string.ascii_lowercase) for x in range(64))
+            u.save()
+            password_reset_link = 'reset_password/'+str(u.pwd_reset_token)
+            send_mail('Linuxjobber Account Password Reset', 'Hello, \n' + 'You are receiving this email because we received a request to reset your password,\nignore this message if you did not initiate the request else click the link below to reset your password.\n'+'http://stage.linuxjobber.com/'+password_reset_link+'\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
 
             return render(request, 'home/registration/forgot_password.html',{'message':'An email with password reset information has been sent to you. Check your email to proceede.'})
         else:
@@ -86,13 +89,14 @@ def forgot_password(request):
     else:
         return render(request, 'home/registration/forgot_password.html', {'message':message})
 
-def reset_password(request, u_id):
+def reset_password(request, reset_token):
     message = ''
     if request.method == "POST":
         if request.POST['password1'] == request.POST['password2']:
-            usr = CustomUser.objects.get(id=u_id)
+            usr = CustomUser.objects.get(pwd_reset_token=reset_token)
+            usr.pwd_reset_token = ''.join(random.choice(string.ascii_lowercase) for x in range(64))
             usr.set_password(request.POST['password1'])
-            #usr.save()
+            usr.save()
             message = "You have successfully changed your password."
             return render(request, 'home/registration/reset_password.html', {'message':message})
         else:

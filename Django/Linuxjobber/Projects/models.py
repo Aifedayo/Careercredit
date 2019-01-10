@@ -5,7 +5,7 @@ from users.models import CustomUser
 
 class Project(models.Model):
     project_id = models.IntegerField(unique=True)
-    project_title = models.CharField(max_length=20)
+    project_title = models.CharField(max_length=100)
     project_description = models.CharField(max_length=500)
     project_image = models.TextField(max_length=500)
     project_bg_image = models.TextField(max_length=500)
@@ -21,7 +21,7 @@ class Project(models.Model):
 
 class ProjectCourse(models.Model):
     course_id = models.IntegerField(unique=True)
-    course_title = models.CharField(max_length=20)
+    course_title = models.CharField(max_length=100)
     course_description = models.CharField(max_length=500)
     course_objective = models.CharField(max_length=100)
     course_content = models.CharField(max_length=500)
@@ -54,7 +54,7 @@ class ProjectCourseTopic(models.Model):
 
 class CourseLab(models.Model):
     lab_id = models.IntegerField(unique=True)
-    lab_title = models.CharField(max_length=20)  
+    lab_title = models.CharField(max_length=200)  
     lab_course = models.ForeignKey(ProjectCourse, on_delete=models.CASCADE)
 
     def __str__(self):

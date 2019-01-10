@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from Courses.models import Course
 from ToolsApp.models import Tool
 from django.views import generic
+from django.contrib.auth.decorators import login_required
 
 from .models import *
 
@@ -14,7 +15,7 @@ def get_courses():
 def get_tools():
     return Tool.objects.all()
 
-
+@login_required
 def project_index(request):
     context = {
         'projects': Project.objects.all(),
@@ -25,7 +26,7 @@ def project_index(request):
     return render(request, 'projects/index.html', context)
 
 
-
+@login_required
 def project_courses(request, project_name):
     project = Project.objects.get(project_title=project_name)
     context = {
@@ -39,7 +40,7 @@ def project_courses(request, project_name):
     return render(request, 'projects/project_courses.html', context)
 
 
-
+@login_required
 def project_course_topics(request, course_name):
     course = ProjectCourse.objects.get(course_title=course_name.replace("_", " "))
     context = {
@@ -54,7 +55,7 @@ def project_course_topics(request, course_name):
 
     return render(request, 'projects/project_course_topics.html', context)
 
-
+@login_required
 def project_course_labs(request, course_name):
     course = ProjectCourse.objects.get(course_title=course_name.replace("_", " ")) 
 
@@ -69,7 +70,7 @@ def project_course_labs(request, course_name):
 
     return render(request, 'projects/project_course_labs.html', context)
 
-
+@login_required
 def course_lab_tasks(request, lab_title):
     lab = CourseLab.objects.get(lab_title=lab_title.replace("_", " ")) 
 

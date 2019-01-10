@@ -39,10 +39,10 @@
 			<p style="color: #000000;padding-top: 9px;font-size: 18px;margin-bottom: 10px;">Videos</p>
 			{% for course_topic in course_topics %}
 				<input type="hidden" id="vid_src_{{ course_topic.topic_id }}" value="{{ course_topic.topic_video }}">
-				<input type="hidden" id="current_vid2" value="{{ course_topic.topic_title }}">
+				<input type="hidden" id="current_vid_{{ course_topic.topic_id }}" value="{{ course_topic.topic_title }}">
 				<ol>
 				<li><img style="vertical-align: middle;" src="{% static 'Projects/img/play_icon.png' %}">
-				<small onclick="document.getElementById('vid').src = document.getElementById('vid_src_{{ course_topic.topic_id }}').value" style="font-size: 18px;color: rgba(0, 0, 0, 0.8);" href="">{{ course_topic.topic_title }}</small></li>
+				<small onclick="document.getElementById('vid').src = document.getElementById('vid_src_{{ course_topic.topic_id }}').value;document.getElementById('current_vid').innerHTML = document.getElementById('current_vid_{{ course_topic.topic_id }}').value" style="font-size: 18px;color: rgba(0, 0, 0, 0.8);" href="">{{ course_topic.topic_title }}</small></li>
 				</ol>
 			{% endfor %}
 		</div>
