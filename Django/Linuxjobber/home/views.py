@@ -340,8 +340,15 @@ def oracledb_certification(request):
 def workexperience(request):
     return render(request, 'home/workexperience.html')
 
+@login_required
 def workexpform(request):
-    weps = wepeoples.objects.get(user=request.user)
+
+    try:
+        weps = wepeoples.objects.get(user=request.user)
+        student = False
+    except wepeoples.DoesNotExist:
+        student = True
+
 
     if request.method == 'POST':
         trainee = request.POST['trainee_position']
@@ -351,27 +358,35 @@ def workexpform(request):
         relocate = request.POST['relocate']
         person = request.POST['type']
 
+
         if person == "Graduant" or person == "Student":
             graduation = request.POST['gdate']
         else:
             now = timezone.now()
             graduation = now + timedelta(days=120)
-               
-        weps.trainee_position = trainee
-        weps.current_position = current
-        weps.person_type = person
-        weps.state = state
-        weps.income = income
-        weps.relocation = relocate
-        weps.last_verification = None
-        weps.Paystub = None
-        weps.graduation_date = graduation
-        weps.save()
-       
+        
+        try:
+            weps = wepeoples.objects.get(user=request.user)
+            weps.trainee_position = trainee
+            weps.current_position = current
+            weps.person_type = person
+            weps.state = state
+            weps.income = income
+            weps.relocation = relocate
+            weps.last_verification = None
+            weps.Paystub = None
+            weps.graduation_date = graduation
+            weps.save()
+        except wepeoples.DoesNotExist:
+            weps = wepeoples.objects.create(user=request.user,trainee_position=trainee,
+                current_position=current,person_type=person,state=state,income=income,
+                relocation=relocate,last_verification=None,Paystub=None,graduation_date=graduation)
+            weps.save()
         return redirect("home:workexprofile")
     else:
-        return render(request, 'home/workexpform.html')
+        return render(request, 'home/workexpform.html',{'student':student})
 
+@login_required
 def workexprofile(request):
     
     weps = wepeoples.objects.get(user=request.user)
@@ -664,7 +679,9 @@ def group(request,pk):
             if int(choice) == 1:
                 return redirect("home:monthly_subscription")
             return redirect("home:group_pay",pk=group_item.pk)
-    user_token,_=Token.objects.get_or_create(user=user)
+    user_token=""
+    if user:
+        user_token,_=Token.objects.get_or_create(user=user)
     return render(request, 'home/group_class_item.html', {'group':group_item,'user':user,'GROUP_URL':settings.GROUP_CLASS_URL,'token':user_token})
 
 @login_required
@@ -677,12 +694,16 @@ def group_pay(request,pk):
     amount=group_item.price * 100
     stripeset = StripePayment.objects.all()
     # Stripe uses cent notation for amount 10 USD = 10 * 100
+    stripeset = StripePayment.objects.all()
+    stripe.api_key = stripeset[0].secretkey
     context = { "stripe_key": stripeset[0].publickey,
                    'amount': amount,
                 'group':group_item,
 
                 }
     if request.method == "POST":
+
+       # stripe.api_key = "sk_test_FInuRlOzwpM1b3RIw5fwirtv"
         stripe.api_key = stripeset[0].secretkey
         token = request.POST.get("stripeToken")
         try:
