@@ -81,7 +81,7 @@ def forgot_password(request):
             u.pwd_reset_token = ''.join(random.choice(string.ascii_lowercase) for x in range(64))
             u.save()
             password_reset_link = 'reset_password/'+str(u.pwd_reset_token)
-            send_mail('Linuxjobber Account Password Reset', 'Hello, \n' + 'You are receiving this email because we received a request to reset your password,\nignore this message if you did not initiate the request else click the link below to reset your password.\n'+'http://stage.linuxjobber.com/'+password_reset_link+'\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            send_mail('Linuxjobber Account Password Reset', 'Hello, \n' + 'You are receiving this email because we received a request to reset your password,\nignore this message if you did not initiate the request else click the link below to reset your password.\n'+'http://stage.linuxjobber.com/'+password_reset_link+'\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
 
             return render(request, 'home/registration/forgot_password.html',{'message':'An email with password reset information has been sent to you. Check your email to proceede.'})
         else:
@@ -1227,6 +1227,9 @@ def tryfree(request, sub_plan):
                     UserPayment.objects.create(user=request.user, amount=PRICE,
                                                 trans_id = charge.id, pay_for = charge.description,
                                                 )
+                    user = request.user
+                    user.role = 3
+                    user.save()
                     send_mail('Linuxjobber Premium Plan Subscription', 'Hello, you have successfuly subscribed for our Premium Plan package.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.user.email])
                     return render(request,'home/premiumPlan_pay_success.html')
                 except SMTPException as error:

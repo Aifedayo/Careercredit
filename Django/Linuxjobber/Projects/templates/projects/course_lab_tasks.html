@@ -1,16 +1,82 @@
-{% load staticfiles%} 
-{% block title %}
-	Linuxjobber Project
- {% endblock %}
+{% extends 'home/base.html' %}
 
-<br>
-<br>
+{% load staticfiles %}
+
 {% block content %}
 
-	{% for lab in lab_tasks %}
-		{{ lab.task_comment }}<br>
-		{{ lab.task_note }}<br>
-		{{ lab.task }}<br>
-	{% endfor %}
+ <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          
+        </div>      
+      </div>      
+</div>
+<section class="labbackground">
+    <div class="container">
+    
+        <div class="text-center labtop">
+            <div class="text-center"><b><p></p></b></div>
+            <h1>
+                Lab title
+            </h1>
+            <br>
+            <p>description</p>
+            </div>
+            
+        {%for task in lab_tasks %}
+  
+            <div class="labcard col-md-12">
+                <div class="col-md-1 col-xs-1"></div>
+                <div class="col-md-11 col-xs-11">
+                    <h1>{{ task.task_id}}<span class="labcardt">/{{lab_tasks|length}}</span></h1>
+                    <div class="labcardpar"></div>
+                </div>
+                
+                <div class="row">
+                <div class="col-md-1 col-xs-1">
+                    <ul>
+                        {%if task.task %}
+                            <li class="labload"></li>
+                        {%else%}
+                            <li class="labunload"></li>
+                        {%endif%}
+                    </ul>
+                </div>
+                <div class="col-md-11 col-xs-11">
+                    
+                    <span>
+                       <p class="labcardcom"> {{ task.comment }}</p>
+                    <p>
+                        Note: {{ task.note }} <br><br>
+                    </p>
+                    
+                    <p class="labcardtask"> <b>Your task is to  {{ task.task }} <br><br> </b></p>
 
-{% endblock %}
+                    </span>
+                    </div>
+                </div>
+            </div>
+            
+        {%endfor%}
+            
+                
+            
+        </div>
+
+           
+    </div>
+
+</section>
+
+
+{%endblock%}
+
+
+
+
+
+
+
+
+

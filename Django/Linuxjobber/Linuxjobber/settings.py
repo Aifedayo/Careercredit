@@ -259,10 +259,10 @@ LOGIN_REDIRECT_URL = '/home'
 #EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = config('EMAIL_HOST','smtp.gmail.com')
+EMAIL_HOST = config('EMAIL_HOST','smtp.linuxjobber.com')
 EMAIL_PORT = config('EMAIL_PORT','587')
-EMAIL_HOST_USER = config('EMAIL_HOST_USER','4linuxjobber@gmail.com')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD','L1nuxj0bber')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER','admin@linuxjobber.com')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD','m4k3Aw!y')
 EMAIL_USE_TLS = True
 
 STRIPE_PUBLIC_KEY="pk_test_1zBTca83q29gl9iwRw1oIBvD"

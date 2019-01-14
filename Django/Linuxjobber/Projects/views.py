@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from Courses.models import Course
 from ToolsApp.models import Tool
@@ -22,8 +22,17 @@ def project_index(request):
         'courses': get_courses(),
         'tools': get_tools()
     }
-
-    return render(request, 'projects/index.html', context)
+    if request.user.role == 4:
+        contx = {
+            'projects': Project.objects.filter(project_id=request.user.allowed_project),
+            'courses': get_courses(),
+            'tools': get_tools(),
+        }
+        return render(request, 'projects/index.html', contx)
+    elif request.user.role == 3:
+        return render(request, 'projects/index.html', context)
+    else:
+        return redirect("home:students_packages")
 
 
 @login_required
