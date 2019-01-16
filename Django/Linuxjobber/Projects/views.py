@@ -15,27 +15,16 @@ def get_courses():
 def get_tools():
     return Tool.objects.all()
 
-@login_required
 def project_index(request):
     context = {
         'projects': Project.objects.all(),
         'courses': get_courses(),
         'tools': get_tools()
     }
-    if request.user.role == 4:
-        contx = {
-            'projects': Project.objects.filter(project_id=request.user.allowed_project),
-            'courses': get_courses(),
-            'tools': get_tools(),
-        }
-        return render(request, 'projects/index.html', contx)
-    elif request.user.role == 3:
-        return render(request, 'projects/index.html', context)
-    else:
-        return redirect("home:students_packages")
+    return render(request, 'projects/index.html', context)
 
 
-@login_required
+
 def project_courses(request, project_name):
     project = Project.objects.get(project_title=project_name)
     context = {
@@ -62,7 +51,25 @@ def project_course_topics(request, course_name):
 
     }
 
-    return render(request, 'projects/project_course_topics.html', context)
+    if request.user.role == 4:
+        if course.course_project.project_id != request.user.allowed_project:
+            return render(request, 'projects/project_access_denied.html') #you are not allowed to view this page
+        else:
+            contx = {
+                'course_topics': course.projectcoursetopic_set.all(),
+                'course_title': course.course_title,
+                'course_description': course.course_description,
+                'project_title': course.course_project.project_title,
+                'courses': get_courses(),
+                'tools': get_tools(),
+            }
+            return render(request, 'projects/project_course_topics.html', contx)
+    elif request.user.role == 3:
+        return render(request, 'projects/project_course_topics.html', context)
+    else:
+        return redirect("home:tryfree",'standardPlan')
+
+
 
 @login_required
 def project_course_labs(request, course_name):
@@ -76,8 +83,23 @@ def project_course_labs(request, course_name):
         'tools': get_tools(),
     }
 
+    if request.user.role == 4:
+        if course.course_project.project_id != request.user.allowed_project:
+            return render(request, 'projects/project_access_denied.html') #you are not allowed to view this page
+        else:
+            contx = {
+                'course_labs': course.courselab_set.all(),
+                'course_title': course.course_title,
+                'course_description': course.course_description,
+                'courses': get_courses(),
+                'tools': get_tools(),
+            }
+            return render(request, 'projects/project_course_labs.html', contx)
+    elif request.user.role == 3:
+        return render(request, 'projects/project_course_labs.html', context)
+    else:
+        return redirect("home:tryfree",'standardPlan')
 
-    return render(request, 'projects/project_course_labs.html', context)
 
 @login_required
 def course_lab_tasks(request, lab_title):
