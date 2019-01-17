@@ -7,7 +7,7 @@ from .models import CustomUser
 
 # Register your models here.
 
-UserAdmin.fieldsets += ('Custom fields set', {'fields': ('role',)}),
+UserAdmin.fieldsets += ('Custom fields set', {'fields': ('role','allowed_project')}),
 
 class CustomUserAdmin(UserAdmin):
 	add_form = CustomUserCreationForm
