@@ -282,12 +282,10 @@ ul.sub-menu {
 
 .col2-course-title {
 	padding-top: 24px;
+	margin-bottom: 5px;
 	width: 237px;
 	height: 43px;
 	font-family: Roboto;
-	font-style: normal;
-	font-weight: normal;
-	line-height: normal;
 	font-size: 36px;
 	color: #000000;
 }
