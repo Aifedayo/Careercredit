@@ -2,6 +2,7 @@ import stripe
 import csv, io
 import logging
 import subprocess, json, os
+import random, string
 from smtplib import SMTPException
 from urllib.parse import urlparse
 from django.conf import settings
@@ -61,7 +62,7 @@ def signup(request):
             user.first_name = firstname
             user.last_name = lastname
             user.save()
-            send_mail('Linuxjobber Free Account Creation', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + '\n Follow this link http://35.167.153.1:8001/login to login to you account\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
+            send_mail('Linuxjobber Free Account Creation', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + '\n Follow this link http://stage.linuxjobber.com/login to login to you account\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
             return render(request, "home/registration/success.html", {'user': user})
         else:
             error = True
@@ -77,8 +78,10 @@ def forgot_password(request):
         email = request.POST['email']
         if CustomUser.objects.filter(email=email).exists():
             u = CustomUser.objects.get(email=email)
-            password_reset_link = 'reset_password/'+str(u.id)
-            send_mail('Linuxjobber Account Password Reset', 'Hello, \n' + 'You are receiving this email because we received a request to reset your password,\nignore this message if you did not initiate the request else click the link below to reset your password.\n'+'http://54.149.10.37:8000/'+password_reset_link+'\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            u.pwd_reset_token = ''.join(random.choice(string.ascii_lowercase) for x in range(64))
+            u.save()
+            password_reset_link = 'reset_password/'+str(u.pwd_reset_token)
+            send_mail('Linuxjobber Account Password Reset', 'Hello, \n' + 'You are receiving this email because we received a request to reset your password,\nignore this message if you did not initiate the request else click the link below to reset your password.\n'+'http://stage.linuxjobber.com/'+password_reset_link+'\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
 
             return render(request, 'home/registration/forgot_password.html',{'message':'An email with password reset information has been sent to you. Check your email to proceede.'})
         else:
@@ -86,13 +89,14 @@ def forgot_password(request):
     else:
         return render(request, 'home/registration/forgot_password.html', {'message':message})
 
-def reset_password(request, u_id):
+def reset_password(request, reset_token):
     message = ''
     if request.method == "POST":
         if request.POST['password1'] == request.POST['password2']:
-            usr = CustomUser.objects.get(id=u_id)
+            usr = CustomUser.objects.get(pwd_reset_token=reset_token)
+            usr.pwd_reset_token = ''.join(random.choice(string.ascii_lowercase) for x in range(64))
             usr.set_password(request.POST['password1'])
-            #usr.save()
+            usr.save()
             message = "You have successfully changed your password."
             return render(request, 'home/registration/reset_password.html', {'message':message})
         else:
@@ -336,8 +340,15 @@ def oracledb_certification(request):
 def workexperience(request):
     return render(request, 'home/workexperience.html')
 
+@login_required
 def workexpform(request):
-    weps = wepeoples.objects.get(user=request.user)
+
+    try:
+        weps = wepeoples.objects.get(user=request.user)
+        student = False
+    except wepeoples.DoesNotExist:
+        student = True
+
 
     if request.method == 'POST':
         trainee = request.POST['trainee_position']
@@ -347,27 +358,35 @@ def workexpform(request):
         relocate = request.POST['relocate']
         person = request.POST['type']
 
+
         if person == "Graduant" or person == "Student":
             graduation = request.POST['gdate']
         else:
             now = timezone.now()
             graduation = now + timedelta(days=120)
-               
-        weps.trainee_position = trainee
-        weps.current_position = current
-        weps.person_type = person
-        weps.state = state
-        weps.income = income
-        weps.relocation = relocate
-        weps.last_verification = None
-        weps.Paystub = None
-        weps.graduation_date = graduation
-        weps.save()
-       
+        
+        try:
+            weps = wepeoples.objects.get(user=request.user)
+            weps.trainee_position = trainee
+            weps.current_position = current
+            weps.person_type = person
+            weps.state = state
+            weps.income = income
+            weps.relocation = relocate
+            weps.last_verification = None
+            weps.Paystub = None
+            weps.graduation_date = graduation
+            weps.save()
+        except wepeoples.DoesNotExist:
+            weps = wepeoples.objects.create(user=request.user,trainee_position=trainee,
+                current_position=current,person_type=person,state=state,income=income,
+                relocation=relocate,last_verification=None,Paystub=None,graduation_date=graduation)
+            weps.save()
         return redirect("home:workexprofile")
     else:
-        return render(request, 'home/workexpform.html')
+        return render(request, 'home/workexpform.html',{'student':student})
 
+@login_required
 def workexprofile(request):
     
     weps = wepeoples.objects.get(user=request.user)
@@ -1220,6 +1239,9 @@ def tryfree(request, sub_plan):
                     UserPayment.objects.create(user=request.user, amount=PRICE,
                                                 trans_id = charge.id, pay_for = charge.description,
                                                 )
+                    user = request.user
+                    user.role = 3
+                    user.save()
                     send_mail('Linuxjobber Premium Plan Subscription', 'Hello, you have successfuly subscribed for our Premium Plan package.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.user.email])
                     return render(request,'home/premiumPlan_pay_success.html')
                 except SMTPException as error:
@@ -1254,6 +1276,24 @@ def rhcsa_order(request):
 def user_interest(request):
 
     return render(request, 'home/user_interest.html', {'courses' : get_courses(), 'tools' : get_tools()})
+
+def upload_profile_pic(request):
+    update_feedback = ''
+    if request.method == 'POST' and request.FILES['profile_picture']:
+        if request.FILES['profile_picture'].name.endswith('.png') or request.FILES['profile_picture'].name.endswith('.jpg'):
+            picture = request.FILES['profile_picture']
+            filename = FileSystemStorage().save(picture.name, picture)
+            picture_url = FileSystemStorage().url(filename)
+            current_user = request.user
+            current_user.profile_img = picture_url
+            current_user.save()
+            update_feedback = 'Your profile update was successful'
+            return render(request,'home/upload_profile_pic.html',{'update_feedback':update_feedback})
+        else:
+            update_feedback = 'This file format is not supported'
+            return render(request,'home/upload_profile_pic.html',{'update_feedback':update_feedback})
+    else:
+        return render(request,'home/upload_profile_pic.html')
 
 def group_list(request):
 

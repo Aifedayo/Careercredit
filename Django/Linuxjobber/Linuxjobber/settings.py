@@ -111,11 +111,11 @@ WSGI_APPLICATION = 'Linuxjobber.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': config('DATABASE_NAME','linuxjobber'),
-        'USER': config('DATABASE_USER','root'),
-        'PASSWORD':config('DATABASE_PASSWORD','samjam1989'),
+        'NAME': config('DATABASE_NAME','ljb'),
+        'USER': config('DATABASE_USER','linuxjobber'),
+        'PASSWORD':config('DATABASE_PASSWORD','linuxjobber'),
         'HOST': config('DATABASE_HOST','localhost'),
-        'PORT': config('DATABASE_PORT','3306'),
+        'PORT': config('DATABASE_PORT',''),
 
     }
 }
@@ -243,7 +243,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'asset'),
+    os.path.join(BASE_DIR, 'Projects/static'),
     )
+
+#STATIC_ROOT = os.path.join(BASE_DIR, 'asset')
 
 #CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor"
 
@@ -256,10 +259,10 @@ LOGIN_REDIRECT_URL = '/home'
 #EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = config('EMAIL_HOST','smtp.gmail.com')
+EMAIL_HOST = config('EMAIL_HOST','smtp.linuxjobber.com')
 EMAIL_PORT = config('EMAIL_PORT','587')
-EMAIL_HOST_USER = config('EMAIL_HOST_USER','4linuxjobber@gmail.com')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD','L1nuxj0bber')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER','admin@linuxjobber.com')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD','m4k3Aw!y')
 EMAIL_USE_TLS = True
 
 STRIPE_PUBLIC_KEY="pk_test_1zBTca83q29gl9iwRw1oIBvD"

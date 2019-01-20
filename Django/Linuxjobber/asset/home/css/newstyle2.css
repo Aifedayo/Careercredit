@@ -1422,6 +1422,8 @@ h4.raise-to-banner {
     padding: 25px 0 0;
     width: 100%;
     background: #e6e3e3;
+
+
 }
 
 h2.title-4 {
@@ -2357,7 +2359,7 @@ a.mrbtn {
 }
 
 .hero {
-    background: url(../images//hero.jpg)no-repeat top center;
+    background: url(../imgs//hero.jpg)no-repeat top center;
     background-size: cover;
     color: #fff;
     padding: 15%;
