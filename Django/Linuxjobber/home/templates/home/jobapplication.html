@@ -65,11 +65,11 @@ Jobs- Apply | Linuxjobber
 					<span class="jobtypeh"><b>CV/RESUME</b></span><br>
 					<span class="jobtypeh">UPLOAD YOUR CV/RESUME FILE</span>
 					<br><br>
-					<span class="jobfinputp">Paste Link to CV/Resume <span style="color:red">*</span></span><br><br>
+					<span class="jobfinputp">Paste Link to CV/Resume <span style="color:red">*</span></span><br>pdf, doc, docx only<br><br>
 					{{form.cv_link}}<br><span class="jobfinputp">or </span><label for="file-upload" class="btn jobbut2">
 										UPLOAD CV
-										</label>
-					{{form.cv}}
+										</label><span class="filename"> </span>
+					{{form.resume}}
 				</div>
 		</div>
 		<div class="col-md-3"></div>
@@ -100,6 +100,13 @@ Jobs- Apply | Linuxjobber
 			return false;
 		}
 	});
+
+	$('#file-upload').on('change',function(){
+                //get the file name
+                var fileName = $(this).val().split('\\').pop().split('/').pop();
+                //replace the "Choose a file" label
+                $('.filename').html(fileName);
+            });
 </script>
 
 {%endblock %}
