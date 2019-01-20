@@ -1,7 +1,7 @@
 {% extends 'home/base.html' %}
 {% load staticfiles%}
 {% block title %}
-Jobs- Apply | Linuxjobber
+Jobs | Linuxjobber
 {% endblock %}
 {% block content %}
 
@@ -12,14 +12,13 @@ Jobs- Apply | Linuxjobber
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
 			<span>
-				Full-Time Applications
+				Part-Time Applications
 			</span>
 		</div>
 		<div class="col-md-2"></div>
 	</div>
 	</div>
 </div>
-	
 
 <div class="container">
 	<form method="post" action="" enctype="multipart/form-data" id="formd">
@@ -41,11 +40,10 @@ Jobs- Apply | Linuxjobber
         {% endif %}
 				{% csrf_token %}
 				<div class="jobtype">
-					<p class="jobtypeh">{{posts.job_title}}</p>
-					<span>{{posts.requirement}}</span><br><br>
-					<span><b>JOB RESPONSIBILITIES</b></span><br><br>
-					<p class="jobinfop">{{posts.responsibility |linebreaksbr|linebreaksbr}}
-							</p>
+					<p class="jobtypeh">JOB POSITION</p>
+					<span class="jobfinputp">Change Job Position <span style="color:red">*</span></span><br><br>
+					{{form.position}}
+					
 				</div>
 				<div class="jobtype">
 					<span class="jobtypeh"><b>PERSONAL INFORMATION</b></span><br>
@@ -77,6 +75,19 @@ Jobs- Apply | Linuxjobber
 	<div class="row">
 		<div class="col-md-1"></div>
 		<div class="col-md-10">
+			<div class="jobtype">
+					<span class="jobtypeh"><b>HIGH SALARY PROGRAM</b></span><br><br>
+					<span class="jobfinputp">
+						This program puts its members on a path to earning a higher salary for the same job. For example, if the average starting salary of a fresh graduate in a field is $30k per year, this program is designed to help its members start with $60k for the same job. Our company will charge 17% of first year salary for this optional program.
+					</span><br><br>
+					<span class="jobfinputp">Would you like to sign up for it? <span style="color:red">*</span></span><br><br>
+					{% for choice in form.high_salary %}
+						{{ choice.tag }}
+						<label for="id_high_salary_{{forloop.counter0}}" ><span>{{ choice.choice_label }}</span></label><br>
+					{%endfor%}
+						
+					
+				</div>
 				
 				<div class="text-center">
 					<span class="cverr" style="color:#721c24">please fill up required fields before submitting</span><br>
@@ -101,5 +112,4 @@ Jobs- Apply | Linuxjobber
 		}
 	});
 </script>
-
-{%endblock %}
+{%endblock%}

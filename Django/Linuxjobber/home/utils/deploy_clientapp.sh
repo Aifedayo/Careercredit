@@ -24,8 +24,8 @@ appPath=$2
 #sudo chown -R sysadmin:sysadmin $appPath/{GraderClient.py,conf,logs}; 
 #chmod 744 $appPath/logs; chmod 700 $appPath/conf"
 
-sshpass -p '8iu7*IU&' scp -o StrictHostKeyChecking=no  -o LogLevel=ERROR -o UserKnownHostsFile=/dev/null /linuxdev/Django/Linuxjobber/home/utils/python/GraderClient.py sysadmin@$1:$2
+sshpass -p '8iu7*IU&' scp -o StrictHostKeyChecking=no  -o LogLevel=ERROR -o UserKnownHostsFile=/dev/null $3/python/GraderClient.py sysadmin@$1:$2
 sshpass -p '8iu7*IU&' ssh -o StrictHostKeyChecking=no  -o LogLevel=ERROR -o UserKnownHostsFile=/dev/null  sysadmin@$1 mkdir $2/conf
 sshpass -p '8iu7*IU&' ssh -o StrictHostKeyChecking=no  -o LogLevel=ERROR -o UserKnownHostsFile=/dev/null sysadmin@$1 mkdir $2/logs
-sshpass -p '8iu7*IU&' scp -o StrictHostKeyChecking=no  -o LogLevel=ERROR -o UserKnownHostsFile=/dev/null /linuxdev/Django/Linuxjobber/home/utils/conf/logging.ini sysadmin@$1:$2/conf/
+sshpass -p '8iu7*IU&' scp -o StrictHostKeyChecking=no  -o LogLevel=ERROR -o UserKnownHostsFile=/dev/null $3/conf/logging.ini sysadmin@$1:$2/conf/
 

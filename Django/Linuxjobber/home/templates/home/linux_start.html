@@ -1,0 +1,147 @@
+{% extends 'home/base.html' %}
+{% load staticfiles%}
+{% block title %}
+Linux Start | Linuxjobber
+{% endblock %}
+{% block content %}
+
+<div class="jobbanner">
+<div class="text-center jobbantext">
+	<h1>JOIN<span class="jobdot"></span> LEARN<span class="jobdot"></span> EARN</h1>
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<span>
+				Our team is passionately focused on solving a world problem, bridging talent gap in the technical community. We are a team of people who strongly believe in empowering people through knowledge transfer. In the pursuit of our mission, we have helped many people gain technical skills, hands-on practice, On-the-job knowledge and gainful employment. If you truly believe that technical skills and job experience is a problem for many people and you are interested in helping to solve that problem, we ask that you apply and we will be glad to have you grow with us.
+			</span>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+	
+</div>
+
+</div>
+	
+    
+
+<section>
+	
+	<div class="container-fluid">
+		<div class="jobstat">
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-1 text-center"><span class="jobstath">34</span><br><span class="jobstatb">Staffs</span></div>
+				<div class="col-md-1 text-center"><span class="jobstath"><img src="{% static '/home/css/newhomepage/imgs/jobellipse.png' %}"></span></div>
+				<div class="col-md-1 text-center"><span class="jobstath">12</span><br><span class="jobstatb">Interns</span></div>
+				<div class="col-md-1 text-center"><span class="jobstath"><img src="{% static '/home/css/newhomepage/imgs/jobellipse.png' %}"></span></div>
+				<div class="col-md-1 text-center"><span class="jobstath">67</span><br><span class="jobstatb">Graduates</span></div>
+				<div class="col-md-1 text-center"><span class="jobstath"><img src="{% static '/home/css/newhomepage/imgs/jobellipse.png' %}"></span></div>
+				<div class="col-md-1 text-center"><span class="jobstath">8</span><br><span class="jobstatb">Jobs</span></div>
+				<div class="col-md-1 text-center"><span class="jobstath"><img src="{% static '/home/css/newhomepage/imgs/jobellipse.png' %}"></span></div>
+				<div class="col-md-2 text-center"><span class="jobstath">100%</span><br><span class="jobstatb">Remote</span></div>
+			</div>
+		</div>
+
+		
+	</div>
+	<div class="jobjoin">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="jobjoinmid">
+						<span class="jobjoinh">JOIN US</span>
+					</div>
+				</div>
+				<div class="col-md-6 col-xs-12">
+					<img class="jobimg" src="{% static '/home/css/newhomepage/imgs/jobjoin.png' %}">
+				</div>
+				<div class="col-md-3">
+					<div class="jobwe">
+						<span class="jobweh">We keep Expanding</span><br><span class="jobwep">talent capacity also grows</span><br><br><br>
+						<span class="jobweh">We keep Expanding</span><br><span class="jobwep">we measure output</span><br><br><br>
+						<span class="jobweh">We keep Expanding</span><br><span class="jobwep">exciting to certain personalities</span><br><br><br>
+						<a href="#jobn" class="joblinker"><b><span class="jobgoto">Jump to: Apply Now <img src="{% static '/home/css/newhomepage/imgs/gotoicon.png' %}"></span></b></a>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+			
+	</div>
+	<div class="jobstartnow" id="jobn">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="jobjoinmidh">
+						<br><br><br><br>
+						<span class="jobjoinh">START LINUX NOW!</span><br>
+						<span class="jobstatb"><strong>WE WILL TRAIN YOU</strong></span>
+					</div>
+				</div>
+				<div class="col-md-5">
+					<div class="jobwe">
+						<span><img src="{% static '/home/css/newhomepage/imgs/jobcheck.png' %}"> </span><span class="jobwecheck">Candidate must be willing to learn Linux</span><br><br>
+						<span><img src="{% static '/home/css/newhomepage/imgs/jobcheck.png' %}"> </span><span class="jobwecheck">We'll cover Red Hat Linux Certification. Cert Preferred</span><br><br>
+						<span><img src="{% static '/home/css/newhomepage/imgs/jobcheck.png' %}"> </span><span class="jobwecheck">Candidate must be a quick learner and goal oriented.</span><br><br>
+						<span><img src="{% static '/home/css/newhomepage/imgs/jobcheck.png' %}"> </span><span class="jobwecheck">Candidate must be able to work with little or no supervision.</span><br><br>
+						<span><img src="{% static '/home/css/newhomepage/imgs/jobcheck.png' %}"> </span><span class="jobwecheck">Any previous computer certification would be a plus.</span><br><br>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="jobwe">
+						<div class="text-center">
+							<span class="jobstatb">Got Your Red Hat Certification?</span><br>
+							<a href="{% url 'home:jobs' %}" class="jobbut btn"><b>APPLY NOW!</b></a><br><br><br>
+							<span class="jobstatb">No Certification?</span><br>
+							<a href="{% url 'Courses:description' 'RHSCA' %}" class="jobbut btn">GET YOURS</a><br><br>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<div class="jobwork">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-3 jobjoinmidh">
+					<span class="jobjoinh">DO YOU NEED WORK EXPERIENCE?</span><br>
+				</div>
+				<div class="col-md-6">
+					<div class="text-center jobjoinmidhp">
+						<span class="jobwecheck">
+						If you have already learned the skill and all you just need is the work experience, then join our work experience training program. The work experience will cover all the relevant areas that most employers are <br>looking for.   
+						</span>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="jobwe">
+						<div class="text-center">
+							<a href="{% url 'home:workexperience' %}" class="jobbut btn">LEARN MORE</a><br><br>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="jobtest">
+		<div class="container-fluid">
+			<div class="row"> 
+				<div class="col-md-4">
+					<div class="jobjoinmid">
+						<span class="jobjoinh">TESTIMONIES <br> & INTERVIEWS</span><br>
+					</div>
+				</div>
+				<div class="col-md-8">
+					<video src="http://videos.linuxjobber.com/s3/precious_Chidera_Linux_Administrator.mp4" controls width="100%" height='100%'></video>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</section> 
+
+
+{%endblock%}
+

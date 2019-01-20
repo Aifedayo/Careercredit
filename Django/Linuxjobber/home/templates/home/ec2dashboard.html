@@ -143,16 +143,17 @@ $(document).ready(function(){
             <div class="text-center"><b><p><br><br><br></p></b></div>
             {% if messages %}
           {% for message in messages %}
-          <div class="alert alert-{{message.tags}}" role="alert">
             {% if message.tags == "success" %}
-            <p style="color:#155724;">{{message}}</p>
+            <div class="alert alert-success" role="alert">
+            <p style="color:#155724">{{message}}</p>
+            </div>
             {%else%}
-            <p style="color:#721c24;">{{message}}</p>
+            <div class="alert alert-danger" role="alert">
+            <p style="color:#721c24">{{message}}</p>
+            </div>
             {%endif%}
-          </div>
           {% endfor %}
         {% endif %}
-
             
                                         <br>
                                         {%if running_machine %}
