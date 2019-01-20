@@ -1,0 +1,166 @@
+
+
+.navClass > ul {
+	background-color: #262626;
+	color: #ffffff;
+	font-size: 15px;
+	font-weight: 500;
+	font-family: Roboto;
+	font-style: normal;
+	line-height: normal;
+}
+
+.navClass > ul > li {
+	list-style-type: none;
+	display: inline-block;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 25px;
+	position: relative;
+}
+
+ul.sub-menu {
+	background-color: #404040;
+	position: absolute;
+	list-style-type: none;
+	width: 1270px;
+	margin-left: -490px;
+	margin-top: 30px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	opacity: 0;
+}
+
+
+
+.button {
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: normal;
+	line-height: normal;
+	font-size: 15px;
+	color: #252525;
+	border-radius: 88px;
+	background: rgba(255, 255, 255, 0.8);
+	padding: 5px 15px;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.quickLinks {
+	padding-top: 50px;
+}
+
+.quickLinks > ul > li > a {
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.quickLinks > div > ul > li {
+	color: rgba(255, 255, 255, 0.8);
+	list-style-type: none;
+	padding-left: 70px;
+}
+
+.quickLinks > div > img {
+	padding-left: 100px;
+}
+
+.socialMedia {
+	padding-top: 180px;
+}
+
+.socialMedia > ul > li {
+	list-style-type: none;
+	display: inline-block;
+
+}
+
+.socialMedia > ul > li > a {
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.compDate > p {
+	color: rgba(255, 255, 255, 0.8); 
+	text-align: center;
+}
+
+#logo {
+	padding-left: 5px;
+}
+
+#courses {
+	padding-left: 200px;
+}
+
+#try-for-free {
+	padding-left: 240px;
+}
+
+
+
+.project-dscrpn {
+	text-align: center;
+	padding-top: 33px;
+	padding-bottom: 98px;
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: normal;
+	line-height: normal;
+	font-size: 18px;
+	color: rgba(0, 0, 0, 0.8);
+}
+
+
+.projects-container {
+	margin-left: 49px;
+	margin-right: 50px;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	padding-left: -2000px;
+	background: #ffffff;
+	border-radius: 36px;
+	box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
+	height: 240px;
+}
+
+
+.projects-img {
+	position: absolute;
+	top: 45px;
+	left: 75px;
+}
+
+.project-img-col {
+	border-radius: 36px; 
+	position: relative;
+	background-repeat:no-repeat;
+	background-size: cover;
+}
+
+.projects-title {
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: normal;
+	line-height: normal;
+	font-size: 36px;
+	color: #000000;
+
+}
+
+.projects-description {
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: normal;
+	line-height: normal;
+	font-size: 18px;
+	color: rgba(0, 0, 0, 0.8);
+}
+
+.proj-contains {
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+	font-size: 18px;
+	color: #428BCA;
+}
