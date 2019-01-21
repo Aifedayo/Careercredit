@@ -268,7 +268,7 @@ class LabDetailsView(generic.DetailView):
         elif sub_type == 2:
             IP = request.POST['ip_address']
             outps = None
-            outps = subprocess.Popen(["sshpass","-p", settings.SERVER_PASSWORD, "ssh", "-o StrictHostKeyChecking=no", "-o LogLevel=ERROR", "-o UserKnownHostsFile=/dev/null", settings.SERVER_USER+"@"+str(IP), "python /tmp/GraderClient.py", settings.SERVER_USER,settings.SERVER_IP,str(topic.id),str(request.user.id)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+            outps = subprocess.Popen(["sshpass","-p", settings.SERVER_PASSWORD, "ssh", "-o StrictHostKeyChecking=no", "-o LogLevel=ERROR", "-o UserKnownHostsFile=/dev/null", settings.SERVER_USER+"@"+str(IP), "python /home/sysadmin/GraderClient.py", settings.SERVER_USER,settings.SERVER_IP,str(topic.id),str(request.user.id)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
             if outps:
                 labs = LabTask.objects.filter(lab=topic)
 
@@ -529,7 +529,7 @@ def get_machine(user):
                 if "0" in str(outs):
                     pass
                 else:
-                    out = subprocess.Popen(["/bin/bash", settings.BASE_DIR+"/home/utils/deploy_clientapp.sh", machine[1], "/tmp"])  
+                    out = subprocess.Popen(["/bin/bash", settings.BASE_DIR+"/home/utils/deploy_clientapp.sh", machine[1], "/home/sysadmin", settings.BASE_DIR+"/home/utils"])  
             else:
                 machine.append(False)
             

@@ -22,7 +22,7 @@ from .models import *
 from Courses.models import Course
 from ToolsApp.models import Tool
 from users.models import CustomUser
-from .forms import JobPlacementForm, JobApplicationForm, AWSCredUpload, InternshipForm, ResumeForm
+from .forms import JobPlacementForm, JobApplicationForm, AWSCredUpload, InternshipForm, ResumeForm, PartimeApplicationForm
 
 fs = FileSystemStorage(location= settings.MEDIA_ROOT+'/uploads')
 # stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -131,10 +131,10 @@ def internships(request):
     else:
         form = InternshipForm()
     form = InternshipForm()
-    return render(request, 'home/internships.html', {'form': form, 'courses' : get_courses(), 'tools' : get_tools()})
+    return render(request, 'home/internships.html', {'form': form})
 
 def resumeservice(request):
-    return render(request, 'home/resumeservice.html', {'courses' : get_courses(), 'tools' : get_tools()})
+    return render(request, 'home/resumeservice.html')
 
 
 
@@ -188,21 +188,53 @@ def policies(request):
  
 
 def jobs(request):
-    return render(request, 'home/job.html', {'courses' : get_courses(), 'tools' : get_tools()})
+    posts = FullTimePostion.objects.all()
+    return render(request, 'home/job.html', {'posts':posts})
+
+def partime(request):
+
+    if request.method == "POST":
+        form = PartimeApplicationForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you applied for a part-time role at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [request.POST['email']])
+            return redirect("home:jobfeed")
+        else:
+            form = PartimeApplicationForm()
+            return render(request, 'home/partime.html', {'form': form})
+    else:
+        form = PartimeApplicationForm()
+    form = PartimeApplicationForm()
+    return render(request, 'home/partime.html', {'form': form})
+
+def jobfeed(request):
+    return render(request, 'home/jobfeed.html')
+
+def linux_start(request):
+    return render(request, 'home/linux_start.html')
 
 
-def jobapplication(request):
+def jobapplication(request, job):
+    try:
+        posts = FullTimePostion.objects.get(id=job)
+    except FullTimePostion.DoesNotExist:
+        return redirect("home:jobs")
 
     if request.method == "POST":
         form = JobApplicationForm(request.POST, request.FILES)
         if form.is_valid():
             jobform = form.save(commit=False)
+            jobform.position = posts
             jobform.save()
-            return render(request, 'home/job.html', {'courses' : get_courses(), 'tools' : get_tools()})
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you applied for a full-time role at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [request.POST['email']])
+            return redirect("home:jobfeed")
+        else:
+            form = JobApplicationForm()
+            return render(request, 'home/jobapplication.html', {'form': form, 'posts' : posts})
     else:
         form = JobApplicationForm()
     form = JobApplicationForm()
-    return render(request, 'home/jobapplication.html', {'form': form,'courses' : get_courses(), 'tools' : get_tools()})
+    return render(request, 'home/jobapplication.html', {'form': form, 'posts' : posts})
 
 
 def resume(request):
@@ -338,6 +370,14 @@ def oracledb_certification(request):
 
 
 def workexperience(request):
+    if request.user.is_authenticated:
+        try:
+            workexp = wepeoples.objects.get(user=request.user)
+            return redirect("home:workexprofile")
+        except wepeoples.DoesNotExist:
+            pass
+    else:
+        pass
     return render(request, 'home/workexperience.html')
 
 @login_required
@@ -502,6 +542,7 @@ def pay(request):
                 _, created = wepeoples.objects.update_or_create(user=request.user,trainee_position=None,current_position=None,
                                                         person_type=None,state=None,income=None,relocation=None,
                                                         last_verification=None,Paystub=None,graduation_date=None)
+                send_mail('Linuxjobber Work-Experience Program', 'Hello, you have succesfully paid for Linuxjobber work experience program.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [request.user.email])
                 return render(request,'home/accepted.html')
             except Exception as error:
                 print(error)
@@ -772,7 +813,9 @@ def account_settings(request):
         secret_key = ""
 
         for column in csv.reader(io_string, delimiter=','):
+            
             count = len(list(column))
+
             if count == 5:
                 username = column[0]
                 access_key = column[2]
@@ -781,10 +824,13 @@ def account_settings(request):
                 username = column[0]
                 access_key = column[1]
                 secret_key = column[2] 
-            else:
+            elif count == 2:
                 username = ""
                 access_key = column[0]
                 secret_key = column[1] 
+            else:
+                messages.error(request, 'There was an error while validating credentials, please confirm your credential file is correct. Please contact admin@linuxjobber.com')
+                return render(request, 'home/account_settings.html', {'form': form, 'courses' : get_courses(), 'tools' : get_tools()})
 
         V_AWS_ACTION = 'verify';
         V_MACHINE_ID = 'verify';
@@ -815,17 +861,20 @@ def account_settings(request):
             error2 = "AuthFailure"
             error3 = "OptInRequired"
 
-            for out in output:
-                if not sorted(out) == sorted(error1):
-                    messages.error(request, 'You are not authorized to perform this operation. Please contact admin@linuxjobber.com')
-                    return render(request, 'home/account_settings.html', {'form': form,'courses' : get_courses(), 'tools' : get_tools() })
-                elif not sorted(out) == sorted(error2):
-                    messages.error(request, 'There was an error while validating credentials. Please contact admin@linuxjobber.com')
-                    return render(request, 'home/account_settings.html', {'form': form, 'courses' : get_courses(), 'tools' : get_tools()})
-                elif not sorted(out) == sorted(error3):
-                    messages.error(request, 'You are not subscribed to the AWS service, Please go to http://aws.amazon.com to subscribe.')
-                    return render(request, 'home/account_settings.html', {'form': form,'courses' : get_courses(), 'tools' : get_tools() })
-
+            output = bytes(output)
+            output = output.decode()
+            if error1 in output:
+                messages.error(request, 'You are not authorized to perform this operation. Please contact admin@linuxjobber.com')
+                return render(request, 'home/account_settings.html', {'form': form})
+            elif error2 in output:
+                messages.error(request, 'There was an error while validating credentials. Please contact admin@linuxjobber.com')
+                return render(request, 'home/account_settings.html', {'form': form})
+            elif error3 in output:
+                messages.error(request, 'You are not subscribed to the AWS service, Please go to http://aws.amazon.com to subscribe.')
+                return render(request, 'home/account_settings.html', {'form': form})
+            else:
+                messages.error(request, 'Unhandled exception has occurred. Please contact admin@linuxjobber.com')
+                return render(request, 'home/account_settings.html', {'form': form})
     else:
         try:
             check = AwsCredential.objects.get(user=request.user)
@@ -834,7 +883,7 @@ def account_settings(request):
         if check:
             return redirect("home:ec2dashboard")
             
-        return render(request, 'home/account_settings.html', {'form':form,'courses' : get_courses(), 'tools' : get_tools() })
+        return render(request, 'home/account_settings.html', {'form':form})
 
 
 def ec2dashboard(request, command=None):
@@ -911,25 +960,26 @@ def ec2dashboard(request, command=None):
             print("error code", grepexc.returncode, grepexc.output)
             return_code = grepexc.returncode
             output = grepexc.output
+            output = bytes(output)
+            output = output.decode()
 
             #types of errors expected from AWS
             error1 = "UnauthorizedOperation"
             error2 = "AuthFailure"
             error3 = "InstanceLimitExceeded"
 
-            for out in output:
-                if not sorted(out) == sorted(error1):
-                    messages.error(request, 'You are not authorized to perform this operation. Please contact admin@linuxjobber.com')
-                    return render(request, 'home/ec2dashboard.html', context)
-                elif not sorted(out) == sorted(error2):
-                    messages.error(request, 'There was an error while validating credentials. Please contact admin@linuxjobber.com')
-                    return render(request, 'home/ec2dashboard.html', context)
-                elif not sorted(out) == sorted(error3):
-                    messages.error(request, 'Sorry, you can only launch one machine at a time')
-                    return render(request, 'home/ec2dashboard.html', context)
-                else:
-                    messages.error(request, 'Unhandled exception has occurred. Please contact admin@linuxjobber.com')
-                    return render(request, 'home/ec2dashboard.html', context)
+            if error1 in output:
+                messages.error(request, 'You are not authorized to perform this operation. Please contact admin@linuxjobber.com')
+                return render(request, 'home/ec2dashboard.html', context)
+            elif error2 in output:
+                messages.error(request, 'There was an error while validating credentials. Please contact admin@linuxjobber.com')
+                return render(request, 'home/ec2dashboard.html', context)
+            elif error3 in output:
+                messages.error(request, 'Sorry, you can only launch one machine at a time')
+                return render(request, 'home/ec2dashboard.html', context)
+            else:
+                messages.error(request, 'Unhandled exception has occurred. Please contact admin@linuxjobber.com')
+                return render(request, 'home/ec2dashboard.html', context)
 
     if request.method == "POST":
         form = AWSCredUpload(request.POST, request.FILES)
@@ -956,10 +1006,14 @@ def ec2dashboard(request, command=None):
                 username = column[0]
                 access_key = column[1]
                 secret_key = column[2] 
-            else:
+            elif count == 2:
                 username = ""
                 access_key = column[0]
                 secret_key = column[1] 
+            else:
+                messages.error(request, 'There was an error while validating credentials, please confirm your credential file is correct. Please contact admin@linuxjobber.com')
+                return redirect("home:ec2dashboard")
+
 
         V_AWS_ACTION = 'verify';
         V_MACHINE_ID = 'verify';
@@ -973,33 +1027,34 @@ def ec2dashboard(request, command=None):
             return_code = grepexc.returncode
             output = grepexc.output
 
+            output = bytes(output)
+            output = output.decode()
+
         #types of errors expected from AWS
             error1 = "UnauthorizedOperation"
             error2 = "AuthFailure"
             error3 = "OptInRequired"
 
-            for out in output:
-                if not sorted(out) == sorted(error1):
-                    messages.error(request, 'You are not authorized to perform this operation. Please contact admin@linuxjobber.com')
-                    return render(request, 'home/ec2dashboard.html', context)
-                elif not sorted(out) == sorted(error2):
-                    messages.error(request, 'There was an error while validating credentials. Please contact admin@linuxjobber.com')
-                    return render(request, 'home/ec2dashboard.html', context)
-                elif not sorted(out) == sorted(error3):
-                    messages.error(request, 'You are not subscribed to the AWS service, Please go to http://aws.amazon.com to subscribe.')
-                    return render(request, 'home/ec2dashboard.html', context)
+
+            if error1 in output:
+                messages.error(request, 'You are not authorized to perform this operation. Please contact admin@linuxjobber.com')
+                return redirect("home:ec2dashboard")
+            elif error2 in output:
+                messages.error(request, 'There was an error while validating credentials. Please contact admin@linuxjobber.com')
+                return redirect("home:ec2dashboard")
+            elif error3 in output:
+                messages.error(request, 'You are not subscribed to the AWS service, Please go to http://aws.amazon.com to subscribe.')
+                return redirect("home:ec2dashboard")
 
             #return render(request,'courses/result.html',{'gradingerror':"There was an error encountered during grading",'coursetopic':topic})
-        _, created = AwsCredential.objects.update_or_create(
-                user = request.user,
-                username = username,
-                accesskey = access_key,
-                secretkey = secret_key,
-                )
+        awscred.accesskey = access_key
+        awscred.secretkey = secret_key
+        awscred.username = username
+        awscred.save(update_fields=['username','accesskey','secretkey']) 
+
         if form.is_valid():
-            #form.save()
             messages.success(request, 'AWS credentials have been uploaded successfully')
-            return render(request, 'home/ec2dashboard.html', context)
+            return redirect("home:ec2dashboard")
     
     return render(request, 'home/ec2dashboard.html', context)
 
@@ -1020,21 +1075,23 @@ def startmachine(request, machine_id):
             print("error code", grepexc.returncode, grepexc.output)
             return_code = grepexc.returncode
             output = grepexc.output
+            output = bytes(output)
+            output = output.decode()
 
             #types of errors expected from AWS
             error1 = "UnauthorizedOperation"
             error2 = "AuthFailure"
 
-            for out in output:
-                if not sorted(out) == sorted(error1):
-                    messages.error(request, 'You are not authorized to perform this operation. Please contact admin@linuxjobber.com')
-                    return redirect("home:ec2dashboard")
-                elif not sorted(out) == sorted(error2):
-                    messages.error(request, 'There was an error while validating credentials. Please contact admin@linuxjobber.com')
-                    return redirect("home:ec2dashboard")
-                else:
-                    messages.error(request, 'Unhandled exception has occurred. Please contact admin@linuxjobber.com')
-                    return redirect("home:ec2dashboard")
+            
+            if error1 in output:
+                messages.error(request, 'You are not authorized to perform this operation. Please contact admin@linuxjobber.com')
+                return redirect("home:ec2dashboard")
+            elif error2 in output:
+                messages.error(request, 'There was an error while validating credentials. Please contact admin@linuxjobber.com')
+                return redirect("home:ec2dashboard")
+            else:
+                messages.error(request, 'Unhandled exception has occurred. Please contact admin@linuxjobber.com')
+                return redirect("home:ec2dashboard")
 
 
 def stopmachine(request, machine_id):
@@ -1053,21 +1110,22 @@ def stopmachine(request, machine_id):
             print("error code", grepexc.returncode, grepexc.output)
             return_code = grepexc.returncode
             output = grepexc.output
+            output = bytes(output)
+            output = output.decode()
 
             #types of errors expected from AWS
             error1 = "UnauthorizedOperation"
             error2 = "AuthFailure"
 
-            for out in output:
-                if not sorted(out) == sorted(error1):
-                    messages.error(request, 'You are not authorized to perform this operation. Please contact admin@linuxjobber.com')
-                    return redirect("home:ec2dashboard")
-                elif not sorted(out) == sorted(error2):
-                    messages.error(request, 'There was an error while validating credentials. Please contact admin@linuxjobber.com')
-                    return redirect("home:ec2dashboard")
-                else:
-                    messages.error(request, 'Unhandled exception has occurred. Please contact admin@linuxjobber.com')
-                    return redirect("home:ec2dashboard")
+            if error1 in output:
+                messages.error(request, 'You are not authorized to perform this operation. Please contact admin@linuxjobber.com')
+                return redirect("home:ec2dashboard")
+            elif error2 in output:
+                messages.error(request, 'There was an error while validating credentials. Please contact admin@linuxjobber.com')
+                return redirect("home:ec2dashboard")
+            else:
+                messages.error(request, 'Unhandled exception has occurred. Please contact admin@linuxjobber.com')
+                return redirect("home:ec2dashboard")
 
 
 def order_list(request):
