@@ -707,9 +707,9 @@ def group_pay(request,pk):
             return redirect("home:group",pk=pk)
         except stripe.error.CardError as ce:
             return False, ce
-    # Implementation for free internship - Azeem Animashaun
+    # Implementation for free internship - Azeem Animashaun (Updated 21 January)
     if amount == 0:
-        messages.success(request, 'You are registered in group class successfully.')
+        messages.success(request, 'You are registered in group class successfully..')
         _, created = GroupClassRegister.objects.update_or_create(
             user=request.user,
             is_paid=1,
