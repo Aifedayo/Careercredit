@@ -529,7 +529,7 @@ def get_machine(user):
                 if "0" in str(outs):
                     pass
                 else:
-                    out = subprocess.Popen(["/bin/bash", settings.BASE_DIR+"/home/utils/deploy_clientapp.sh", machine[1], "/tmp"])  
+                    out = subprocess.Popen(["/bin/bash", settings.BASE_DIR+"/home/utils/deploy_clientapp.sh", machine[1], "/tmp", settings.BASE_DIR+"/home/utils"])  
             else:
                 machine.append(False)
             

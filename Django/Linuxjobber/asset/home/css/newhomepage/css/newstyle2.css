@@ -6954,8 +6954,287 @@ h6 {
       margin-top: 100px;
   }
   
-  
+  /** New Jobs page **/
+
+.jobbanner{
+    min-height: 80vh;
+    width: 100vw;
+    background: url(../imgs/Group_24.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-bottom: 20px;
+}
+
+
+.jobbantext{
+    color: #fff;
+    padding-top: 180px;
+}
+
+.jobbantext, h1{
+    font-size: 45px;
+    padding-bottom: 10px; 
+    font-weight: bold;
+}
+
+.jobbantext, span{
+    font-size: 18px;
+}
+
+.jobdot{
+    height: 8px;
+    width: 8px;
+    color: #fff;
+    background-color: #fff;
+    border-radius: 50%;
+    font-size: 45px;
+    display: inline-block;
+}
+
+.jobstartnow{
+    padding-bottom: 40px;
+}
+
+.jobstat{
+    padding-top: 60px;
+    color: #4975B1;
+    padding-bottom: 60px
+}
+
+.jobstath{
+    color: #4975B1;
+    font-size: 50px;
+    font-weight: bold
+}
+
+.jobstatb{
+    padding-top: 0px;
+    color: #4975B1;
+}
+
+.jobjoin{
+    background-color: #FAFAFA;
+    min-height: 50px;
+}
+
+.jobwork{
+    padding-top:  50px;
+    background-color: #FAFAFA;
+    min-height: 50px;
+    padding-bottom: 50px;
+}
+
+.jobjoinh{
+    color: #4975B1;
+    font-size: 36px;
+    font-weight: bold;
+    
+}
+
+.jobjoinmid{
+    padding-top: 150px;
+}
+
+.jobjoinmidh{
+    padding-top: 30px;
+}
+
+.jobjoinmidhp{
+    padding-top:40px;
+}
+
+.jobwe{
+    padding-top: 50px;
+}
+
+.jobweh{
+    font-size: 24px;
+}
+
+.jobgoto{
+    font-size: 22px;
+}
+
+.jobwecheck{
+    font-size: 18px;
+}
+.jobwep{
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+.jobbut{
+    text-align: center;
+    font-size: 18px;
+    background-color: #252525;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+}
+
+.jobbut:hover{
+    color: #fff;
+    background-color: #D3D3D3;
+}
+
+.jobbut2{
+    border: 1px solid #252525;
+    text-align: center;
+    font-size: 18px;
+    background-color: #fff;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+}
+
+.jobtest{
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+
+.jobtype input[type="file"] {
+    display: none;
+}
+
+.jobcheckbox:checked,
+.jobcheckbox:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+
+.jobcheckbox:checked + label,
+.jobcheckbox:not(:checked) + label
+{
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #000;
+}
+.jobcheckbox:checked + label:before,
+.jobcheckbox:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #000;
+    border-radius: 100%;
+    background: #fff;
+}
+.jobcheckbox:checked + label:after,
+.jobcheckbox:not(:checked) + label:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #4975B1;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.jobcheckbox:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+.jobcheckbox:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+/**JOb type page**/
+.jobbaner2{
+    min-height: 40vh;
+    width: 100vw;
+    background: url(../imgs/jobban2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-bottom: 20px;
+}
+
+.jobbantext2{
+    color: #fff;
+    padding-top: 120px;
+}
+
+.jobbantext2, h1{
+    font-size: 45px;
+    font-weight: bold;
+    line-height: 30px;
+}
+
+.jobtype{
+    margin-top: 40px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.jobtypeh{
+    color: #4975B1;
+    font-size: 24px;
+}
+
+.jobtypep{
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 18px;
+} 
+.jobline{
+    border: 2px solid #979797;
+    height: 0px;
+}
+
+.jobinfo{
+    background-color: rgba(88, 88, 88, 0.05);
+    padding-left: 5px;
+} 
+
+.jobinfoh{
+    font-size: 18px;
+    color: #4975B1;
+} 
+
+.jobinfop{
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 18px;
+    font-weight: lighter;
+} 
+
+.jobfinputp{
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 18px;
+}
+
+.jobfinput{
+    margin-top: 0px;
+    padding-top: 5px;
+    height: 47px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.joblinker{
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.workexpban{
+    margin-top: 0px;
+    min-height: 37vh;
+    width: 100vw;
+    background: url(../imgs/workexpban.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
   @media (min-width: 360px) and (max-width: 640px) {
+
+    /**Jobs page **/
+    .jobimg{
+        width: 100%;
+    }
     .slides {
         background: rgba(0, 0, 0, 0) url("../images/bannerr.png");
         height: 80vh;
@@ -7353,6 +7632,8 @@ h6 {
     margin-top: 100px;
 }
 
+
+
 @media (min-width: 360px) and (max-width: 640px) {
     .slides {
         background: rgba(0, 0, 0, 0) url("../images/bannerr.png");
@@ -7647,3 +7928,4 @@ h6 {
         padding-bottom: 50px;
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
+

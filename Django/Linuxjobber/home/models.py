@@ -20,25 +20,46 @@ class FAQ(models.Model):
         return self.question
 
 
-class Job(models.Model):
-
-    POSITION = (
-        (1, 'Part-time Frontend Developer'),
-        (2, 'Web Frontend Developer'),
-        (3, 'AWS Cloud Architecture'),
-        (4, 'Linux Administrator'),
-        (5, 'Part-time Java Developer'),
-    )
-
-    firstname = models.CharField(max_length=200)
-    lastname = models.CharField(max_length=200)
-    email = models.CharField(max_length=200)
-    phone = models.CharField(max_length=12)
-    position = models.IntegerField(default=1, choices=POSITION) 
-    resume = models.FileField(upload_to = 'resume')
+class FullTimePostion(models.Model):
+    job_title = models.CharField(max_length=200)
+    requirement = models.CharField(max_length=200)
+    responsibility  = models.TextField()
+    weight = models.IntegerField(unique=True, null=True)
 
     def __str__(self):
-        return self.firstname +' ' +self.lastname
+        return '%s' % self.job_title
+    
+class PartTimePostion(models.Model):
+    job_title = models.CharField(max_length=200)
+
+    def __str__(self):
+        return '%s' % self.job_title
+
+class Job(models.Model):
+
+
+    fullname = models.CharField(max_length=200)
+    email = models.CharField(max_length=200)
+    phone = models.CharField(max_length=12)
+    position = models.ForeignKey(FullTimePostion, on_delete = models.CASCADE)        
+    resume = models.FileField(upload_to = 'resume',null=True)
+    cv_link = models.CharField(max_length=200, null=True)
+
+    def __str__(self):
+        return self.fullname
+
+class PartTimeJob(models.Model):
+
+    fullname = models.CharField(max_length=200)
+    email = models.CharField(max_length=200)
+    phone = models.CharField(max_length=15)
+    cv = models.FileField(upload_to = 'resume',null=True)
+    cv_link = models.CharField(max_length=200, null=True)
+    position = models.ForeignKey(PartTimePostion, on_delete = models.CASCADE) 
+    high_salary = models.IntegerField(default=0 ,choices=((0, 'No'), (1, 'Yes')))
+
+    def __str__(self):
+        return self.email
 
 
 def content_file_name(instance, filename):

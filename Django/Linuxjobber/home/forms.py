@@ -1,16 +1,36 @@
 from django import forms
 from . import models
-from .models import Document, Internship, Resume
+from .models import Document, Internship, Resume, PartTimePostion, FullTimePostion
 
 
 class JobApplicationForm(forms.ModelForm):
-	firstname = forms.CharField(label='First Name', widget = forms.TextInput(attrs = {'placeholder': 'First name', 'id' :'JobFname', 'class':'form-control inputarea'}) )
-	lastname = forms.CharField(label='Last Name', widget = forms.TextInput(attrs = {'placeholder': 'Last name', 'id' :'JobFname', 'class':'form-control inputarea'}) )
-	email = forms.CharField(label='Email', widget = forms.TextInput(attrs = {'placeholder': 'Email', 'id' :'JobFname', 'class':'form-control inputarea'}) )
-	phone = forms.CharField(label='Phone', widget = forms.TextInput(attrs = {'placeholder': 'Phone', 'id' :'JobFname', 'class':'form-control inputarea'}) )
+	fullname = forms.CharField(label='First Name', widget = forms.TextInput(attrs = {'placeholder': 'Your full name', 'id' :'JobFname', 'class':'form-control jobfinput'}) )
+	email = forms.CharField(label='Email', widget = forms.TextInput(attrs = {'placeholder': 'Your email address', 'id' :'JobFname', 'class':'form-control jobfinput'}) )
+	phone = forms.CharField(label='Phone', widget = forms.TextInput(attrs = {'placeholder': 'Your phone number', 'id' :'JobFname', 'class':'form-control jobfinput'}) )
+	cv_link = forms.CharField(label='Phone',required = False, widget = forms.TextInput(attrs = {'placeholder': 'Link to CV or LinkedIn', 'id' :'cv_link', 'class':'form-control jobfinput', }) )
+	resume = forms.FileField(label='cv',required = False, widget = forms.FileInput(attrs = {'id':'file-upload','accept':".pdf,.doc,.docx"}))
 
 	class Meta:
 		model = models.Job
+		fields = ['resume','email','fullname','cv_link','phone']
+
+class PartimeApplicationForm(forms.ModelForm):
+
+	High = [
+    	(1,'Yes'),
+    	(0,'No'),
+    ]
+
+	fullname = forms.CharField(label='First Name', widget = forms.TextInput(attrs = {'placeholder': 'Your full name', 'id' :'JobFname', 'class':'form-control jobfinput'}) )
+	email = forms.CharField(label='Email', widget = forms.TextInput(attrs = {'placeholder': 'Your email address', 'id' :'JobFname', 'class':'form-control jobfinput'}) )
+	phone = forms.CharField(label='Phone', widget = forms.TextInput(attrs = {'placeholder': 'Your phone number', 'id' :'JobFname', 'class':'form-control jobfinput'}) )
+	position = forms.ModelChoiceField(queryset=PartTimePostion.objects.all(), empty_label="Select",widget = forms.Select(attrs = {'placeholder': 'Position', 'id' :'JobFname', 'class':'form-control jobfinput jobselect'}) )
+	cv_link = forms.CharField(label='Phone',required = False, widget = forms.TextInput(attrs = {'placeholder': 'Link to CV or LinkedIn', 'id' :'cv_link', 'class':'form-control jobfinput', }) )
+	cv = forms.FileField(label='cv',required = False, widget = forms.FileInput(attrs = {'id':'file-upload','accept':".pdf,.doc,.docx"}))
+	high_salary = forms.ChoiceField(choices=High,widget = forms.RadioSelect(attrs = {'class':'jobcheckbox'}))
+
+	class Meta:
+		model = models.PartTimeJob
 		fields = '__all__'
 
 
@@ -34,7 +54,6 @@ class InternshipForm(forms.ModelForm):
 	country = forms.CharField(label='country', widget = forms.TextInput(attrs = {'placeholder': 'Country/State', 'id' :'JobFname', 'class':'form-control'}) )
 	experience = forms.CharField(label='experience', widget = forms.TextInput(attrs = {'placeholder': 'Experience', 'id' :'JobFname', 'class':'form-control'}) )
 	course = forms.CharField(label='course', widget = forms.TextInput(attrs = {'placeholder': 'Course of study/Deparment ', 'id' :'JobFname', 'class':'form-control'}) )
-	resume = forms.FileField(label='', widget = '')
 	
 	class Meta:
 		model = Internship

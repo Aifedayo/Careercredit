@@ -1,0 +1,56 @@
+{% extends 'home/base.html' %}
+{% load staticfiles%}
+{% block title %}
+Jobs | Linuxjobber
+{% endblock %}
+{% block content %}
+
+<div class="jobbaner2">
+	<div class="text-center jobbantext2">
+		<h1>FEEDBACK</h1>
+		<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<span>
+				Application Submitted
+			</span>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-10">
+			<div class="text-center">
+				<div class="jobtype">
+				<span>
+				Thanks for your interest in LinuxJobber. Someone from our technical team will be in touch with you soon.
+				<br>While you wait....
+				</span>
+				<br><br>
+				<p class="jobtypeh"><b>JOIN OUR WORK EXPERIENCE PROGRAM</b></p>
+				<span>Get Work Experience in this field in just 3 Months</span><br><br>
+				<a href="{% url 'home:workexperience' %}" class="jobbut btn"> LEARN MORE </a><br>
+				</div>
+			</div>
+			<br><br>
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+</div>
+<div class="workexpban">
+	<div class="row">
+		<div class="col-md-9"></div>
+		<div class="col-md-3">
+			<br><br>
+			<a href="{% url 'home:aboutus' %}" class="joblinker"><b><span class="jobgoto">Learn About Linuxjobber <img src="{% static '/home/css/newhomepage/imgs/gotoicon.png' %}"></span></b></a><br><br>
+			<a href="{% url 'Courses:description' 'RHSCA' %}" class="joblinker"><b><span class="jobgoto">Get Red Hat Certification<img src="{% static '/home/css/newhomepage/imgs/gotoicon.png' %}"></span></b></a><br><br>
+			<a href="{% url 'home:jobs' %}" class="joblinker"><b><span class="jobgoto">See Available Job Position<img src="{% static '/home/css/newhomepage/imgs/gotoicon.png' %}"></span></b></a><br>
+		</div>
+	</div>
+	
+</div>
+{%endblock%}
