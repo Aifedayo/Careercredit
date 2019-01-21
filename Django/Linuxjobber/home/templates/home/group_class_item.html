@@ -76,7 +76,7 @@
       </div>
       <div class="col-md-4 px-3 text-center">
         <h4 class="head mb-5">DURATION:</h4>
-        <div class="text">{{group.duration}} Days</div>
+        <div class="text">{{group.duration}}</div>
       </div>
       <div class="col-md-4 px-3 text-center">
         <h4 class="head mb-5">TYPE:</h4>
@@ -94,11 +94,13 @@
       {% if user not in group.users.all %}
        <form action="" style="text-align: center" class="mb-5" enctype="multipart/form-data" method="post" >
   {% csrf_token %}
-  <div class="row">
+  <div class="row ">
+  <div class="container">
+        {% if group.price != 0 %}
         <div class="col-12 col-md-4 col-lg-4">
           <div class="groupbox">
             <p class="groupboxth">Access only this course video</p>
-            <p class="groupboxt">$29 one time fee  </p>
+            <p class="groupboxt">${{ group.price }} one time fee  </p>
             <input type="radio" name="choice" value="0" id="c1">
             <div class="groupbot1 groupbot"></div>
            </div>
@@ -111,19 +113,37 @@
             <div class="groupbot2 groupbot"></div>
           </div>
         </div>
-                  <div class="col-12 col-md-4 col-lg-4" id="change">
+        <div class="col-12 col-md-4 col-lg-4" id="change">
             <div class="groupbox groupboxg">
           <p class="groupboxth">No, I do not want access to any videos</p>
           <p class="groupboxt">$0</p>
           <input type="radio" name="choice" value="2" disabled>
         </div>
         </div>
-          </div>
+            {% else %}
+                    <div class="col-sm-12 col-md-6 col-lg-6" id="change">
+          <div class="groupbox">
+            <p class="groupboxth">Access only this course video</p>
+            <p class="groupboxt">${{ group.price }} : FREE </p>
+            <input type="radio" name="choice" value="0" id="c1">
+            <div class="groupbot1 groupbot"></div>
+           </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6" id="change">
+            <div class="groupbox groupboxg">
+          <p class="groupboxth">No, I do not want access to any videos</p>
+          <p class="groupboxt">$0</p>
+          <input type="radio" name="choice" value="2" disabled>
+        </div>
+        </div>
+
+        {% endif %}
+  </div>
+        </div>
       <div class="featurette sign-up py-5 container" id="register" >
         <div  id="invalid-f" class="alert alert-danger mx-5 groupbat" role="alert">
           Select any of the options above
         </div>
-
         <h1 class="text-center">Enroll Now </h1>
         <input type="hidden" name="name"  value="{{groupd.name}}" >
         <input type="hidden" name="price"  value="{{groupd.price}}" >
@@ -135,7 +155,7 @@
         <input type="text"  placeholder="Fullname" name="fullname" id="fullname" >
          <input type="email"  placeholder="E-mail" name="email" id="email" >
          <input type="password" placeholder="Password" name="password" id="password">
-            <p class="subtitle"> Note: This automatically creates a linuxjobber profile for you </p>
+            <p class="text-danger" style="font-size: small"> * This automatically creates a linuxjobber profile for you </p>
         {%endif%}
 
         <div id="invalid-form" class="alert alert-danger hidden-xs-up fade show mx-5" style="display: inline-block" role="alert">
