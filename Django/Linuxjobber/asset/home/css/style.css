@@ -28,7 +28,7 @@ body {
 }
 
 h2 {
-	color: #4f4f4f;
+	color: #000;
 	font-weight: 700;
 }
 @keyframes bounce {
@@ -491,15 +491,15 @@ video {
     border-right: transparent;
     border-radius: inherit;
 }*/
-input[type="text"], select.white-border {
+/**input[type="text"], select.white-border {
     background: rgba(255, 255, 255, 0.6);
-    border: 1px solid #ccc;
-    -webkit-box-shadow: none;
-    box-shadow: none;
+    border: none;
+   /** -webkit-box-shadow: none;**/
+   /** box-shadow: none;
     border-radius: 5px;
     margin-bottom: 30px;
     padding: 10px;
-}
+}**/
 
 input[type="text"]:focus,
 select.white-border:focus {
