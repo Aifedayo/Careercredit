@@ -63,6 +63,13 @@
 
 </style>
 
+	<!--<link href="{% static 'faq/css/reset.css' %}" rel="stylesheet">
+    <link href="{% static 'faq/css/faq_style.css' %}" rel="stylesheet">-->
+    <script src="{% static 'faq/js/modernizr.js' %} "></script> 
+
+	<!-- PROJECTS APPLICATION CUSTOM STYLESHEET -->
+	<link rel="stylesheet" type="text/css" href="{% static 'Projects/custom/css/projects.css' %}">
+
 </head>
 
 <body>
@@ -191,7 +198,8 @@
 						<nav>
 							<ul class="nav navbar-nav navbar-right main-nav" >
 								<li class="has-dropdown sub-menu profile">
-									<a class="b-n" href="javascript:void(0)">{{ user.username }}</a>			
+									<a class="b-n" href="javascript:void(0)">{{ user.username }}</a>
+
 									<div class="dropdowns transparent-style" id="profile">
 										<div class="container text-1 ">
 											<div class="col-md-4 col-sm-6">
@@ -220,6 +228,9 @@
 											{%endif%}
 										</div>
 									</div>	
+								</li>
+								<li>
+									<a style="margin-top: -10px;margin-bottom: -20px;" href="{% url 'home:profile_img_upload' %}"><img style="width: 44px;height: 44px;border-radius: 100px;" src="{{ user.profile_img }}"></a>	
 								</li>
 							
 										

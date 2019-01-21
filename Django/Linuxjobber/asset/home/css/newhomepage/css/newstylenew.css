@@ -231,6 +231,10 @@
         
       }
 
+      #myCarousel .carousel-inner {
+    background: rgba(0, 0, 0, 0) url("/static/home/images/bannerr.png") no-repeat scroll right center / cover;
+}
+
     .headernew h1{
         font-size: 25px;
         font-weight:bold;
