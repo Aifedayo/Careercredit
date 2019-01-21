@@ -1,0 +1,73 @@
+{% extends 'home/base.html' %} {% load staticfiles%} 
+{% block title %}
+	Projects | {{ group.group_name }} | Linuxjobber
+ {% endblock %}
+{% block content %}
+
+<section id="bg-color">
+<div class="course-list" role="listbox">
+	<div class="item active">
+
+		<div class=" text-center course-lists">
+			<h2>Project List - {{ group.group_name }}</h2>
+
+		</div>
+	</div>
+</div>
+
+<ul>
+
+{% for prjcourse in group.courses.all %}
+	<li>
+		<section class="lists">
+			<div class="container-fluid">
+				<div class="row listwrap">
+					<div class="col-md-8">
+						<h3>{{ prjcourse.course_name }}</h3>
+						<div class="col-md-3">
+							<img src="{{ prjcourse.background_image.url }}"
+								class="htm">
+						</div>
+						<div class="col-md-5 listboxx">
+							<p>{{ prjcourse.description }}</p>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<a href="{% url 'Projects:coursetopics' group.group_name prjcourse.course_name %}">
+							<button class="btn btn-lg btn-responsive btn-primary btn-list">Begin
+								Project</button>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+	</li>
+{% empty %}
+	<li>
+		<section class="lists">
+			<div class="container-fluid">
+				<div class="row listwrap">
+					<div class="col-md-8">
+						<h3>Dummy</h3>
+						<div class="col-md-3">
+							<img src="https://linuxjobber.com/img/1528821983_Ansible.png"
+								class="htm">
+						</div>
+						<div class="col-md-5 listboxx">
+							<p>Dummy course</p>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<a href="#">
+							<button class="btn btn-lg btn-responsive btn-primary btn-list">Begin
+								Project</button>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+	</li>
+{% endfor %}
+</ul>
+</section>
+{% endblock %}

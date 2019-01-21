@@ -42,7 +42,7 @@ urlpatterns = [
     path('access_course', views.monthly_subscription, name='monthly_subscription'),
     path('logout', views.log_out, name="logout"),
     path('forgot/password', views.forgot_password, name='forgot_password'),
-    path('reset_password/<str:reset_token>/', views.reset_password, name='reset_password'),
+    path('reset_password/<str:u_id>/', views.reset_password, name='reset_password'),
     path('aboutus', views.aboutus, name="aboutus"),
     path('policies', views.policies, name="policies"),
     path('linux_start', views.linux_start, name='linux_start'),
@@ -70,5 +70,4 @@ urlpatterns = [
     path('tryfree/<slug:sub_plan>/', views.tryfree, name='tryfree'),
     path('user/RHCSA/order_details', views.rhcsa_order, name='rhcsa_order'),
     path('tutorials/userinterest', views.user_interest, name='user_interest'),
-    path('profile_picture/update',views.upload_profile_pic,name='profile_img_upload'),
 ]

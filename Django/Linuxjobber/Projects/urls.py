@@ -3,12 +3,16 @@ from django.urls import path, include
 
 app_name = 'Projects'
 
+grp_patterns = [
+    path('', views.listgrpcourses , name='listgrpcourses'),
+    path('<slug:course_name>/', views.coursetopics, name='coursetopics'),
+    path('<slug:course_name>/<int:tp_id>', views.coursetopics, name='coursetopics2'),
+    path('<slug:course_name>/notes/<int:tp_id>', views.topicnotes, name='topicnotes'),
+    ]
 
 urlpatterns = [
-    path('', views.project_index, name='index'),
-    path('projects/<slug:project_name>', views.project_courses, name='courses'),
-    path('<slug:course_name>/course', views.project_course_topics, name='course_topics'),
-    path('<slug:course_name>/labs', views.project_course_labs, name='course_labs'),
-    path('<slug:lab_title>/lab_tasks', views.course_lab_tasks , name='lab_tasks'),
-
+    path('', views.index, name='index'),
+    path('group/<slug:grp_nm>/', include(grp_patterns)),
+   
+#     path('<slug:course_name>/labs/<int:lab_no>/', login_required(views.LabDetailsView.as_view()), name='labs')
     ]
