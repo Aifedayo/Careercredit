@@ -1,51 +1,45 @@
-{% extends 'home/base.html' %} {% load staticfiles%} 
+{% extends 'home/base.html' %}
+{% load staticfiles%} 
 {% block title %}
-	Linuxjobber Project Groups
+	Linuxjobber Project
  {% endblock %}
+
+
 {% block content %}
 
-<div class="proj" role="listbox">
-	<div class="item active">
-
-		<div class=" text-center projs">
-			<h1>Project Groups</h1>
-
-		</div>
+	<div style="background-color: #252525; height: 70px;">
+		<p style="color: #252525">. <!-- This text is here for only styling purpose --></p>
 	</div>
-</div>
 
-<div class="container">
-	<div class="row features">
-		{% for group in project_grps %}
-			<div class="col-lg-3 col-md-3 proj-wrap">
-				<img src="{{ group.background_image.url }}"
-					class="fea-img"> <img
-					src="{{ group.icon.url }}"
-					class="fea-icon" style="height: 50px; width: 50px;">
-				<div class="border" style="background: {{ group.color }}"></div>
-				<h3>{{ group.group_name }}</h3>
-				<p>{{ group.description }}</p>
-				<h5 id="viewmore"><a href="{% url 'Projects:listgrpcourses' group.group_name %}">Show Projects</a></h5>
+	<div class="container-fluid" style="background: #F6F6F6; ">
+		<br>
+		<div class="row">
+			<div class="col-md-12" style="text-align: center;">
+				<h1>Projects</h1>
+				<p style="font-family: Roboto;font-style: normal;font-weight: normal;line-height: normal;font-size: 18px;text-align: center;color: rgba(0, 0, 0, 0.8); padding: 36px 398px;">This contains all the list of projects we offer. select a project to get started or each for a particular course or topic</p>
 			</div>
-		{% empty %}
-			<div class="col-lg-3 col-md-3 proj-wrap">
-				<img src="https://linuxjobber.com/img/1528804297_label.png"
-					class="fea-img"> <img
-					src="https://linuxjobber.com/img/1528804297_devops.png"
-					class="fea-icon" style="height: 50px; width: 50px;">
-				<div class="border" style="background: grey"></div>
-				<h3>Dummy group</h3>
-				<p>This project will deal....</p>
-				<a href=""><h5
-						id="viewmore">Show Projects</h5></a>
+		</div>
+
+		{% for project in projects %}
+		<a href="{% url 'Projects:courses' project.project_title %}">
+		<div class="row projects-container">
+			<div class="col-md-3 project-img-col" style="background-image: url({{ project.project_bg_image }});height: 240px;">
+				<img src="{{ project.project_image }}" class="responsive projects-img" style="margin-left: -30px;">
 			</div>
+			<div class="col-md-8">
+				<br>
+				<p class="projects-title">
+					{{ project.project_title }}
+				</p>
+				<p class="projects-description">
+					{{ project.project_description }}
+				</p>
+				<p class="proj-contains">Project contains: <span style="color: rgba(37, 37, 37, 0.8);">{{ project.project_contents }}</span></p>
+			</div>
+		</div>
+		</a>
+		<br><br>
 		{% endfor %}
 	</div>
 
-</div>
-
 {% endblock %}
-
-
-
-
