@@ -44,6 +44,8 @@
 <!-- <link href="{% static 'home/css/newhomepage/css/my-style.css' %}" rel="stylesheet"> -->
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400"
 	rel="stylesheet">
+<!-- PROJECTS APPLICATION CUSTOM STYLESHEET -->
+<link rel="stylesheet" type="text/css" href="{% static 'Projects/custom/css/projects.css' %}">
 <style>
 
 	.progress{
@@ -220,6 +222,9 @@
 											{%endif%}
 										</div>
 									</div>	
+								</li>
+								<li>
+									<a style="margin-top: -10px;margin-bottom: -20px;" href="{% url 'home:profile_img_upload' %}"><img style="width: 44px;height: 44px;border-radius: 100px;" src="{{ user.profile_img }}"></a>	
 								</li>
 							
 										
