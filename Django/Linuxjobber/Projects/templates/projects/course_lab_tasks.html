@@ -18,10 +18,10 @@
         <div class="text-center labtop">
             <div class="text-center"><b><p></p></b></div>
             <h1>
-                Lab title
+                {{ lab.lab_title }}
             </h1>
             <br>
-            <p>description</p>
+            <p> </p>
             </div>
             
         {%for task in lab_tasks %}
@@ -29,42 +29,85 @@
             <div class="labcard col-md-12">
                 <div class="col-md-1 col-xs-1"></div>
                 <div class="col-md-11 col-xs-11">
-                    <h1>{{ task.task_id}}<span class="labcardt">/{{lab_tasks|length}}</span></h1>
+                    <h1>{{ task.lab_task_no}}<span class="labcardt">/{{lab_tasks|length}}</span></h1>
                     <div class="labcardpar"></div>
                 </div>
                 
                 <div class="row">
                 <div class="col-md-1 col-xs-1">
                     <ul>
-                        {%if task.task %}
-                            <li class="labload"></li>
-                        {%else%}
-                            <li class="labunload"></li>
-                        {%endif%}
+                        {% for i in lab_tasks %}
+                            {%if forloop.counter <= task.lab_task_no %}
+                                <li class="labload"></li>
+                            {%else%}
+                                <li class="labunload"></li>
+                            {%endif%}
+                        {% endfor %}
                     </ul>
                 </div>
                 <div class="col-md-11 col-xs-11">
                     
                     <span>
-                       <p class="labcardcom"> {{ task.comment }}</p>
+                       <p class="labcardcom"> {{ task.task_comment }}</p>
                     <p>
-                        Note: {{ task.note }} <br><br>
+                        Note: {{ task.task_note }} <br><br>
                     </p>
                     
                     <p class="labcardtask"> <b>Your task is to  {{ task.task }} <br><br> </b></p>
 
                     </span>
+                    <p>
+                        {% if not task_status %}
+                            <img style="vertical-align: middle;" src="{% static 'home/images/Ellipse.png' %}">
+                            <span class="labcardtask">Task not completed </span>
+                        {% else %}
+                            {% for user_task in task_status %}
+                                {% if user_task.task.task_id == task.task_id %}
+                                    {% if user_task.status == 0 %}
+                                        <img src="{% static 'home/images/Ellipse.png' %}">
+                                        <span class="labcardtask">Task not completed </span>
+                                    {% else %}
+                                       <span class="labcheck"><img class="labimg" src="{% static 'home/images/Rectangle.png' %}"></span>
+                                        <span class="labcardtask">Task completed </span>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    </p>
                     </div>
                 </div>
             </div>
             
         {%endfor%}
-            
-                
-            
-        </div>
 
-           
+            <p> . </p>
+
+            <div class="labcard col-md-12">
+                <div class="col-md-1"></div>
+                <div class="col-md-11"><span class="labcardtask">Lab Complete</span>
+                    <div class="labcardpar"></div>
+
+                    {%if lab.lab_course.lab_submission_type == 1 %}
+                        <form method="post" action="">
+                            {% csrf_token %}
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <span>Upload your document to submit</span>
+                                    <input type="file" name="" class="form-control labform" required>
+                                    <br>
+                                    <div class="submit"><input type="submit" class="btn btn-lab"></div>
+                                </div>
+                                <div class="col-md-6"></div>
+                            </div>
+
+                        </form>
+                    {%else%}
+                        <strong>No tasks for this lab(course topic)</strong> 
+                    {% endif %}
+                </div>
+            </div>
+        </div>     
     </div>
 
 </section>

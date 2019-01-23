@@ -3,6 +3,14 @@ from django.db import models
 from users.models import CustomUser
 
 
+LAB_SUBMISSION= (
+        (0, 'none'),
+        (1, 'submit by uploading document'),
+        (2, 'submit by machine ID'),
+        (3, 'submit from repo')
+    )
+
+
 class Project(models.Model):
     project_id = models.IntegerField(unique=True)
     project_title = models.CharField(max_length=100)
@@ -28,6 +36,7 @@ class ProjectCourse(models.Model):
     course_duration = models.CharField(max_length=20)
     course_project = models.ForeignKey(Project, on_delete=models.CASCADE)
     course_image = models.TextField(max_length=1000)
+    lab_submission_type = models.PositiveSmallIntegerField(default=1, choices=LAB_SUBMISSION)
 
 
     class Meta:
@@ -64,15 +73,22 @@ class CourseLab(models.Model):
 
 class CourseLabTask(models.Model):
     task_id = models.IntegerField(unique=True)
+    lab_task_no = models.IntegerField(default=1)
     task = models.TextField()
     task_note = models.TextField()
     task_comment = models.TextField()
     task_lab = models.ForeignKey(CourseLab, on_delete=models.CASCADE)
     #lab_task_course = models.ForeignKey(ProjectCourse, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.task_id, self.task
 
 
 
+class UsersLabTaskStatus(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    task = models.ForeignKey(CourseLabTask, on_delete=models.CASCADE)
+    status = models.IntegerField(default=0)
 
 
 
