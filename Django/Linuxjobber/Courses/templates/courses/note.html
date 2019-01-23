@@ -1,0 +1,151 @@
+{% extends template %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          
+        </div>      
+      </div>      
+</div>
+<section class="col-md-12 fundamentalmain">
+    <div class="container">
+    	<br><br>
+    	<div class="row">
+    		<div class="col-md-1">
+    			<div class="pro-add2">
+					<!--p class="views blue">500</p>
+					<p><i class="fa fa-eye"></i></p>
+					<p><i class="fa fa-facebook"></i></p>
+					<p><i class="fa fa-twitter"></i></p>
+					<p><i class="fa fa-linkedin"></i></p-->
+					<span class='st_sharethis_large' displayText='ShareThis'></span>
+					<span class='st_facebook_large' displayText='Facebook'></span>
+					<span class='st_googleplus_large' displayText='Google +'></span>
+					<span class='st_linkedin_large' displayText='LinkedIn'></span>
+					<span class='st_pinterest_large' displayText='Pinterest'></span>
+					<span class='st_myspace_large' displayText='MySpace'></span>
+				</div>
+    		</div>
+
+    		<div class="col-12 col-md-9 main">{{note.Detail|safe}}</div>
+    		<div class="col-md-2">
+    			{%if user.is_authenticated %}
+
+    			{%else%}
+    			<div class="banner-sidebar">
+                   	<a href="{% url 'home:signup' %}"> <img src="{% static 'home/images/bannerlinux.png' %}" class="pro-img"></a>
+                </div>
+                {%endif%}
+    		</div>
+    	</div>
+	</div>
+</section>
+<section>
+      <div class="container">
+         <h3 class="text-center">Related topics</h3>
+        <div class="row -center">
+       {%for rand in randoms%}
+		<div class="col-12 col-md-4 col-lg-4">
+            <div class="coll">
+            <p class="title-topics"><a href="{% url 'Courses:topic_details' course rand.topic_number %}">{{rand.topic}}</a></p>
+            <p class="ps" style="color:black;">{{rand.course}}</p>
+           <!--  <p class="views-float"><i class="fa fa-eye blue"></i>350</p> -->
+            </div>
+        </div>
+       {%endfor%} 
+        </div> 
+      </div>
+    </section>
+    <section>
+		<div class="text-center">
+		<h3 class="text-center">Responses</h3>
+		<div class="row res">
+			<div class="col-12 col-md-6 col-lg-12 responsediv">
+				<div class="detailBox">
+					<div class="actionBox">
+						<form class="form-inline" role="form" action="" method="post">
+						{% csrf_token %}
+						{% if user.is_authenticated %}
+						<div class="form-group">
+							<br>
+							<input class="form-control " type="text" name="comment" placeholder="Write a comment or response"  id = "comment-exp"/>
+							{% if error %}
+							<p style='color: red;'>Please fill in your comment</p>
+							{% endif %}
+							<input type="submit" name="submit" value="submit" class="btn btn-mini btn-info">
+						</div>
+						{%else%}
+							<input class="form-control " type="text" name="comment" placeholder="Please login to comment"  id = "comment-exp" disabled />
+							<input type="submit" name="submit" value="submit" class="btn btn-mini btn-info disabled">
+						{%endif%}
+						</form>
+						<br>
+						<div class="row">
+							<div class="col-md-5"></div>
+							<div class="col-md-2">
+							<a href = "javascript:void(0)" id = "response-button" onclick="tog()">See all responses</a>
+							</div>
+							<div class="col-md-5"></div>
+						</div>
+						<br>
+						<ul class="commentList list-unstyled text-center "  >
+						{%if comments%}
+						{%for comment in comments%}
+						<li>
+							<div class="commenterImage">
+								<span style="font-weight:bold;">{{comment.User}}</span>
+							 <!--  <img src="<?php echo SITEURL.'logincss/' ?>images/44.png" class = "comment-img"/> -->
+							</div>
+							<div class="commentText">
+								<p style="color:black;" class="" id = "rpd">{{comment}}</p> <p id = "rpd" style="color:black;"> on {{comment.date_created}}</p>
+
+							</div>
+						</li>
+						{%endfor%}
+						{%else%}
+							<li>
+								<div class="commentText">
+									<p class="" id = "rpd">No Comments</p>
+								</div>
+							</li>
+						{%endif%}
+						 </ul>
+					</div>
+			  </div>
+			</div>
+		</div>
+						
+	</div>
+    </section>
+    <section>
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-md-3">
+				</div>
+				<div class="col-12 col-md-6">
+						{%if user.is_authenticated %}
+
+						{%else%}
+					<div class="sticky text-center">
+						<a href="{% url 'home:signup' %}"><img style="height: 70px;" src="{% static 'home/images/sticky.png' %}"></a>
+					</div>
+					{%endif%}
+				</div>
+				<div class="col-12 col-md-3">
+				</div>
+			</div>
+		</div>
+    </section>
+
+   <script type="text/javascript">
+   function tog() {
+   $(".commentList").show();
+  	}
+   </script>
+   
+{%endblock%}

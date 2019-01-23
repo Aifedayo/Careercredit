@@ -1,0 +1,107 @@
+{% extends 'home/base.html' %}
+
+{% load staticfiles%}
+
+{% block content %}
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+       
+        </div>      
+      </div>      
+</div>
+<br>
+<div class="main-container">
+  <div class="text-center labtop">
+            <h1>
+                  Work Experience Profile
+              </h1>
+            
+      </div>
+    <section class="instances-study">
+        <div class="container">
+            
+{% if messages %}
+          {% for message in messages %}
+          <div class="alert alert-{{message.tags}}" role="alert">
+            {% if message.tags == "success" %}
+            <p style="color:#155724;">{{message}}</p>
+            {%else%}
+            <p style="color:#721c24;">{{message}}</p>
+            {%endif%}
+          </div>
+          {% endfor %}
+        {% endif %}
+
+        <div class="row">
+        <div class="col-md-6 lableft">
+            <br><br>
+             <h4 class="">First Name: {{weps.user.first_name}}</h4>
+             <h4 class="">Last Name: {{weps.user.last_name}}</h4>
+             <h4 class="">Trainee Position: {{weps.trainee_position}}</h4>
+             <h4 class="">State: {{weps.state}}</h4>
+             <h4 class="">Monthly Income: {{weps.income}} <a style="cursor:pointer;" class="mbt"><span>Update Income</span></a></h4>
+             <h4 class="">Last Verification: {{weps.last_verification}} <a style="cursor:pointer;" class="pbt"><span>Update Paystub</span></a></h4>
+             <h4 class="">Person Type: {{weps.person_type}}</h4>
+             <h4 class="">Relocation: {{weps.relocation}}</h4>
+             <h4 class="">Start Date: {{weps.start_date|date}}</h4>
+             <h4 class="">Graduation Date: {{weps.graduation_date|date}}</h4>
+             <br>
+        </div>
+        <div class="col-md-6 labright">
+          <div class="labrinner">
+            <span></span>
+            
+                        <form enctype="multipart/form-data" id='imageForm' method="post" action="">
+                          {% csrf_token %}
+                        <input type="text" name="income" maxlength="20" class="form-control" placeholder="Total Monthly Income" id="tincome">
+
+                          <br>
+                          <div class="pbost">
+                            <span>Enter your paystub (Image File)</span>
+                            <input type="file" name="verify" class="form-control" id="id_resume">
+                          </div>
+                          
+                          <input type="text" name="type" class="chek" value="" hidden>
+                      
+
+                        <div class="" style="margin-top:-35px;">
+                        <input  class="btn reg-submit" id="add_ser_prd_btn" value="Submit" type="submit"/>
+                      </div>
+                    </form>
+          </div>
+        </div>
+     </div>
+ </section>
+</div>
+
+
+<script>
+jQuery(function(){
+  $('#tincome').hide();
+  $('.btn-lab-w').hide();
+  $('.labright').hide();
+  $('.pbost').hide();
+  
+
+  $( ".mbt" ).click(function() {
+    $('.labright').show();
+    $('#tincome').show();
+    $('.btn-lab-w').show();
+    $('.pbost').hide();
+    $('.chek').val('2');
+  });
+
+  $( '.pbt' ).click(function() {
+    $('.labright').show();
+    $('#tincome').hide();
+    $('.btn-lab-w').show();
+    $('.pbost').show();
+    $('.chek').val('1');
+  });
+
+
+});
+</script>
+{%endblock%}

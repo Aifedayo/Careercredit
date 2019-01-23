@@ -1,0 +1,108 @@
+
+
+nav {
+    background-color: #6c63ff;
+}
+
+nav ul a:hover {
+
+  border-bottom: 4px solid #6c63ff;
+}
+
+.logo {
+    height: 15%;
+    width: 15%;
+    margin-top: 17px
+    }
+
+.logo-text {
+  position: absolute;
+  padding-left: 3px;
+  font-weight: 700;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.4rem;
+}
+
+.dropdown {
+  position: absolute;
+}
+
+.dropdown:hover {
+  background-color: #6c63ff;
+  border-bottom: 4px solid #6c63ff;
+}
+.dropdown-content{
+    width: max-content !important;
+    height:auto !important;
+ }
+#video {
+  margin-right: 4px;
+  margin-left: 4px;
+}
+#lab {
+  margin-right: 4px;
+  margin-left: 4px;
+}
+#chat {
+    margin-right: 4px;
+    margin-left: 4px;
+}
+
+.lab_area {
+    border-radius: 20px;
+    border: 2px solid #cdd1d4de;
+    height: 400px;
+    width: 600px;
+    margin-left: 10px;
+}
+
+.course_topic {
+    background-color: black;
+    height: 35px;
+    text-align: center;
+    color: aliceblue;
+    font-weight: 400;
+    margin-top: 0px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+#message_box {
+    display: block!important;
+    height:1.7rem!important;
+    padding: .5rem!important;
+    border: 2px solid #636566de;
+    transition: all 1s;
+    border-radius: .5rem!important;
+    box-shadow: none;
+    width: 98%!important;
+}
+
+#submit {
+    height: 2.9rem!important;
+    border-top-right-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+    appearance: none;
+    margin-left: -50px;
+    padding-right: 10px;
+    border-right: 2px solid #636566de;
+    border-top: 2px solid #636566de;
+    border-bottom: 2px solid #636566de;
+    box-shadow: none;
+    padding-right: 10px;
+    padding-left: auto;
+    margin-bottom: 0px;
+}
+#send_icon {
+    margin-left: -10px;
+}
+
+
+#sidenav {
+    background: #a8a599;
+    /*float: left; Instead of float, use absolute position*/
+    position: absolute;
+    width: 20%;
+    height: 100%;
+}
+

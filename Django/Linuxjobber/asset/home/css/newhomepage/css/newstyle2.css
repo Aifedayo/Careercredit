@@ -2779,7 +2779,177 @@ a.mrbtn {
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+/**lABS PAGE**/
+.labbackground{
+    background-color: #EFEEEE;
+    padding-bottom: 60px; 
+}
 
+.labcard{
+    margin-bottom: 15px;
+    background-color: #FFFFFF;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.25);
+    min-height: 300px;
+    padding:20px;
+}
+
+.labcard p{
+    color: #000000;
+}
+
+.labcardpar{
+    background-color: #1B539E;
+    min-height: 4px;
+    width: 181px;
+    border-radius: 18px;
+    margin-bottom: 50px;
+}
+
+.labcardcom{
+    font-size: 16px;
+}
+
+.labload{
+    background-color: #1B539E;
+    width: 15.4px;
+    min-height: 15.4px;
+    left: 141.4px;
+    top: 650px;
+    border-radius: 45px;
+    margin-bottom: 10px;
+}
+
+.btn-lab{
+    color: rgba(0, 0, 0, 0.8);
+    padding-top: 10px;
+    background: #C4C4C4;
+    border-radius: 50px;
+    width: 128px;
+    min-height: 43px;
+    top: 4517px;
+}
+
+.btn-lab-w{
+    color: rgba(0, 0, 0, 0.8);
+    padding-top: 10px;
+    top: 4517px;
+    width: 128px;
+    min-height: 43px;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    border-radius: 50px;
+}
+
+.labform{
+    background: rgba(196, 196, 196, 0.2);
+    left: 225px;
+    top: 4451px;
+    border-radius: 0px;
+}
+
+.labunload{
+    background-color: #C4C4C4;
+    width: 15.4px;
+    min-height: 15.4px;
+    left: 141.4px;
+    top: 650px;
+    border-radius: 45px;
+    margin-bottom: 10px;
+}
+
+.labcardtask{
+    line-height: 24px;
+    font-size: 16px;
+}
+
+.labtop{
+    margin-top: 250px;
+    margin-bottom: 50px;
+}
+
+.labtop p{
+    color: #000000;
+}
+
+.labcardt{
+    font-size: 18px;
+}
+
+.lableft{
+    background-color: #fff;
+    color: rgba(0, 0, 0, 0.8);
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+.lableft p{
+    color: #000000;
+}
+
+.labright{
+    background-color: #C4C4C4;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+.labrinner{
+    padding: 40px;
+}
+
+.labrightr{
+    
+}
+
+.labright p {
+    color: rgba(0, 0, 0, 0.8);
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.labresult{
+    width: 278px;
+    height: 278px;
+    border-radius: 50%;
+    background: #1B539E;
+}
+
+.labcheck {
+    background: #1B539E;
+    border-radius: 50%;
+    padding:5px;
+    padding-top: 15px;
+}
+
+.labimg{
+    width: 22.49px;
+    height: 22.49px;
+}
+
+.labimg2{
+    width: 32.49px;
+    height: 36.49px;
+}
+
+.labcheckp{
+    display:inline-block;
+}
+
+.labpresult{
+    vertical-align: middle;
+    text-align:center;
+    left:23%;
+    position:relative;
+}
+
+.labresult span{
+    padding-top: 50px;
+    padding-bottom: 500px;
+    color: #fff;
+    font-size: 70px;
+}
+
+.labresult p{
+    color: #fff;
+    font-size: 20px;
+}
 /**New Course List and Course Description Page **/
 
 .m100 {
@@ -4473,7 +4643,6 @@ i.fa.fa-certificate {
         width: max-content;
     }
 }
-
 
 
 /* new section styles */
@@ -6785,8 +6954,287 @@ h6 {
       margin-top: 100px;
   }
   
-  
+  /** New Jobs page **/
+
+.jobbanner{
+    min-height: 80vh;
+    width: 100vw;
+    background: url(../imgs/Group_24.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-bottom: 20px;
+}
+
+
+.jobbantext{
+    color: #fff;
+    padding-top: 180px;
+}
+
+.jobbantext, h1{
+    font-size: 45px;
+    padding-bottom: 10px; 
+    font-weight: bold;
+}
+
+.jobbantext, span{
+    font-size: 18px;
+}
+
+.jobdot{
+    height: 8px;
+    width: 8px;
+    color: #fff;
+    background-color: #fff;
+    border-radius: 50%;
+    font-size: 45px;
+    display: inline-block;
+}
+
+.jobstartnow{
+    padding-bottom: 40px;
+}
+
+.jobstat{
+    padding-top: 60px;
+    color: #4975B1;
+    padding-bottom: 60px
+}
+
+.jobstath{
+    color: #4975B1;
+    font-size: 50px;
+    font-weight: bold
+}
+
+.jobstatb{
+    padding-top: 0px;
+    color: #4975B1;
+}
+
+.jobjoin{
+    background-color: #FAFAFA;
+    min-height: 50px;
+}
+
+.jobwork{
+    padding-top:  50px;
+    background-color: #FAFAFA;
+    min-height: 50px;
+    padding-bottom: 50px;
+}
+
+.jobjoinh{
+    color: #4975B1;
+    font-size: 36px;
+    font-weight: bold;
+    
+}
+
+.jobjoinmid{
+    padding-top: 150px;
+}
+
+.jobjoinmidh{
+    padding-top: 30px;
+}
+
+.jobjoinmidhp{
+    padding-top:40px;
+}
+
+.jobwe{
+    padding-top: 50px;
+}
+
+.jobweh{
+    font-size: 24px;
+}
+
+.jobgoto{
+    font-size: 22px;
+}
+
+.jobwecheck{
+    font-size: 18px;
+}
+.jobwep{
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+.jobbut{
+    text-align: center;
+    font-size: 18px;
+    background-color: #252525;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+}
+
+.jobbut:hover{
+    color: #fff;
+    background-color: #D3D3D3;
+}
+
+.jobbut2{
+    border: 1px solid #252525;
+    text-align: center;
+    font-size: 18px;
+    background-color: #fff;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+}
+
+.jobtest{
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+
+.jobtype input[type="file"] {
+    display: none;
+}
+
+.jobcheckbox:checked,
+.jobcheckbox:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+
+.jobcheckbox:checked + label,
+.jobcheckbox:not(:checked) + label
+{
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #000;
+}
+.jobcheckbox:checked + label:before,
+.jobcheckbox:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #000;
+    border-radius: 100%;
+    background: #fff;
+}
+.jobcheckbox:checked + label:after,
+.jobcheckbox:not(:checked) + label:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #4975B1;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.jobcheckbox:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+.jobcheckbox:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+/**JOb type page**/
+.jobbaner2{
+    min-height: 40vh;
+    width: 100vw;
+    background: url(../imgs/jobban2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-bottom: 20px;
+}
+
+.jobbantext2{
+    color: #fff;
+    padding-top: 120px;
+}
+
+.jobbantext2, h1{
+    font-size: 45px;
+    font-weight: bold;
+    line-height: 30px;
+}
+
+.jobtype{
+    margin-top: 40px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.jobtypeh{
+    color: #4975B1;
+    font-size: 24px;
+}
+
+.jobtypep{
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 18px;
+} 
+.jobline{
+    border: 2px solid #979797;
+    height: 0px;
+}
+
+.jobinfo{
+    background-color: rgba(88, 88, 88, 0.05);
+    padding-left: 5px;
+} 
+
+.jobinfoh{
+    font-size: 18px;
+    color: #4975B1;
+} 
+
+.jobinfop{
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 18px;
+    font-weight: lighter;
+} 
+
+.jobfinputp{
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 18px;
+}
+
+.jobfinput{
+    margin-top: 0px;
+    padding-top: 5px;
+    height: 47px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.joblinker{
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.workexpban{
+    margin-top: 0px;
+    min-height: 37vh;
+    width: 100vw;
+    background: url(../imgs/workexpban.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
   @media (min-width: 360px) and (max-width: 640px) {
+
+    /**Jobs page **/
+    .jobimg{
+        width: 100%;
+    }
     .slides {
         background: rgba(0, 0, 0, 0) url("../images/bannerr.png");
         height: 80vh;
@@ -7184,6 +7632,8 @@ h6 {
     margin-top: 100px;
 }
 
+
+
 @media (min-width: 360px) and (max-width: 640px) {
     .slides {
         background: rgba(0, 0, 0, 0) url("../images/bannerr.png");
@@ -7478,3 +7928,4 @@ h6 {
         padding-bottom: 50px;
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
+

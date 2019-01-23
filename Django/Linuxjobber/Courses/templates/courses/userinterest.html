@@ -1,0 +1,186 @@
+{% extends 'home/base.html' %} {% load staticfiles%} 
+
+{% block content %}
+
+
+
+
+
+<div class="userinterest">
+    <div class=" text-center usersint">
+       <h2>Select A Course</h2>
+    </div>
+</div>
+
+
+<section>
+      <div class="container">
+        <div class="row">
+     
+          <div class="col-xs-12 col-sm-6 col-lg-4">
+          <a href="{% url 'Courses:description' 'Linux_Fundamentals' %}">
+           <div class="coursebox" id="box-color">
+           <h4>Linux <br>Fundamentals</h4>
+           <div class="fundamentals">
+           <img src="{% static 'home/images/lin-logo.png' %}" class="img-responsive lin-logo">
+           </div>
+           <div class="btn-right">
+           <img src="{% static 'home/images/button-left.png' %}">
+           </div>
+            </div>
+            </a></div>
+
+            <div class="col-xs-12 col-sm-6 col-lg-4">
+            <a href="{% url 'Courses:description' 'Linux_Proficiency' %}">
+           <div class="coursebox" id="box-color2">
+            <h4>Linux <br>Proficiency</h4>
+            <div class="fundamentals">
+            <img src="{% static 'home/images/lin-logo.png' %}" class="img-responsive lin-logo">
+            </div>
+            <div class="btn-right">
+            <img src="{% static 'home/images/button-left.png' %}">
+            </div>
+           </div>
+            </a></div>
+
+            <div class="col-xs-12 col-sm-6 col-lg-4">
+            <a href="{% url 'Courses:description' 'HTML_CSS' %}">
+           <div class="coursebox" id="box-color3">
+                <h3 id="html-style"> &lt; html &gt; <br>.css{}</h3>
+                <div class="btn-html">
+                <img src="{% static 'home/images/button-left.png' %}">
+                </div>
+           </div>
+            </a></div>
+    
+            </div>
+
+    <div class="row">
+     
+     <div class="col-xs-12 col-sm-6 col-lg-4">
+     <a href="{% url 'Courses:description' 'Amazon_AWS' %}">
+      <div class="coursebox" id="box-color4">
+        <div class="amazons">
+      <img src="{% static 'home/images/amazons.png' %}" class="img-responsive">
+      </div>
+      <div class="btn-amazons">
+      <img src="{% static 'home/images/button-left.png' %}">
+      </div>
+       </div>
+       </a></div>
+
+       <div class="col-xs-12 col-sm-6 col-lg-4">
+       <a href="{% url 'Courses:description' 'PUPPET_Training' %}">
+      <div class="coursebox" id="box-color5">
+       <h4>Puppet <br>Training</h4>
+       <div class="fundamentals">
+       <img src="{% static 'home/images/ppt.png' %}" class="img-responsive">
+       </div>
+       <div class="btn-right">
+       <img src="{% static 'home/images/button-left.png' %}">
+       </div>
+      </div>
+       </a></div>
+
+       <div class="col-xs-12 col-sm-6 col-lg-4">
+       <a href="{% url 'Courses:description' 'Java' %}">
+      <div class="coursebox" id="box-color6">
+       <div class="jjava">
+       <img src="{% static 'home/images/jjava.png' %}" class="img-responsive">
+       </div>
+       <div class="btn-jjava">
+       <img src="{% static 'home/images/button-left.png' %}">
+       </div>
+      </div>
+       </a></div>
+
+    </div>
+
+    <div class="row">
+     
+     <div class="col-xs-12 col-sm-6 col-lg-4">
+      <div class="coursebox" id="box-color7">
+      <a href="{% url 'Courses:description' 'RHSCA' %}">
+        <div class="rchsaa">
+      <img src="{% static 'home/images/rchsaa.png' %}" class="img-responsive">
+      </div>
+      <div class="btn-rchsaa">
+      <img src="{% static 'home/images/button-left.png' %}">
+      </div>
+       </a></div><a href="">
+       </a></div><a href="">
+
+       </a><div class="col-xs-12 col-sm-6 col-lg-4"><a href="">
+        </a><div class="coursebox" id="box-color8"><a href="">
+        </a><a href="{% url 'Courses:description' 'Angular' %}">
+        <div class="ajs">
+        <img src="{% static 'home/images/ajs.png' %}" class="img-responsive">
+        </div>
+        <div class="btn-rchsaa">
+        <img src="{% static 'home/images/button-left.png' %}">
+        </div>
+        </a></div><a href="#">
+       </a></div><a href="#">
+
+       </a><div class="col-xs-12 col-sm-6 col-lg-4"><a href="#">
+      </a><div class="coursebox" id="box-color9"><a href="#">
+      </a><a href="{% url 'Courses:description' 'Cyber_Security' %}">
+      <h3 id="csec">Cyber <br>Security</h3>
+       <div class="csec">
+       <img src="{% static 'home/images/csecurity.png' %}" class="img-responsive">
+       </div>
+       <div class="btn-csec">
+       <img src="{% static 'home/images/button-left.png' %}">
+       </div>
+      </a></div><a href="#">
+       </a></div><a href="#">
+
+    </a></div><a href="#">
+
+    </a><div class="row"><a href="#">
+     
+     </a><div class="col-xs-12 col-sm-6 col-lg-4"><a href="#">
+      </a><div class="coursebox" id="box-color10"><a href="#">
+      </a><a href="{% url 'Courses:description' 'Business_Analysis' %}">
+        <div class="biz">
+      <img src="{% static 'home/images/biz.png' %}" class="img-responsive">
+      </div>
+      <div class="btn-biz">
+      <img src="{% static 'home/images/button-left.png' %}">
+      </div>
+       </a></div><a href="">
+       </a></div><a href="">
+
+       </a><div class="col-xs-12 col-sm-6 col-lg-4"><a href="">
+        </a><div class="coursebox" id="box-color11"><a href="">
+        </a><a href="{% url 'Courses:description' 'Database' %}">
+        <h3 id="dba">Database</h3>
+        <div class="dba">
+        <img src="{% static 'home/images/dba.png' %}" class="img-responsive">
+        </div>
+        <div class="btn-dba">
+        <img src="{% static 'home/images/button-left.png' %}">
+        </div>
+        </a></div><a href="#">
+       </a></div><a href="#">
+
+       </a><div class="col-xs-12 col-sm-6 col-lg-4"><a href="#">
+      </a><div class="coursebox" id="box-color12"><a href="#">
+      </a><a href="{% url 'Courses:description' 'Python' %}">
+       <div class="biz">
+       <img src="{% static 'home/images/py.png' %}" class="img-responsive">
+       </div>
+       <div class="btn-py">
+       <img src="{% static 'home/images/button-left.png' %}">
+       </div>
+      </a></div><a href="#">
+       </a></div><a href="#">
+
+    </a></div><a href="#">
+
+ </a></div><a href="#">
+
+    </a></section>
+
+
+{%endblock%}

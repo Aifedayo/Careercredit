@@ -1,67 +1,173 @@
-{% extends 'courses/base.html' %}
+{% extends 'home/base.html' %}
 
-{% block title %}
-	{{object.course}} - Lab {{object.topic_number}}
-{% endblock %}
+{% load staticfiles %}
 
+{% block content %}
 
-{% block head %}
-    {{object.course}}
-{% endblock%}
-
-{%block content%}
-
-<div class="container">
-    <section class="col-md-12 fundamentalmain">
-
-        <div class="workshop">
-                <h6>Lab {{object.topic_number}}: {{object.topic}}</h6><br>
-
+ <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          
+        </div>      
+      </div>      
+</div>
+<section class="labbackground">
+    <div class="container">
+    
+        <div class="text-center labtop">
+            <div class="text-center"><b><p></p></b></div>
+            <h1>
+                {{object.lab_name}}
+            </h1>
+            <br>
+            <p>{{object.lab_description}}</p>
             </div>
-
+            
         {% if object.tasks.all %}
         {%for data in object.tasks.all%}
   
-
-
-            <p>
-                <strong>{{ data.task_number }}.) </strong>
-                {{ data.comment }} <br><br>
-            </p>
-            <strong>Note: </strong> {{ data.note }} <br><br>
-            <strong>Task: </strong> {{ data.task }} <br><br>
-            {% if data.hint %}
-            <strong>Hint: </strong> {{ data.hint }} <br><br>
-            {% endif %}
-            {% if results %}            
-                {%for result in results%}
-                    {% if forloop.counter == forloop.parentloop.counter %}
-                       <strong>Result: </strong> {{result}}<br><br><br><br>
+            <div class="labcard col-md-12">
+                <div class="col-md-1 col-xs-1"></div>
+                <div class="col-md-11 col-xs-11">
+                    <h1>{{data.task_number}}<span class="labcardt">/{{object.tasks.all|length}}</span></h1>
+                    <div class="labcardpar"></div>
+                </div>
+                
+                <div class="row">
+                <div class="col-md-1 col-xs-1">
+                    <ul>
+                        {%for i in object.tasks.all %}
+                            {%if forloop.counter <= data.task_number%}
+                                <li class="labload"></li>
+                            {%else%}
+                                <li class="labunload"></li>
+                            {%endif%}
+                        {%endfor%}
+                    </ul>
+                </div>
+                <div class="col-md-11 col-xs-11">
+                    
+                    <span>
+                       <p class="labcardcom"> {{ data.comment }}</p>
+                    <p>
+                        Note: {{ data.note }} <br><br>
+                    </p>
+                    
+                    <p class="labcardtask"> <b>Your task is to  {{ data.task }} <br><br> </b></p>
+                    {% if data.hint %}
+                    <strong>Hint: </strong> {{ data.hint }} <br><br>
                     {% endif %}
-               
-                {%endfor%}
-            {% endif %}
+                    {% if results %}            
+                        {%for result in results%}
+                            {% if forloop.counter == forloop.parentloop.counter %}
+                               <strong>Result: </strong> {{result}}<br><br><br><br>
+                            {% endif %}
+                       
+                        {%endfor%}
+                    {% endif %}
+                    {%if course.lab_submission_type == 2%}
+                        <span class="labcheckp labundone{{data.task_number}}">
+                            <img src="{% static 'home/images/Ellipse.png' %}">
+                            <span class="labcardtask">Task not completed </span>
+                        </span>
+                        <span class="labcheckp labdone{{data.task_number}}">
+                           <span class="labcheck"><img class="labimg" src="{% static 'home/images/Rectangle.png' %}"></span>
+                            <span class="labcardtask">Task completed </span>
+                        </span>
+                        
+                    {%endif%}
+                    </span>
+                    </div>
+                </div>
+            </div>
             
         {%endfor%}
+            <div class="labcard col-md-12">
+                <div class="col-md-1"></div>
+                <div class="col-md-11"><span class="labcardtask">Lab Complete</span>
+                    <div class="labcardpar"></div>
 
-
-        <form method="post" enctype="multipart/form-data">
-
-            {% csrf_token %}
+                    {%if course.lab_submission_type == 2%}
+            <form method="post" action="">
+                {% csrf_token %}
+                {%if machine%}
+                    {%if machine|length > 1%}
+                        {%for machines in machine%}
+                            <div class="row -center">
+                                <div class="col-12 col-md-4 col-lg-4">
+                                    <div class="labox">
+                                        <input type="radio" name="ip_address" value="{{machines.1}}">
+                                        {%if machines.2 %}<span class="glyphicon glyphicon-ok corr"></span> {%else%} <span class="glyphicon glyphicon-remove wron"></span> {%endif%}
+                                        <span class="groupboxt">{{machines.1}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        {%endfor%}
+                    {%else%}
+                        {%for machines in machine%}
+                            <input type="hidden" name="ip_address" value="{{machines.1}}">
+                            <p>Instance IP: {{machines.1}}</p>
+                            <p>Machine Accessibility: {%if machines.2 %}<span class="glyphicon glyphicon-ok corr"></span> {%else%} <span class="glyphicon glyphicon-remove wron"></span> {%endif%}</p>
+                        {%endfor%}
+                    {%endif%}
+                    <div class="submit"><input type="submit" class="btn btn-lab"> </div>
+                {%else%}
+                    
+                        
+                        <div class="row">
+                        <div class="col-md-6">
+                        <span>Enter your IP address to submit</span>
+                        <input type="text" name="ip_address" class="form-control labform" placeholder="Enter your IP address" id="IP_address">
+                        <br>
+                        <div class="submit"><input type="submit" class="btn btn-lab" disabled> </div>
+                        </div>
+                        <div class="col-md-6"></div>
+                        </div>
+                        
+                        
+                       
+                    
+                    
+                {%endif%}
+            </form>
+            {%endif%}
+                </div>
+                
             
-            {{ form.as_p }}
-           
-
-            <button type="submit"> Submit </button>
-        </form>
+        </div>
         {%else%}
                <strong>No tasks for this lab(course topic)</strong> 
         {% endif %}
 
+           
+    </div>
 
-    </section>
-</div>
-{% endblock %}
+</section>
 
+<script>
+jQuery(function(){
+    $('.labcheckp').hide();
+    $('.labcheckp').hide();
+    {%for task in object.tasks.all%}
+    
+        $.ajax({
+            type: 'GET',
+            data:'', 
+            url: '{% url "Courses:task_update" object.id task.task_number %}',
+            success: function (data) {
+                $.each(data, function(index, value){
+                    if(value == "done"){
+                        $('.labdone'+'{{task.task_number}}').show();
+                    }
+                    else{
+                        $('.labundone'+'{{task.task_number}}').show();
+                    }
+                });
+            }
+        })
 
-
+    {%endfor%}
+});
+</script>
+{%endblock%}

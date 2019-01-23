@@ -1,0 +1,103 @@
+{% extends 'home/base.html' %}
+
+{% load staticfiles%}
+
+{% block content %}
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+       
+        </div>      
+      </div>      
+</div>
+<br>
+<div class="container jobforms-req">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3 modal-content">
+			<div class="modal-header text-center">
+				<h2 class="title-4">
+					Work Experience Application 
+				</h2>
+			</div>
+			<br>
+			<form method="post" action="" enctype="multipart/form-data" accept-charset="utf-8">
+				{% csrf_token %}
+				<div class="form-group">
+					<label class="space1">Trainee Postion</label>
+					<select type="text" name="trainee_position" class="form-control" id="id_trainee" required>
+						<option value="DevOps">DevOps</option>
+						<option value="Linux Administrator">Linux Administrator</option>
+						<option value="AWS Administrator">AWS Administrator</option>
+						<option value="Python Developer">Python Developer</option>
+						<option value="Quality Assurance">Quality Assurance</option>
+						<option value="CyberSecurity Specialist">CyberSecurity Specialist</option>
+						<option value="Cloud Architect">Cloud Architect</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label class="space1">Current Postion</label>
+					<input type="text" maxlength="20" name="current_position" class="form-control" id="id_resume" required>
+				</div>
+				<div class="form-group">
+					<label class="space1">State</label>
+					<input type="text" maxlength="20" name="state" class="form-control" id="id_resume" required>
+				</div>
+				<div class="form-group">
+					<label class="space1">Total Monthly Income</label>
+					<input type="text" maxlength="20" name="income" class="form-control" id="id_resume" required>
+				</div>
+				<div class="form-group">
+					<label class="space1">Are you willing to relocate?</label>
+					<select type="text" name="relocate" class="form-control" id="id_resume" required>
+						<option value="Yes">Yes</option>
+						<option value="No">No</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label class="space1">Person Type</label>
+					{%if not student%}
+					<select type="text" name="type" class="form-control" id="id_type" required>
+						<option value="Trainee">Trainee</option>
+						<option value="Graduant">Graduant</option>
+						<option value="Student">Student</option>
+					</select>
+					{%else%}
+						<input type="text" name="type" class="form-control" id="id_resume" value="Student" readonly required>
+					{%endif%}
+				</div>
+
+				{%if student%}
+					<div class="form-group" id="id_grad">
+						<label class="space1">Graduation Date</label>
+						<input type="date" name="gdate" class="form-control" >
+					</div>
+				{%endif%}
+				<div class="form-group" id="id_grad">
+					<label class="space1">Graduation Date</label>
+					<input type="date" name="gdate" class="form-control" >
+				</div>
+				<br>
+				<div class="sldbtnd text-center">
+					<input class="btn btn-primary get" value="Submit" type="submit">
+				</div>
+				<br>
+			</form>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	jQuery(function() {
+		$("#id_type").change(function() {
+			if ($(this).val() == "Graduant" || $(this).val() == "Student") {
+				$("#id_grad").show();
+			}
+			else{
+				$("#id_grad").hide();
+			}
+		});
+
+		$("#id_grad").hide();
+	});
+</script>
+{%endblock%}

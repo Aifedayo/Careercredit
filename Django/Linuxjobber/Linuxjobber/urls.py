@@ -28,6 +28,7 @@ urlpatterns = [
     path('tools/', include("ToolsApp.urls")),
     path('classroom/', include("classroom.urls")),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('sso_api/', include('sso_api.urls')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

@@ -1,0 +1,194 @@
+<div class="navbar">
+  <nav>
+    <div class="nav-wrapper">
+      <div class="container-fluid">
+        <div class="row">
+
+          <div class="col l3 m3 s3">
+            <a class="brand-logo"><img src="/assets/image/Final-Logo.png" alt="nav-logo" class="logo"><span class="logo-text">ClassRoom</span></a>
+          </div>
+
+          <div class="col l3 m3 s3">
+            <a materialize="dropdown" class="dropdown-button dropdown" data-activates="dropdown1" style="cursor:pointer;">Django<i class="material-icons right">arrow_drop_down</i></a>
+            <!-- Dropdown Structure -->
+            <ul style="cursor: pointer;" id="dropdown1" class="dropdown-content">
+                <li><a >Django</a></li>
+                <li class="divider"></li>
+                <li><a routerLink="/linux" routerLinkActive>Linux Fundamental</a></li>
+            </ul>
+
+          </div>
+
+            <div class="col l6 m6 s6">
+              <ul class="right">
+                <li><a>{{dataservice.username}}</a></li>
+                <li><a (click)="logout()" id="logout">LOGOUT</a></li>
+              </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col l3 m3 s3" style="background-color:#4d394b; height: 100%;">
+      <h6 style="text-align: center; font-weight: bold;">Registered Students | {{users.length}}</h6>
+      <div style="height:450px; overflow: auto;">
+        <ul>
+          <li id="students" style="color:darkgrey; font-weight: bolder; font-size: 15px;"
+              *ngFor="let user of users"><a [routerLink]="['./private-chat', user.id]" routerLinkActive="active" > {{user.username}} </a>
+          </li><br>
+        </ul>
+      </div>
+    </div>
+    <div class="col l6 m6 s9">
+      <ul style="display:flex;">
+        <li><a [routerLink]="['./videos']" routerLinkActive="active" id="video">Video</a></li> |
+        <li><a href= "http://54.244.162.68:8001/courses/Django/topics/" target="_blank" id="lab">Labs</a></li> |
+        <li><a [routerLink]="['./topic-chat']" routerLinkActive="active" id="chat"> Chat</a></li>
+      </ul>
+      <hr>
+      <div style="max-height:600px; overflow: auto;">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    <div class="col l3 m3 s12">
+      <div class="">
+
+          <h5 style="text-align:center; font-weight: bolder;">Topics</h5>
+          <div class="course_topic_area" style="height: 450px; overflow: auto;">
+
+            <!-- <ul class="collection">
+              <li class="collection-item avatar" *ngFor="let topic of topics">
+                <i class="material-icons circle red">play_arrow</i>
+                <a [routerLink]="['./topic-detail', topic.id]" routerLinkActive="active">{{topic.title}}</a>
+              </li>
+            </ul> -->
+
+          <ul class="collection">
+              <li class="collection-item avatar">
+                <i class="material-icons circle red">play_arrow</i>
+
+                <a routerLink="./videos" routerLinkActive="active">Django Definition and Installation</a>
+
+              </li>
+              <li class="collection-item avatar">
+                <i class="material-icons circle red">play_arrow</i>
+
+                <a routerLink="./video2" routerLinkActive="active">Creating Your First Django Project and Your First Django Application</a>
+
+              </li>
+              <li class="collection-item avatar">
+                <i class="material-icons circle red">play_arrow</i>
+
+                <a routerLink="./video3" routerLinkActive="active">Connecting With SQLlite, the Default Django Database System</a>
+
+              </li>
+
+                <li class="collection-item avatar">
+                  <i class="material-icons circle red">play_arrow</i>
+
+                  <a routerLink="./video4" routerLinkActive="active">Connecting Your Django Application to MySQL Database</a>
+
+                </li>
+                <li class="collection-item avatar">
+                  <i class="material-icons circle red">play_arrow</i>
+
+                    <a routerLink="./video5" routerLinkActive="active">Setting Up Django Administrator</a>
+
+                  </li>
+                  <li class="collection-item avatar">
+                    <i class="material-icons circle red">play_arrow</i>
+
+                    <a routerLink="./video6" routerLinkActive="active">Making Your Django Apps Reusable for Other Projects</a>
+
+                  </li>
+                <li class="collection-item avatar">
+                  <i class="material-icons circle red">play_arrow</i>
+
+                  <a routerLink="./video7" routerLinkActive="active">Creating DJango Views</a>
+
+                </li>
+                <li class="collection-item avatar">
+                  <i class="material-icons circle red">play_arrow</i>
+
+                  <a routerLink="./video8" routerLinkActive="active">Using Django to Access and Manipulate Data in the Database</a>
+
+                </li>
+                <li class="collection-item avatar">
+                  <i class="material-icons circle red">play_arrow</i>
+
+                  <a routerLink="./video9" routerLinkActive="active">More on Using Django API to Edit Data in Database</a>
+
+                </li>
+                <li class="collection-item avatar">
+                  <i class="material-icons circle red">play_arrow</i>
+
+                  <a routerLink="./video10" routerLinkActive="active">Creating Django Views that Accept Arguments</a>
+
+                </li>
+                <li class="collection-item avatar">
+                  <i class="material-icons circle red">play_arrow</i>
+
+                  <a routerLink="./video11" routerLinkActive="active">Creating Views that Access the Database</a>
+
+                </li>
+                <li class="collection-item avatar">
+                  <i class="material-icons circle red">play_arrow</i>
+
+                  <a routerLink="./video12" routerLinkActive="active">Setting Up a Django Template</a>
+
+                </li>
+
+                <li class="collection-item avatar">
+                  <i class="material-icons circle red">play_arrow</i>
+
+                  <a routerLink="./video13" routerLinkActive="active">Managing Error Messages Such as Page Not Found Error 404</a>
+
+                </li>
+                <li class="collection-item avatar">
+                  <i class="material-icons circle red">play_arrow</i>
+
+                  <a routerLink="./video14" routerLinkActive="active">Using Django API to Access Foreign Keys in Database Within a Template</a>
+
+                </li>
+                <li class="collection-item avatar">
+                  <i class="material-icons circle red">play_arrow</i>
+
+                  <a routerLink="./video15" routerLinkActive="active">Removing hardcoded URLs and namespacing URLs</a>
+
+                </li>
+
+                <li class="collection-item avatar">
+                  <i class="material-icons circle red">play_arrow</i>
+
+                  <a routerLink="./video16" routerLinkActive="active">Creating Forms in Templates</a>
+
+                </li>
+                <li class="collection-item avatar">
+                  <i class="material-icons circle red">play_arrow</i>
+
+                  <a routerLink="./video17" routerLinkActive="active">Submitting and Displaying Form Results</a>
+
+                </li>
+                <li class="collection-item avatar">
+                  <i class="material-icons circle red">play_arrow</i>
+
+                  <a routerLink="./video18" routerLinkActive="active">Using Generic Views to Display Django Webpages</a>
+
+                </li>
+                <li class="collection-item avatar">
+                  <i class="material-icons circle red">play_arrow</i>
+
+                  <a routerLink="./video19" routerLinkActive="active">Adding CSS, Cascading Stylesheets, to Django Templates</a>
+
+                </li>
+            </ul>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+

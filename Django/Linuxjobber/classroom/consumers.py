@@ -27,6 +27,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
 
 #For when you do have redis; You can see everyone's chat.
 class ChatConsumer(AsyncWebsocketConsumer):
+
     def getRecentMessages(self):
         messages = []
         for message in self.room_object.chatmessage_set.order_by('-pk')[:30]:
@@ -51,12 +52,13 @@ class ChatConsumer(AsyncWebsocketConsumer):
 
     async def connect(self):
         self.room_group_name = hashlib.sha256(b'._global_chat_.').hexdigest()
+        # self.room_group_name = self.scope['url_route']['kwargs']['group_id']
         await self.channel_layer.group_add(self.room_group_name, self.channel_name)
         await self.accept()
 
     async def disconnect(self, close_code):
-        await self.channel_layer.group_send(self.room_group_name, {'type': 'chat_message', 'user': 'SERVER INFO', 'message': self.user + ' has left.'})
-        await database_sync_to_async(self.generate_message)(self.room_object, 'SERVER INFO', str(self.user + ' has left.'))
+        # await self.channel_layer.group_send(self.room_group_name, {'type': 'chat_message', 'user': 'SERVER INFO', 'message': self.user + ' has left.'})
+        # await database_sync_to_async(self.generate_message)(self.room_object, 'SERVER INFO', str(self.user + ' has left.'))
         await self.channel_layer.group_discard(self.room_group_name, self.channel_name)
 
     async def receive(self, text_data):
@@ -79,8 +81,8 @@ class ChatConsumer(AsyncWebsocketConsumer):
                 self.room_object = await database_sync_to_async(self.firstObject)(room)
 
             await self.channel_layer.group_add(self.room_group_name, self.channel_name)
-            await self.channel_layer.group_send(self.room_group_name, {'type': 'chat_message', 'user': 'SERVER INFO', 'message': self.user + ' has joined.'})
-            await database_sync_to_async(self.generate_message)(self.room_object, 'SERVER INFO', str(self.user + ' has joined.'))
+            # await self.channel_layer.group_send(self.room_group_name, {'type': 'chat_message', 'user': 'SERVER INFO', 'message': self.user + ' has joined.'})
+            # await database_sync_to_async(self.generate_message)(self.room_object, 'SERVER INFO', str(self.user + ' has joined.'))
 
             messages = await database_sync_to_async(self.getRecentMessages)()
             await self.send(text_data=json.dumps({'messages': messages}))

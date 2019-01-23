@@ -1,0 +1,86 @@
+<div class="navbar">
+  <nav>
+    <div class="nav-wrapper">
+      <div class="container-fluid">
+        <div class="row">
+
+          <div class="col l3 m3 s3">
+            <a class="brand-logo"><img src="assets/image/Final-Logo.png" alt="nav-logo" class="logo"><span class="logo-text">ClassRoom</span></a>
+          </div>
+
+          <div class="col l3 m3 s3">
+            <a materialize="dropdown" class="dropdown-button dropdown" data-activates="dropdown1" style="cursor:pointer;">
+                Select Course
+                <i class="material-icons right">arrow_drop_down</i>
+            </a>
+            <!-- Dropdown Structure -->
+            <ul style="cursor: pointer;" id="dropdown1" class="dropdown-content">
+                <li *ngFor="let item of classes | async ">
+                    <a [routerLink]="['/classroom',item.id]" >{{ item.name }}</a>
+                </li>
+
+            </ul>
+
+          </div>
+            <div class="col l6 m6 s6">
+              <ul class="right">
+                <li><a>{{username}}</a></li>
+                <li><a (click)="logout()" id="logout">LOGOUT</a></li>
+              </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col l3 m3 s3" style="background-color:#4d394b; min-height: 100vh; overflow: scroll">
+      <h6 style="text-align: center; font-weight: bold;"> Registered Students | <span *ngIf="groupMembers$|async as members ">{{ members.length}}</span></h6>
+
+        <ul>
+          <li id="students" style="color:darkgrey; font-weight: bolder; font-size: 15px;"
+              *ngFor="let user of groupMembers$ |async"><a [routerLink]="['./private-chat', user.id]" routerLinkActive="active" > {{user.username}} </a>
+          </li>
+
+
+        </ul>
+
+    </div>
+    <div class="col l6 m6 s9" style="">
+      <ul style="display:flex;">
+        <li><a [routerLink]="['./video']" routerLinkActive="active" id="video">Video</a></li> |
+        <li *ngIf="selectedTopic"><a routerLinkActive="" (click)="goToLab()"> Lab </a></li> |
+        <li *ngIf="selectedTopic"><a routerLinkActive="" (click)="goToNote()"> Note </a></li> |
+        <li><a [routerLink]="['./topic-chat']" routerLinkActive="active"id="chat"> Chat</a></li>
+      </ul>
+      <hr>
+      <div style="overflow: auto;">
+
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    <div class="col l3 m3 s12">
+      <div class="">
+
+          <h5 style="text-align:center; font-weight: bolder;">Topics</h5>
+          <div class="course_topic_area" style="max-height: 100vmin; overflow: scroll;">
+
+         <ul class="collection">
+
+              <li class="collection-item avatar" *ngFor="let topic of topicsSub | async">
+
+
+                <a class (click)="setTopic(topic.id)"><i class="material-icons circle red">play_arrow</i> {{topic.topic}}
+
+                </a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+

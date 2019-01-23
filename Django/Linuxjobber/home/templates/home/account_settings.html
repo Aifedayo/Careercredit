@@ -123,24 +123,7 @@ form .submit input[type="submit"] {
     border-radius: 30%;
 }
 </style>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script>
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();
-    if($('.mes').length){
-        $('.ban').hide();
-    }
-    else{
-        $('.ban').show();
-    }
-
-    if($('.suc').length){
-        $('.ban').hide();
-        $('.mes1').hide();
-    }
-});
-</script>
-
+  
 
 <div class="main-container">
 	<br>
@@ -157,13 +140,15 @@ $(document).ready(function(){
 			</div>
 			 {% if messages %}
           {% for message in messages %}
-          <div class="alert alert-{{message.tags}}" role="alert">
             {% if message.tags == "success" %}
+            <div class="alert alert-success" role="alert">
             <p style="color:#155724">{{message}}</p>
+        	</div>
             {%else%}
+            <div class="alert alert-danger" role="alert">
             <p style="color:#721c24">{{message}}</p>
+            </div>
             {%endif%}
-          </div>
           {% endfor %}
         {% endif %}
 			<section class="video-study">
