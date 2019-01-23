@@ -269,3 +269,17 @@ class wepeoples(models.Model):
 
     def __str__(self):
         return self.user.email
+
+class GroupClassLog(models.Model):
+    group=models.ForeignKey(Groupclass,on_delete=models.CASCADE)
+    user=models.ForeignKey(CustomUser,on_delete=models.CASCADE)
+    last_login=models.DateTimeField(auto_now=True)
+
+    def get_log(group_id):
+        data={}
+        list=GroupClassLog.objects.filter(group=group_id)
+        for i in list:
+            data.setdefault(i.last_login.strftime('%D'),[])
+            data[i.last_login.strftime('%D')].append({'username':i.user.username,'id':i.user.id})
+        return data
+

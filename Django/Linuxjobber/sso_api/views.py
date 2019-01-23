@@ -12,6 +12,7 @@ from users.models import CustomUser
 
 from home.models import Groupclass
 
+from Django.Linuxjobber.home.models import GroupClassLog
 from .serializers import GroupClassSerializer,UserSerializer,CourseSerializer,CourseTopicSerializer
 from Courses.models import Course,CourseTopic
 
@@ -50,6 +51,10 @@ def confirm_api(request):
     except Token.DoesNotExist:
         return Response("Nothing",status=status.HTTP_403_FORBIDDEN)
 
+def set_last_login(group,user):
+
+    obj,created = GroupClassLog.objects.update_or_create(group=group,user=user,defaults={'last_login':''})
+    print(obj,created)
 
 
 class UserGroups(APIView):
@@ -89,6 +94,7 @@ class GroupMembers(APIView):
         try:
             g=Groupclass.objects.get(id=group_id)
             users=UserSerializer(g.users,many=True)
+            set_last_login(g,request.user)
             return Response(users.data)
         except Groupclass.DoesNotExist:
             return Response("Not found",status.HTTP_404_NOT_FOUND)
