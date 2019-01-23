@@ -2,6 +2,7 @@ import stripe
 import csv, io
 import logging
 import subprocess, json, os
+import random, string
 from smtplib import SMTPException
 from urllib.parse import urlparse
 from django.conf import settings
@@ -61,14 +62,13 @@ def signup(request):
             user.first_name = firstname
             user.last_name = lastname
             user.save()
-            send_mail('Linuxjobber Free Account Creation', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + '\n Follow this link http://35.167.153.1:8001/login to login to you account\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
+            send_mail('Linuxjobber Free Account Creation', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + '\n Follow this link http://'+settings.SERVER_IP+'/login to login to you account\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
             return render(request, "home/registration/success.html", {'user': user})
         else:
             error = True
             return render(request, 'home/registration/signup.html', {'error':error})
     else:
-        return render(request, 'home/registration/signup.html')       
-
+        return render(request, 'home/registration/signup.html')  
 
 def forgot_password(request):
     email = ''
@@ -77,8 +77,10 @@ def forgot_password(request):
         email = request.POST['email']
         if CustomUser.objects.filter(email=email).exists():
             u = CustomUser.objects.get(email=email)
-            password_reset_link = 'reset_password/'+str(u.id)
-            send_mail('Linuxjobber Account Password Reset', 'Hello, \n' + 'You are receiving this email because we received a request to reset your password,\nignore this message if you did not initiate the request else click the link below to reset your password.\n'+'http://54.149.10.37:8000/'+password_reset_link+'\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            u.pwd_reset_token = ''.join(random.choice(string.ascii_lowercase) for x in range(64))
+            u.save()
+            password_reset_link = 'reset_password/'+str(u.pwd_reset_token)
+            send_mail('Linuxjobber Account Password Reset', 'Hello, \n' + 'You are receiving this email because we received a request to reset your password,\nignore this message if you did not initiate the request else click the link below to reset your password.\n'+'http://'+settings.SERVER_IP+'/'+password_reset_link+'\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
 
             return render(request, 'home/registration/forgot_password.html',{'message':'An email with password reset information has been sent to you. Check your email to proceede.'})
         else:
@@ -86,13 +88,14 @@ def forgot_password(request):
     else:
         return render(request, 'home/registration/forgot_password.html', {'message':message})
 
-def reset_password(request, u_id):
+def reset_password(request, reset_token):
     message = ''
     if request.method == "POST":
         if request.POST['password1'] == request.POST['password2']:
-            usr = CustomUser.objects.get(id=u_id)
+            usr = CustomUser.objects.get(pwd_reset_token=reset_token)
+            usr.pwd_reset_token = ''.join(random.choice(string.ascii_lowercase) for x in range(64))
             usr.set_password(request.POST['password1'])
-            #usr.save()
+            usr.save()
             message = "You have successfully changed your password."
             return render(request, 'home/registration/reset_password.html', {'message':message})
         else:
@@ -100,6 +103,7 @@ def reset_password(request, u_id):
             return render(request, 'home/registration/reset_password.html', {'message':message})
     else:
         return render(request, 'home/registration/reset_password.html', {'message':message})
+
 
 def selfstudy(request):
     return render(request, 'home/selfstudy.html', {'courses' : get_courses(), 'tools' : get_tools()})
@@ -763,6 +767,19 @@ def group_pay(request,pk):
             return redirect("home:group",pk=pk)
         except stripe.error.CardError as ce:
             return False, ce
+
+    # Implementation for free internship - Azeem Animashaun (Updated 21 January)
+    if amount == 0:
+        messages.success(request, 'You are registered in group class successfully..')
+        _, created = GroupClassRegister.objects.update_or_create(
+            user=request.user,
+            is_paid=1,
+            amount=amount,
+            type_of_class=group_item.type_of_class,
+        )
+        user = get_object_or_404(CustomUser, email=request.user.email)
+        group_item.users.add(user)
+        return redirect("home:group", pk=pk)
     return render(request, 'home/group_pay.html', context)
 
 
@@ -1281,6 +1298,9 @@ def tryfree(request, sub_plan):
                     UserPayment.objects.create(user=request.user, amount=PRICE,
                                                 trans_id = charge.id, pay_for = charge.description,
                                                 )
+                    user = request.user
+                    user.role = 4
+                    user.save()
                     send_mail('Linuxjobber Premium Plan Subscription', 'Hello, you have successfuly subscribed for our Premium Plan package.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.user.email])
                     return render(request,'home/premiumPlan_pay_success.html')
                 except SMTPException as error:
@@ -1315,6 +1335,25 @@ def rhcsa_order(request):
 def user_interest(request):
 
     return render(request, 'home/user_interest.html', {'courses' : get_courses(), 'tools' : get_tools()})
+
+def upload_profile_pic(request):
+    update_feedback = ''
+    if request.method == 'POST' and request.FILES['profile_picture']:
+        if request.FILES['profile_picture'].name.endswith('.png') or request.FILES['profile_picture'].name.endswith('.jpg'):
+            picture = request.FILES['profile_picture']
+            filename = FileSystemStorage().save(picture.name, picture)
+            picture_url = FileSystemStorage().url(filename)
+            current_user = request.user
+            current_user.profile_img = picture_url
+            current_user.save()
+            update_feedback = 'Your profile update was successful'
+            return render(request,'home/upload_profile_pic.html',{'update_feedback':update_feedback})
+        else:
+            update_feedback = 'This file format is not supported'
+            return render(request,'home/upload_profile_pic.html',{'update_feedback':update_feedback})
+    else:
+        return render(request,'home/upload_profile_pic.html')
+
 
 def group_list(request):
 
