@@ -23,6 +23,7 @@ import {CourseModule} from "./course/course.module";
 import {LinuxModule} from "./linux/linux.module";
 import {ApiService} from "./share/api.service";
 import { SafePipe } from './share/safe.pipe';
+import {OrderModule} from "ngx-order-pipe";
 
 
 
@@ -47,7 +48,8 @@ import { SafePipe } from './share/safe.pipe';
     LinuxRoutingModule,
     AppRoutingModule,
     CourseModule,
-    LinuxModule
+    LinuxModule,
+    OrderModule
   ],
   providers: [DataService,Location,ApiService],
   bootstrap: [AppComponent]

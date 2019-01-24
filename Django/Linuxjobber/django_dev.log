@@ -402,3 +402,651 @@ django.db.utils.ProgrammingError: (1146, "Table 'linuxjobber.home_groupclasslog'
 [2019-01-23 09:18:21] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 200 825
 [2019-01-23 09:18:21] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 200 5356
 [2019-01-23 09:18:21] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 141987
+[2019-01-23 16:48:29] INFO [django.server.log_message:124] "GET /groupCourse/2 HTTP/1.1" 200 17628
+[2019-01-23 16:48:29] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 200 1163
+[2019-01-23 16:48:29] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2019-01-23 16:48:29] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 141987
+[2019-01-23 16:48:29] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 200 5356
+[2019-01-23 16:48:29] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 200 825
+[2019-01-23 16:48:29] WARNING [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 404 1834
+[2019-01-23 16:48:29] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 39923
+[2019-01-23 16:48:30] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2019-01-23 16:48:30] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/my-style.css HTTP/1.1" 200 48791
+[2019-01-23 16:48:30] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 200 7177
+[2019-01-23 16:48:30] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 200 3979
+[2019-01-23 16:48:30] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 200 29115
+[2019-01-23 16:48:30] INFO [django.server.log_message:124] "GET /static/faq/js/jquery-2.1.1.js HTTP/1.1" 200 256541
+[2019-01-23 16:48:30] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 200 3066
+[2019-01-23 16:48:30] WARNING [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 404 1834
+[2019-01-23 16:48:30] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 200 4488
+[2019-01-23 16:48:30] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 200 9198
+[2019-01-23 16:48:30] INFO [django.server.log_message:124] "GET /static/js/waterbubble.js HTTP/1.1" 200 6268
+[2019-01-23 16:48:30] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/school-coding.jpg HTTP/1.1" 200 160021
+[2019-01-23 16:48:30] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2019-01-23 16:48:31] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/gothamrnd-bold.ttf HTTP/1.1" 200 63312
+[2019-01-23 16:48:34] INFO [django.server.log_message:124] "GET /login HTTP/1.1" 200 3396
+[2019-01-23 16:48:34] INFO [django.server.log_message:124] "GET /static/home/css/styles.css HTTP/1.1" 200 7692
+[2019-01-23 16:48:35] INFO [django.server.log_message:124] "GET /static/home/images/imgback.jpg HTTP/1.1" 200 1032219
+[2019-01-23 16:48:36] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-01-23 16:48:36] WARNING [django.server.log_message:124] "GET /favicon.ico HTTP/1.1" 404 12544
+[2019-01-23 16:48:42] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /login
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
+    res = self._query(query)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
+    db.query(q)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+_mysql_exceptions.OperationalError: (1054, "Unknown column 'users_customuser.profile_img' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\PycharmProjects\sso\Django\Linuxjobber\home\views.py", line 250, in log_in
+    user = authenticate(request, username = user_name, password = password)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\auth\__init__.py", line 70, in authenticate
+    user = _authenticate_with_backend(backend, backend_path, request, credentials)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\auth\__init__.py", line 116, in _authenticate_with_backend
+    return backend.authenticate(*args, **credentials)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\auth\backends.py", line 16, in authenticate
+    user = UserModel._default_manager.get_by_natural_key(username)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\auth\base_user.py", line 44, in get_by_natural_key
+    return self.get(**{self.model.USERNAME_FIELD: username})
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 397, in get
+    num = len(clone)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 254, in __len__
+    self._fetch_all()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\compiler.py", line 1068, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
+    res = self._query(query)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
+    db.query(q)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+django.db.utils.OperationalError: (1054, "Unknown column 'users_customuser.profile_img' in 'field list'")
+[2019-01-23 16:48:43] ERROR [django.server.log_message:124] "POST /login HTTP/1.1" 500 223858
+[2019-01-23 16:49:22] INFO [django.server.log_message:124] "POST /login HTTP/1.1" 302 0
+[2019-01-23 16:49:22] INFO [django.server.log_message:124] "GET /courses/userinterest HTTP/1.1" 200 17504
+[2019-01-23 16:49:23] WARNING [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 404 1834
+[2019-01-23 16:49:23] INFO [django.server.log_message:124] "GET /static/home/images/icon1.png HTTP/1.1" 200 2133
+[2019-01-23 16:49:23] INFO [django.server.log_message:124] "GET /static/home/images/logout1.png HTTP/1.1" 200 1899
+[2019-01-23 16:49:23] INFO [django.server.log_message:124] "GET /static/home/images/lin-logo.png HTTP/1.1" 200 9301
+[2019-01-23 16:49:23] INFO [django.server.log_message:124] "GET /static/home/images/button-left.png HTTP/1.1" 200 2071
+[2019-01-23 16:49:23] INFO [django.server.log_message:124] "GET /static/home/images/amazons.png HTTP/1.1" 200 10409
+[2019-01-23 16:49:23] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs//list-bg.png HTTP/1.1" 200 279917
+[2019-01-23 16:49:23] INFO [django.server.log_message:124] "GET /static/home/images/jjava.png HTTP/1.1" 200 10506
+[2019-01-23 16:49:23] INFO [django.server.log_message:124] "GET /static/home/images/ppt.png HTTP/1.1" 200 964
+[2019-01-23 16:49:23] INFO [django.server.log_message:124] "GET /static/home/images/ajs.png HTTP/1.1" 200 6757
+[2019-01-23 16:49:23] INFO [django.server.log_message:124] "GET /static/home/images/csecurity.png HTTP/1.1" 200 5664
+[2019-01-23 16:49:23] INFO [django.server.log_message:124] "GET /static/home/images/biz.png HTTP/1.1" 200 7859
+[2019-01-23 16:49:23] INFO [django.server.log_message:124] "GET /static/home/images/py.png HTTP/1.1" 200 5447
+[2019-01-23 16:49:23] INFO [django.server.log_message:124] "GET /static/home/images/rchsaa.png HTTP/1.1" 200 6733
+[2019-01-23 16:49:23] INFO [django.server.log_message:124] "GET /static/home/images/dba.png HTTP/1.1" 200 5461
+[2019-01-23 16:49:41] INFO [django.server.log_message:124] "GET /groupCourse/ HTTP/1.1" 200 18662
+[2019-01-23 16:49:41] WARNING [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 404 1834
+[2019-01-23 16:49:42] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2019-01-23 16:49:42] INFO [django.server.log_message:124] "GET /static/home/images/pupett.png HTTP/1.1" 200 8770
+[2019-01-23 16:49:44] INFO [django.server.log_message:124] "GET /groupCourse/2 HTTP/1.1" 200 19305
+[2019-01-23 16:49:45] WARNING [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 404 1834
+[2019-01-23 16:49:45] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2019-01-23 16:54:57] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 22424
+[2019-01-23 16:54:57] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 304 0
+[2019-01-23 16:54:57] WARNING [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 404 1834
+[2019-01-23 16:54:57] INFO [django.server.log_message:124] "GET /static/home/images/linuxx.png HTTP/1.1" 200 13722
+[2019-01-23 16:54:57] INFO [django.server.log_message:124] "GET /static/home/images/java.png HTTP/1.1" 200 14813
+[2019-01-23 16:54:58] INFO [django.server.log_message:124] "GET /static/home/images/views.png HTTP/1.1" 200 5544
+[2019-01-23 16:54:58] INFO [django.server.log_message:124] "GET /static/home/images/btns.png HTTP/1.1" 200 3954
+[2019-01-23 16:54:58] INFO [django.server.log_message:124] "GET /static/home/images/training.png HTTP/1.1" 200 154154
+[2019-01-23 16:54:58] INFO [django.server.log_message:124] "GET /static/home/images/experience.png HTTP/1.1" 200 279224
+[2019-01-23 16:54:58] INFO [django.server.log_message:124] "GET /static/home/images/pupet.png HTTP/1.1" 200 5198
+[2019-01-23 16:54:58] INFO [django.server.log_message:124] "GET /static/home/images/engine2.png HTTP/1.1" 200 4246
+[2019-01-23 16:54:58] INFO [django.server.log_message:124] "GET /static/home/images/awssa.png HTTP/1.1" 200 13411
+[2019-01-23 16:54:58] INFO [django.server.log_message:124] "GET /static/home/images/tutor.png HTTP/1.1" 200 11460
+[2019-01-23 16:54:58] INFO [django.server.log_message:124] "GET /static/home/images/placement.png HTTP/1.1" 200 98335
+[2019-01-23 16:54:58] INFO [django.server.log_message:124] "GET /static/home/images/bannerr.png HTTP/1.1" 200 77329
+[2019-01-23 16:54:58] INFO [django.server.log_message:124] "GET /static/home/images/kid.png HTTP/1.1" 200 13920
+[2019-01-23 16:54:58] INFO [django.server.log_message:124] "GET /static/home/images/22.png HTTP/1.1" 200 62724
+[2019-01-23 16:54:58] INFO [django.server.log_message:124] "GET /static/home/images/q1.png HTTP/1.1" 200 1961
+[2019-01-23 16:54:58] INFO [django.server.log_message:124] "GET /static/home/images/44.png HTTP/1.1" 200 58580
+[2019-01-23 16:54:58] INFO [django.server.log_message:124] "GET /static/home/images/q2.png HTTP/1.1" 200 1949
+[2019-01-23 16:54:58] INFO [django.server.log_message:124] "GET /static/home/images/hotels.png HTTP/1.1" 200 14387
+[2019-01-23 16:54:58] INFO [django.server.log_message:124] "GET /static/home/images/ontario.png HTTP/1.1" 200 61470
+[2019-01-23 16:54:58] INFO [django.server.log_message:124] "GET /static/home/images/hotelsafrica.png HTTP/1.1" 200 45205
+[2019-01-23 16:54:59] INFO [django.server.log_message:124] "GET /static/home/images/33.png HTTP/1.1" 200 62653
+[2019-01-23 16:54:59] INFO [django.server.log_message:124] "GET /static/home/images/dre.png HTTP/1.1" 200 22180
+[2019-01-23 16:55:11] INFO [django.server.log_message:124] "OPTIONS /sso_api/confirm_key HTTP/1.1" 200 0
+[2019-01-23 16:55:11] INFO [django.server.log_message:124] "POST /sso_api/confirm_key HTTP/1.1" 202 68
+[2019-01-23 16:55:16] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2 HTTP/1.1" 200 0
+[2019-01-23 16:55:16] INFO [django.server.log_message:124] "OPTIONS /sso_api/groups HTTP/1.1" 200 0
+[2019-01-23 16:55:16] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-23 16:55:16] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-23 16:55:16] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-23 16:55:16] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-23 16:55:16] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 101
+[2019-01-23 16:55:16] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 101
+[2019-01-23 17:57:08] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-23 17:57:09] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-23 17:57:09] INFO [django.server.log_message:124] "OPTIONS /sso_api/groups HTTP/1.1" 200 0
+[2019-01-23 17:57:09] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2 HTTP/1.1" 200 0
+[2019-01-23 17:57:09] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 101
+[2019-01-23 17:57:09] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-23 17:57:09] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-23 17:57:11] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 101
+[2019-01-24 08:33:32] INFO [django.server.log_message:124] "GET /groupCourse/2 HTTP/1.1" 200 19305
+[2019-01-24 08:33:32] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 200 1163
+[2019-01-24 08:33:32] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2019-01-24 08:33:32] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2019-01-24 08:33:32] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 39923
+[2019-01-24 08:33:33] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 141987
+[2019-01-24 08:33:33] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 200 825
+[2019-01-24 08:33:33] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 200 5356
+[2019-01-24 08:33:33] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/my-style.css HTTP/1.1" 200 48791
+[2019-01-24 08:33:33] WARNING [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 404 1834
+[2019-01-24 08:33:33] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 200 3979
+[2019-01-24 08:33:33] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 200 7177
+[2019-01-24 08:33:33] INFO [django.server.log_message:124] "GET /static/home/images/icon1.png HTTP/1.1" 200 2133
+[2019-01-24 08:33:34] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 200 3066
+[2019-01-24 08:33:34] WARNING [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 404 1834
+[2019-01-24 08:33:34] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 200 29115
+[2019-01-24 08:33:34] INFO [django.server.log_message:124] "GET /static/faq/js/jquery-2.1.1.js HTTP/1.1" 200 256541
+[2019-01-24 08:33:34] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 200 9198
+[2019-01-24 08:33:34] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 200 4488
+[2019-01-24 08:33:34] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/fonts/gothamrnd-medium.woff HTTP/1.1" 404 1882
+[2019-01-24 08:33:34] INFO [django.server.log_message:124] "GET /static/js/waterbubble.js HTTP/1.1" 200 6268
+[2019-01-24 08:33:35] INFO [django.server.log_message:124] "GET /static/home/images/logout1.png HTTP/1.1" 200 1899
+[2019-01-24 08:33:35] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/school-coding.jpg HTTP/1.1" 200 160021
+[2019-01-24 08:33:35] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/gothamrnd-bold.ttf HTTP/1.1" 200 63312
+[2019-01-24 08:33:36] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-01-24 08:33:36] WARNING [django.server.log_message:124] "GET /favicon.ico HTTP/1.1" 404 12544
+[2019-01-24 08:33:53] WARNING [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 404 1834
+[2019-01-24 08:33:53] WARNING [django.server.log_message:124] "GET /static/home/css/newhomepage/css/bootstrap.min.css.map HTTP/1.1" 404 1876
+[2019-01-24 08:36:55] INFO [django.server.log_message:124] "OPTIONS /sso_api/confirm_key HTTP/1.1" 200 0
+[2019-01-24 08:36:55] INFO [django.server.log_message:124] "POST /sso_api/confirm_key HTTP/1.1" 202 68
+[2019-01-24 08:36:57] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2 HTTP/1.1" 200 0
+[2019-01-24 08:36:58] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 08:36:58] INFO [django.server.log_message:124] "OPTIONS /sso_api/groups HTTP/1.1" 200 0
+[2019-01-24 08:36:58] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 08:36:58] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 08:36:58] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 08:36:58] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 08:36:58] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 08:36:59] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 08:36:59] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 08:42:09] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 08:42:09] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 08:42:10] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 08:42:10] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 08:47:08] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2 HTTP/1.1" 200 0
+[2019-01-24 08:47:08] INFO [django.server.log_message:124] "OPTIONS /sso_api/groups HTTP/1.1" 200 0
+[2019-01-24 08:47:09] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 08:47:09] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 08:47:09] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 08:47:09] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 08:47:09] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 08:47:10] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 08:47:17] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 08:47:17] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 08:47:17] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 08:47:17] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 08:48:18] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 08:48:18] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 08:48:18] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 08:48:18] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 08:52:15] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 08:52:15] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 08:52:15] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 08:52:15] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 08:55:13] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 08:55:13] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 08:55:13] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 08:55:13] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 08:55:13] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 08:56:42] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 08:56:42] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 08:56:42] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 08:56:42] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 08:56:43] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 08:57:26] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2 HTTP/1.1" 200 0
+[2019-01-24 08:57:26] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 08:57:26] INFO [django.server.log_message:124] "OPTIONS /sso_api/groups HTTP/1.1" 200 0
+[2019-01-24 08:57:26] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 08:57:26] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 08:57:27] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 08:57:27] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 08:57:27] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 08:57:27] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 08:57:28] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 08:57:52] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 08:57:52] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 08:57:52] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 08:57:52] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 08:57:52] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 08:58:42] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 08:58:42] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 08:58:42] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 08:58:42] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 08:58:42] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 08:59:36] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 08:59:36] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 08:59:36] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 08:59:36] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 08:59:36] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 09:24:28] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2 HTTP/1.1" 200 0
+[2019-01-24 09:24:28] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 09:24:28] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 09:24:28] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 09:24:28] INFO [django.server.log_message:124] "OPTIONS /sso_api/groups HTTP/1.1" 200 0
+[2019-01-24 09:24:28] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 09:24:28] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 09:24:28] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 09:24:28] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 09:24:28] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 09:24:28] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 09:24:29] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 09:24:29] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 09:24:29] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 09:27:01] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 09:27:01] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 09:27:01] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 700
+[2019-01-24 09:27:01] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 700
+[2019-01-24 09:27:01] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 700
+[2019-01-24 09:27:01] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 700
+[2019-01-24 09:27:02] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 700
+[2019-01-24 17:52:59] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2 HTTP/1.1" 200 0
+[2019-01-24 17:52:59] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 17:52:59] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 17:52:59] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 17:52:59] INFO [django.server.log_message:124] "OPTIONS /sso_api/groups HTTP/1.1" 200 0
+[2019-01-24 17:52:59] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 17:52:59] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 17:52:59] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 17:52:59] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 17:52:59] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 17:52:59] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 17:53:00] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 17:53:00] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 17:53:01] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 17:54:11] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 17:54:11] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 17:54:11] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 17:54:11] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 17:54:11] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 17:56:12] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 17:56:12] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 17:56:12] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 17:56:12] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 17:57:55] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 17:57:55] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 17:57:55] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 17:57:55] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 17:58:43] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 17:58:43] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 17:58:43] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 17:58:43] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 17:58:53] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 17:58:53] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 17:58:53] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 17:58:53] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 17:59:44] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 17:59:44] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 17:59:44] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 17:59:44] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 17:59:44] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 18:01:05] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 18:01:05] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 18:01:05] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 18:01:05] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 18:01:05] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 18:01:44] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 18:01:44] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 18:01:44] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 18:01:44] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 18:01:44] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 18:03:11] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2 HTTP/1.1" 200 0
+[2019-01-24 18:03:11] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 18:03:11] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 18:03:11] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 18:03:11] INFO [django.server.log_message:124] "OPTIONS /sso_api/groups HTTP/1.1" 200 0
+[2019-01-24 18:03:12] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 18:03:12] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 18:03:12] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 700
+[2019-01-24 18:03:12] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 700
+[2019-01-24 18:03:12] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 700
+[2019-01-24 18:06:44] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 18:06:44] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 172
+[2019-01-24 18:06:44] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 18:06:45] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 172
+[2019-01-24 18:06:45] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 172
+[2019-01-24 18:10:36] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 18:10:36] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 18:10:37] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 18:10:37] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 18:10:37] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 18:12:27] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 18:12:27] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 18:12:27] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 18:12:28] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 18:12:28] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 18:13:00] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 18:13:00] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 18:13:00] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 18:13:00] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 18:13:00] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 18:13:41] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2 HTTP/1.1" 200 0
+[2019-01-24 18:13:41] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 18:13:41] INFO [django.server.log_message:124] "OPTIONS /sso_api/groups HTTP/1.1" 200 0
+[2019-01-24 18:13:41] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 18:13:41] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 18:13:41] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 18:13:42] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 18:13:42] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 18:13:42] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 18:13:42] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 18:15:01] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 18:15:01] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 18:15:01] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 18:15:01] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 18:15:01] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 18:15:24] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 18:15:24] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 18:15:24] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 18:15:24] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 18:15:24] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 18:18:28] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 18:18:28] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 18:18:28] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 18:18:29] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 18:18:29] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 18:20:01] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 18:20:01] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 18:20:01] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 18:20:01] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 18:20:01] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 18:20:46] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 18:20:46] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 18:20:46] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 18:20:46] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 18:20:46] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 142
+[2019-01-24 18:22:10] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 18:22:10] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 18:22:11] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:22:11] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:22:11] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:22:55] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 18:22:55] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 18:22:55] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:22:55] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:22:56] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:23:35] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 18:23:35] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:23:35] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 18:23:35] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:23:35] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:24:33] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2 HTTP/1.1" 200 0
+[2019-01-24 18:24:33] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 18:24:33] INFO [django.server.log_message:124] "OPTIONS /sso_api/groups HTTP/1.1" 200 0
+[2019-01-24 18:24:33] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 18:24:33] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 18:24:33] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 18:24:33] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 18:24:33] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:24:33] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:24:33] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:25:58] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 18:25:58] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:25:58] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 18:25:58] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:25:59] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:26:46] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 18:26:46] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 18:26:46] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:26:46] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:26:46] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:29:26] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 18:29:26] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 18:29:26] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:29:26] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:29:26] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:30:04] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 18:30:04] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 18:30:04] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:30:04] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:30:04] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:30:45] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 18:30:45] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 18:30:45] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:30:45] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:30:46] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:31:38] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 18:31:38] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 18:31:38] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:31:38] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:31:39] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:32:17] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 18:32:17] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 18:32:17] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:32:17] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:32:18] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:34:00] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:34:00] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 18:34:00] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 18:34:00] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:34:00] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:40:39] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2 HTTP/1.1" 200 0
+[2019-01-24 18:40:39] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 18:40:39] INFO [django.server.log_message:124] "OPTIONS /sso_api/groups HTTP/1.1" 200 0
+[2019-01-24 18:40:39] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 18:40:39] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 18:40:40] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 18:40:40] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 18:40:40] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:40:40] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:40:40] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:40:59] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 18:40:59] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:40:59] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 18:40:59] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:41:00] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:41:33] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 18:41:33] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 18:41:33] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:41:33] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:41:33] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:41:53] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 18:41:53] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:41:53] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 18:41:53] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:41:53] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:44:09] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 18:44:09] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:44:09] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 18:44:09] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:44:10] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:45:05] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 18:45:05] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:45:05] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 18:45:05] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:45:06] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:47:05] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 18:47:05] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 18:47:05] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:47:06] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:47:06] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:47:25] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 18:47:25] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 18:47:25] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:47:25] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:47:25] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 18:59:37] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2 HTTP/1.1" 200 0
+[2019-01-24 18:59:37] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 18:59:37] INFO [django.server.log_message:124] "OPTIONS /sso_api/groups HTTP/1.1" 200 0
+[2019-01-24 18:59:37] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 18:59:37] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 18:59:37] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 18:59:37] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 18:59:37] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 23
+[2019-01-24 18:59:37] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 23
+[2019-01-24 18:59:38] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 23
+[2019-01-24 19:05:30] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 19:05:30] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 19:05:30] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 19:05:30] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 19:05:30] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 19:05:56] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 19:05:56] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 19:05:56] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 19:05:56] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 19:05:57] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 19:21:27] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2 HTTP/1.1" 200 0
+[2019-01-24 19:21:27] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 19:21:27] INFO [django.server.log_message:124] "OPTIONS /sso_api/groups HTTP/1.1" 200 0
+[2019-01-24 19:21:27] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 19:21:27] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 19:21:28] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 19:21:28] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 19:21:28] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 19:21:28] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 19:21:28] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 19:26:39] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 19:26:39] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 19:26:39] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 19:26:39] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 19:26:40] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 19:29:41] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 19:29:41] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 19:29:41] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 19:29:41] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 19:29:41] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 19:30:27] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 19:30:27] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 19:30:27] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 19:30:27] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 19:30:27] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 19:30:50] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 19:30:50] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 19:30:50] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 19:30:50] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 19:30:50] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:09:03] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2 HTTP/1.1" 200 0
+[2019-01-24 20:09:03] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 20:09:03] INFO [django.server.log_message:124] "OPTIONS /sso_api/groups HTTP/1.1" 200 0
+[2019-01-24 20:09:03] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 20:09:03] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 20:09:03] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 20:09:03] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:09:03] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 20:09:03] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:09:04] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:10:00] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 20:10:00] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 20:10:00] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:10:00] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:10:00] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:27:58] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2 HTTP/1.1" 200 0
+[2019-01-24 20:27:58] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 20:27:58] INFO [django.server.log_message:124] "OPTIONS /sso_api/groups HTTP/1.1" 200 0
+[2019-01-24 20:27:58] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 20:27:58] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 20:27:58] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 20:27:58] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 20:27:58] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:27:58] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:27:59] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:28:29] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 20:28:29] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 20:28:29] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:28:29] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:28:29] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:29:14] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 20:29:14] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:29:14] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 20:29:14] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:29:14] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:32:15] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 20:32:15] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 20:32:15] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:32:15] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:32:16] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:33:00] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 20:33:00] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 20:33:00] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:33:00] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:33:01] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:33:41] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 20:33:41] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 20:33:41] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:33:41] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:33:41] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:34:38] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 20:34:38] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 20:34:38] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:34:38] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:34:39] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:35:53] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 20:35:53] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:35:53] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 20:35:53] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:35:53] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:36:20] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 20:36:20] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:36:20] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 20:36:20] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:36:20] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:36:54] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 20:36:54] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:36:54] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 20:36:54] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:36:55] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:38:45] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2 HTTP/1.1" 200 0
+[2019-01-24 20:38:45] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 20:38:45] INFO [django.server.log_message:124] "OPTIONS /sso_api/groups HTTP/1.1" 200 0
+[2019-01-24 20:38:46] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 20:38:46] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-01-24 20:38:46] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-01-24 20:38:46] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:38:46] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
+[2019-01-24 20:38:46] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-24 20:38:46] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114

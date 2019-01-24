@@ -8,6 +8,7 @@ import {Observable, of, Subject} from "rxjs/index";
 import {Topic} from "../course/topic.model";
 import {ClassModel} from "./class-model";
 import {UserModel} from "./user-model";
+import {GroupMember} from "./group-member";
 
 @Injectable({
   providedIn: 'root'
@@ -78,8 +79,11 @@ export class ApiService {
   getAvailableClasses():Observable<ClassModel[]>{
     return this.httpClient.get<ClassModel[]>(environment.API_URL + `sso_api/groups`,{headers:this.headers})
   }
-  getGroupMembers(group_id):Observable<UserModel[]>{
-    return this.httpClient.get<UserModel[]>(environment.API_URL + `sso_api/group/`+group_id+`/users`,{headers:this.headers})
+  getGroupMembers(group_id):Observable<GroupMember[]>{
+    // this.httpClient.get<UserModel[]>(environment.API_URL + `sso_api/group/`+group_id+`/users`,{headers:this.headers}).subscribe(data=>{
+    // })
+
+    return this.httpClient.get<GroupMember[]>(environment.API_URL + `sso_api/group/`+group_id+`/users`,{headers:this.headers})
   }
 
 }

@@ -1,3 +1,4 @@
+import json
 
 from django.contrib.auth import authenticate
 from django.views.decorators.csrf import csrf_exempt
@@ -12,7 +13,7 @@ from users.models import CustomUser
 
 from home.models import Groupclass
 
-from Django.Linuxjobber.home.models import GroupClassLog
+from home.models import GroupClassLog
 from .serializers import GroupClassSerializer,UserSerializer,CourseSerializer,CourseTopicSerializer
 from Courses.models import Course,CourseTopic
 
@@ -95,7 +96,10 @@ class GroupMembers(APIView):
             g=Groupclass.objects.get(id=group_id)
             users=UserSerializer(g.users,many=True)
             set_last_login(g,request.user)
-            return Response(users.data)
+            log=GroupClassLog.get_log(g)
+
+            return Response(log)
+
         except Groupclass.DoesNotExist:
             return Response("Not found",status.HTTP_404_NOT_FOUND)
 

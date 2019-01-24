@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from channels.generic.websocket import AsyncWebsocketConsumer
 from channels.db import database_sync_to_async
 from classroom.models import DjangoStudent, ChatRoom, ChatMessage
@@ -94,4 +96,5 @@ class ChatConsumer(AsyncWebsocketConsumer):
     async def chat_message(self, event):
         user = event['user']
         message = event['message']
-        await self.send(text_data=json.dumps({'user': user, 'message': message}))
+        now=datetime.now().strftime("%D %H:%M:%S: ")
+        await self.send(text_data=json.dumps({'user': user, 'message': now+message}))
