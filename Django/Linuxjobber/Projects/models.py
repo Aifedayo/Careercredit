@@ -81,7 +81,7 @@ class CourseLabTask(models.Model):
     #lab_task_course = models.ForeignKey(ProjectCourse, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.task_id, self.task
+        return self.task_task
 
 
 

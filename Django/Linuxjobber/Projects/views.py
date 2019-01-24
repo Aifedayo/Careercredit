@@ -113,5 +113,4 @@ def course_lab_tasks(request, lab_title):
         'task_status': UsersLabTaskStatus.objects.filter(user=request.user)
     }
 
-    print(lab.lab_course.lab_submission_type)
     return render(request, 'projects/course_lab_tasks.html', context)
