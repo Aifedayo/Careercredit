@@ -241,12 +241,11 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
-'''STATICFILES_DIRS = (
+STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'asset'),
-    os.path.join(BASE_DIR, 'Projects/static'),
-    )'''
+    )
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'asset')
+#STATIC_ROOT = os.path.join(BASE_DIR, 'asset')
 
 #CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor"
 
