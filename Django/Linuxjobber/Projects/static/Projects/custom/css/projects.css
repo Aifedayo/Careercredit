@@ -188,6 +188,7 @@ ul.sub-menu {
 .course-proj-cont {
 	background-color: #F6F6F6; 
 	text-align: center;
+	margin-bottom: 40px;
 
 }
 
@@ -211,8 +212,8 @@ ul.sub-menu {
 	text-align: center;
 	color: rgba(0, 0, 0, 0.8);
 	padding-top: 24px;
-	margin-left: 398px;
-	margin-right: 398px;
+	/*margin-left: 398px;
+	margin-right: 398px; */
 	height: 64px;
 }
 
@@ -249,6 +250,7 @@ ul.sub-menu {
 	padding-right: 69px;
 	width: 266px;
 	height: 59px;
+	margin-bottom: 20px;
 }
 
 .course-proj-lab-btn {
@@ -269,8 +271,7 @@ ul.sub-menu {
 	padding-right: 69px;
 	width: 266px;
 	height: 59px;
-	margin-top: 22px;
-	margin-bottom: 44px;
+	margin-bottom: 20px;
 }
 
 
@@ -289,9 +290,33 @@ ul.sub-menu {
 	font-size: 36px;
 	color: #000000;
 }
+/* Labs page responsive plus */
+.topic-class h4 {
+    font-size: 24px !important;
+    color: white !important;
+    margin-bottom: 0 !important;
+ }
+
+.topic-bg, .line-ht {
+    display: flex;
+}
+
+
+/* Labs page responsive plus ends */
+
+/* lab task page @430px */
+.list-button {
+    display: none;
+}
+
+/* lab task page @430px ends */
+
+
+/* video box edit responsive */
+
+/* video box edit responsive ends */
 
 .col2-course-descrp {
-	width: 965px;
 	height: 48px;
 	font-family: Roboto;
 	font-style: normal;
@@ -300,13 +325,10 @@ ul.sub-menu {
 	font-size: 18px;
 	color: #000000;
 	padding-top: 10px;
-	padding-right: 210px;
 }
-
 
 .col2-board {
 	background: rgba(37, 37, 37, 0.05);
-	margin-right: 138px;
 }
 
 .col2-heading {
@@ -320,7 +342,7 @@ ul.sub-menu {
 }
 
 .course-obj {
-	padding-top: 6px;
+	padding-top: 20px;
 }
 
 .course-obj-body {
