@@ -106,10 +106,11 @@ def course_lab_tasks(request, lab_title):
     lab = CourseLab.objects.get(lab_title=lab_title.replace("_", " ")) 
 
     context = {
+        'lab': lab,
         'lab_tasks': lab.courselabtask_set.all(),
         'courses': get_courses(),
         'tools': get_tools(),
+        'task_status': UsersLabTaskStatus.objects.filter(user=request.user)
     }
-
 
     return render(request, 'projects/course_lab_tasks.html', context)
