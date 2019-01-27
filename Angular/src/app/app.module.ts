@@ -25,9 +25,6 @@ import {ApiService} from "./share/api.service";
 import { SafePipe } from './share/safe.pipe';
 import {OrderModule} from "ngx-order-pipe";
 
-
-
-
 @NgModule({
   declarations: [
 
@@ -49,7 +46,8 @@ import {OrderModule} from "ngx-order-pipe";
     AppRoutingModule,
     CourseModule,
     LinuxModule,
-    OrderModule
+    OrderModule,
+
   ],
   providers: [DataService,Location,ApiService],
   bootstrap: [AppComponent]

@@ -14,6 +14,7 @@ import { TopicVideoComponent } from './topic-video/topic-video.component';
 import {FormsModule} from "@angular/forms";
 import {SafePipe} from "../share/safe.pipe";
 import {OrderModule} from "ngx-order-pipe";
+import {SharedModule} from "../../shared/shared.module";
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import {OrderModule} from "ngx-order-pipe";
     CommonModule,
     CourseRoutingModule,
     FormsModule,
-    OrderModule
+    OrderModule,
+    SharedModule
 
   ],
   declarations: [
@@ -32,7 +34,8 @@ import {OrderModule} from "ngx-order-pipe";
     TopicLabComponent,
     TopicNotesComponent,
     TopicVideoComponent,
-    SafePipe
+    SafePipe,
+
   ],
   providers: [],
   bootstrap: [CourseComponent]

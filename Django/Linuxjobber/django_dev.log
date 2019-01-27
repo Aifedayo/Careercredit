@@ -1050,3 +1050,143 @@ django.db.utils.OperationalError: (1054, "Unknown column 'users_customuser.profi
 [2019-01-24 20:38:46] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 269
 [2019-01-24 20:38:46] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
 [2019-01-24 20:38:46] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 114
+[2019-01-27 21:51:35] INFO [django.server.log_message:124] "OPTIONS /sso_api/upload HTTP/1.1" 200 0
+[2019-01-27 21:51:35] WARNING [django.server.log_message:124] "PUT /sso_api/upload HTTP/1.1" 403 58
+[2019-01-27 21:52:50] INFO [django.server.log_message:124] "OPTIONS /sso_api/upload HTTP/1.1" 200 0
+[2019-01-27 21:52:50] WARNING [django.server.log_message:124] "POST /sso_api/upload HTTP/1.1" 403 58
+[2019-01-27 21:54:58] INFO [django.server.log_message:124] "OPTIONS /sso_api/upload HTTP/1.1" 200 0
+[2019-01-27 21:54:58] WARNING [django.server.log_message:124] "POST /sso_api/upload HTTP/1.1" 403 58
+[2019-01-27 21:57:18] INFO [django.server.log_message:124] "OPTIONS /sso_api/upload HTTP/1.1" 200 0
+[2019-01-27 21:57:18] WARNING [django.server.log_message:124] "PUT /sso_api/upload HTTP/1.1" 401 74
+[2019-01-27 21:59:28] INFO [django.server.log_message:124] "OPTIONS /sso_api/upload HTTP/1.1" 200 0
+[2019-01-27 21:59:28] WARNING [django.server.log_message:124] "PUT /sso_api/upload HTTP/1.1" 401 74
+[2019-01-27 22:01:08] INFO [django.server.log_message:124] "OPTIONS /sso_api/upload HTTP/1.1" 200 0
+[2019-01-27 22:01:08] WARNING [django.server.log_message:124] "PUT /sso_api/upload HTTP/1.1" 401 74
+[2019-01-27 22:01:59] INFO [django.server.log_message:124] "GET /admin HTTP/1.1" 302 0
+[2019-01-27 22:01:59] INFO [django.server.log_message:124] "GET /admin/login/?next=/admin HTTP/1.1" 200 2002
+[2019-01-27 22:02:00] INFO [django.server.log_message:124] "GET /static/admin/css/login.css HTTP/1.1" 200 1281
+[2019-01-27 22:02:00] INFO [django.server.log_message:124] "GET /static/admin/css/base.css HTTP/1.1" 200 17084
+[2019-01-27 22:02:00] INFO [django.server.log_message:124] "GET /static/admin/css/responsive.css HTTP/1.1" 200 18884
+[2019-01-27 22:02:00] INFO [django.server.log_message:124] "GET /static/admin/css/fonts.css HTTP/1.1" 200 443
+[2019-01-27 22:02:01] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+[2019-01-27 22:02:01] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+[2019-01-27 22:02:01] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 82564
+[2019-01-27 22:02:01] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-01-27 22:02:01] WARNING [django.server.log_message:124] "GET /favicon.ico HTTP/1.1" 404 12544
+[2019-01-27 22:02:07] INFO [django.server.log_message:124] "POST /admin/login/?next=/admin HTTP/1.1" 302 0
+[2019-01-27 22:02:07] INFO [django.server.log_message:124] "GET /admin HTTP/1.1" 200 25282
+[2019-01-27 22:02:07] INFO [django.server.log_message:124] "GET /static/admin/css/dashboard.css HTTP/1.1" 200 439
+[2019-01-27 22:02:08] INFO [django.server.log_message:124] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 334
+[2019-01-27 22:02:08] INFO [django.server.log_message:124] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 383
+[2019-01-27 22:02:11] INFO [django.server.log_message:124] "GET /admin/authtoken/token/ HTTP/1.1" 200 8269
+[2019-01-27 22:02:11] INFO [django.server.log_message:124] "GET /static/admin/css/changelists.css HTTP/1.1" 200 6514
+[2019-01-27 22:02:11] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-01-27 22:02:11] INFO [django.server.log_message:124] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 371
+[2019-01-27 22:02:11] INFO [django.server.log_message:124] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 7078
+[2019-01-27 22:02:11] INFO [django.server.log_message:124] "GET /static/admin/js/core.js HTTP/1.1" 200 7346
+[2019-01-27 22:02:11] INFO [django.server.log_message:124] "GET /static/admin/js/actions.js HTTP/1.1" 200 6655
+[2019-01-27 22:02:11] INFO [django.server.log_message:124] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 268490
+[2019-01-27 22:02:12] INFO [django.server.log_message:124] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1580
+[2019-01-27 22:02:12] INFO [django.server.log_message:124] "GET /static/admin/js/urlify.js HTTP/1.1" 200 8918
+[2019-01-27 22:02:12] INFO [django.server.log_message:124] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 131128
+[2019-01-27 22:02:12] INFO [django.server.log_message:124] "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 334
+[2019-01-27 22:02:12] INFO [django.server.log_message:124] "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1116
+[2019-01-27 22:03:03] INFO [django.server.log_message:124] "OPTIONS /sso_api/upload HTTP/1.1" 200 0
+[2019-01-27 22:03:03] WARNING [django.server.log_message:124] "PUT /sso_api/upload HTTP/1.1" 401 74
+[2019-01-27 22:07:10] INFO [django.server.log_message:124] "OPTIONS /sso_api/upload HTTP/1.1" 200 0
+[2019-01-27 22:07:11] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /sso_api/upload
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso\Django\Linuxjobber\sso_api\views.py", line 142, in put
+    extention=file.name.split(".").lower()[-1]
+AttributeError: 'list' object has no attribute 'lower'
+[2019-01-27 22:07:11] ERROR [django.server.log_message:124] "PUT /sso_api/upload HTTP/1.1" 500 21217
+[2019-01-27 22:09:07] INFO [django.server.log_message:124] "OPTIONS /sso_api/upload HTTP/1.1" 200 0
+[2019-01-27 22:09:07] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /sso_api/upload
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso\Django\Linuxjobber\sso_api\views.py", line 142, in put
+    extention=filename.split(".").lower()[-1]
+AttributeError: 'list' object has no attribute 'lower'
+[2019-01-27 22:09:07] ERROR [django.server.log_message:124] "PUT /sso_api/upload HTTP/1.1" 500 21224
+[2019-01-27 22:09:55] INFO [django.server.log_message:124] "OPTIONS /sso_api/upload HTTP/1.1" 200 0
+[2019-01-27 22:09:55] WARNING [django.server.log_message:124] "PUT /sso_api/upload HTTP/1.1" 401 74
+[2019-01-27 22:10:21] INFO [django.server.log_message:124] "OPTIONS /sso_api/upload HTTP/1.1" 200 0
+[2019-01-27 22:10:22] WARNING [django.server.log_message:124] "PUT /sso_api/upload HTTP/1.1" 401 74
+[2019-01-27 22:11:26] INFO [django.server.log_message:124] "OPTIONS /sso_api/upload HTTP/1.1" 200 0
+[2019-01-27 22:11:26] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /sso_api/upload
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso\Django\Linuxjobber\sso_api\views.py", line 143, in put
+    extention=filename.split(".").lower()[-1]
+AttributeError: 'list' object has no attribute 'lower'
+[2019-01-27 22:11:27] ERROR [django.server.log_message:124] "PUT /sso_api/upload HTTP/1.1" 500 21216
+[2019-01-27 22:17:42] INFO [django.server.log_message:124] "OPTIONS /sso_api/upload HTTP/1.1" 200 0
+[2019-01-27 22:17:42] INFO [django.server.log_message:124] "PUT /sso_api/upload HTTP/1.1" 201 50
+[2019-01-27 22:20:57] INFO [django.server.log_message:124] "OPTIONS /sso_api/upload HTTP/1.1" 200 0
+[2019-01-27 22:20:57] INFO [django.server.log_message:124] "PUT /sso_api/upload HTTP/1.1" 201 50
+[2019-01-27 22:21:37] INFO [django.server.log_message:124] "OPTIONS /sso_api/upload HTTP/1.1" 200 0
+[2019-01-27 22:21:37] INFO [django.server.log_message:124] "PUT /sso_api/upload HTTP/1.1" 201 50
+[2019-01-27 22:22:39] INFO [django.server.log_message:124] "OPTIONS /sso_api/upload HTTP/1.1" 200 0
+[2019-01-27 22:22:39] INFO [django.server.log_message:124] "PUT /sso_api/upload HTTP/1.1" 201 51
+[2019-01-27 22:25:09] INFO [django.server.log_message:124] "OPTIONS /sso_api/upload HTTP/1.1" 200 0
+[2019-01-27 22:25:09] INFO [django.server.log_message:124] "PUT /sso_api/upload HTTP/1.1" 201 37
+[2019-01-27 22:26:55] INFO [django.server.log_message:124] "OPTIONS /sso_api/upload HTTP/1.1" 200 0
+[2019-01-27 22:26:55] INFO [django.server.log_message:124] "PUT /sso_api/upload HTTP/1.1" 201 62
+[2019-01-27 22:29:25] INFO [django.server.log_message:124] "OPTIONS /sso_api/upload HTTP/1.1" 200 0
+[2019-01-27 22:29:26] INFO [django.server.log_message:124] "PUT /sso_api/upload HTTP/1.1" 201 37
+[2019-01-27 22:30:57] INFO [django.server.log_message:124] "OPTIONS /sso_api/upload HTTP/1.1" 200 0
+[2019-01-27 22:30:57] INFO [django.server.log_message:124] "PUT /sso_api/upload HTTP/1.1" 201 45
+[2019-01-27 22:35:18] INFO [django.server.log_message:124] "OPTIONS /sso_api/upload HTTP/1.1" 200 0
+[2019-01-27 22:35:18] INFO [django.server.log_message:124] "PUT /sso_api/upload HTTP/1.1" 201 45
+[2019-01-27 22:37:00] INFO [django.server.log_message:124] "OPTIONS /sso_api/upload HTTP/1.1" 200 0
+[2019-01-27 22:37:00] INFO [django.server.log_message:124] "PUT /sso_api/upload HTTP/1.1" 201 45
+[2019-01-27 22:39:09] INFO [django.server.log_message:124] "OPTIONS /sso_api/upload HTTP/1.1" 200 0
+[2019-01-27 22:39:09] INFO [django.server.log_message:124] "PUT /sso_api/upload HTTP/1.1" 201 45
+[2019-01-27 22:43:44] INFO [django.server.log_message:124] "OPTIONS /sso_api/upload HTTP/1.1" 200 0
+[2019-01-27 22:43:45] INFO [django.server.log_message:124] "PUT /sso_api/upload HTTP/1.1" 201 42

@@ -18,11 +18,13 @@ class DjangoStudent(models.Model):
 class ChatRoom(models.Model):
     name = models.CharField(max_length=60)
     hash = models.CharField(max_length=64)
-
     def __str__(self):
         return self.name
 
 class ChatMessage(models.Model):
     user = models.CharField(max_length=50)
     message = models.CharField(max_length=400)
+    type=models.CharField(max_length=10,default='plain')
+    timestamp=models.CharField(max_length=30,null=True)
     room = models.ForeignKey(ChatRoom, on_delete=models.CASCADE, null = True)
+

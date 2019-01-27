@@ -1,10 +1,13 @@
 import json
 
 from django.contrib.auth import authenticate
+from django.core.files.storage import FileSystemStorage
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import authentication, permissions, status
 from rest_framework.authtoken.models import Token
 from rest_framework.decorators import api_view, permission_classes
+from rest_framework.exceptions import ParseError
+from rest_framework.parsers import FileUploadParser
 from rest_framework.permissions import AllowAny,IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -14,6 +17,7 @@ from users.models import CustomUser
 from home.models import Groupclass
 
 from home.models import GroupClassLog
+
 from .serializers import GroupClassSerializer,UserSerializer,CourseSerializer,CourseTopicSerializer
 from Courses.models import Course,CourseTopic
 
@@ -121,3 +125,23 @@ class GroupCourseDetail(APIView):
             pass
         except Course.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
+
+class MyUploadView(APIView):
+    authentication_classes = (authentication.TokenAuthentication,)
+
+    # parser_class = (FileUploadParser,)
+
+    def put(self, request):
+        type=''
+        if 'file' not in request.data:
+            raise ParseError("Empty content")
+        file = request.data['file']
+        fs=FileSystemStorage(location='/media/chat_uploads')
+        filename = fs.save(file.name, file)
+        file_url = fs.url(filename)
+        extention=filename.split(".")[-1]
+        if extention[0].lower() not in ['jpg','jpeg','png','ico']:
+            type='file'
+        else:
+            type='image'
+        return Response({'url':file_url[1:],'type':type},status=status.HTTP_201_CREATED)
