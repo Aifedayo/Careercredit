@@ -44,7 +44,7 @@
     <input id="file-input" (change)="fileChange($event)" type="file"/>
 </div>
   <input (keyup.enter)="sendMessage(chat_text,'plain')" class="form-control" type="text" id="message_box" name="chat_text" [(ngModel)]="chat_text" placeholder="Type Your Message Here">
-  <button class="btn btn-default send" (click)="sendMessage(chat_text)" id="submit">
+  <button class="btn btn-default send" (click)="sendMessage(chat_text,'plain')" id="submit">
     <i class="material-icons right" id="send_icon">send</i>
   </button>
 </div>
