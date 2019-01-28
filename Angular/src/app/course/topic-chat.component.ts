@@ -32,7 +32,7 @@ export class TopicChatComponent implements OnInit {
   constructor(private http: HttpClient, private apiService:ApiService) {
     this.websocket = new WebSocket(environment.WS_URL);
     this.websocket.onopen = (evt) => {
-      now=new Date();
+      const now=new Date();
       const m= new ChatMessage()
       m.user=sessionStorage.getItem('username')
       m.type = 'plain';
