@@ -33,7 +33,11 @@ export class TopicChatComponent implements OnInit {
     this.websocket = new WebSocket(environment.WS_URL);
     this.websocket.onopen = (evt) => {
       now=new Date();
-      this.websocket.send(JSON.stringify({'user': sessionStorage.getItem('username'), 'message': '!join ','type':'plai','timestamp':now.toString()}));
+      const m= new ChatMessage()
+      m.user=sessionStorage.getItem('username')
+      m.type = 'plain';
+      m.timestamp= now.toString();
+      this.websocket.send(JSON.stringify(m));
       };
 
       this.websocket.onmessage = (evt) => {
