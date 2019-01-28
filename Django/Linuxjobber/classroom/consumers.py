@@ -33,7 +33,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
     def getRecentMessages(self):
         messages = []
         for message in self.room_object.chatmessage_set.order_by('-pk')[:30]:
-            messages.insert(0, {'user': message.user, 'message': message.message,'type':message.type
+            messages.insert(0, {'user': message.user, 'message': message.message,'the_type':message.the_type
                 ,'timestamp':message.timestamp})
         # del messages[-1]
         return messages
