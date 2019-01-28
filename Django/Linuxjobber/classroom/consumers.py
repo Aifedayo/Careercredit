@@ -93,7 +93,8 @@ class ChatConsumer(AsyncWebsocketConsumer):
             await self.send(text_data=json.dumps({'messages': messages}))
         else:
             print(message)
-            await self.channel_layer.group_send(self.room_group_name, {'type': 'chat_message', 'user': self.user, 'message': message})
+            await self.channel_layer.group_send(self.room_group_name, {'type': _type, 'user': self.user, 'message': message,
+                                                                       'timestamp':timestamp})
             await database_sync_to_async(self.generate_message)(self.room_object, self.user, message, _type, timestamp)
 
     async def chat_message(self, event):
