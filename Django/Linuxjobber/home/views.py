@@ -8,7 +8,7 @@ from urllib.parse import urlparse
 from django.conf import settings
 from django.shortcuts import render,redirect, reverse, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 from django.template.response import TemplateResponse
 from django.utils.datastructures import MultiValueDictKeyError
 from django.views.decorators.csrf import csrf_exempt
@@ -22,7 +22,7 @@ from .models import *
 from Courses.models import Course
 from ToolsApp.models import Tool
 from users.models import CustomUser
-from .forms import JobPlacementForm, JobApplicationForm, AWSCredUpload, InternshipForm, ResumeForm, PartimeApplicationForm
+from .forms import JobPlacementForm, JobApplicationForm, AWSCredUpload, InternshipForm, ResumeForm, PartimeApplicationForm, WeForm
 
 fs = FileSystemStorage(location= settings.MEDIA_ROOT+'/uploads')
 # stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -197,7 +197,7 @@ def partime(request):
         form = PartimeApplicationForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you applied for a part-time role at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [request.POST['email']])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you applied for a part-time role at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.POST['email']])
             return redirect("home:jobfeed")
         else:
             form = PartimeApplicationForm()
@@ -226,7 +226,7 @@ def jobapplication(request, job):
             jobform = form.save(commit=False)
             jobform.position = posts
             jobform.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you applied for a full-time role at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [request.POST['email']])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you applied for a full-time role at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.POST['email']])
             return redirect("home:jobfeed")
         else:
             form = JobApplicationForm()
@@ -279,7 +279,7 @@ def linux_full_training(request):
         try:
             subscriber = NewsLetterSubscribers(email = email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
             return render (request, 'home/linux_full_training.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
         except Exception as e:
             standard_logger.error('error')
@@ -295,7 +295,7 @@ def aws_full_training(request):
         try:
             subscriber = NewsLetterSubscribers(email = email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
             return render (request, 'home/aws_full_training.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
         except Exception as e:
             standard_logger.error('error')
@@ -311,7 +311,7 @@ def oracledb_full_training(request):
         try:
             subscriber = NewsLetterSubscribers(email = email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
             return render (request, 'home/oracledb_full_training.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
         except Exception as e:
             standard_logger.error('error')
@@ -327,7 +327,7 @@ def linux_certification(request):
         try:
             subscriber = NewsLetterSubscribers(email = email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
             return render (request, 'home/linux_certification.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
         except Exception as e:
             standard_logger.error('error')
@@ -342,7 +342,7 @@ def aws_certification(request):
         try:
             subscriber = NewsLetterSubscribers(email = email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
             return render (request, 'home/aws_certification.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
         except Exception as e:
             standard_logger.error('error')
@@ -357,16 +357,13 @@ def oracledb_certification(request):
         try:
             subscriber = NewsLetterSubscribers(email = email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
             return render (request, 'home/oracledb_certification.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
         except Exception as e:
             standard_logger.error('error')
             return render (request, 'home/oracledb_certification.html', {'news_letter_message': 'Something went wrong please try again!', 'courses' : get_courses(), 'tools' : get_tools()})
     else:
         return render(request, 'home/oracledb_certification.html', {'news_letter_message': news_letter_message ,'courses' : get_courses(), 'tools' : get_tools()})
-
-
-
 
 
 def workexperience(request):
@@ -389,9 +386,11 @@ def workexpform(request):
     except wepeoples.DoesNotExist:
         student = True
 
+    form = WeForm()
+
 
     if request.method == 'POST':
-        trainee = request.POST['trainee_position']
+        trainee = request.POST['types']
         current = request.POST['current_position']
         state = request.POST['state']
         income = request.POST['income']
@@ -407,32 +406,40 @@ def workexpform(request):
         
         try:
             weps = wepeoples.objects.get(user=request.user)
-            weps.trainee_position = trainee
+            weps.types = trainee
             weps.current_position = current
             weps.person_type = person
             weps.state = state
             weps.income = income
             weps.relocation = relocate
+            weps.profile_picture = None
             weps.last_verification = None
             weps.Paystub = None
             weps.graduation_date = graduation
             weps.save()
         except wepeoples.DoesNotExist:
-            weps = wepeoples.objects.create(user=request.user,trainee_position=trainee,
+            weps = wepeoples.objects.create(user=request.user,types=trainee,
                 current_position=current,person_type=person,state=state,income=income,
                 relocation=relocate,last_verification=None,Paystub=None,graduation_date=graduation)
             weps.save()
         return redirect("home:workexprofile")
     else:
-        return render(request, 'home/workexpform.html',{'student':student})
+        return render(request, 'home/workexpform.html',{'student':student,'form':form})
 
 @login_required
 def workexprofile(request):
     
-    weps = wepeoples.objects.get(user=request.user)
+    try:
+        weps = wepeoples.objects.get(user=request.user)
 
-    if not weps.trainee_position:
-        return redirect("home:workexpform")
+        if not weps.types:
+            return redirect("home:workexpform")
+    except wepeoples.DoesNotExist:
+        return redirect("home:workexperience")
+
+    status = wework.objects.filter(we_people__user=request.user)
+
+
 
     if request.method == "POST":
         print(request.POST['type'])
@@ -442,14 +449,34 @@ def workexprofile(request):
             weps.save(update_fields=["Paystub"])
             messages.success(request, 'Paystub uploaded successfully, Last verification would be updated as soon as Paystub is verified')
             return redirect("home:workexprofile")
-        else:
+        elif request.POST['type'] == '2':
             income = request.POST['income']
             weps.income = income
             weps.save(update_fields=['income'])
             messages.success(request, 'Total monthly income updated successfully')
             return redirect("home:workexprofile")
+        elif request.POST['type'] == '3':
+            u = CustomUser.objects.get(email=request.user.email)
+            u.first_name = request.POST['first_name']
+            u.last_name = request.POST['last_name']
+            u.save(update_fields=["last_name","first_name"]);
+            messages.success(request, 'Your names have been updated successfully')
+            return redirect("home:workexprofile")
+        elif request.POST['type'] == '4':
+            weps.state = request.POST['state']
+            weps.save(update_fields=["state"])
+            messages.success(request, 'State updated successfully')
+            return redirect("home:workexprofile")
+        elif request.POST['type'] == '5':
+            weps.profile_picture = request.FILES['profile']
+            weps.save(update_fields=['profile_picture'])
+            messages.success(request, 'Profile picture updated successfully')
+            return redirect("home:workexprofile")
+        else:
+            messages.error(request, 'Sorry, an error occured. please contact admin@linuxjobber.com')
+            return redirect("home:workexprofile")
 
-    return render(request, 'home/workexprofile.html',{'weps': weps})
+    return render(request, 'home/workexprofile.html',{'weps': weps, 'status':status})
 
 def jobplacements(request):
     return render(request, 'home/jobplacements.html',{'courses' : get_courses(), 'tools' : get_tools()})
@@ -539,10 +566,10 @@ def pay(request):
                 UserPayment.objects.create(user=request.user, amount=PRICE,
                                             trans_id = charge.id, pay_for = charge.description,
                                             )
-                _, created = wepeoples.objects.update_or_create(user=request.user,trainee_position=None,current_position=None,
+                _, created = wepeoples.objects.update_or_create(user=request.user,types=None,current_position=None,
                                                         person_type=None,state=None,income=None,relocation=None,
                                                         last_verification=None,Paystub=None,graduation_date=None)
-                send_mail('Linuxjobber Work-Experience Program', 'Hello, you have succesfully paid for Linuxjobber work experience program.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [request.user.email])
+                send_mail('Linuxjobber Work-Experience Program', 'Hello, you have succesfully paid for Linuxjobber work experience program.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.user.email])
                 return render(request,'home/accepted.html')
             except Exception as error:
                 print(error)
@@ -967,8 +994,8 @@ def ec2dashboard(request, command=None):
         try:
             output = subprocess.check_output(command, shell=True )
             return_code = 0
-            messages.error(request, 'Machine is starting up, wait and click refresh in 2 minutes. Username is : sysadmin , Password is : 8iu7*IU& . We advice you to use this console for all your EC2 instances. If you have started other instances, please turn them all off now')
-            return render(request, 'home/ec2dashboard.html', context)
+            messages.success(request, 'Machine is starting up, wait and click refresh in 2 minutes. Username is : sysadmin , Password is : 8iu7*IU& . We advice you to use this console for all your EC2 instances. If you have started other instances, please turn them all off now')
+            return redirect("home:ec2dashboard")
         except subprocess.CalledProcessError as grepexc:
             print("error code", grepexc.returncode, grepexc.output)
             return_code = grepexc.returncode
@@ -983,16 +1010,16 @@ def ec2dashboard(request, command=None):
 
             if error1 in output:
                 messages.error(request, 'You are not authorized to perform this operation. Please contact admin@linuxjobber.com')
-                return render(request, 'home/ec2dashboard.html', context)
+                return redirect("home:ec2dashboard")
             elif error2 in output:
                 messages.error(request, 'There was an error while validating credentials. Please contact admin@linuxjobber.com')
-                return render(request, 'home/ec2dashboard.html', context)
+                return redirect("home:ec2dashboard")
             elif error3 in output:
                 messages.error(request, 'Sorry, you can only launch one machine at a time')
-                return render(request, 'home/ec2dashboard.html', context)
+                return redirect("home:ec2dashboard")
             else:
                 messages.error(request, 'Unhandled exception has occurred. Please contact admin@linuxjobber.com')
-                return render(request, 'home/ec2dashboard.html', context)
+                return redirect("home:ec2dashboard")
 
     if request.method == "POST":
         form = AWSCredUpload(request.POST, request.FILES)
@@ -1000,7 +1027,7 @@ def ec2dashboard(request, command=None):
 
         if not csv_file.name.endswith('.csv'):
             messages.error(request, 'Please upload csv files only')
-            return render(request, 'home/ec2dashboard.html', context)
+            return redirect("home:ec2dashboard")
 
         data_set = csv_file.read().decode('UTF-8')
         io_string = io.StringIO(data_set)
@@ -1152,7 +1179,7 @@ def students_packages(request):
         try:
             subscriber = NewsLetterSubscribers(email = email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
             return render (request, 'home/students_packages.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
         except Exception as e:
             standard_logger.error('error')
@@ -1170,7 +1197,7 @@ def server_service(request):
         try:
             subscriber = NewsLetterSubscribers(email = email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
             return render (request, 'home/server_service.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
         except Exception as e:
             standard_logger.error('error')
