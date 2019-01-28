@@ -8,9 +8,9 @@
 
 body * {
 
-  color: #454545;
+  /* color: #454545; */
 
-   
+   color: red;
 
     font-family: 'gothamrnd', -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
 
@@ -1595,7 +1595,7 @@ body * {
 
 
 
-.pt-4 { padding-top: 1.5rem!important }
+.pt-4 { padding-top: 1.5rem!important}
 
 
 
