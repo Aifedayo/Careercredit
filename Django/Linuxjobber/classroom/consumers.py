@@ -84,7 +84,6 @@ class ChatConsumer(AsyncWebsocketConsumer):
                 self.room_object = new_room
             else:
                 self.room_object = await database_sync_to_async(self.firstObject)(room)
-
             await self.channel_layer.group_add(self.room_group_name, self.channel_name)
             # await self.channel_layer.group_send(self.room_group_name, {'type': 'chat_message', 'user': 'SERVER INFO', 'message': self.user + ' has joined.'})
             # await database_sync_to_async(self.generate_message)(self.room_object, 'SERVER INFO', str(self.user + ' has joined.'))

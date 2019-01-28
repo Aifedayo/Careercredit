@@ -36,6 +36,7 @@ export class TopicChatComponent implements OnInit {
       const m= new ChatMessage()
       m.user=sessionStorage.getItem('username')
       m.type = 'plain';
+      m.message="!join Djangoclass"
       m.timestamp= now.toString();
       this.websocket.send(JSON.stringify(m));
       };
