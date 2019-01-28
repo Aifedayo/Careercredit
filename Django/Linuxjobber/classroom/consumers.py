@@ -35,7 +35,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
         for message in self.room_object.chatmessage_set.order_by('-pk')[:30]:
             messages.insert(0, {'user': message.user, 'message': message.message,'type':message.type
                 ,'timestamp':message.timestamp})
-        del messages[-1]
+        # del messages[-1]
         return messages
 
     def getCount(self, object):
