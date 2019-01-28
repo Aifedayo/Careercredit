@@ -32,7 +32,8 @@ export class TopicChatComponent implements OnInit {
   constructor(private http: HttpClient, private apiService:ApiService) {
     this.websocket = new WebSocket(environment.WS_URL);
     this.websocket.onopen = (evt) => {
-      this.websocket.send(JSON.stringify({'user': sessionStorage.getItem('username'), 'message': '!join DjangoClass'}));
+      now=new Date();
+      this.websocket.send(JSON.stringify({'user': sessionStorage.getItem('username'), 'message': '!join ','type':'plai','timestamp':now.toString()}));
       };
 
       this.websocket.onmessage = (evt) => {
@@ -78,6 +79,7 @@ export class TopicChatComponent implements OnInit {
     m.user=sessionStorage.getItem('username');
     m.message= message;
     m.type = type;
+    m.timestamp= now.toString()
     this.websocket.send(
       JSON.stringify(m)
     );
