@@ -25,6 +25,6 @@ class ChatMessage(models.Model):
     user = models.CharField(max_length=50)
     message = models.CharField(max_length=400)
     type=models.CharField(max_length=10,default='plain')
-    timestamp=models.CharField(max_length=30,null=True)
+    timestamp=models.CharField(max_length=100,null=True)
     room = models.ForeignKey(ChatRoom, on_delete=models.CASCADE, null = True)
 
