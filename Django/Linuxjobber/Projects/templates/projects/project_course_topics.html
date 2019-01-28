@@ -7,12 +7,13 @@
 
 
 {% block content %}
-	<div style="background-color: #252525; height: 85.9px;">
+
+	<div style="background-color: #252525; height: 70px;">
 		<p style="color: #252525">this is a random text <!-- This text is here for only styling purpose --></p>
 	</div>
-	
+
 	<div class="project-pg-marker">
-		<small>Projects > {{ project_title }} > {{ course_title }}</small>
+		<span style="font-size: 18px;"><a href="{% url 'Projects:index' %}" style="color: rgba(0, 0, 0, 0.4);">Projects</a> > <a style="color: rgba(0, 0, 0, 0.4); id="cs" href="/projects/projects/{{project_title}}">{{ project_title }}</a> > {{ course_title }}</span>
 	</div>
 	<div class="container-fluid course-proj-cont">
 		<p class="course-proj-title">{{ course_title }}<p>
@@ -54,5 +55,7 @@
 			document.getElementById("current_vid").innerHTML = document.getElementById("current_vid2").value;
 		}
 	</script>
+
+
 
 {% endblock %}
