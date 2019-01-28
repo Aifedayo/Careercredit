@@ -18,6 +18,7 @@ from home.models import Groupclass
 
 from home.models import GroupClassLog
 
+from classroom.models import ChatUpload
 from .serializers import GroupClassSerializer,UserSerializer,CourseSerializer,CourseTopicSerializer
 from Courses.models import Course,CourseTopic
 
@@ -132,16 +133,20 @@ class MyUploadView(APIView):
     # parser_class = (FileUploadParser,)
 
     def put(self, request):
-        type=''
         if 'file' not in request.data:
             raise ParseError("Empty content")
-        file = request.data['file']
+        file = request.FILES['file']
         fs=FileSystemStorage(location='/media/chat_uploads')
         filename = fs.save(file.name, file)
         file_url = fs.url(filename)
         extention=filename.split(".")[-1]
-        if extention[0].lower() not in ['jpg','jpeg','png','ico']:
+        a=ChatUpload.objects.create(upload=file)
+        type=""
+        extention = a.upload.url.split(".")[-1]
+        extention=extention.lower()
+        if extention not in ['jpg','jpeg','png','ico']:
             type='file'
         else:
             type='image'
-        return Response({'url':file_url[1:],'type':type},status=status.HTTP_201_CREATED)
+
+        return Response({'url':a.upload.url[1:],'type':type},status=status.HTTP_201_CREATED)

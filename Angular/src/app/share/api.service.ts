@@ -89,7 +89,10 @@ export class ApiService {
   }
 
   uploadFile(data){
-    return this.httpClient.put(environment.API_URL + 'sso_api/upload',data,{headers:this.fileheaders})
+    let head=new HttpHeaders()
+    head=head.append('Authorization', 'Token e973d9bef2d8464bb84cdc06af35fd4a76a37b90'  )
+    // return this.httpClient.put( 'http://localhost:8000/sso_api/upload',data,{headers:this.fileheaders})
+    return this.httpClient.put( environment.API_URL+ 'sso_api/upload',data,{headers:this.fileheaders})
   }
 
 }

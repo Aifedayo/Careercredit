@@ -4,7 +4,7 @@
 
 
  <!-- Chat View -->
- <div class="card medium o" style="max-height: 500px;">
+ <div class="card medium" style="max-height: 500px;">
   <div class="card-content" style="overflow:auto" id="chat_div_space">
   <mat-card class="main-card ">
     <mat-list class="chat-list">
@@ -12,20 +12,20 @@
 
         <img mat-list-avatar src="https://api.adorable.io/avatars/284">
         <h4 mat-line>
-          <b>{{message.user}}<i style="font-size: 12px; text-decoration: none;"> on{{ message.timestamp }}</i></b>
+          <b>{{message.user}}<i style="font-size: 12px; text-decoration: none;"> on {{ message.timestamp }}</i></b>
         </h4>
           <p mat-line>
-              <span *ngIf="message.type === 'plain' || message.type === undefined " >
+              <span *ngIf="message.the_type === 'plain' || message.type === undefined " >
               <span> {{message.message}} </span>
             </span>
-            <span *ngIf="message.type === 'image'">
+            <span *ngIf="message.the_type === 'image'">
               <span><i>Uploaded an image</i>
                   <a [href]="message.message" target="_blank">
                       <img mat-list-icon [src]="message.message"/>
                   </a></span>
             </span>
             <span *ngIf="message.type === 'file' ">
-                <span><i>Uploaded a file: </i><a href="{{ message.message }}" download="{{ message.user }}'s_upload">Download</a> </span>
+                <span><i>Uploaded a file: </i><a [href]="message.message" download="{{ message.user }}'s_upload">Download</a> </span>
             </span>
 
           </p>

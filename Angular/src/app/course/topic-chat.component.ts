@@ -33,10 +33,10 @@ export class TopicChatComponent implements OnInit {
     this.websocket = new WebSocket(environment.WS_URL);
     this.websocket.onopen = (evt) => {
       const now=new Date();
-      const m= new ChatMessage()
-      m.user=sessionStorage.getItem('username')
-      m.type = 'plain';
-      m.message="!join Djangoclass"
+      const m= new ChatMessage();
+      m.user=sessionStorage.getItem('username');
+      m.the_type = 'plain';
+      m.message="!join Djangoclass";
       m.timestamp= now.toString();
       this.websocket.send(JSON.stringify(m));
       };
@@ -45,11 +45,11 @@ export class TopicChatComponent implements OnInit {
         const data = JSON.parse(evt.data);
         if (data['messages'] !== undefined) {
             for (let i = 0; i < data['messages']['length']; i++) {
-              this.the_message=new ChatMessage()
+              this.the_message=new ChatMessage();
               this.the_message.user = data['messages'][i]['user'];
               this.the_message.message = data['messages'][i]['message'];
               this.the_message.timestamp = data['messages'][i]['timestamp'];
-              this.the_message.type = data['messages'][i]['type'];
+              this.the_message.the_type = data['messages'][i]['the_type'];
               this.messages.push(this.the_message);
                    const chat_scroll = document.getElementById('chat_div_space');
         chat_scroll.scrollTop = chat_scroll.scrollHeight;
@@ -58,13 +58,14 @@ export class TopicChatComponent implements OnInit {
             }
         }
         else {
-            this.the_message=new ChatMessage()
+            this.the_message=new ChatMessage();
             this.the_message.user = data['user'];
             this.the_message.message = data['message'];
-            this.the_message.type = data['type'];
+            this.the_message.the_type = data['the_type'];
             this.the_message.timestamp = data['timestamp'];
             // this.messages.push(data['user'] + ': ' + data['message']);
             this.messages.push(this.the_message);
+            console.log(this.the_message)
         }
         const chat_scroll = document.getElementById('chat_div_space');
         chat_scroll.scrollTop = chat_scroll.scrollHeight;
@@ -79,12 +80,13 @@ export class TopicChatComponent implements OnInit {
   }
 
    sendMessage(message,type:string) {
-    let now = new Date();
-    let m = new ChatMessage();
+    const now = new Date();
+    const m = new ChatMessage();
     m.user=sessionStorage.getItem('username');
     m.message= message;
-    m.type = type;
-    m.timestamp= now.toString()
+    m.the_type = type;
+    m.timestamp= now.toLocaleString()
+     console.log(m)
     this.websocket.send(
       JSON.stringify(m)
     );
