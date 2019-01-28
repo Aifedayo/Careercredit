@@ -68,7 +68,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
         text_data_json = json.loads(text_data)
         self.user = text_data_json['user']
         message = text_data_json['message']
-        type = text_data_json['type']
+        _type = text_data_json['type']
         timestamp = text_data_json['timestamp']
         if message[:6] == '!join ':
             await self.channel_layer.group_discard(self.room_group_name, self.channel_name)
@@ -80,7 +80,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
 
             if room_count == 0:
                 new_room = await database_sync_to_async(self.generate_room)(message[6:66], self.room_group_name)
-                await database_sync_to_async(self.generate_message)(new_room, 'SERVER INFO', '=== Welcome to the groupchat.. ===',type,timestamp)
+                await database_sync_to_async(self.generate_message)(new_room, 'SERVER INFO', '=== Welcome to the groupchat.. ===',_type,timestamp)
                 self.room_object = new_room
             else:
                 self.room_object = await database_sync_to_async(self.firstObject)(room)
@@ -94,11 +94,11 @@ class ChatConsumer(AsyncWebsocketConsumer):
         else:
             print(message)
             await self.channel_layer.group_send(self.room_group_name, {'type': 'chat_message', 'user': self.user, 'message': message})
-            await database_sync_to_async(self.generate_message)(self.room_object, self.user, message, type, timestamp)
+            await database_sync_to_async(self.generate_message)(self.room_object, self.user, message, _type, timestamp)
 
     async def chat_message(self, event):
         user = event['user']
         message = event['message']
-        type = event['type']
+        _type = event['type']
         timestamp = event['timestamp']
-        await self.send(text_data=json.dumps({'user': user, 'message': message,'type':type,'timestamp':timestamp}))
+        await self.send(text_data=json.dumps({'user': user, 'message': message,'type':_type,'timestamp':timestamp}))
