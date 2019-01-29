@@ -33,7 +33,7 @@ export class TopicChatComponent implements OnInit {
   public type=TYPE;
   public avatar:string ;
   constructor(private http: HttpClient, private apiService:ApiService) {
-    this.avatar=environment.API_URL
+    this.avatar=environment.API_URL + `media/avatar.png`;
     this.websocket = new WebSocket(environment.WS_URL);
     this.websocket.onopen = (evt) => {
       const now=new Date();
