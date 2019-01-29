@@ -23,6 +23,12 @@ class UserSerializer(serializers.ModelSerializer):
         model = CustomUser
         fields = ['id','username','email','first_name','last_name']
 
+class GroupUserSerializer(serializers.ModelSerializer):
+    user=UserSerializer(many=True)
+    class Meta:
+        fields= ['last_login','user']
+
+        # fields = ['id','username','email','first_name','last_name']
 class LabTaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = LabTask

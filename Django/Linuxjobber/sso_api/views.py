@@ -1,9 +1,13 @@
+import json
 
 from django.contrib.auth import authenticate
+from django.core.files.storage import FileSystemStorage
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import authentication, permissions, status
 from rest_framework.authtoken.models import Token
 from rest_framework.decorators import api_view, permission_classes
+from rest_framework.exceptions import ParseError
+from rest_framework.parsers import FileUploadParser
 from rest_framework.permissions import AllowAny,IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -12,6 +16,9 @@ from users.models import CustomUser
 
 from home.models import Groupclass
 
+from home.models import GroupClassLog
+
+from classroom.models import ChatUpload
 from .serializers import GroupClassSerializer,UserSerializer,CourseSerializer,CourseTopicSerializer
 from Courses.models import Course,CourseTopic
 
@@ -50,6 +57,10 @@ def confirm_api(request):
     except Token.DoesNotExist:
         return Response("Nothing",status=status.HTTP_403_FORBIDDEN)
 
+def set_last_login(group,user):
+
+    obj,created = GroupClassLog.objects.update_or_create(group=group,user=user,defaults={'last_login':''})
+    print(obj,created)
 
 
 class UserGroups(APIView):
@@ -89,7 +100,11 @@ class GroupMembers(APIView):
         try:
             g=Groupclass.objects.get(id=group_id)
             users=UserSerializer(g.users,many=True)
-            return Response(users.data)
+            set_last_login(g,request.user)
+            log=GroupClassLog.get_log(g)
+
+            return Response(log)
+
         except Groupclass.DoesNotExist:
             return Response("Not found",status.HTTP_404_NOT_FOUND)
 
@@ -111,3 +126,27 @@ class GroupCourseDetail(APIView):
             pass
         except Course.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
+
+class MyUploadView(APIView):
+    authentication_classes = (authentication.TokenAuthentication,)
+
+    # parser_class = (FileUploadParser,)
+
+    def put(self, request):
+        if 'file' not in request.data:
+            raise ParseError("Empty content")
+        file = request.FILES['file']
+        fs=FileSystemStorage(location='/media/chat_uploads')
+        filename = fs.save(file.name, file)
+        file_url = fs.url(filename)
+        extention=filename.split(".")[-1]
+        a=ChatUpload.objects.create(upload=file)
+        type=""
+        extention = a.upload.url.split(".")[-1]
+        extention=extention.lower()
+        if extention not in ['jpg','jpeg','png','ico']:
+            type='file'
+        else:
+            type='image'
+
+        return Response({'url':a.upload.url[1:],'type':type},status=status.HTTP_201_CREATED)
