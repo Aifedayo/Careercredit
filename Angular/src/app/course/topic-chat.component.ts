@@ -1,11 +1,12 @@
 import {Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import { DataService } from '../data.service';
 import { HttpClient } from '@angular/common/http';
-import {environment} from "../../environments/environment.prod";
+
 import {ApiService} from "../share/api.service";
 import {ChatMessage} from "../share/chat-message";
 import {Observable} from "rxjs/index";
 import {MatList, MatListItem} from "@angular/material";
+import {environment} from "../../environments/environment";
 
 export enum TYPE {Plain='plain', Image='image', File='file'}
 
@@ -30,8 +31,9 @@ export class TopicChatComponent implements OnInit {
   public websocket;
   public email;
   public type=TYPE;
-    public avatar=environment.API_URL + `media/avatar.png`
+  public avatar:string ;
   constructor(private http: HttpClient, private apiService:ApiService) {
+    this.avatar=environment.API_URL
     this.websocket = new WebSocket(environment.WS_URL);
     this.websocket.onopen = (evt) => {
       const now=new Date();
