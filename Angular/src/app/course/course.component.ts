@@ -27,6 +27,7 @@ export class CourseComponent implements OnInit {
   private  selectedGroup:number = 0;
   // public groupMembers$: Observable<UserModel[]>;
   public groupMembers$: Observable<GroupMember[]>;
+  public avatar=environment.API_URL + `media/avatar.png`
 
   constructor(
     private apiService:ApiService,

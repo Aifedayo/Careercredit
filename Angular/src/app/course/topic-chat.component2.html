@@ -10,7 +10,7 @@
     <mat-list class="chat-list">
       <mat-list-item *ngFor="let message of messages">
 
-        <img mat-list-avatar src="https://api.adorable.io/avatars/284">
+        <img mat-list-avatar [src]="avatar">
         <h4 mat-line>
           <b>{{message.user}}</b><i style="font-size: 12px; text-decoration: none;"> on {{ message.timestamp }}</i>
         </h4>

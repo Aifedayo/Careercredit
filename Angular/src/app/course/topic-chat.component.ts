@@ -22,6 +22,7 @@ export class TopicChatComponent implements OnInit {
 
 
 
+
   public users: Array<object> = [];
   public chat_text  = '';
   public messages = [];
@@ -29,6 +30,7 @@ export class TopicChatComponent implements OnInit {
   public websocket;
   public email;
   public type=TYPE;
+    public avatar=environment.API_URL + `media/avatar.png`
   constructor(private http: HttpClient, private apiService:ApiService) {
     this.websocket = new WebSocket(environment.WS_URL);
     this.websocket.onopen = (evt) => {

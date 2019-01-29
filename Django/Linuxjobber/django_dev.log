@@ -1391,3 +1391,5 @@ django.db.utils.ProgrammingError: (1146, "Table 'linuxjobber.classroom_chatuploa
 [2019-01-28 23:29:21] INFO [django.server.log_message:124] "PUT /sso_api/upload HTTP/1.1" 201 60
 [2019-01-28 23:29:33] INFO [django.server.log_message:124] "OPTIONS /sso_api/upload HTTP/1.1" 200 0
 [2019-01-28 23:29:34] INFO [django.server.log_message:124] "PUT /sso_api/upload HTTP/1.1" 201 53
+[2019-01-29 00:48:41] INFO [django.server.log_message:124] "GET /admin/authtoken/token/ HTTP/1.1" 200 8269
+[2019-01-29 00:48:41] ERROR [django.server.log_message:124] "GET /admin/authtoken/token/ HTTP/1.1" 500 59
