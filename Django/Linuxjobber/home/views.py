@@ -397,6 +397,8 @@ def workexpform(request):
         relocate = request.POST['relocate']
         person = request.POST['type']
 
+        trainee = wetype.objects.get(id=trainee)
+
 
         if person == "Graduant" or person == "Student":
             graduation = request.POST['gdate']
@@ -561,19 +563,19 @@ def pay(request):
             )
         except stripe.error.CardError as ce:
             return False, ce
-        else:
-            try:
-                UserPayment.objects.create(user=request.user, amount=PRICE,
-                                            trans_id = charge.id, pay_for = charge.description,
-                                            )
-                _, created = wepeoples.objects.update_or_create(user=request.user,types=None,current_position=None,
-                                                        person_type=None,state=None,income=None,relocation=None,
-                                                        last_verification=None,Paystub=None,graduation_date=None)
-                send_mail('Linuxjobber Work-Experience Program', 'Hello, you have succesfully paid for Linuxjobber work experience program.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.user.email])
-                return render(request,'home/accepted.html')
-            except Exception as error:
-                print(error)
-                return redirect("home:index")
+        
+        try:
+            UserPayment.objects.create(user=request.user, amount=PRICE,
+                                        trans_id = charge.id, pay_for = charge.description,
+                                        )
+            _, created = wepeoples.objects.update_or_create(user=request.user,types=None,current_position=None,
+                                                    person_type=None,state=None,income=None,relocation=None,
+                                                    last_verification=None,Paystub=None,graduation_date=None)
+            send_mail('Linuxjobber Work-Experience Program', 'Hello, you have succesfully paid for Linuxjobber work experience program.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.user.email])
+            return render(request,'home/accepted.html')
+        except Exception as error:
+            messages.error(request, 'An error occurred while trying to pay please try again')
+            return redirect("home:pay")
     else:
         context = { "stripe_key": stripeset[0].publickey,
                    'price': PRICE,
@@ -929,6 +931,45 @@ def account_settings(request):
 def ec2dashboard(request, command=None):
     form = AWSCredUpload()
     awscred = AwsCredential.objects.get(user = request.user)
+
+     #Launch an instance
+    if command and command == "launch":
+        print("enter")
+        AWS_ACTION = 'launch_instance';
+        MACHINE_ID = "new";
+        command = ['python3.6 '+ settings.BASE_DIR+"/home/utils/s3_sample.py %s %s %s %s" %(awscred.accesskey,awscred.secretkey,AWS_ACTION,MACHINE_ID) ]
+            
+        try:
+            print("worked")
+            output = subprocess.check_output(command, shell=True )
+            return_code = 0
+            messages.success(request, 'Machine is starting up, wait and click refresh in 2 minutes. Username is : sysadmin , Password is : 8iu7*IU& . We advice you to use this console for all your EC2 instances. If you have started other instances, please turn them all off now')
+            return redirect("home:ec2dashboard")
+        except subprocess.CalledProcessError as grepexc:
+            print("error code", grepexc.returncode, grepexc.output)
+            return_code = grepexc.returncode
+            output = grepexc.output
+            output = bytes(output)
+            output = output.decode()
+
+            #types of errors expected from AWS
+            error1 = "UnauthorizedOperation"
+            error2 = "AuthFailure"
+            error3 = "InstanceLimitExceeded"
+
+            if error1 in output:
+                messages.error(request, 'You are not authorized to perform this operation. Please contact admin@linuxjobber.com')
+                return redirect("home:ec2dashboard")
+            elif error2 in output:
+                messages.error(request, 'There was an error while validating credentials. Please contact admin@linuxjobber.com')
+                return redirect("home:ec2dashboard")
+            elif error3 in output:
+                messages.error(request, 'Sorry, you can only launch one machine at a time')
+                return redirect("home:ec2dashboard")
+            else:
+                messages.error(request, 'Unhandled exception has occurred. Please contact admin@linuxjobber.com')
+                return redirect("home:ec2dashboard")
+
        
 
     #Running instance
@@ -985,41 +1026,6 @@ def ec2dashboard(request, command=None):
             'stopped_machine': stopped_machine,
     }
 
-     #Launch an instance
-    if command and command == "launch":
-        AWS_ACTION = 'launch_instance';
-        MACHINE_ID = "new";
-        command = ['python3.6 '+ settings.BASE_DIR+"/home/utils/s3_sample.py %s %s %s %s" %(awscred.accesskey,awscred.secretkey,AWS_ACTION,MACHINE_ID) ]
-            
-        try:
-            output = subprocess.check_output(command, shell=True )
-            return_code = 0
-            messages.success(request, 'Machine is starting up, wait and click refresh in 2 minutes. Username is : sysadmin , Password is : 8iu7*IU& . We advice you to use this console for all your EC2 instances. If you have started other instances, please turn them all off now')
-            return redirect("home:ec2dashboard")
-        except subprocess.CalledProcessError as grepexc:
-            print("error code", grepexc.returncode, grepexc.output)
-            return_code = grepexc.returncode
-            output = grepexc.output
-            output = bytes(output)
-            output = output.decode()
-
-            #types of errors expected from AWS
-            error1 = "UnauthorizedOperation"
-            error2 = "AuthFailure"
-            error3 = "InstanceLimitExceeded"
-
-            if error1 in output:
-                messages.error(request, 'You are not authorized to perform this operation. Please contact admin@linuxjobber.com')
-                return redirect("home:ec2dashboard")
-            elif error2 in output:
-                messages.error(request, 'There was an error while validating credentials. Please contact admin@linuxjobber.com')
-                return redirect("home:ec2dashboard")
-            elif error3 in output:
-                messages.error(request, 'Sorry, you can only launch one machine at a time')
-                return redirect("home:ec2dashboard")
-            else:
-                messages.error(request, 'Unhandled exception has occurred. Please contact admin@linuxjobber.com')
-                return redirect("home:ec2dashboard")
 
     if request.method == "POST":
         form = AWSCredUpload(request.POST, request.FILES)
