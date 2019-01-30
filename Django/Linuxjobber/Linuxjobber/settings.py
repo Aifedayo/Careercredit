@@ -111,12 +111,12 @@ WSGI_APPLICATION = 'Linuxjobber.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': config('DATABASE_NAME','linuxjobber'),
-        'USER': config('DATABASE_USER','root'),
-        'PASSWORD':config('DATABASE_PASSWORD','samjam1989'),
+        'NAME': config('DATABASE_NAME','linuxjobber'),#linuxjb
+        'USER': config('DATABASE_USER','root'),#linuxjobber
+        'PASSWORD':config('DATABASE_PASSWORD',''),#linuxjobber
         'HOST': config('DATABASE_HOST','localhost'),
-        'PORT': config('DATABASE_PORT',''),
-
+        'PORT': config('DATABASE_PORT',''),   
+  
     }
 }
 
@@ -286,3 +286,6 @@ SERVER_IP = config('SERVER_IP',"52.88.199.218")
 SERVER_USER = config('SERVER_USER',"sysadmin")
 SERVER_PASSWORD = config('SERVER_PASSWORD',"8iu7*IU&")
 GROUP_CLASS_URL= config('GROUP_CLASS_URL','http://localhost:4200/classroom/')
+
+#Session Expiration set to 10 mins
+SESSION_COOKIE_AGE = 10 * 60
