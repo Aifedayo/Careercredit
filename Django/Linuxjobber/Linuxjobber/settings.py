@@ -111,9 +111,9 @@ WSGI_APPLICATION = 'Linuxjobber.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': config('DATABASE_NAME','linuxjb'),
-        'USER': config('DATABASE_USER','linuxjobber'),
-        'PASSWORD':config('DATABASE_PASSWORD','linuxjobber'),
+        'NAME': config('DATABASE_NAME','linuxjobber'),#linuxjb
+        'USER': config('DATABASE_USER','root'),#linuxjobber
+        'PASSWORD':config('DATABASE_PASSWORD',''),#linuxjobber
         'HOST': config('DATABASE_HOST','localhost'),
         'PORT': config('DATABASE_PORT',''),   
   
