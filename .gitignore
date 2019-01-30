@@ -5,6 +5,4 @@
 db.sqlite3
 *.ini
 **.ini
-*.log
 **/node_modules*
-**/static*

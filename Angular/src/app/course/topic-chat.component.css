@@ -30,3 +30,11 @@
 #send_icon {
     margin-left: -10px;
 }
+
+.image-upload > input
+{
+    display: none;
+}
+i.medium{
+  font-size: 3rem;
+ }
