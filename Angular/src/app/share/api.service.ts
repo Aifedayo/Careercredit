@@ -8,6 +8,7 @@ import {Observable, of, Subject} from "rxjs/index";
 import {Topic} from "../course/topic.model";
 import {ClassModel} from "./class-model";
 import {UserModel} from "./user-model";
+import {GroupMember} from "./group-member";
 
 @Injectable({
   providedIn: 'root'
@@ -26,9 +27,11 @@ export class ApiService {
 
 
   private headers: HttpHeaders = new HttpHeaders();
+  private fileheaders: HttpHeaders = new HttpHeaders();
   constructor(private httpClient:HttpClient,location:Location,route:ActivatedRoute) {
     this.headers=this.headers.append('Accept', 'application/json');
     this.headers=this.headers.append('Authorization', 'Token ' + sessionStorage.getItem('token'));
+    this.fileheaders=this.fileheaders.append('Authorization', 'Token ' + sessionStorage.getItem('token'));
     this._allTopics$.subscribe(res=>{
       this.tt=res
     })
@@ -78,8 +81,18 @@ export class ApiService {
   getAvailableClasses():Observable<ClassModel[]>{
     return this.httpClient.get<ClassModel[]>(environment.API_URL + `sso_api/groups`,{headers:this.headers})
   }
-  getGroupMembers(group_id):Observable<UserModel[]>{
-    return this.httpClient.get<UserModel[]>(environment.API_URL + `sso_api/group/`+group_id+`/users`,{headers:this.headers})
+  getGroupMembers(group_id):Observable<GroupMember[]>{
+    // this.httpClient.get<UserModel[]>(environment.API_URL + `sso_api/group/`+group_id+`/users`,{headers:this.headers}).subscribe(data=>{
+    // })
+
+    return this.httpClient.get<GroupMember[]>(environment.API_URL + `sso_api/group/`+group_id+`/users`,{headers:this.headers})
+  }
+
+  uploadFile(data){
+    let head=new HttpHeaders()
+    head=head.append('Authorization', 'Token e973d9bef2d8464bb84cdc06af35fd4a76a37b90'  )
+    // return this.httpClient.put( 'http://localhost:8000/sso_api/upload',data,{headers:this.fileheaders})
+    return this.httpClient.put( environment.API_URL+ 'sso_api/upload',data,{headers:this.fileheaders})
   }
 
 }

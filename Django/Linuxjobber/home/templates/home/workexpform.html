@@ -24,19 +24,11 @@
 			<form method="post" action="" enctype="multipart/form-data" accept-charset="utf-8">
 				{% csrf_token %}
 				<div class="form-group">
-					<label class="space1">Trainee Postion</label>
-					<select type="text" name="trainee_position" class="form-control" id="id_trainee" required>
-						<option value="DevOps">DevOps</option>
-						<option value="Linux Administrator">Linux Administrator</option>
-						<option value="AWS Administrator">AWS Administrator</option>
-						<option value="Python Developer">Python Developer</option>
-						<option value="Quality Assurance">Quality Assurance</option>
-						<option value="CyberSecurity Specialist">CyberSecurity Specialist</option>
-						<option value="Cloud Architect">Cloud Architect</option>
-					</select>
+					<label class="space1">Trainee Position</label>
+					{{form.types}}
 				</div>
 				<div class="form-group">
-					<label class="space1">Current Postion</label>
+					<label class="space1">Current Position</label>
 					<input type="text" maxlength="20" name="current_position" class="form-control" id="id_resume" required>
 				</div>
 				<div class="form-group">

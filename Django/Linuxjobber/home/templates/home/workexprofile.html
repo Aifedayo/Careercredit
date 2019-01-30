@@ -1,106 +1,362 @@
 {% extends 'home/base.html' %}
 
 {% load staticfiles%}
-
+{% block title %}
+Work Experience Profile | Linuxjobber
+{% endblock %}
 {% block content %}
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <div class="carousel-inner" role="listbox">
-        <div class="item active">
-       
-        </div>      
-      </div>      
+
+<style type="text/css">
+  .wprotrait, img{
+    max-width: 100%;
+    height: 100%;
+    margin-bottom: 0px !important;
+    padding-top: 5px;
+}
+
+.wpics{
+    padding-bottom: 0px !important;
+}
+.wprotrait{
+    height: 50px;
+    width: 60px;
+    margin-bottom: 0px !important;
+}
+
+</style>
+
+<div class="jobbaner2">
+  <div class="text-center jobbantext2">
+    <h1>WORK EXPERIENCE PROFILE</h1>
+  </div>
 </div>
-<br>
-<div class="main-container">
-  <div class="text-center labtop">
-            <h1>
-                  Work Experience Profile
-              </h1>
-            
-      </div>
-    <section class="instances-study">
-        <div class="container">
-            
-{% if messages %}
+
+  <div>
+    {% if messages %}
           {% for message in messages %}
-          <div class="alert alert-{{message.tags}}" role="alert">
             {% if message.tags == "success" %}
-            <p style="color:#155724;">{{message}}</p>
-            {%else%}
-            <p style="color:#721c24;">{{message}}</p>
-            {%endif%}
+            <div class="alert alert-success" role="alert">
+            <p style="color:#155724">{{message}}</p>
           </div>
+            {%else%}
+            <div class="alert alert-danger" role="alert">
+            <p style="color:#721c24">{{message}}</p>
+            </div>
+            {%endif%}
           {% endfor %}
         {% endif %}
+          <div class="col-md-8 workright">
+            <div class="jobtype">
+              <p class="jobtypeh">PERSONAL INFORMATION</p>
+              <div class="row">
+                <div class="col-md-3"><div class="workcard wpics text-muted mon ibt"><div class="col-md-6">Picture </div><div class="col-md-6"><div class="wprotrait">{%if not weps.profile_picture%}<img src="{% static '/home/css/newhomepage/imgs/prof1.png' %}">{%else%}<img src="{{weps.profile_picture.url}}">{%endif%}</div></div> </div></div>
+                <div class="col-md-3"><div class="workcard text-muted mon fbt">First Name <br><br><span class="jobfinputp wsp">{{weps.user.first_name}}</span> </div></div>
+                <div class="col-md-3"><div class="workcard text-muted mon fbt">Last Name <br><br><span class="jobfinputp wsp">{{weps.user.last_name}}</span></div></div>
+                <div class="col-md-3"><div class="workcard text-muted non">Trainee Position <br><br><span class="jobfinputp wsp">{{weps.types}}</span></div></div>
+              </div>
+              <br><br>
+              <p class="jobtypeh">OTHER INFORMATION</p>
+              <div class="row">
+                <div class="col-md-3"><div class="workcard text-muted mon sbt">State <br><br><span class="jobfinputp wsp">{{weps.state}}</span></div></div>
+                <div class="col-md-3"><div class="workcard text-muted mon mbt">Monthly Income<br><br><span class="jobfinputp wsp">{{weps.income}}</span> </div></div>
+                <div class="col-md-3"><div class="workcard text-muted mon pbt">Last Verification<br><br><span class="jobfinputp wsp pbt1">{{weps.last_verification|date}}</span></div></div>
+                <div class="col-md-3"><div class="workcard text-muted non">Person Type<br><br><span class="jobfinputp wsp">{{weps.types}}</span></div></div>
 
-        <div class="row">
-        <div class="col-md-6 lableft">
-            <br><br>
-             <h4 class="">First Name: {{weps.user.first_name}}</h4>
-             <h4 class="">Last Name: {{weps.user.last_name}}</h4>
-             <h4 class="">Trainee Position: {{weps.trainee_position}}</h4>
-             <h4 class="">State: {{weps.state}}</h4>
-             <h4 class="">Monthly Income: {{weps.income}} <a style="cursor:pointer;" class="mbt"><span>Update Income</span></a></h4>
-             <h4 class="">Last Verification: {{weps.last_verification}} <a style="cursor:pointer;" class="pbt"><span>Update Paystub</span></a></h4>
-             <h4 class="">Person Type: {{weps.person_type}}</h4>
-             <h4 class="">Relocation: {{weps.relocation}}</h4>
-             <h4 class="">Start Date: {{weps.start_date|date}}</h4>
-             <h4 class="">Graduation Date: {{weps.graduation_date|date}}</h4>
-             <br>
-        </div>
-        <div class="col-md-6 labright">
-          <div class="labrinner">
-            <span></span>
-            
-                        <form enctype="multipart/form-data" id='imageForm' method="post" action="">
-                          {% csrf_token %}
-                        <input type="text" name="income" maxlength="20" class="form-control" placeholder="Total Monthly Income" id="tincome">
-
-                          <br>
-                          <div class="pbost">
-                            <span>Enter your paystub (Image File)</span>
-                            <input type="file" name="verify" class="form-control" id="id_resume">
-                          </div>
-                          
-                          <input type="text" name="type" class="chek" value="" hidden>
-                      
-
-                        <div class="" style="margin-top:-35px;">
-                        <input  class="btn reg-submit" id="add_ser_prd_btn" value="Submit" type="submit"/>
-                      </div>
-                    </form>
+                <div class="col-md-3"><div class="workcard text-muted non">Relocation <br><br><span class="jobfinputp wsp">{{weps.relocation}}</span></div></div>
+                <div class="col-md-3"><div class="workcard text-muted non">Start Date<br><br><span class="jobfinputp wsp">{{weps.start_date|date}}</span> </div></div>
+                <div class="col-md-3"><div class="workcard text-muted non">Graduation Date<br><br><span class="jobfinputp wsp">{{weps.graduation_date|date}}</span></div></div>
+              </div>
+              <br><br>
+              <span class="jobinfoh">Tap on card to edit your information</span>
+            </div>
+            <div class="jobtype">
+              <p class="jobtypeh">WORK HISTORY RECORD</p>
+              <table class="table wptable">
+                <col width="50">
+                <col width="170">
+                <col width="50">
+                <col width="50">
+                <thead>
+                <tr>
+                  <th style="background-color: rgba(229, 229, 229, 0.5); color: #000000">Assigned</th>
+                  <th style="background-color: rgba(229, 229, 229, 0.5); color: #000000">Task</th> 
+                  <th style="background-color: rgba(229, 229, 229, 0.5); color: #000000">Deadline</th>
+                  <th style="background-color: rgba(229, 229, 229, 0.5); color: #000000">Result</th>
+                </tr>
+              </thead>
+              <tbody>
+                {%if status %}
+                {%for stat in status%}
+                <tr>
+                  <td>{{stat.created|date}}</td>
+                  <td>{{stat.task}}</td> 
+                  <td>{{stat.due|date}}</td>
+                  <td>{%if stat.status == 0%}Incomplete {%else%} Finished{%endif%}</td>
+                </tr>
+                {%endfor%}
+                {%endif%}
+              </tbody>
+              </table>
+            </div>
           </div>
-        </div>
-     </div>
- </section>
-</div>
+          <div class="col-md-4 workleft workpar2">
+            <form enctype="multipart/form-data" id='imageForm' method="post" action="">
+              {% csrf_token %}
+              <div class="pbost">
+                  <span>Paystub (Image File)</span>
+                  
+                  <label for="verify" class="btn btn btn-lab-w">
+                    UPLOAD
+                    </label><span class="filename"> </span>
+                    <input type="file" name="verify" id="verify" accept=".jpeg, .jpg, .png" style="display: none;">
+              </div> 
+              <div id="tincome">
+                <span>Edit Income</span>
+                <input type="text" name="income" maxlength="20" value="{{weps.income}}" class="form-control workinputf" placeholder="Total Monthly Income" >
+              </div>
+              <div id="names">
+                <span>Edit First Name</span><br>
+                <input type="text" name="first_name" maxlength="20" value="{{weps.user.first_name}}" class="form-control workinputf" placeholder="First Name" >
+                <br>
+                <span>Edit Last Name</span><br>
+                <input type="text" name="last_name" maxlength="20" value="{{weps.user.last_name}}" class="form-control workinputf" placeholder="Last Name" >
+              </div>
+              <div id="state">
+                <span>Edit State</span><br>
+                <input type="text" name="state" maxlength="20" value="{{weps.state}}" class="form-control workinputf" placeholder="Enter State Where You Are in" >
+              </div>
+              
+              <div id="prof">
+                <div class="text-center">
+                  
+                  {%if not weps.profile_picture%}
+                  <img id="profimg" src="{% static '/home/css/newhomepage/imgs/prof2.png' %}" height="750px" width="250px">
+                  {%else%}
+                  <img id="profimg" src="{{weps.profile_picture.url}}" height="750px" width="250px">
+                  {%endif%}
+                  <label for="imagew" class="btn btn btn-lab-w">
+                    CHANGE IMAGE
+                    </label><span class="filename"> </span>
+                    <input type="file" name="profile" onchange="changeimage(this);" id="imagew" accept=".jpeg, .jpg, .png" style="display: none;">
+                </div>
+              </div>
+              
+              
+              <br>
+              <div class="text-center">
+                <input type="text" name="type" class="chek" value="" hidden>
+                <button type="submit" class="jobbut btn"> SUBMIT </button>
+              </div>
+             
+            </form>
+          </div>
+  </div>
+    
 
 
 <script>
+var height = $('.workright').height();
+$('.workleft').css('min-height', height+'px');
+function changeimage(input){
+    if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $('#profimg')
+        .attr('src', e.target.result)
+        .width(750)
+        .height(250);
+      };
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $('.non').click(function(){
+    $('#tincome').hide();
+    $('.btn-lab-w ').hide();
+    $('.pbost').hide();
+    $('.jobbut').hide();
+    $('#names').hide();
+    $('#state').hide();
+    $('#prof').hide();
+    $('.mon').css({'background': '#AED6F1'});
+    $('.mon > span').css({
+      'background': '#AED6F1',
+      'color': 'black'
+    });
+    setTimeout( function(){
+        $('.workcard').css({
+      'background': '#FFFFFF',
+      'color': 'grey',
+    'box-shadow': '0px 0px 4px rgba(0, 0, 0, 0.25)',
+    'border-radius': '5px',
+    'padding': '5px',
+    'white-space': 'pre-wrap',      /* CSS3 */   
+     'white-space': '-moz-pre-wrap', /* Firefox */    
+     'white-space': '-pre-wrap',     /* Opera <7 */   
+     'white-space': '-o-pre-wrap',   /* Opera 7 */    
+     'word-wrap': 'break-word',
+     'margin-bottom': '20px',
+     'cursor':'pointer'
+    });
+
+    $('.workcard > span').css({
+      'background': '#FFFFFF',
+      'color': 'black',
+    });
+    },1000);
+  });
+
 jQuery(function(){
   $('#tincome').hide();
-  $('.btn-lab-w').hide();
-  $('.labright').hide();
+  $('.btn-lab-w ').hide();
   $('.pbost').hide();
+  $('.jobbut').hide();
+  $('#names').hide();
+  $('#state').hide();
+  $('#prof').hide();
+
   
 
+  /**First and Last Name**/
+  $( ".fbt" ).click(function() {
+
+    cleared();
+
+    highlight('.fbt');
+
+    $('#prof').hide();
+    $('#state').hide();
+    $('#tincome').hide();
+    $('.pbost').hide();
+    $('#names').show();
+    $('.jobbut').show();
+    $('.chek').val('3');
+  });
+
+  /**Image**/
+  $( ".ibt" ).click(function() {
+
+    cleared();
+
+    highlight('.ibt');
+
+
+    $('#state').hide();
+    $('#tincome').hide();
+    $('.pbost').hide();
+    $('#names').hide();
+    $('#prof').show();
+    $('.btn-lab-w ').show();
+    $('.jobbut').show();
+    $('.chek').val('5');
+  });
+
+  /**State**/
+  $( ".sbt" ).click(function() {
+
+    cleared();
+
+    highlight('.sbt');
+
+    $('#prof').hide();
+    $('#state').show();
+    $('#tincome').hide();
+    $('.pbost').hide();
+    $('#names').hide();
+    $('.jobbut').show();
+    $('.chek').val('4');
+  });
+
+  /**MOnthly Salary **/
+
   $( ".mbt" ).click(function() {
-    $('.labright').show();
+
+    cleared();
+    highlight('.mbt');
+
+    $('#prof').hide();
+    $('#names').hide();
     $('#tincome').show();
     $('.btn-lab-w').show();
+    $('.jobbut').show();
     $('.pbost').hide();
     $('.chek').val('2');
+    $('#state').hide();
   });
 
+  /**Paystub upload **/
   $( '.pbt' ).click(function() {
-    $('.labright').show();
+    cleared();
+    highlight('.pbt');
+
+    $('#prof').hide();
+    $('#names').hide();
     $('#tincome').hide();
     $('.btn-lab-w').show();
+    $('.jobbut').show();
     $('.pbost').show();
     $('.chek').val('1');
+    $('#state').hide();
   });
 
+  function highlight(ele){
+    $(ele).css({
+      'background': '#4975B1',
+      'color': 'white',
+      'transition-delay': '0.1s',
+      '-webkit-transition-delay': '0.1s',
+      'transition-duration': '0.5s',
+    });
+
+    $(ele+' > span').css({
+      'background': '#4975B1',
+      'color': 'white',
+      'transition-delay': '0.2s',
+      '-webkit-transition-delay': '0.2s',
+      'transition-duration': '0.5s',
+    });
+
+  }
+
+  function cleared(){
+    $('.workcard').css({
+      'background': '#FFFFFF',
+      'color': 'grey',
+    'box-shadow': '0px 0px 4px rgba(0, 0, 0, 0.25)',
+    'border-radius': '5px',
+    'padding': '5px',
+    'white-space': 'pre-wrap',      /* CSS3 */   
+     'white-space': '-moz-pre-wrap', /* Firefox */    
+     'white-space': '-pre-wrap',     /* Opera <7 */   
+     'white-space': '-o-pre-wrap',   /* Opera 7 */    
+     'word-wrap': 'break-word',
+     'margin-bottom': '20px',
+     'cursor':'pointer'
+    });
+
+    $('.workcard > span').css({
+      'background': '#FFFFFF',
+      'color': 'black',
+    });
+  
+  }
+
+
+  $('#imagew').on('change',function(){
+                //get the file name
+                var fileName = $(this).val().split('\\').pop().split('/').pop();
+                //replace the "Choose a file" label
+                $('.filename').html(fileName);
+    });
+
+  $('#verify').on('change',function(){
+                //get the file name
+                var fileName = $(this).val().split('\\').pop().split('/').pop();
+                //replace the "Choose a file" label
+                $('.filename').html(fileName);
+    });
 
 });
 </script>

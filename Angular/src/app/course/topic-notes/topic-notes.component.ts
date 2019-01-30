@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {ApiService} from "../../share/api.service";
 
@@ -11,7 +11,10 @@ export class TopicNotesComponent implements OnInit {
 
  route:any ;
   public data$: any;
-  constructor(private apiService:ApiService,route:ActivatedRoute,private router:Router) {
+  constructor(
+    private apiService:ApiService,route:ActivatedRoute,
+    private router:Router,
+    private cdr:ChangeDetectorRef) {
     this.route=route;
  this.data$=this.apiService.data$
 

@@ -254,9 +254,16 @@ class Location(models.Model):
     def __str__(self):
         return self.user.email
 
+class wetype(models.Model):
+    types = models.CharField(max_length = 50,null=True)
+
+    def __str__(self):
+        return self.types
+
 class wepeoples(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
-    trainee_position = models.CharField(max_length = 20, null=True)
+    profile_picture = models.ImageField(upload_to = 'resume', null=True) 
+    person_type = models.CharField(max_length = 20, null=True)
     current_position = models.CharField(max_length = 20, null=True)
     state = models.CharField(max_length = 20, null=True)
     income = models.CharField(max_length = 20, null=True)
@@ -265,7 +272,47 @@ class wepeoples(models.Model):
     last_verification = models.DateTimeField(default=timezone.now, null=True)
     start_date = models.DateTimeField(default=timezone.now, null=True)
     graduation_date = models.DateTimeField(default=timezone.now, null=True)
-    person_type = models.CharField(max_length = 20,null=True)
+    types = models.ForeignKey(wetype, on_delete = models.CASCADE, null=True)
 
     def __str__(self):
         return self.user.email
+
+class wetask(models.Model):
+    task = models.CharField(max_length = 50, null=True)
+    objective = models.TextField()
+    description = models.TextField()
+    created = models.DateTimeField(default=timezone.now, null=False)
+    is_active = models.IntegerField(default=0 ,choices=((0, 'No'), (1, 'Yes')))
+    types = models.ForeignKey(wetype, on_delete = models.CASCADE)
+
+    def __str__(self):
+        return self.task
+
+class wework(models.Model):
+    we_people = models.ForeignKey(wepeoples, on_delete = models.CASCADE)
+    task = models.ForeignKey(wetask, on_delete = models.CASCADE)
+    status = models.IntegerField(default=0 ,choices=((0, 'Pending'), (1, 'Done')))
+    created = models.DateTimeField(default=timezone.now, null=False)
+    send_task = models.IntegerField(default=0 ,choices=((0, 'No'), (1, 'Yes')))
+    due = models.DateTimeField(default=timezone.now, null=True)
+
+    def __str__(self):
+        return self.we_people.user.email
+
+class GroupClassLog(models.Model):
+    group=models.ForeignKey(Groupclass,on_delete=models.CASCADE)
+    user=models.ForeignKey(CustomUser,on_delete=models.CASCADE)
+    last_login=models.DateTimeField(auto_now=True)
+
+    def get_log(group_id):
+        data={}
+        list=GroupClassLog.objects.filter(group=group_id).order_by('-last_login')
+        for i in list:
+            data.setdefault(i.last_login.strftime('%D'),[])
+            data[i.last_login.strftime('%D')].append({'username':i.user.username,'id':i.user.id})
+            # data={}
+        t={}
+        return data
+
+
+
