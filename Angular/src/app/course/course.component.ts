@@ -27,6 +27,7 @@ export class CourseComponent implements OnInit {
   private  selectedGroup:number = 0;
   // public groupMembers$: Observable<UserModel[]>;
   public groupMembers$: Observable<GroupMember[]>;
+  public noOfUsers$:Observable<any>;
 
   constructor(
     private apiService:ApiService,
@@ -54,10 +55,8 @@ export class CourseComponent implements OnInit {
 
 
       this.groupMembers$ = this.apiService.getGroupMembers(selectedClass);
-      this.apiService.getGroupMembers(selectedClass).subscribe(data=>{
-        console.log(data)
+      this.noOfUsers$ = this.apiService.getMembers(selectedClass);
 
-      });
 
     }if(this.selectedTopic){
         this.setTopic(this.selectedTopic)
@@ -74,6 +73,14 @@ export class CourseComponent implements OnInit {
 
   reset(){
 
+  }
+  countUsers(){
+    this.groupMembers$.subscribe(d=>{
+
+   console.log(d)
+    })
+    let c = 0;
+    return c;
   }
   goToVideo(){
     this.reset();

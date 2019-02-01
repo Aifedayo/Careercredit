@@ -14,14 +14,12 @@
     height: 2.9rem!important;
     border-top-right-radius: .5rem;
     border-bottom-right-radius: .5rem;
-    appearance: none;
     margin-left: -50px;
     padding-right: 10px;
     border-right: 2px solid #636566de;
     border-top: 2px solid #636566de;
     border-bottom: 2px solid #636566de;
     box-shadow: none;
-    padding-right: 10px;
     padding-left: auto;
     margin-bottom: 0px;
 }
@@ -38,3 +36,21 @@
 i.medium{
   font-size: 3rem;
  }
+.mat-list .mat-list-item .mat-line{
+  white-space: normal;
+}
+
+.scroll-hide::-webkit-scrollbar {
+  width: 0 !important;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+}
+.mat-list .mat-list-item .mat-list-item-content {
+  height: unset;
+}
+.card-content{
+  padding-bottom: 0;
+}
+.mat-card{
+  padding: 0;
+}

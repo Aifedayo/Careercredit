@@ -87,6 +87,10 @@ export class ApiService {
 
     return this.httpClient.get<GroupMember[]>(environment.API_URL + `sso_api/group/`+group_id+`/users`,{headers:this.headers})
   }
+  getMembers(group_id):Observable<UserModel[]>{
+    return this.httpClient.get<UserModel[]>(environment.API_URL + `sso_api/group/`+group_id+`/users2`,{headers:this.headers})
+    // return this.httpClient.get<GroupMember[]>(environment.API_URL + `sso_api/group/`+group_id+`/users`,{headers:this.headers})
+  }
 
   uploadFile(data){
     let head=new HttpHeaders()
