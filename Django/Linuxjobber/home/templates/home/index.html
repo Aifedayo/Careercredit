@@ -71,7 +71,96 @@ Home | Linuxjobber
             <h3>
               Pick your hands-on training category</h3>
           </div>
+
+          <div class="row">
+            <div class="col-md-6 col-sm-12">
+              <div class="box">
+                <h2>Certification Class</h2>
                 <div class="row">
+                  <div class="col-xs-6">
+                    <p>One-On-One <br> 30 days</p>
+                  </div>
+                  <div class="col-xs-6">
+                    <div id= "cert-img">
+                      <img class="cert img-responsive" src="{% static 'home/images/pupet.png' %}" alt="pupet" >
+                    </div>
+                  </div>
+                </div>
+                <div class="row options">
+                  <div class="col-xs-4">
+                    <a href="{% url 'home:linux_certification' %}">
+                      <div class="col-md-4 col-sm-12 col-xs-12 linux btns2" id="force-by">
+                        <h4>Linux</h4>
+                        <div class="lin-border"></div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-xs-4">
+                    <a href="{% url 'home:aws_certification' %}">
+                      <div class="col-md-4 col-sm-12 col-xs-12 awss btns2" id="force-by" >
+                        <h4>AWS</h4>
+                        <div class="aws-border"></div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-xs-4 ">
+                    <a href="{% url 'home:oracledb_certification' %}">
+                      <div class="col-md-4 col-sm-12 col-xs-12 orc btns2" id="force-by">
+                        <h4>Oracle <br>Database</h4>
+                        <div class="oracle-border"></div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <div class="box">
+                <h2>Full Training Course</h2>
+                <div class="row">
+                  <div class="col-xs-6">
+                    <p>One-On-One <br> 3 months</p>
+                  </div>
+                  <div class="col-xs-6">
+                    <div id= "cert-img">
+                      <img class="cert img-responsive" src="{% static 'home/images/pupet2.png' %}" alt="linux logo">
+                    </div>
+                  </div>
+                </div>
+                <div class="row options">
+                  <div class="col-xs-4 col-marg">
+                    <a href="{% url 'home:linux_full_training' %}">
+                      <div class="col-md-4 col-sm-12 col-xs-12 linux btns2" id="force-by">
+                          <h4>Linux</h4>
+                          <div class="lin-border"></div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-xs-4 col-marg">
+                    <a href="{% url 'home:aws_full_training' %}">
+                      <div class="col-md-4 col-sm-12 col-xs-12 awss btns2" id="force-by">
+                        <h4>AWS</h4>
+                        <div class="aws-border"></div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-xs-4 col-marg">
+                    <a href="{% url 'home:oracledb_full_training' %}">
+                      <div class="col-md-4 col-sm-12 col-xs-12 orc btns2" id="force-by">
+                        <h4>Oracle <br>Database</h4>
+                        <div class="oracle-border"></div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+          
+
+          <!-- Old certification mark-up starts -->
+                <!-- <div class="row">
                   <div class="col-md-6 col-sm-12" >
                   <div class="box">
                   <h2>Certification Class</h2> <br>
@@ -103,9 +192,9 @@ Home | Linuxjobber
               <div class="box">
               <h2 id="box-1">Full Training Course</h2> <br>
               <h2 id="box-2">Full Training Course</h2> <br>
-                <p id="force-p">One-On-One <br> 3 months</p> <br>
-                  <div id= "puppet">
-                    <img class="cert img-responsive" src="{% static 'home/images/pupett.png' %}">
+                <p id="">One-On-One <br> 3 months</p> <br>
+                  <div id="cert">
+                    <img class="cert img-responsive" src="{% static 'home/images/pupet2.png' %}">
                   </div>
                   <a href="{% url 'home:linux_full_training' %}">
                   <div class="col-md-4 col-sm-12 col-xs-12 lin btns2" id="force-b">
@@ -127,7 +216,9 @@ Home | Linuxjobber
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
+
+        <!-- Old certification mark-up ends -->
 
       <!-- work experience -->
 

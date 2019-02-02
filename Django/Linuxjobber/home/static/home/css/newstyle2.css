@@ -6129,13 +6129,14 @@ h6 {
 
 .box {
     display: block;
-    width: 494px;
     height: 364px;
     padding: 30px;
     background: #fff;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
     border-radius: 0px 0px 10px 10px;
 }
+
+
 
 #cert {
     position: relative;
@@ -6154,7 +6155,6 @@ h6 {
     position: relative;
     width: 123px;
     height: 58px;
-    bottom: 120px;
     border-right-style: solid;
     border-color: red;
     margin-right: 25px;
@@ -6166,7 +6166,6 @@ h6 {
     position: relative;
     width: 123px;
     height: 58px;
-    bottom: 120px;
     margin-right: 25px;
     background: #F8FAFD;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
@@ -6176,7 +6175,6 @@ h6 {
     position: relative;
     width: 123px;
     height: 58px;
-    bottom: 120px;
     background: #F8FAFD;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
   }
@@ -6185,7 +6183,7 @@ h6 {
     position: relative;
     width: 123px;
     height: 58px;
-    bottom: 120px;
+    /* bottom: 120px; */
     background: #F8FAFD;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
   }
@@ -6612,7 +6610,7 @@ h6 {
     right: 10px;
     bottom: 90px;
     background: #F8FAFD;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 2px 10px rgba(200, 82, 82, 0.15).15).15).15);
   }
 
   .oracle {
@@ -6620,7 +6618,7 @@ h6 {
     width: 77px;
     height: 36px;
     left: 180px;
-    bottom: 127px;
+    /* bottom: 127px; */
     background: #F8FAFD;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
   }
@@ -6714,7 +6712,7 @@ h6 {
   }
   
   .box {
-    width: 294px;
+    /* width: 294px; */
     height: 250px;
     padding: 10px;
     padding-left: 20px;
@@ -6889,6 +6887,9 @@ h6 {
     margin-top: 100px;
 }
 
+
+
+
 @media (min-width: 360px) and (max-width: 640px) {
     .slides {
         background: rgba(0, 0, 0, 0) url("../images/bannerr.png");
@@ -6995,7 +6996,7 @@ h6 {
     }
     .box {
         display: block;
-        width: 294px;
+        /* width: 294px; */
         height: 250px;
         padding: 10px;
         padding-left: 20px;
@@ -7171,3 +7172,4 @@ h6 {
         padding-bottom: 50px;
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
+}
