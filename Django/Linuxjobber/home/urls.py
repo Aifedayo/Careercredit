@@ -20,7 +20,7 @@ wp_patterns = [
 urlpatterns = [
     path('', views.index, name='index'),
     path('admin',admin.site.urls),
-    path('login', views.log_in, name = 'login'),
+    path('login/', views.log_in, name = 'login'),
     path('signup', views.signup, name='signup'),
     path('selfstudy', views.selfstudy, name='selfstudy'),
     path('linux/certification', views.linux_certification, name='linux_certification'),
