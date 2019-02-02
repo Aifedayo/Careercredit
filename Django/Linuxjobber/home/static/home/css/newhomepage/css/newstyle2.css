@@ -2711,8 +2711,8 @@ a.mrbtn {
 .btn-list {
     margin-top: 150px;
     margin-left: 50px;
-    border-radius: 0px;
-    important! box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0px !important;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 @media (min-width: 375px) and (max-width: 667px) {
@@ -4052,7 +4052,7 @@ i.fa.fa-certificate {
 .btn-list {
     margin-top: 150px;
     margin-left: 50px;
-    border-radius: 0px; important!
+    border-radius: 0px !important;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -4100,8 +4100,8 @@ i.fa.fa-certificate {
     .btn-list {
         position: relative;
         right: 37px;
-        border-radius: 0px; important!
-        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 0px !important;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
 
 }
@@ -4652,10 +4652,10 @@ i.fa.fa-certificate {
 
 
 /*start of new homepage student packages section styles*/
-    #packages-self a {
-        color: #fff;
-    }
-    .btn-submit2:hover, .btn-submit2:focus{
+#packages-self a {
+    color: #fff;
+}
+.btn-submit2:hover, .btn-submit2:focus{
     background-color: #1472C8;
     color: #fff;
 }
@@ -5266,7 +5266,7 @@ p {
     background-color: #111;
     color: #fff;
     padding: 8px;
-    border-radius: 3px transition: all 500ms ease-in-out;
+    border-radius: 3px transition all 500ms ease-in-out;
     border-radius: 4px;
 }
 
@@ -6207,8 +6207,7 @@ h6 {
 
 .btn-self {
     float: left;
-    background: #1F5FB4;
-    !important;
+    background: #1F5FB4 !important;
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -6356,8 +6355,7 @@ h6 {
 }
 
 .buttonss {
-    background: #E07E27;
-    important
+    background: #E07E27 !important;
 }
 
 .oneonone h2 {
@@ -6406,11 +6404,12 @@ h6 {
 
 #force-b {
     position: relative;
-    
+    bottom: 190px;
 }
 
 #force-bb {
     position: relative;
+    bottom: 190px;
 }
 
 /* #box-1 {
@@ -6659,7 +6658,7 @@ h6 {
 }
 
  .butons{
-    background: #E07E27; important;
+    background: #E07E27 !important;
     margin-top: 10px;
   }
   
@@ -6915,7 +6914,7 @@ h6 {
     width: 77px;
     height: 36px;
     left: 180px;
-    /* bottom: 127px; */
+    bottom: 127px;
     background: #F8FAFD;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
   }
@@ -7058,8 +7057,7 @@ h6 {
 }
 
 .butons {
-    background: #E07E27;
-    important;
+    background: #E07E27 !important;
     margin-top: 10px;
 }
 
@@ -7478,3 +7476,5 @@ h6 {
         padding-bottom: 50px;
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
+}
+}
