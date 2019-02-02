@@ -282,7 +282,7 @@ CHANNEL_LAYERS = {
 
 
 #todo Always change to appropriate before pushing
-SERVER details
+#SERVER details
 SERVER_IP = config('SERVER_IP',"52.88.199.218")
 SERVER_USER = config('SERVER_USER',"sysadmin")
 SERVER_PASSWORD = config('SERVER_PASSWORD',"8iu7*IU&")
