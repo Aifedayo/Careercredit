@@ -36,7 +36,7 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col l3 m3 s3" style="background-color:#4d394b; min-height: 100vh; overflow: scroll">
+    <div class="col l3 m3 s3 scroll-hide" style="background-color:#4d394b; min-height: 90vh; overflow: auto;">
       <h6 style="text-align: center; font-weight: bold;"> Registered Students | <span *ngIf="noOfUsers$ |async as users ">{{ users.length }}</span></h6>
 
         <div *ngIf="groupMembers$ |async as members">
@@ -75,7 +75,7 @@
       <div class="">
 
           <h5 style="text-align:center; font-weight: bolder;">Topics</h5>
-          <div class="course_topic_area" style="max-height: 100vmin; overflow: scroll;">
+          <div class="course_topic_area scroll-hide" style="max-height: 80vmin;overflow: auto;">
 
          <ul class="collection">
 

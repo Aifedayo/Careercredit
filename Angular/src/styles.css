@@ -5,3 +5,13 @@
 a{
   cursor: pointer;
 }
+
+body::-webkit-scrollbar {
+  width: 0 !important;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;  
+/*   width: 0.7em;
+   border: 0.5em;
+   border-radius: 20px;*/
+}
+

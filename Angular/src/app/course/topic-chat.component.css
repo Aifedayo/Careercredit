@@ -40,10 +40,20 @@ i.medium{
   white-space: normal;
 }
 
+.scroll-hide::-webkit-scrollbar-thumb {
+  background-color: #6173f4;
+  outline: 1px solid #6173f4;
+}
+.scroll-hide::-webkit-scrollbar-track  {
+   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
 .scroll-hide::-webkit-scrollbar {
-  width: 0 !important;
+/*  width: 0 !important;
   -ms-overflow-style: none;
-  overflow: -moz-scrollbars-none;
+  overflow: -moz-scrollbars-none;*/  
+   width: 0.7em;
+   border: 0.5em;
+   border-radius: 20px;
 }
 .mat-list .mat-list-item .mat-list-item-content {
   height: unset;
@@ -53,4 +63,5 @@ i.medium{
 }
 .mat-card{
   padding: 0;
+  padding-bottom: 1em;
 }
