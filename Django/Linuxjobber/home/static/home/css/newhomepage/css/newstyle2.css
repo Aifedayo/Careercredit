@@ -7480,3 +7480,148 @@ h6 {
     }
 }
 }
+
+.linux {
+    position: relative;
+    width: 123px;
+    height: 58px;
+    border-right-style: solid;
+    border-color: red;
+    margin-right: 25px;
+    background: #f8fafd;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .awss {
+    position: relative;
+    width: 123px;
+    height: 58px;
+    margin-right: 25px;
+    background: #f8fafd;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .orc {
+    position: relative;
+    width: 123px;
+    height: 58px;
+    background: #f8fafd;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+  }
+  .linux h4 {
+    margin-top: 20px;
+    margin-left: 25px;
+    color: #4f4f4f;
+  }
+  .awss h4 {
+    margin-top: 20px;
+    margin-left: 25px;
+    color: #4f4f4f;
+  }
+  
+  .orc h4 {
+    margin-top: 10px;
+    margin-left: 15px;
+    color: #4f4f4f;
+  }
+  
+  #force-by {
+    position: relative;
+  }
+  
+  .options {
+    margin-top: 45px;
+  }
+  
+  #cert-img {
+    width: 60%;
+    float: right;
+  }
+  
+  @media (min-width: 360px) and (max-width: 640px) {
+    #force-by {
+      position: relative;
+    }
+  
+    .linux {
+      position: relative;
+      width: 77px;
+      height: 36px;
+      left: 1px;
+      background: #f8fafd;
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+    }
+  
+    .awss {
+      position: relative;
+      width: 77px;
+      height: 36px;
+      background: #f8fafd;
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+    }
+  
+    .orc {
+      position: relative;
+      width: 77px;
+      height: 36px;
+      background: #f8fafd;
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+    }
+  
+    .linux h4 {
+      margin-top: 10px;
+      margin-left: 10px;
+      color: #4f4f4f;
+      font-size: 14px;
+    }
+  
+    .awss h4 {
+      margin-top: 10px;
+      margin-left: 10px;
+      color: #4f4f4f;
+      font-size: 14px;
+    }
+  
+    .orc h4 {
+      margin-top: 4px;
+      margin-left: 3px;
+      color: #4f4f4f;
+      font-size: 12px;
+    }
+  
+    .lin-border {
+      position: relative;
+      bottom: 45px;
+      right: 15px;
+      width: 11px;
+      height: 36px;
+      background: #f47171;
+    }
+  
+    .aws-border {
+      position: relative;
+      bottom: 45px;
+      right: 15px;
+      width: 11px;
+      height: 36px;
+      background: #ee3edc;
+    }
+  
+    .oracle-border {
+      position: relative;
+      bottom: 50px;
+      right: 17px;
+      width: 11px;
+      height: 36px;
+      background: #47d07e;
+    }
+  
+    .options {
+      margin-top: 45px;
+    }
+    #cert-img {
+      width: 60%;
+      float: right;
+    }
+  }
+  
