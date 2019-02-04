@@ -23,7 +23,9 @@ export class TopicChatComponent implements OnInit {
 
 
 
+  private mutationObserver: MutationObserver;
 
+  public current_user:string;
   public users: Array<object> = [];
   public chat_text  = '';
   public messages = [];
@@ -32,7 +34,14 @@ export class TopicChatComponent implements OnInit {
   public email;
   public type=TYPE;
   public avatar:string ;
+      // getting a reference to the overall list, which is the parent container of the list items
+  @ViewChild(MatList, { read: ElementRef }) matList: ElementRef;
+
+  // getting a reference to the items/messages within the list
+  @ViewChildren(MatListItem, { read: ElementRef }) matListItems: QueryList<MatListItem>;
   constructor(private http: HttpClient, private apiService:ApiService) {
+
+    this.current_user = sessionStorage.getItem('username');
     this.avatar=environment.API_URL + `media/avatar.png`;
     this.websocket = new WebSocket(environment.WS_URL);
     this.websocket.onopen = (evt) => {
@@ -55,10 +64,9 @@ export class TopicChatComponent implements OnInit {
               this.the_message.timestamp = data['messages'][i]['timestamp'];
               this.the_message.the_type = data['messages'][i]['the_type'];
               this.messages.push(this.the_message);
-                   const chat_scroll = document.getElementById('chat_div_space');
-        chat_scroll.scrollTop = chat_scroll.scrollHeight;
-                // // this.messages.push(data['messages'][i]['user'] + ': ' + data['messages'][i]['message']);
-                // this.messages.push(data['messages'][i]['user'] + ': ' + data['messages'][i]['message']);
+              const chat_scroll = document.getElementById('chat_div_space');
+        chat_scroll.scrollTop = chat_scroll.scrollHeight  ;
+
             }
         }
         else {
@@ -67,19 +75,27 @@ export class TopicChatComponent implements OnInit {
             this.the_message.message = data['message'];
             this.the_message.the_type = data['the_type'];
             this.the_message.timestamp = data['timestamp'];
-            // this.messages.push(data['user'] + ': ' + data['message']);
             this.messages.push(this.the_message);
-            console.log(this.the_message)
-        }
-        const chat_scroll = document.getElementById('chat_div_space');
+              const chat_scroll = document.getElementById('chat_div_space');
         chat_scroll.scrollTop = chat_scroll.scrollHeight;
+         }
+
+
     };
    }
 
   ngOnInit() {
-    // this.dataservice.djangostudents().subscribe((data: Array<object>) => {
-    //   this.users = data;
-    // });
+
+    this.mutationObserver = new MutationObserver((mutations) => {
+            this.scrollToBottom();
+
+ const chat_scroll = document.getElementById('chat_div_space');
+        chat_scroll.scrollTop = chat_scroll.scrollHeight ;
+        });
+
+        this.mutationObserver.observe(this.matList.nativeElement, {
+            childList: true
+        });
 
   }
 
@@ -89,8 +105,7 @@ export class TopicChatComponent implements OnInit {
     m.user=sessionStorage.getItem('username');
     m.message= message;
     m.the_type = type;
-    m.timestamp= now.toLocaleString()
-     console.log(m)
+    m.timestamp= now.toLocaleString();
     this.websocket.send(
       JSON.stringify(m)
     );
@@ -122,9 +137,7 @@ export class TopicChatComponent implements OnInit {
 
     ngAfterViewInit(): void {
     // subscribing to any changes in the list of items / messages
-    this.matListItems.changes.subscribe(elements => {
-      this.scrollToBottom();
-    });
+
   }
 
   // auto-scroll fix: inspired by this stack overflow post
@@ -137,11 +150,7 @@ export class TopicChatComponent implements OnInit {
   }
 
 
-    // getting a reference to the overall list, which is the parent container of the list items
-  @ViewChild(MatList, { read: ElementRef }) matList: ElementRef;
 
-  // getting a reference to the items/messages within the list
-  @ViewChildren(MatListItem, { read: ElementRef }) matListItems: QueryList<MatListItem>;
 
 
 

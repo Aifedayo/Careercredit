@@ -108,6 +108,29 @@ class GroupMembers(APIView):
         except Groupclass.DoesNotExist:
             return Response("Not found",status.HTTP_404_NOT_FOUND)
 
+class GroupUsers(APIView):
+    """
+    View to list all groups in the system.
+
+    * Requires token authentication.
+    """
+    authentication_classes = (authentication.TokenAuthentication,)
+
+    # permission_classes = (permissions.IsAdminUser,)
+
+    def get(self, request, group_id=0):
+        """
+        Return a list of all users in the group.
+        Returns list of groups associated to the user as well
+        """
+        try:
+            g=Groupclass.objects.get(id=group_id)
+            users=UserSerializer(g.users,many=True)
+            return Response(users.data)
+
+        except Groupclass.DoesNotExist:
+            return Response("Not found",status.HTTP_404_NOT_FOUND)
+
 class GroupCourseDetail(APIView):
     authentication_classes = (authentication.TokenAuthentication,)
     def get(self,request,group_id):

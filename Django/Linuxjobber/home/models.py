@@ -310,8 +310,6 @@ class GroupClassLog(models.Model):
         for i in list:
             data.setdefault(i.last_login.strftime('%D'),[])
             data[i.last_login.strftime('%D')].append({'username':i.user.username,'id':i.user.id})
-            # data={}
-        t={}
         return data
 
 

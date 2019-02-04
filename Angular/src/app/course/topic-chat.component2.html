@@ -4,29 +4,31 @@
 
 
  <!-- Chat View -->
- <div class="card medium" style="max-height: 500px;">
-  <div class="card-content" style="overflow:auto" id="chat_div_space">
-  <mat-card class="main-card ">
+ <mat-card class="card medium" style="max-height: 500px;">
+  <div class="card-content scroll-hide" style="overflow:auto" id="chat_div_space" >
+   <mat-card class="main-card" >
     <mat-list class="chat-list">
       <mat-list-item *ngFor="let message of messages">
+        <div >
 
+        </div>
         <img mat-list-avatar [src]="avatar">
         <h4 mat-line>
           <b>{{message.user}}</b><i style="font-size: 12px; text-decoration: none;"> on {{ message.timestamp }}</i>
         </h4>
-          <p mat-line>
+          <p mat-line >
               <span *ngIf="message.the_type === 'plain' || message.the_type === undefined " >
-              <span> {{message.message}} </span>
+               {{message.message}}
             </span>
             <span *ngIf="message.the_type === 'image'">
-              <span><i> Uploaded an image </i>
+           <i> Uploaded an image </i>
                   <a [href]="message.message" target="_blank">
                       <img mat-list-icon [src]="message.message"/>
                   </a>
-              </span>
+
             </span>
             <span *ngIf="message.the_type === 'file' ">
-                <span><i> Uploaded a file: </i><a [href]="message.message" download="{{ message.user }}'s_upload">Download</a> </span>
+                <i> Uploaded a file: </i><a [href]="message.message" download="{{ message.user }}'s_upload">Download</a>
             </span>
 
           </p>
@@ -34,7 +36,7 @@
     </mat-list>
   </mat-card>
   </div>
-</div>
+</mat-card>
 
 
  <div class="form-group" style="display:flex">
@@ -44,7 +46,7 @@
     </label>
     <input id="file-input" (change)="fileChange($event)" type="file"/>
 </div>
-  <input (keyup.enter)="sendMessage(chat_text,'plain')" class="form-control" type="text" id="message_box" name="chat_text" [(ngModel)]="chat_text" placeholder="Type Your Message Here">
+  <input (keyup.enter)="sendMessage(chat_text,'plain')" class="form-control" type="text" id="message_box" name="chat_text" [(ngModel)]="chat_text" placeholder="Type Your Message Here" maxlength="400">
   <button class="btn btn-default send" (click)="sendMessage(chat_text,'plain')" id="submit">
     <i class="material-icons right" id="send_icon">send</i>
   </button>
