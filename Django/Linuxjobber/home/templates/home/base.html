@@ -51,6 +51,25 @@
 <link rel="stylesheet" type="text/css" href="{% static 'Projects/custom/css/projects.css' %}">
 <style>
 
+	.navbar-brand {
+		padding: 0 10px  !important;
+	}
+	.navbar-nav{
+		float: right  !important;
+	}
+	.navbar-default {
+		background-color: #1b539e  !important;
+		border: none  !important;
+	}
+	.navbar-nav li a {
+		color: #fff  !important;
+		font-size: 16px  !important;
+		text-transform: uppercase !important;
+	}
+	.nav li a {
+		padding: 10px 8px;
+	}
+
 	.progress{
 		margin-top:5px;
 		margin-bottom:0px;
@@ -73,16 +92,215 @@
 <body>
 
 	<header class="r-header" id="header">
+			<nav class="navbar navbar-default">
+					<div class="container-fluid">
+					  <!-- Brand and toggle get grouped for better mobile display -->
+					  <div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						  <span class="sr-only">Toggle navigation</span>
+						  <span class="icon-bar"></span>
+						  <span class="icon-bar"></span>
+						  <span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="{% url 'home:index' %}"><img
+							src="{% static 'home/images/logo.png' %}" alt="logo"></a>
+					  </div>
+				  
+					  <!-- Collect the nav links, forms, and other content for toggling -->
+					  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li class="has-dropdown sub-menu course"><a class="b-n"
+									href="javascript:void(0);">Courses <span class="caret"></span></a>
+									<div class="dropdowns transparent-style" id="course">
+										<div class="container text-1">
+											{% if courses %} {% for course in courses %} {% with count_min_one=forloop.counter|add:"-1"|divisibleby:4 %} {% if forloop.counter == 1 or count_min_one %}
+											<div class="col-md-3 col-sm-4">
+												<ul>
+											{% endif %}
+													<li><a href="{% url 'Courses:topics' course.course_title.split|join:'_' %}"><span class="link-icon"><i class="fa {{course.icon}} fa-2x"></i></span>{{course.course_title}}</a></li>
+													{% if forloop.counter|divisibleby:4 %}
+												</ul>
+											</div>
+											{% endif %} {% endwith %} {% endfor %} {% else %}
+											
+											
+
+
+
+											<div class="col-md-3 col-sm-4">
+												<ul class="">
+													<li><a href="#"><span class="link-icon">
+														<img src="images/icon5.png" alt="img" />
+													</span>Name 
+														</a>
+													</li>
+
+												</ul>
+											</div>
+											{% endif %}
+										</div>
+									</div>
+									<span></span>
+								</li>
+						  	<li class="has-dropdown sub-menu tool"><a class="b-n"
+									href="javascript:void(0);">Tools <span class="caret"></span></a>
+
+									<div class="dropdowns transparent-style" id="tool">
+										<div class="container text-1">
+											{% if tools %} {% for tool in tools %} {% with count_min_one=forloop.counter|add:"-1"|divisibleby:4 %} {% if forloop.counter == 1 or count_min_one %}
+
+
+											<div class="col-md-4 col-sm-4">
+												<ul>
+													{% endif %}
+
+
+													<li><a href="{% url 'ToolsApp:topics' tool.tool_name.split|join:'_' %}"><span class="link-icon"><i class="fa fa-cog fa-2x"></i></span>{{tool.tool_name}}</a></li>
+													{% if forloop.counter|divisibleby:4 %}
+												</ul>
+											</div>
+											{% endif %} {% endwith %} {% endfor %} {% else %}
+											<div class="col-md-3 col-sm-4">
+												<ul class="">
+													<li><a href="#"><span class="link-icon"><i
+																class="fa fa-linux fa-2x"></i></span>Monitoring</a> <a
+														href="#"><span class="link-icon"><i
+																class="fa fa-linux fa-2x"></i></span>Cloud Tools</a></li>
+												</ul>
+											</div>
+											{% endif %}
+										</div>
+									</div>
+								</li>
+							<li class="has-dropdown sub-menu company"><a class="b-n"
+										href="javascript:void(0)">Company <span class="caret"></span></a>
+										<div class="dropdowns transparent-style" id="company">
+											<div class="container text-1">
+												<div class="col-md-4 col-sm-6">
+													<ul>
+														<li><a href="{% url 'home:aboutus' %}"><span
+																class="link-icon"><i class="fa fa-home fa-2x"></i></span>About
+																Us</a></li>
+														<li><a href="{% url 'home:location' %}"><span
+																class="link-icon"><i
+																	class="fa fa-map-marker fa-2x"></i></span>Location</a></li>
+													</ul>
+												</div>
+												<div class="col-md-4 col-sm-6">
+													<ul>
+														<li><a href="{% url 'home:jobs' %}"><span
+																class="link-icon"><i class="fa fa-suitcase fa-2x"></i></span>Full-Time Jobs</a></li>
+														<li><a href="{% url 'home:policies' %}"><span
+																class="link-icon"><i class="fa fa-gavel fa-2x"></i></span>Policies</a></li>
+													</ul>
+												</div>
+												<div class="col-md-4 col-sm-6">
+													<ul>
+														<li><a href="{% url 'home:partime' %}"><span
+																class="link-icon"><i class="fa fa-suitcase fa-2x"></i></span>Part-Time Jobs</a></li>
+														<li><a href="{% url 'home:contact_us' %}"><span
+																class="link-icon"><i
+																	class="fa fa-phone-square fa-2x"></i></span>Contact Us</a></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+								</li>
+							<li class=" sub-menu "><a class=""
+								href="{% url 'home:tryfree' 'standardPlan' %}">Try Free</a></li>
+							
+
+								{% if not user.is_authenticated %}
+								<ul class="nav navbar-nav navbar-right">
+										<li><a href="{% url 'home:login' %}">Log In</a></li>
+										<li><a class="active" href="{% url 'home:signup' %}">Sign Up</a></li>
+								</ul>
+								{% else %}
+										
+								<ul class="nav navbar-nav navbar-right">
+										<li class="has-dropdown sub-menu profile">
+												<a class="b-n" href="javascript:void(0)">{{ user.username }} <span class="caret"></span></a>			
+												<div class="dropdowns transparent-style" id="profile">
+													<div class="container text-1 ">
+														<div class="col-md-4 col-sm-6">
+															<ul>
+																<li><a  href="/labprofiles"><span class="link-icon"><img src="{% static 'home/images/icon1.png' %}" alt="" /></span>My Profile</a></li>
+																<li><a href="{% url 'home:account_settings' %}"><span class="link-icon"><img src="{% static 'home/images/icon1.png' %}" alt="" /></span>Account Settings</a></li>								
+															</ul>
+														</div>
+														<div class="col-md-4 col-sm-6">
+															<ul>							
+																<li><a href="/users/orderlist"><span class="link-icon"><img src="https://linuxjobber.com/images/icon1.png" alt="" /></span>Order List</a></li>
+																<li><a href="{% url 'home:rhcsa_order' %}"><span class="link-icon"><img src="{% static 'home/images/icon1.png' %}" alt="" /></span>RHCSA Order</a></li>
+															</ul>
+														</div>		
+														<div class="col-md-4 col-sm-6">
+															<ul>	
+																<li><a href="{% url 'home:logout' %}"><span class="link-icon"><img src="{% static 'home/images/logout1.png' %}" alt="" /></span>Logout</a></li>
+															</ul>
+														</div>
+														{%if workexp%}
+														<div class="col-md-4 col-sm-6">
+															<ul>	
+																<li><a href="{% url 'home:workexprofile' %}"><span class="link-icon"><img src="{% static 'home/images/icon1.png' %}" alt="" /></span>Work Experience Profile</a></li>
+															</ul>
+														</div>
+														{%endif%}
+													</div>
+												</div>	
+											</li>
+											<li>
+												<a style="margin-top: -10px;margin-bottom: -20px;" href="{% url 'home:profile_img_upload' %}"><img style="width: 44px;height: 44px;border-radius: 100px;" src="{{ user.profile_img }}"></a>	
+											</li>
+									  </ul>
+							{% endif %}
+
+						  <!-- <li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+							  <li><a href="#">Action</a></li>
+							  <li><a href="#">Another action</a></li>
+							  <li><a href="#">Something else here</a></li>
+							  <li role="separator" class="divider"></li>
+							  <li><a href="#">Separated link</a></li>
+							  <li role="separator" class="divider"></li>
+							  <li><a href="#">One more separated link</a></li>
+							</ul>
+						  </li> -->
+						<!-- </ul>
+						<form class="navbar-form navbar-left">
+						  <div class="form-group">
+							<input type="text" class="form-control" placeholder="Search">
+						  </div>
+						  <button type="submit" class="btn btn-default">Submit</button>
+						</form>
+						<ul class="nav navbar-nav navbar-right">
+						  <li><a href="#">Link</a></li>
+						  <li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+							  <li><a href="#">Action</a></li>
+							  <li><a href="#">Another action</a></li>
+							  <li><a href="#">Something else here</a></li>
+							  <li role="separator" class="divider"></li>
+							  <li><a href="#">Separated link</a></li>
+							</ul>
+						  </li>
+						</ul> -->
+					  </div><!-- /.navbar-collapse -->
+					</div><!-- /.container-fluid -->
+				  </nav>
+	</header>
 		<!-- header bottom -->
-		<div class="header-bottom">
+		<!-- <div class="header-bottom">
 			<div class="container padd">
 				<div class="row">
 					<div class="col-md-3 col-sm-3 col-xs-6 logo padd">
 						<a class="navbar-brand" href="{% url 'home:index' %}"><img
 							src="{% static 'home/images/logo.png' %}" alt="logo"></a>
-					</div>
+					</div> -->
 
-					<div class="col-md-6 col-sm-6 mainmnu">
+					<!-- <div class="col-md-6 col-sm-6 mainmnu">
 						<nav>
 							<ul class="nav navbar-nav navbar-right main-nav">
 								<li class="has-dropdown sub-menu course"><a class="b-n"
@@ -184,18 +402,18 @@
 									href="{% url 'home:tryfree' 'standardPlan' %}">Try Free</a></li>
 							</ul>
 						</nav>
-					</div>
+					</div> -->
 
 					<!-- user -->
 					<!-- start -->
-					{% if not user.is_authenticated %}
+					<!-- {% if not user.is_authenticated %}
 					<div class="col-md-3 col-sm-3 col-xs-6 header-login">
 						<a href="{% url 'home:login' %}">Log In</a> <a class="active"
 							href="{% url 'home:signup' %}">Sign Up</a>
 					</div>
-					{% else %}
+					{% else %} -->
 					
-					<div class="col-md-3 col-sm-3 col-xs-6 mainmnu">	
+					<!-- <div class="col-md-3 col-sm-3 col-xs-6 mainmnu">	
 						<nav>
 							<ul class="nav navbar-nav navbar-right main-nav" >
 								<li class="has-dropdown sub-menu profile">
@@ -236,16 +454,16 @@
 										
 							</ul>	
 						</nav>		
-					</div>
+					</div> -->
 					
 
-					{% endif %}
+					<!-- {% endif %} -->
 
 					<!-- Stop -->
-				</div>
+				<!-- </div>
 			</div>
 		</div>
-	</header>
+	</header> -->
 
 
 	{% block content %} {% endblock %}
