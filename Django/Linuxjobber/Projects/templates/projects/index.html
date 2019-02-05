@@ -7,39 +7,83 @@
 
 {% block content %}
 
-	<div style="background-color: #252525; height: 70px;">
-		<p style="color: #252525">. <!-- This text is here for only styling purpose --></p>
-	</div>
+<style type="text/css">
+	.projimg,.projimg1{
+	margin-left: -10px;
+	margin-right: -10px;
+	margin-top: -3px;
+	margin-bottom: -6px;
+	display: block; 
+	width: 100%;
+}
+	.projboardimg{
+	width: 266px;
+	height: 266px;
+	display:block;
+    margin:auto;
+}
 
-	<div class="container-fluid" style="background: #F6F6F6; ">
-		<br>
-		<div class="row">
-			<div class="col-md-12" style="text-align: center;">
-				<h1>Projects</h1>
-				<p style="font-family: Roboto;font-style: normal;font-weight: normal;line-height: normal;font-size: 18px;text-align: center;color: rgba(0, 0, 0, 0.8); padding: 36px 398px;">This contains all the list of projects we offer. select a project to get started or each for a particular course or topic</p>
+@media (min-width: 360px) and (max-width: 640px) {
+	.projimg,.projimg1{
+		margin-right: 0px;
+		margin-left: 0px;
+		width: 100%;
+	}
+
+	.projboardimg{
+		margin-bottom: 30px;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	.projimg,.projimg1{
+		margin-right: 10px;
+		width: 100%;
+	}
+}
+}
+
+</style>
+	
+	<div class="proj-header"></div>
+
+	<div class="proj-body">
+		<div class="text-center projban">
+			<br><br>
+			<h1 class="projbanh1">Projects</h1>
+			<br>
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+				<span>This contains all the list of projects we offer. select a project to get started. or each for a particular course or topic</span>
 			</div>
+			<div class="col-md-3"></div>
 		</div>
 
-		{% for project in projects %}
-		<a href="{% url 'Projects:courses' project.project_title %}">
-		<div class="row projects-container">
-			<div class="col-md-3 project-img-col" style="background-image: url({{ project.project_bg_image }});height: 240px;">
-				<img src="{{ project.project_image }}" class="responsive projects-img" style="margin-left: -30px;">
+		<div class="container projdiv2">
+			{%for project in projects%}
+			<a href="{% url 'Projects:courses' project.id %}" class="projlink">
+			<div class="projcard">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="projimg">
+							<img class="projimg1" src="{{project.project_image.url}}">
+						</div>
+					</div>
+					<div class="col-md-8">
+						<div class="projcardright">
+							<span class="projcardh">{{project.project_title}}</span><br>
+							<span>{{project.project_description}}</span><br><br>
+							<div>
+								<span class="projcon">Projects Contains:</span><span class="projconl"> {{project.project_contents}}</span>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="col-md-8">
-				<br>
-				<p class="projects-title">
-					{{ project.project_title }}
-				</p>
-				<p class="projects-description">
-					{{ project.project_description }}
-				</p>
-				<p class="proj-contains">Project contains: <span style="color: rgba(37, 37, 37, 0.8);">{{ project.project_contents }}</span></p>
-			</div>
+			</a>
+			{%endfor%}
 		</div>
-		</a>
 		<br><br>
-		{% endfor %}
 	</div>
 
 {% endblock %}

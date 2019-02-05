@@ -39,8 +39,11 @@
 				<div
 					class="row fill-viewport text-center justify-content-center align-items-center">
 					<div class="col-12 col-md-6 back">
-
+					{% if next %}
+						<form action="/login/?next={{next}}" method="post" >
+					{%else%}
 						<form method="POST" action="{% url 'home:login' %}">
+					{%endif%}
 							<input type="hidden" name="next" value="{{ next }}" />
 							{% csrf_token %} {% if form.errors %}
 							<p style="color: red">Your username and password didn't
