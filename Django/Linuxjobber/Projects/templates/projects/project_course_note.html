@@ -1,0 +1,45 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block title %}
+	Linuxjobber Project
+{% endblock %}
+
+{% block content %}
+
+<style type="text/css">
+	.projt,p{
+		font-size: 18px;
+	}
+
+</style>
+<div class="proj-header"></div>
+<div class="proj-header2">
+	<div class="text-center"><span class="text-muted"><a class="text-muted proj-header2l" href="{% url 'Projects:index' %}">Projects</a>  > <a class="text-muted proj-header2l" href="{% url 'Projects:courses' project_id %}">{{project_title}}</a> ><a class="text-muted proj-header2l" href="{% url 'Projects:course_topics' course_id topic.topic_id %}"> {{course_title}} </a>  > Notes</span> </div>
+</div>
+
+<div class="proj-body">
+
+	<div class="text-center projban">
+		<br><br>
+		<h1 class="projbanh1">{{course_title}}</h1>
+		<br>
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<span>{{course_description}}</span>
+		</div>
+		<div class="col-md-3"></div>
+		<br>
+	</div>
+
+	<div class="projboard">
+		<div class="container">
+			<span class="projcardh">Notes</span><br>
+			<span><a href="{% url 'Projects:course_topics' course_id topic.topic_id %}" class="btn projbut4 text-muted">videos</a> </span> {%if topic.has_labs == 1 %} <span> <a href="" class="btn projbut4 text-muted">hands on lab</a></span>{%endif%}<br><br>
+			
+			<div class="projt">
+				{{note.detail|safe}}					
+			</div>
+		</div>
+	</div>
+</div>
+{%endblock%}

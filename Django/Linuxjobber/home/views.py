@@ -14,7 +14,7 @@ from django.utils.datastructures import MultiValueDictKeyError
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
 from django.core.mail import send_mail
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from rest_framework.authtoken.models import Token
 from datetime import timedelta
 
@@ -62,7 +62,7 @@ def signup(request):
             user.first_name = firstname
             user.last_name = lastname
             user.save()
-            send_mail('Linuxjobber Free Account Creation', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + '\n Follow this link http://'+settings.SERVER_IP+'/login to login to you account\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
+            send_mail('Account has been Created', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + ' and your email is ' +email + '\n Follow this url to login with your username and password '+settings.ENV_URL+'login \n\n Thanks & Regards \n Admin.', settings.EMAIL_HOST_USER, [email])
             return render(request, "home/registration/success.html", {'user': user})
         else:
             error = True
@@ -80,7 +80,7 @@ def forgot_password(request):
             u.pwd_reset_token = ''.join(random.choice(string.ascii_lowercase) for x in range(64))
             u.save()
             password_reset_link = 'reset_password/'+str(u.pwd_reset_token)
-            send_mail('Linuxjobber Account Password Reset', 'Hello, \n' + 'You are receiving this email because we received a request to reset your password,\nignore this message if you did not initiate the request else click the link below to reset your password.\n'+'http://'+settings.SERVER_IP+'/'+password_reset_link+'\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
+            send_mail('Linuxjobber Account Password Reset', 'Hello, \n' + 'You are receiving this email because we received a request to reset your password,\nignore this message if you did not initiate the request else click the link below to reset your password.\n'+settings.ENV_URL+''+password_reset_link+'\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
 
             return render(request, 'home/registration/forgot_password.html',{'message':'An email with password reset information has been sent to you. Check your email to proceede.'})
         else:
@@ -198,6 +198,7 @@ def partime(request):
         if form.is_valid():
             form.save()
             send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you applied for a part-time role at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.POST['email']])
+            send_mail('Part-Time Job Application Alert', 'Hello,'+request.POST['fullname']+' with email: '+request.POST['email']+ 'just applied for a part time role. please kindly review.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
             return redirect("home:jobfeed")
         else:
             form = PartimeApplicationForm()
@@ -227,6 +228,7 @@ def jobapplication(request, job):
             jobform.position = posts
             jobform.save()
             send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you applied for a full-time role at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.POST['email']])
+            send_mail('Full-Time Job Application Alert', 'Hello,'+request.POST['fullname']+' with email: '+request.POST['email']+ 'just applied for a full time role. please kindly review.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
             return redirect("home:jobfeed")
         else:
             form = JobApplicationForm()
@@ -242,6 +244,10 @@ def resume(request):
 
 
 def log_in(request):
+    next = ''
+    if request.GET:  
+        next = request.GET['next']
+
     if request.method == "POST":
         user_name = request.POST['username']
         password = request.POST['password']
@@ -251,19 +257,23 @@ def log_in(request):
         
         if user is not None:
             login(request, user)
-            #check if user paid for work experience and has not filled the form
-            try:
-                weps = wepeoples.objects.get(user=request.user)
-                if not weps.trainee_position:
-                    return redirect("home:workexpform")
-            except wepeoples.DoesNotExist:
+            if next == "":
+                #check if user paid for work experience and has not filled the form
+                try:
+                    weps = wepeoples.objects.get(user=request.user)
+                    if not weps.types:
+                        return redirect("home:workexpform")
+                except wepeoples.DoesNotExist:
+                    return redirect("Courses:userinterest")
                 return redirect("Courses:userinterest")
-            return redirect("Courses:userinterest")
+            else:
+                print(next)
+                return HttpResponseRedirect(next)
         else:
             error_message = "yes"
             return render(request, "home/registration/login.html", {'error_message' : error_message})
     else:
-        return render(request, "home/registration/login.html", {'courses' : get_courses(), 'tools' : get_tools()})
+        return render(request, "home/registration/login.html", {'next':next})
 
 
 def log_out(request):
