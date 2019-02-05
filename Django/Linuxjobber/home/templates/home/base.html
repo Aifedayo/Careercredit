@@ -141,7 +141,7 @@
 									</div></li>
 
 								<li class="has-dropdown sub-menu company"><a class="b-n"
-									href="javascript:void(0)">Company</a>
+									href="javascript:void(0)">Careers</a>
 									<div class="dropdowns transparent-style" id="company">
 										<div class="container text-1">
 											<div class="col-md-4 col-sm-6">
@@ -291,15 +291,13 @@
 
 
 				<div class="col-md-3 col-sm-6">
-					<h2>Contact Us</h2>
-					<ul class="quick-links" style="margin-top: 26px; font-size: 16px;">
-						<li><i class="fa fa-map-marker fa-fw pull-left"></i>
-							<p style="color: #fff;">Address : Suite 700, 6301 Ivy</p></li>
-						<li><p style="color: #fff;">Lane, Greenbelt, Maryland
-							<p></li>
-						<li><i class="fa fa-envelope fa-fw pull-left"></i>
-							<p style="color: #fff;">Email: admin@linuxjobber.com</p></li>
-						<!-- li><i class="fa fa-phone fa-fw pull-left"></i><p style=" color:#fff;">Call : 1 443 631 7208</p></li -->
+					<h2>Company</h2>
+					<ul class="quick-links2" style="margin-top: 26px; font-size: 16px;">
+						<li><a href="{% url 'home:jobs' %}">Full-Time Jobs</a></li>
+						<li><a href="{% url 'home:partime' %}">Part-Time Jobs</a></li>
+						<li><a href="{% url 'home:policies' %}">Policies</a></li>
+						<li><a href="{% url 'home:contact_us' %}">Contact
+								Us</a></li>
 					</ul>
 				</div>
 			</div>

@@ -198,6 +198,7 @@ def partime(request):
         if form.is_valid():
             form.save()
             send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you applied for a part-time role at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.POST['email']])
+            send_mail('Part-Time Job Application Alert', 'Hello,'+request.POST['fullname']+' with email: '+request.POST['email']+ 'just applied for a part time role. please kindly review.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
             return redirect("home:jobfeed")
         else:
             form = PartimeApplicationForm()
@@ -227,6 +228,7 @@ def jobapplication(request, job):
             jobform.position = posts
             jobform.save()
             send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you applied for a full-time role at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.POST['email']])
+            send_mail('Full-Time Job Application Alert', 'Hello,'+request.POST['fullname']+' with email: '+request.POST['email']+ 'just applied for a full time role. please kindly review.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
             return redirect("home:jobfeed")
         else:
             form = JobApplicationForm()
