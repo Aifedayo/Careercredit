@@ -81,6 +81,12 @@
 		margin-top: 10px;
 		margin-bottom: 40px;
 	}
+	li.sub-menu a.b-n::after,
+li.sub-menu a.b-n:focus::after,
+li.sub-menu a.b-n:hover::after,
+li.sub-menu a.b-n::after {
+	z-index: 0;
+}
 	.fa.fa-check  {  padding: 3px !important;  border-radius: 14px; line-height: 14px; }
 	.fa.fa-remove {  padding: 5px !important; border-radius: 10px; line-height: 10px; }
 	a{ font-weight:500 ; }
@@ -110,7 +116,7 @@
 					  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav">
 							<li class="has-dropdown sub-menu course"><a class="b-n"
-									href="javascript:void(0);">Courses <span class="caret"></span></a>
+									href="javascript:void(0);">Courses </a>
 									<div class="dropdowns transparent-style" id="course">
 										<div class="container text-1">
 											{% if courses %} {% for course in courses %} {% with count_min_one=forloop.counter|add:"-1"|divisibleby:4 %} {% if forloop.counter == 1 or count_min_one %}
@@ -143,7 +149,7 @@
 									<span></span>
 								</li>
 						  	<li class="has-dropdown sub-menu tool"><a class="b-n"
-									href="javascript:void(0);">Tools <span class="caret"></span></a>
+									href="javascript:void(0);">Tools</a>
 
 									<div class="dropdowns transparent-style" id="tool">
 										<div class="container text-1">
@@ -173,7 +179,7 @@
 									</div>
 								</li>
 							<li class="has-dropdown sub-menu company"><a class="b-n"
-										href="javascript:void(0)">Company <span class="caret"></span></a>
+										href="javascript:void(0)">Company </a>
 										<div class="dropdowns transparent-style" id="company">
 											<div class="container text-1">
 												<div class="col-md-4 col-sm-6">
@@ -219,7 +225,7 @@
 										
 								<ul class="nav navbar-nav navbar-right">
 										<li class="has-dropdown sub-menu profile">
-												<a class="b-n" href="javascript:void(0)">{{ user.username }} <span class="caret"></span></a>			
+												<a class="b-n" href="javascript:void(0)">{{ user.username }}</a>			
 												<div class="dropdowns transparent-style" id="profile">
 													<div class="container text-1 ">
 														<div class="col-md-4 col-sm-6">

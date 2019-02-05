@@ -769,7 +769,7 @@ li.sub-menu a.w-b::after {
     -o-transition: all .3s ease-out;
     transition: all .3s ease-out;
     box-sizing: border-box;
-    z-index: -1
+    z-index: 1
 }
 
 li.sub-menu a.w-b::after,
@@ -897,7 +897,7 @@ li.sub-menu a.b-n::after {
     -o-transition: all .3s ease-out;
     transition: all .3s ease-out;
     box-sizing: border-box;
-    z-index: -1
+    z-index: 1
 }
 
 li.sub-menu a.b-n::after,
