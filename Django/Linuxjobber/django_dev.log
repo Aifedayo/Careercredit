@@ -2957,3 +2957,305 @@ AttributeError: 'Settings' object has no attribute 'SERVER_IP'
 [2019-02-05 09:39:25] INFO [django.server.log_message:124] "GET /profile_picture/update HTTP/1.1" 200 19811
 [2019-02-05 09:39:25] WARNING [django.request.log_response:228] Not Found: /profile_picture/images/icon5.png
 [2019-02-05 09:39:25] WARNING [django.server.log_message:124] "GET /profile_picture/images/icon5.png HTTP/1.1" 404 12607
+[2019-02-05 10:48:56] INFO [django.server.log_message:124] "GET /profile_picture/update HTTP/1.1" 200 19832
+[2019-02-05 10:48:57] WARNING [django.request.log_response:228] Not Found: /profile_picture/images/icon5.png
+[2019-02-05 10:48:57] WARNING [django.server.log_message:124] "GET /profile_picture/images/icon5.png HTTP/1.1" 404 12607
+[2019-02-05 18:59:10] INFO [django.server.log_message:124] "GET /profile_picture/update HTTP/1.1" 200 19832
+[2019-02-05 18:59:10] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 200 1163
+[2019-02-05 18:59:10] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 200 3979
+[2019-02-05 18:59:10] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2019-02-05 18:59:10] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2019-02-05 18:59:10] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 39923
+[2019-02-05 18:59:10] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 200 825
+[2019-02-05 18:59:10] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newnew2.css HTTP/1.1" 200 2360
+[2019-02-05 18:59:10] INFO [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 200 6509
+[2019-02-05 18:59:10] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 200 5561
+[2019-02-05 18:59:11] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 200 7177
+[2019-02-05 18:59:11] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 141987
+[2019-02-05 18:59:11] WARNING [django.request.log_response:228] Not Found: /profile_picture/images/icon5.png
+[2019-02-05 18:59:11] WARNING [django.server.log_message:124] "GET /profile_picture/images/icon5.png HTTP/1.1" 404 12607
+[2019-02-05 18:59:11] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 200 3066
+[2019-02-05 18:59:11] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 200 29115
+[2019-02-05 18:59:11] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 200 9198
+[2019-02-05 18:59:11] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 200 4488
+[2019-02-05 18:59:11] INFO [django.server.log_message:124] "GET /static/js/waterbubble.js HTTP/1.1" 200 6268
+[2019-02-05 18:59:11] INFO [django.server.log_message:124] "GET /static/home/images/icon1.png HTTP/1.1" 200 2133
+[2019-02-05 18:59:11] INFO [django.server.log_message:124] "GET /static/faq/js/jquery-2.1.1.js HTTP/1.1" 200 256541
+[2019-02-05 18:59:11] INFO [django.server.log_message:124] "GET /static/home/images/logout1.png HTTP/1.1" 200 1899
+[2019-02-05 18:59:12] WARNING [django.request.log_response:228] Not Found: /favicon.ico
+[2019-02-05 18:59:12] WARNING [django.server.log_message:124] "GET /favicon.ico HTTP/1.1" 404 12544
+[2019-02-05 18:59:15] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 33639
+[2019-02-05 18:59:15] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-05 18:59:15] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12559
+[2019-02-05 18:59:15] INFO [django.server.log_message:124] "GET /static/home/images/linuxx.png HTTP/1.1" 200 13722
+[2019-02-05 18:59:15] INFO [django.server.log_message:124] "GET /static/home/images/java.png HTTP/1.1" 200 14813
+[2019-02-05 18:59:15] INFO [django.server.log_message:124] "GET /static/home/images/awssa.png HTTP/1.1" 200 13411
+[2019-02-05 18:59:16] INFO [django.server.log_message:124] "GET /static/home/images/views.png HTTP/1.1" 200 5544
+[2019-02-05 18:59:16] INFO [django.server.log_message:124] "GET /static/home/images/pupet.png HTTP/1.1" 200 5198
+[2019-02-05 18:59:16] INFO [django.server.log_message:124] "GET /static/home/images/training.png HTTP/1.1" 200 154154
+[2019-02-05 18:59:16] INFO [django.server.log_message:124] "GET /static/home/images/btns.png HTTP/1.1" 200 3954
+[2019-02-05 18:59:16] INFO [django.server.log_message:124] "GET /static/home/images/pupet2.png HTTP/1.1" 200 10373
+[2019-02-05 18:59:16] INFO [django.server.log_message:124] "GET /static/home/images/bannerr.png HTTP/1.1" 200 77329
+[2019-02-05 18:59:16] INFO [django.server.log_message:124] "GET /static/home/images/engine2.png HTTP/1.1" 200 4246
+[2019-02-05 18:59:16] INFO [django.server.log_message:124] "GET /static/home/images/tutor.png HTTP/1.1" 200 11460
+[2019-02-05 18:59:16] INFO [django.server.log_message:124] "GET /static/home/images/kid.png HTTP/1.1" 200 13920
+[2019-02-05 18:59:16] INFO [django.server.log_message:124] "GET /static/home/images/experience.png HTTP/1.1" 200 279224
+[2019-02-05 18:59:16] INFO [django.server.log_message:124] "GET /static/home/images/placement.png HTTP/1.1" 200 98335
+[2019-02-05 18:59:16] INFO [django.server.log_message:124] "GET /static/home/images/q1.png HTTP/1.1" 200 1961
+[2019-02-05 18:59:16] INFO [django.server.log_message:124] "GET /static/home/images/dre.png HTTP/1.1" 200 22180
+[2019-02-05 18:59:16] INFO [django.server.log_message:124] "GET /static/home/images/hotels.png HTTP/1.1" 200 14387
+[2019-02-05 18:59:16] INFO [django.server.log_message:124] "GET /static/home/images/q2.png HTTP/1.1" 200 1949
+[2019-02-05 18:59:16] INFO [django.server.log_message:124] "GET /static/home/images/22.png HTTP/1.1" 200 62724
+[2019-02-05 18:59:16] INFO [django.server.log_message:124] "GET /static/home/images/44.png HTTP/1.1" 200 58580
+[2019-02-05 18:59:16] INFO [django.server.log_message:124] "GET /static/home/images/ontario.png HTTP/1.1" 200 61470
+[2019-02-05 18:59:16] INFO [django.server.log_message:124] "GET /static/home/images/33.png HTTP/1.1" 200 62653
+[2019-02-05 18:59:16] INFO [django.server.log_message:124] "GET /static/home/images/hotelsafrica.png HTTP/1.1" 200 45205
+[2019-02-05 18:59:33] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 33639
+[2019-02-05 18:59:33] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-05 18:59:33] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12559
+[2019-02-05 18:59:56] INFO [django.server.log_message:124] "GET /projects/ HTTP/1.1" 200 20972
+[2019-02-05 18:59:57] WARNING [django.request.log_response:228] Not Found: /projects/images/icon5.png
+[2019-02-05 18:59:57] WARNING [django.server.log_message:124] "GET /projects/images/icon5.png HTTP/1.1" 404 13473
+[2019-02-05 19:02:58] INFO [django.server.log_message:124] "GET /projects/projects/DevOps HTTP/1.1" 200 21434
+[2019-02-05 19:02:58] WARNING [django.request.log_response:228] Not Found: /projects/projects/images/icon5.png
+[2019-02-05 19:02:58] WARNING [django.server.log_message:124] "GET /projects/projects/images/icon5.png HTTP/1.1" 404 13500
+[2019-02-05 19:03:12] INFO [django.server.log_message:124] "GET /projects/Ubuntu/course HTTP/1.1" 302 0
+[2019-02-05 19:03:12] INFO [django.server.log_message:124] "GET /tryfree/standardPlan/ HTTP/1.1" 200 23089
+[2019-02-05 19:03:12] WARNING [django.request.log_response:228] Not Found: /tryfree/standardPlan/images/icon5.png
+[2019-02-05 19:03:12] WARNING [django.server.log_message:124] "GET /tryfree/standardPlan/images/icon5.png HTTP/1.1" 404 12622
+[2019-02-06 08:31:58] INFO [django.server.log_message:124] "GET /tryfree/standardPlan/ HTTP/1.1" 200 23089
+[2019-02-06 08:31:58] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 200 3979
+[2019-02-06 08:31:58] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2019-02-06 08:31:58] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2019-02-06 08:31:58] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 39923
+[2019-02-06 08:31:58] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 141987
+[2019-02-06 08:31:59] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 200 5561
+[2019-02-06 08:31:59] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newnew2.css HTTP/1.1" 200 2360
+[2019-02-06 08:31:59] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 200 825
+[2019-02-06 08:31:59] INFO [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 200 6509
+[2019-02-06 08:31:59] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 200 1163
+[2019-02-06 08:31:59] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 200 7177
+[2019-02-06 08:31:59] WARNING [django.request.log_response:228] Not Found: /tryfree/standardPlan/images/icon5.png
+[2019-02-06 08:31:59] WARNING [django.server.log_message:124] "GET /tryfree/standardPlan/images/icon5.png HTTP/1.1" 404 12622
+[2019-02-06 08:31:59] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 200 29115
+[2019-02-06 08:31:59] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 200 9198
+[2019-02-06 08:31:59] INFO [django.server.log_message:124] "GET /static/faq/js/jquery-2.1.1.js HTTP/1.1" 200 256541
+[2019-02-06 08:31:59] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 200 4488
+[2019-02-06 08:31:59] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 200 3066
+[2019-02-06 08:31:59] INFO [django.server.log_message:124] "GET /static/js/waterbubble.js HTTP/1.1" 200 6268
+[2019-02-06 08:31:59] INFO [django.server.log_message:124] "GET /static/home/images/icon1.png HTTP/1.1" 200 2133
+[2019-02-06 08:31:59] INFO [django.server.log_message:124] "GET /static/home/images/logout1.png HTTP/1.1" 200 1899
+[2019-02-06 08:32:00] INFO [django.server.log_message:124] "GET /static/home/images/bannerr.png HTTP/1.1" 200 77329
+[2019-02-06 08:32:03] WARNING [django.request.log_response:228] Not Found: /favicon.ico
+[2019-02-06 08:32:03] WARNING [django.server.log_message:124] "GET /favicon.ico HTTP/1.1" 404 12544
+[2019-02-06 08:32:10] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 33639
+[2019-02-06 08:32:10] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2019-02-06 08:32:10] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 39923
+[2019-02-06 08:32:10] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 141987
+[2019-02-06 08:32:10] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 200 825
+[2019-02-06 08:32:10] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 200 5561
+[2019-02-06 08:32:10] INFO [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 200 6509
+[2019-02-06 08:32:10] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2019-02-06 08:32:10] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newnew2.css HTTP/1.1" 200 2360
+[2019-02-06 08:32:10] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-06 08:32:10] INFO [django.server.log_message:124] "GET /static/home/images/linuxx.png HTTP/1.1" 200 13722
+[2019-02-06 08:32:10] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12559
+[2019-02-06 08:32:10] INFO [django.server.log_message:124] "GET /static/home/images/java.png HTTP/1.1" 200 14813
+[2019-02-06 08:32:10] INFO [django.server.log_message:124] "GET /static/home/images/awssa.png HTTP/1.1" 200 13411
+[2019-02-06 08:32:10] INFO [django.server.log_message:124] "GET /static/home/images/views.png HTTP/1.1" 200 5544
+[2019-02-06 08:32:10] INFO [django.server.log_message:124] "GET /static/home/images/btns.png HTTP/1.1" 200 3954
+[2019-02-06 08:32:10] INFO [django.server.log_message:124] "GET /static/home/images/pupet.png HTTP/1.1" 200 5198
+[2019-02-06 08:32:10] INFO [django.server.log_message:124] "GET /static/home/images/training.png HTTP/1.1" 200 154154
+[2019-02-06 08:32:10] INFO [django.server.log_message:124] "GET /static/home/images/pupet2.png HTTP/1.1" 200 10373
+[2019-02-06 08:32:11] INFO [django.server.log_message:124] "GET /static/home/images/placement.png HTTP/1.1" 200 98335
+[2019-02-06 08:32:11] INFO [django.server.log_message:124] "GET /static/home/images/engine2.png HTTP/1.1" 200 4246
+[2019-02-06 08:32:11] INFO [django.server.log_message:124] "GET /static/home/images/tutor.png HTTP/1.1" 200 11460
+[2019-02-06 08:32:11] INFO [django.server.log_message:124] "GET /static/home/images/experience.png HTTP/1.1" 200 279224
+[2019-02-06 08:32:11] INFO [django.server.log_message:124] "GET /static/home/images/kid.png HTTP/1.1" 200 13920
+[2019-02-06 08:32:11] INFO [django.server.log_message:124] "GET /static/home/images/dre.png HTTP/1.1" 200 22180
+[2019-02-06 08:32:11] INFO [django.server.log_message:124] "GET /static/home/images/44.png HTTP/1.1" 200 58580
+[2019-02-06 08:32:11] INFO [django.server.log_message:124] "GET /static/home/images/q1.png HTTP/1.1" 200 1961
+[2019-02-06 08:32:11] INFO [django.server.log_message:124] "GET /static/home/images/22.png HTTP/1.1" 200 62724
+[2019-02-06 08:32:11] INFO [django.server.log_message:124] "GET /static/home/images/q2.png HTTP/1.1" 200 1949
+[2019-02-06 08:32:11] INFO [django.server.log_message:124] "GET /static/home/images/hotels.png HTTP/1.1" 200 14387
+[2019-02-06 08:32:11] INFO [django.server.log_message:124] "GET /static/home/images/33.png HTTP/1.1" 200 62653
+[2019-02-06 08:32:11] INFO [django.server.log_message:124] "GET /static/home/images/ontario.png HTTP/1.1" 200 61470
+[2019-02-06 08:32:11] INFO [django.server.log_message:124] "GET /static/home/images/hotelsafrica.png HTTP/1.1" 200 45205
+[2019-02-06 08:32:17] INFO [django.server.log_message:124] "GET /workexperience/ HTTP/1.1" 200 26909
+[2019-02-06 08:32:17] WARNING [django.request.log_response:228] Not Found: /workexperience/images/icon5.png
+[2019-02-06 08:32:17] WARNING [django.server.log_message:124] "GET /workexperience/images/icon5.png HTTP/1.1" 404 13373
+[2019-02-06 08:32:17] INFO [django.server.log_message:124] "GET /static/home/images/aoc.png HTTP/1.1" 200 103405
+[2019-02-06 08:32:18] INFO [django.server.log_message:124] "GET /static/home/images/graduate.png HTTP/1.1" 200 316928
+[2019-02-06 08:32:18] INFO [django.server.log_message:124] "GET /static/home/images/prooo.png HTTP/1.1" 200 542089
+[2019-02-06 08:32:18] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/radio1.png HTTP/1.1" 200 442
+[2019-02-06 08:32:18] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/womann.jpg HTTP/1.1" 200 105056
+[2019-02-06 08:32:18] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/wok.png HTTP/1.1" 200 281569
+[2019-02-06 08:32:18] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/aboutrec.png HTTP/1.1" 200 590531
+[2019-02-06 08:32:26] INFO [django.server.log_message:124] "GET /workexperience/pay/ HTTP/1.1" 200 22913
+[2019-02-06 08:32:26] WARNING [django.request.log_response:228] Not Found: /workexperience/pay/images/icon5.png
+[2019-02-06 08:32:26] WARNING [django.server.log_message:124] "GET /workexperience/pay/images/icon5.png HTTP/1.1" 404 13385
+[2019-02-06 08:45:50] INFO [django.server.log_message:124] "GET /admin HTTP/1.1" 302 0
+[2019-02-06 08:45:53] INFO [django.server.log_message:124] "GET /admin/login/?next=/admin HTTP/1.1" 200 1968
+[2019-02-06 08:45:54] INFO [django.server.log_message:124] "GET /static/admin/css/login.css HTTP/1.1" 200 1281
+[2019-02-06 08:45:54] INFO [django.server.log_message:124] "GET /static/admin/css/base.css HTTP/1.1" 200 17084
+[2019-02-06 08:45:54] INFO [django.server.log_message:124] "GET /static/admin/css/responsive.css HTTP/1.1" 200 18884
+[2019-02-06 08:45:55] INFO [django.server.log_message:124] "GET /static/admin/css/fonts.css HTTP/1.1" 200 443
+[2019-02-06 08:45:55] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 82564
+[2019-02-06 08:45:55] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+[2019-02-06 08:45:55] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+[2019-02-06 08:46:12] INFO [django.server.log_message:124] "POST /admin/login/?next=/admin HTTP/1.1" 200 2131
+[2019-02-06 08:46:24] INFO [django.server.log_message:124] "POST /admin/login/?next=/admin HTTP/1.1" 200 2131
+[2019-02-06 08:47:42] INFO [django.server.log_message:124] "GET /admin/login/?next=/admin HTTP/1.1" 200 1968
+[2019-02-06 08:47:56] INFO [django.server.log_message:124] "POST /admin/login/?next=/admin HTTP/1.1" 200 2131
+[2019-02-06 08:48:11] INFO [django.server.log_message:124] "POST /admin/login/?next=/admin HTTP/1.1" 200 2131
+[2019-02-06 08:49:55] INFO [django.server.log_message:124] "GET /admin/login/?next=/admin HTTP/1.1" 200 1968
+[2019-02-06 08:50:13] INFO [django.server.log_message:124] "POST /admin/login/?next=/admin HTTP/1.1" 302 0
+[2019-02-06 08:50:13] INFO [django.server.log_message:124] "GET /admin HTTP/1.1" 200 24008
+[2019-02-06 08:50:13] INFO [django.server.log_message:124] "GET /static/admin/css/dashboard.css HTTP/1.1" 200 439
+[2019-02-06 08:50:13] INFO [django.server.log_message:124] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 334
+[2019-02-06 08:50:13] INFO [django.server.log_message:124] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 383
+[2019-02-06 08:50:23] INFO [django.server.log_message:124] "GET /admin/home/stripepayment/ HTTP/1.1" 200 4430
+[2019-02-06 08:50:23] INFO [django.server.log_message:124] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 268490
+[2019-02-06 08:50:23] INFO [django.server.log_message:124] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 371
+[2019-02-06 08:50:23] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-06 08:50:23] INFO [django.server.log_message:124] "GET /static/admin/js/core.js HTTP/1.1" 200 7346
+[2019-02-06 08:50:23] INFO [django.server.log_message:124] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 7078
+[2019-02-06 08:50:23] INFO [django.server.log_message:124] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1580
+[2019-02-06 08:50:23] INFO [django.server.log_message:124] "GET /static/admin/css/changelists.css HTTP/1.1" 200 6514
+[2019-02-06 08:50:23] INFO [django.server.log_message:124] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 131128
+[2019-02-06 08:50:23] INFO [django.server.log_message:124] "GET /static/admin/js/actions.js HTTP/1.1" 200 6655
+[2019-02-06 08:50:23] INFO [django.server.log_message:124] "GET /static/admin/js/urlify.js HTTP/1.1" 200 8918
+[2019-02-06 08:50:24] INFO [django.server.log_message:124] "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 334
+[2019-02-06 11:24:37] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 33653
+[2019-02-06 11:24:37] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 200 3979
+[2019-02-06 11:24:37] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 200 1163
+[2019-02-06 11:24:37] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 200 7177
+[2019-02-06 11:24:37] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-06 11:24:37] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12559
+[2019-02-06 11:24:38] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 200 9198
+[2019-02-06 11:24:38] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 200 4488
+[2019-02-06 11:24:38] INFO [django.server.log_message:124] "GET /static/faq/js/jquery-2.1.1.js HTTP/1.1" 200 256541
+[2019-02-06 11:24:38] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 200 29115
+[2019-02-06 11:24:38] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 200 3066
+[2019-02-06 11:34:23] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/images/bannerr.png HTTP/1.1" 200 77329
+[2019-02-06 11:35:39] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 33653
+[2019-02-06 11:35:39] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-06 11:35:39] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12559
+[2019-02-06 11:46:30] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 33552
+[2019-02-06 11:46:30] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-06 11:46:31] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12559
+[2019-02-06 11:53:10] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 33538
+[2019-02-06 11:53:11] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-06 11:53:11] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12559
+[2019-02-06 11:53:55] INFO [django.server.log_message:124] "GET /logout HTTP/1.1" 302 0
+[2019-02-06 11:53:55] INFO [django.server.log_message:124] "GET /login HTTP/1.1" 200 3394
+[2019-02-06 11:53:55] INFO [django.server.log_message:124] "GET /static/home/css/styles.css HTTP/1.1" 200 7692
+[2019-02-06 11:53:56] INFO [django.server.log_message:124] "GET /static/home/images/imgback.jpg HTTP/1.1" 200 1032219
+[2019-02-06 11:53:59] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 30284
+[2019-02-06 11:54:00] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-06 11:54:00] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12559
+[2019-02-06 12:00:59] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 24181
+[2019-02-06 12:01:00] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-06 12:01:00] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12559
+[2019-02-06 12:04:13] INFO [django.server.log_message:124] "GET /admin/home/stripepayment/ HTTP/1.1" 302 0
+[2019-02-06 12:04:13] INFO [django.server.log_message:124] "GET /admin/login/?next=/admin/home/stripepayment/ HTTP/1.1" 200 1857
+[2019-02-06 12:22:32] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 24599
+[2019-02-06 12:22:33] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-06 12:22:33] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12559
+[2019-02-06 12:33:47] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 24600
+[2019-02-06 12:33:48] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-06 12:33:48] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12559
+[2019-02-06 12:37:07] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 24586
+[2019-02-06 12:37:08] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-06 12:37:08] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12559
+[2019-02-06 14:18:19] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 24586
+[2019-02-06 14:18:19] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-06 14:18:19] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12559
+[2019-02-06 14:27:40] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 24586
+[2019-02-06 14:27:40] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-06 14:27:41] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12559
+[2019-02-06 14:28:46] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 24586
+[2019-02-06 14:28:46] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-06 14:28:46] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12559
+[2019-02-06 14:29:14] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 24586
+[2019-02-06 14:29:14] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-06 14:29:14] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12559
+[2019-02-06 14:29:51] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 24586
+[2019-02-06 14:29:52] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 200 1163
+[2019-02-06 14:29:52] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 200 3979
+[2019-02-06 14:29:52] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2019-02-06 14:29:52] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2019-02-06 14:29:52] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 39923
+[2019-02-06 14:29:52] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 141987
+[2019-02-06 14:29:52] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 200 5561
+[2019-02-06 14:29:52] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 200 825
+[2019-02-06 14:29:52] INFO [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 200 6509
+[2019-02-06 14:29:52] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 200 7177
+[2019-02-06 14:29:53] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-06 14:29:53] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12559
+[2019-02-06 14:29:53] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 200 29115
+[2019-02-06 14:29:53] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 200 9198
+[2019-02-06 14:29:53] INFO [django.server.log_message:124] "GET /static/faq/js/jquery-2.1.1.js HTTP/1.1" 200 256541
+[2019-02-06 14:29:53] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 200 4488
+[2019-02-06 14:29:53] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 200 3066
+[2019-02-06 14:29:53] INFO [django.server.log_message:124] "GET /static/home/images/linuxx.png HTTP/1.1" 200 13722
+[2019-02-06 14:29:53] INFO [django.server.log_message:124] "GET /static/home/images/java.png HTTP/1.1" 200 14813
+[2019-02-06 14:29:53] INFO [django.server.log_message:124] "GET /static/home/images/awssa.png HTTP/1.1" 200 13411
+[2019-02-06 14:29:53] INFO [django.server.log_message:124] "GET /static/home/images/views.png HTTP/1.1" 200 5544
+[2019-02-06 14:29:53] INFO [django.server.log_message:124] "GET /static/home/images/btns.png HTTP/1.1" 200 3954
+[2019-02-06 14:29:53] INFO [django.server.log_message:124] "GET /static/js/waterbubble.js HTTP/1.1" 200 6268
+[2019-02-06 14:29:53] INFO [django.server.log_message:124] "GET /static/home/images/training.png HTTP/1.1" 200 154154
+[2019-02-06 14:29:53] INFO [django.server.log_message:124] "GET /static/home/images/pupet.png HTTP/1.1" 200 5198
+[2019-02-06 14:29:54] INFO [django.server.log_message:124] "GET /static/home/images/pupet2.png HTTP/1.1" 200 10373
+[2019-02-06 14:29:54] INFO [django.server.log_message:124] "GET /static/home/images/engine2.png HTTP/1.1" 200 4246
+[2019-02-06 14:29:54] INFO [django.server.log_message:124] "GET /static/home/images/placement.png HTTP/1.1" 200 98335
+[2019-02-06 14:29:54] INFO [django.server.log_message:124] "GET /static/home/images/kid.png HTTP/1.1" 200 13920
+[2019-02-06 14:29:54] INFO [django.server.log_message:124] "GET /static/home/images/tutor.png HTTP/1.1" 200 11460
+[2019-02-06 14:29:54] INFO [django.server.log_message:124] "GET /static/home/images/q1.png HTTP/1.1" 200 1961
+[2019-02-06 14:29:54] INFO [django.server.log_message:124] "GET /static/home/images/experience.png HTTP/1.1" 200 279224
+[2019-02-06 14:29:54] INFO [django.server.log_message:124] "GET /static/home/images/dre.png HTTP/1.1" 200 22180
+[2019-02-06 14:29:54] INFO [django.server.log_message:124] "GET /static/home/images/22.png HTTP/1.1" 200 62724
+[2019-02-06 14:29:54] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/images/bannerr.png HTTP/1.1" 200 77329
+[2019-02-06 14:29:54] INFO [django.server.log_message:124] "GET /static/home/images/q2.png HTTP/1.1" 200 1949
+[2019-02-06 14:29:54] INFO [django.server.log_message:124] "GET /static/home/images/33.png HTTP/1.1" 200 62653
+[2019-02-06 14:29:54] INFO [django.server.log_message:124] "GET /static/home/images/44.png HTTP/1.1" 200 58580
+[2019-02-06 14:29:54] INFO [django.server.log_message:124] "GET /static/home/images/hotels.png HTTP/1.1" 200 14387
+[2019-02-06 14:29:54] INFO [django.server.log_message:124] "GET /static/home/images/ontario.png HTTP/1.1" 200 61470
+[2019-02-06 14:29:55] INFO [django.server.log_message:124] "GET /static/home/images/hotelsafrica.png HTTP/1.1" 200 45205
+[2019-02-06 14:30:28] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 24586
+[2019-02-06 14:30:28] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-06 14:30:28] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12559
+[2019-02-06 14:31:24] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 24586
+[2019-02-06 14:31:25] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-06 14:31:25] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12559
+[2019-02-06 14:32:57] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 24586
+[2019-02-06 14:32:58] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-06 14:32:58] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12559
+[2019-02-06 14:34:22] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 24657
+[2019-02-06 14:34:23] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-06 14:34:23] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12559
+[2019-02-06 14:41:11] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 24859
+[2019-02-06 14:41:11] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-06 14:41:11] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12559
+[2019-02-06 14:43:04] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 24897
+[2019-02-06 14:43:05] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-06 14:43:05] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12559
+[2019-02-06 14:43:42] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 24897
+[2019-02-06 14:43:42] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-06 14:43:42] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12559
+[2019-02-06 14:49:25] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 24944
+[2019-02-06 14:49:25] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-06 14:49:25] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12559
+[2019-02-06 14:53:13] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 21416
+[2019-02-06 14:53:13] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-06 14:53:14] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12559
+[2019-02-06 14:53:14] INFO [django.server.log_message:124] "GET /static/home/images/pupett.png HTTP/1.1" 200 8770
+[2019-02-06 14:57:15] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 21416
+[2019-02-06 14:57:15] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-06 14:57:15] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12559
+[2019-02-06 14:59:30] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 21498
+[2019-02-06 14:59:30] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-06 14:59:30] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12559
+[2019-02-06 15:00:46] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 21534
+[2019-02-06 15:00:46] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-06 15:00:46] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12559
