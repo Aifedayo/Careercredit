@@ -30,7 +30,7 @@
 				<div class="col-md-3 course-proj-img-col">
 					<img class="course-proj-img-size" src="{{ project_course.course_image }}"><br><br>
 					<a href="{% url 'Projects:course_topics' project_course.course_title.split|join:'_' %}"><button class="btn course-proj-main-btn">START COURSE</button></a>
-					<a href="{% url 'Projects:course_labs' project_course.course_title.split|join:'_' %}"><button class="btn course-proj-lab-btn">LAB</button></a>
+					<!-- <a href="{% url 'Projects:course_labs' project_course.course_title.split|join:'_' %}"><button class="btn course-proj-lab-btn">LAB</button></a> -->
 				</div>
 				<div class="col-md-9 course-proj-detail-col">
 					<p style="color: #000000;font-size: 36px;	padding-top: 24px;margin-bottom: 5px;">{{ project_course.course_title }}</p>

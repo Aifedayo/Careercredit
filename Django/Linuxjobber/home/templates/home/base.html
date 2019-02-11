@@ -77,8 +77,13 @@ li.sub-menu a.b-n::after {
 	background: #bcc6d4fc;
 }
 .navbar-collapse.in {
-    text-align: right;
+    text-align: left;
 	background: #1b539e;
+	width: 100%;
+}
+.navbar-right {
+	padding: 0 16px;
+	float: none !important;
 }
 .icon-bar {
 	background-color: #1b539e;
@@ -87,8 +92,12 @@ li.sub-menu a.b-n::after {
 	#puppet {
 bottom: 200px;
 }
+.header-login {
+	padding: 0  16px;
+	float: left;
+}
 .header-login>a {
-	margin: 5px 0;
+	margin: 5px 6px;
 }
 }
 @media (max-width: 380px) {
@@ -224,13 +233,14 @@ bottom: 200px;
 					<!-- user -->
 					<!-- start -->
 					{% if not user.is_authenticated %}
-					<div class="col-md-3 col-sm-3 col-xs-6 header-login">
-						<a href="{% url 'home:login' %}">Log In</a> <a class="active"
+					<div class="col-md-3 col-sm-3 header-login">
+						<a href="{% url 'home:login' %}">Log In</a> 
+						<a class="active"
 							href="{% url 'home:signup' %}">Sign Up</a>
 					</div>
 					{% else %}
 					
-					<div class="col-md-3 col-sm-3 col-xs-6 mainmnu">	
+					<div class="col-md-3 col-sm-3 mainmnu">	
 						<nav>
 							<ul class="nav navbar-nav navbar-right main-nav" >
 								<li class="has-dropdown sub-menu profile">
