@@ -52,19 +52,19 @@ sup{
 
 <div class="container">
   {% if messages %}
-          {% for message in messages %}
-            {% if message.tags == "success" %}
-            <div class="alert alert-success" role="alert">
-            <p style="color:#155724">{{message}}</p>
-          </div>
-            {%else%}
-            <div class="alert alert-danger" role="alert">
-            <p style="color:#721c24">{{message}}</p>
-            </div>
-            {%endif%}
-          {% endfor %}
-        {% endif %}
-  <form method="post" action="">
+    {% for message in messages %}
+      {% if message.tags == "success" %}
+      <div class="alert alert-success" role="alert">
+      <p style="color:#155724">{{message}}</p>
+    </div>
+      {%else%}
+      <div class="alert alert-danger" role="alert">
+      <p style="color:#721c24">{{message}}</p>
+      </div>
+      {%endif%}
+    {% endfor %}
+  {% endif %}
+  <form method="post" action="" id="formd">
   {% csrf_token %}
   <div class="groupsched" id="gsched">
     <div>
@@ -159,14 +159,15 @@ sup{
         <input type="text" name="choice" id="subtype" hidden>
         <input type="text" name="grouptype" id="grouptype" hidden>
         {% if not request.user.is_authenticated %}
-         <input type="text"  class="form-control groupinput" placeholder="Fullname" name="fullname" id="fullname" ><br>
-         <input type="email" class="form-control groupinput"  placeholder="E-mail" name="email" id="email"><br>
-         <input type="password" class="form-control groupinput"  placeholder="password" name="password" id="password"><br>
+         <input type="text"  class="form-control groupinput" placeholder="Fullname" name="fullname" id="fullname" required><br>
+         <input type="email" class="form-control groupinput"  placeholder="E-mail" name="email" id="email" required><br>
+         <input type="password" class="form-control groupinput"  placeholder="password" name="password" id="password" required><br>
         {%else%}
           <input type="text"  class="form-control groupinput" placeholder="Fullname" name="fullname" id="fullname" value="{{request.user.get_full_name}}" readonly="readonly"><br>
           <input type="email" class="form-control groupinput"  placeholder="E-mail" name="email" id="email" value="{{request.user.email}}" readonly="readonly"><br>
         {%endif%}
-         <button type="submit" class="btn groupclabut">REGISTER NOW</button>
+         <button type="submit" class="btn groupclabut">REGISTER NOW</button><br><br>
+         <div class="alert-danger grouppay"><br>Please choose payment plan above.<br><br></div>
           </div>
         </div>
         <div class="col-md-4"></div>
@@ -282,6 +283,25 @@ sup{
    $('.hov').hide();
    $('.gstat').hide();
    $('.grouppaytype').hide();
+   $('.grouppay').hide();
+
+  {% if request.user.is_authenticated %}
+    {%if request.user.role == 3%}
+        $('#subtype').val('2');
+        $('#g1').hide();
+        $('#g2').hide();
+        $('.groupschedh').hide();
+    {%endif%}
+  {%endif%}
+
+  $('#formd').submit(function() {
+    if ($('#subtype').val() === "" ){
+      $('.grouppay').show();
+      return false;
+    }
+    
+  });
+
   {%for group in groups%}
   $('.nothover{{group.id}}').hover(
       function() {

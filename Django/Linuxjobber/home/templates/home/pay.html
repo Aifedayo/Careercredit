@@ -135,6 +135,7 @@ No refunds shall be available after the twenty-four (24) calendar days of commen
             </span>
         </div>
     </div>
+    <button type="button" class="btn btn-lg btn-primary buttoons pull-right">I Agree</button>
     </div>
     <br><br>
 
@@ -206,14 +207,16 @@ No refunds shall be available after the twenty-four (24) calendar days of commen
 </div>
 
 <script type="text/javascript">
-$('.workpay').hide()
-    jQuery(function($) {
-    $('.workterms').on('scroll', function() {
-        if($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) {
-            $('.workpay').show();
-        }
-    })
+$('.workpay').hide();
+    
+
+$('.buttoons').click(function() {
+    $('.workpay').show();
+    $('.workterms').hide();
+    $('.buttoons').hide();
 });
+
+
 
 
 </script>

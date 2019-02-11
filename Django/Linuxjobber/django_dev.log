@@ -2669,3 +2669,545 @@ django.template.exceptions.TemplateSyntaxError: Unexpected end of expression in 
 [2019-02-11 09:12:00] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/Projects/custom/css/projects.css 304 [0.01, 127.0.0.1:55360][0m
 [2019-02-11 09:14:56] INFO [django.channels.server.log_action:141] [mHTTP GET /projects/course/1/topics/1/notes 200 [0.22, 127.0.0.1:55794][0m
 [2019-02-11 09:14:56] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/Projects/custom/css/projects.css 304 [0.01, 127.0.0.1:55794][0m
+[2019-02-11 16:21:47] WARNING [django.request.get_response:93] Not Found: /robots.txt
+[2019-02-11 16:21:47] WARNING [django.channels.server.log_action:149] [33mHTTP GET /robots.txt 404 [0.14, 127.0.0.1:49198][0m
+[2019-02-11 16:21:48] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [1.09, 127.0.0.1:49196][0m
+[2019-02-11 16:21:48] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/Projects/custom/css/projects.css 304 [0.01, 127.0.0.1:49196][0m
+[2019-02-11 16:21:50] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-02-11 16:21:50] WARNING [django.channels.server.log_action:149] [33mHTTP GET /favicon.ico 404 [0.06, 127.0.0.1:49196][0m
+[2019-02-11 16:24:51] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.97, 127.0.0.1:49330][0m
+[2019-02-11 16:24:51] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/groupicon3.png 304 [0.02, 127.0.0.1:49330][0m
+[2019-02-11 16:24:51] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/groupicon2.png 304 [0.02, 127.0.0.1:49332][0m
+[2019-02-11 16:24:51] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/groupicon1.png 304 [0.01, 127.0.0.1:49332][0m
+[2019-02-11 16:24:51] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs/groupclassbot.png 200 [0.22, 127.0.0.1:49330][0m
+[2019-02-11 16:24:51] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs/groupclass.png 200 [0.24, 127.0.0.1:49332][0m
+[2019-02-11 16:24:51] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/gclass1.png 304 [0.03, 127.0.0.1:49348][0m
+[2019-02-11 16:24:51] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newdesigner/fonts/glyphicons-halflings-regular.woff 304 [0.07, 127.0.0.1:49350][0m
+[2019-02-11 16:25:14] INFO [django.channels.server.log_action:147] [32mHTTP POST /groupCourse/ 302 [0.57, 127.0.0.1:49332][0m
+[2019-02-11 16:25:14] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.31, 127.0.0.1:49332][0m
+[2019-02-11 16:25:21] INFO [django.channels.server.log_action:147] [32mHTTP GET /logout 302 [0.08, 127.0.0.1:49332][0m
+[2019-02-11 16:25:21] INFO [django.channels.server.log_action:141] [mHTTP GET /login/ 200 [0.05, 127.0.0.1:49332][0m
+[2019-02-11 16:25:21] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/styles.css 304 [0.03, 127.0.0.1:49332][0m
+[2019-02-11 16:25:21] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/imgback.jpg 200 [0.04, 127.0.0.1:49332][0m
+[2019-02-11 16:25:22] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [0.15, 127.0.0.1:49332][0m
+[2019-02-11 16:25:27] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.21, 127.0.0.1:49332][0m
+[2019-02-11 16:26:02] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.70, 127.0.0.1:49396][0m
+[2019-02-11 16:28:42] INFO [django.channels.server.log_action:147] [32mHTTP POST /groupCourse/ 302 [0.81, 127.0.0.1:49446][0m
+[2019-02-11 16:28:42] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/3/pay/ 200 [0.18, 127.0.0.1:49446][0m
+[2019-02-11 16:28:48] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /groupCourse/
+Traceback (most recent call last):
+  File "/home/mololuwa/Desktop/linuxjobber/Django/Linuxjobber/home/views.py", line 1424, in group_list
+    user = CustomUser.objects.get(email=email)
+  File "/usr/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/lib/python3.6/site-packages/django/db/models/query.py", line 403, in get
+    self.model._meta.object_name
+users.models.DoesNotExist: CustomUser matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mololuwa/Desktop/linuxjobber/Django/Linuxjobber/home/views.py", line 1447, in group_list
+    send_mail('Account has been Created', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + ' and your email is ' +email + '\n Follow this url to login with your username and password '+settings.ENV_URL+'login \n\n Thanks & Regards \n Admin.', settings.EMAIL_HOST_USER, [email])
+  File "/usr/lib/python3.6/site-packages/django/core/mail/__init__.py", line 60, in send_mail
+    return mail.send()
+  File "/usr/lib/python3.6/site-packages/django/core/mail/message.py", line 294, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/usr/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 103, in send_messages
+    new_conn_created = self.open()
+  File "/usr/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 63, in open
+    self.connection = self.connection_class(self.host, self.port, **connection_params)
+  File "/usr/lib64/python3.6/smtplib.py", line 254, in __init__
+    raise SMTPConnectError(code, msg)
+smtplib.SMTPConnectError: (451, b'Request action aborted on MFE proxy, SMTP server is not available.')
+[2019-02-11 16:28:50] INFO [django.channels.server.log_action:147] [32mHTTP GET /logout 302 [0.15, 127.0.0.1:49446][0m
+[2019-02-11 16:28:50] INFO [django.channels.server.log_action:141] [mHTTP GET /login/ 200 [0.04, 127.0.0.1:49446][0m
+[2019-02-11 16:28:53] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [0.13, 127.0.0.1:49446][0m
+[2019-02-11 16:28:57] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.20, 127.0.0.1:49446][0m
+[2019-02-11 16:29:31] INFO [django.channels.server.log_action:147] [32mHTTP POST /groupCourse/ 302 [11.72, 127.0.0.1:49446][0m
+[2019-02-11 16:29:32] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/2/pay/ 200 [0.15, 127.0.0.1:49446][0m
+[2019-02-11 16:30:02] INFO [django.channels.server.log_action:147] [32mHTTP GET /logout 302 [1.07, 127.0.0.1:49526][0m
+[2019-02-11 16:30:02] INFO [django.channels.server.log_action:141] [mHTTP GET /login/ 200 [0.04, 127.0.0.1:49526][0m
+[2019-02-11 16:30:26] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [0.17, 127.0.0.1:49526][0m
+[2019-02-11 16:30:28] INFO [django.channels.server.log_action:141] [mHTTP GET /login/ 200 [0.02, 127.0.0.1:49526][0m
+[2019-02-11 16:30:29] INFO [django.channels.server.log_action:147] [32mHTTP GET /groupCourse/2/pay/ 302 [0.01, 127.0.0.1:49526][0m
+[2019-02-11 16:30:29] INFO [django.channels.server.log_action:141] [mHTTP GET /login/?next=/groupCourse/2/pay/ 200 [0.03, 127.0.0.1:49526][0m
+[2019-02-11 16:30:30] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.18, 127.0.0.1:49526][0m
+[2019-02-11 16:30:34] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.20, 127.0.0.1:49526][0m
+[2019-02-11 16:33:13] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /groupCourse/
+Traceback (most recent call last):
+  File "/home/mololuwa/Desktop/linuxjobber/Django/Linuxjobber/home/views.py", line 1424, in group_list
+    user = CustomUser.objects.get(email=email)
+  File "/usr/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/lib/python3.6/site-packages/django/db/models/query.py", line 403, in get
+    self.model._meta.object_name
+users.models.DoesNotExist: CustomUser matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mololuwa/Desktop/linuxjobber/Django/Linuxjobber/home/views.py", line 1447, in group_list
+    send_mail('Account has been Created', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + ' and your email is ' +email + '\n Follow this url to login with your username and password '+settings.ENV_URL+'login \n\n Thanks & Regards \n Admin.', settings.EMAIL_HOST_USER, [email])
+  File "/usr/lib/python3.6/site-packages/django/core/mail/__init__.py", line 60, in send_mail
+    return mail.send()
+  File "/usr/lib/python3.6/site-packages/django/core/mail/message.py", line 294, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/usr/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 103, in send_messages
+    new_conn_created = self.open()
+  File "/usr/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 63, in open
+    self.connection = self.connection_class(self.host, self.port, **connection_params)
+  File "/usr/lib64/python3.6/smtplib.py", line 254, in __init__
+    raise SMTPConnectError(code, msg)
+smtplib.SMTPConnectError: (451, b'Request action aborted on MFE proxy, SMTP server is not available.')
+[2019-02-11 16:33:13] ERROR [django.channels.server.log_action:154] [35;1mHTTP POST /groupCourse/ 500 [130.30, 127.0.0.1:49526][0m
+[2019-02-11 16:34:04] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.70, 127.0.0.1:49630][0m
+[2019-02-11 16:34:11] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.23, 127.0.0.1:49630][0m
+[2019-02-11 16:34:30] INFO [django.channels.server.log_action:147] [32mHTTP POST /groupCourse/ 302 [1.04, 127.0.0.1:49630][0m
+[2019-02-11 16:34:30] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/3/pay/ 200 [0.16, 127.0.0.1:49630][0m
+[2019-02-11 16:36:22] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.86, 127.0.0.1:49704][0m
+[2019-02-11 16:46:36] INFO [django.channels.server.log_action:147] [32mHTTP GET /logout 302 [0.16, 127.0.0.1:49798][0m
+[2019-02-11 16:46:37] INFO [django.channels.server.log_action:141] [mHTTP GET /login/ 200 [0.03, 127.0.0.1:49798][0m
+[2019-02-11 16:46:39] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [0.11, 127.0.0.1:49798][0m
+[2019-02-11 16:46:47] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.22, 127.0.0.1:49798][0m
+[2019-02-11 16:47:21] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.20, 127.0.0.1:49798][0m
+[2019-02-11 16:47:34] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.20, 127.0.0.1:49798][0m
+[2019-02-11 16:47:43] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.21, 127.0.0.1:49798][0m
+[2019-02-11 16:47:44] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/js/validation/jquery.validate.js 200 [0.08, 127.0.0.1:49838][0m
+[2019-02-11 16:47:44] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js 200 [0.18, 127.0.0.1:49798][0m
+[2019-02-11 16:47:44] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/style.css 200 [0.11, 127.0.0.1:49842][0m
+[2019-02-11 16:47:44] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/css/style.css 200 [0.12, 127.0.0.1:49846][0m
+[2019-02-11 16:47:44] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/css/bootstrap.min.css 200 [0.15, 127.0.0.1:49840][0m
+[2019-02-11 16:47:44] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/css/newstyle2.css 200 [0.18, 127.0.0.1:49848][0m
+[2019-02-11 16:47:44] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/css/newstylenew.css 200 [0.13, 127.0.0.1:49838][0m
+[2019-02-11 16:47:44] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/css/main.css 200 [0.17, 127.0.0.1:49798][0m
+[2019-02-11 16:47:44] INFO [django.channels.server.log_action:141] [mHTTP GET /static/Projects/custom/css/projects.css 200 [0.20, 127.0.0.1:49842][0m
+[2019-02-11 16:47:44] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs/groupicon3.png 200 [0.20, 127.0.0.1:49840][0m
+[2019-02-11 16:47:44] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/logo.png 200 [0.22, 127.0.0.1:49846][0m
+[2019-02-11 16:47:45] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/js/bootstrap.min.js 200 [0.20, 127.0.0.1:49840][0m
+[2019-02-11 16:47:45] INFO [django.channels.server.log_action:141] [mHTTP GET /static/faq/js/jquery-2.1.1.js 200 [0.21, 127.0.0.1:49842][0m
+[2019-02-11 16:47:45] INFO [django.channels.server.log_action:141] [mHTTP GET /static/faq/js/main.js 200 [0.03, 127.0.0.1:49848][0m
+[2019-02-11 16:47:45] INFO [django.channels.server.log_action:141] [mHTTP GET /static/faq/js/jquery.mobile.custom.min.js 200 [0.05, 127.0.0.1:49838][0m
+[2019-02-11 16:47:45] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/fonts/fontsstylesheet.css 200 [0.09, 127.0.0.1:49846][0m
+[2019-02-11 16:47:45] INFO [django.channels.server.log_action:141] [mHTTP GET /static/js/waterbubble.js 200 [0.08, 127.0.0.1:49798][0m
+[2019-02-11 16:47:45] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs/groupicon2.png 200 [0.13, 127.0.0.1:49846][0m
+[2019-02-11 16:47:45] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs/groupicon1.png 200 [0.09, 127.0.0.1:49838][0m
+[2019-02-11 16:47:45] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/fonts/glyphicons-halflings-regular.woff 200 [0.06, 127.0.0.1:49798][0m
+[2019-02-11 16:47:45] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs/gclass1.png 200 [0.16, 127.0.0.1:49846][0m
+[2019-02-11 16:47:45] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs/groupclassbot.png 200 [0.13, 127.0.0.1:49838][0m
+[2019-02-11 16:47:45] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs/groupclass.png 200 [0.24, 127.0.0.1:49840][0m
+[2019-02-11 16:48:34] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.21, 127.0.0.1:49840][0m
+[2019-02-11 16:48:35] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-02-11 16:48:35] WARNING [django.channels.server.log_action:149] [33mHTTP GET /favicon.ico 404 [0.16, 127.0.0.1:49840][0m
+[2019-02-11 16:49:54] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.38, 127.0.0.1:49890][0m
+[2019-02-11 16:50:27] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.21, 127.0.0.1:49890][0m
+[2019-02-11 16:51:01] INFO [django.channels.server.log_action:147] [32mHTTP POST /groupCourse/ 302 [1.15, 127.0.0.1:49890][0m
+[2019-02-11 16:51:01] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/3/pay/ 200 [0.13, 127.0.0.1:49890][0m
+[2019-02-11 16:51:36] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.29, 127.0.0.1:49890][0m
+[2019-02-11 16:51:57] INFO [django.channels.server.log_action:147] [32mHTTP POST /groupCourse/ 302 [0.30, 127.0.0.1:49890][0m
+[2019-02-11 16:51:57] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/3/pay/ 200 [0.16, 127.0.0.1:49890][0m
+[2019-02-11 16:52:01] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.38, 127.0.0.1:49890][0m
+[2019-02-11 16:52:14] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.26, 127.0.0.1:49890][0m
+[2019-02-11 16:52:42] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.27, 127.0.0.1:49890][0m
+[2019-02-11 16:52:56] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.23, 127.0.0.1:49890][0m
+[2019-02-11 16:53:33] INFO [django.channels.server.log_action:147] [32mHTTP POST /groupCourse/ 302 [0.31, 127.0.0.1:49890][0m
+[2019-02-11 16:53:33] INFO [django.channels.server.log_action:141] [mHTTP GET /access_course 200 [0.17, 127.0.0.1:49890][0m
+[2019-02-11 16:55:49] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.26, 127.0.0.1:49964][0m
+[2019-02-11 16:55:57] INFO [django.channels.server.log_action:147] [32mHTTP POST /groupCourse/ 302 [0.33, 127.0.0.1:49964][0m
+[2019-02-11 16:55:57] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/3/pay/ 200 [0.16, 127.0.0.1:49964][0m
+[2019-02-11 16:58:17] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/3/pay/ 200 [0.15, 127.0.0.1:50006][0m
+[2019-02-11 16:59:15] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/3/pay/ 200 [0.23, 127.0.0.1:50006][0m
+[2019-02-11 16:59:29] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.37, 127.0.0.1:50006][0m
+[2019-02-11 16:59:37] INFO [django.channels.server.log_action:147] [32mHTTP POST /groupCourse/ 302 [0.23, 127.0.0.1:50006][0m
+[2019-02-11 16:59:37] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/2/pay/ 200 [0.16, 127.0.0.1:50006][0m
+[2019-02-11 16:59:50] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/2/pay/ 200 [0.14, 127.0.0.1:50006][0m
+[2019-02-11 16:59:56] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.24, 127.0.0.1:50006][0m
+[2019-02-11 17:00:14] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/ 200 [0.17, 127.0.0.1:50006][0m
+[2019-02-11 17:00:14] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/aoc.png 200 [0.05, 127.0.0.1:50006][0m
+[2019-02-11 17:00:14] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/graduate.png 200 [0.05, 127.0.0.1:50092][0m
+[2019-02-11 17:00:14] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/prooo.png 200 [0.09, 127.0.0.1:50092][0m
+[2019-02-11 17:00:15] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs/womann.jpg 200 [0.02, 127.0.0.1:50094][0m
+[2019-02-11 17:00:15] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/radio1.png 304 [0.01, 127.0.0.1:50096][0m
+[2019-02-11 17:00:15] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs/wok.png 200 [0.11, 127.0.0.1:50092][0m
+[2019-02-11 17:00:15] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs/aboutrec.png 200 [0.17, 127.0.0.1:50006][0m
+[2019-02-11 17:00:18] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.15, 127.0.0.1:50006][0m
+[2019-02-11 17:05:38] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/ 200 [0.22, 127.0.0.1:50196][0m
+[2019-02-11 17:08:31] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.15, 127.0.0.1:50246][0m
+[2019-02-11 17:09:57] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.14, 127.0.0.1:50290][0m
+[2019-02-11 17:10:23] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.15, 127.0.0.1:50290][0m
+[2019-02-11 17:13:54] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.16, 127.0.0.1:50344][0m
+[2019-02-11 17:14:18] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.15, 127.0.0.1:50344][0m
+[2019-02-11 17:14:28] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.25, 127.0.0.1:50344][0m
+[2019-02-11 17:14:59] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.15, 127.0.0.1:50344][0m
+[2019-02-11 17:15:19] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.14, 127.0.0.1:50344][0m
+[2019-02-11 17:15:47] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.19, 127.0.0.1:50344][0m
+[2019-02-11 17:16:29] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.14, 127.0.0.1:50344][0m
+[2019-02-11 17:19:02] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.27, 127.0.0.1:50426][0m
+[2019-02-11 17:54:29] INFO [django.channels.server.log_action:141] [mHTTP POST /groupCourse/ 200 [1.10, 127.0.0.1:51218][0m
+[2019-02-11 17:54:30] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/Projects/custom/css/projects.css 304 [0.02, 127.0.0.1:51218][0m
+[2019-02-11 17:54:59] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /groupCourse/
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mololuwa/Desktop/linuxjobber/Django/Linuxjobber/home/views.py", line 1477, in group_list
+    request.session['next'] == 'group'
+  File "/usr/lib/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 55, in __getitem__
+    return self._session[key]
+KeyError: 'next'
+[2019-02-11 17:54:59] ERROR [django.channels.server.log_action:154] [35;1mHTTP POST /groupCourse/ 500 [0.99, 127.0.0.1:51218][0m
+[2019-02-11 17:57:12] WARNING [django.security.csrf._reject:153] Forbidden (CSRF token missing or incorrect.): /groupCourse/
+[2019-02-11 17:57:12] WARNING [django.channels.server.log_action:151] [31;1mHTTP POST /groupCourse/ 403 [0.17, 127.0.0.1:51368][0m
+[2019-02-11 17:57:16] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.78, 127.0.0.1:51368][0m
+[2019-02-11 17:57:52] INFO [django.channels.server.log_action:147] [32mHTTP POST /groupCourse/ 302 [0.72, 127.0.0.1:51368][0m
+[2019-02-11 17:57:52] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.26, 127.0.0.1:51368][0m
+[2019-02-11 17:58:01] INFO [django.channels.server.log_action:147] [32mHTTP GET /logout 302 [0.22, 127.0.0.1:51368][0m
+[2019-02-11 17:58:01] INFO [django.channels.server.log_action:141] [mHTTP GET /login/ 200 [0.12, 127.0.0.1:51368][0m
+[2019-02-11 17:58:03] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [0.14, 127.0.0.1:51368][0m
+[2019-02-11 17:58:06] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.21, 127.0.0.1:51368][0m
+[2019-02-11 17:58:56] INFO [django.channels.server.log_action:147] [32mHTTP POST /groupCourse/ 302 [1.82, 127.0.0.1:51368][0m
+[2019-02-11 17:58:56] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /access_course
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python3.6/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mololuwa/Desktop/linuxjobber/Django/Linuxjobber/home/views.py", line 656, in monthly_subscription
+    nexturl = request.session['next']
+  File "/usr/lib/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 55, in __getitem__
+    return self._session[key]
+KeyError: 'next'
+[2019-02-11 17:58:57] ERROR [django.channels.server.log_action:154] [35;1mHTTP GET /access_course 500 [0.34, 127.0.0.1:51368][0m
+[2019-02-11 17:59:31] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /access_course
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python3.6/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mololuwa/Desktop/linuxjobber/Django/Linuxjobber/home/views.py", line 656, in monthly_subscription
+    nexturl = request.session['nexturl']
+  File "/usr/lib/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 55, in __getitem__
+    return self._session[key]
+KeyError: 'nexturl'
+[2019-02-11 17:59:31] ERROR [django.channels.server.log_action:154] [35;1mHTTP GET /access_course 500 [0.42, 127.0.0.1:51430][0m
+[2019-02-11 18:02:15] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /access_course
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python3.6/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mololuwa/Desktop/linuxjobber/Django/Linuxjobber/home/views.py", line 656, in monthly_subscription
+    nexturl = request.session['nexturl']
+  File "/usr/lib/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 55, in __getitem__
+    return self._session[key]
+KeyError: 'nexturl'
+[2019-02-11 18:02:16] ERROR [django.channels.server.log_action:154] [35;1mHTTP GET /access_course 500 [0.35, 127.0.0.1:51478][0m
+[2019-02-11 18:09:09] INFO [django.channels.server.log_action:141] [mHTTP GET /access_course 200 [0.70, 127.0.0.1:51962][0m
+[2019-02-11 18:13:53] INFO [django.channels.server.log_action:141] [mHTTP GET /access_course 200 [0.87, 127.0.0.1:52188][0m
+[2019-02-11 18:14:03] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.35, 127.0.0.1:52188][0m
+[2019-02-11 18:14:37] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /groupCourse/
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mololuwa/Desktop/linuxjobber/Django/Linuxjobber/home/views.py", line 1482, in group_list
+    request.session['nexturl'] == 'group'
+  File "/usr/lib/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 55, in __getitem__
+    return self._session[key]
+KeyError: 'nexturl'
+[2019-02-11 18:14:37] ERROR [django.channels.server.log_action:154] [35;1mHTTP POST /groupCourse/ 500 [0.51, 127.0.0.1:52188][0m
+[2019-02-11 18:17:11] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /groupCourse/
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mololuwa/Desktop/linuxjobber/Django/Linuxjobber/home/views.py", line 1411, in group_list
+    request.session['nexturl'] == 'group'
+  File "/usr/lib/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 55, in __getitem__
+    return self._session[key]
+KeyError: 'nexturl'
+[2019-02-11 18:17:12] ERROR [django.channels.server.log_action:154] [35;1mHTTP GET /groupCourse/ 500 [0.38, 127.0.0.1:52244][0m
+[2019-02-11 18:17:18] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /groupCourse/
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mololuwa/Desktop/linuxjobber/Django/Linuxjobber/home/views.py", line 1411, in group_list
+    request.session['nexturl'] == 'group'
+  File "/usr/lib/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 55, in __getitem__
+    return self._session[key]
+KeyError: 'nexturl'
+[2019-02-11 18:17:18] ERROR [django.channels.server.log_action:154] [35;1mHTTP GET /groupCourse/ 500 [0.29, 127.0.0.1:52244][0m
+[2019-02-11 18:17:21] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /groupCourse/
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mololuwa/Desktop/linuxjobber/Django/Linuxjobber/home/views.py", line 1411, in group_list
+    request.session['nexturl'] == 'group'
+  File "/usr/lib/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 55, in __getitem__
+    return self._session[key]
+KeyError: 'nexturl'
+[2019-02-11 18:17:21] ERROR [django.channels.server.log_action:154] [35;1mHTTP GET /groupCourse/ 500 [0.26, 127.0.0.1:52244][0m
+[2019-02-11 18:18:41] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /groupCourse/
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mololuwa/Desktop/linuxjobber/Django/Linuxjobber/home/views.py", line 1411, in group_list
+    request.session['nexturl'] == 'group'
+  File "/usr/lib/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 55, in __getitem__
+    return self._session[key]
+KeyError: 'nexturl'
+[2019-02-11 18:18:41] ERROR [django.channels.server.log_action:154] [35;1mHTTP GET /groupCourse/ 500 [0.34, 127.0.0.1:52278][0m
+[2019-02-11 18:22:16] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.73, 127.0.0.1:52456][0m
+[2019-02-11 18:22:33] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /groupCourse/
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mololuwa/Desktop/linuxjobber/Django/Linuxjobber/home/views.py", line 1413, in group_list
+    request.session['nexturl'] == 'group'
+  File "/usr/lib/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 55, in __getitem__
+    return self._session[key]
+KeyError: 'nexturl'
+[2019-02-11 18:22:33] ERROR [django.channels.server.log_action:154] [35;1mHTTP GET /groupCourse/ 500 [0.41, 127.0.0.1:52474][0m
+[2019-02-11 18:22:58] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /groupCourse/
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mololuwa/Desktop/linuxjobber/Django/Linuxjobber/home/views.py", line 1413, in group_list
+    request.session['url'] == 'group'
+  File "/usr/lib/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 55, in __getitem__
+    return self._session[key]
+KeyError: 'url'
+[2019-02-11 18:22:58] ERROR [django.channels.server.log_action:154] [35;1mHTTP GET /groupCourse/ 500 [0.44, 127.0.0.1:52488][0m
+[2019-02-11 18:23:36] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /groupCourse/
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mololuwa/Desktop/linuxjobber/Django/Linuxjobber/home/views.py", line 1413, in group_list
+    request.session['email'] == 'group'
+  File "/usr/lib/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 55, in __getitem__
+    return self._session[key]
+KeyError: 'email'
+[2019-02-11 18:23:36] ERROR [django.channels.server.log_action:154] [35;1mHTTP GET /groupCourse/ 500 [0.52, 127.0.0.1:52522][0m
+[2019-02-11 18:25:36] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /groupCourse/
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mololuwa/Desktop/linuxjobber/Django/Linuxjobber/home/views.py", line 1411, in group_list
+    request.session['nexturl'] == 'group'
+  File "/usr/lib/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 55, in __getitem__
+    return self._session[key]
+KeyError: 'nexturl'
+[2019-02-11 18:25:36] ERROR [django.channels.server.log_action:154] [35;1mHTTP GET /groupCourse/ 500 [0.46, 127.0.0.1:52550][0m
+[2019-02-11 18:30:36] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /groupCourse/
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mololuwa/Desktop/linuxjobber/Django/Linuxjobber/home/views.py", line 1411, in group_list
+    request.session['nexturl'] == "group"
+  File "/usr/lib/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 55, in __getitem__
+    return self._session[key]
+KeyError: 'nexturl'
+[2019-02-11 18:30:36] ERROR [django.channels.server.log_action:154] [35;1mHTTP GET /groupCourse/ 500 [0.30, 127.0.0.1:52650][0m
+[2019-02-11 18:34:14] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.98, 127.0.0.1:52690][0m
+[2019-02-11 18:34:47] INFO [django.channels.server.log_action:147] [32mHTTP POST /groupCourse/ 302 [1.33, 127.0.0.1:52690][0m
+[2019-02-11 18:34:48] INFO [django.channels.server.log_action:141] [mHTTP GET /access_course 200 [0.18, 127.0.0.1:52690][0m
+[2019-02-11 18:36:36] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /access_course
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/lib/python3.6/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/lib/python3.6/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python3.6/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/lib/python3.6/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/lib/python3.6/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/lib/python3.6/site-packages/urllib3/connection.py", line 146, in _new_conn
+    (self.host, self.timeout))
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.VerifiedHTTPSConnection object at 0x7f0b12109c18>, 'Connection to api.stripe.com timed out. (connect timeout=80)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/requests/adapters.py", line 445, in send
+    timeout=timeout
+  File "/usr/lib/python3.6/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/lib/python3.6/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.stripe.com', port=443): Max retries exceeded with url: /v1/plans/3 (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f0b12109c18>, 'Connection to api.stripe.com timed out. (connect timeout=80)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/stripe/http_client.py", line 197, in request
+    **kwargs)
+  File "/usr/lib/python3.6/site-packages/requests/sessions.py", line 512, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python3.6/site-packages/requests/sessions.py", line 622, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python3.6/site-packages/requests/adapters.py", line 501, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='api.stripe.com', port=443): Max retries exceeded with url: /v1/plans/3 (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f0b12109c18>, 'Connection to api.stripe.com timed out. (connect timeout=80)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python3.6/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mololuwa/Desktop/linuxjobber/Django/Linuxjobber/home/views.py", line 670, in monthly_subscription
+    plan = stripe.Plan.retrieve(plan_id)
+  File "/usr/lib/python3.6/site-packages/stripe/api_resources/abstract/api_resource.py", line 13, in retrieve
+    instance.refresh()
+  File "/usr/lib/python3.6/site-packages/stripe/api_resources/abstract/api_resource.py", line 17, in refresh
+    self.refresh_from(self.request('get', self.instance_url()))
+  File "/usr/lib/python3.6/site-packages/stripe/stripe_object.py", line 207, in request
+    response, api_key = requestor.request(method, url, params, headers)
+  File "/usr/lib/python3.6/site-packages/stripe/api_requestor.py", line 94, in request
+    method.lower(), url, params, headers)
+  File "/usr/lib/python3.6/site-packages/stripe/api_requestor.py", line 291, in request_raw
+    method, abs_url, headers, post_data)
+  File "/usr/lib/python3.6/site-packages/stripe/http_client.py", line 123, in request_with_retries
+    raise connection_error
+  File "/usr/lib/python3.6/site-packages/stripe/http_client.py", line 103, in request_with_retries
+    response = self.request(method, url, headers, post_data)
+  File "/usr/lib/python3.6/site-packages/stripe/http_client.py", line 215, in request
+    self._handle_request_error(e)
+  File "/usr/lib/python3.6/site-packages/stripe/http_client.py", line 257, in _handle_request_error
+    raise error.APIConnectionError(msg, should_retry=should_retry)
+stripe.error.APIConnectionError: Unexpected error communicating with Stripe.  If this problem persists,
+let us know at support@stripe.com.
+
+(Network error: ConnectTimeout: HTTPSConnectionPool(host='api.stripe.com', port=443): Max retries exceeded with url: /v1/plans/3 (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f0b12109c18>, 'Connection to api.stripe.com timed out. (connect timeout=80)')))
+[2019-02-11 18:36:37] ERROR [django.channels.server.log_action:154] [35;1mHTTP POST /access_course 500 [81.30, 127.0.0.1:52690][0m
+[2019-02-11 18:38:39] INFO [django.channels.server.log_action:147] [32mHTTP POST /access_course 302 [9.93, 127.0.0.1:52910][0m
+[2019-02-11 18:38:40] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.36, 127.0.0.1:52910][0m
+[2019-02-11 18:51:06] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.98, 127.0.0.1:53056][0m
+[2019-02-11 18:51:06] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/Projects/custom/css/projects.css 304 [0.02, 127.0.0.1:53056][0m
+[2019-02-11 18:53:44] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.39, 127.0.0.1:53088][0m
+[2019-02-11 18:54:00] INFO [django.channels.server.log_action:147] [32mHTTP GET /admin 302 [0.44, 127.0.0.1:53088][0m
+[2019-02-11 18:54:00] INFO [django.channels.server.log_action:147] [32mHTTP GET /admin 302 [0.09, 127.0.0.1:53100][0m
+[2019-02-11 18:54:01] INFO [django.channels.server.log_action:141] [mHTTP GET /admin/login/?next=/admin 200 [0.97, 127.0.0.1:53088][0m
+[2019-02-11 18:54:01] INFO [django.channels.server.log_action:141] [mHTTP GET /admin/login/?next=/admin 200 [0.25, 127.0.0.1:53100][0m
+[2019-02-11 18:54:15] INFO [django.channels.server.log_action:147] [32mHTTP POST /admin/login/?next=/admin 302 [0.66, 127.0.0.1:53100][0m
+[2019-02-11 18:54:16] INFO [django.channels.server.log_action:141] [mHTTP GET /admin 200 [0.62, 127.0.0.1:53100][0m
+[2019-02-11 18:54:21] INFO [django.channels.server.log_action:141] [mHTTP GET /admin/users/customuser/ 200 [1.56, 127.0.0.1:53100][0m
+[2019-02-11 18:54:21] INFO [django.channels.server.log_action:141] [mHTTP GET /static/admin/js/vendor/xregexp/xregexp.js 200 [0.14, 127.0.0.1:53088][0m
+[2019-02-11 18:54:21] INFO [django.channels.server.log_action:141] [mHTTP GET /static/admin/js/vendor/jquery/jquery.js 200 [0.19, 127.0.0.1:53100][0m
+[2019-02-11 18:54:21] INFO [django.channels.server.log_action:141] [mHTTP GET /admin/jsi18n/ 200 [0.22, 127.0.0.1:53110][0m
+[2019-02-11 18:54:21] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/admin/img/sorting-icons.svg 304 [0.03, 127.0.0.1:53110][0m
+[2019-02-11 18:54:25] INFO [django.channels.server.log_action:141] [mHTTP GET /admin/users/customuser/?q=jack104 200 [0.47, 127.0.0.1:53110][0m
+[2019-02-11 18:54:25] INFO [django.channels.server.log_action:141] [mHTTP GET /admin/jsi18n/ 200 [0.06, 127.0.0.1:53110][0m
+[2019-02-11 18:54:28] INFO [django.channels.server.log_action:141] [mHTTP GET /admin/users/customuser/177/change/?_changelist_filters=q%3Djack104 200 [1.05, 127.0.0.1:53110][0m
+[2019-02-11 18:54:28] INFO [django.channels.server.log_action:141] [mHTTP GET /admin/jsi18n/ 200 [0.10, 127.0.0.1:53110][0m
+[2019-02-11 18:54:28] INFO [django.channels.server.log_action:141] [mHTTP GET /static/admin/js/SelectBox.js 200 [0.07, 127.0.0.1:53100][0m
+[2019-02-11 18:54:28] INFO [django.channels.server.log_action:141] [mHTTP GET /static/admin/js/SelectFilter2.js 200 [0.09, 127.0.0.1:53088][0m
+[2019-02-11 18:54:28] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/admin/img/icon-unknown.svg 304 [0.02, 127.0.0.1:53088][0m
+[2019-02-11 18:54:28] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/admin/img/icon-unknown-alt.svg 304 [0.04, 127.0.0.1:53100][0m
+[2019-02-11 18:54:28] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/admin/img/selector-icons.svg 304 [0.03, 127.0.0.1:53110][0m
+[2019-02-11 18:54:37] INFO [django.channels.server.log_action:147] [32mHTTP POST /admin/users/customuser/177/change/?_changelist_filters=q%3Djack104 302 [0.25, 127.0.0.1:53110][0m
+[2019-02-11 18:54:38] INFO [django.channels.server.log_action:141] [mHTTP GET /admin/users/customuser/?q=jack104 200 [0.33, 127.0.0.1:53110][0m
+[2019-02-11 18:54:38] INFO [django.channels.server.log_action:141] [mHTTP GET /admin/jsi18n/ 200 [0.06, 127.0.0.1:53110][0m
+[2019-02-11 18:54:40] INFO [django.channels.server.log_action:141] [mHTTP GET /admin/logout/ 200 [0.30, 127.0.0.1:53110][0m
+[2019-02-11 18:54:45] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [0.25, 127.0.0.1:53110][0m
+[2019-02-11 18:54:52] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.39, 127.0.0.1:53110][0m
+[2019-02-11 18:55:06] INFO [django.channels.server.log_action:141] [mHTTP GET /login/ 200 [0.07, 127.0.0.1:53110][0m
+[2019-02-11 18:55:17] INFO [django.channels.server.log_action:147] [32mHTTP POST /login/ 302 [0.87, 127.0.0.1:53110][0m
+[2019-02-11 18:55:17] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/userinterest 200 [0.17, 127.0.0.1:53110][0m
+[2019-02-11 18:55:18] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/lin-logo.png 304 [0.01, 127.0.0.1:53110][0m
+[2019-02-11 18:55:18] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/amazons.png 304 [0.04, 127.0.0.1:53100][0m
+[2019-02-11 18:55:18] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/button-left.png 304 [0.06, 127.0.0.1:53110][0m
+[2019-02-11 18:55:18] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/jjava.png 304 [0.04, 127.0.0.1:53142][0m
+[2019-02-11 18:55:18] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/ppt.png 304 [0.05, 127.0.0.1:53088][0m
+[2019-02-11 18:55:18] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/rchsaa.png 304 [0.04, 127.0.0.1:53144][0m
+[2019-02-11 18:55:18] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/ajs.png 304 [0.03, 127.0.0.1:53146][0m
+[2019-02-11 18:55:18] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/csecurity.png 304 [0.03, 127.0.0.1:53144][0m
+[2019-02-11 18:55:18] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs//list-bg.png 200 [0.09, 127.0.0.1:53146][0m
+[2019-02-11 18:55:18] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/biz.png 304 [0.07, 127.0.0.1:53088][0m
+[2019-02-11 18:55:18] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/dba.png 304 [0.06, 127.0.0.1:53142][0m
+[2019-02-11 18:55:18] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/py.png 304 [0.06, 127.0.0.1:53110][0m
+[2019-02-11 18:55:22] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.37, 127.0.0.1:53110][0m
+[2019-02-11 18:56:15] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.43, 127.0.0.1:53110][0m
+[2019-02-11 19:06:40] INFO [django.channels.server.log_action:147] [32mHTTP POST /groupCourse/ 302 [0.88, 127.0.0.1:53220][0m
+[2019-02-11 19:06:40] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.39, 127.0.0.1:53220][0m

@@ -267,7 +267,6 @@ def log_in(request):
                     return redirect("Courses:userinterest")
                 return redirect("Courses:userinterest")
             else:
-                print(next)
                 return HttpResponseRedirect(next)
         else:
             error_message = "yes"
@@ -654,6 +653,11 @@ def check_subscription_status(request):
 
 @login_required
 def monthly_subscription(request):
+    try:
+        nexturl = request.session['nexturl']
+    except KeyError:
+        nexturl = None
+
     email = request.user.email
     
     stripeset = StripePayment.objects.all()
@@ -687,7 +691,10 @@ def monthly_subscription(request):
             order.save()
 
             messages.success(request, 'Thanks for your sucbscription! Please allow 10-20 seconds for your account to be updated as we have to wait for confirmation from the credit card processor.')
-            return redirect("home:monthly_subscription")
+            if nexturl:
+                return redirect("home:"+nexturl) 
+            else:
+                return redirect("home:monthly_subscription")
         except stripe.error.CardError as ce:
             return False, ce
 
@@ -1400,8 +1407,8 @@ def upload_profile_pic(request):
 def group_list(request):
     user = None
     ans = None
+    request.session['nexturl'] = "group"
     if request.user.is_authenticated:
-        print('user authenticated')
         user=CustomUser.objects.get(email=request.user)
 
     if request.method == "POST":
@@ -1444,7 +1451,7 @@ def group_list(request):
                 user.first_name = firstname
                 user.last_name = lastname
                 user.save()
-                # send_mail('Linuxjobber Free Account Creation', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + '\n Follow this link http://35.167.153.1:8001/login to login to you account\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+                #send_mail('Account has been Created', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + ' and your email is ' +email + '\n Follow this url to login with your username and password '+settings.ENV_URL+'login \n\n Thanks & Regards \n Admin.', settings.EMAIL_HOST_USER, [email])
 
                 groupreg = GroupClassRegister.objects.create(user= user, is_paid=0, amount=29, type_of_class = group_item.type_of_class)
                 groupreg.save()
@@ -1468,6 +1475,10 @@ def group_list(request):
             if ans:
                 messages.success(request, 'You are already registered in '+group_item.name+' group class successfully..')
                 return redirect('home:group')
+            if user.role == 3:
+                group_item.users.add(user)
+                messages.success(request, 'You registered in '+group_item.name+' group class successfully..')
+                return redirect("home:group")
             groupreg = GroupClassRegister.objects.create(user= user, is_paid = 0, amount=29, type_of_class = group_item.type_of_class)
             groupreg.save()
             if int(choice) == 1:
