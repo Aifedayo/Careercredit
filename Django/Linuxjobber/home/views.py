@@ -774,7 +774,6 @@ def group_pay(request,pk):
     amount=group_item.price * 100
     stripeset = StripePayment.objects.all()
     # Stripe uses cent notation for amount 10 USD = 10 * 100
-    stripeset = StripePayment.objects.all()
     stripe.api_key = stripeset[0].secretkey
     context = { "stripe_key": stripeset[0].publickey,
                    'amount': amount,
@@ -793,7 +792,7 @@ def group_pay(request,pk):
                 description='Group Course Payment',
                 source=token,
             )
-            messages.success(request, 'You are registered in group class successfully.')
+            messages.success(request, 'You are registered in '+group_item.name+' group class successfully.')
             _, created = GroupClassRegister.objects.update_or_create(
                 user=request.user,
                 is_paid=1,
@@ -803,13 +802,13 @@ def group_pay(request,pk):
             # After payment, add user to the group
             user=get_object_or_404(CustomUser,email=request.user.email)
             group_item.users.add(user)
-            return redirect("home:group",pk=pk)
+            return redirect("home:group")
         except stripe.error.CardError as ce:
             return False, ce
 
     # Implementation for free internship - Azeem Animashaun (Updated 21 January)
     if amount == 0:
-        messages.success(request, 'You are registered in group class successfully..')
+        messages.success(request, 'You are registered in '+group_item.name+' group class successfully..')
         _, created = GroupClassRegister.objects.update_or_create(
             user=request.user,
             is_paid=1,
@@ -818,7 +817,7 @@ def group_pay(request,pk):
         )
         user = get_object_or_404(CustomUser, email=request.user.email)
         group_item.users.add(user)
-        return redirect("home:group", pk=pk)
+        return redirect("home:group")
     return render(request, 'home/group_pay.html', context)
 
 
@@ -1399,6 +1398,85 @@ def upload_profile_pic(request):
 
 
 def group_list(request):
+    user = None
+    ans = None
+    if request.user.is_authenticated:
+        print('user authenticated')
+        user=CustomUser.objects.get(email=request.user)
 
-    return TemplateResponse(request,'home/groupclass_list.html',{'groups': Groupclass.objects.all()})
+    if request.method == "POST":
+        email = request.POST['email']
+        choice = request.POST['choice']
+        gclass = request.POST['grouptype']
+        try:
+            group_item = Groupclass.objects.get(id=int(gclass))
+        except:
+            redirect('home:group')
+
+        # type_of_class = request.POST['name']
+        # amount = request.POST['price']
+
+        # request.session['email'] = email
+        # request.session['amount'] = amount
+        # request.session['class'] = type_of_class
+        try:
+            password = request.POST['password']
+            user = CustomUser.objects.get(email=email)
+            username = email.split('@')[0]
+            the_user = authenticate(username=username,password=password)
+
+            if the_user:
+                login(request,the_user)
+            else:
+                messages.error(request, 'Account found, invalid login details entered.')
+                return redirect('home:group')
+
+        except MultiValueDictKeyError:
+            print('Error')
+
+        except CustomUser.DoesNotExist:
+            firstname = request.POST['fullname'].split()[0]
+            lastname = request.POST['fullname'].split()[1] if len(request.POST['fullname'].split()) > 1 else request.POST['fullname'].split()[0]
+            password = request.POST['password']
+            username = email.split('@')[0]
+            if (firstname):
+                user = CustomUser.objects.create_user(username, email, password)
+                user.first_name = firstname
+                user.last_name = lastname
+                user.save()
+                # send_mail('Linuxjobber Free Account Creation', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + '\n Follow this link http://35.167.153.1:8001/login to login to you account\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+
+                groupreg = GroupClassRegister.objects.create(user= user, is_paid=0, amount=29, type_of_class = group_item.type_of_class)
+                groupreg.save()
+
+                new_user = authenticate(username=username,
+                                    password=password,
+                                    )
+                login(request, new_user)
+
+                if int(choice) == 1:
+                    return redirect("home:monthly_subscription")
+
+                return redirect("home:group_pay",pk=group_item.id)
+
+        if user:
+            login(request, user)
+            try:
+                ans = Groupclass.objects.get(users=user,id =group_item.id)
+            except Groupclass.DoesNotExist:
+                pass
+            if ans:
+                messages.success(request, 'You are already registered in '+group_item.name+' group class successfully..')
+                return redirect('home:group')
+            groupreg = GroupClassRegister.objects.create(user= user, is_paid = 0, amount=29, type_of_class = group_item.type_of_class)
+            groupreg.save()
+            if int(choice) == 1:
+                return redirect("home:monthly_subscription")
+            return redirect("home:group_pay",pk=group_item.id)
+
+    user_token=None
+    if request.user.is_authenticated:
+        user_token,_=Token.objects.get_or_create(user=request.user)
+
+    return TemplateResponse(request,'home/group_class.html',{'groups': Groupclass.objects.all(), 'GROUP_URL':settings.GROUP_CLASS_URL, 'token':user_token})
 
