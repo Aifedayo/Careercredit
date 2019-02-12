@@ -1,3 +1,4 @@
+
 {% extends 'home/base.html' %}
 {% load static %}
 {% block title %}
@@ -46,3 +47,120 @@
 
 </div>
 {% endblock %}
+{% extends 'home/base.html' %} {% load static %} {% block title %} Linuxjobber
+Project {% endblock %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'Projects/custom/css/projects.css' %}"
+/>
+
+{% block content %}
+<div style="background-color: #252525; height: 85.9px;">
+  <p style="color: #252525">
+    this is a random text
+    <!-- This text is here for only styling purpose -->
+  </p>
+</div>
+
+<div class="project-pg-marker">
+  <small>Projects > {{ project_title }} > {{ course_title }}</small>
+</div>
+<div class="container-fluid course-proj-cont">
+  <p class="course-proj-title">{{ course_title }}</p>
+  <p></p>
+  <p class="course-proj-descrp">{{ course_description }}</p>
+  <br /><br /><br />
+</div>
+<div style="background-color: #F6F6F6;">
+  <p
+    id="current_vid"
+    style="background-color: #ffffff;border-top-left-radius: 36px;border-top-right-radius: 36px;box-shadow: 0px -3px 6px rgba(0, 0, 0, 0.25);color: black;padding-left: 49px;padding-top: 17px;font-family: Roboto;font-style: normal;font-weight: normal;line-height: normal;font-size: 26px;"
+  >
+    {{ course_topics.0.topic_title }}
+  </p>
+</div>
+<a href="{% url 'Projects:course_labs' course_title.split|join:'_' %}">
+  <button
+    class="btn"
+    style="border-radius: 10px;color: rgba(0, 0, 0, 0.4);margin-left: 49px;margin-top: -20px;"
+  >
+    notes
+  </button>
+</a>
+<a href="{% url 'Projects:lab_tasks' topic_title.split|join:'_' %}">
+  <button
+    class="btn"
+    style="border-radius: 10px;color: rgba(0, 0, 0, 0.4);margin-left: 49px;margin-top: -20px;"
+  >
+    hands-on-lab
+  </button>
+</a>
+<div class="video-box row" style="margin-bottom: 52px;">
+  <div
+    class="col-md-8"
+    style="background-color: white;margin-top: 13px;height: 503px;"
+  >
+    <script type="text/javascript">
+      var cnt = -1;
+    </script>
+    <video
+      id="vid"
+      src="{{ course_topics.0.topic_video }}"
+      type="mp4"
+      height="503px"
+      width="cover"
+      controls
+    >
+      <source type="video/mp4" />
+      Your browser does not support the video tag
+    </video>
+  </div>
+  <div
+    class="col-md-3"
+    style="background-color: #F6F6F6;margin-top: 13px;height: 503px;box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);overflow-y: scroll;overflow-x: hidden;"
+  >
+    <p
+      style="color: #000000;padding-top: 9px;font-size: 18px;margin-bottom: 10px;"
+    >
+      Videos
+    </p>
+    {% for course_topic in course_topics %}
+    <input
+      type="hidden"
+      id="vid_src_{{ course_topic.topic_id }}"
+      value="{{ course_topic.topic_video }}"
+    />
+    <input
+      type="hidden"
+      id="current_vid_{{ course_topic.topic_id }}"
+      value="{{ course_topic.topic_title }}"
+    />
+    <ol>
+      <li>
+        <img
+          style="vertical-align: middle;"
+          src="{% static 'Projects/img/play_icon.png' %}"
+        />
+        <small
+          onclick="document.getElementById('vid').src = document.getElementById('vid_src_{{ course_topic.topic_id }}').value;document.getElementById('current_vid').innerHTML = document.getElementById('current_vid_{{course_topic.topic_id }}').value"
+          style="font-size: 18px;color: rgba(0, 0, 0, 0.8);"
+          href=""
+          >{{ course_topic.topic_title }}</small>
+      </li>
+    </ol>
+    {% endfor %}
+  </div>
+</div>
+
+<script type="text/javascript">
+  function change_video(jj) {
+    document.getElementById("vid").src = document.getElementById(jj).value;
+    document.getElementById("current_vid").innerHTML = document.getElementById(
+      "current_vid2"
+    ).value;
+  }
+</script>
+
+{% endblock %}
+

@@ -15,8 +15,9 @@ class CourseTopicNoteAdmin(admin.ModelAdmin):
 
 admin.site.register(Project)
 admin.site.register(ProjectCourse)
-admin.site.register(CourseLab)
-admin.site.register(CourseLabTask)
+admin.site.register(LabTask)
+# admin.site.register(CourseLab)
+# admin.site.register(CourseLabTask)
 admin.site.register(ProjectCourseTopic)
 admin.site.register(CourseTopicNote, CourseTopicNoteAdmin)
 admin.site.register(UsersLabTaskStatus)

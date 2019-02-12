@@ -28,14 +28,32 @@ def project_courses(request, project_id):
         project = Project.objects.get(id=project_id)
     except Project.DoesNotExist:
         return redirect('Projects:index')
+
+# def project_courses(request, project_name):
+#     project = Project.objects.get(project_title=project_name)
+#
+#     context = {
+#         'project_courses': project.projectcourse_set.all(),
+#         'project_title': project.project_title,
+#         'project_description': project.project_description,
+#         'courses': get_courses(),
+#         'tools': get_tools(),
+#     }
+#
+#     return render(request, 'projects/project_courses.html', context)
+
+def project_courses(request, project_name):
+    project = Project.objects.get(project_title=project_name)
+    project_courses = ProjectCourse.objects.all()
     context = {
-        'project_courses': project.projectcourse_set.all(),
         'project_title': project.project_title,
         'project_description': project.project_description,
+        'project_courses': project_courses,
+        'courses': get_courses(),
+        'tools': get_tools(),
     }
 
     return render(request, 'projects/project_courses.html', context)
-
 
 @login_required
 def project_course_topics(request, course_id, topic_id):
@@ -122,7 +140,7 @@ def project_course_notes(request, course_id, topic_id):
 
 @login_required
 def project_course_labs(request, course_name):
-    course = ProjectCourse.objects.get(course_title=course_name.replace("_", " ")) 
+    course = ProjectCourse.objects.get(course_title=course_name.replace("_", " "))
 
     context = {
         'course_labs': course.courselab_set.all(),
@@ -151,15 +169,31 @@ def project_course_labs(request, course_name):
 
 
 @login_required
-def course_lab_tasks(request, lab_title):
-    lab = CourseLab.objects.get(lab_title=lab_title.replace("_", " ")) 
-
+def lab_task(request, topic_id):
+    #course = ProjectCourse.objects.get(course_title=course_name.replace("_", " "))
+    topic = ProjectCourseTopic.objects.get(topic_id=topic_id)
+    task = LabTask.objects.all()
     context = {
-        'lab': lab,
-        'lab_tasks': lab.courselabtask_set.all(),
+        'topic': topic.topic_title,
+        'lab_tasks': topic.labtask_set.all(),
         'courses': get_courses(),
         'tools': get_tools(),
         'task_status': UsersLabTaskStatus.objects.filter(user=request.user)
     }
 
     return render(request, 'projects/course_lab_tasks.html', context)
+
+
+# @login_required
+# def course_lab_tasks(request, lab_title):
+#     lab = CourseLab.objects.get(lab_title=lab_title.replace("_", " "))
+#
+#     context = {
+#         'lab': lab,
+#         'lab_tasks': lab.courselabtask_set.all(),
+#         'courses': get_courses(),
+#         'tools': get_tools(),
+#         'task_status': UsersLabTaskStatus.objects.filter(user=request.user)
+#     }
+#
+#     return render(request, 'projects/course_lab_tasks.html', context)
