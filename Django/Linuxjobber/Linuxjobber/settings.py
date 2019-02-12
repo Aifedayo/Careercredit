@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import os, sys, datetime
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-from decouple import config, Csv
+#from decouple import config, Csv
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -34,7 +34,7 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
 
     'rest_framework',
-    'channels',
+    #'channels',
     'ckeditor',
     'corsheaders',
     'django.contrib.admin',
@@ -108,15 +108,24 @@ WSGI_APPLICATION = 'Linuxjobber.wsgi.application'
 
 # Todo Before Push modify to original credentials
 #Here I made use of a mysql database for expense application
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': config('DATABASE_NAME','linuxjb'),
+#         'USER': config('DATABASE_USER','linuxjobber'),
+#         'PASSWORD':config('DATABASE_PASSWORD','linuxjobber'),
+#         'HOST': config('DATABASE_HOST','localhost'),
+#         'PORT': config('DATABASE_PORT',''),
+
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': config('DATABASE_NAME','linuxjb'),
-        'USER': config('DATABASE_USER','linuxjobber'),
-        'PASSWORD':config('DATABASE_PASSWORD','linuxjobber'),
-        'HOST': config('DATABASE_HOST','localhost'),
-        'PORT': config('DATABASE_PORT',''),
-
+        'NAME': 'linuxjobber3',
+        'USER': 'root',
+        'HOST': 'localhost',
     }
 }
 
@@ -258,32 +267,32 @@ LOGIN_REDIRECT_URL = '/home'
 # EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 # EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
 
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = config('EMAIL_HOST','smtp.linuxjobber.com')
-EMAIL_PORT = config('EMAIL_PORT','587')
-EMAIL_HOST_USER = config('EMAIL_HOST_USER','admin@linuxjobber.com')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD','m4k3Aw!y')
-EMAIL_USE_TLS = True
+# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+# EMAIL_HOST = config('EMAIL_HOST','smtp.linuxjobber.com')
+# EMAIL_PORT = config('EMAIL_PORT','587')
+# EMAIL_HOST_USER = config('EMAIL_HOST_USER','admin@linuxjobber.com')
+# EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD','m4k3Aw!y')
+# EMAIL_USE_TLS = True
 
 STRIPE_PUBLIC_KEY="pk_test_1zBTca83q29gl9iwRw1oIBvD"
 STRIPE_SECRET_KEY = "Something"
 AUTH_USER_MODEL = 'users.CustomUser'
 
 # Channels
-ASGI_APPLICATION = 'Linuxjobber.routing.application'
-CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        'CONFIG': {
-            "hosts": [config('channel_hosts',default="127.0.0.1,6379",cast=Csv(post_process=tuple))],
-        },
-    },
-}
+# ASGI_APPLICATION = 'Linuxjobber.routing.application'
+# CHANNEL_LAYERS = {
+#     'default': {
+#         'BACKEND': 'channels_redis.core.RedisChannelLayer',
+#         'CONFIG': {
+#             "hosts": [config('channel_hosts',default="127.0.0.1,6379",cast=Csv(post_process=tuple))],
+#         },
+#     },
+# }
 
 
 #todo Always change to appropriate before pushing
 #SERVER details
-SERVER_IP = config('SERVER_IP',"52.88.199.218")
-SERVER_USER = config('SERVER_USER',"sysadmin")
-SERVER_PASSWORD = config('SERVER_PASSWORD',"8iu7*IU&")
-GROUP_CLASS_URL= config('GROUP_CLASS_URL','http://localhost:4200/classroom/')
+# SERVER_IP = config('SERVER_IP',"52.88.199.218")
+# SERVER_USER = config('SERVER_USER',"sysadmin")
+# SERVER_PASSWORD = config('SERVER_PASSWORD',"8iu7*IU&")
+# GROUP_CLASS_URL= config('GROUP_CLASS_URL','http://localhost:4200/classroom/')

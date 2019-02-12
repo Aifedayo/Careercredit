@@ -46,12 +46,11 @@ class ProjectCourse(models.Model):
         return self.course_title
 
 
-
 class ProjectCourseTopic(models.Model):
     topic_id = models.IntegerField(unique=True)
     topic_title = models.CharField(max_length=200)
-    topic_video = models.CharField(max_length=100)
-    topic_course = models.ForeignKey(ProjectCourse,on_delete=models.CASCADE)
+    topic_video = models.FileField
+    topic_course = models.ForeignKey(ProjectCourse, on_delete=models.CASCADE)
 
 
     class Meta:
@@ -60,34 +59,44 @@ class ProjectCourseTopic(models.Model):
     def __str__(self):
         return self.topic_title
 
-
-class CourseLab(models.Model):
-    lab_id = models.IntegerField(unique=True)
-    lab_title = models.CharField(max_length=200)  
-    lab_course = models.ForeignKey(ProjectCourse, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.lab_title
-
-
-
-class CourseLabTask(models.Model):
+class LabTask(models.Model):
     task_id = models.IntegerField(unique=True)
     lab_task_no = models.IntegerField(default=1)
     task = models.TextField()
     task_note = models.TextField()
     task_comment = models.TextField()
-    task_lab = models.ForeignKey(CourseLab, on_delete=models.CASCADE)
-    #lab_task_course = models.ForeignKey(ProjectCourse, on_delete=models.CASCADE)
+    lab_topic = models.ForeignKey(ProjectCourseTopic, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.task
+
+# class CourseLab(models.Model):
+#     lab_id = models.IntegerField(unique=True)
+#     lab_title = models.CharField(max_length=200)
+#     lab_course = models.ForeignKey(ProjectCourse, on_delete=models.CASCADE)
+#
+#     def __str__(self):
+#         return self.lab_title
+
+
+
+# class CourseLabTask(models.Model):
+#     task_id = models.IntegerField(unique=True)
+#     lab_task_no = models.IntegerField(default=1)
+#     task = models.TextField()
+#     task_note = models.TextField()
+#     task_comment = models.TextField()
+#     task_lab = models.ForeignKey(CourseLab, on_delete=models.CASCADE)
+    #lab_task_course = models.ForeignKey(ProjectCourse, on_delete=models.CASCADE)
+    #
+    # def __str__(self):
+    #     return self.task
 
 
 
 class UsersLabTaskStatus(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    task = models.ForeignKey(CourseLabTask, on_delete=models.CASCADE)
+    task = models.ForeignKey(LabTask, on_delete=models.CASCADE)
     status = models.IntegerField(default=0)
 
 

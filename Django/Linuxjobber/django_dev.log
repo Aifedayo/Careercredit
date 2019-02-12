@@ -4606,3 +4606,1962 @@ Traceback (most recent call last):
     raise NoReverseMatch(msg)
 django.urls.exceptions.NoReverseMatch: Reverse for 'course_labs' with arguments '('',)' not found. 1 pattern(s) tried: ['projects\\/(?P<course_name>[-a-zA-Z0-9_]+)\\/labs$']
 [2019-02-11 14:08:30] ERROR [django.server.log_message:124] "GET /projects/Ubuntu/course HTTP/1.1" 500 177773
+[2019-02-11 23:22:40] INFO [django.server.log_message:124] "GET /admin/Projects/courselab/ HTTP/1.1" 200 4383
+[2019-02-11 23:22:40] INFO [django.server.log_message:124] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 268490
+[2019-02-11 23:22:40] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-11 23:22:40] INFO [django.server.log_message:124] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 371
+[2019-02-11 23:22:41] INFO [django.server.log_message:124] "GET /static/admin/css/changelists.css HTTP/1.1" 200 6514
+[2019-02-11 23:22:41] INFO [django.server.log_message:124] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 7078
+[2019-02-11 23:22:41] INFO [django.server.log_message:124] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1580
+[2019-02-11 23:22:41] INFO [django.server.log_message:124] "GET /static/admin/js/core.js HTTP/1.1" 200 7346
+[2019-02-11 23:22:41] INFO [django.server.log_message:124] "GET /static/admin/js/urlify.js HTTP/1.1" 200 8918
+[2019-02-11 23:22:41] INFO [django.server.log_message:124] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 131128
+[2019-02-11 23:22:41] INFO [django.server.log_message:124] "GET /static/admin/js/actions.js HTTP/1.1" 200 6655
+[2019-02-11 23:22:41] INFO [django.server.log_message:124] "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 334
+[2019-02-11 23:22:45] INFO [django.server.log_message:124] "GET /admin/Projects/courselab/1/change/ HTTP/1.1" 200 5929
+[2019-02-11 23:22:45] INFO [django.server.log_message:124] "GET /static/admin/css/forms.css HTTP/1.1" 200 8688
+[2019-02-11 23:22:45] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-11 23:22:45] INFO [django.server.log_message:124] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 505
+[2019-02-11 23:22:45] INFO [django.server.log_message:124] "GET /static/admin/js/change_form.js HTTP/1.1" 200 732
+[2019-02-11 23:22:45] INFO [django.server.log_message:124] "GET /static/admin/css/widgets.css HTTP/1.1" 200 10905
+[2019-02-11 23:23:02] INFO [django.server.log_message:124] "GET /admin/Projects/ HTTP/1.1" 200 4876
+[2019-02-11 23:23:05] INFO [django.server.log_message:124] "GET /admin/Projects/projectcoursetopic/ HTTP/1.1" 200 3278
+[2019-02-11 23:23:05] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-11 23:23:16] INFO [django.server.log_message:124] "GET /admin/Projects/ HTTP/1.1" 200 4876
+[2019-02-11 23:23:28] INFO [django.server.log_message:124] "GET /admin/Projects/projectcourse/ HTTP/1.1" 200 4424
+[2019-02-11 23:23:28] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-11 23:23:48] INFO [django.server.log_message:124] "GET /admin/Projects/projectcourse/1/change/ HTTP/1.1" 200 9707
+[2019-02-11 23:23:48] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-11 23:23:53] INFO [django.server.log_message:124] "GET /admin/Projects/projectcourse/ HTTP/1.1" 200 4424
+[2019-02-11 23:23:56] INFO [django.server.log_message:124] "GET /admin/Projects/ HTTP/1.1" 200 4876
+[2019-02-11 23:23:59] INFO [django.server.log_message:124] "GET /admin/Projects/projectcoursetopic/ HTTP/1.1" 200 3278
+[2019-02-11 23:23:59] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-11 23:24:01] INFO [django.server.log_message:124] "GET /admin/Projects/projectcoursetopic/add/ HTTP/1.1" 200 6310
+[2019-02-11 23:24:02] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-11 23:24:38] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 23389
+[2019-02-11 23:24:40] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-11 23:24:40] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12559
+[2019-02-11 23:24:48] INFO [django.server.log_message:124] "GET /workexperience/ HTTP/1.1" 200 20288
+[2019-02-11 23:24:49] WARNING [django.request.log_response:228] Not Found: /workexperience/images/icon5.png
+[2019-02-11 23:24:49] WARNING [django.server.log_message:124] "GET /workexperience/images/icon5.png HTTP/1.1" 404 13373
+[2019-02-11 23:24:49] INFO [django.server.log_message:124] "GET /static/home/images/aoc.png HTTP/1.1" 200 103405
+[2019-02-11 23:24:50] INFO [django.server.log_message:124] "GET /static/home/images/graduate.png HTTP/1.1" 200 316928
+[2019-02-11 23:24:50] INFO [django.server.log_message:124] "GET /static/home/images/prooo.png HTTP/1.1" 200 542089
+[2019-02-11 23:24:51] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/wok.png HTTP/1.1" 200 281569
+[2019-02-11 23:24:51] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/aboutrec.png HTTP/1.1" 200 590531
+[2019-02-11 23:24:51] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/radio1.png HTTP/1.1" 200 442
+[2019-02-11 23:24:51] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/womann.jpg HTTP/1.1" 200 105056
+[2019-02-11 23:24:59] INFO [django.server.log_message:124] "GET /projects/ HTTP/1.1" 200 14351
+[2019-02-11 23:24:59] WARNING [django.request.log_response:228] Not Found: /projects/images/icon5.png
+[2019-02-11 23:24:59] WARNING [django.server.log_message:124] "GET /projects/images/icon5.png HTTP/1.1" 404 13473
+[2019-02-11 23:25:02] INFO [django.server.log_message:124] "GET /projects/projects/DevOps HTTP/1.1" 200 14822
+[2019-02-11 23:25:03] WARNING [django.request.log_response:228] Not Found: /projects/projects/images/icon5.png
+[2019-02-11 23:25:03] WARNING [django.server.log_message:124] "GET /projects/projects/images/icon5.png HTTP/1.1" 404 13500
+[2019-02-11 23:25:09] INFO [django.server.log_message:124] "GET /projects/Ubuntu/course HTTP/1.1" 200 15011
+[2019-02-11 23:25:09] WARNING [django.request.log_response:228] Not Found: /projects/Ubuntu/images/icon5.png
+[2019-02-11 23:25:09] WARNING [django.server.log_message:124] "GET /projects/Ubuntu/images/icon5.png HTTP/1.1" 404 13494
+[2019-02-11 23:25:53] INFO [django.server.log_message:124] "POST /admin/Projects/projectcoursetopic/add/ HTTP/1.1" 302 0
+[2019-02-11 23:25:53] INFO [django.server.log_message:124] "GET /admin/Projects/projectcoursetopic/ HTTP/1.1" 200 4731
+[2019-02-11 23:25:53] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-11 23:25:54] INFO [django.server.log_message:124] "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 439
+[2019-02-11 23:26:01] INFO [django.server.log_message:124] "GET /projects/Ubuntu/course HTTP/1.1" 200 15879
+[2019-02-11 23:26:01] WARNING [django.request.log_response:228] Not Found: /projects/Ubuntu/images/icon5.png
+[2019-02-11 23:26:01] WARNING [django.server.log_message:124] "GET /projects/Ubuntu/images/icon5.png HTTP/1.1" 404 13494
+[2019-02-11 23:26:01] INFO [django.server.log_message:124] "GET /static/Projects/img/play_icon.png HTTP/1.1" 200 471
+[2019-02-11 23:26:02] WARNING [django.request.log_response:228] Not Found: /projects/Ubuntu/Getting Started with Ubuntu
+[2019-02-11 23:26:02] WARNING [django.server.log_message:124] "GET /projects/Ubuntu/Getting%20Started%20with%20Ubuntu HTTP/1.1" 404 13533
+[2019-02-11 23:26:08] INFO [django.server.log_message:124] "GET /admin/Projects/projectcoursetopic/1/change/ HTTP/1.1" 200 6626
+[2019-02-11 23:26:08] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-11 23:34:02] INFO [django.server.log_message:124] "GET /admin/Projects/ HTTP/1.1" 200 4876
+[2019-02-11 23:34:05] INFO [django.server.log_message:124] "GET /admin/Projects/courselab/ HTTP/1.1" 200 4383
+[2019-02-11 23:34:05] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-11 23:34:08] INFO [django.server.log_message:124] "GET /admin/Projects/courselab/1/change/ HTTP/1.1" 200 5929
+[2019-02-11 23:34:08] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-11 23:37:04] INFO [django.server.log_message:124] "GET /admin/Projects/ HTTP/1.1" 200 4876
+[2019-02-11 23:37:08] INFO [django.server.log_message:124] "GET /admin/Projects/userslabtaskstatus/ HTTP/1.1" 200 3283
+[2019-02-11 23:37:08] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-11 23:37:10] INFO [django.server.log_message:124] "GET /admin/Projects/ HTTP/1.1" 200 4876
+[2019-02-11 23:37:12] INFO [django.server.log_message:124] "GET /admin/Projects/courselabtask/ HTTP/1.1" 200 4722
+[2019-02-11 23:37:13] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-11 23:39:37] INFO [django.server.log_message:124] "GET /admin/Projects/courselabtask/3/change/ HTTP/1.1" 200 7673
+[2019-02-11 23:39:37] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-11 23:43:50] INFO [django.server.log_message:124] "GET /admin/Projects/ HTTP/1.1" 200 4876
+[2019-02-11 23:44:40] INFO [django.server.log_message:124] "GET /admin/Projects/projectcoursetopic/ HTTP/1.1" 200 4502
+[2019-02-11 23:44:40] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-11 23:46:01] INFO [django.server.log_message:124] "GET /admin/Projects/projectcoursetopic/1/change/ HTTP/1.1" 200 6626
+[2019-02-11 23:46:01] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 00:36:49] ERROR [django.request.log_response:228] Internal Server Error: /projects/Ubuntu/labs
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 79, in project_course_labs
+    'course_labs': course.courselab_set.all(),
+AttributeError: 'ProjectCourse' object has no attribute 'courselab_set'
+[2019-02-12 00:36:49] ERROR [django.server.log_message:124] "GET /projects/Ubuntu/labs HTTP/1.1" 500 75903
+[2019-02-12 01:02:36] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 21744
+[2019-02-12 01:02:36] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-12 01:02:36] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12559
+[2019-02-12 01:02:41] INFO [django.server.log_message:124] "GET /admin HTTP/1.1" 302 0
+[2019-02-12 01:02:42] INFO [django.server.log_message:124] "GET /admin/login/?next=/admin HTTP/1.1" 200 1817
+[2019-02-12 01:02:42] INFO [django.server.log_message:124] "GET /admin HTTP/1.1" 302 0
+[2019-02-12 01:02:42] INFO [django.server.log_message:124] "GET /admin/login/?next=/admin HTTP/1.1" 200 1817
+[2019-02-12 01:02:57] INFO [django.server.log_message:124] "POST /admin/login/?next=/admin HTTP/1.1" 302 0
+[2019-02-12 01:02:57] INFO [django.server.log_message:124] "GET /admin HTTP/1.1" 200 23519
+[2019-02-12 01:03:12] INFO [django.server.log_message:124] "GET /admin/Projects/labtask/ HTTP/1.1" 200 3192
+[2019-02-12 01:03:12] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 01:03:15] INFO [django.server.log_message:124] "GET /admin/Projects/labtask/add/ HTTP/1.1" 200 7184
+[2019-02-12 01:03:16] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 01:03:31] INFO [django.server.log_message:124] "GET /admin/Projects/ HTTP/1.1" 200 4387
+[2019-02-12 01:03:33] INFO [django.server.log_message:124] "GET /admin/Projects/project/ HTTP/1.1" 200 3187
+[2019-02-12 01:03:33] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 01:03:36] INFO [django.server.log_message:124] "GET /admin/Projects/project/add/ HTTP/1.1" 200 6715
+[2019-02-12 01:03:36] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 01:03:51] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 23385
+[2019-02-12 01:03:51] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-12 01:03:51] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12559
+[2019-02-12 01:04:00] INFO [django.server.log_message:124] "GET /projects/ HTTP/1.1" 200 13313
+[2019-02-12 01:04:00] WARNING [django.request.log_response:228] Not Found: /projects/images/icon5.png
+[2019-02-12 01:04:00] WARNING [django.server.log_message:124] "GET /projects/images/icon5.png HTTP/1.1" 404 13268
+[2019-02-12 01:04:45] INFO [django.server.log_message:124] "POST /admin/Projects/project/add/ HTTP/1.1" 302 0
+[2019-02-12 01:04:45] INFO [django.server.log_message:124] "GET /admin/Projects/project/ HTTP/1.1" 200 4537
+[2019-02-12 01:04:45] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 01:04:50] INFO [django.server.log_message:124] "GET /projects/ HTTP/1.1" 200 14074
+[2019-02-12 01:04:51] WARNING [django.request.log_response:228] Not Found: /projects/images/icon5.png
+[2019-02-12 01:04:51] WARNING [django.server.log_message:124] "GET /projects/images/icon5.png HTTP/1.1" 404 13268
+[2019-02-12 01:04:51] WARNING [django.request.log_response:228] Not Found: /projects/DevOpsDevOpsDevOps
+[2019-02-12 01:04:51] WARNING [django.server.log_message:124] "GET /projects/DevOpsDevOpsDevOps HTTP/1.1" 404 13274
+[2019-02-12 01:04:51] WARNING [django.request.log_response:228] Not Found: /projects/DevOpsDevOpsDevOpsDevOps
+[2019-02-12 01:04:51] WARNING [django.server.log_message:124] "GET /projects/DevOpsDevOpsDevOpsDevOps HTTP/1.1" 404 13292
+[2019-02-12 01:04:55] INFO [django.server.log_message:124] "GET /projects/projects/DevOps HTTP/1.1" 200 13363
+[2019-02-12 01:04:55] WARNING [django.request.log_response:228] Not Found: /projects/projects/images/icon5.png
+[2019-02-12 01:04:55] WARNING [django.server.log_message:124] "GET /projects/projects/images/icon5.png HTTP/1.1" 404 13295
+[2019-02-12 01:05:27] INFO [django.server.log_message:124] "GET /admin/Projects/project/1/change/ HTTP/1.1" 200 7177
+[2019-02-12 01:05:27] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 01:06:05] INFO [django.server.log_message:124] "POST /admin/Projects/project/1/change/ HTTP/1.1" 302 0
+[2019-02-12 01:06:06] INFO [django.server.log_message:124] "GET /admin/Projects/project/ HTTP/1.1" 200 4539
+[2019-02-12 01:06:06] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 01:06:14] INFO [django.server.log_message:124] "GET /projects/ HTTP/1.1" 200 14068
+[2019-02-12 01:06:14] WARNING [django.request.log_response:228] Not Found: /projects/images/icon5.png
+[2019-02-12 01:06:14] WARNING [django.server.log_message:124] "GET /projects/images/icon5.png HTTP/1.1" 404 13268
+[2019-02-12 01:06:14] WARNING [django.request.log_response:228] Not Found: /projects/DevOpsDevOpsDevOps
+[2019-02-12 01:06:14] WARNING [django.server.log_message:124] "GET /projects/DevOpsDevOpsDevOps HTTP/1.1" 404 13274
+[2019-02-12 01:06:15] WARNING [django.request.log_response:228] Not Found: /projects/DevOpsDevOpsDevOpsDevOps
+[2019-02-12 01:06:15] WARNING [django.server.log_message:124] "GET /projects/DevOpsDevOpsDevOpsDevOps HTTP/1.1" 404 13292
+[2019-02-12 01:06:16] INFO [django.server.log_message:124] "GET /projects/projects/DevOps HTTP/1.1" 200 13357
+[2019-02-12 01:06:17] WARNING [django.request.log_response:228] Not Found: /projects/projects/images/icon5.png
+[2019-02-12 01:06:17] WARNING [django.server.log_message:124] "GET /projects/projects/images/icon5.png HTTP/1.1" 404 13295
+[2019-02-12 01:14:26] INFO [django.server.log_message:124] "GET /admin/Projects/ HTTP/1.1" 200 4387
+[2019-02-12 01:14:29] INFO [django.server.log_message:124] "GET /admin/Projects/projectcourse/ HTTP/1.1" 200 3234
+[2019-02-12 01:14:29] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 01:14:32] INFO [django.server.log_message:124] "GET /admin/Projects/projectcourse/add/ HTTP/1.1" 200 9124
+[2019-02-12 01:14:33] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 01:15:23] INFO [django.server.log_message:124] "POST /admin/Projects/projectcourse/add/ HTTP/1.1" 302 0
+[2019-02-12 01:15:23] INFO [django.server.log_message:124] "GET /admin/Projects/projectcourse/ HTTP/1.1" 200 4617
+[2019-02-12 01:15:23] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 01:15:29] ERROR [django.request.log_response:228] Internal Server Error: /projects/projects/DevOps
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 38, in project_courses
+    return render(request, 'projects/project_courses.html', context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\defaulttags.py", line 209, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\urls\base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\urls\resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'course_labs' not found. 'course_labs' is not a valid view function or pattern name.
+[2019-02-12 01:15:29] ERROR [django.server.log_message:124] "GET /projects/projects/DevOps HTTP/1.1" 500 176743
+[2019-02-12 01:20:08] INFO [django.server.log_message:124] "GET /projects/ HTTP/1.1" 200 14068
+[2019-02-12 01:20:08] WARNING [django.request.log_response:228] Not Found: /projects/images/icon5.png
+[2019-02-12 01:20:08] WARNING [django.server.log_message:124] "GET /projects/images/icon5.png HTTP/1.1" 404 13268
+[2019-02-12 01:20:09] WARNING [django.request.log_response:228] Not Found: /projects/DevOpsDevOpsDevOps
+[2019-02-12 01:20:09] WARNING [django.server.log_message:124] "GET /projects/DevOpsDevOpsDevOps HTTP/1.1" 404 13274
+[2019-02-12 01:20:09] WARNING [django.request.log_response:228] Not Found: /projects/DevOpsDevOpsDevOpsDevOps
+[2019-02-12 01:20:10] WARNING [django.server.log_message:124] "GET /projects/DevOpsDevOpsDevOpsDevOps HTTP/1.1" 404 13292
+[2019-02-12 01:20:12] ERROR [django.request.log_response:228] Internal Server Error: /projects/projects/DevOps
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 38, in project_courses
+    return render(request, 'projects/project_courses.html', context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\defaulttags.py", line 209, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\urls\base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\urls\resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'course_labs' not found. 'course_labs' is not a valid view function or pattern name.
+[2019-02-12 01:20:12] ERROR [django.server.log_message:124] "GET /projects/projects/DevOps HTTP/1.1" 500 176608
+[2019-02-12 01:31:45] ERROR [django.request.log_response:228] Internal Server Error: /projects/projects/DevOps
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 32, in project_courses
+    'project_courses': project.projectcourse_set.all(),
+AttributeError: 'QuerySet' object has no attribute 'projectcourse_set'
+[2019-02-12 01:31:45] ERROR [django.server.log_message:124] "GET /projects/projects/DevOps HTTP/1.1" 500 71220
+[2019-02-12 02:16:45] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 23385
+[2019-02-12 02:16:46] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-12 02:16:46] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12559
+[2019-02-12 02:16:50] INFO [django.server.log_message:124] "GET /projects/ HTTP/1.1" 200 14068
+[2019-02-12 02:16:50] WARNING [django.request.log_response:228] Not Found: /projects/images/icon5.png
+[2019-02-12 02:16:50] WARNING [django.server.log_message:124] "GET /projects/images/icon5.png HTTP/1.1" 404 13268
+[2019-02-12 02:16:50] WARNING [django.request.log_response:228] Not Found: /projects/DevOpsDevOpsDevOps
+[2019-02-12 02:16:50] WARNING [django.server.log_message:124] "GET /projects/DevOpsDevOpsDevOps HTTP/1.1" 404 13274
+[2019-02-12 02:16:50] WARNING [django.request.log_response:228] Not Found: /projects/DevOpsDevOpsDevOpsDevOps
+[2019-02-12 02:16:50] WARNING [django.server.log_message:124] "GET /projects/DevOpsDevOpsDevOpsDevOps HTTP/1.1" 404 13292
+[2019-02-12 02:16:52] ERROR [django.request.log_response:228] Internal Server Error: /projects/projects/DevOps
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: project_courses() got an unexpected keyword argument 'project_name'
+[2019-02-12 02:16:52] ERROR [django.server.log_message:124] "GET /projects/projects/DevOps HTTP/1.1" 500 67246
+[2019-02-12 02:21:34] ERROR [django.request.log_response:228] Internal Server Error: /projects/projects/DevOps
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 52, in project_courses
+    return render(request, 'projects/project_courses.html', context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\defaulttags.py", line 209, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\urls\base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\urls\resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'course_labs' not found. 'course_labs' is not a valid view function or pattern name.
+[2019-02-12 02:21:34] ERROR [django.server.log_message:124] "GET /projects/projects/DevOps HTTP/1.1" 500 177408
+[2019-02-12 02:28:38] INFO [django.server.log_message:124] "GET /projects/projects/DevOps HTTP/1.1" 200 13345
+[2019-02-12 02:28:39] WARNING [django.request.log_response:228] Not Found: /projects/projects/images/icon5.png
+[2019-02-12 02:28:39] WARNING [django.server.log_message:124] "GET /projects/projects/images/icon5.png HTTP/1.1" 404 13295
+[2019-02-12 02:30:08] INFO [django.server.log_message:124] "GET /projects/projects/DevOps HTTP/1.1" 200 13357
+[2019-02-12 02:30:09] WARNING [django.request.log_response:228] Not Found: /projects/projects/images/icon5.png
+[2019-02-12 02:30:09] WARNING [django.server.log_message:124] "GET /projects/projects/images/icon5.png HTTP/1.1" 404 13295
+[2019-02-12 02:33:45] INFO [django.server.log_message:124] "GET /admin/Projects/projectcourse/ HTTP/1.1" 200 4420
+[2019-02-12 02:33:45] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 02:33:49] INFO [django.server.log_message:124] "GET /admin/Projects/projectcourse/1/change/ HTTP/1.1" 200 9492
+[2019-02-12 02:33:49] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 02:36:11] ERROR [django.request.log_response:228] Internal Server Error: /projects/projects/DevOps
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 52, in project_courses
+    return render(request, 'projects/project_courses.html', context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\defaulttags.py", line 209, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\urls\base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\urls\resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'course_labs' not found. 'course_labs' is not a valid view function or pattern name.
+[2019-02-12 02:36:11] ERROR [django.server.log_message:124] "GET /projects/projects/DevOps HTTP/1.1" 500 176879
+[2019-02-12 02:39:19] ERROR [django.request.log_response:228] Internal Server Error: /projects/projects/DevOps
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 52, in project_courses
+    return render(request, 'projects/project_courses.html', context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\defaulttags.py", line 209, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\urls\base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\urls\resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'course_labs' not found. 'course_labs' is not a valid view function or pattern name.
+[2019-02-12 02:39:19] ERROR [django.server.log_message:124] "GET /projects/projects/DevOps HTTP/1.1" 500 176855
+[2019-02-12 02:43:52] ERROR [django.request.log_response:228] Internal Server Error: /projects/projects/DevOps
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 52, in project_courses
+    return render(request, 'projects/project_courses.html', context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\defaulttags.py", line 209, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\urls\base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\urls\resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'course_labs' not found. 'course_labs' is not a valid view function or pattern name.
+[2019-02-12 02:43:52] ERROR [django.server.log_message:124] "GET /projects/projects/DevOps HTTP/1.1" 500 176856
+[2019-02-12 02:50:08] ERROR [django.request.log_response:228] Internal Server Error: /projects/projects/DevOps
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 53, in project_courses
+    return render(request, 'projects/project_courses.html', context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\defaulttags.py", line 209, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\urls\base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\urls\resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'course_labs' not found. 'course_labs' is not a valid view function or pattern name.
+[2019-02-12 02:50:08] ERROR [django.server.log_message:124] "GET /projects/projects/DevOps HTTP/1.1" 500 176858
+[2019-02-12 02:56:09] INFO [django.server.log_message:124] "GET /projects/projects/DevOps HTTP/1.1" 200 14294
+[2019-02-12 02:56:09] WARNING [django.request.log_response:228] Not Found: /projects/projects/images/icon5.png
+[2019-02-12 02:56:09] WARNING [django.server.log_message:124] "GET /projects/projects/images/icon5.png HTTP/1.1" 404 13295
+[2019-02-12 02:56:10] ERROR [django.request.log_response:228] Internal Server Error: /projects/projects/UbuntuUbuntuUbuntuUbuntu
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 42, in project_courses
+    project = Project.objects.get(project_title=project_name)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 399, in get
+    self.model._meta.object_name
+Projects.models.Project.DoesNotExist: Project matching query does not exist.
+[2019-02-12 02:56:10] ERROR [django.server.log_message:124] "GET /projects/projects/UbuntuUbuntuUbuntuUbuntu HTTP/1.1" 500 79280
+[2019-02-12 02:57:09] INFO [django.server.log_message:124] "GET /admin/Projects/projectcourse/ HTTP/1.1" 200 4420
+[2019-02-12 02:57:10] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 02:57:13] INFO [django.server.log_message:124] "GET /admin/Projects/projectcourse/add/ HTTP/1.1" 200 9124
+[2019-02-12 02:57:13] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 02:57:48] INFO [django.server.log_message:124] "POST /admin/Projects/projectcourse/add/ HTTP/1.1" 200 9450
+[2019-02-12 02:57:48] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 02:57:55] INFO [django.server.log_message:124] "POST /admin/Projects/projectcourse/add/ HTTP/1.1" 302 0
+[2019-02-12 02:57:56] INFO [django.server.log_message:124] "GET /admin/Projects/projectcourse/ HTTP/1.1" 200 4846
+[2019-02-12 02:57:56] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 02:58:00] INFO [django.server.log_message:124] "GET /projects/projects/DevOps HTTP/1.1" 200 15233
+[2019-02-12 02:58:00] WARNING [django.request.log_response:228] Not Found: /projects/projects/images/icon5.png
+[2019-02-12 02:58:00] WARNING [django.server.log_message:124] "GET /projects/projects/images/icon5.png HTTP/1.1" 404 13295
+[2019-02-12 02:58:00] ERROR [django.request.log_response:228] Internal Server Error: /projects/projects/UbuntuUbuntuUbuntuUbuntu
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 42, in project_courses
+    project = Project.objects.get(project_title=project_name)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 399, in get
+    self.model._meta.object_name
+Projects.models.Project.DoesNotExist: Project matching query does not exist.
+[2019-02-12 02:58:00] ERROR [django.server.log_message:124] "GET /projects/projects/UbuntuUbuntuUbuntuUbuntu HTTP/1.1" 500 79280
+[2019-02-12 02:58:01] ERROR [django.request.log_response:228] Internal Server Error: /projects/projects/AvatarAvatarAvatarAvatarAvatarAvatar
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 42, in project_courses
+    project = Project.objects.get(project_title=project_name)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 399, in get
+    self.model._meta.object_name
+Projects.models.Project.DoesNotExist: Project matching query does not exist.
+[2019-02-12 02:58:01] ERROR [django.server.log_message:124] "GET /projects/projects/AvatarAvatarAvatarAvatarAvatarAvatar HTTP/1.1" 500 79497
+[2019-02-12 02:58:11] INFO [django.server.log_message:124] "GET /projects/Ubuntu/course HTTP/1.1" 302 0
+[2019-02-12 02:58:11] ERROR [django.request.log_response:228] Internal Server Error: /tryfree/standardPlan/
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\home\views.py", line 1240, in tryfree
+    stripe.api_key = stripeset[0].secretkey
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 303, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+[2019-02-12 02:58:11] ERROR [django.server.log_message:124] "GET /tryfree/standardPlan/ HTTP/1.1" 500 80743
+[2019-02-12 02:58:29] INFO [django.server.log_message:124] "GET /admin/ HTTP/1.1" 200 24733
+[2019-02-12 02:59:41] INFO [django.server.log_message:124] "GET /admin/home/stripepayment/ HTTP/1.1" 200 3218
+[2019-02-12 02:59:41] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 02:59:44] INFO [django.server.log_message:124] "GET /admin/home/stripepayment/add/ HTTP/1.1" 200 5068
+[2019-02-12 02:59:44] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 03:00:20] INFO [django.server.log_message:124] "POST /admin/home/stripepayment/add/ HTTP/1.1" 302 0
+[2019-02-12 03:00:20] INFO [django.server.log_message:124] "GET /admin/home/stripepayment/ HTTP/1.1" 200 4645
+[2019-02-12 03:00:20] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 03:00:27] INFO [django.server.log_message:124] "GET /projects/Ubuntu/course HTTP/1.1" 302 0
+[2019-02-12 03:00:28] INFO [django.server.log_message:124] "GET /tryfree/standardPlan/ HTTP/1.1" 200 16471
+[2019-02-12 03:00:28] WARNING [django.request.log_response:228] Not Found: /tryfree/standardPlan/images/icon5.png
+[2019-02-12 03:00:28] WARNING [django.server.log_message:124] "GET /tryfree/standardPlan/images/icon5.png HTTP/1.1" 404 12622
+[2019-02-12 03:00:38] INFO [django.server.log_message:124] "GET /admin/ HTTP/1.1" 200 25056
+[2019-02-12 03:00:43] INFO [django.server.log_message:124] "GET /admin/users/customuser/ HTTP/1.1" 200 6581
+[2019-02-12 03:00:43] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 03:00:43] INFO [django.server.log_message:124] "GET /static/admin/img/search.svg HTTP/1.1" 200 461
+[2019-02-12 03:00:43] INFO [django.server.log_message:124] "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1116
+[2019-02-12 03:00:46] INFO [django.server.log_message:124] "GET /admin/users/customuser/1/change/ HTTP/1.1" 200 28927
+[2019-02-12 03:00:47] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 03:00:47] INFO [django.server.log_message:124] "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 12932
+[2019-02-12 03:00:47] INFO [django.server.log_message:124] "GET /static/admin/js/SelectBox.js HTTP/1.1" 200 5899
+[2019-02-12 03:00:47] INFO [django.server.log_message:124] "GET /static/admin/js/calendar.js HTTP/1.1" 200 7985
+[2019-02-12 03:00:47] INFO [django.server.log_message:124] "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 20709
+[2019-02-12 03:00:48] INFO [django.server.log_message:124] "GET /static/admin/img/selector-icons.svg HTTP/1.1" 200 3325
+[2019-02-12 03:00:48] INFO [django.server.log_message:124] "GET /static/admin/img/icon-unknown-alt.svg HTTP/1.1" 200 658
+[2019-02-12 03:00:48] INFO [django.server.log_message:124] "GET /static/admin/img/icon-unknown.svg HTTP/1.1" 200 658
+[2019-02-12 03:00:48] INFO [django.server.log_message:124] "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1095
+[2019-02-12 03:00:48] INFO [django.server.log_message:124] "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 686
+[2019-02-12 03:00:56] INFO [django.server.log_message:124] "POST /admin/users/customuser/1/change/ HTTP/1.1" 302 0
+[2019-02-12 03:00:56] INFO [django.server.log_message:124] "GET /admin/users/customuser/ HTTP/1.1" 200 6779
+[2019-02-12 03:00:56] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 03:01:04] INFO [django.server.log_message:124] "GET /projects/projects/DevOps HTTP/1.1" 200 15233
+[2019-02-12 03:01:04] ERROR [django.request.log_response:228] Internal Server Error: /projects/projects/UbuntuUbuntuUbuntuUbuntu
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 42, in project_courses
+    project = Project.objects.get(project_title=project_name)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 399, in get
+    self.model._meta.object_name
+Projects.models.Project.DoesNotExist: Project matching query does not exist.
+[2019-02-12 03:01:05] ERROR [django.server.log_message:124] "GET /projects/projects/UbuntuUbuntuUbuntuUbuntu HTTP/1.1" 500 79452
+[2019-02-12 03:01:05] ERROR [django.request.log_response:228] Internal Server Error: /projects/projects/AvatarAvatarAvatarAvatarAvatarAvatar
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 42, in project_courses
+    project = Project.objects.get(project_title=project_name)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 399, in get
+    self.model._meta.object_name
+Projects.models.Project.DoesNotExist: Project matching query does not exist.
+[2019-02-12 03:01:05] ERROR [django.server.log_message:124] "GET /projects/projects/AvatarAvatarAvatarAvatarAvatarAvatar HTTP/1.1" 500 79668
+[2019-02-12 03:01:08] ERROR [django.request.log_response:228] Internal Server Error: /projects/Ubuntu/course
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 81, in project_course_topics
+    return render(request, 'projects/project_course_topics.html', context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\urls\base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\urls\resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'course_labs' not found. 'course_labs' is not a valid view function or pattern name.
+[2019-02-12 03:01:08] ERROR [django.server.log_message:124] "GET /projects/Ubuntu/course HTTP/1.1" 500 172850
+[2019-02-12 03:07:54] INFO [django.server.log_message:124] "GET /projects/Ubuntu/course HTTP/1.1" 200 14937
+[2019-02-12 03:07:55] WARNING [django.request.log_response:228] Not Found: /projects/Ubuntu/images/icon5.png
+[2019-02-12 03:07:55] WARNING [django.server.log_message:124] "GET /projects/Ubuntu/images/icon5.png HTTP/1.1" 404 13494
+[2019-02-12 03:08:26] INFO [django.server.log_message:124] "GET /admin/ HTTP/1.1" 200 25359
+[2019-02-12 03:08:37] INFO [django.server.log_message:124] "GET /admin/Projects/projectcoursetopic/ HTTP/1.1" 200 3274
+[2019-02-12 03:08:37] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 03:08:40] INFO [django.server.log_message:124] "GET /admin/Projects/projectcoursetopic/add/ HTTP/1.1" 200 5835
+[2019-02-12 03:08:40] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 03:09:24] INFO [django.server.log_message:124] "POST /admin/Projects/projectcoursetopic/add/ HTTP/1.1" 302 0
+[2019-02-12 03:09:24] INFO [django.server.log_message:124] "GET /admin/Projects/projectcoursetopic/ HTTP/1.1" 200 4727
+[2019-02-12 03:09:24] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 03:09:27] INFO [django.server.log_message:124] "GET /admin/Projects/projectcoursetopic/add/ HTTP/1.1" 200 5835
+[2019-02-12 03:09:27] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 03:09:43] INFO [django.server.log_message:124] "POST /admin/Projects/projectcoursetopic/add/ HTTP/1.1" 200 6044
+[2019-02-12 03:09:43] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 03:10:14] INFO [django.server.log_message:124] "POST /admin/Projects/projectcoursetopic/add/ HTTP/1.1" 302 0
+[2019-02-12 03:10:14] INFO [django.server.log_message:124] "GET /admin/Projects/projectcoursetopic/ HTTP/1.1" 200 4958
+[2019-02-12 03:10:15] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 03:10:21] INFO [django.server.log_message:124] "GET /projects/Ubuntu/course HTTP/1.1" 200 15845
+[2019-02-12 03:10:21] WARNING [django.request.log_response:228] Not Found: /projects/Ubuntu/images/icon5.png
+[2019-02-12 03:10:21] WARNING [django.server.log_message:124] "GET /projects/Ubuntu/images/icon5.png HTTP/1.1" 404 13494
+[2019-02-12 03:10:21] WARNING [django.request.log_response:228] Not Found: /projects/Ubuntu/<django.db.models.fields.files.FileField>
+[2019-02-12 03:10:21] WARNING [django.server.log_message:124] "GET /projects/Ubuntu/%3Cdjango.db.models.fields.files.FileField%3E HTTP/1.1" 404 13585
+[2019-02-12 03:10:35] INFO [django.server.log_message:124] "GET /projects/Avatar/course HTTP/1.1" 200 15797
+[2019-02-12 03:10:36] WARNING [django.request.log_response:228] Not Found: /projects/Avatar/images/icon5.png
+[2019-02-12 03:10:36] WARNING [django.server.log_message:124] "GET /projects/Avatar/images/icon5.png HTTP/1.1" 404 13494
+[2019-02-12 03:10:36] WARNING [django.request.log_response:228] Not Found: /projects/Avatar/<django.db.models.fields.files.FileField>
+[2019-02-12 03:10:36] WARNING [django.server.log_message:124] "GET /projects/Avatar/%3Cdjango.db.models.fields.files.FileField%3E HTTP/1.1" 404 13585
+[2019-02-12 03:10:54] INFO [django.server.log_message:124] "GET /admin/Projects/ HTTP/1.1" 200 4387
+[2019-02-12 03:10:56] INFO [django.server.log_message:124] "GET /admin/Projects/labtask/ HTTP/1.1" 200 3192
+[2019-02-12 03:10:56] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 03:10:59] INFO [django.server.log_message:124] "GET /admin/Projects/labtask/add/ HTTP/1.1" 200 7288
+[2019-02-12 03:10:59] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 03:11:33] INFO [django.server.log_message:124] "POST /admin/Projects/labtask/add/ HTTP/1.1" 302 0
+[2019-02-12 03:11:33] INFO [django.server.log_message:124] "GET /admin/Projects/labtask/ HTTP/1.1" 200 4741
+[2019-02-12 03:11:33] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 03:11:52] INFO [django.server.log_message:124] "GET /projects/Avatar/course HTTP/1.1" 200 15797
+[2019-02-12 03:11:52] WARNING [django.request.log_response:228] Not Found: /projects/Avatar/images/icon5.png
+[2019-02-12 03:11:52] WARNING [django.server.log_message:124] "GET /projects/Avatar/images/icon5.png HTTP/1.1" 404 13494
+[2019-02-12 03:11:53] WARNING [django.request.log_response:228] Not Found: /projects/Avatar/<django.db.models.fields.files.FileField>
+[2019-02-12 03:11:53] WARNING [django.server.log_message:124] "GET /projects/Avatar/%3Cdjango.db.models.fields.files.FileField%3E HTTP/1.1" 404 13585
+[2019-02-12 03:11:56] INFO [django.server.log_message:124] "GET /projects/projects/DevOps HTTP/1.1" 200 15233
+[2019-02-12 03:11:57] ERROR [django.request.log_response:228] Internal Server Error: /projects/projects/UbuntuUbuntuUbuntuUbuntu
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 42, in project_courses
+    project = Project.objects.get(project_title=project_name)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 399, in get
+    self.model._meta.object_name
+Projects.models.Project.DoesNotExist: Project matching query does not exist.
+[2019-02-12 03:11:57] ERROR [django.request.log_response:228] Internal Server Error: /projects/projects/AvatarAvatarAvatarAvatarAvatarAvatar
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 42, in project_courses
+    project = Project.objects.get(project_title=project_name)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 399, in get
+    self.model._meta.object_name
+Projects.models.Project.DoesNotExist: Project matching query does not exist.
+[2019-02-12 03:11:57] ERROR [django.server.log_message:124] "GET /projects/projects/UbuntuUbuntuUbuntuUbuntu HTTP/1.1" 500 79280
+[2019-02-12 03:11:57] ERROR [django.server.log_message:124] "GET /projects/projects/AvatarAvatarAvatarAvatarAvatarAvatar HTTP/1.1" 500 79496
+[2019-02-12 03:12:01] INFO [django.server.log_message:124] "GET /projects/Ubuntu/course HTTP/1.1" 200 15845
+[2019-02-12 03:12:01] WARNING [django.request.log_response:228] Not Found: /projects/Ubuntu/images/icon5.png
+[2019-02-12 03:12:01] WARNING [django.server.log_message:124] "GET /projects/Ubuntu/images/icon5.png HTTP/1.1" 404 13494
+[2019-02-12 03:12:01] WARNING [django.request.log_response:228] Not Found: /projects/Ubuntu/<django.db.models.fields.files.FileField>
+[2019-02-12 03:12:01] WARNING [django.server.log_message:124] "GET /projects/Ubuntu/%3Cdjango.db.models.fields.files.FileField%3E HTTP/1.1" 404 13585
+[2019-02-12 03:12:06] ERROR [django.request.log_response:228] Internal Server Error: /projects/Ubuntu/labs
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 92, in project_course_labs
+    'course_labs': course.courselab_set.all(),
+AttributeError: 'ProjectCourse' object has no attribute 'courselab_set'
+[2019-02-12 03:12:06] ERROR [django.server.log_message:124] "GET /projects/Ubuntu/labs HTTP/1.1" 500 76114
+[2019-02-12 03:19:01] INFO [django.server.log_message:124] "GET /projects/Ubuntu/course HTTP/1.1" 200 15845
+[2019-02-12 03:19:01] WARNING [django.request.log_response:228] Not Found: /projects/Ubuntu/images/icon5.png
+[2019-02-12 03:19:01] WARNING [django.server.log_message:124] "GET /projects/Ubuntu/images/icon5.png HTTP/1.1" 404 13494
+[2019-02-12 03:19:01] WARNING [django.request.log_response:228] Not Found: /projects/Ubuntu/<django.db.models.fields.files.FileField>
+[2019-02-12 03:19:01] WARNING [django.server.log_message:124] "GET /projects/Ubuntu/%3Cdjango.db.models.fields.files.FileField%3E HTTP/1.1" 404 13585
+[2019-02-12 03:19:10] ERROR [django.request.log_response:228] Internal Server Error: /projects/Ubuntu/labs
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 92, in project_course_labs
+    'course_labs': course.courselab_set.all(),
+AttributeError: 'ProjectCourse' object has no attribute 'courselab_set'
+[2019-02-12 03:19:10] ERROR [django.server.log_message:124] "GET /projects/Ubuntu/labs HTTP/1.1" 500 76113
+[2019-02-12 03:20:06] ERROR [django.request.log_response:228] Internal Server Error: /projects/Ubuntu/lab_tasks
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+TypeError: lab_task() got an unexpected keyword argument 'lab_title'
+[2019-02-12 03:20:06] ERROR [django.server.log_message:124] "GET /projects/Ubuntu/lab_tasks HTTP/1.1" 500 71883
+[2019-02-12 03:23:08] INFO [django.server.log_message:124] "GET /admin/Projects/labtask/add/ HTTP/1.1" 200 7288
+[2019-02-12 03:23:09] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 03:26:27] WARNING [django.request.log_response:228] Not Found: /projects/Ubuntu/labs
+[2019-02-12 03:26:27] WARNING [django.server.log_message:124] "GET /projects/Ubuntu/labs HTTP/1.1" 404 13253
+[2019-02-12 03:26:36] ERROR [django.request.log_response:228] Internal Server Error: /projects/Ubuntu/course
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 81, in project_course_topics
+    return render(request, 'projects/project_course_topics.html', context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\urls\base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\urls\resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'course_labs' not found. 'course_labs' is not a valid view function or pattern name.
+[2019-02-12 03:26:36] ERROR [django.server.log_message:124] "GET /projects/Ubuntu/course HTTP/1.1" 500 173417
+[2019-02-12 03:26:44] INFO [django.server.log_message:124] "GET /projects/ HTTP/1.1" 200 14068
+[2019-02-12 03:26:44] WARNING [django.request.log_response:228] Not Found: /projects/images/icon5.png
+[2019-02-12 03:26:44] WARNING [django.server.log_message:124] "GET /projects/images/icon5.png HTTP/1.1" 404 13268
+[2019-02-12 03:26:45] WARNING [django.request.log_response:228] Not Found: /projects/DevOpsDevOpsDevOps
+[2019-02-12 03:26:45] WARNING [django.request.log_response:228] Not Found: /projects/DevOpsDevOpsDevOpsDevOps
+[2019-02-12 03:26:45] WARNING [django.server.log_message:124] "GET /projects/DevOpsDevOpsDevOps HTTP/1.1" 404 13274
+[2019-02-12 03:26:45] WARNING [django.server.log_message:124] "GET /projects/DevOpsDevOpsDevOpsDevOps HTTP/1.1" 404 13292
+[2019-02-12 03:26:47] INFO [django.server.log_message:124] "GET /projects/projects/DevOps HTTP/1.1" 200 15233
+[2019-02-12 03:26:47] WARNING [django.request.log_response:228] Not Found: /projects/projects/images/icon5.png
+[2019-02-12 03:26:47] WARNING [django.server.log_message:124] "GET /projects/projects/images/icon5.png HTTP/1.1" 404 13295
+[2019-02-12 03:26:48] ERROR [django.request.log_response:228] Internal Server Error: /projects/projects/UbuntuUbuntuUbuntuUbuntu
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 42, in project_courses
+    project = Project.objects.get(project_title=project_name)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 399, in get
+    self.model._meta.object_name
+Projects.models.Project.DoesNotExist: Project matching query does not exist.
+[2019-02-12 03:26:48] ERROR [django.server.log_message:124] "GET /projects/projects/UbuntuUbuntuUbuntuUbuntu HTTP/1.1" 500 79280
+[2019-02-12 03:26:48] ERROR [django.request.log_response:228] Internal Server Error: /projects/projects/AvatarAvatarAvatarAvatarAvatarAvatar
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 42, in project_courses
+    project = Project.objects.get(project_title=project_name)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 399, in get
+    self.model._meta.object_name
+Projects.models.Project.DoesNotExist: Project matching query does not exist.
+[2019-02-12 03:26:48] ERROR [django.server.log_message:124] "GET /projects/projects/AvatarAvatarAvatarAvatarAvatarAvatar HTTP/1.1" 500 79496
+[2019-02-12 03:26:52] ERROR [django.request.log_response:228] Internal Server Error: /projects/Ubuntu/course
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 81, in project_course_topics
+    return render(request, 'projects/project_course_topics.html', context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\urls\base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\urls\resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'course_labs' not found. 'course_labs' is not a valid view function or pattern name.
+[2019-02-12 03:26:52] ERROR [django.server.log_message:124] "GET /projects/Ubuntu/course HTTP/1.1" 500 173583
+[2019-02-12 03:30:57] INFO [django.server.log_message:124] "GET /projects/Ubuntu/course HTTP/1.1" 200 15845
+[2019-02-12 03:30:58] WARNING [django.request.log_response:228] Not Found: /projects/Ubuntu/images/icon5.png
+[2019-02-12 03:30:58] WARNING [django.server.log_message:124] "GET /projects/Ubuntu/images/icon5.png HTTP/1.1" 404 13494
+[2019-02-12 03:30:59] WARNING [django.request.log_response:228] Not Found: /projects/Ubuntu/<django.db.models.fields.files.FileField>
+[2019-02-12 03:30:59] WARNING [django.server.log_message:124] "GET /projects/Ubuntu/%3Cdjango.db.models.fields.files.FileField%3E HTTP/1.1" 404 13585
+[2019-02-12 03:33:04] INFO [django.server.log_message:124] "GET /projects/Ubuntu/course HTTP/1.1" 200 15850
+[2019-02-12 03:33:04] WARNING [django.request.log_response:228] Not Found: /projects/Ubuntu/images/icon5.png
+[2019-02-12 03:33:04] WARNING [django.server.log_message:124] "GET /projects/Ubuntu/images/icon5.png HTTP/1.1" 404 13494
+[2019-02-12 03:33:05] WARNING [django.request.log_response:228] Not Found: /projects/Ubuntu/<django.db.models.fields.files.FileField>
+[2019-02-12 03:33:05] WARNING [django.server.log_message:124] "GET /projects/Ubuntu/%3Cdjango.db.models.fields.files.FileField%3E HTTP/1.1" 404 13585
+[2019-02-12 03:33:09] ERROR [django.request.log_response:228] Internal Server Error: /projects/Ubuntu/lab_tasks
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 119, in lab_task
+    task = LabTask.objects.get(lab_topic=lab_topic)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 390, in get
+    clone = self.filter(*args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 844, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 862, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\sql\query.py", line 1263, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\sql\query.py", line 1287, in _add_q
+    split_subq=split_subq,
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\sql\query.py", line 1225, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\sql\query.py", line 1096, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\lookups.py", line 20, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\fields\related_lookups.py", line 115, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\fields\__init__.py", line 965, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'Ubuntu'
+[2019-02-12 03:33:09] ERROR [django.server.log_message:124] "GET /projects/Ubuntu/lab_tasks HTTP/1.1" 500 127387
+[2019-02-12 03:46:02] ERROR [django.request.log_response:228] Internal Server Error: /projects/Ubuntu/lab_tasks
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 119, in lab_task
+    topic = ProjectCourseTopic.objects.get(lab_topic=topic_name)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 390, in get
+    clone = self.filter(*args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 844, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 862, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\sql\query.py", line 1263, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\sql\query.py", line 1287, in _add_q
+    split_subq=split_subq,
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\sql\query.py", line 1164, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\sql\query.py", line 1028, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\sql\query.py", line 1389, in names_to_path
+    "Choices are: %s" % (name, ", ".join(available)))
+django.core.exceptions.FieldError: Cannot resolve keyword 'lab_topic' into field. Choices are: id, labtask, topic_course, topic_course_id, topic_id, topic_title
+[2019-02-12 03:46:02] ERROR [django.server.log_message:124] "GET /projects/Ubuntu/lab_tasks HTTP/1.1" 500 118007
+[2019-02-12 03:49:51] ERROR [django.request.log_response:228] Internal Server Error: /projects/Ubuntu/lab_tasks
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 119, in lab_task
+    topic = LabTask.objects.get(lab_topic=topic_name)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 390, in get
+    clone = self.filter(*args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 844, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 862, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\sql\query.py", line 1263, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\sql\query.py", line 1287, in _add_q
+    split_subq=split_subq,
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\sql\query.py", line 1225, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\sql\query.py", line 1096, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\lookups.py", line 20, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\fields\related_lookups.py", line 115, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\fields\__init__.py", line 965, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'Ubuntu'
+[2019-02-12 03:49:51] ERROR [django.server.log_message:124] "GET /projects/Ubuntu/lab_tasks HTTP/1.1" 500 127560
+[2019-02-12 03:52:57] INFO [django.server.log_message:124] "GET /projects/projects/DevOps HTTP/1.1" 200 15233
+[2019-02-12 03:52:57] ERROR [django.request.log_response:228] Internal Server Error: /projects/projects/UbuntuUbuntuUbuntuUbuntu
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 42, in project_courses
+    project = Project.objects.get(project_title=project_name)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 399, in get
+    self.model._meta.object_name
+Projects.models.Project.DoesNotExist: Project matching query does not exist.
+[2019-02-12 03:52:58] ERROR [django.server.log_message:124] "GET /projects/projects/UbuntuUbuntuUbuntuUbuntu HTTP/1.1" 500 79451
+[2019-02-12 03:52:58] ERROR [django.request.log_response:228] Internal Server Error: /projects/projects/AvatarAvatarAvatarAvatarAvatarAvatar
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 42, in project_courses
+    project = Project.objects.get(project_title=project_name)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 399, in get
+    self.model._meta.object_name
+Projects.models.Project.DoesNotExist: Project matching query does not exist.
+[2019-02-12 03:52:58] ERROR [django.server.log_message:124] "GET /projects/projects/AvatarAvatarAvatarAvatarAvatarAvatar HTTP/1.1" 500 79667
+[2019-02-12 10:00:32] ERROR [django.request.log_response:228] Internal Server Error: /projects/Avatar/course
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 81, in project_course_topics
+    return render(request, 'projects/project_course_topics.html', context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\urls\base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\urls\resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'lab_tasks' with arguments '('Avatar',)' not found. 1 pattern(s) tried: ['projects\\/(?P<id>[0-9]+)\\/lab_tasks$']
+[2019-02-12 10:00:32] ERROR [django.server.log_message:124] "GET /projects/Avatar/course HTTP/1.1" 500 176764
+[2019-02-12 10:04:46] INFO [django.server.log_message:124] "GET /projects/Avatar/course HTTP/1.1" 200 15802
+[2019-02-12 10:04:46] WARNING [django.request.log_response:228] Not Found: /projects/Avatar/images/icon5.png
+[2019-02-12 10:04:47] WARNING [django.server.log_message:124] "GET /projects/Avatar/images/icon5.png HTTP/1.1" 404 13487
+[2019-02-12 10:04:47] WARNING [django.request.log_response:228] Not Found: /projects/Avatar/<django.db.models.fields.files.FileField>
+[2019-02-12 10:04:47] WARNING [django.server.log_message:124] "GET /projects/Avatar/%3Cdjango.db.models.fields.files.FileField%3E HTTP/1.1" 404 13578
+[2019-02-12 10:07:07] INFO [django.server.log_message:124] "GET /projects/projects/DevOps HTTP/1.1" 200 15233
+[2019-02-12 10:07:07] ERROR [django.request.log_response:228] Internal Server Error: /projects/projects/UbuntuUbuntuUbuntuUbuntu
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 42, in project_courses
+    project = Project.objects.get(project_title=project_name)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 399, in get
+    self.model._meta.object_name
+Projects.models.Project.DoesNotExist: Project matching query does not exist.
+[2019-02-12 10:07:07] ERROR [django.server.log_message:124] "GET /projects/projects/UbuntuUbuntuUbuntuUbuntu HTTP/1.1" 500 79280
+[2019-02-12 10:07:08] ERROR [django.request.log_response:228] Internal Server Error: /projects/projects/AvatarAvatarAvatarAvatarAvatarAvatar
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 42, in project_courses
+    project = Project.objects.get(project_title=project_name)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 399, in get
+    self.model._meta.object_name
+Projects.models.Project.DoesNotExist: Project matching query does not exist.
+[2019-02-12 10:07:08] ERROR [django.server.log_message:124] "GET /projects/projects/AvatarAvatarAvatarAvatarAvatarAvatar HTTP/1.1" 500 79496
+[2019-02-12 10:07:10] INFO [django.server.log_message:124] "GET /projects/Avatar/course HTTP/1.1" 200 15802
+[2019-02-12 10:07:10] WARNING [django.request.log_response:228] Not Found: /projects/Avatar/images/icon5.png
+[2019-02-12 10:07:10] WARNING [django.server.log_message:124] "GET /projects/Avatar/images/icon5.png HTTP/1.1" 404 13493
+[2019-02-12 10:07:11] WARNING [django.request.log_response:228] Not Found: /projects/Avatar/<django.db.models.fields.files.FileField>
+[2019-02-12 10:07:11] WARNING [django.server.log_message:124] "GET /projects/Avatar/%3Cdjango.db.models.fields.files.FileField%3E HTTP/1.1" 404 13584
+[2019-02-12 10:07:15] ERROR [django.request.log_response:228] Internal Server Error: /projects/Avatar/lab_tasks
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 119, in lab_task
+    topic = LabTask.objects.get(topic_id=topic_id)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 390, in get
+    clone = self.filter(*args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 844, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 862, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\sql\query.py", line 1263, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\sql\query.py", line 1287, in _add_q
+    split_subq=split_subq,
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\sql\query.py", line 1164, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\sql\query.py", line 1028, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\sql\query.py", line 1389, in names_to_path
+    "Choices are: %s" % (name, ", ".join(available)))
+django.core.exceptions.FieldError: Cannot resolve keyword 'topic_id' into field. Choices are: id, lab_task_no, lab_topic, lab_topic_id, task, task_comment, task_id, task_note, userslabtaskstatus
+[2019-02-12 10:07:15] ERROR [django.server.log_message:124] "GET /projects/Avatar/lab_tasks HTTP/1.1" 500 118309
+[2019-02-12 10:09:41] INFO [django.server.log_message:124] "GET /projects/Avatar/course HTTP/1.1" 200 15802
+[2019-02-12 10:09:45] ERROR [django.request.log_response:228] Internal Server Error: /projects/Avatar/lab_tasks
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 119, in lab_task
+    topic = ProjectCourseTopic.objects.get(topic_id=topic_id)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 390, in get
+    clone = self.filter(*args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 844, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 862, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\sql\query.py", line 1263, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\sql\query.py", line 1287, in _add_q
+    split_subq=split_subq,
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\sql\query.py", line 1225, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\sql\query.py", line 1096, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\lookups.py", line 20, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\lookups.py", line 70, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\fields\__init__.py", line 1807, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'Avatar'
+[2019-02-12 10:09:45] ERROR [django.server.log_message:124] "GET /projects/Avatar/lab_tasks HTTP/1.1" 500 125926
+[2019-02-12 10:14:34] INFO [django.server.log_message:124] "GET /projects/1/lab_tasks HTTP/1.1" 200 13649
+[2019-02-12 10:14:34] WARNING [django.request.log_response:228] Not Found: /projects/1/images/icon5.png
+[2019-02-12 10:14:34] WARNING [django.server.log_message:124] "GET /projects/1/images/icon5.png HTTP/1.1" 404 13478
+[2019-02-12 10:15:43] INFO [django.server.log_message:124] "GET /projects/2/lab_tasks HTTP/1.1" 200 13649
+[2019-02-12 10:15:44] WARNING [django.request.log_response:228] Not Found: /projects/2/images/icon5.png
+[2019-02-12 10:15:44] WARNING [django.server.log_message:124] "GET /projects/2/images/icon5.png HTTP/1.1" 404 13478
+[2019-02-12 10:15:51] ERROR [django.request.log_response:228] Internal Server Error: /projects/4/lab_tasks
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 119, in lab_task
+    topic = ProjectCourseTopic.objects.get(topic_id=topic_id)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 399, in get
+    self.model._meta.object_name
+Projects.models.ProjectCourseTopic.DoesNotExist: ProjectCourseTopic matching query does not exist.
+[2019-02-12 10:15:51] ERROR [django.server.log_message:124] "GET /projects/4/lab_tasks HTTP/1.1" 500 83718
+[2019-02-12 10:16:03] INFO [django.server.log_message:124] "GET /admin/Projects/ HTTP/1.1" 200 4387
+[2019-02-12 10:16:07] INFO [django.server.log_message:124] "GET /admin/Projects/labtask/ HTTP/1.1" 200 4458
+[2019-02-12 10:16:07] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 10:16:11] INFO [django.server.log_message:124] "GET /admin/Projects/labtask/1/change/ HTTP/1.1" 200 7826
+[2019-02-12 10:16:11] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 10:16:30] INFO [django.server.log_message:124] "GET /admin/Projects/labtask/ HTTP/1.1" 200 4458
+[2019-02-12 10:16:30] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-12 10:19:32] INFO [django.server.log_message:124] "GET /projects/1/lab_tasks HTTP/1.1" 200 15258
+[2019-02-12 10:19:32] WARNING [django.request.log_response:228] Not Found: /projects/1/images/icon5.png
+[2019-02-12 10:19:32] WARNING [django.server.log_message:124] "GET /projects/1/images/icon5.png HTTP/1.1" 404 13478
+[2019-02-12 10:19:33] INFO [django.server.log_message:124] "GET /static/home/images/Ellipse.png HTTP/1.1" 200 624
+[2019-02-12 10:25:37] ERROR [django.request.log_response:228] Internal Server Error: /projects/1/lab_tasks
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 119, in lab_task
+    course = ProjectCourse.objects.get(course_title=course_name.replace("_", " "))
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 399, in get
+    self.model._meta.object_name
+Projects.models.ProjectCourse.DoesNotExist: ProjectCourse matching query does not exist.
+[2019-02-12 10:25:37] ERROR [django.server.log_message:124] "GET /projects/1/lab_tasks HTTP/1.1" 500 84361
+[2019-02-12 10:25:56] WARNING [django.request.log_response:228] Not Found: /projects/ubuntu/1/
+[2019-02-12 10:25:56] WARNING [django.server.log_message:124] "GET /projects/ubuntu/1/ HTTP/1.1" 404 13466
+[2019-02-12 10:26:08] ERROR [django.request.log_response:228] Internal Server Error: /projects/Ubuntu/course
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 81, in project_course_topics
+    return render(request, 'projects/project_course_topics.html', context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\urls\base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\urls\resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'lab_tasks' with arguments '('Ubuntu',)' not found. 1 pattern(s) tried: ['projects\\/(?P<course_name>[-a-zA-Z0-9_]+)\\/(?P<topic_id>[-a-zA-Z0-9_]+)$']
+[2019-02-12 10:26:08] ERROR [django.server.log_message:124] "GET /projects/Ubuntu/course HTTP/1.1" 500 177014
+[2019-02-12 10:26:15] INFO [django.server.log_message:124] "GET /projects/ HTTP/1.1" 200 14068
+[2019-02-12 10:26:16] WARNING [django.request.log_response:228] Not Found: /projects/images/icon5.png
+[2019-02-12 10:26:16] WARNING [django.server.log_message:124] "GET /projects/images/icon5.png HTTP/1.1" 404 13487
+[2019-02-12 10:26:16] WARNING [django.request.log_response:228] Not Found: /projects/DevOpsDevOpsDevOps
+[2019-02-12 10:26:16] WARNING [django.server.log_message:124] "GET /projects/DevOpsDevOpsDevOps HTTP/1.1" 404 13493
+[2019-02-12 10:26:16] WARNING [django.request.log_response:228] Not Found: /projects/DevOpsDevOpsDevOpsDevOps
+[2019-02-12 10:26:16] WARNING [django.server.log_message:124] "GET /projects/DevOpsDevOpsDevOpsDevOps HTTP/1.1" 404 13511
+[2019-02-12 10:26:18] INFO [django.server.log_message:124] "GET /projects/projects/DevOps HTTP/1.1" 200 15233
+[2019-02-12 10:26:19] WARNING [django.request.log_response:228] Not Found: /projects/projects/images/icon5.png
+[2019-02-12 10:26:19] WARNING [django.server.log_message:124] "GET /projects/projects/images/icon5.png HTTP/1.1" 404 13514
+[2019-02-12 10:26:19] ERROR [django.request.log_response:228] Internal Server Error: /projects/projects/UbuntuUbuntuUbuntuUbuntu
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 42, in project_courses
+    project = Project.objects.get(project_title=project_name)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 399, in get
+    self.model._meta.object_name
+Projects.models.Project.DoesNotExist: Project matching query does not exist.
+[2019-02-12 10:26:19] ERROR [django.server.log_message:124] "GET /projects/projects/UbuntuUbuntuUbuntuUbuntu HTTP/1.1" 500 79451
+[2019-02-12 10:26:19] ERROR [django.request.log_response:228] Internal Server Error: /projects/projects/AvatarAvatarAvatarAvatarAvatarAvatar
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 42, in project_courses
+    project = Project.objects.get(project_title=project_name)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 399, in get
+    self.model._meta.object_name
+Projects.models.Project.DoesNotExist: Project matching query does not exist.
+[2019-02-12 10:26:19] ERROR [django.server.log_message:124] "GET /projects/projects/AvatarAvatarAvatarAvatarAvatarAvatar HTTP/1.1" 500 79667
+[2019-02-12 10:26:23] ERROR [django.request.log_response:228] Internal Server Error: /projects/Ubuntu/course
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 81, in project_course_topics
+    return render(request, 'projects/project_course_topics.html', context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\urls\base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\urls\resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'lab_tasks' with arguments '('Ubuntu',)' not found. 1 pattern(s) tried: ['projects\\/(?P<course_name>[-a-zA-Z0-9_]+)\\/(?P<topic_id>[-a-zA-Z0-9_]+)$']
+[2019-02-12 10:26:23] ERROR [django.server.log_message:124] "GET /projects/Ubuntu/course HTTP/1.1" 500 177180
+[2019-02-12 10:29:27] ERROR [django.request.log_response:228] Internal Server Error: /projects/Ubuntu/course
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 81, in project_course_topics
+    return render(request, 'projects/project_course_topics.html', context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\urls\base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\urls\resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'lab_tasks' with arguments '('Ubuntu',)' not found. 1 pattern(s) tried: ['projects\\/(?P<course_name>[-a-zA-Z0-9_]+)\\/(?P<topic_id>[-a-zA-Z0-9_]+)$']
+[2019-02-12 10:29:27] ERROR [django.server.log_message:124] "GET /projects/Ubuntu/course HTTP/1.1" 500 177144
+[2019-02-12 10:29:33] INFO [django.server.log_message:124] "GET /projects/projects/DevOps HTTP/1.1" 200 15233
+[2019-02-12 10:29:34] ERROR [django.request.log_response:228] Internal Server Error: /projects/projects/UbuntuUbuntuUbuntuUbuntu
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 42, in project_courses
+    project = Project.objects.get(project_title=project_name)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 399, in get
+    self.model._meta.object_name
+Projects.models.Project.DoesNotExist: Project matching query does not exist.
+[2019-02-12 10:29:34] ERROR [django.request.log_response:228] Internal Server Error: /projects/projects/AvatarAvatarAvatarAvatarAvatarAvatar
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 42, in project_courses
+    project = Project.objects.get(project_title=project_name)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 399, in get
+    self.model._meta.object_name
+Projects.models.Project.DoesNotExist: Project matching query does not exist.
+[2019-02-12 10:29:34] ERROR [django.server.log_message:124] "GET /projects/projects/UbuntuUbuntuUbuntuUbuntu HTTP/1.1" 500 79280
+[2019-02-12 10:29:34] ERROR [django.server.log_message:124] "GET /projects/projects/AvatarAvatarAvatarAvatarAvatarAvatar HTTP/1.1" 500 79496
+[2019-02-12 10:29:38] ERROR [django.request.log_response:228] Internal Server Error: /projects/Ubuntu/course
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 81, in project_course_topics
+    return render(request, 'projects/project_course_topics.html', context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\urls\base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\urls\resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'lab_tasks' with arguments '('Ubuntu',)' not found. 1 pattern(s) tried: ['projects\\/(?P<course_name>[-a-zA-Z0-9_]+)\\/(?P<topic_id>[-a-zA-Z0-9_]+)$']
+[2019-02-12 10:29:38] ERROR [django.server.log_message:124] "GET /projects/Ubuntu/course HTTP/1.1" 500 177180
+[2019-02-12 10:30:19] INFO [django.server.log_message:124] "GET /projects/Ubuntu/course HTTP/1.1" 200 15840
+[2019-02-12 10:30:19] WARNING [django.request.log_response:228] Not Found: /projects/Ubuntu/images/icon5.png
+[2019-02-12 10:30:19] WARNING [django.server.log_message:124] "GET /projects/Ubuntu/images/icon5.png HTTP/1.1" 404 13483
+[2019-02-12 10:30:21] WARNING [django.request.log_response:228] Not Found: /projects/Ubuntu/<django.db.models.fields.files.FileField>
+[2019-02-12 10:30:21] WARNING [django.server.log_message:124] "GET /projects/Ubuntu/%3Cdjango.db.models.fields.files.FileField%3E HTTP/1.1" 404 13574
+[2019-02-12 10:31:49] WARNING [django.request.log_response:228] Not Found: /projects/Ubuntu/course
+[2019-02-12 10:31:49] WARNING [django.server.log_message:124] "GET /projects/Ubuntu/course HTTP/1.1" 404 13446
+[2019-02-12 10:31:56] INFO [django.server.log_message:124] "GET /projects/projects/DevOps HTTP/1.1" 200 15219
+[2019-02-12 10:31:57] ERROR [django.request.log_response:228] Internal Server Error: /projects/projects/AvatarAvatarAvatarAvatarAvatarAvatar
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 42, in project_courses
+    project = Project.objects.get(project_title=project_name)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 399, in get
+    self.model._meta.object_name
+Projects.models.Project.DoesNotExist: Project matching query does not exist.
+[2019-02-12 10:31:57] ERROR [django.request.log_response:228] Internal Server Error: /projects/projects/UbuntuUbuntuUbuntuUbuntu
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 42, in project_courses
+    project = Project.objects.get(project_title=project_name)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 399, in get
+    self.model._meta.object_name
+Projects.models.Project.DoesNotExist: Project matching query does not exist.
+[2019-02-12 10:31:57] ERROR [django.server.log_message:124] "GET /projects/projects/AvatarAvatarAvatarAvatarAvatarAvatar HTTP/1.1" 500 79668
+[2019-02-12 10:31:57] ERROR [django.server.log_message:124] "GET /projects/projects/UbuntuUbuntuUbuntuUbuntu HTTP/1.1" 500 79451
+[2019-02-12 10:32:12] INFO [django.server.log_message:124] "GET /projects/Ubuntu HTTP/1.1" 200 15840
+[2019-02-12 10:32:13] WARNING [django.request.log_response:228] Not Found: /projects/images/icon5.png
+[2019-02-12 10:32:13] WARNING [django.server.log_message:124] "GET /projects/images/icon5.png HTTP/1.1" 404 13455
+[2019-02-12 10:32:14] WARNING [django.request.log_response:228] Not Found: /projects/<django.db.models.fields.files.FileField>
+[2019-02-12 10:32:14] WARNING [django.server.log_message:124] "GET /projects/%3Cdjango.db.models.fields.files.FileField%3E HTTP/1.1" 404 13546
+[2019-02-12 10:32:21] INFO [django.server.log_message:124] "GET /projects/Ubuntu HTTP/1.1" 200 15840
+[2019-02-12 10:32:21] WARNING [django.request.log_response:228] Not Found: /projects/images/icon5.png
+[2019-02-12 10:32:21] WARNING [django.server.log_message:124] "GET /projects/images/icon5.png HTTP/1.1" 404 13455
+[2019-02-12 10:32:21] WARNING [django.request.log_response:228] Not Found: /projects/<django.db.models.fields.files.FileField>
+[2019-02-12 10:32:21] WARNING [django.server.log_message:124] "GET /projects/%3Cdjango.db.models.fields.files.FileField%3E HTTP/1.1" 404 13546
+[2019-02-12 10:34:19] INFO [django.server.log_message:124] "GET /projects/Ubuntu HTTP/1.1" 200 15840
+[2019-02-12 10:34:19] WARNING [django.request.log_response:228] Not Found: /projects/images/icon5.png
+[2019-02-12 10:34:19] WARNING [django.server.log_message:124] "GET /projects/images/icon5.png HTTP/1.1" 404 13455
+[2019-02-12 10:34:20] WARNING [django.request.log_response:228] Not Found: /projects/<django.db.models.fields.files.FileField>
+[2019-02-12 10:34:20] WARNING [django.server.log_message:124] "GET /projects/%3Cdjango.db.models.fields.files.FileField%3E HTTP/1.1" 404 13546
+[2019-02-12 10:35:13] INFO [django.server.log_message:124] "GET /projects/Ubuntu HTTP/1.1" 200 15840
+[2019-02-12 10:35:13] WARNING [django.request.log_response:228] Not Found: /projects/images/icon5.png
+[2019-02-12 10:35:13] WARNING [django.server.log_message:124] "GET /projects/images/icon5.png HTTP/1.1" 404 13455
+[2019-02-12 10:35:14] WARNING [django.request.log_response:228] Not Found: /projects/<django.db.models.fields.files.FileField>
+[2019-02-12 10:35:14] WARNING [django.server.log_message:124] "GET /projects/%3Cdjango.db.models.fields.files.FileField%3E HTTP/1.1" 404 13546
+[2019-02-12 10:35:18] INFO [django.server.log_message:124] "GET /projects/Ubuntu HTTP/1.1" 200 15840
+[2019-02-12 10:35:18] WARNING [django.request.log_response:228] Not Found: /projects/images/icon5.png
+[2019-02-12 10:35:18] WARNING [django.server.log_message:124] "GET /projects/images/icon5.png HTTP/1.1" 404 13455
+[2019-02-12 10:35:18] WARNING [django.request.log_response:228] Not Found: /projects/<django.db.models.fields.files.FileField>
+[2019-02-12 10:35:19] WARNING [django.server.log_message:124] "GET /projects/%3Cdjango.db.models.fields.files.FileField%3E HTTP/1.1" 404 13546
+[2019-02-12 10:35:28] INFO [django.server.log_message:124] "GET /projects/Ubuntu HTTP/1.1" 200 15840
+[2019-02-12 10:35:28] WARNING [django.request.log_response:228] Not Found: /projects/images/icon5.png
+[2019-02-12 10:35:28] WARNING [django.server.log_message:124] "GET /projects/images/icon5.png HTTP/1.1" 404 13455
+[2019-02-12 10:35:29] WARNING [django.request.log_response:228] Not Found: /projects/<django.db.models.fields.files.FileField>
+[2019-02-12 10:35:29] WARNING [django.server.log_message:124] "GET /projects/%3Cdjango.db.models.fields.files.FileField%3E HTTP/1.1" 404 13546
+[2019-02-12 10:37:53] INFO [django.server.log_message:124] "GET /projects/ HTTP/1.1" 200 14068
+[2019-02-12 10:37:53] WARNING [django.request.log_response:228] Not Found: /projects/images/icon5.png
+[2019-02-12 10:37:53] WARNING [django.server.log_message:124] "GET /projects/images/icon5.png HTTP/1.1" 404 13465
+[2019-02-12 10:37:53] ERROR [django.request.log_response:228] Internal Server Error: /projects/DevOpsDevOpsDevOps
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 56, in project_course_topics
+    course = ProjectCourse.objects.get(course_title=course_name.replace("_", " "))
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 399, in get
+    self.model._meta.object_name
+Projects.models.ProjectCourse.DoesNotExist: ProjectCourse matching query does not exist.
+[2019-02-12 10:37:53] ERROR [django.server.log_message:124] "GET /projects/DevOpsDevOpsDevOps HTTP/1.1" 500 84149
+[2019-02-12 10:37:54] ERROR [django.request.log_response:228] Internal Server Error: /projects/DevOpsDevOpsDevOpsDevOps
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 56, in project_course_topics
+    course = ProjectCourse.objects.get(course_title=course_name.replace("_", " "))
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 399, in get
+    self.model._meta.object_name
+Projects.models.ProjectCourse.DoesNotExist: ProjectCourse matching query does not exist.
+[2019-02-12 10:37:54] ERROR [django.server.log_message:124] "GET /projects/DevOpsDevOpsDevOpsDevOps HTTP/1.1" 500 84269
+[2019-02-12 10:37:56] INFO [django.server.log_message:124] "GET /projects/projects/DevOps HTTP/1.1" 200 15219
+[2019-02-12 10:37:56] WARNING [django.request.log_response:228] Not Found: /projects/projects/images/icon5.png
+[2019-02-12 10:37:56] WARNING [django.server.log_message:124] "GET /projects/projects/images/icon5.png HTTP/1.1" 404 13492
+[2019-02-12 10:37:56] ERROR [django.request.log_response:228] Internal Server Error: /projects/projects/UbuntuUbuntuUbuntuUbuntu
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 42, in project_courses
+    project = Project.objects.get(project_title=project_name)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 399, in get
+    self.model._meta.object_name
+Projects.models.Project.DoesNotExist: Project matching query does not exist.
+[2019-02-12 10:37:56] ERROR [django.server.log_message:124] "GET /projects/projects/UbuntuUbuntuUbuntuUbuntu HTTP/1.1" 500 79280
+[2019-02-12 10:37:57] ERROR [django.request.log_response:228] Internal Server Error: /projects/projects/AvatarAvatarAvatarAvatarAvatarAvatar
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 42, in project_courses
+    project = Project.objects.get(project_title=project_name)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\db\models\query.py", line 399, in get
+    self.model._meta.object_name
+Projects.models.Project.DoesNotExist: Project matching query does not exist.
+[2019-02-12 10:37:57] ERROR [django.server.log_message:124] "GET /projects/projects/AvatarAvatarAvatarAvatarAvatarAvatar HTTP/1.1" 500 79496
+[2019-02-12 10:38:00] ERROR [django.request.log_response:228] Internal Server Error: /projects/Ubuntu
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 81, in project_course_topics
+    return render(request, 'projects/project_course_topics.html', context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\urls\base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\urls\resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'lab_tasks' with arguments '('',)' not found. 1 pattern(s) tried: ['projects\\/(?P<topic_id>[-a-zA-Z0-9_]+)\\/lab_tasks$']
+[2019-02-12 10:38:00] ERROR [django.server.log_message:124] "GET /projects/Ubuntu HTTP/1.1" 500 177198
+[2019-02-12 10:38:32] ERROR [django.request.log_response:228] Internal Server Error: /projects/Ubuntu
+Traceback (most recent call last):
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\makinde\Documents\Projects\Wrk\linuxjobber2\Django\Linuxjobber\Projects\views.py", line 81, in project_course_topics
+    return render(request, 'projects/project_course_topics.html', context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\template\defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\urls\base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "C:\Users\makinde\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\urls\resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'lab_tasks' with arguments '('',)' not found. 1 pattern(s) tried: ['projects\\/(?P<topic_id>[-a-zA-Z0-9_]+)\\/lab_tasks$']
+[2019-02-12 10:38:32] ERROR [django.server.log_message:124] "GET /projects/Ubuntu HTTP/1.1" 500 177368
+[2019-02-12 11:52:08] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 23385
+[2019-02-12 11:52:08] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 200 1163
+[2019-02-12 11:52:08] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 200 3979
+[2019-02-12 11:52:08] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2019-02-12 11:52:08] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 39923
+[2019-02-12 11:52:08] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 200 5561
+[2019-02-12 11:52:08] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2019-02-12 11:52:08] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 200 825
+[2019-02-12 11:52:08] INFO [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 200 6509
+[2019-02-12 11:52:08] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 141987
+[2019-02-12 11:52:08] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 200 29115
+[2019-02-12 11:52:09] INFO [django.server.log_message:124] "GET /static/faq/js/jquery-2.1.1.js HTTP/1.1" 200 256541
+[2019-02-12 11:52:09] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 200 3066
+[2019-02-12 11:52:09] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 200 9198
+[2019-02-12 11:52:09] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 200 4488
+[2019-02-12 11:52:09] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 200 7177
+[2019-02-12 11:52:09] INFO [django.server.log_message:124] "GET /static/js/waterbubble.js HTTP/1.1" 200 6268
+[2019-02-12 11:52:09] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-12 11:52:09] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12559
+[2019-02-12 11:52:09] INFO [django.server.log_message:124] "GET /static/home/images/icon1.png HTTP/1.1" 200 2133
+[2019-02-12 11:52:09] INFO [django.server.log_message:124] "GET /static/home/images/logout1.png HTTP/1.1" 200 1899
+[2019-02-12 11:52:09] INFO [django.server.log_message:124] "GET /static/home/images/linuxx.png HTTP/1.1" 200 13722
+[2019-02-12 11:52:09] INFO [django.server.log_message:124] "GET /static/home/images/awssa.png HTTP/1.1" 200 13411
+[2019-02-12 11:52:09] INFO [django.server.log_message:124] "GET /static/home/images/java.png HTTP/1.1" 200 14813
+[2019-02-12 11:52:09] INFO [django.server.log_message:124] "GET /static/home/images/views.png HTTP/1.1" 200 5544
+[2019-02-12 11:52:09] INFO [django.server.log_message:124] "GET /static/home/images/btns.png HTTP/1.1" 200 3954
+[2019-02-12 11:52:09] INFO [django.server.log_message:124] "GET /static/home/images/pupet.png HTTP/1.1" 200 5198
+[2019-02-12 11:52:09] INFO [django.server.log_message:124] "GET /static/home/images/training.png HTTP/1.1" 200 154154
+[2019-02-12 11:52:09] INFO [django.server.log_message:124] "GET /static/home/images/pupett.png HTTP/1.1" 200 8770
+[2019-02-12 11:52:10] INFO [django.server.log_message:124] "GET /static/home/images/tutor.png HTTP/1.1" 200 11460
+[2019-02-12 11:52:10] INFO [django.server.log_message:124] "GET /static/home/images/placement.png HTTP/1.1" 200 98335
+[2019-02-12 11:52:10] INFO [django.server.log_message:124] "GET /static/home/images/engine2.png HTTP/1.1" 200 4246
+[2019-02-12 11:52:10] INFO [django.server.log_message:124] "GET /static/home/images/experience.png HTTP/1.1" 200 279224
+[2019-02-12 11:52:10] INFO [django.server.log_message:124] "GET /static/home/images/kid.png HTTP/1.1" 200 13920
+[2019-02-12 11:52:10] INFO [django.server.log_message:124] "GET /static/home/images/q1.png HTTP/1.1" 200 1961
+[2019-02-12 11:52:10] INFO [django.server.log_message:124] "GET /static/home/images/33.png HTTP/1.1" 200 62653
+[2019-02-12 11:52:10] INFO [django.server.log_message:124] "GET /static/home/images/dre.png HTTP/1.1" 200 22180
+[2019-02-12 11:52:10] INFO [django.server.log_message:124] "GET /static/home/images/22.png HTTP/1.1" 200 62724
+[2019-02-12 11:52:10] INFO [django.server.log_message:124] "GET /static/home/images/hotels.png HTTP/1.1" 200 14387
+[2019-02-12 11:52:10] INFO [django.server.log_message:124] "GET /static/home/images/q2.png HTTP/1.1" 200 1949
+[2019-02-12 11:52:10] INFO [django.server.log_message:124] "GET /static/home/images/44.png HTTP/1.1" 200 58580
+[2019-02-12 11:52:10] INFO [django.server.log_message:124] "GET /static/home/images/hotelsafrica.png HTTP/1.1" 200 45205
+[2019-02-12 11:52:10] INFO [django.server.log_message:124] "GET /static/home/images/ontario.png HTTP/1.1" 200 61470
+[2019-02-12 11:52:10] INFO [django.server.log_message:124] "GET /static/home/images/bannerr.png HTTP/1.1" 200 77329
+[2019-02-12 11:52:12] WARNING [django.request.log_response:228] Not Found: /favicon.ico
+[2019-02-12 11:52:12] WARNING [django.server.log_message:124] "GET /favicon.ico HTTP/1.1" 404 12544
+[2019-02-12 11:52:19] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/images/bannerr.png HTTP/1.1" 200 77329
+[2019-02-12 11:52:28] INFO [django.server.log_message:124] "GET /workexperience/ HTTP/1.1" 200 20284
+[2019-02-12 11:52:28] WARNING [django.request.log_response:228] Not Found: /workexperience/images/icon5.png
+[2019-02-12 11:52:28] WARNING [django.server.log_message:124] "GET /workexperience/images/icon5.png HTTP/1.1" 404 13373
+[2019-02-12 11:52:28] INFO [django.server.log_message:124] "GET /static/home/images/aoc.png HTTP/1.1" 200 103405
+[2019-02-12 11:52:28] INFO [django.server.log_message:124] "GET /static/home/images/graduate.png HTTP/1.1" 200 316928
+[2019-02-12 11:52:29] INFO [django.server.log_message:124] "GET /static/home/images/prooo.png HTTP/1.1" 200 542089
+[2019-02-12 11:52:29] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/wok-sm.png HTTP/1.1" 200 42968
+[2019-02-12 11:52:29] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs//aboutrec.png HTTP/1.1" 200 590531
+[2019-02-12 11:52:29] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/radio1.png HTTP/1.1" 200 442
+[2019-02-12 11:52:29] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/womann.jpg HTTP/1.1" 200 105056
+[2019-02-12 11:52:33] INFO [django.server.log_message:124] "GET /workexperience/pay/ HTTP/1.1" 200 16295
+[2019-02-12 11:52:33] WARNING [django.request.log_response:228] Not Found: /workexperience/pay/images/icon5.png
+[2019-02-12 11:52:33] WARNING [django.server.log_message:124] "GET /workexperience/pay/images/icon5.png HTTP/1.1" 404 13385
+[2019-02-12 12:00:02] INFO [django.server.log_message:124] "GET /workexperience/pay/ HTTP/1.1" 200 16295
+[2019-02-12 12:00:02] WARNING [django.request.log_response:228] Not Found: /workexperience/pay/images/icon5.png
+[2019-02-12 12:00:02] WARNING [django.server.log_message:124] "GET /workexperience/pay/images/icon5.png HTTP/1.1" 404 13385
+[2019-02-12 12:03:29] INFO [django.server.log_message:124] "GET /workexperience/pay/ HTTP/1.1" 200 16295
+[2019-02-12 12:03:29] WARNING [django.request.log_response:228] Not Found: /workexperience/pay/images/icon5.png
+[2019-02-12 12:03:29] WARNING [django.server.log_message:124] "GET /workexperience/pay/images/icon5.png HTTP/1.1" 404 13385
+[2019-02-12 12:05:39] INFO [django.server.log_message:124] "GET /workexperience/pay/ HTTP/1.1" 200 16376
+[2019-02-12 12:05:39] WARNING [django.request.log_response:228] Not Found: /workexperience/pay/images/icon5.png
+[2019-02-12 12:05:39] WARNING [django.server.log_message:124] "GET /workexperience/pay/images/icon5.png HTTP/1.1" 404 13385
+[2019-02-12 12:06:18] INFO [django.server.log_message:124] "GET /workexperience/pay/ HTTP/1.1" 200 16376
+[2019-02-12 12:06:18] WARNING [django.request.log_response:228] Not Found: /workexperience/pay/images/icon5.png
+[2019-02-12 12:06:18] WARNING [django.server.log_message:124] "GET /workexperience/pay/images/icon5.png HTTP/1.1" 404 13385
+[2019-02-12 13:57:34] INFO [django.server.log_message:124] "GET /workexperience/pay/ HTTP/1.1" 200 16349
+[2019-02-12 13:57:36] WARNING [django.request.log_response:228] Not Found: /workexperience/pay/images/icon5.png
+[2019-02-12 13:57:36] WARNING [django.server.log_message:124] "GET /workexperience/pay/images/icon5.png HTTP/1.1" 404 13385

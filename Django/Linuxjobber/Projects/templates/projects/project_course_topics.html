@@ -39,7 +39,7 @@ Project {% endblock %}
     notes
   </button>
 </a>
-<a href="{% url 'Projects:course_labs' course_title.split|join:'_' %}">
+<a href="{% url 'Projects:lab_tasks' topic_title.split|join:'_' %}">
   <button
     class="btn"
     style="border-radius: 10px;color: rgba(0, 0, 0, 0.4);margin-left: 49px;margin-top: -20px;"
