@@ -278,6 +278,7 @@ class wepeoples(models.Model):
         return self.user.email
 
 class wetask(models.Model):
+    weight = models.IntegerField(null=True)
     task = models.CharField(max_length = 50, null=True)
     objective = models.TextField()
     description = models.TextField()
@@ -285,16 +286,23 @@ class wetask(models.Model):
     is_active = models.IntegerField(default=0 ,choices=((0, 'No'), (1, 'Yes')))
     types = models.ForeignKey(wetype, on_delete = models.CASCADE)
 
+    class Meta:
+        unique_together = (('types','weight'),)
+
     def __str__(self):
         return self.task
 
 class wework(models.Model):
+    weight = models.IntegerField(null=True)
     we_people = models.ForeignKey(wepeoples, on_delete = models.CASCADE)
     task = models.ForeignKey(wetask, on_delete = models.CASCADE)
     status = models.IntegerField(default=0 ,choices=((0, 'Pending'), (1, 'Done')))
     created = models.DateTimeField(default=timezone.now, null=False)
     send_task = models.IntegerField(default=0 ,choices=((0, 'No'), (1, 'Yes')))
     due = models.DateTimeField(default=timezone.now, null=True)
+
+    class Meta:
+        unique_together = (('we_people','weight'),)
 
     def __str__(self):
         return self.we_people.user.email

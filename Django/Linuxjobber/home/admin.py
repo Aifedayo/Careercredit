@@ -9,6 +9,10 @@ class weworkAdmin(admin.ModelAdmin):
 	search_fields = ['we_people__user__email']
 	raw_id_fields = ['task']
 	list_filter = ('status',)
+	list_display = ['we_people','task','status','due','task_type']
+
+	def task_type(self, obj):
+		return obj.task.types
 
 	def formfield_for_manytomany(self, db_field, request, **kwargs):
 		if db_field.name == "task":

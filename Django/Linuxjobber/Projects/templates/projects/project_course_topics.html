@@ -25,9 +25,10 @@
 	</div>
 	<div class="projboard">
 		<div class="projboard2">
+			<span class="projcardh">{{topic.topic_id}}. {{topic}}</span><br><br>
+			<div class="row">
 			<div class="col-md-8">
 				<div class="projboardinfo">
-					<span class="projcardh">{{topic.topic_id}}. {{topic}}</span><br><br>
 					{%if topic.has_notes == 1 %}<span><a href="{% url 'Projects:course_note' course_id topic.topic_id %}" class="btn projbut4 text-muted">notes</a> </span>{%endif%}{%if topic.has_labs == 1 %} <span> <a href="" class="btn projbut4 text-muted">hands on lab</a></span>{%endif%}<br><br>
 					<video src="{{topic.topic_video}}" controls width="100%" height='468px;' class="projvid"></video>
 				</div>
@@ -42,6 +43,7 @@
 					</div>
 				</div>
 			</div>
+		</div>
 		</div>
 	</div>
 

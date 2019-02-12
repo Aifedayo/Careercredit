@@ -201,32 +201,21 @@ bottom: 200px;
 									href="javascript:void(0)">Careers</a>
 									<div class="dropdowns transparent-style" id="company">
 										<div class="container text-1">
-											<div class="col-md-4 col-sm-6">
-												<ul>
-													<li><a href="{% url 'home:aboutus' %}"><span
-															class="link-icon"><i class="fa fa-home fa-2x"></i></span>About
-															Us</a></li>
-													<li><a href="{% url 'home:location' %}"><span
-															class="link-icon"><i
-																class="fa fa-map-marker fa-2x"></i></span>Location</a></li>
-												</ul>
-											</div>
+											
 											<div class="col-md-4 col-sm-6">
 												<ul>
 													<li><a href="{% url 'home:jobs' %}"><span
 															class="link-icon"><i class="fa fa-suitcase fa-2x"></i></span>Full-Time Jobs</a></li>
-													<li><a href="{% url 'home:policies' %}"><span
-															class="link-icon"><i class="fa fa-gavel fa-2x"></i></span>Policies</a></li>
 												</ul>
 											</div>
 											<div class="col-md-4 col-sm-6">
 												<ul>
 													<li><a href="{% url 'home:partime' %}"><span
 															class="link-icon"><i class="fa fa-suitcase fa-2x"></i></span>Part-Time Jobs</a></li>
-													<li><a href="{% url 'home:contact_us' %}"><span
-															class="link-icon"><i
-																class="fa fa-phone-square fa-2x"></i></span>Contact Us</a></li>
 												</ul>
+											</div>
+											<div class="col-md-4 col-sm-6">
+												
 											</div>
 										</div>
 									</div></li>
@@ -313,10 +302,9 @@ bottom: 200px;
 					<ul class="quick-links" style="margin-top: 26px; font-size: 16px;">
 
 						<li><a href="{% url 'home:index' %}">Home</a></li>
-						<li><a href="{% url 'home:aboutus' %}">About
-								US</a></li>
 						<li><a href="{% url 'home:resume' %}">Resume
 								Services</a></li>
+						<li><a href="{% url 'home:jobs' %}">Full-Time Jobs</a></li>
 						<li><a href="{% url 'home:students_packages' %}">Student
 								Packages</a></li>
 						<li><a href="{% url 'home:server_service' %}">Server
@@ -333,8 +321,7 @@ bottom: 200px;
 					<ul class="quick-links2" style="margin-top: 26px; font-size: 16px;">
 						<h2>&nbsp;</h2>
 						<li><a href="{% url 'home:faq' %}">FAQ</a></li>
-						<li><a href="{% url 'home:contact_us' %}">Contact
-								Us</a></li>
+						<li><a href="{% url 'home:partime' %}">Part-Time Jobs</a></li>
 						<li><a href="{% url 'home:group' %}">Group Class</a></li>
 						<li><a href="{% url 'home:in_person_training' %}">In-Person
 								Training</a></li>
@@ -351,11 +338,10 @@ bottom: 200px;
 				<div class="col-md-3 col-sm-6">
 					<h2>Company</h2>
 					<ul class="quick-links2" style="margin-top: 26px; font-size: 16px;">
-						<li><a href="{% url 'home:jobs' %}">Full-Time Jobs</a></li>
-						<li><a href="{% url 'home:partime' %}">Part-Time Jobs</a></li>
+						<li><a href="{% url 'home:aboutus' %}">About US</a></li>
+						<li><a href="{% url 'home:contact_us' %}">Contact Us</a></li>
 						<li><a href="{% url 'home:policies' %}">Policies</a></li>
-						<li><a href="{% url 'home:contact_us' %}">Contact
-								Us</a></li>
+						<li><a href="{% url 'home:location' %}">Location</a></li>
 					</ul>
 				</div>
 			</div>
