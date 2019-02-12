@@ -3211,3 +3211,51 @@ let us know at support@stripe.com.
 [2019-02-11 18:56:15] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.43, 127.0.0.1:53110][0m
 [2019-02-11 19:06:40] INFO [django.channels.server.log_action:147] [32mHTTP POST /groupCourse/ 302 [0.88, 127.0.0.1:53220][0m
 [2019-02-11 19:06:40] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.39, 127.0.0.1:53220][0m
+[2019-02-12 01:51:24] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [1.36, 127.0.0.1:55896][0m
+[2019-02-12 01:51:24] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/css/newstylenew.css 304 [0.01, 127.0.0.1:55896][0m
+[2019-02-12 01:51:24] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/Projects/custom/css/projects.css 304 [0.01, 127.0.0.1:55896][0m
+[2019-02-12 01:51:26] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-02-12 01:51:26] WARNING [django.channels.server.log_action:149] [33mHTTP GET /favicon.ico 404 [0.07, 127.0.0.1:55896][0m
+[2019-02-12 01:51:30] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.68, 127.0.0.1:55896][0m
+[2019-02-12 01:51:30] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs/groupclass.png 200 [0.22, 127.0.0.1:55896][0m
+[2019-02-12 01:52:41] INFO [django.channels.server.log_action:147] [32mHTTP POST /groupCourse/ 302 [1.51, 127.0.0.1:55914][0m
+[2019-02-12 01:52:41] INFO [django.channels.server.log_action:141] [mHTTP GET /access_course 200 [0.32, 127.0.0.1:55914][0m
+[2019-02-12 01:53:17] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /access_course
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python3.6/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mololuwa/Desktop/linuxjobber/Django/Linuxjobber/home/views.py", line 700, in monthly_subscription
+    group_item = Groupclass.objects.get(id=request.session['gclass'])
+  File "/usr/lib/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 55, in __getitem__
+    return self._session[key]
+KeyError: 'gclass'
+[2019-02-12 01:53:17] ERROR [django.channels.server.log_action:154] [35;1mHTTP POST /access_course 500 [8.48, 127.0.0.1:55914][0m
+[2019-02-12 01:55:11] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [0.92, 127.0.0.1:55966][0m
+[2019-02-12 01:55:22] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.61, 127.0.0.1:55966][0m
+[2019-02-12 01:55:32] INFO [django.channels.server.log_action:147] [32mHTTP POST /groupCourse/ 302 [0.23, 127.0.0.1:55966][0m
+[2019-02-12 01:55:32] INFO [django.channels.server.log_action:141] [mHTTP GET /access_course 200 [0.17, 127.0.0.1:55966][0m
+[2019-02-12 01:56:02] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /access_course
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python3.6/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mololuwa/Desktop/linuxjobber/Django/Linuxjobber/home/views.py", line 706, in monthly_subscription
+    group_item.users.add(user)
+NameError: name 'user' is not defined
+[2019-02-12 01:56:02] ERROR [django.channels.server.log_action:154] [35;1mHTTP POST /access_course 500 [7.51, 127.0.0.1:55966][0m
+[2019-02-12 01:56:49] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [1.03, 127.0.0.1:55990][0m
+[2019-02-12 01:56:57] INFO [django.channels.server.log_action:147] [32mHTTP POST /groupCourse/ 302 [0.24, 127.0.0.1:55990][0m
+[2019-02-12 01:56:57] INFO [django.channels.server.log_action:141] [mHTTP GET /access_course 200 [0.23, 127.0.0.1:55990][0m
+[2019-02-12 01:57:35] INFO [django.channels.server.log_action:147] [32mHTTP POST /access_course 302 [8.76, 127.0.0.1:55990][0m
+[2019-02-12 01:57:35] INFO [django.channels.server.log_action:141] [mHTTP GET /groupCourse/ 200 [0.28, 127.0.0.1:55990][0m

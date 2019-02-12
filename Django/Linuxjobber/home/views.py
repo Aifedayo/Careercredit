@@ -653,10 +653,19 @@ def check_subscription_status(request):
 
 @login_required
 def monthly_subscription(request):
+
+    #From Group Class Monthly Payment
     try:
         nexturl = request.session['nexturl']
     except KeyError:
         nexturl = None
+
+    try:
+        g_id = request.session['gclass']
+    except KeyError:
+        g_id = None
+
+    group_item = None
 
     email = request.user.email
     
@@ -692,6 +701,9 @@ def monthly_subscription(request):
 
             messages.success(request, 'Thanks for your sucbscription! Please allow 10-20 seconds for your account to be updated as we have to wait for confirmation from the credit card processor.')
             if nexturl:
+                if nexturl == 'group':
+                    group_item = Groupclass.objects.get(id=g_id)
+                    group_item.users.add(request.user)
                 return redirect("home:"+nexturl) 
             else:
                 return redirect("home:monthly_subscription")
@@ -1408,6 +1420,7 @@ def group_list(request):
     user = None
     ans = None
     request.session['nexturl'] = "group"
+
     if request.user.is_authenticated:
         user=CustomUser.objects.get(email=request.user)
 
@@ -1482,6 +1495,7 @@ def group_list(request):
             groupreg = GroupClassRegister.objects.create(user= user, is_paid = 0, amount=29, type_of_class = group_item.type_of_class)
             groupreg.save()
             if int(choice) == 1:
+                request.session['gclass'] = int(gclass)
                 return redirect("home:monthly_subscription")
             return redirect("home:group_pay",pk=group_item.id)
 
