@@ -1,5 +1,200 @@
 /* BEGINING OF STYLING FOR PROJECTS APP HOMEPAGE */
 
+.proj-header{
+	background-color: #252525;
+	height: 70px;
+}
+
+.proj-header2{
+	background-color: #FFFFFF;
+	height: 30px;
+	padding-top: 3px;
+}
+
+.proj-header2l:hover{
+	color: grey;
+}
+
+.proj-body{
+	background: rgba(229, 229, 229, 0.5);
+}
+
+.projban{
+	padding-bottom: 100px;
+}
+
+.projbanh1{
+	color: black;
+}
+
+.projdiv2{
+	margin-top: 100px;
+}
+
+.projcard{
+	background: #FFFFFF;
+	box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
+	border-radius: 36px;
+	padding-bottom: 0px;
+	padding-left: -10px;
+	margin-bottom: 30px;
+}
+
+.projcardright{
+	padding-top: 20px;
+}
+
+.projcardh{
+	color: #000000;
+	font-size: 36px;
+}
+
+
+.projcon{
+	color: #428BCA;
+}
+
+.projconl{
+	color: rgba(37, 37, 37, 0.8);
+}
+
+.projlink{
+	text-decoration: none;
+	color: rgba(0, 0, 0, 0.8);
+}
+
+.projlink:hover{
+	text-decoration: none;
+	color: rgba(0, 0, 0, 0.8);
+}
+
+.projboard{
+	background: #FFFFFF;
+	box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
+	border-top-left-radius: 36px;
+	border-top-right-radius: 36px;
+	padding-top: 50px;
+	padding-bottom: 60px;
+}
+
+
+
+.projboard2{
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-bottom: 120px;
+	min-height: 600px;
+}
+
+.projtopiclist{
+	margin-left: -30px;
+	padding: 20px;
+	margin-top: 57px;
+	height: 468px;
+	background: #F6F6F6;
+	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+	padding-bottom: 10px;
+}
+
+.projlistin{
+	height: 430px;
+	overflow: auto;
+}
+
+.projlistin::-webkit-scrollbar {
+    width: 12px;
+    background-color: rgba(0, 0, 0, 0.25);
+    color: grey;
+}
+
+.projlistin::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.25); 
+}
+
+.projlistin::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.25); 
+    border-radius: 10px;
+}
+
+.projbut{
+	padding-top: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+}
+
+.projbut2{
+    border: 3px solid #252525;
+    box-sizing: border-box;
+    border-radius: 100px;
+    padding-left: 20px;
+	padding-right: 20px;
+	color: black;
+}
+
+.projbut3{
+	border: 3px solid #428BCA;
+	box-sizing: border-box;
+	border-radius: 100px;
+	padding-left: 20px;
+	padding-right: 20px;
+	color: #428BCA;
+}
+
+.projbut4{
+	background: rgba(98, 98, 98, 0.1);
+	border-radius: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-right: 10px;
+	font-size: 18px;
+}
+
+.projboardinfo2{
+	background: rgba(37, 37, 37, 0.05);
+	padding: 5px;
+}
+
+.projline{
+	height: 0px;
+	border: 2px solid rgba(37, 37, 37, 0.2);
+}
+
+.projvid{
+	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+@media (min-width: 360px) and (max-width: 640px) {
+
+	.projcard{
+		padding-top: 10px;
+	}
+
+	.projcardright{
+		padding-bottom: 20px;
+	}
+
+	.projboardinfo{
+		padding-top: 110px;
+	}
+
+	.projtopiclist{
+		margin-left: 0px;
+		
+		margin-top: 50px;
+		min-height: 468px;
+		background: #F6F6F6;
+		box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+	}
+
+	.projvid{
+		width: 100%;
+	}
+
+	
+
 .navClass > ul {
   background-color: #262626;
   color: #ffffff;
@@ -44,6 +239,27 @@ ul.sub-menu {
   display: inline-block;
   cursor: pointer;
 }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	.projimg, img{
+		margin-right: 10px;
+		width: 100%;
+	}
+
+	.projcard{
+		padding-right: -10px;
+		height: 500px;
+	}
+
+	.projcardright{
+		padding-bottom: 20px;
+	}
+
+	.projboardinfo{
+		padding-top: 120px;
+	}
+}
+
 
 .quickLinks {
   padding-top: 50px;

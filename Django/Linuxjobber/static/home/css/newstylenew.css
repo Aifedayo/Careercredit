@@ -208,22 +208,25 @@
     margin-bottom: 100px;
 }
 
-@media (min-width: 375px) and (max-width: 780px) {
-    .wkex{
-        height: 60vh;
+@media (max-width: 640px) and (min-width: 360px) {
+		video {
+			width: 100%;
+			height: auto;
+		}
+		.buttoons {
+			margin-bottom: 20px;
+		}
+		.wkex{
+        height: auto;
         width: 100%;
-        background: url(../imgs//wok.png)no-repeat top center ;
+        background: url(../imgs//wok-sm.png)no-repeat top center ;
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
-    
-    
+        margin-bottom: 30px;
     }
-
-
     .headernew{
         padding-top: 50px;
-        
       }
 
     .headernew h1{
@@ -235,7 +238,7 @@
         color: #1F5FB4;
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
       }
-      
+
       .headernew p{
         font-size: 18px;
         color: #4F4F4F;
@@ -248,14 +251,12 @@
         float: left;
         margin-left: 0px;
     }
-    
+
       .wk-content1 {
-        background: url(../imgs//aboutrec.png) 50% 50%/ cover;
-        height: 50vh;
     }
 
     .abouttext {
-        margin-top: 40px;
+        margin-top: 26px;
     }
 
     .abouttext h2{
@@ -301,6 +302,13 @@
     .wk-content {
         margin: 50px 20px 40px 20px;
     }
+	}
+	@media (max-width: 780px) and (min-width: 360px){
+		.abouttext {
+			background-color: #1f5fb48f;
+			padding: 12px;
+		}
+	}
 
 
 
