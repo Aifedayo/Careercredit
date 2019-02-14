@@ -1,5 +1,5 @@
 {% extends 'home/base.html' %}
-{% load staticfiles%} 
+{% load staticfiles%}
 {% block title %}
 	Linuxjobber Project
  {% endblock %}
@@ -13,7 +13,7 @@
 	margin-right: -10px;
 	margin-top: -3px;
 	margin-bottom: -6px;
-	display: block; 
+	display: block;
 	width: 100%;
 }
 	.projboardimg{
@@ -44,7 +44,7 @@
 }
 
 </style>
-	
+
 	<div class="proj-header"></div>
 
 	<div class="proj-body">
@@ -55,13 +55,6 @@
 			<div class="col-md-3"></div>
 			<div class="col-md-6">
 				<span>This contains all the list of projects we offer. select a project to get started. or each for a particular course or topic</span>
-
-	<div class="container-fluid" style="background: #F6F6F6; ">
-		<br>
-		<div class="row">
-			<div class="col-md-12" style="text-align: center;">
-				<h1>Projects</h1>
-				<p style="font-family: Roboto;font-style: normal;font-weight: normal;line-height: normal;font-size: 18px;text-align: center;color: rgba(0, 0, 0, 0.8);">This contains all the list of projects we offer. select a project to get started or each for a particular course or topic</p>
 			</div>
 			<div class="col-md-3"></div>
 		</div>
@@ -86,21 +79,6 @@
 						</div>
 					</div>
 				</div>
-		{% for project in projects %}
-		<a href="{% url 'Projects:courses' project.project_title %}">
-		<div class="row projects-container">
-			<div class="col-md-3 project-img-col" style="background-image: url({{ project.project_bg_image }});height: 240px;">
-				<img src="{{ project.project_image }}" class="responsive projects-img" style="margin-left: -30px;">
-			</div>
-			<div class="col-md-8">
-				<br>
-				<p class="projects-title">
-					{{ project.project_title }}
-				</p>
-				<p class="projects-description" style="color: #000;">
-					{{ project.project_description }}
-				</p>
-				<p class="proj-contains">Project contains: <span style="color: rgba(37, 37, 37, 0.8);">{{ project.project_contents }}</span></p>
 			</div>
 			</a>
 			{%endfor%}
