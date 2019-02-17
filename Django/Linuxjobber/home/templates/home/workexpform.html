@@ -59,16 +59,6 @@
 					{%endif%}
 				</div>
 
-				{%if student%}
-					<div class="form-group" id="id_grad">
-						<label class="space1">Graduation Date</label>
-						<input type="date" name="gdate" class="form-control" >
-					</div>
-				{%endif%}
-				<div class="form-group" id="id_grad">
-					<label class="space1">Graduation Date</label>
-					<input type="date" name="gdate" class="form-control" >
-				</div>
 				<br>
 				<div class="sldbtnd text-center">
 					<input class="btn btn-primary get" value="Submit" type="submit">
@@ -78,18 +68,4 @@
 		</div>
 	</div>
 </div>
-<script type="text/javascript">
-	jQuery(function() {
-		$("#id_type").change(function() {
-			if ($(this).val() == "Graduant" || $(this).val() == "Student") {
-				$("#id_grad").show();
-			}
-			else{
-				$("#id_grad").hide();
-			}
-		});
-
-		$("#id_grad").hide();
-	});
-</script>
 {%endblock%}
