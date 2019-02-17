@@ -79,7 +79,6 @@
 .homebanner{
 	background: url(../imgs/homebanner.png);
 	min-height: 82vh;
-    width: 100%;
 	background-size: cover;
     background-repeat: no-repeat;
 }
@@ -434,7 +433,7 @@
 
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media only screen and (device-width: 768px) {
 	.homebanner{
 		background-size: 768px 600px;
 		width: 100%;
@@ -463,6 +462,8 @@
 	.homeliveleft{
 		margin-left: 0px;
 		padding-left: 0px;
+		padding-top: 10px;
+		margin-top: 20px;
 	}
 
 	.signimg{
@@ -495,3 +496,67 @@
 	}
 }
 
+@media (min-height: 1024px) and (min-width: 1366px) {
+	.homebanner{
+		background-size: 1506px 500px;
+		width: 100%;
+		min-height: 50vh;
+	}
+
+	.navhead{
+		height: 7vh;
+	}
+
+	.homeworkima{
+		width: 90%;
+	}
+
+	.homeworkleft{
+		padding-top: 0px;
+	}
+
+}
+
+@media (device-width: 768px) and (device-height: 1024px) and (orientation:portrait) {
+	.navhead{
+		height: 6vh;
+	}
+}
+
+@media (device-height: 768px) and (device-width: 1024px) and (orientation:landscape) {
+
+	.homebanner{
+		background-size: 1106px 500px;
+		width: 100%;
+	}
+
+  .homeworkleft{
+		padding-top: 0px;
+	}
+
+	.navhead{
+		height: 9vh;
+	}
+}
+
+@media (min-height: 1366px) and (min-width: 1024px) {
+
+	.homebanner{
+		background-size: 1106px 500px;
+		width: 100%;
+		min-height: 40vh;
+	}
+
+	.navhead{
+		height: 5.5vh;
+	}
+
+	.homesignhd{
+		line-height: 15px;
+	}
+
+	.homeworkleft{
+		padding-top: 0px;
+	}
+
+}
