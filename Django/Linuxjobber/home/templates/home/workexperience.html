@@ -4,6 +4,124 @@ Work Experience | Linuxjobber
 {% endblock %}
 {% block content %}
 
+<style>
+	@media (max-width: 640px) and (min-width: 360px) {
+		video {
+			width: 100%;
+			height: auto;
+		}
+		.buttoons {
+			margin-bottom: 20px;
+		}
+		.wkex{
+        height: auto;
+        width: 100%;
+        background: url(../imgs//wok-sm.png)no-repeat top center ;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin-bottom: 30px;
+    }
+    ..headernew{
+        padding-top: 50px;
+      }
+
+    .headernew h1{
+        font-size: 25px;
+        font-weight:bold;
+        text-align: left;
+        padding-bottom: 5px;
+        padding-left: 10px;
+        color: #1F5FB4;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+      }
+
+      .headernew p{
+        font-size: 18px;
+        color: #4F4F4F;
+        text-align: left;
+        padding-left: 10px;
+        margin-top: 20px;
+      }
+
+      .headbtn{
+        float: left;
+        margin-left: 0px;
+    }
+
+      .wk-content1 {
+          height: auto;
+    }
+
+    .abouttext {
+        margin-top: 26px;
+    }
+
+    .abouttext h2{
+        font-size: 25px;
+    }
+
+    .abouttext2 h2 {
+        font-weight: medium;
+        color: #1F5FB4;
+        font-size: 30px;
+        margin-bottom: 10px;
+        margin-top: 20px;
+    }
+
+    .abouttext3 h2 {
+        font-weight: medium;
+        color: #1F5FB4;
+        font-size: 30px;
+        margin-bottom: 10px;
+        margin-top: 20px;
+    }
+
+    .abouttext4 h2 {
+        font-weight: medium;
+        color: #1F5FB4;
+        font-size: 30px;
+        margin-bottom: 10px;
+        margin-top: 20px;
+    }
+
+    .abouttext4 p{
+        margin-bottom: 10px;
+    }
+
+    .aboutim img {
+        width: 100vh;
+    }
+
+    #grad{
+        margin-top: 10px;
+    }
+
+    .wk-content {
+        margin: 50px 20px 40px 20px;
+    }
+    .entry {
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
+	}
+	.first-col {
+	    order: 1;
+		width: 100%;
+	}
+	.sec-col {
+		width: 100%;
+	}
+	}
+	@media (max-width: 780px) and (min-width: 360px){
+		.abouttext {
+			background-color: #1f5fb48f;
+			padding: 12px;
+		}
+	}
+
+
+</style>
 
 <div class="wkex">
 	<div class="headernew container">
@@ -129,9 +247,9 @@ Work Experience | Linuxjobber
 
 <section class="wk-content">
 	<div class="container">
-		<div class="row">
+		<div class="row entry">
 
-			<div class="col-12 col-md-5">
+			<div class="col-12 col-md-5 first-col">
 				<div class="abouttext4">
 					<h2 class="text-left">For Entry Level</h2>
 					<p>Only about 25% of graduates get their desired jobs, after
@@ -150,7 +268,7 @@ Work Experience | Linuxjobber
 				</div>
 			</div>
 
-			<div class="col-12 col-md-7">
+			<div class="col-12 col-md-7 sec-col">
 				<div class="aboutim">
 					<img src="{% static 'home/images/graduate.png' %}"
 						class="img-responsive" id="grad">

@@ -81,15 +81,15 @@ li.sub-menu a.b-n::after {
 	background: #1b539e;
 	width: 100%;
 }
-.navbar-right {
-	padding: 0 16px;
-	float: none !important;
-}
+
 .icon-bar {
 	background-color: #1b539e;
 }
 .inner-box.category-content {
     height:200px;
+  }
+  .navbar-collapse {
+  	padding: 0;
   }
 
 @media (max-width: 640px) and (min-width: 360px) {
@@ -102,6 +102,10 @@ bottom: 200px;
 }
 .header-login>a {
 	margin: 5px 6px;
+}
+.navbar-right {
+	padding: 0 16px;
+	float: none !important;
 }
 .inner-box.category-content {
     height: 300px;
@@ -240,7 +244,7 @@ bottom: 200px;
 					</div>
 					{% else %}
 					
-					<div class="col-md-3 col-sm-3 mainmnu">	
+					<div class="col-md-3 col-sm-3 mainmnu">
 						<nav>
 							<ul class="nav navbar-nav navbar-right main-nav" >
 								<li class="has-dropdown sub-menu profile">
