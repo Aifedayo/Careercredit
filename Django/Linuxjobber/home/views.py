@@ -3,6 +3,8 @@ import csv, io
 import logging
 import subprocess, json, os
 import random, string
+import datetime
+import pytz
 from smtplib import SMTPException
 from urllib.parse import urlparse
 from django.conf import settings
@@ -19,7 +21,7 @@ from rest_framework.authtoken.models import Token
 from datetime import timedelta
 
 from .models import *
-from Courses.models import Course
+from Courses.models import Course, CoursePermission
 from ToolsApp.models import Tool
 from users.models import CustomUser
 from .forms import JobPlacementForm, JobApplicationForm, AWSCredUpload, InternshipForm, ResumeForm, PartimeApplicationForm, WeForm
@@ -33,7 +35,7 @@ fs = FileSystemStorage(location= settings.MEDIA_ROOT+'/uploads')
 Log non database errors with the standard_logger instance'''
 standard_logger = logging.getLogger(__name__)
 dbalogger = logging.getLogger('dba')
-
+utc=pytz.UTC
 
 
 def get_courses():
@@ -45,7 +47,7 @@ def get_tools():
 
 #INDEX VIEW
 def index(request):
-    return render (request, 'home/index.html', {'courses' : get_courses(), 'tools' : get_tools(),})
+    return render (request, 'home/index2.html')
 
 
 def signup(request):
@@ -121,12 +123,14 @@ def gainexperience(request):
     return render(request, 'home/gainexperience.html', {'courses' : get_courses(), 'tools' : get_tools()})
 
 def internships(request):
+    internsh = InternshipDetail.objects.all()[0].date
     if request.method == "POST":
         form = InternshipForm(request.POST, request.FILES)
         if form.is_valid():
             internform = form.save(commit=False)
             internform.save()
-            messages.success(request, 'Thanks for applying for the internship which starts on the 14th of April, 2018. Please ensure you keep in touch with Linuxjobber latest updates on our various social media platform. Thanks')
+            messages.success(request, 'Thanks for applying for the internship which starts on '+ str(internsh.strftime('%b %d, %y')) +'. Please ensure you keep in touch with Linuxjobber latest updates on our various social media platform. Thanks')
+            send_mail('Linuxjobber Internship', 'Hello, you are receiving this email because you applied for an internship at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.POST['email']])
             return render(request, 'home/internships.html', {'form': form, 'courses' : get_courses(), 'tools' : get_tools()})
     else:
         form = InternshipForm()
@@ -257,6 +261,9 @@ def log_in(request):
         
         if user is not None:
             login(request, user)
+
+            if user.role == 4:
+                check_permission_expiry(user)
             if next == "":
                 #check if user paid for work experience and has not filled the form
                 try:
@@ -274,6 +281,20 @@ def log_in(request):
     else:
         return render(request, "home/registration/login.html", {'next':next})
 
+def check_permission_expiry(user):
+    perms = ""
+    try:
+        perms = CoursePermission.objects.filter(user=user)
+        print(perms)
+        for perm in perms: 
+            #expired
+            if perm.expiry_date.replace(tzinfo=None) < datetime.datetime.now().replace(tzinfo=None):
+                perm.delete()
+                return True
+            else:
+                return True
+    except CoursePermission.DoesNotExist:
+        return True
 
 def log_out(request):
     logout(request)
@@ -389,12 +410,6 @@ def workexperience(request):
 @login_required
 def workexpform(request):
 
-    try:
-        weps = wepeoples.objects.get(user=request.user)
-        student = False
-    except wepeoples.DoesNotExist:
-        student = True
-
     form = WeForm()
 
 
@@ -407,13 +422,6 @@ def workexpform(request):
         person = request.POST['type']
 
         trainee = wetype.objects.get(id=trainee)
-
-
-        if person == "Graduant" or person == "Student":
-            graduation = request.POST['gdate']
-        else:
-            now = timezone.now()
-            graduation = now + timedelta(days=120)
         
         try:
             weps = wepeoples.objects.get(user=request.user)
@@ -426,16 +434,17 @@ def workexpform(request):
             weps.profile_picture = None
             weps.last_verification = None
             weps.Paystub = None
-            weps.graduation_date = graduation
+            weps.start_date = None
+            weps.graduation_date = None
             weps.save()
         except wepeoples.DoesNotExist:
             weps = wepeoples.objects.create(user=request.user,types=trainee,
                 current_position=current,person_type=person,state=state,income=income,
-                relocation=relocate,last_verification=None,Paystub=None,graduation_date=graduation)
+                relocation=relocate,last_verification=None,Paystub=None,graduation_date=None,start_date=None)
             weps.save()
         return redirect("home:workexprofile")
     else:
-        return render(request, 'home/workexpform.html',{'student':student,'form':form})
+        return render(request, 'home/workexpform.html',{'form':form})
 
 @login_required
 def workexprofile(request):

@@ -63,8 +63,6 @@ Work Experience Profile | Linuxjobber
                 <div class="col-md-3"><div class="workcard text-muted non">Person Type<br><br><span class="jobfinputp wsp">{{weps.types}}</span></div></div>
 
                 <div class="col-md-3"><div class="workcard text-muted non">Relocation <br><br><span class="jobfinputp wsp">{{weps.relocation}}</span></div></div>
-                <div class="col-md-3"><div class="workcard text-muted non">Start Date<br><br><span class="jobfinputp wsp">{{weps.start_date|date}}</span> </div></div>
-                <div class="col-md-3"><div class="workcard text-muted non">Graduation Date<br><br><span class="jobfinputp wsp">{{weps.graduation_date|date}}</span></div></div>
               </div>
               <br><br>
               <span class="jobinfoh">Tap on card to edit your information</span>
@@ -74,12 +72,14 @@ Work Experience Profile | Linuxjobber
               <table class="table wptable">
                 <col width="50">
                 <col width="170">
+                <col width="30">
                 <col width="50">
                 <col width="50">
                 <thead>
                 <tr>
                   <th style="background-color: rgba(229, 229, 229, 0.5); color: #000000">Assigned</th>
-                  <th style="background-color: rgba(229, 229, 229, 0.5); color: #000000">Task</th> 
+                  <th style="background-color: rgba(229, 229, 229, 0.5); color: #000000">Task</th>
+                  <th style="background-color: rgba(229, 229, 229, 0.5); color: #000000">Group</th>
                   <th style="background-color: rgba(229, 229, 229, 0.5); color: #000000">Deadline</th>
                   <th style="background-color: rgba(229, 229, 229, 0.5); color: #000000">Result</th>
                 </tr>
@@ -90,6 +90,7 @@ Work Experience Profile | Linuxjobber
                 <tr>
                   <td>{{stat.created|date}}</td>
                   <td>{{stat.task}}</td> 
+                  <td>{{stat.task.group}}</td>
                   <td>{{stat.due|date}}</td>
                   <td>{%if stat.status == 0%}Incomplete {%else%} Finished{%endif%}</td>
                 </tr>
@@ -97,6 +98,8 @@ Work Experience Profile | Linuxjobber
                 {%endif%}
               </tbody>
               </table>
+              <div class="col-md-3"><div class="workcard text-muted non">Start Date<br><br><span class="jobfinputp wsp">{{weps.start_date|date}}</span> </div></div>
+                <div class="col-md-3"><div class="workcard text-muted non">Graduation Date<br><br><span class="jobfinputp wsp">{{weps.graduation_date|date}}</span></div></div>
             </div>
           </div>
           <div class="col-md-4 workleft workpar2">

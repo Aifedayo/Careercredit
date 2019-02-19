@@ -522,7 +522,7 @@ def get_machine(user):
             #Check if users machine is accessible, if it is check if GraderClient is deploy or not, if not, deploy!
             if "sysadmin" in outps:
                 machine.append(True)
-                outs = subprocess.Popen(["sshpass","-p", settings.SERVER_PASSWORD, "ssh", "-o StrictHostKeyChecking=no", "-o LogLevel=ERROR", "-o UserKnownHostsFile=/dev/null", settings.SERVER_USER+"@"+machine[1], " [ -f /tmp/GraderClient.py ] && echo $?"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+                outs = subprocess.Popen(["sshpass","-p", settings.SERVER_PASSWORD, "ssh", "-o StrictHostKeyChecking=no", "-o LogLevel=ERROR", "-o UserKnownHostsFile=/dev/null", settings.SERVER_USER+"@"+machine[1], " [ -f /home/sysadmin/GraderClient.py ] && echo $?"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
                 outs = bytes(outs[0])
                 outs = outs.decode('UTF-8')
 

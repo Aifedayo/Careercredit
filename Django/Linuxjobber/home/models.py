@@ -285,9 +285,11 @@ class wetask(models.Model):
     created = models.DateTimeField(default=timezone.now, null=False)
     is_active = models.IntegerField(default=0 ,choices=((0, 'No'), (1, 'Yes')))
     types = models.ForeignKey(wetype, on_delete = models.CASCADE)
+    group = models.IntegerField(null=True, blank=True)
 
     class Meta:
         unique_together = (('types','weight'),)
+        ordering = (('types','weight'))
 
     def __str__(self):
         return self.task
@@ -301,8 +303,10 @@ class wework(models.Model):
     send_task = models.IntegerField(default=0 ,choices=((0, 'No'), (1, 'Yes')))
     due = models.DateTimeField(default=timezone.now, null=True)
 
+
     class Meta:
         unique_together = (('we_people','weight'),)
+        ordering = (('we_people','weight'))
 
     def __str__(self):
         return self.we_people.user.email
@@ -320,5 +324,8 @@ class GroupClassLog(models.Model):
             data[i.last_login.strftime('%D')].append({'username':i.user.username,'id':i.user.id})
         return data
 
+class InternshipDetail(models.Model):
+    date = models.DateTimeField(default=timezone.now, null=True)
 
-
+    def __str__(self):
+        return str(self.date.date())
