@@ -1415,3 +1415,70 @@ TypeError: 'AnonymousUser' object is not iterable
 [2019-02-19 15:59:33] INFO [django.server.log_message:124] "POST /user/account/settings HTTP/1.1" 200 17296
 [2019-02-19 15:59:33] WARNING [django.request.log_response:228] Not Found: /user/account/images/icon5.png
 [2019-02-19 15:59:34] WARNING [django.server.log_message:124] "GET /user/account/images/icon5.png HTTP/1.1" 404 12599
+[2019-02-19 17:18:09] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 21068
+[2019-02-19 17:18:10] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-19 17:18:10] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12560
+[2019-02-19 17:18:13] INFO [django.server.log_message:124] "GET /login/ HTTP/1.1" 200 3406
+[2019-02-19 17:18:13] INFO [django.server.log_message:124] "GET /static/home/css/styles.css HTTP/1.1" 200 7692
+[2019-02-19 17:18:14] INFO [django.server.log_message:124] "GET /static/home/images/imgback.jpg HTTP/1.1" 200 1032219
+[2019-02-19 17:18:32] INFO [django.server.log_message:124] "POST /login/ HTTP/1.1" 200 3517
+[2019-02-19 17:18:37] INFO [django.server.log_message:124] "GET /admin HTTP/1.1" 302 0
+[2019-02-19 17:18:39] INFO [django.server.log_message:124] "GET /admin/login/?next=/admin HTTP/1.1" 200 1817
+[2019-02-19 17:18:47] INFO [django.server.log_message:124] "POST /admin/login/?next=/admin HTTP/1.1" 302 0
+[2019-02-19 17:18:47] INFO [django.server.log_message:124] "GET /admin HTTP/1.1" 200 27079
+[2019-02-19 17:18:53] INFO [django.server.log_message:124] "GET /admin/users/customuser/ HTTP/1.1" 200 6370
+[2019-02-19 17:18:53] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-19 17:18:53] INFO [django.server.log_message:124] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 371
+[2019-02-19 17:18:53] INFO [django.server.log_message:124] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 131128
+[2019-02-19 17:18:53] INFO [django.server.log_message:124] "GET /static/admin/js/core.js HTTP/1.1" 200 7346
+[2019-02-19 17:18:53] INFO [django.server.log_message:124] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1580
+[2019-02-19 17:18:54] INFO [django.server.log_message:124] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 268490
+[2019-02-19 17:18:54] INFO [django.server.log_message:124] "GET /static/admin/css/changelists.css HTTP/1.1" 200 6514
+[2019-02-19 17:18:54] INFO [django.server.log_message:124] "GET /static/admin/img/search.svg HTTP/1.1" 200 461
+[2019-02-19 17:18:54] INFO [django.server.log_message:124] "GET /static/admin/js/urlify.js HTTP/1.1" 200 8918
+[2019-02-19 17:18:54] INFO [django.server.log_message:124] "GET /static/admin/js/actions.js HTTP/1.1" 200 6655
+[2019-02-19 17:18:54] INFO [django.server.log_message:124] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 7078
+[2019-02-19 17:18:54] INFO [django.server.log_message:124] "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 334
+[2019-02-19 17:18:54] INFO [django.server.log_message:124] "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1116
+[2019-02-19 17:19:18] WARNING [django.security.csrf.log_response:228] Forbidden (CSRF token missing or incorrect.): /login/
+[2019-02-19 17:19:18] WARNING [django.server.log_message:124] "POST /login/ HTTP/1.1" 403 2513
+[2019-02-19 17:19:42] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 22438
+[2019-02-19 17:19:42] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-19 17:19:42] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12560
+[2019-02-19 17:19:49] INFO [django.server.log_message:124] "GET /user/account/settings HTTP/1.1" 200 17050
+[2019-02-19 17:19:49] WARNING [django.request.log_response:228] Not Found: /user/account/images/icon5.png
+[2019-02-19 17:19:49] WARNING [django.server.log_message:124] "GET /user/account/images/icon5.png HTTP/1.1" 404 12599
+[2019-02-19 17:20:15] INFO [django.server.log_message:124] "POST /user/account/settings HTTP/1.1" 200 17296
+[2019-02-19 17:20:15] WARNING [django.request.log_response:228] Not Found: /user/account/images/icon5.png
+[2019-02-19 17:20:15] WARNING [django.server.log_message:124] "GET /user/account/images/icon5.png HTTP/1.1" 404 12599
+[2019-02-19 17:20:33] INFO [django.server.log_message:124] "GET /user/account/settings HTTP/1.1" 200 17050
+[2019-02-19 17:20:48] INFO [django.server.log_message:124] "POST /user/account/settings HTTP/1.1" 200 17296
+[2019-02-19 17:20:49] WARNING [django.request.log_response:228] Not Found: /user/account/images/icon5.png
+[2019-02-19 17:20:49] WARNING [django.server.log_message:124] "GET /user/account/images/icon5.png HTTP/1.1" 404 12599
+[2019-02-20 01:05:27] INFO [django.server.log_message:124] "POST /user/account/settings HTTP/1.1" 200 15926
+[2019-02-20 01:05:28] WARNING [django.request.log_response:228] Not Found: /user/account/images/icon5.png
+[2019-02-20 01:05:28] WARNING [django.server.log_message:124] "GET /user/account/images/icon5.png HTTP/1.1" 404 12599
+[2019-02-20 01:54:06] INFO [django.server.log_message:124] "POST /user/account/settings HTTP/1.1" 200 15926
+[2019-02-20 01:54:07] WARNING [django.request.log_response:228] Not Found: /user/account/images/icon5.png
+[2019-02-20 01:54:07] WARNING [django.server.log_message:124] "GET /user/account/images/icon5.png HTTP/1.1" 404 12599
+[2019-02-20 01:54:15] INFO [django.server.log_message:124] "GET /admin/users/customuser/ HTTP/1.1" 302 0
+[2019-02-20 01:54:16] INFO [django.server.log_message:124] "GET /admin/login/?next=/admin/users/customuser/ HTTP/1.1" 200 1853
+[2019-02-20 01:54:24] INFO [django.server.log_message:124] "POST /admin/login/?next=/admin/users/customuser/ HTTP/1.1" 302 0
+[2019-02-20 01:54:24] INFO [django.server.log_message:124] "GET /admin/users/customuser/ HTTP/1.1" 200 6370
+[2019-02-20 01:54:24] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-02-20 01:54:30] WARNING [django.security.csrf.log_response:228] Forbidden (CSRF token missing or incorrect.): /user/account/settings
+[2019-02-20 01:54:30] WARNING [django.server.log_message:124] "POST /user/account/settings HTTP/1.1" 403 2513
+[2019-02-20 01:54:34] WARNING [django.security.csrf.log_response:228] Forbidden (CSRF token missing or incorrect.): /user/account/settings
+[2019-02-20 01:54:34] WARNING [django.server.log_message:124] "POST /user/account/settings HTTP/1.1" 403 2513
+[2019-02-20 01:54:36] WARNING [django.security.csrf.log_response:228] Forbidden (CSRF token missing or incorrect.): /user/account/settings
+[2019-02-20 01:54:36] WARNING [django.server.log_message:124] "POST /user/account/settings HTTP/1.1" 403 2513
+[2019-02-20 01:54:40] WARNING [django.security.csrf.log_response:228] Forbidden (CSRF token missing or incorrect.): /user/account/settings
+[2019-02-20 01:54:40] WARNING [django.server.log_message:124] "POST /user/account/settings HTTP/1.1" 403 2513
+[2019-02-20 01:54:46] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 22438
+[2019-02-20 01:54:46] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-02-20 01:54:46] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12560
+[2019-02-20 01:54:52] INFO [django.server.log_message:124] "GET /user/account/settings HTTP/1.1" 200 17050
+[2019-02-20 01:54:52] WARNING [django.request.log_response:228] Not Found: /user/account/images/icon5.png
+[2019-02-20 01:54:52] WARNING [django.server.log_message:124] "GET /user/account/images/icon5.png HTTP/1.1" 404 12599
+[2019-02-20 02:09:28] INFO [django.server.log_message:124] "GET /admin/users/customuser/ HTTP/1.1" 200 6370
+[2019-02-20 02:09:28] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
