@@ -8,13 +8,13 @@
       <!-- Indicators -->
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-
-        </div>
-      </div>
+          
+        </div>      
+      </div>      
 </div>
 <section class="labbackground">
     <div class="container">
-
+    
         <div class="text-center labtop">
             <div class="text-center"><b><p></p></b></div>
             <h1>
@@ -23,16 +23,16 @@
             <br>
             <p> </p>
             </div>
-
+            
         {%for task in lab_tasks %}
-
+  
             <div class="labcard col-md-12">
                 <div class="col-md-1 col-xs-1"></div>
                 <div class="col-md-11 col-xs-11">
                     <h1>{{ task.lab_task_no}}<span class="labcardt">/{{lab_tasks|length}}</span></h1>
                     <div class="labcardpar"></div>
                 </div>
-
+                
                 <div class="row">
                 <div class="col-md-1 col-xs-1">
                     <ul>
@@ -46,13 +46,13 @@
                     </ul>
                 </div>
                 <div class="col-md-11 col-xs-11">
-
+                    
                     <span>
                        <p class="labcardcom"> {{ task.task_comment }}</p>
                     <p>
                         Note: {{ task.task_note }} <br><br>
                     </p>
-
+                    
                     <p class="labcardtask"> <b>Your task is to  {{ task.task }} <br><br> </b></p>
 
                     </span>
@@ -77,7 +77,7 @@
                     </div>
                 </div>
             </div>
-
+            
         {%endfor%}
 
             <p> . </p>
@@ -103,14 +103,23 @@
 
                         </form>
                     {%else%}
-                        <strong>No tasks for this lab(course topic)</strong>
+                        <strong>No tasks for this lab(course topic)</strong> 
                     {% endif %}
                 </div>
             </div>
-        </div>
+        </div>     
     </div>
 
 </section>
 
 
 {%endblock%}
+
+
+
+
+
+
+
+
+

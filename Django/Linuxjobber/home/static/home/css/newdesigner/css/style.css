@@ -845,7 +845,7 @@ padding:20px;
 
 @media (max-width:767px) {
 
-/* .mainmnu { display: none; } */
+.mainmnu { display: none; }
 
 #menu-area { display: block; float: left; width: 100%; }
 
