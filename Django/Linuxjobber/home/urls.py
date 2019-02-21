@@ -20,7 +20,7 @@ wp_patterns = [
 urlpatterns = [
     path('', views.index, name='index'),
     path('admin',admin.site.urls),
-    path('login', views.log_in, name = 'login'),
+    path('login/', views.log_in, name = 'login'),
     path('signup', views.signup, name='signup'),
     path('selfstudy', views.selfstudy, name='selfstudy'),
     path('linux/certification', views.linux_certification, name='linux_certification'),
@@ -36,6 +36,7 @@ urlpatterns = [
     path('jobplacements/', include(jp_patterns)),
     path('accepted', views.accepted, name='accepted'),
     path('groupCourse/',views.group_list,name='group'),
+    path('subscriptionstatus', views.check_subscription_status, name='check_subscription_status'),
     # path('groupCourse', views.group, name='group'),
     path('groupCourse/<int:pk>',views.group,name='group'),
     path('groupCourse/<int:pk>/pay/', views.group_pay, name='group_pay'),

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {ApiService} from "../../share/api.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Observable} from "rxjs/index";
@@ -11,19 +11,20 @@ import {Observable} from "rxjs/index";
 export class TopicLabComponent implements OnInit {
   route:any ;
   public _task:Observable<any>;
-  constructor(private apiService:ApiService,route:ActivatedRoute,private router:Router) {
-    // this.route=route;
-    //     this.route.params.subscribe(params => {
-    //   const selectedClass = + params["group_id"];
-    // if (selectedClass){
-    //   this.apiService.LoadData(selectedClass);
-    // this.apiService.setActiveTopic(+params["topic_id"]);
-    //    }
-    //     });
+  constructor(private apiService:ApiService,route:ActivatedRoute,
+              private router:Router,
+              private cdr:ChangeDetectorRef) {
+    this.route=route;
+
 
   }
   ngOnInit() {
+            this.route.params.subscribe(params => {
+
+              this.cdr.reattach()
     this._task=this.apiService.data$
+        });
+
   }
 
 }

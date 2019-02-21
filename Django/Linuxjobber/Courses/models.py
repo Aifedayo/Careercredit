@@ -34,6 +34,7 @@ class CoursePermission(models.Model):
     course = models.ForeignKey(Course, on_delete = models.CASCADE)
     user = models.ForeignKey(CustomUser,on_delete = models.CASCADE, limit_choices_to={'role': 4})
     permission = models.IntegerField(default=1 ,choices=((0, 'No'), (1, 'Yes')))
+    expiry_date = models.DateTimeField(default=timezone.now, null=False)
 
     def __str__(self):
         return self.user.email

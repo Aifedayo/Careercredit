@@ -1,0 +1,232 @@
+{% extends 'home/base.html' %}
+{% load staticfiles%}
+{% block title %}
+Home | Linuxjobber
+{% endblock %}
+{% block content %}
+<style type="text/css">
+	@media (min-width: 768px) and (max-width: 1024px) {
+		
+	}
+</style>
+
+<div class="navhead">
+</div>
+<div class="homebanner">
+	<div class="homebantext">
+		<br><br>
+		<div class="row">
+			<div class="col-xs-6">
+				<h1 class="homebanh1">Get Work Experience</h1>
+				<div class="homebandet">
+					<span class="homedot"></span><span class="homebanp"> 3-month Work Experience program</span><br>
+					<span class="homedot"></span><span class="homebanp"> designed to help graduates gain skills and </span><br>
+					<span class="homedotp"></span><span class="homebanp"> work experience</span><br>
+					<span class="homedot"></span><span class="homebanp"> grab employers’ attention</span><br>
+					<span class="homedot"></span><span class="homebanp"> helps IT professionals switch careers</span><br><br>
+				</div>
+				<a href="{% url 'home:workexperience' %}" class="btn homebanbut">ENROLL NOW</a>
+			</div>
+			<div class="col-xs-6"></div>
+		</div>
+		
+	</div>
+</div>
+<div class="homework">
+	<div class="row">
+		<div class="col-md-6 col-md-push-6">
+			<div class="homeworkrit">
+				<img class="homeworkimg homeworkima" src="{% static 'home/css/newhomepage/imgs/LaptopBook.png' %}">
+			</div>
+		</div>
+		<div class="col-md-6 col-md-pull-6">
+			<div class="homeworkleft">
+				<div class="homecenter">
+					<p class="homeworkp">Need more skills and experience to get your DREAM JOB?</p>
+					<span class="homeworkh2">Join the LinuxJobber Work Experience Program</span><br>
+					<b><span class="homeworkspan">Get experience in the following fields:</span></b><br><br>					
+				</div>
+				<p class="homep"><span class="homeworkdot"></span> Linux Administration</p><br>
+				<p class="homep"><span class="homeworkdot"></span> Cloud Administration & Architecture</p><br>
+				<p class="homep"><span class="homeworkdot"></span> Fullstack Development</p><br>
+				<p class="homep"><span class="homeworkdot"></span> Database Administration</p><br>
+				<p class="homep"><span class="homeworkdot"></span> DevOps Administration</p><br>
+				<p class="homep"><span class="homeworkdot"></span> Java Development</p><br><br>
+
+				<div class="homecenter">
+					<a href="{% url 'home:workexperience' %}" class="btn homebanbut">APPLY NOW</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="homejob">
+	
+		<div class="row">
+			<div class="col-md-6">
+				<div class="homejobleft"><img class="homeworkimg" src="{% static 'home/css/newhomepage/imgs/jobphone.png' %}"></div>
+			</div>
+			<div class="col-md-6">
+				<div class="pull-right homejobrit" style="text-align:right;">
+					<div class="homecenter">
+						<p class="homeworkp">LinuxJobber matches you to top paying tech jobs easily.</p>
+						<span class="homeworkh2">Join Our Job Placement<br>Program</span><br><br>
+						<b><span class="homeworkspan">Areas of specialization includes:</span></b><br>
+					</div>
+					<div class="supright">
+						<br>
+						<p class="homep"><span class="homeworkdotr"></span> Linux Administration </span><span class="homeworkdot hml"></span></p><br>
+						<p class="homep"><span class="homeworkdotr"></span> Cloud Administration & Architecture <span class="homeworkdot hml"></span></p><br>
+						<p class="homep"><span class="homeworkdotr"></span> Fullstack Development <span class="homeworkdot hml"></span></p><br>
+						<p class="homep"><span class="homeworkdotr"></span> Database Administration <span class="homeworkdot hml"></span></p><br>
+						<p class="homep"><span class="homeworkdotr"></span> DevOps Administration <span class="homeworkdot hml"></span></p><br>
+						<p class="homep"><span class="homeworkdotr"></span> Java Development <span class="homeworkdot hml"></span></p><br><br>
+					</div>
+					<div class="homecenter">
+						<a href="{% url 'home:jobplacements' %}" class="btn homebanbut">LEARN MORE</a>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+
+<div class="homelive">
+	<div class="row">
+		<div class="col-md-6 col-md-push-6">
+			<div class="homeliverit">
+				<div class="homeliveimg"><img class="homeworkimg liveimg" src="{% static 'home/css/newhomepage/imgs/homelive.png'%}" ></div>
+			</div>
+		</div>
+		<div class="col-md-6 col-md-pull-6">
+			<div class="homeliveleft">
+				<div class="homecenter">
+					<p class="homeworkp">Access many different courses with only one subscription</p>
+					<span class="homeworkh2">Get 1:1 live training<br>tailored to you</span><br>
+					<b><span class="homeworkspan">Pick your hands-on training category</span></b><br>					
+				</div>
+				<br>
+				<p class="homep"><span class="homeworkdot"></span> Linux</p> <br>
+				<p class="homep"><span class="homeworkdot"></span> PUPPET</p><br>
+				<p class="homep"><span class="homeworkdot"></span> RHCSA</p><br>
+				<p class="homep"><span class="homeworkdot"></span> Java</p><br>
+				<p class="homep"><span class="homeworkdot"></span> AWS SA</p><br>
+				<p class="homep"><span class="homeworkdot"></span> Business Analysis</p><br><br>
+
+				<div class="homecenter">
+					<a href="{% url 'home:user_interest' %}" class="btn homebanbut">APPLY NOW</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="homesign">
+	<div class="text-center">
+		<p class="homeworkh2">What you get signing up on Linuxjobber</p>
+	</div>
+	<br><br><br>
+	<div class="homesignin">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="row homesign3">
+					<div class="col-md-3 col-xs-3"><img class="signimg" src="{% static 'home/css/newhomepage/imgs/get3.png'%}" ></div>
+					<div class="col-md-9 col-xs-9">
+						<p class="homeworkp homesignhd">A variety of technologies</p>
+						<hr class="homehr">
+						<div class="homesignbot">
+							<p>From Linux,Puppet,RHCSA, Java, AWS SA to keep up to speed with good programming practices.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="row homesign3">
+					<div class="col-md-3 col-xs-3"><img class="signimg" src="{% static 'home/css/newhomepage/imgs/get2.png'%}" ></div>
+					<div class="col-md-9 col-xs-9">
+						<p class="homeworkp homesignhd">Help from experienced tutors</p>
+						<hr class="homehr">
+						<div class="homesignbot">
+							<p>Our mentors go through a strict application and vetting process that evaluates their coding skills.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="row homesign3">
+					<div class="col-md-3 col-xs-3"><img class="signimg" src="{% static 'home/css/newhomepage/imgs/get1.png'%}" ></div>
+					<div class="col-md-9 col-xs-9">
+						<p class="homeworkp homesignhd">Getting started is easy</p>
+						<hr class="homehr">
+						<div class="homesignbot">
+							<p>Take advantage of our easy set up and billing process to connect with a trainer right away.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br><br><br>
+	<div class="text-center">
+		<a href="{% url 'home:signup' %}" class="btn homebanbut">SIGN UP NOW</a>
+	</div>
+</div>
+
+<div class="testhome">
+	<div class="text-center">
+		<p class="homeworkh2">Testimonials</p>
+	</div>
+	<div class="testhomein">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="testhomefimg">
+					<img class="testimg testimob" src="{% static 'home/css/newhomepage/imgs/testi.png'%}" >
+				</div>
+			</div>
+			<div class="col-md-8">
+				<div class="testhomerit">
+					<div class="row">
+						<div class="col-md-1"><img class="homequo" src="{% static 'home/css/newhomepage/imgs/hq1.png'%}" ></div>
+						<div class="col-md-9 col-xs-12">
+							<div class="testhompdiv">
+								<p class="testhomep">
+									“I will definitely recommend this work experience program. 
+									If you have already acquired tech training and employers 
+									need you to have work experience, this program will save you. It is what you need”
+								</p>
+								<p class="testhomep2">
+									Michael Fisher
+								</p>
+								<span class="text-muted">Student Developer</span>
+							</div>	
+						</div>
+						<div class="col-md-1">
+							<div class="testhomehq2">
+								<img class="homequo" src="{% static 'home/css/newhomepage/imgs/hq2.png'%}" >								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="homeclient">
+	<div class="text-center">
+		<p class="homeworkh2">Our Clients</p>
+	</div>
+	<div class="homeclients">
+		<div class="homecenter homecenterd">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-3"><img class="clientsimg" src="{% static 'home/css/newhomepage/imgs/client3.png'%}" ></div>
+				<div class="col-md-3"><img class="clientsimg" src="{% static 'home/css/newhomepage/imgs/client2.png'%}" ></div>
+				<div class="col-md-3"><img class="clientsimg" src="{% static 'home/css/newhomepage/imgs/client1.png'%}" ></div>
+				<div class="col-md-1"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{%endblock%}

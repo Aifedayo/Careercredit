@@ -1,0 +1,66 @@
+.inner-box.category-content {
+    border: 1px solid #ddd;
+    border-radius: 13px;
+    margin: 15px 0;
+    padding: 25px 0 0;
+    width: 100%;
+    height: 180px;
+    background: #e6e3e3;
+}
+
+
+.footer {
+	padding: 50px;
+	background: #313328;
+	color: #fff;
+}
+
+.footer h2 {
+	color: #c4c4c4;
+	font-size: 30px;
+}
+
+.footer li {
+	list-style: none;
+	color: #fff;
+}
+
+.footer a {
+	color: #fff;
+}
+
+.footer{
+    margin: 0; !important
+}
+
+.benefits-text {
+	margin: 100px 50px;
+	color: #fff;
+}
+
+.benefits-text h4 {
+	margin-bottom: 50px;
+}
+
+.benefits-text h2 {
+	color: #fff; !important
+}
+
+.h h2 {
+	color: #fff; !important
+}
+
+.hiw p {
+	padding: 0px 0px;
+	color: #000; !important
+}
+
+.hiw {
+	padding: 10px 30px 10px 30px;
+}
+
+
+.form-group p {
+	color: #111;
+	margin-bottom: 15px;
+}

@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'HelveticaLTStdLight';
+    src: url('helveticaltstd-light.eot');
+    src: url('helveticaltstd-light.eot') format('embedded-opentype'),
+         url('helveticaltstd-light.woff2') format('woff2'),
+         url('helveticaltstd-light.woff') format('woff'),
+         url('helveticaltstd-light.ttf') format('truetype'),
+         url('helveticaltstd-light.svg#HelveticaLTStdLight') format('svg');
+}
+
+@font-face {
+    font-family: 'HelveticaLTStdRoman';
+    src: url('helveticaltstd-roman.eot');
+    src: url('helveticaltstd-roman.eot') format('embedded-opentype'),
+         url('helveticaltstd-roman.woff2') format('woff2'),
+         url('helveticaltstd-roman.woff') format('woff'),
+         url('helveticaltstd-roman.ttf') format('truetype'),
+         url('helveticaltstd-roman.svg#HelveticaLTStdRoman') format('svg');
+}
+
+@font-face {
+    font-family: 'HelveticaLTStdBlackCondensed';
+    src: url('helveticaltstd-blkcond.eot');
+    src: url('helveticaltstd-blkcond.eot') format('embedded-opentype'),
+         url('helveticaltstd-blkcond.woff2') format('woff2'),
+         url('helveticaltstd-blkcond.woff') format('woff'),
+         url('helveticaltstd-blkcond.ttf') format('truetype'),
+         url('helveticaltstd-blkcond.svg#HelveticaLTStdBlackCondensed') format('svg');
+}
+
+@font-face {
+    font-family: 'HelveticaLTStdCondensed';
+    src: url('helveticaltstd-cond.eot');
+    src: url('helveticaltstd-cond.eot') format('embedded-opentype'),
+         url('helveticaltstd-cond.woff2') format('woff2'),
+         url('helveticaltstd-cond.woff') format('woff'),
+         url('helveticaltstd-cond.ttf') format('truetype'),
+         url('helveticaltstd-cond.svg#HelveticaLTStdCondensed') format('svg');
+}
+
+@font-face {
+    font-family: 'HelveticaLTStdBold';
+    src: url('helveticaltstd-bold.eot');
+    src: url('helveticaltstd-bold.eot') format('embedded-opentype'),
+         url('helveticaltstd-bold.woff2') format('woff2'),
+         url('helveticaltstd-bold.woff') format('woff'),
+         url('helveticaltstd-bold.ttf') format('truetype'),
+         url('helveticaltstd-bold.svg#HelveticaLTStdBold') format('svg');
+}
+
+
+@font-face {
+    font-family: 'oswaldbook';
+    src: url('oswald-regular-webfont.eot');
+    src: url('oswald-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('oswald-regular-webfont.woff2') format('woff2'),
+         url('oswald-regular-webfont.woff') format('woff'),
+         url('oswald-regular-webfont.ttf') format('truetype'),
+         url('oswald-regular-webfont.svg#oswaldbook') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'gothamrnd';
+    src: url("gothamrnd-bold.eot") format('embedded-opentype'),
+         url("gothamrnd-bold.ttf") format('truetype'),
+         url("gothamrnd-bold.woff") format('woff'),
+         url("gothamrnd-light.ttf") format('truetype'),
+         url("gothamrnd-medium.ttf") format('truetype'),
+         url("gothamrnd-medium.woff") format('woff');
+}

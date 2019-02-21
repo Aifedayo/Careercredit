@@ -3,56 +3,48 @@
 {% block title %}
 	Linuxjobber Project
 {% endblock %}
-<link rel="stylesheet" type="text/css" href="{% static 'Projects/custom/css/projects.css' %}">
-
 
 {% block content %}
-	<div style="background-color: #252525; height: 85.9px;">
-		<p style="color: #252525">this is a random text <!-- This text is here for only styling purpose --></p>
-	</div>
-	
-	<div class="project-pg-marker">
-		<small>Projects > {{ project_title }} > {{ course_title }}</small>
-	</div>
-	<div class="container-fluid course-proj-cont">
-		<p class="course-proj-title">{{ course_title }}<p>
-		<p class="course-proj-descrp">{{ course_description }}</p>
-		<br><br><br>
-	</div>
-	<div style="background-color: #F6F6F6;">
-		<p id="current_vid" style="background-color: #ffffff;border-top-left-radius: 36px;border-top-right-radius: 36px;box-shadow: 0px -3px 6px rgba(0, 0, 0, 0.25);color: black;padding-left: 49px;padding-top: 17px;font-family: Roboto;font-style: normal;font-weight: normal;line-height: normal;font-size: 26px;">{{ course_topics.0.topic_title }}</p>
-	</div>
-	<a href="{% url 'Projects:course_labs' course_title.split|join:'_' %}">
-		<button class="btn" style="border-radius: 10px;color: rgba(0, 0, 0, 0.4);margin-left: 49px;margin-top: -20px;">hands-on-lab</button>
-	</a>
-	<div class="row" style="margin-bottom: 52px;">
-		<div class="col-md-8" style="background-color: white;margin-left: 49px;margin-top: 13px;height: 503px;">
-			<script type="text/javascript">
-				var cnt = -1;
-			</script>
-			<video id="vid" src="{{ course_topics.0.topic_video }}" type="mp4" height= "503px" width="cover"  controls>
-			  <source type="video/mp4">
-			Your browser does not support the video tag
-			</video>
+<div class="proj-header"></div>
+<div class="proj-header2">
+	<div class="text-center"><span class="text-muted"><a class="text-muted proj-header2l" href="{% url 'Projects:index' %}">Projects</a>  > <a class="text-muted proj-header2l" href="{% url 'Projects:courses' project_id %}">{{project_title}}</a> > {{course_title}}</span> </div>
+</div>
+<div class="proj-body">
+
+	<div class="text-center projban">
+		<br><br>
+		<h1 class="projbanh1">{{course_title}}</h1>
+		<br>
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<span>{{course_description}}</span>
 		</div>
-		<div class="col-md-3" style="background-color: #F6F6F6;margin-top: 13px;height: 503px;box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);overflow-y: scroll;overflow-x: hidden;">
-			<p style="color: #000000;padding-top: 9px;font-size: 18px;margin-bottom: 10px;">Videos</p>
-			{% for course_topic in course_topics %}
-				<input type="hidden" id="vid_src_{{ course_topic.topic_id }}" value="{{ course_topic.topic_video }}">
-				<input type="hidden" id="current_vid_{{ course_topic.topic_id }}" value="{{ course_topic.topic_title }}">
-				<ol>
-				<li><img style="vertical-align: middle;" src="{% static 'Projects/img/play_icon.png' %}">
-				<small onclick="document.getElementById('vid').src = document.getElementById('vid_src_{{ course_topic.topic_id }}').value;document.getElementById('current_vid').innerHTML = document.getElementById('current_vid_{{ course_topic.topic_id }}').value" style="font-size: 18px;color: rgba(0, 0, 0, 0.8);" href="">{{ course_topic.topic_title }}</small></li>
-				</ol>
-			{% endfor %}
+		<div class="col-md-3"></div>
+		<br>
+	</div>
+	<div class="projboard">
+		<div class="projboard2">
+			<span class="projcardh">{{topic.topic_id}}. {{topic}}</span><br><br>
+			<div class="row">
+			<div class="col-md-8">
+				<div class="projboardinfo">
+					{%if topic.has_notes == 1 %}<span><a href="{% url 'Projects:course_note' course_id topic.topic_id %}" class="btn projbut4 text-muted">notes</a> </span>{%endif%}{%if topic.has_labs == 1 %} <span> <a href="" class="btn projbut4 text-muted">hands on lab</a></span>{%endif%}<br><br>
+					<video src="{{topic.topic_video}}" controls width="100%" height='468px;' class="projvid"></video>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="projtopiclist">
+					<div class="projlistin">
+						<span>{{course_topics|length}} videos</span><br>
+						{%for topics in course_topics %}
+							<a class="proj-header2l text-muted" href="{% url 'Projects:course_topics' course_id topics.topic_id %}"><span>{{topics.topic_id}} {{topics.topic_title}}</span></a><br><br>
+						{%endfor%}
+					</div>
+				</div>
+			</div>
+		</div>
 		</div>
 	</div>
 
-	<script type="text/javascript">
-		function change_video(jj) {
-			document.getElementById("vid").src = document.getElementById(jj).value
-			document.getElementById("current_vid").innerHTML = document.getElementById("current_vid2").value;
-		}
-	</script>
-
+</div>
 {% endblock %}

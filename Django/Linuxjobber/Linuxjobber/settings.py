@@ -111,12 +111,12 @@ WSGI_APPLICATION = 'Linuxjobber.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': config('DATABASE_NAME','linuxjb'),
-        'USER': config('DATABASE_USER','linuxjobber'),
-        'PASSWORD':config('DATABASE_PASSWORD','linuxjobber'),
+        'NAME': config('DATABASE_NAME','linuxjobber'),#linuxjb
+        'USER': config('DATABASE_USER','root'),#linuxjobber
+        'PASSWORD':config('DATABASE_PASSWORD','samjam1989'),#linuxjobber
         'HOST': config('DATABASE_HOST','localhost'),
-        'PORT': config('DATABASE_PORT',''),
-
+        'PORT': config('DATABASE_PORT',''),   
+  
     }
 }
 
@@ -243,7 +243,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'asset'),
-    os.path.join(BASE_DIR, 'Projects/static'),
     )
 
 #STATIC_ROOT = os.path.join(BASE_DIR, 'asset')
@@ -252,11 +251,12 @@ STATICFILES_DIRS = (
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-LOGIN_URL = '/login'
+LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/home'
 
 #EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 #EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
+ENV_URL = "http://127.0.0.1:8000/"
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = config('EMAIL_HOST','smtp.linuxjobber.com')
@@ -283,7 +283,10 @@ CHANNEL_LAYERS = {
 
 # todo Always change to appropriate before pushing
 #SERVER details
-SERVER_IP = config('SERVER_IP',"52.88.199.218")
+SERVER_IP = config('SERVER_IP',"192.168.122.1")
 SERVER_USER = config('SERVER_USER',"sysadmin")
 SERVER_PASSWORD = config('SERVER_PASSWORD',"8iu7*IU&")
 GROUP_CLASS_URL= config('GROUP_CLASS_URL','http://localhost:4200/classroom/')
+
+#Session Expiration set to 10 mins
+SESSION_COOKIE_AGE = 30 * 60

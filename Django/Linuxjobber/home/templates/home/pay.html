@@ -14,28 +14,140 @@ Pay | {{ PAY_FOR }} | Linuxjobber
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+.workterms{
+    height: 500px;
+    overflow: auto;
+    color: black;
+}
+
+.workterms::-webkit-scrollbar {
+    width: 12px;
+    background-color: rgba(0, 0, 0, 0.25);
+    color: grey;
+}
+
+.workterms::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px black; 
+}
+
+.workterms::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px white; 
+    border-radius: 10px;
+}
+
+.worktermspan{
+    color: black;
+}
+
+.workt{
+    margin-top: 250px;
+}
+
 </style>
 
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active"></div>      
+    </div>      
+</div>
 
-<div class="pay" role="listbox">
-    <div class="item active">
+<div class="container">
+    <div class="workt">
+    {% if messages %}
+          {% for message in messages %}
+            {% if message.tags == "success" %}
+            <div class="alert alert-success" role="alert">
+            <p style="color:#155724">{{message}}</p>
+            </div>
+            {%else%}
+            <div class="alert alert-danger" role="alert">
+            <p style="color:#721c24">{{message}}</p>
+            </div>
+            {%endif%}
+          {% endfor %}
+        {% endif %}
+        <div class="workterms">
+            <span class="worktermspan">
+                Student Enrollment Agreement 
 
-        <div class=" text-center projs" >
-   <!-- <h1>Project Videos</h1> -->
+ 
 
+This Student Enrollment Agreement (this “Agreement”), is a binding agreement between you, the Student (the “Student”), and Linuxjobber, Inc. with regard to a single enrollment in an Advanced Career Training program that may consist of a single or multiple programs. This Agreement becomes binding and effective upon the Student’s acceptance, indicated by online acknowledgement of receipt of, and agreement to, the provisions of this Agreement.<br><br>
+ 
+The parties hereto agree as follows: <br>
+
+ 
+
+1. ADMISSIONS CRITERIA: The Student has completed technical training in the area of interest and is seeking “hands-on” field experience to better understand daily responsibilities of a working professional in that area. <br><br>
+
+ 
+
+2. TUITION: The Student agrees to pay a one-time, non-refundable registration payment of $399 and additional 8% of the Student’s one-year salary when the Student gains employment in any field related to the area of interest. <br><br>
+
+ 
+
+3. COMPLETION REQUIREMENTS: In order to receive a Certificate of Completion, the Student must successfully complete the program by the date indicated on the Stduent’s Linuxjobber profile following the date on which the Student enrolls in the program, and tuition must be paid in full before the Student can receive a Certificate of Completion. <br><br>
+
+ 
+
+4. SCHEDULE: The duration of the program is 3 months and the Student is required to attend daily online meetings (Mondays through Friday) for the entire duration of the program. It is the responsibility of the Student to attend the meeting and to meet privately with instructors to cover materials for missed classes. <br><br>
+
+ 
+
+5. PROGRAM CANCELLATION POLICY: The Student may request the Student's enrollment be canceled at any time before the Student is registered for and granted access to the program. <br><br>
+
+ 
+
+6. REFUND POLICY: For refunds requested within ten (7) calendar days commencement of the Work Experience training, as shown on Student’s Linuxjobber profile, one hundred percent (100%) of the tuition amount shall be 
+
+For refund requests within Eight (8) to twenty-four (24) calendar days of commencement of the Work Experience training, as shown on Student’s Linuxjobber profile, fifty percent (50%) of the tuition amount shall be refunded.  
+
+Refund requests must be made through email by the Student.<br><br>
+
+No refunds shall be available after the twenty-four (24) calendar days of commencement of the Work Experience program Start Date as shown on the Student’s Linuxjobber profile. <br><br>
+
+ 
+
+7. TRANSFER POLICY: The Student may transfer from one program to another within sixty (60) days following the Student’s registration date. There is a transfer fee of one hundred twenty-five dollars ($125), plus any applicable taxes, if the transfer takes place after the first ten (10) calendar days of the Start Date listed in the Student’s Linuxjobber profile. If the program to which the Student wishes to transfer costs less than the original program in which the Student is registered, the Student shall be credited the difference, minus the transfer fee. If the program to which the Student wishes to transfer costs more than the original program in which the Student is registered, the Student shall be charged the difference, plus the transfer fee and any applicable taxes. <br><br>
+
+ 
+
+8. HOLD POLICY: A “hold” is a permitted suspension of the Student’s participation in the program without penalty. The Student may request a hold of up to thirty (30) days and holds will only be granted for those with extenuating circumstances, at Linuxjobber’s discretion, such as military deployment or documented medical concerns. Some program holds may incur a fee and the student shall be made aware of this before the hold is initiated. If the Student has used a  loan, they are still responsible for the regular loan payments throughout the hold period. If the Student remains on hold for more than thirty (30) days, the Student shall be dropped from the program without a refund and the Student’s grade shall be shown as Incomplete on the school’s records. <br><br>
+
+ 
+
+9. STUDENT CONSENT TO RELEASE OF DATA: The Student hereby authorizes (a) Linuxjobber and its authorized testing provider(s) to release the Student’s name and certification result (“Student Results”) to employers and third party requesters  (b) Linuxjobber to collect, use, store, and transfer Student Results in connection with: researching, developing, or improving its products or services; public aggregated reporting of pass/fail rates; and compliance reporting. The Student also hereby authorizes Linuxjobber to provide Student Results to third parties if: (x) Linuxjobber believes in good faith the disclosure is required by law, such as to comply with a subpoena, warrant, court order, or similar legal or administrative process; and (z) a third party purchases or otherwise acquires Linuxjobber, in which case Student Results will likely be among the assets transferred. <br><br>
+
+ 
+
+10. GROUNDS FOR TERMINATION: The Student’s enrollment may be terminated for several reasons, upon Linuxjobber’s decision, including failure of the Student to comply with Linuxjobber’s rules and policies, or failure to comply with the terms and conditions set forth herein. Linuxjobber may terminate the Student’s enrollment at any time for such violations. Linuxjobber further reserves the right to modify the rules and policies. In addition, if the Student owes any amount on a loan and is delinquent on the Student’s loan payments or installments for more than ninety (30) days, Linuxjobber reserves the right to terminate the student’s access to the program without a refund. <br><br>
+ 
+12. NO GUARANTEE:  THE STUDENT UNDERSTANDS AND AGREES THAT COMPLETION OF THE PROGRAM IS NOT A GUARANTEE OF EMPLOYMENT OR OF OBTAINING AN INTERNSHIP OR EXTERNSHIP. LINUXJOBBER HAS NOT MADE ANY PROMISE TO THE STUDENT, EXPRESS OR IMPLIED, REGARDING ANY OPPORTUNITIES FOR THE STUDENT FOLLOWING COMPLETION OF THE PROGRAM.  THE STUDENT AGREES TO RELEASE, INDEMNIFY, DEFEND AND HOLD HARMLESS LINUXJOBBER AND CENGAGE LEARNING, INC., THEIR SHAREHOLDERS, OFFICERS, DIRECTORS, EMPLOYEES, AGENTS AND ASSIGNS FROM ANY SUCH CLAIM. <br><br>
+ 
+13. GOVERNING LAW AND JURISDICTION FOR DISPUTES: This Agreement shall be construed and enforced in accordance with all United States Laws, without regard to its conflict of law provisions which would require the application of the laws of another jurisdiction. Any suit, action or proceeding arising out of or relating to this Agreement may be commenced and maintained only in a Maryland state court of competent subject matter jurisdiction in Howard County, MD, and each Party waives objection to such jurisdiction and venue.  The Parties expressly, knowingly and voluntarily waive any right to a trial by jury in any proceeding arising out of or relating to, and/or to enforce this Agreement. <br><br>
+
+ 
+
+ 
+            </span>
         </div>
-      </div>
     </div>
+    <button type="button" class="btn btn-lg btn-primary buttoons pull-right">I Agree</button>
+    </div>
+    <br><br>
 
-<div class="main-container">
-
+<div class="main-container workpay">
     <div class="container"> 
+        
         <div class="row">
         
             
         <div class="col-md-1"></div>
             <div class="col-md-6 page-content">
-                <div class="inner-box category-content" style="box-shadow: 0px 4px 30px rgba(255, 255, 255); !important">
+                <div class="inner-box category-content" style="box-shadow: 0px 4px 30px rgba(255, 255, 255); height:200px; !important">
                 	
                     <h2 class="title-4"><i class="icon-user-add"></i>
                     
@@ -93,6 +205,21 @@ Pay | {{ PAY_FOR }} | Linuxjobber
     </div>
     <!-- /.container -->
 </div>
+
+<script type="text/javascript">
+$('.workpay').hide();
+    
+
+$('.buttoons').click(function() {
+    $('.workpay').show();
+    $('.workterms').hide();
+    $('.buttoons').hide();
+});
+
+
+
+
+</script>
 
 
 {% endblock %}

@@ -1,6 +1,9 @@
 from django import forms
 from . import models
-from .models import Document, Internship, Resume, PartTimePostion, FullTimePostion
+from .models import Document, Internship, Resume, PartTimePostion, FullTimePostion, wepeoples, wetype
+
+class WeForm(forms.Form):
+	types = forms.ModelChoiceField(queryset=wetype.objects.all(), empty_label="Select",widget = forms.Select(attrs = {'class':'form-control'}) )
 
 
 class JobApplicationForm(forms.ModelForm):
@@ -76,7 +79,7 @@ class ContactUsForm(forms.ModelForm):
 
 
 class AWSCredUpload(forms.ModelForm):
-	document = forms.FileField(label='', widget = forms.FileInput(attrs = {'placeholder': 'Aws credentials', 'id' :'upload-file'}) )
+	document = forms.FileField(label='', widget = forms.FileInput(attrs = {'placeholder': 'Aws credentials', 'id' :'upload-file', 'accept':".csv"}) )
 	class Meta:
 		model = Document
 		fields = ['document',]

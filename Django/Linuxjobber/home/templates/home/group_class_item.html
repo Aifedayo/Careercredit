@@ -43,6 +43,9 @@
     background-color: gray;
 }
 
+.pt-4{
+  line-height: 1.0em!important;
+}
 </style>
 <div class="black-header"></div>
 <div class="heading">
@@ -149,7 +152,7 @@
         <input type="hidden" name="price"  value="{{groupd.price}}" >
         {% if user.is_authenticated %}
 
-        <input type="text"  placeholder="Fullname" name="fullname" id="fullname" value="{{request.user.get_full_name}}" readonly="readonly">
+        <input type="text" class="form-control"  placeholder="Fullname" name="fullname" id="fullname" value="{{request.user.get_full_name}}" readonly="readonly">
          <input type="email"  placeholder="E-mail" name="email" id="email" value="{{request.user.email}}" readonly="readonly">
         {%else%}
         <input type="text"  placeholder="Fullname" name="fullname" id="fullname" >

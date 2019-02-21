@@ -141,35 +141,24 @@
 									</div></li>
 
 								<li class="has-dropdown sub-menu company"><a class="b-n"
-									href="javascript:void(0)">Company</a>
+									href="javascript:void(0)">Careers</a>
 									<div class="dropdowns transparent-style" id="company">
 										<div class="container text-1">
-											<div class="col-md-4 col-sm-6">
-												<ul>
-													<li><a href="{% url 'home:aboutus' %}"><span
-															class="link-icon"><i class="fa fa-home fa-2x"></i></span>About
-															Us</a></li>
-													<li><a href="{% url 'home:location' %}"><span
-															class="link-icon"><i
-																class="fa fa-map-marker fa-2x"></i></span>Location</a></li>
-												</ul>
-											</div>
+											
 											<div class="col-md-4 col-sm-6">
 												<ul>
 													<li><a href="{% url 'home:jobs' %}"><span
 															class="link-icon"><i class="fa fa-suitcase fa-2x"></i></span>Full-Time Jobs</a></li>
-													<li><a href="{% url 'home:policies' %}"><span
-															class="link-icon"><i class="fa fa-gavel fa-2x"></i></span>Policies</a></li>
 												</ul>
 											</div>
 											<div class="col-md-4 col-sm-6">
 												<ul>
 													<li><a href="{% url 'home:partime' %}"><span
 															class="link-icon"><i class="fa fa-suitcase fa-2x"></i></span>Part-Time Jobs</a></li>
-													<li><a href="{% url 'home:contact_us' %}"><span
-															class="link-icon"><i
-																class="fa fa-phone-square fa-2x"></i></span>Contact Us</a></li>
 												</ul>
+											</div>
+											<div class="col-md-4 col-sm-6">
+												
 											</div>
 										</div>
 									</div></li>
@@ -205,7 +194,6 @@
 											<div class="col-md-4 col-sm-6">
 												<ul>							
 													<li><a href="/users/orderlist"><span class="link-icon"><img src="https://linuxjobber.com/images/icon1.png" alt="" /></span>Order List</a></li>
-													<li><a href="{% url 'home:rhcsa_order' %}"><span class="link-icon"><img src="{% static 'home/images/icon1.png' %}" alt="" /></span>RHCSA Order</a></li>
 												</ul>
 											</div>		
 											<div class="col-md-4 col-sm-6">
@@ -222,9 +210,6 @@
 											{%endif%}
 										</div>
 									</div>	
-								</li>
-								<li>
-									<a style="margin-top: -10px;margin-bottom: -20px;" href="{% url 'home:profile_img_upload' %}"><img style="width: 44px;height: 44px;border-radius: 100px;" src="{{ user.profile_img }}"></a>	
 								</li>
 							
 										
@@ -258,10 +243,9 @@
 					<ul class="quick-links" style="margin-top: 26px; font-size: 16px;">
 
 						<li><a href="{% url 'home:index' %}">Home</a></li>
-						<li><a href="{% url 'home:aboutus' %}">About
-								US</a></li>
 						<li><a href="{% url 'home:resume' %}">Resume
 								Services</a></li>
+						<li><a href="{% url 'home:jobs' %}">Full-Time Jobs</a></li>
 						<li><a href="{% url 'home:students_packages' %}">Student
 								Packages</a></li>
 						<li><a href="{% url 'home:server_service' %}">Server
@@ -278,8 +262,7 @@
 					<ul class="quick-links2" style="margin-top: 26px; font-size: 16px;">
 						<h2>&nbsp;</h2>
 						<li><a href="{% url 'home:faq' %}">FAQ</a></li>
-						<li><a href="{% url 'home:contact_us' %}">Contact
-								Us</a></li>
+						<li><a href="{% url 'home:partime' %}">Part-Time Jobs</a></li>
 						<li><a href="{% url 'home:group' %}">Group Class</a></li>
 						<li><a href="{% url 'home:in_person_training' %}">In-Person
 								Training</a></li>
@@ -294,15 +277,12 @@
 
 
 				<div class="col-md-3 col-sm-6">
-					<h2>Contact Us</h2>
-					<ul class="quick-links" style="margin-top: 26px; font-size: 16px;">
-						<li><i class="fa fa-map-marker fa-fw pull-left"></i>
-							<p style="color: #fff;">Address : Suite 700, 6301 Ivy</p></li>
-						<li><p style="color: #fff;">Lane, Greenbelt, Maryland
-							<p></li>
-						<li><i class="fa fa-envelope fa-fw pull-left"></i>
-							<p style="color: #fff;">Email: admin@linuxjobber.com</p></li>
-						<!-- li><i class="fa fa-phone fa-fw pull-left"></i><p style=" color:#fff;">Call : 1 443 631 7208</p></li -->
+					<h2>Company</h2>
+					<ul class="quick-links2" style="margin-top: 26px; font-size: 16px;">
+						<li><a href="{% url 'home:aboutus' %}">About US</a></li>
+						<li><a href="{% url 'home:contact_us' %}">Contact Us</a></li>
+						<li><a href="{% url 'home:policies' %}">Policies</a></li>
+						<li><a href="{% url 'home:location' %}">Location</a></li>
 					</ul>
 				</div>
 			</div>

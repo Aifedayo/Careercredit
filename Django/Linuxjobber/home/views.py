@@ -3,26 +3,28 @@ import csv, io
 import logging
 import subprocess, json, os
 import random, string
+import datetime
+import pytz
 from smtplib import SMTPException
 from urllib.parse import urlparse
 from django.conf import settings
 from django.shortcuts import render,redirect, reverse, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 from django.template.response import TemplateResponse
 from django.utils.datastructures import MultiValueDictKeyError
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
 from django.core.mail import send_mail
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from rest_framework.authtoken.models import Token
 from datetime import timedelta
 
 from .models import *
-from Courses.models import Course
+from Courses.models import Course, CoursePermission
 from ToolsApp.models import Tool
 from users.models import CustomUser
-from .forms import JobPlacementForm, JobApplicationForm, AWSCredUpload, InternshipForm, ResumeForm, PartimeApplicationForm
+from .forms import JobPlacementForm, JobApplicationForm, AWSCredUpload, InternshipForm, ResumeForm, PartimeApplicationForm, WeForm
 
 fs = FileSystemStorage(location= settings.MEDIA_ROOT+'/uploads')
 # stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -33,7 +35,7 @@ fs = FileSystemStorage(location= settings.MEDIA_ROOT+'/uploads')
 Log non database errors with the standard_logger instance'''
 standard_logger = logging.getLogger(__name__)
 dbalogger = logging.getLogger('dba')
-
+utc=pytz.UTC
 
 
 def get_courses():
@@ -45,7 +47,7 @@ def get_tools():
 
 #INDEX VIEW
 def index(request):
-    return render (request, 'home/index.html', {'courses' : get_courses(), 'tools' : get_tools(),})
+    return render (request, 'home/index2.html')
 
 
 def signup(request):
@@ -62,7 +64,7 @@ def signup(request):
             user.first_name = firstname
             user.last_name = lastname
             user.save()
-            send_mail('Linuxjobber Free Account Creation', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + '\n Follow this link http://'+settings.SERVER_IP+'/login to login to you account\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
+            send_mail('Account has been Created', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + ' and your email is ' +email + '\n Follow this url to login with your username and password '+settings.ENV_URL+'login \n\n Thanks & Regards \n Admin.', settings.EMAIL_HOST_USER, [email])
             return render(request, "home/registration/success.html", {'user': user})
         else:
             error = True
@@ -80,7 +82,7 @@ def forgot_password(request):
             u.pwd_reset_token = ''.join(random.choice(string.ascii_lowercase) for x in range(64))
             u.save()
             password_reset_link = 'reset_password/'+str(u.pwd_reset_token)
-            send_mail('Linuxjobber Account Password Reset', 'Hello, \n' + 'You are receiving this email because we received a request to reset your password,\nignore this message if you did not initiate the request else click the link below to reset your password.\n'+'http://'+settings.SERVER_IP+'/'+password_reset_link+'\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
+            send_mail('Linuxjobber Account Password Reset', 'Hello, \n' + 'You are receiving this email because we received a request to reset your password,\nignore this message if you did not initiate the request else click the link below to reset your password.\n'+settings.ENV_URL+''+password_reset_link+'\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
 
             return render(request, 'home/registration/forgot_password.html',{'message':'An email with password reset information has been sent to you. Check your email to proceede.'})
         else:
@@ -121,12 +123,14 @@ def gainexperience(request):
     return render(request, 'home/gainexperience.html', {'courses' : get_courses(), 'tools' : get_tools()})
 
 def internships(request):
+    internsh = InternshipDetail.objects.all()[0].date
     if request.method == "POST":
         form = InternshipForm(request.POST, request.FILES)
         if form.is_valid():
             internform = form.save(commit=False)
             internform.save()
-            messages.success(request, 'Thanks for applying for the internship which starts on the 14th of April, 2018. Please ensure you keep in touch with Linuxjobber latest updates on our various social media platform. Thanks')
+            messages.success(request, 'Thanks for applying for the internship which starts on '+ str(internsh.strftime('%b %d, %y')) +'. Please ensure you keep in touch with Linuxjobber latest updates on our various social media platform. Thanks')
+            send_mail('Linuxjobber Internship', 'Hello, you are receiving this email because you applied for an internship at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.POST['email']])
             return render(request, 'home/internships.html', {'form': form, 'courses' : get_courses(), 'tools' : get_tools()})
     else:
         form = InternshipForm()
@@ -197,7 +201,8 @@ def partime(request):
         form = PartimeApplicationForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you applied for a part-time role at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [request.POST['email']])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you applied for a part-time role at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.POST['email']])
+            send_mail('Part-Time Job Application Alert', 'Hello,'+request.POST['fullname']+' with email: '+request.POST['email']+ 'just applied for a part time role. please kindly review.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
             return redirect("home:jobfeed")
         else:
             form = PartimeApplicationForm()
@@ -226,7 +231,8 @@ def jobapplication(request, job):
             jobform = form.save(commit=False)
             jobform.position = posts
             jobform.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you applied for a full-time role at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [request.POST['email']])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you applied for a full-time role at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.POST['email']])
+            send_mail('Full-Time Job Application Alert', 'Hello,'+request.POST['fullname']+' with email: '+request.POST['email']+ 'just applied for a full time role. please kindly review.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
             return redirect("home:jobfeed")
         else:
             form = JobApplicationForm()
@@ -242,6 +248,10 @@ def resume(request):
 
 
 def log_in(request):
+    next = ''
+    if request.GET:  
+        next = request.GET['next']
+
     if request.method == "POST":
         user_name = request.POST['username']
         password = request.POST['password']
@@ -251,20 +261,40 @@ def log_in(request):
         
         if user is not None:
             login(request, user)
-            #check if user paid for work experience and has not filled the form
-            try:
-                weps = wepeoples.objects.get(user=request.user)
-                if not weps.trainee_position:
-                    return redirect("home:workexpform")
-            except wepeoples.DoesNotExist:
+
+            if user.role == 4:
+                check_permission_expiry(user)
+            if next == "":
+                #check if user paid for work experience and has not filled the form
+                try:
+                    weps = wepeoples.objects.get(user=request.user)
+                    if not weps.types:
+                        return redirect("home:workexpform")
+                except wepeoples.DoesNotExist:
+                    return redirect("Courses:userinterest")
                 return redirect("Courses:userinterest")
-            return redirect("Courses:userinterest")
+            else:
+                return HttpResponseRedirect(next)
         else:
             error_message = "yes"
             return render(request, "home/registration/login.html", {'error_message' : error_message})
     else:
-        return render(request, "home/registration/login.html", {'courses' : get_courses(), 'tools' : get_tools()})
+        return render(request, "home/registration/login.html", {'next':next})
 
+def check_permission_expiry(user):
+    perms = ""
+    try:
+        perms = CoursePermission.objects.filter(user=user)
+        print(perms)
+        for perm in perms: 
+            #expired
+            if perm.expiry_date.replace(tzinfo=None) < datetime.datetime.now().replace(tzinfo=None):
+                perm.delete()
+                return True
+            else:
+                return True
+    except CoursePermission.DoesNotExist:
+        return True
 
 def log_out(request):
     logout(request)
@@ -279,7 +309,7 @@ def linux_full_training(request):
         try:
             subscriber = NewsLetterSubscribers(email = email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
             return render (request, 'home/linux_full_training.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
         except Exception as e:
             standard_logger.error('error')
@@ -295,7 +325,7 @@ def aws_full_training(request):
         try:
             subscriber = NewsLetterSubscribers(email = email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
             return render (request, 'home/aws_full_training.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
         except Exception as e:
             standard_logger.error('error')
@@ -311,7 +341,7 @@ def oracledb_full_training(request):
         try:
             subscriber = NewsLetterSubscribers(email = email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
             return render (request, 'home/oracledb_full_training.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
         except Exception as e:
             standard_logger.error('error')
@@ -327,7 +357,7 @@ def linux_certification(request):
         try:
             subscriber = NewsLetterSubscribers(email = email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
             return render (request, 'home/linux_certification.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
         except Exception as e:
             standard_logger.error('error')
@@ -342,7 +372,7 @@ def aws_certification(request):
         try:
             subscriber = NewsLetterSubscribers(email = email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
             return render (request, 'home/aws_certification.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
         except Exception as e:
             standard_logger.error('error')
@@ -357,16 +387,13 @@ def oracledb_certification(request):
         try:
             subscriber = NewsLetterSubscribers(email = email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
             return render (request, 'home/oracledb_certification.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
         except Exception as e:
             standard_logger.error('error')
             return render (request, 'home/oracledb_certification.html', {'news_letter_message': 'Something went wrong please try again!', 'courses' : get_courses(), 'tools' : get_tools()})
     else:
         return render(request, 'home/oracledb_certification.html', {'news_letter_message': news_letter_message ,'courses' : get_courses(), 'tools' : get_tools()})
-
-
-
 
 
 def workexperience(request):
@@ -383,56 +410,56 @@ def workexperience(request):
 @login_required
 def workexpform(request):
 
-    try:
-        weps = wepeoples.objects.get(user=request.user)
-        student = False
-    except wepeoples.DoesNotExist:
-        student = True
+    form = WeForm()
 
 
     if request.method == 'POST':
-        trainee = request.POST['trainee_position']
+        trainee = request.POST['types']
         current = request.POST['current_position']
         state = request.POST['state']
         income = request.POST['income']
         relocate = request.POST['relocate']
         person = request.POST['type']
 
-
-        if person == "Graduant" or person == "Student":
-            graduation = request.POST['gdate']
-        else:
-            now = timezone.now()
-            graduation = now + timedelta(days=120)
+        trainee = wetype.objects.get(id=trainee)
         
         try:
             weps = wepeoples.objects.get(user=request.user)
-            weps.trainee_position = trainee
+            weps.types = trainee
             weps.current_position = current
             weps.person_type = person
             weps.state = state
             weps.income = income
             weps.relocation = relocate
+            weps.profile_picture = None
             weps.last_verification = None
             weps.Paystub = None
-            weps.graduation_date = graduation
+            weps.start_date = None
+            weps.graduation_date = None
             weps.save()
         except wepeoples.DoesNotExist:
-            weps = wepeoples.objects.create(user=request.user,trainee_position=trainee,
+            weps = wepeoples.objects.create(user=request.user,types=trainee,
                 current_position=current,person_type=person,state=state,income=income,
-                relocation=relocate,last_verification=None,Paystub=None,graduation_date=graduation)
+                relocation=relocate,last_verification=None,Paystub=None,graduation_date=None,start_date=None)
             weps.save()
         return redirect("home:workexprofile")
     else:
-        return render(request, 'home/workexpform.html',{'student':student})
+        return render(request, 'home/workexpform.html',{'form':form})
 
 @login_required
 def workexprofile(request):
     
-    weps = wepeoples.objects.get(user=request.user)
+    try:
+        weps = wepeoples.objects.get(user=request.user)
 
-    if not weps.trainee_position:
-        return redirect("home:workexpform")
+        if not weps.types:
+            return redirect("home:workexpform")
+    except wepeoples.DoesNotExist:
+        return redirect("home:workexperience")
+
+    status = wework.objects.filter(we_people__user=request.user)
+
+
 
     if request.method == "POST":
         print(request.POST['type'])
@@ -442,14 +469,34 @@ def workexprofile(request):
             weps.save(update_fields=["Paystub"])
             messages.success(request, 'Paystub uploaded successfully, Last verification would be updated as soon as Paystub is verified')
             return redirect("home:workexprofile")
-        else:
+        elif request.POST['type'] == '2':
             income = request.POST['income']
             weps.income = income
             weps.save(update_fields=['income'])
             messages.success(request, 'Total monthly income updated successfully')
             return redirect("home:workexprofile")
+        elif request.POST['type'] == '3':
+            u = CustomUser.objects.get(email=request.user.email)
+            u.first_name = request.POST['first_name']
+            u.last_name = request.POST['last_name']
+            u.save(update_fields=["last_name","first_name"]);
+            messages.success(request, 'Your names have been updated successfully')
+            return redirect("home:workexprofile")
+        elif request.POST['type'] == '4':
+            weps.state = request.POST['state']
+            weps.save(update_fields=["state"])
+            messages.success(request, 'State updated successfully')
+            return redirect("home:workexprofile")
+        elif request.POST['type'] == '5':
+            weps.profile_picture = request.FILES['profile']
+            weps.save(update_fields=['profile_picture'])
+            messages.success(request, 'Profile picture updated successfully')
+            return redirect("home:workexprofile")
+        else:
+            messages.error(request, 'Sorry, an error occured. please contact admin@linuxjobber.com')
+            return redirect("home:workexprofile")
 
-    return render(request, 'home/workexprofile.html',{'weps': weps})
+    return render(request, 'home/workexprofile.html',{'weps': weps, 'status':status})
 
 def jobplacements(request):
     return render(request, 'home/jobplacements.html',{'courses' : get_courses(), 'tools' : get_tools()})
@@ -534,19 +581,19 @@ def pay(request):
             )
         except stripe.error.CardError as ce:
             return False, ce
-        else:
-            try:
-                UserPayment.objects.create(user=request.user, amount=PRICE,
-                                            trans_id = charge.id, pay_for = charge.description,
-                                            )
-                _, created = wepeoples.objects.update_or_create(user=request.user,trainee_position=None,current_position=None,
-                                                        person_type=None,state=None,income=None,relocation=None,
-                                                        last_verification=None,Paystub=None,graduation_date=None)
-                send_mail('Linuxjobber Work-Experience Program', 'Hello, you have succesfully paid for Linuxjobber work experience program.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [request.user.email])
-                return render(request,'home/accepted.html')
-            except Exception as error:
-                print(error)
-                return redirect("home:index")
+        
+        try:
+            UserPayment.objects.create(user=request.user, amount=PRICE,
+                                        trans_id = charge.id, pay_for = charge.description,
+                                        )
+            _, created = wepeoples.objects.update_or_create(user=request.user,types=None,current_position=None,
+                                                    person_type=None,state=None,income=None,relocation=None,
+                                                    last_verification=None,Paystub=None,graduation_date=None)
+            send_mail('Linuxjobber Work-Experience Program', 'Hello, you have succesfully paid for Linuxjobber work experience program.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.user.email])
+            return render(request,'home/accepted.html')
+        except Exception as error:
+            messages.error(request, 'An error occurred while trying to pay please try again')
+            return redirect("home:pay")
     else:
         context = { "stripe_key": stripeset[0].publickey,
                    'price': PRICE,
@@ -615,6 +662,20 @@ def check_subscription_status(request):
 
 @login_required
 def monthly_subscription(request):
+
+    #From Group Class Monthly Payment
+    try:
+        nexturl = request.session['nexturl']
+    except KeyError:
+        nexturl = None
+
+    try:
+        g_id = request.session['gclass']
+    except KeyError:
+        g_id = None
+
+    group_item = None
+
     email = request.user.email
     
     stripeset = StripePayment.objects.all()
@@ -648,7 +709,13 @@ def monthly_subscription(request):
             order.save()
 
             messages.success(request, 'Thanks for your sucbscription! Please allow 10-20 seconds for your account to be updated as we have to wait for confirmation from the credit card processor.')
-            return redirect("home:monthly_subscription")
+            if nexturl:
+                if nexturl == 'group':
+                    group_item = Groupclass.objects.get(id=g_id)
+                    group_item.users.add(request.user)
+                return redirect("home:"+nexturl) 
+            else:
+                return redirect("home:monthly_subscription")
         except stripe.error.CardError as ce:
             return False, ce
 
@@ -735,7 +802,6 @@ def group_pay(request,pk):
     amount=group_item.price * 100
     stripeset = StripePayment.objects.all()
     # Stripe uses cent notation for amount 10 USD = 10 * 100
-    stripeset = StripePayment.objects.all()
     stripe.api_key = stripeset[0].secretkey
     context = { "stripe_key": stripeset[0].publickey,
                    'amount': amount,
@@ -754,7 +820,7 @@ def group_pay(request,pk):
                 description='Group Course Payment',
                 source=token,
             )
-            messages.success(request, 'You are registered in group class successfully.')
+            messages.success(request, 'You are registered in '+group_item.name+' group class successfully.')
             _, created = GroupClassRegister.objects.update_or_create(
                 user=request.user,
                 is_paid=1,
@@ -764,13 +830,13 @@ def group_pay(request,pk):
             # After payment, add user to the group
             user=get_object_or_404(CustomUser,email=request.user.email)
             group_item.users.add(user)
-            return redirect("home:group",pk=pk)
+            return redirect("home:group")
         except stripe.error.CardError as ce:
             return False, ce
 
     # Implementation for free internship - Azeem Animashaun (Updated 21 January)
     if amount == 0:
-        messages.success(request, 'You are registered in group class successfully..')
+        messages.success(request, 'You are registered in '+group_item.name+' group class successfully..')
         _, created = GroupClassRegister.objects.update_or_create(
             user=request.user,
             is_paid=1,
@@ -779,7 +845,7 @@ def group_pay(request,pk):
         )
         user = get_object_or_404(CustomUser, email=request.user.email)
         group_item.users.add(user)
-        return redirect("home:group", pk=pk)
+        return redirect("home:group")
     return render(request, 'home/group_pay.html', context)
 
 
@@ -902,6 +968,45 @@ def account_settings(request):
 def ec2dashboard(request, command=None):
     form = AWSCredUpload()
     awscred = AwsCredential.objects.get(user = request.user)
+
+     #Launch an instance
+    if command and command == "launch":
+        print("enter")
+        AWS_ACTION = 'launch_instance';
+        MACHINE_ID = "new";
+        command = ['python3.6 '+ settings.BASE_DIR+"/home/utils/s3_sample.py %s %s %s %s" %(awscred.accesskey,awscred.secretkey,AWS_ACTION,MACHINE_ID) ]
+            
+        try:
+            print("worked")
+            output = subprocess.check_output(command, shell=True )
+            return_code = 0
+            messages.success(request, 'Machine is starting up, wait and click refresh in 2 minutes. Username is : sysadmin , Password is : 8iu7*IU& . We advice you to use this console for all your EC2 instances. If you have started other instances, please turn them all off now')
+            return redirect("home:ec2dashboard")
+        except subprocess.CalledProcessError as grepexc:
+            print("error code", grepexc.returncode, grepexc.output)
+            return_code = grepexc.returncode
+            output = grepexc.output
+            output = bytes(output)
+            output = output.decode()
+
+            #types of errors expected from AWS
+            error1 = "UnauthorizedOperation"
+            error2 = "AuthFailure"
+            error3 = "InstanceLimitExceeded"
+
+            if error1 in output:
+                messages.error(request, 'You are not authorized to perform this operation. Please contact admin@linuxjobber.com')
+                return redirect("home:ec2dashboard")
+            elif error2 in output:
+                messages.error(request, 'There was an error while validating credentials. Please contact admin@linuxjobber.com')
+                return redirect("home:ec2dashboard")
+            elif error3 in output:
+                messages.error(request, 'Sorry, you can only launch one machine at a time')
+                return redirect("home:ec2dashboard")
+            else:
+                messages.error(request, 'Unhandled exception has occurred. Please contact admin@linuxjobber.com')
+                return redirect("home:ec2dashboard")
+
        
 
     #Running instance
@@ -958,41 +1063,6 @@ def ec2dashboard(request, command=None):
             'stopped_machine': stopped_machine,
     }
 
-     #Launch an instance
-    if command and command == "launch":
-        AWS_ACTION = 'launch_instance';
-        MACHINE_ID = "new";
-        command = ['python3.6 '+ settings.BASE_DIR+"/home/utils/s3_sample.py %s %s %s %s" %(awscred.accesskey,awscred.secretkey,AWS_ACTION,MACHINE_ID) ]
-            
-        try:
-            output = subprocess.check_output(command, shell=True )
-            return_code = 0
-            messages.error(request, 'Machine is starting up, wait and click refresh in 2 minutes. Username is : sysadmin , Password is : 8iu7*IU& . We advice you to use this console for all your EC2 instances. If you have started other instances, please turn them all off now')
-            return render(request, 'home/ec2dashboard.html', context)
-        except subprocess.CalledProcessError as grepexc:
-            print("error code", grepexc.returncode, grepexc.output)
-            return_code = grepexc.returncode
-            output = grepexc.output
-            output = bytes(output)
-            output = output.decode()
-
-            #types of errors expected from AWS
-            error1 = "UnauthorizedOperation"
-            error2 = "AuthFailure"
-            error3 = "InstanceLimitExceeded"
-
-            if error1 in output:
-                messages.error(request, 'You are not authorized to perform this operation. Please contact admin@linuxjobber.com')
-                return render(request, 'home/ec2dashboard.html', context)
-            elif error2 in output:
-                messages.error(request, 'There was an error while validating credentials. Please contact admin@linuxjobber.com')
-                return render(request, 'home/ec2dashboard.html', context)
-            elif error3 in output:
-                messages.error(request, 'Sorry, you can only launch one machine at a time')
-                return render(request, 'home/ec2dashboard.html', context)
-            else:
-                messages.error(request, 'Unhandled exception has occurred. Please contact admin@linuxjobber.com')
-                return render(request, 'home/ec2dashboard.html', context)
 
     if request.method == "POST":
         form = AWSCredUpload(request.POST, request.FILES)
@@ -1000,7 +1070,7 @@ def ec2dashboard(request, command=None):
 
         if not csv_file.name.endswith('.csv'):
             messages.error(request, 'Please upload csv files only')
-            return render(request, 'home/ec2dashboard.html', context)
+            return redirect("home:ec2dashboard")
 
         data_set = csv_file.read().decode('UTF-8')
         io_string = io.StringIO(data_set)
@@ -1152,7 +1222,7 @@ def students_packages(request):
         try:
             subscriber = NewsLetterSubscribers(email = email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
             return render (request, 'home/students_packages.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
         except Exception as e:
             standard_logger.error('error')
@@ -1170,7 +1240,7 @@ def server_service(request):
         try:
             subscriber = NewsLetterSubscribers(email = email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
             return render (request, 'home/server_service.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
         except Exception as e:
             standard_logger.error('error')
@@ -1356,6 +1426,91 @@ def upload_profile_pic(request):
 
 
 def group_list(request):
+    user = None
+    ans = None
+    request.session['nexturl'] = "group"
 
-    return TemplateResponse(request,'home/groupclass_list.html',{'groups': Groupclass.objects.all()})
+    if request.user.is_authenticated:
+        user=CustomUser.objects.get(email=request.user)
+
+    if request.method == "POST":
+        email = request.POST['email']
+        choice = request.POST['choice']
+        gclass = request.POST['grouptype']
+        try:
+            group_item = Groupclass.objects.get(id=int(gclass))
+        except:
+            redirect('home:group')
+
+        # type_of_class = request.POST['name']
+        # amount = request.POST['price']
+
+        # request.session['email'] = email
+        # request.session['amount'] = amount
+        # request.session['class'] = type_of_class
+        try:
+            password = request.POST['password']
+            user = CustomUser.objects.get(email=email)
+            username = email.split('@')[0]
+            the_user = authenticate(username=username,password=password)
+
+            if the_user:
+                login(request,the_user)
+            else:
+                messages.error(request, 'Account found, invalid login details entered.')
+                return redirect('home:group')
+
+        except MultiValueDictKeyError:
+            print('Error')
+
+        except CustomUser.DoesNotExist:
+            firstname = request.POST['fullname'].split()[0]
+            lastname = request.POST['fullname'].split()[1] if len(request.POST['fullname'].split()) > 1 else request.POST['fullname'].split()[0]
+            password = request.POST['password']
+            username = email.split('@')[0]
+            if (firstname):
+                user = CustomUser.objects.create_user(username, email, password)
+                user.first_name = firstname
+                user.last_name = lastname
+                user.save()
+                #send_mail('Account has been Created', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + ' and your email is ' +email + '\n Follow this url to login with your username and password '+settings.ENV_URL+'login \n\n Thanks & Regards \n Admin.', settings.EMAIL_HOST_USER, [email])
+
+                groupreg = GroupClassRegister.objects.create(user= user, is_paid=0, amount=29, type_of_class = group_item.type_of_class)
+                groupreg.save()
+
+                new_user = authenticate(username=username,
+                                    password=password,
+                                    )
+                login(request, new_user)
+
+                if int(choice) == 1:
+                    return redirect("home:monthly_subscription")
+
+                return redirect("home:group_pay",pk=group_item.id)
+
+        if user:
+            login(request, user)
+            try:
+                ans = Groupclass.objects.get(users=user,id =group_item.id)
+            except Groupclass.DoesNotExist:
+                pass
+            if ans:
+                messages.success(request, 'You are already registered in '+group_item.name+' group class successfully..')
+                return redirect('home:group')
+            if user.role == 3:
+                group_item.users.add(user)
+                messages.success(request, 'You registered in '+group_item.name+' group class successfully..')
+                return redirect("home:group")
+            groupreg = GroupClassRegister.objects.create(user= user, is_paid = 0, amount=29, type_of_class = group_item.type_of_class)
+            groupreg.save()
+            if int(choice) == 1:
+                request.session['gclass'] = int(gclass)
+                return redirect("home:monthly_subscription")
+            return redirect("home:group_pay",pk=group_item.id)
+
+    user_token=None
+    if request.user.is_authenticated:
+        user_token,_=Token.objects.get_or_create(user=request.user)
+
+    return TemplateResponse(request,'home/group_class.html',{'groups': Groupclass.objects.all(), 'GROUP_URL':settings.GROUP_CLASS_URL, 'token':user_token})
 

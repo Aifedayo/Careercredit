@@ -1,5 +1,5 @@
 import {ActivatedRoute, Params, Router} from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { DataService } from '../data.service';
 import { MaterializeModule } from 'angular2-materialize';
 import {ApiService} from "../share/api.service";
@@ -8,6 +8,8 @@ import {Location} from "@angular/common";
 import {Observable, Subject, Subscription} from "rxjs/index";
 import {ClassModel} from "../share/class-model";
 import {UserModel} from "../share/user-model";
+import {GroupMember} from "../share/group-member";
+import { OrderPipe } from 'ngx-order-pipe';
 
 @Component({
   selector: 'app-course',
@@ -23,14 +25,17 @@ export class CourseComponent implements OnInit {
   public  selectedTopic:number = 0;
   username:string;
   private  selectedGroup:number = 0;
-  public groupMembers$: Observable<UserModel[]>;
+  // public groupMembers$: Observable<UserModel[]>;
+  public groupMembers$: Observable<GroupMember[]>;
+  public noOfUsers$:Observable<any>;
 
   constructor(
     private apiService:ApiService,
     private route: ActivatedRoute,
     public dataservice:DataService ,
     private router:Router,
-    private location:Location)
+    private location:Location,
+    private cdr:ChangeDetectorRef)
 
   {
     this.username=sessionStorage.getItem('username');
@@ -39,6 +44,7 @@ export class CourseComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params=> {
+
     this.classes=this.apiService.getAvailableClasses();
     const selectedClass = + params["group_id"];
     this.selectedGroup=selectedClass;
@@ -46,7 +52,11 @@ export class CourseComponent implements OnInit {
       const selectedTopic = + params["topic_id"];
       this.apiService.LoadData(selectedClass);
       this.topicsSub=this.apiService._allTopics$;
+
+
       this.groupMembers$ = this.apiService.getGroupMembers(selectedClass);
+      this.noOfUsers$ = this.apiService.getMembers(selectedClass);
+
 
     }if(this.selectedTopic){
         this.setTopic(this.selectedTopic)
@@ -63,6 +73,14 @@ export class CourseComponent implements OnInit {
 
   reset(){
 
+  }
+  countUsers(){
+    this.groupMembers$.subscribe(d=>{
+
+   console.log(d)
+    })
+    let c = 0;
+    return c;
   }
   goToVideo(){
     this.reset();
