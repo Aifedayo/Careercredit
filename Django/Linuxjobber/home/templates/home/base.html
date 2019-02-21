@@ -63,6 +63,65 @@
 	.fa.fa-remove {  padding: 5px !important; border-radius: 10px; line-height: 10px; }
 	a{ font-weight:500 ; }
 
+	@media (max-width:767px) {
+
+.mainmnu { display: block !important; }
+}
+li.sub-menu a.b-n::after,
+li.sub-menu a.b-n:focus::after,
+li.sub-menu a.b-n:hover::after,
+li.sub-menu a.b-n::after {
+	z-index: 0;
+}
+.navbar-toggle {
+	background: #bcc6d4fc;
+}
+.navbar-collapse.in {
+    text-align: left;
+	background: #1b539e;
+	width: 100%;
+}
+
+.icon-bar {
+	background-color: #1b539e;
+}
+.inner-box.category-content {
+    height:200px;
+  }
+  .navbar-collapse {
+  	padding: 0;
+  }
+
+@media (max-width: 640px) and (min-width: 360px) {
+	#puppet {
+bottom: 200px;
+}
+.header-login {
+	padding: 0  16px;
+	float: left;
+}
+.header-login>a {
+	margin: 5px 6px;
+}
+.navbar-right {
+	padding: 0 16px;
+	float: none !important;
+}
+.inner-box.category-content {
+    height: 300px;
+  }
+  h2.title-4{
+    padding-right: 16px;
+}
+}
+@media (max-width: 400px) {
+  .inner-box.category-content {
+    height: 300px;
+  }
+}
+
+
+
 </style>
 
 </head>
@@ -74,11 +133,17 @@
 		<div class="header-bottom">
 			<div class="container padd">
 				<div class="row">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
 					<div class="col-md-3 col-sm-3 col-xs-6 logo padd">
 						<a class="navbar-brand" href="{% url 'home:index' %}"><img
 							src="{% static 'home/images/logo.png' %}" alt="logo"></a>
 					</div>
-
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<div class="col-md-6 col-sm-6 mainmnu">
 						<nav>
 							<ul class="nav navbar-nav navbar-right main-nav">
@@ -172,13 +237,14 @@
 					<!-- user -->
 					<!-- start -->
 					{% if not user.is_authenticated %}
-					<div class="col-md-3 col-sm-3 col-xs-6 header-login">
-						<a href="{% url 'home:login' %}">Log In</a> <a class="active"
+					<div class="col-md-3 col-sm-3 header-login">
+						<a href="{% url 'home:login' %}">Log In</a> 
+						<a class="active"
 							href="{% url 'home:signup' %}">Sign Up</a>
 					</div>
 					{% else %}
 					
-					<div class="col-md-3 col-sm-3 col-xs-6 mainmnu">	
+					<div class="col-md-3 col-sm-3 mainmnu">
 						<nav>
 							<ul class="nav navbar-nav navbar-right main-nav" >
 								<li class="has-dropdown sub-menu profile">
@@ -216,7 +282,7 @@
 							</ul>	
 						</nav>		
 					</div>
-					
+					</div>
 
 					{% endif %}
 

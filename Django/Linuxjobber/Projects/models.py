@@ -81,7 +81,7 @@ class ProjectPermission(models.Model):
 
 class CourseLab(models.Model):
     lab_id = models.IntegerField(unique=True)
-    lab_title = models.CharField(max_length=200)  
+    lab_title = models.CharField(max_length=200)
     lab_course = models.ForeignKey(ProjectCourse, on_delete=models.CASCADE)
 
     def __str__(self):

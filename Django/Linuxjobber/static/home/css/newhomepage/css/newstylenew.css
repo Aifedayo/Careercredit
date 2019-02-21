@@ -1,3 +1,132 @@
+/**Group Class **/
+.groupblueban{
+  background-color: #1B539E;
+  min-height: 11vh;
+}
+
+.groupblueban2{
+  background-image: url("../imgs/groupclass.png");
+  min-height: 80vh;
+  padding-top: 130px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.groupblueban2h{
+  font-size: 36px;
+  color: #FFFFFF;
+}
+
+.groupblueban2p{
+  font-size: 14px;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+.groupclabut{
+  background: #252525;
+  box-shadow: 0px 0px 4px rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  font-size: 14px;
+  padding-left: 25px;
+  padding-right: 25px;
+  color: #FFFFFF;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.groupclabut2{
+  background: transparent;
+  border: 1px solid #FFFFFF;
+  border-radius: 10px;
+  color: #fff;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.gstat{
+  color: green;
+}
+
+.groupsched{
+  padding-top: 60px;
+}
+
+.groupcard{
+  height: 35vh;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  color: white;
+}
+
+.groupcard1{
+  background: url("../imgs/gclass1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.groupdate{
+  margin-top: 80px;
+  font-weight: 500;
+}
+
+.groupdate2{
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.grouppaycard{
+  background: #FFFFFF;
+  /* Drop Shadow */
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  margin-bottom: 30px;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
+.groupamount{
+  font-size: 72px;
+}
+
+
+.groupwhy{
+  padding-top: 30px;
+  padding-bottom: 50px;
+  margin-bottom: 20px;
+}
+
+.grouptesti{
+  padding-top: 30px;
+  padding-bottom: 50px;
+}
+
+.grouptestcard{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.groupsup{
+  font-size: 14px;
+}
+.groupbottom{
+  background: url("../imgs/groupclassbot.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 40vh;
+  color: white;
+}
+
+.groupinput{
+  outline: 0;
+  border-width: 0 0 2px;
+  border-color: blue;
+  height: 50px;
+}
+
 /* work experience */
 .wkex{
     height: 100vh;
@@ -37,7 +166,6 @@
     font-weight:bold;
     text-align: left;
     padding-bottom: 5px;
-    padding-left: 100px;
     color: rgb(53, 56, 119);
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
   }
@@ -48,7 +176,6 @@
     text-align: left;
     padding-bottom: 15px;
     margin-bottom: 10px;
-    padding-left: 100px;
     color: #1F5FB4;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
   }
@@ -57,7 +184,6 @@
     font-size: 24px;
     color: #4F4F4F;
     text-align: left;
-    padding-left: 100px;
     margin-top: 10px;
   }
 
@@ -217,7 +343,7 @@
     .wkex{
         height: 60vh;
         width: 100%;
-        background: url("../imgs/wok.png")no-repeat top center ;
+        background: url("../imgs/wok-sm.png")no-repeat top center ;
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
@@ -237,6 +363,16 @@
         text-align: left;
         padding-bottom: 5px;
         padding-left: 10px;
+        color: #1F5FB4;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+      }
+      .headernew h3{
+        font-size: 40px;
+        font-weight:bold;
+        text-align: left;
+        padding-bottom: 15px;
+        margin-bottom: 10px;
+        padding-left: 50px;
         color: #1F5FB4;
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
       }

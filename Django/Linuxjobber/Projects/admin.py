@@ -8,7 +8,7 @@ class NoteForm(forms.ModelForm):
 	detail = forms.CharField(widget=CKEditorWidget())
 	class Meta:
 		model = CourseTopicNote
-		fields = ['topic','detail'] 
+		fields = ['topic','detail']
 
 class CourseTopicNoteAdmin(admin.ModelAdmin):
 	form = NoteForm
