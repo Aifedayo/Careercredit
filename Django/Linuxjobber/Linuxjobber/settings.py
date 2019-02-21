@@ -17,6 +17,7 @@ from decouple import config, Csv
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
@@ -101,22 +102,24 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Linuxjobber.wsgi.application'
 
+
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 # Todo Before Push modify to original credentials
-# Here I made use of a mysql database for expense application
+#Here I made use of a mysql database for expense application
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': config('DATABASE_NAME', 'linuxjobber'),  # linuxjb
-        'USER': config('DATABASE_USER', 'root'),  # linuxjobber
-        'PASSWORD': config('DATABASE_PASSWORD', 'samjam1989'),  # linuxjobber
-        'HOST': config('DATABASE_HOST', 'localhost'),
-        'PORT': config('DATABASE_PORT', ''),
-
+        'NAME': config('DATABASE_NAME','linuxjobber'),#linuxjb
+        'USER': config('DATABASE_USER','root'),#linuxjobber
+        'PASSWORD':config('DATABASE_PASSWORD','samjam1989'),#linuxjobber
+        'HOST': config('DATABASE_HOST','localhost'),
+        'PORT': config('DATABASE_PORT',''),   
+  
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -136,85 +139,86 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
 LOGGING = {
-    'version': 1,
+    'version' : 1,
     'disable_existing_loggers': True,
     'filters': {
         'require_debug_false': {
             '()': 'django.utils.log.RequireDebugFalse',
         },
-        'require_debug_true': {
+        'require_debug_true' : {
             '()': 'django.utils.log.RequireDebugTrue',
         },
     },
 
-    'formatters': {
+    'formatters' : {
         'simple': {
             'format': '[%(asctime)s] %(levelname)s %(message)s',
-            'datefmt': '%y-%m-%d %H:%M:%S'
+            'datefmt' : '%y-%m-%d %H:%M:%S'
         },
 
-        'verbose': {
-            'format': '[%(asctime)s] %(levelname)s [%(name)s.%(funcName)s:%(lineno)d] %(message)s',
+        'verbose' : {
+            'format' : '[%(asctime)s] %(levelname)s [%(name)s.%(funcName)s:%(lineno)d] %(message)s',
             'datefmt': '%Y-%m-%d %H:%M:%S'
         },
     },
 
-    'handlers': {
-        'console': {
-            'level': 'DEBUG',
-            'filters': ['require_debug_true'],
-            'class': 'logging.StreamHandler',
-            'formatter': 'simple'
+    'handlers' : {
+        'console' : {
+            'level' : 'DEBUG',
+            'filters' : ['require_debug_true'],
+            'class' : 'logging.StreamHandler',
+            'formatter' : 'simple'
         },
 
-        'development_logfile': {
-            'level': 'DEBUG',
-            'filters': ['require_debug_true'],
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'django_dev.log'),
-            'formatter': 'verbose'
+        'development_logfile' : {
+            'level' : 'DEBUG',
+            'filters' : ['require_debug_true'],
+            'class' : 'logging.FileHandler',
+            'filename' : os.path.join(BASE_DIR, 'django_dev.log'),
+            'formatter' : 'verbose'
         },
 
-        'production_logfile': {
-            'level': 'ERROR',
-            'filters': ['require_debug_false'],
-            'class': 'logging.handlers.RotatingFileHandler',
-            'filename': os.path.join(BASE_DIR, 'django_production.log'),
-            'maxBytes': 1024 * 1024 * 100,
-            'backupCount': 5,
-            'formatter': 'simple'
+        'production_logfile' : {
+            'level' : 'ERROR',
+            'filters' : ['require_debug_false'],
+            'class' : 'logging.handlers.RotatingFileHandler',
+            'filename' : os.path.join(BASE_DIR, 'django_production.log'),
+            'maxBytes' : 1024*1024*100,
+            'backupCount' : 5,
+            'formatter' : 'simple'
         },
 
-        'dba_logfile': {
-            'level': 'DEBUG',
-            'filters': ['require_debug_false', 'require_debug_true'],
-            'class': 'logging.handlers.WatchedFileHandler',
-            'filename': os.path.join(BASE_DIR, 'django_dba.log'),
-            'formatter': 'simple'
+        'dba_logfile' : {
+            'level' : 'DEBUG',
+            'filters' : ['require_debug_false', 'require_debug_true'],
+            'class' : 'logging.handlers.WatchedFileHandler',
+            'filename' : os.path.join(BASE_DIR, 'django_dba.log'),
+            'formatter' : 'simple'
         },
     },
 
-    'root': {
-        'level': 'DEBUG',
-        'handlers': ['console'],
+    'root' : {
+        'level' : 'DEBUG',
+        'handlers' : ['console'],
     },
 
-    'loggers': {
-        'livelinuxjobber': {
-            'handlers': ['development_logfile', 'production_logfile'],
+    'loggers' : {
+        'livelinuxjobber' : {
+            'handlers' : ['development_logfile', 'production_logfile'],
         },
 
-        'dba': {
-            'handlers': ['dba_logfile'],
+        'dba' : {
+            'handlers' : ['dba_logfile'],
         },
 
-        'django': {
-            'handlers': ['development_logfile', 'production_logfile'],
+        'django' : {
+            'handlers' : ['development_logfile', 'production_logfile'],
         },
 
-        'py.warnings': {
-            'handlers': ['development_logfile'],
+        'py.warnings' : {
+            'handlers' : ['development_logfile'],
         },
     }
 }
@@ -231,6 +235,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+
 # Static files (CSS, JavaScript, Images)
 
 STATIC_URL = '/static/'
@@ -238,29 +243,29 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'asset'),
-)
+    )
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'asset')
+#STATIC_ROOT = os.path.join(BASE_DIR, 'asset')
 
-# CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor"
+#CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/home'
 
-# EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
-# EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
+#EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+#EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
 ENV_URL = "http://127.0.0.1:8000/"
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = config('EMAIL_HOST', 'smtp.linuxjobber.com')
-EMAIL_PORT = config('EMAIL_PORT', '587')
-EMAIL_HOST_USER = config('EMAIL_HOST_USER', 'admin@linuxjobber.com')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', 'm4k3Aw!y')
+EMAIL_HOST = config('EMAIL_HOST','smtp.linuxjobber.com')
+EMAIL_PORT = config('EMAIL_PORT','587')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER','admin@linuxjobber.com')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD','m4k3Aw!y')
 EMAIL_USE_TLS = True
 
-STRIPE_PUBLIC_KEY = "pk_test_1zBTca83q29gl9iwRw1oIBvD"
+STRIPE_PUBLIC_KEY="pk_test_1zBTca83q29gl9iwRw1oIBvD"
 STRIPE_SECRET_KEY = "Something"
 AUTH_USER_MODEL = 'users.CustomUser'
 
@@ -270,17 +275,18 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [config('channel_hosts', default="127.0.0.1,6379", cast=Csv(post_process=tuple))],
+            "hosts": [config('channel_hosts',default="127.0.0.1,6379",cast=Csv(post_process=tuple))],
         },
     },
 }
 
-# todo Always change to appropriate before pushing
-# SERVER details
-SERVER_IP = config('SERVER_IP', "192.168.122.1")
-SERVER_USER = config('SERVER_USER', "sysadmin")
-SERVER_PASSWORD = config('SERVER_PASSWORD', "8iu7*IU&")
-GROUP_CLASS_URL = config('GROUP_CLASS_URL', 'http://localhost:4200/classroom/')
 
-# Session Expiration set to 10 mins
+# todo Always change to appropriate before pushing
+#SERVER details
+SERVER_IP = config('SERVER_IP',"192.168.122.1")
+SERVER_USER = config('SERVER_USER',"sysadmin")
+SERVER_PASSWORD = config('SERVER_PASSWORD',"8iu7*IU&")
+GROUP_CLASS_URL= config('GROUP_CLASS_URL','http://localhost:4200/classroom/')
+
+#Session Expiration set to 10 mins
 SESSION_COOKIE_AGE = 30 * 60

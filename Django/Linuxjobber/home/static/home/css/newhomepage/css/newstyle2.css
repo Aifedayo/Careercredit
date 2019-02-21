@@ -769,7 +769,7 @@ li.sub-menu a.w-b::after {
     -o-transition: all .3s ease-out;
     transition: all .3s ease-out;
     box-sizing: border-box;
-    z-index: 1
+    z-index: -1
 }
 
 li.sub-menu a.w-b::after,
@@ -897,7 +897,7 @@ li.sub-menu a.b-n::after {
     -o-transition: all .3s ease-out;
     transition: all .3s ease-out;
     box-sizing: border-box;
-    z-index: 1
+    z-index: -1
 }
 
 li.sub-menu a.b-n::after,
@@ -2711,8 +2711,8 @@ a.mrbtn {
 .btn-list {
     margin-top: 150px;
     margin-left: 50px;
-    border-radius: 0px !important;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0px;
+    important! box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 @media (min-width: 375px) and (max-width: 667px) {
@@ -2752,7 +2752,7 @@ a.mrbtn {
         position: relative;
         right: 37px;
         border-radius: 0px;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        important! box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
 }
 
@@ -4052,7 +4052,7 @@ i.fa.fa-certificate {
 .btn-list {
     margin-top: 150px;
     margin-left: 50px;
-    border-radius: 0px !important;
+    border-radius: 0px; important!
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -4100,7 +4100,7 @@ i.fa.fa-certificate {
     .btn-list {
         position: relative;
         right: 37px;
-        border-radius: 0px !important;
+        border-radius: 0px; important!
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
 
@@ -4652,10 +4652,10 @@ i.fa.fa-certificate {
 
 
 /*start of new homepage student packages section styles*/
-#packages-self a {
-    color: #fff;
-}
-.btn-submit2:hover, .btn-submit2:focus{
+    #packages-self a {
+        color: #fff;
+    }
+    .btn-submit2:hover, .btn-submit2:focus{
     background-color: #1472C8;
     color: #fff;
 }
@@ -5266,7 +5266,7 @@ p {
     background-color: #111;
     color: #fff;
     padding: 8px;
-    border-radius: 3px transition all 500ms ease-in-out;
+    border-radius: 3px transition: all 500ms ease-in-out;
     border-radius: 4px;
 }
 
@@ -6207,7 +6207,8 @@ h6 {
 
 .btn-self {
     float: left;
-    background: #1F5FB4 !important;
+    background: #1F5FB4;
+    !important;
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -6355,7 +6356,8 @@ h6 {
 }
 
 .buttonss {
-    background: #E07E27 !important;
+    background: #E07E27;
+    important
 }
 
 .oneonone h2 {
@@ -6421,7 +6423,7 @@ h6 {
     color: #FFF;
 }
 
-/* .box {
+.box {
     display: block;
     width: 494px;
     height: 364px;
@@ -6429,7 +6431,7 @@ h6 {
     background: #fff;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
     border-radius: 0px 0px 10px 10px;
-} */
+}
 
 #cert {
     position: relative;
@@ -6470,7 +6472,7 @@ h6 {
     position: relative;
     width: 123px;
     height: 58px;
-    /* bottom: 120px; */
+    bottom: 120px;
     background: #F8FAFD;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
   }
@@ -6658,7 +6660,7 @@ h6 {
 }
 
  .butons{
-    background: #E07E27 !important;
+    background: #E07E27; important;
     margin-top: 10px;
   }
   
@@ -7012,8 +7014,7 @@ h6 {
     height: 250px;
     padding: 10px;
     padding-left: 20px;
-    margin: auto;
-    margin-bottom: 20px;
+    margin: 10px;
  }
 
   .wrapper-2 {
@@ -7058,7 +7059,8 @@ h6 {
 }
 
 .butons {
-    background: #E07E27 !important;
+    background: #E07E27;
+    important;
     margin-top: 10px;
 }
 
@@ -7277,7 +7279,7 @@ h6 {
         left: 160px;
         height: 100px;
         width: 70px;
-        bottom: 200px;
+        bottom: 100px;
     }
     #headh1 {
         font-size: 35px;
@@ -7293,8 +7295,7 @@ h6 {
         height: 250px;
         padding: 10px;
         padding-left: 20px;
-        margin: auto;
-        margin-bottom: 20px;
+        margin: 10px;
         background: #fff;
         box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
         border-radius: 0px 0px 10px 10px;
@@ -7478,150 +7479,3 @@ h6 {
         padding-bottom: 50px;
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
-}
-}
-
-.linux {
-    position: relative;
-    width: 123px;
-    height: 58px;
-    border-right-style: solid;
-    border-color: red;
-    margin-right: 25px;
-    background: #f8fafd;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
-  }
-  
-  .awss {
-    position: relative;
-    width: 123px;
-    height: 58px;
-    margin-right: 25px;
-    background: #f8fafd;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
-  }
-  
-  .orc {
-    position: relative;
-    width: 123px;
-    height: 58px;
-    background: #f8fafd;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
-  }
-  .linux h4 {
-    margin-top: 20px;
-    margin-left: 25px;
-    color: #4f4f4f;
-  }
-  .awss h4 {
-    margin-top: 20px;
-    margin-left: 25px;
-    color: #4f4f4f;
-  }
-  
-  .orc h4 {
-    margin-top: 10px;
-    margin-left: 15px;
-    color: #4f4f4f;
-  }
-  
-  #force-by {
-    position: relative;
-  }
-  
-  .options {
-    margin-top: 45px;
-  }
-  
-  #cert-img {
-    width: 60%;
-    float: right;
-  }
-  
-  @media (min-width: 360px) and (max-width: 640px) {
-    #force-by {
-      position: relative;
-    }
-  
-    .linux {
-      position: relative;
-      width: 77px;
-      height: 36px;
-      left: 1px;
-      background: #f8fafd;
-      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
-    }
-  
-    .awss {
-      position: relative;
-      width: 77px;
-      height: 36px;
-      background: #f8fafd;
-      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
-    }
-  
-    .orc {
-      position: relative;
-      width: 77px;
-      height: 36px;
-      background: #f8fafd;
-      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
-    }
-  
-    .linux h4 {
-      margin-top: 10px;
-      margin-left: 10px;
-      color: #4f4f4f;
-      font-size: 14px;
-    }
-  
-    .awss h4 {
-      margin-top: 10px;
-      margin-left: 10px;
-      color: #4f4f4f;
-      font-size: 14px;
-    }
-  
-    .orc h4 {
-      margin-top: 4px;
-      margin-left: 3px;
-      color: #4f4f4f;
-      font-size: 12px;
-    }
-  
-    .lin-border {
-      position: relative;
-      bottom: 45px;
-      right: 15px;
-      width: 11px;
-      height: 36px;
-      background: #f47171;
-    }
-  
-    .aws-border {
-      position: relative;
-      bottom: 45px;
-      right: 15px;
-      width: 11px;
-      height: 36px;
-      background: #ee3edc;
-    }
-  
-    .oracle-border {
-      position: relative;
-      bottom: 50px;
-      right: 17px;
-      width: 11px;
-      height: 36px;
-      background: #47d07e;
-    }
-  
-    .options {
-      margin-top: 45px;
-    }
-    #cert-img {
-      width: 60%;
-      float: right;
-    }
-  }
-  

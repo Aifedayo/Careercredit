@@ -643,8 +643,7 @@ select.white-border:focus {
 	}
 
 	video {
-	width: 100%;
-	height: auto;
+	width: 220px;
 	}
 }
 
