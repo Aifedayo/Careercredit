@@ -10,6 +10,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
 from django.http import JsonResponse
 from django.core import serializers
+from django.db.models import Q
 
 #################################################
 #    IMPORTS FROM WITHIN Linuxjobber APPLICATION  #
@@ -152,7 +153,6 @@ def totalstat(user,course):
 def checkstat(user,course):
     topics = CourseTopic.objects.filter(course=course)
     for topic in topics:
-
         try:
             stat = TopicStatus.objects.get(user=user,topic=topic)
         except TopicStatus.DoesNotExist:
@@ -223,7 +223,16 @@ def get_gradingform(course_topic, user_obj):
     return form
 
 
+@login_required
+def labprofile(request):
+    courses = Course.objects.filter().exclude(lab_submission_type=0)
+    return render(request, 'courses/labprofile.html',{'coursed':courses})
 
+@login_required
+def labprofiledetail(request, course_name, lab_no):
+    topics = CourseTopic.objects.filter(course__id=lab_no)
+    course_name = course_name.replace("_", " ")
+    return render(request, 'courses/labprofiledetail.html',{'topics':topics, 'course_name':course_name})
 
 """
     View for presenting the labtasks, with a provision for submiting the labs.
@@ -358,13 +367,15 @@ def linux_result(request,course_name=None,lab_no=None):
                 leng = leng+1 
                 if gra.grade == "passed":
                     score = score + 1
-
-        percent = (score/ leng) * 100
-        
-        if percent > 70:
-            stat = "Passed"
+        if leng == 0:
+            stat = "Not attempted"
         else:
-            stat = "Failed"
+            percent = (score/ leng) * 100
+            
+            if percent > 70:
+                stat = "Passed"
+            else:
+                stat = "Failed"
 
         #check if still grading
         for grade in grades:

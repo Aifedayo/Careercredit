@@ -1,0 +1,55 @@
+{% extends 'home/base.html' %}
+
+{% load staticfiles%}
+
+{% block content %}
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<div class="carousel-inner" role="listbox">
+  <div class="item active">
+    
+  </div>
+</div>
+</div>
+
+<style type="text/css">
+	.topic-class{
+		padding-top: 5px;
+		padding-bottom: 0px;
+	}
+
+	#myList{
+		padding-bottom: 20px;
+	}
+</style>
+<div class="row raise-to-banner2">
+			<div class="col-md-8 col-md-offset-2 text-center">
+				<div class="display-t">
+					<div class="display-tc animate-box h1-bg" data-animate-effect="fadeIn">
+						<br>
+						<h1>Lab Profile</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+<div class="container">
+	<br><br>
+	<div class="lab-details labprof">
+		<div class ='row topic-bg'>
+            <div class="col-md-6 text-center col-xs-6 topic-class"><h4>Course</h4></div>
+            <div class="col-md-6 text-center col-xs-6 topic-class"><h4>Labs</h4></div>
+        </div> 
+	</div>
+	<div id="myList">
+	    {% for course in coursed %}
+	    <div class="row line-ht">
+	        <div class="col-md-6 text-center">
+	        	<p>{{course}}</p>
+	        </div>
+	        <div class="col-md-6 text-center">
+	        	<a href="{% url 'Courses:labprofiledetail' course.course_title.split|join:'_' course.id %}">View</a>
+	        </div>
+	    </div>
+	    {% endfor %}
+	</div>
+</div>
+{%endblock%}

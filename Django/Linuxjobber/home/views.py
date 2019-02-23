@@ -196,13 +196,27 @@ def jobs(request):
     return render(request, 'home/job.html', {'posts':posts})
 
 def partime(request):
-
+    cv = None
+    position = None
+    high = None
     if request.method == "POST":
         form = PartimeApplicationForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            newform = form.save(commit=False)
+            newform.save()
+            if not request.POST['cv_link']:
+                cv = settings.ENV_URL+newform.cv.url.strip("/")
+            else:
+                cv = request.POST['cv_link']
+
+            position = PartTimePostion.objects.get(id=request.POST['position'])
+
+            if request.POST['high_salary'] == 1:
+                high = 'Yes'
+            else:
+                high = 'No'
             send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you applied for a part-time role at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.POST['email']])
-            send_mail('Part-Time Job Application Alert', 'Hello,'+request.POST['fullname']+' with email: '+request.POST['email']+ 'just applied for a part time role. please kindly review.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
+            send_mail('Part-Time Job Application Alert', 'Hello,\n'+request.POST['fullname']+' with email: '+request.POST['email']+ ' just applied for a part time role, '+position.job_title+'.\nCV can be found here: '+cv+'\n Phone number is: '+request.POST['phone']+' and high salary choice is: '+high+'.\nplease kindly review.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
             return redirect("home:jobfeed")
         else:
             form = PartimeApplicationForm()
@@ -224,6 +238,7 @@ def jobapplication(request, job):
         posts = FullTimePostion.objects.get(id=job)
     except FullTimePostion.DoesNotExist:
         return redirect("home:jobs")
+    cv = None
 
     if request.method == "POST":
         form = JobApplicationForm(request.POST, request.FILES)
@@ -231,8 +246,14 @@ def jobapplication(request, job):
             jobform = form.save(commit=False)
             jobform.position = posts
             jobform.save()
+
+            if not request.POST['cv_link']:
+                cv = settings.ENV_URL+jobform.resume.url.strip("/")
+            else:
+                cv = request.POST['cv_link']
+
             send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you applied for a full-time role at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.POST['email']])
-            send_mail('Full-Time Job Application Alert', 'Hello,'+request.POST['fullname']+' with email: '+request.POST['email']+ 'just applied for a full time role. please kindly review.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
+            send_mail('Full-Time Job Application Alert', 'Hello,\n'+request.POST['fullname']+' with email: '+request.POST['email']+ 'just applied for a full time role, '+posts.job_title+'. \nCV can be found here: '+cv+'\n Phone number is:'+request.POST['phone']+'\nplease kindly review.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, ['mololuwasamuel12@gmail.com'])
             return redirect("home:jobfeed")
         else:
             form = JobApplicationForm()
@@ -298,7 +319,7 @@ def check_permission_expiry(user):
 
 def log_out(request):
     logout(request)
-    return redirect("home:login")
+    return render(request, "home/registration/logout.html")
 
 
 
