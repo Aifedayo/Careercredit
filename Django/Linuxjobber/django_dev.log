@@ -2885,3 +2885,34 @@ django.urls.exceptions.NoReverseMatch: Reverse for 'topics' with arguments '('',
 [2019-02-23 20:14:08] INFO [django.channels.server.log_action:141] [mHTTP GET /admin/jsi18n/ 200 [0.19, 127.0.0.1:60166][0m
 [2019-02-23 20:14:24] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [0.19, 127.0.0.1:60166][0m
 [2019-02-23 20:15:11] INFO [django.channels.server.log_action:141] [mHTTP GET /admin/ 200 [0.47, 127.0.0.1:60166][0m
+[2019-02-24 21:50:23] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [1.33, 127.0.0.1:34094][0m
+[2019-02-24 21:50:23] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/css/main.css 304 [0.02, 127.0.0.1:34094][0m
+[2019-02-24 21:50:23] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/css/newstyle2.css 304 [0.03, 127.0.0.1:34094][0m
+[2019-02-24 21:50:24] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs/LaptopBook.png 200 [0.25, 127.0.0.1:34094][0m
+[2019-02-24 21:50:24] INFO [django.channels.server.log_action:141] [mHTTP GET /static/faq/js/jquery-2.1.1.js 200 [0.21, 127.0.0.1:34096][0m
+[2019-02-24 21:50:24] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs/homelive.png 200 [0.08, 127.0.0.1:34104][0m
+[2019-02-24 21:50:24] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/jobphone.png 304 [0.03, 127.0.0.1:34094][0m
+[2019-02-24 21:50:24] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/get3.png 304 [0.21, 127.0.0.1:34096][0m
+[2019-02-24 21:50:24] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/get2.png 304 [0.22, 127.0.0.1:34094][0m
+[2019-02-24 21:50:24] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/get1.png 304 [0.09, 127.0.0.1:34104][0m
+[2019-02-24 21:50:24] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/hq1.png 304 [0.06, 127.0.0.1:34096][0m
+[2019-02-24 21:50:24] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs/testi.png 200 [0.11, 127.0.0.1:34108][0m
+[2019-02-24 21:50:24] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs/homebanner.png 200 [0.41, 127.0.0.1:34106][0m
+[2019-02-24 21:50:24] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/hq2.png 304 [0.09, 127.0.0.1:34104][0m
+[2019-02-24 21:50:24] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/client3.png 304 [0.08, 127.0.0.1:34094][0m
+[2019-02-24 21:50:24] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/client2.png 304 [0.08, 127.0.0.1:34110][0m
+[2019-02-24 21:50:24] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/client1.png 304 [0.06, 127.0.0.1:34096][0m
+[2019-02-24 21:50:25] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-02-24 21:50:25] WARNING [django.channels.server.log_action:149] [33mHTTP GET /favicon.ico 404 [0.09, 127.0.0.1:34096][0m
+[2019-02-24 21:50:29] INFO [django.channels.server.log_action:147] [32mHTTP GET /courses/Linux_Fundamentals/topics/ 302 [0.01, 127.0.0.1:34096][0m
+[2019-02-24 21:50:29] INFO [django.channels.server.log_action:141] [mHTTP GET /login/?next=/courses/Linux_Fundamentals/topics/ 200 [0.04, 127.0.0.1:34096][0m
+[2019-02-24 21:50:29] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/styles.css 304 [0.05, 127.0.0.1:34096][0m
+[2019-02-24 21:50:30] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/imgback.jpg 200 [0.37, 127.0.0.1:34096][0m
+[2019-02-24 21:50:36] INFO [django.channels.server.log_action:147] [32mHTTP POST /login/?next=/courses/Linux_Fundamentals/topics/ 302 [1.20, 127.0.0.1:34096][0m
+[2019-02-24 21:50:39] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/Linux_Fundamentals/topics/ 200 [3.33, 127.0.0.1:34096][0m
+[2019-02-24 21:50:40] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/Movie-icon.jpg 304 [0.02, 127.0.0.1:34096][0m
+[2019-02-24 21:50:40] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/icon9.png 304 [0.02, 127.0.0.1:34110][0m
+[2019-02-24 21:50:40] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newdesigner/fonts/glyphicons-halflings-regular.woff 304 [0.02, 127.0.0.1:34110][0m
+[2019-02-24 21:53:53] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/Linux_Fundamentals/topics/ 200 [4.80, 127.0.0.1:34176][0m
+[2019-02-24 21:53:54] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-02-24 21:53:54] WARNING [django.channels.server.log_action:149] [33mHTTP GET /favicon.ico 404 [0.06, 127.0.0.1:34176][0m

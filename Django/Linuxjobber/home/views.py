@@ -253,7 +253,7 @@ def jobapplication(request, job):
                 cv = request.POST['cv_link']
 
             send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you applied for a full-time role at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.POST['email']])
-            send_mail('Full-Time Job Application Alert', 'Hello,\n'+request.POST['fullname']+' with email: '+request.POST['email']+ 'just applied for a full time role, '+posts.job_title+'. \nCV can be found here: '+cv+'\n Phone number is:'+request.POST['phone']+'\nplease kindly review.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, ['mololuwasamuel12@gmail.com'])
+            send_mail('Full-Time Job Application Alert', 'Hello,\n'+request.POST['fullname']+' with email: '+request.POST['email']+ 'just applied for a full time role, '+posts.job_title+'. \nCV can be found here: '+cv+'\n Phone number is:'+request.POST['phone']+'\nplease kindly review.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
             return redirect("home:jobfeed")
         else:
             form = JobApplicationForm()
@@ -654,6 +654,7 @@ def check_subscription_status(request):
                 user = CustomUser.objects.get(email=customersubscription.user.email)
                 user.role = 6
                 user.save()
+                return HttpResponse(status=200)
 
         elif types == 'invoice.payment_failed' and customer_id:
             if customersubscription:
@@ -666,6 +667,7 @@ def check_subscription_status(request):
                 user = CustomUser.objects.get(email=customersubscription.user.email)
                 user.role = 6
                 user.save()
+                return HttpResponse(status=200)
 
         elif types == 'invoice.payment_succeeded' and customer_id:
             if customersubscription:
@@ -678,6 +680,8 @@ def check_subscription_status(request):
                 user = CustomUser.objects.get(email=customersubscription.user.email)
                 user.role = 3
                 user.save()
+                return HttpResponse(status=200)
+
 
     return render(request, 'home/check_subscription.html')
 

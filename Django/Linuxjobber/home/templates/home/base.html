@@ -105,6 +105,29 @@
 											</div>
 										</div>
 									</div></li>
+									<li class="has-dropdown sub-menu tool"><a class="b-n"
+									href="javascript:void(0);">Projects</a>
+
+									<div class="dropdowns transparent-style" id="tool">
+										<div class="container text-1">
+											{% if tools %} {% for tool in tools %} {% with count_min_one=forloop.counter|add:"-1"|divisibleby:4 %} {% if forloop.counter == 1 or count_min_one %}
+
+
+											<div class="col-md-4 col-sm-4">
+												<ul>
+													{% endif %}
+
+
+													<li><a href="{% url 'Projects:courses' tool.id %}"><span class="link-icon"><i class="fa fa-cog fa-2x"></i></span>{{tool}}</a></li>
+													{% if forloop.counter|divisibleby:4 %}
+												</ul>
+											</div>
+											{% endif %} {% endwith %} {% endfor %} {% else %}
+											
+											{% endif %}
+										</div>
+									</div></li>
+									
 								<li class="has-dropdown sub-menu course"><a class="b-n"
 									href="javascript:void(0);">LEARN</a>
 									<div class="dropdowns transparent-style" id="course">
@@ -130,28 +153,6 @@
 
 												</ul>
 											</div>
-											{% endif %}
-										</div>
-									</div></li>
-								<li class="has-dropdown sub-menu tool"><a class="b-n"
-									href="javascript:void(0);">Project</a>
-
-									<div class="dropdowns transparent-style" id="tool">
-										<div class="container text-1">
-											{% if tools %} {% for tool in tools %} {% with count_min_one=forloop.counter|add:"-1"|divisibleby:4 %} {% if forloop.counter == 1 or count_min_one %}
-
-
-											<div class="col-md-4 col-sm-4">
-												<ul>
-													{% endif %}
-
-
-													<li><a href="{% url 'Projects:courses' tool.id %}"><span class="link-icon"><i class="fa fa-cog fa-2x"></i></span>{{tool}}</a></li>
-													{% if forloop.counter|divisibleby:4 %}
-												</ul>
-											</div>
-											{% endif %} {% endwith %} {% endfor %} {% else %}
-											
 											{% endif %}
 										</div>
 									</div></li>
