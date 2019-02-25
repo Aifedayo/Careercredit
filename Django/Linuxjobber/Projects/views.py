@@ -121,8 +121,9 @@ def project_course_notes(request, course_id, topic_id):
     return render(request, 'projects/project_course_note.html', context)
 
 @login_required
-def project_course_labs(request, course_name):
-    course = ProjectCourse.objects.get(course_title=course_name.replace("_", " ")) 
+def project_course_labs(request, course_id):
+    course = ProjectCourse.objects.get(id=course_id)
+    #course = ProjectCourse.objects.get(course_title=course_name.replace("_", " "))
 
     context = {
         'course_labs': course.courselab_set.all(),
@@ -151,8 +152,8 @@ def project_course_labs(request, course_name):
 
 
 @login_required
-def course_lab_tasks(request, lab_title):
-    lab = CourseLab.objects.get(lab_title=lab_title.replace("_", " ")) 
+def course_lab_tasks(request, lab_id):
+    lab = CourseLab.objects.get(id=lab_id)
 
     context = {
         'lab': lab,
