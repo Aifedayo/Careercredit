@@ -71,7 +71,7 @@
 
 .navhead{
 	background: url(../imgs/jobban2.png);
-	height: 11vh;
+	height: 11.7vh;
 	background-size: cover;
     background-repeat: no-repeat;
 }
@@ -504,7 +504,7 @@
 	}
 
 	.navhead{
-		height: 7vh;
+		min-height: 7vh;
 	}
 
 	.homeworkima{
@@ -519,7 +519,7 @@
 
 @media (device-width: 768px) and (device-height: 1024px) and (orientation:portrait) {
 	.navhead{
-		height: 6vh;
+		min-height: 6vh;
 	}
 }
 

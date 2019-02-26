@@ -962,7 +962,7 @@ li.sub-menu:hover a.b-n::after {
     font-size: 14px !important;
     font-weight: 700 !important;
     /* font-weight: 600 !important; */
-    padding: 18px 19px 24px !important;
+    padding: 18px 17px 24px !important;
     text-transform: uppercase;
 }
 
@@ -1532,13 +1532,13 @@ h2.title-2 {
         margin-left: 51%;
     }
     .mainmnu .nav li a {
-        padding: 22px 16px 22px !important;
+        padding: 22px 8px 22px !important;
     }
 }
 
 @media only screen and (max-width:1030px) {
     .mainmnu .nav li a {
-        padding: 22px 11px 22px !important;
+        padding: 22px 7px 22px !important;
     }
 }
 
@@ -1610,7 +1610,7 @@ h2.title-2 {
         width: 100%;
     }
     .mainmnu .nav li a {
-        padding: 0 7px 23px !important;
+        padding: 0 0px 23px !important;
     }
     .header-login {
         margin: 8px 0 0;
