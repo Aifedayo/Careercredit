@@ -120,47 +120,60 @@ def project_course_notes(request, course_id, topic_id):
 
     return render(request, 'projects/project_course_note.html', context)
 
+# @login_required
+# def project_course_labs(request, course_id):
+#     course = ProjectCourse.objects.get(id=course_id)
+#     #course = ProjectCourse.objects.get(course_title=course_name.replace("_", " "))
+#
+#     context = {
+#         'course_labs': course.courselab_set.all(),
+#         'course_title': course.course_title,
+#         'course_description': course.course_description,
+#         'courses': get_courses(),
+#         'tools': get_tools(),
+#     }
+#
+#     if request.user.role == 4:
+#         if course.course_project.project_id != request.user.allowed_project:
+#             return render(request, 'projects/project_access_denied.html') #you are not allowed to view this page
+#         else:
+#             contx = {
+#                 'course_labs': course.courselab_set.all(),
+#                 'course_title': course.course_title,
+#                 'course_description': course.course_description,
+#                 'courses': get_courses(),
+#                 'tools': get_tools(),
+#             }
+#             return render(request, 'projects/project_course_labs.html', contx)
+#     elif request.user.role == 3:
+#         return render(request, 'projects/project_course_labs.html', context)
+#     else:
+#         return redirect("home:tryfree",'standardPlan')
+
+
 @login_required
-def project_course_labs(request, course_id):
-    course = ProjectCourse.objects.get(id=course_id)
-    #course = ProjectCourse.objects.get(course_title=course_name.replace("_", " "))
+def course_tasks(request, course_id, topic_id):
+    try:
+        course = ProjectCourse.objects.get(id=course_id)
+    except ProjectCourse.DoesNotExist:
+        return redirect('Projects:course_topics')
+
+    try:
+        topic = ProjectCourseTopic.objects.get(topic_id=topic_id,topic_course__id=course_id)
+    except ProjectCourseTopic.DoesNotExist:
+        return redirect('Projects:course_topics')
+
+    task = CourseTopicTask.objects.all()
 
     context = {
-        'course_labs': course.courselab_set.all(),
         'course_title': course.course_title,
-        'course_description': course.course_description,
+        'topic': topic,
+        'task': task.task,
+        'task_id': task.task_id,
+        'task_note': task.task_note,
+        'task_comment': task.task_comment,
         'courses': get_courses(),
         'tools': get_tools(),
-    }
-
-    if request.user.role == 4:
-        if course.course_project.project_id != request.user.allowed_project:
-            return render(request, 'projects/project_access_denied.html') #you are not allowed to view this page
-        else:
-            contx = {
-                'course_labs': course.courselab_set.all(),
-                'course_title': course.course_title,
-                'course_description': course.course_description,
-                'courses': get_courses(),
-                'tools': get_tools(),
-            }
-            return render(request, 'projects/project_course_labs.html', contx)
-    elif request.user.role == 3:
-        return render(request, 'projects/project_course_labs.html', context)
-    else:
-        return redirect("home:tryfree",'standardPlan')
-
-
-@login_required
-def course_lab_tasks(request, lab_id):
-    lab = CourseLab.objects.get(id=lab_id)
-
-    context = {
-        'lab': lab,
-        'lab_tasks': lab.courselabtask_set.all(),
-        'courses': get_courses(),
-        'tools': get_tools(),
-        'task_status': UsersLabTaskStatus.objects.filter(user=request.user)
     }
 
     return render(request, 'projects/course_lab_tasks.html', context)
