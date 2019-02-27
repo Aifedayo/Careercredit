@@ -47,7 +47,6 @@ class ProjectCourse(models.Model):
         return self.course_title
 
 
-
 class ProjectCourseTopic(models.Model):
     topic_id = models.IntegerField()
     topic_title = models.CharField(max_length=200)
@@ -79,33 +78,24 @@ class ProjectPermission(models.Model):
     def __str__(self):
         return self.user.email
 
-class CourseLab(models.Model):
-    lab_id = models.IntegerField(unique=True)
-    lab_title = models.CharField(max_length=200)  
-    lab_course = models.ForeignKey(ProjectCourse, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.lab_title
-
-
-class CourseLabTask(models.Model):
+class CourseTopicTask(models.Model):
     task_id = models.IntegerField(unique=True)
-    lab_task_no = models.IntegerField(default=1)
+    task_no = models.IntegerField(default=1)
     task = models.TextField()
     task_note = models.TextField()
     task_comment = models.TextField()
-    task_lab = models.ForeignKey(CourseLab, on_delete=models.CASCADE)
-    #lab_task_course = models.ForeignKey(ProjectCourse, on_delete=models.CASCADE)
+    task_topic= models.ForeignKey(ProjectCourseTopic, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.task_task
+        return self.task
 
 
 
-class UsersLabTaskStatus(models.Model):
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    task = models.ForeignKey(CourseLabTask, on_delete=models.CASCADE)
-    status = models.IntegerField(default=0)
+# class UsersLabTaskStatus(models.Model):
+#     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+#     task = models.ForeignKey(CourseLabTask, on_delete=models.CASCADE)
+#     status = models.IntegerField(default=0)
 
 
 

@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 from users.models import CustomUser
 from django.http import HttpResponseRedirect, JsonResponse
@@ -13,6 +14,38 @@ from rest_framework.response import Response
 from django.contrib.auth.models import User
 from .serializers import DjangoStudentSerializer
 
+
+
+def classroom_index(request):
+    context = {
+        'courses': Course.objects.all(),
+    }
+    return render(request, 'classroom/index.html', context)
+
+
+@login_required
+def course_topics(request, course_id):
+    try:
+        course = Course.objects.get(id=course_id)
+    except Course.DoesNotExist:
+        return redirect('classroom:index')
+
+    try:
+        topic = CourseTopic.objects.get(topic_id=course_id)
+    except CourseTopic.DoesNotExist:
+        return redirect('classroom:index')
+
+    context = {
+        'course_topics': course.projectcoursetopic_set.all(),
+        'course_title': course.course_title,
+        'course_description': course.course_description,
+        'project_title': course.course_project.project_title,
+        'project_id': course.course_project.id,
+        'course_id': course.id,
+        'topic': topic,
+    }
+
+    return render(request, 'classroom/course_topics.html', context)
 
 class DjangoStudentViewSet(viewsets.ModelViewSet): 
     # Api end points that access the users

@@ -123,6 +123,15 @@ form .submit input[type="submit"] {
 #terms-url{
     color: royalblue;
 }
+@media (max-width: 640px) and (min-width: 360px){
+   .btn-upload, .btn-proceed, .rnd-back2 {
+	    margin: auto;
+    }
+    #upload-file {
+        width: 100%;
+    }
+}
+
 </style>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>
@@ -154,7 +163,7 @@ $(document).ready(function(){
             {%endif%}
           {% endfor %}
         {% endif %}
-            
+
                                         <br>
                                         {%if running_machine %}
                                         {%for machine in running_machine %}
