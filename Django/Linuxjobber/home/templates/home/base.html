@@ -147,8 +147,54 @@ bottom: 200px;
 					<div class="col-md-6 col-sm-6 mainmnu">
 						<nav>
 							<ul class="nav navbar-nav navbar-right main-nav">
+								<li class="has-dropdown sub-menu work"><a class="b-n"
+									href="javascript:void(0);">Work</a>
+
+									<div class="dropdowns transparent-style" id="work">
+										<div class="container text-1">
+											
+											<div class="col-md-4 col-sm-6">
+												<ul>
+													<li><a href="{% url 'home:workexperience' %}"><span
+															class="link-icon"><i class="fa fa-suitcase fa-2x"></i></span>Work Experience</a></li>
+												</ul>
+											</div>
+											<div class="col-md-4 col-sm-6">
+												<ul>
+													<li><a href="{% url 'home:jobplacements' %}"><span
+															class="link-icon"><i class="fa fa-suitcase fa-2x"></i></span>Job Placement</a></li>
+												</ul>
+											</div>
+											<div class="col-md-4 col-sm-6">
+												
+											</div>
+										</div>
+									</div></li>
+									<li class="has-dropdown sub-menu tool"><a class="b-n"
+									href="javascript:void(0);">Projects</a>
+
+									<div class="dropdowns transparent-style" id="tool">
+										<div class="container text-1">
+											{% if tools %} {% for tool in tools %} {% with count_min_one=forloop.counter|add:"-1"|divisibleby:4 %} {% if forloop.counter == 1 or count_min_one %}
+
+
+											<div class="col-md-4 col-sm-4">
+												<ul>
+													{% endif %}
+
+
+													<li><a href="{% url 'Projects:courses' tool.id %}"><span class="link-icon"><i class="fa fa-cog fa-2x"></i></span>{{tool}}</a></li>
+													{% if forloop.counter|divisibleby:4 %}
+												</ul>
+											</div>
+											{% endif %} {% endwith %} {% endfor %} {% else %}
+											
+											{% endif %}
+										</div>
+									</div></li>
+									
 								<li class="has-dropdown sub-menu course"><a class="b-n"
-									href="javascript:void(0);">Courses</a>
+									href="javascript:void(0);">LEARN</a>
 									<div class="dropdowns transparent-style" id="course">
 										<div class="container text-1">
 											{% if courses %} {% for course in courses %} {% with count_min_one=forloop.counter|add:"-1"|divisibleby:4 %} {% if forloop.counter == 1 or count_min_one %}
@@ -170,35 +216,6 @@ bottom: 200px;
 													<li><a href="#"><span class="link-icon"><img
 																src="images/icon5.png" alt="img" /></span>Name </a></li>
 
-												</ul>
-											</div>
-											{% endif %}
-										</div>
-									</div></li>
-								<li class="has-dropdown sub-menu tool"><a class="b-n"
-									href="javascript:void(0);">Tools</a>
-
-									<div class="dropdowns transparent-style" id="tool">
-										<div class="container text-1">
-											{% if tools %} {% for tool in tools %} {% with count_min_one=forloop.counter|add:"-1"|divisibleby:4 %} {% if forloop.counter == 1 or count_min_one %}
-
-
-											<div class="col-md-4 col-sm-4">
-												<ul>
-													{% endif %}
-
-
-													<li><a href="{% url 'ToolsApp:topics' tool.tool_name.split|join:'_' %}"><span class="link-icon"><i class="fa fa-cog fa-2x"></i></span>{{tool.tool_name}}</a></li>
-													{% if forloop.counter|divisibleby:4 %}
-												</ul>
-											</div>
-											{% endif %} {% endwith %} {% endfor %} {% else %}
-											<div class="col-md-3 col-sm-4">
-												<ul class="">
-													<li><a href="#"><span class="link-icon"><i
-																class="fa fa-linux fa-2x"></i></span>Monitoring</a> <a
-														href="#"><span class="link-icon"><i
-																class="fa fa-linux fa-2x"></i></span>Cloud Tools</a></li>
 												</ul>
 											</div>
 											{% endif %}
@@ -229,7 +246,7 @@ bottom: 200px;
 									</div></li>
 
 								<li class=" sub-menu "><a class=""
-									href="{% url 'home:tryfree' 'standardPlan' %}">Try Free</a></li>
+									href="{% url 'home:monthly_subscription' %}">Try Free</a></li>
 							</ul>
 						</nav>
 					</div>
@@ -252,7 +269,7 @@ bottom: 200px;
 										<div class="container text-1 ">
 											<div class="col-md-4 col-sm-6">
 												<ul>
-													<li><a  href="/labprofiles"><span class="link-icon"><img src="{% static 'home/images/icon1.png' %}" alt="" /></span>My Profile</a></li>
+													<li><a  href="{% url 'Courses:labprofile' %}"><span class="link-icon"><img src="{% static 'home/images/icon1.png' %}" alt="" /></span>Lab Profile</a></li>
 													<li><a href="{% url 'home:account_settings' %}"><span class="link-icon"><img src="{% static 'home/images/icon1.png' %}" alt="" /></span>Account Settings</a></li>								
 												</ul>
 											</div>
@@ -391,6 +408,11 @@ bottom: 200px;
 			$(".sub-menu").hover(function() {
 				$(".transparent-style").hide();
 				$("#header").removeClass("result_hover");
+			});
+			$(".work").click(function() {
+
+				$("#header").toggleClass("result_hover");
+				$("#work").toggle();
 			});
 			$(".course").click(function() {
 

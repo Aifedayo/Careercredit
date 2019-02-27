@@ -1,6 +1,7 @@
 from Courses.models import Course
 from ToolsApp.models import Tool
 from home.models import wepeoples
+from Projects.models import Project
 
 def courses(request):
     return {
@@ -9,7 +10,7 @@ def courses(request):
 
 def tools(request):
 	return{
-		'tools': Tool.objects.all()
+		'tools': Project.objects.all()
 	}
 
 def workexperience(request):
