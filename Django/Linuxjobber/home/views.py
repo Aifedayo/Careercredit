@@ -428,6 +428,9 @@ def workexperience(request):
         pass
     return render(request, 'home/workexperience.html')
 
+def workterm(request):
+    return render(request, 'home/workexpterm.html')    
+
 @login_required
 def workexpform(request):
 
