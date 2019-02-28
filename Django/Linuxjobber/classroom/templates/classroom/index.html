@@ -1,0 +1,55 @@
+{% extends 'home/base.html' %}
+{% load staticfiles%}
+{% block title %}
+	Linuxjobber Classroom
+ {% endblock %}
+
+{% block content %}
+<style>
+.course-header {
+    background-color: #252525;
+    height: 70px;
+}
+img {
+	width: 100%;
+}
+</style>
+
+<div class="course-header"></div>
+
+<div class="container">
+	<div class="course-body">
+        <p>Welcome to classroom, where you get to see all your courses</p>
+		{% for course in courses %}
+		<a href="{% url 'classroom:courses' project.id %}" class="courselink">
+		<div class="row">
+			<div class="col-md-4 course-img">
+				<img src="{{ course.course_image.url }}" alt="">
+			</div>
+			<div class="col-md-8 course-content">
+				<h4>Course</h4>
+				<h2 class="course-title">{{ course.course_title }}</h2>
+				<p class="course-description">{{ course.course_description }}</p>
+				<div class="row course-content">
+					<div class="col-md-4 course-vid">
+						<p class="course-vid">Course videos: {{ course.course_video }}</p>
+					</div>
+					<div class="col-md-4 reg-students">
+						<p class="reg-std">Registered Students: {{ course.registered_students }}</p>
+					</div>
+					<div class="col-md-4 course-dates">
+						<p class="course-dates">Course dates: {{ course.start_date }} - {{ course.end_date }}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</a>
+		{% endfor %}
+	</div>
+</div>
+
+
+
+
+
+{% endblock %}

@@ -4,7 +4,39 @@ Work Experience | Linuxjobber
 {% endblock %}
 {% block content %}
 
-
+<style>
+	@media (max-width: 640px) and (min-width: 360px){
+		.first-section{
+			display: flex;
+			flex-wrap: wrap;
+			width: 100%;
+		}
+		.col-sec-1 {
+			width: 100%;
+			order: 2;
+		}
+		.col-sec-1 {
+			width: 100%;
+			max-width: 100%;
+			order: 1;
+		}
+		.vid-box {
+			height: auto !important;
+		}
+		.vid-box video {
+			width: 100%;
+		}
+		.headernew h1, .headernew h3, .headernew p {
+			padding-left: 45px;
+		}
+		.abouttext {
+			margin-top: 30px;
+		}
+		.headernew {
+			padding-top: 80px;
+		}
+	}
+</style>
 
 <div class="wkex">
 	<div class="headernew">
@@ -130,9 +162,9 @@ Work Experience | Linuxjobber
 
 <section class="wk-content">
 	<div class="container">
-		<div class="row">
+		<div class="row first-section">
 
-			<div class="col-12 col-md-5">
+			<div class="col-12 col-md-5 col-sec-1">
 				<div class="abouttext4">
 					<h2 class="text-left">For Entry Level</h2>
 					<p>Only about 25% of graduates get their desired jobs, after
@@ -151,7 +183,7 @@ Work Experience | Linuxjobber
 				</div>
 			</div>
 
-			<div class="col-12 col-md-7">
+			<div class="col-12 col-md-7 col-sec-2">
 				<div class="aboutim">
 					<img src="{% static 'home/images/graduate.png' %}"
 						class="img-responsive" id="grad">
@@ -251,7 +283,7 @@ Work Experience | Linuxjobber
 					Linuxjobber Success Stories</h3>
 				<br>
 
-				<div class="col-md-4" style="height: 250px">
+				<div class="col-md-4 vid-box" style="height: 250px">
 
 					<video width="100%" height="250" controls>
 						<source
@@ -265,7 +297,7 @@ Work Experience | Linuxjobber
 						Linuxjobber helped me get my first tech job"</h6>
 				</div>
 
-				<div class="col-md-4" style="height: 250px">
+				<div class="col-md-4 vid-box" style="height: 250px">
 
 					<video width="100%" height="250" controls>
 						<source
@@ -282,7 +314,7 @@ Work Experience | Linuxjobber
 				</div>
 
 
-				<div class="col-md-4" style="height: 250px">
+				<div class="col-md-4 vid-box" style="height: 250px">
 
 					<video width="100%" height="250" controls>
 						<source

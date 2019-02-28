@@ -1,0 +1,62 @@
+{% extends 'home/base.html' %} {% load staticfiles%} {% block title %}
+Linuxjobber Classroom {% endblock %} {% block content %}
+<style>
+  .course-header {
+    background-color: #252525;
+    height: 70px;
+  }
+</style>
+
+<div class="course-header"></div>
+
+<div class="topics-body">
+  <div class="row">
+    <div class="col-md-3 topic-list-body">
+      <a href="">Tour Courses</a>
+      <div class="topic-header">
+        <h3 class="topics">Topics {{}}</h3>
+        <span class="students">Students {{}}</span>
+      </div>
+      <div class="topiclisting">
+        <div class="projlistin">
+          <span>{{ course_topics | length }} videos</span><br />
+          {%for topics in course_topics %}
+          <a
+            class="proj-header2l text-muted"
+            href="{% url 'Projects:course_topics' course_id topics.topic_id %}"
+            ><span>{{ topics.topic_id }} {{ topics.topic_title }}</span></a
+          ><br /><br />
+          {%endfor%}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="courseinfo">
+        <div class="row">
+          <span><a href="" class="btn">Videos</a> </span>
+
+          {%if topic.has_labs == 1 %}
+          <span> <a href="" class="btn">Labs</a></span>
+          {%endif%}<br /><br />
+          {% if topic.has_notes == 1 %}
+          <span> <a href="" class="btn">Notes</a></span>
+          {%endif%}
+          <span> <a href="" class="btn">Chat</a></span>
+        </div>
+        <div class="row">
+          <span class="topictitle">{{ topic.topic_id }}. {{ topic }}</span
+          ><br /><br />
+          <video
+            src="{{ topic.topic_video }}"
+            controls
+            width="100%"
+            height="468px;"
+            class="projvid"
+          ></video>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

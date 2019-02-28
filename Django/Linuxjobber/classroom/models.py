@@ -1,6 +1,7 @@
 from django.core.files.storage import FileSystemStorage
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import datetime
 from users.models import CustomUser
 
 # Create your models here.
@@ -15,6 +16,30 @@ class DjangoStudent(models.Model):
     class Meta:
         ordering = ['username']
 
+
+class Course(models.Model):
+    course_id = models.IntegerField(unique=True)
+    course_title = models.CharField(max_length=100)
+    course_description = models.CharField(max_length=300)
+    course_video = models.IntegerField()
+    registered_students = models.IntegerField(unique=True)
+    start_date = models.DateField()
+    end_date = models.DateField()
+    course_image = models.ImageField(upload_to='classroom', null=True)
+
+    def __str__(self):
+        return self.course_title
+
+class CourseTopic(models.Model):
+    topic_id = models.IntegerField()
+    topic_title = models.CharField(max_length=200)
+    topic_video = models.CharField(max_length=100)
+    topic_course = models.ForeignKey(Course,on_delete=models.CASCADE)
+    has_notes = models.IntegerField(default=1 ,choices=((0, 'No'), (1, 'Yes')))
+    has_labs = models.IntegerField(default=1 ,choices=((0, 'No'), (1, 'Yes')))
+
+    def __str__(self):
+        return self.topic_title
 
 class ChatRoom(models.Model):
     name = models.CharField(max_length=60)
