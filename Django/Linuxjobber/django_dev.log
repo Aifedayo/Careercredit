@@ -828,3 +828,479 @@ IndexError: list index out of range
 [2019-02-27 14:31:55] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 304 0
 [2019-02-27 14:31:56] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
 [2019-02-27 14:31:56] WARNING [django.server.log_message:124] "GET /images/icon5.png HTTP/1.1" 404 12759
+[2019-02-27 15:34:01] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [2.49, 127.0.0.1:41018][0m
+[2019-02-27 15:34:02] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/css/newstyle2.css 200 [0.03, 127.0.0.1:41018][0m
+[2019-02-27 15:34:02] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/css/main.css 200 [0.03, 127.0.0.1:41024][0m
+[2019-02-27 15:38:59] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [5.47, 127.0.0.1:43296][0m
+[2019-02-27 15:39:10] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js 304 [0.07, 127.0.0.1:43296][0m
+[2019-02-27 15:39:10] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newdesigner/js/validation/jquery.validate.js 304 [0.04, 127.0.0.1:43402][0m
+[2019-02-27 15:39:11] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newdesigner/css/bootstrap.min.css 304 [0.12, 127.0.0.1:43402][0m
+[2019-02-27 15:39:11] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/style.css 304 [0.02, 127.0.0.1:43402][0m
+[2019-02-27 15:39:11] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newdesigner/css/style.css 304 [0.06, 127.0.0.1:43296][0m
+[2019-02-27 15:39:11] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/css/newstylenew.css 304 [0.01, 127.0.0.1:43412][0m
+[2019-02-27 15:39:11] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/Projects/custom/css/projects.css 304 [0.06, 127.0.0.1:43402][0m
+[2019-02-27 15:39:11] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/css/newstyle2.css 200 [0.04, 127.0.0.1:43412][0m
+[2019-02-27 15:39:11] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/css/main.css 200 [0.01, 127.0.0.1:43412][0m
+[2019-02-27 15:39:11] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newdesigner/js/bootstrap.min.js 304 [0.06, 127.0.0.1:43412][0m
+[2019-02-27 15:39:11] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/faq/js/jquery-2.1.1.js 304 [0.04, 127.0.0.1:43402][0m
+[2019-02-27 15:39:11] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/faq/js/jquery.mobile.custom.min.js 304 [0.03, 127.0.0.1:43296][0m
+[2019-02-27 15:39:11] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/faq/js/main.js 304 [0.02, 127.0.0.1:43414][0m
+[2019-02-27 15:39:12] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/js/waterbubble.js 304 [0.06, 127.0.0.1:43412][0m
+[2019-02-27 15:39:18] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newdesigner/fonts/fontsstylesheet.css 304 [0.14, 127.0.0.1:43412][0m
+[2019-02-27 15:39:34] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [0.33, 127.0.0.1:43412][0m
+[2019-02-27 15:39:36] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js 304 [0.05, 127.0.0.1:43412][0m
+[2019-02-27 15:39:36] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newdesigner/js/validation/jquery.validate.js 304 [0.05, 127.0.0.1:43402][0m
+[2019-02-27 15:39:36] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newdesigner/css/bootstrap.min.css 304 [0.05, 127.0.0.1:43414][0m
+[2019-02-27 15:39:36] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/style.css 304 [0.05, 127.0.0.1:43296][0m
+[2019-02-27 15:39:36] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newdesigner/css/style.css 304 [0.04, 127.0.0.1:43568][0m
+[2019-02-27 15:39:36] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/Projects/custom/css/projects.css 304 [0.02, 127.0.0.1:43402][0m
+[2019-02-27 15:39:36] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/css/newstyle2.css 200 [0.10, 127.0.0.1:43570][0m
+[2019-02-27 15:39:36] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/css/newstylenew.css 304 [0.03, 127.0.0.1:43296][0m
+[2019-02-27 15:39:36] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/css/main.css 200 [0.04, 127.0.0.1:43412][0m
+[2019-02-27 15:39:36] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/faq/js/jquery-2.1.1.js 304 [0.04, 127.0.0.1:43568][0m
+[2019-02-27 15:39:36] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newdesigner/js/bootstrap.min.js 304 [0.05, 127.0.0.1:43414][0m
+[2019-02-27 15:39:36] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/faq/js/jquery.mobile.custom.min.js 304 [0.03, 127.0.0.1:43412][0m
+[2019-02-27 15:39:36] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/faq/js/main.js 304 [0.04, 127.0.0.1:43402][0m
+[2019-02-27 15:39:36] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/js/waterbubble.js 304 [0.03, 127.0.0.1:43570][0m
+[2019-02-27 15:39:36] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newdesigner/fonts/fontsstylesheet.css 304 [0.01, 127.0.0.1:43412][0m
+[2019-02-27 15:39:37] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/logo.png 304 [0.10, 127.0.0.1:43570][0m
+[2019-02-27 15:39:37] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/LaptopBook.png 304 [0.12, 127.0.0.1:43412][0m
+[2019-02-27 15:39:37] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/jobphone.png 304 [0.12, 127.0.0.1:43568][0m
+[2019-02-27 15:39:37] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/homelive.png 304 [0.14, 127.0.0.1:43414][0m
+[2019-02-27 15:39:37] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/get3.png 304 [0.14, 127.0.0.1:43570][0m
+[2019-02-27 15:39:37] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/get2.png 304 [0.11, 127.0.0.1:43402][0m
+[2019-02-27 15:39:37] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/get1.png 304 [0.11, 127.0.0.1:43296][0m
+[2019-02-27 15:39:37] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/testi.png 304 [0.02, 127.0.0.1:43412][0m
+[2019-02-27 15:39:37] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/hq2.png 304 [0.02, 127.0.0.1:43568][0m
+[2019-02-27 15:39:37] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/client3.png 304 [0.02, 127.0.0.1:43414][0m
+[2019-02-27 15:39:37] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/hq1.png 304 [0.03, 127.0.0.1:43570][0m
+[2019-02-27 15:39:37] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/client1.png 304 [0.01, 127.0.0.1:43402][0m
+[2019-02-27 15:39:37] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/client2.png 304 [0.02, 127.0.0.1:43412][0m
+[2019-02-27 15:39:39] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/jobban2.png 304 [0.06, 127.0.0.1:43570][0m
+[2019-02-27 15:39:39] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/homebanner.png 304 [0.17, 127.0.0.1:43412][0m
+[2019-02-27 16:05:00] INFO [django.channels.server.log_action:141] [mHTTP GET /login/ 200 [0.69, 127.0.0.1:48470][0m
+[2019-02-27 16:05:01] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-02-27 16:05:01] WARNING [django.channels.server.log_action:149] [33mHTTP GET /favicon.ico 404 [0.28, 127.0.0.1:48470][0m
+[2019-02-27 16:05:11] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/terms/ 200 [1.00, 127.0.0.1:48470][0m
+[2019-02-27 16:05:11] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/css/newstyle2.css 304 [0.02, 127.0.0.1:48470][0m
+[2019-02-27 16:05:11] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/css/main.css 304 [0.03, 127.0.0.1:48476][0m
+[2019-02-28 09:44:04] WARNING [django.request.get_response:93] Not Found: /robots.txt
+[2019-02-28 09:44:04] WARNING [django.channels.server.log_action:149] [33mHTTP GET /robots.txt 404 [0.83, 127.0.0.1:55134][0m
+[2019-02-28 09:44:06] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [3.63, 127.0.0.1:55132][0m
+[2019-02-28 09:44:07] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/css/newstyle2.css 304 [0.03, 127.0.0.1:55132][0m
+[2019-02-28 09:44:07] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/css/main.css 304 [0.03, 127.0.0.1:55134][0m
+[2019-02-28 09:44:08] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/LaptopBook.png 304 [0.01, 127.0.0.1:55134][0m
+[2019-02-28 09:44:08] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/homebanner.png 304 [0.01, 127.0.0.1:55134][0m
+[2019-02-28 09:44:08] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/homelive.png 304 [0.01, 127.0.0.1:55134][0m
+[2019-02-28 09:44:08] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/jobphone.png 304 [0.01, 127.0.0.1:55134][0m
+[2019-02-28 09:44:08] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/get3.png 304 [0.01, 127.0.0.1:55134][0m
+[2019-02-28 09:44:09] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/get2.png 304 [0.02, 127.0.0.1:55134][0m
+[2019-02-28 09:44:09] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/hq1.png 304 [0.02, 127.0.0.1:55134][0m
+[2019-02-28 09:44:09] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/testi.png 304 [0.02, 127.0.0.1:55134][0m
+[2019-02-28 09:44:09] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/get1.png 304 [0.05, 127.0.0.1:55134][0m
+[2019-02-28 09:44:09] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/client3.png 304 [0.03, 127.0.0.1:55132][0m
+[2019-02-28 09:44:09] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/hq2.png 304 [0.03, 127.0.0.1:55198][0m
+[2019-02-28 09:44:09] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/client2.png 304 [0.01, 127.0.0.1:55198][0m
+[2019-02-28 09:44:09] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/client1.png 304 [0.01, 127.0.0.1:55198][0m
+[2019-02-28 09:44:15] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-02-28 09:44:15] WARNING [django.channels.server.log_action:149] [33mHTTP GET /favicon.ico 404 [0.08, 127.0.0.1:55198][0m
+[2019-02-28 16:02:18] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [1.67, 127.0.0.1:57142][0m
+[2019-02-28 16:02:18] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/css/newstyle2.css 304 [0.02, 127.0.0.1:57142][0m
+[2019-02-28 16:02:18] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/css/main.css 304 [0.01, 127.0.0.1:57144][0m
+[2019-02-28 16:02:23] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-02-28 16:02:23] WARNING [django.channels.server.log_action:149] [33mHTTP GET /favicon.ico 404 [0.11, 127.0.0.1:57144][0m
+[2019-02-28 16:08:11] INFO [django.channels.server.log_action:141] [mHTTP GET /login/ 200 [0.03, 127.0.0.1:57244][0m
+[2019-02-28 16:08:11] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/styles.css 304 [0.09, 127.0.0.1:57244][0m
+[2019-02-28 16:08:11] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/imgback.jpg 200 [0.06, 127.0.0.1:57244][0m
+[2019-02-28 16:08:30] INFO [django.channels.server.log_action:147] [32mHTTP POST /login/ 302 [1.99, 127.0.0.1:57244][0m
+[2019-02-28 16:08:30] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/userinterest 200 [0.28, 127.0.0.1:57244][0m
+[2019-02-28 16:08:31] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/lin-logo.png 304 [0.04, 127.0.0.1:57244][0m
+[2019-02-28 16:08:31] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/amazons.png 304 [0.04, 127.0.0.1:57274][0m
+[2019-02-28 16:08:31] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/button-left.png 304 [0.05, 127.0.0.1:57256][0m
+[2019-02-28 16:08:31] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/ppt.png 304 [0.05, 127.0.0.1:57276][0m
+[2019-02-28 16:08:31] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/jjava.png 304 [0.05, 127.0.0.1:57278][0m
+[2019-02-28 16:08:31] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/rchsaa.png 304 [0.06, 127.0.0.1:57280][0m
+[2019-02-28 16:08:31] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs//list-bg.png 200 [0.06, 127.0.0.1:57244][0m
+[2019-02-28 16:08:31] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/csecurity.png 304 [0.04, 127.0.0.1:57280][0m
+[2019-02-28 16:08:31] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/ajs.png 304 [0.03, 127.0.0.1:57278][0m
+[2019-02-28 16:08:31] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/biz.png 304 [0.03, 127.0.0.1:57276][0m
+[2019-02-28 16:08:31] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/py.png 304 [0.03, 127.0.0.1:57256][0m
+[2019-02-28 16:08:31] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/dba.png 304 [0.03, 127.0.0.1:57274][0m
+[2019-02-28 16:08:34] INFO [django.channels.server.log_action:141] [mHTTP GET /logout 200 [0.23, 127.0.0.1:57274][0m
+[2019-02-28 16:08:34] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/slide1.png 200 [0.08, 127.0.0.1:57274][0m
+[2019-02-28 16:08:36] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [0.14, 127.0.0.1:57274][0m
+[2019-02-28 16:08:38] INFO [django.channels.server.log_action:141] [mHTTP GET /login/ 200 [0.02, 127.0.0.1:57274][0m
+[2019-02-28 16:08:50] INFO [django.channels.server.log_action:141] [mHTTP POST /login/ 200 [0.58, 127.0.0.1:57274][0m
+[2019-02-28 16:10:34] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [0.21, 127.0.0.1:57394][0m
+[2019-02-28 16:14:55] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/terms/ 200 [0.35, 127.0.0.1:57490][0m
+[2019-02-28 16:17:58] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/terms/ 200 [0.21, 127.0.0.1:57520][0m
+[2019-02-28 16:18:24] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [0.12, 127.0.0.1:57520][0m
+[2019-02-28 16:19:22] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/terms/ 200 [0.40, 127.0.0.1:57520][0m
+[2019-02-28 16:20:05] INFO [django.channels.server.log_action:147] [32mHTTP GET /workexperience/pay/ 302 [0.01, 127.0.0.1:57520][0m
+[2019-02-28 16:20:05] INFO [django.channels.server.log_action:141] [mHTTP GET /login/?next=/workexperience/pay/ 200 [0.21, 127.0.0.1:57520][0m
+[2019-02-28 16:20:20] INFO [django.channels.server.log_action:147] [32mHTTP POST /login/?next=/workexperience/pay/ 302 [1.64, 127.0.0.1:57520][0m
+[2019-02-28 16:20:20] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.50, 127.0.0.1:57520][0m
+[2019-02-28 16:21:50] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.21, 127.0.0.1:57798][0m
+[2019-02-28 16:23:05] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.21, 127.0.0.1:57802][0m
+[2019-02-28 16:25:33] INFO [django.channels.server.log_action:141] [mHTTP GET /jobs/parttime/apply 200 [0.54, 127.0.0.1:57952][0m
+[2019-02-28 16:26:38] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.24, 127.0.0.1:57972][0m
+[2019-02-28 16:26:40] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.16, 127.0.0.1:57972][0m
+[2019-02-28 16:27:33] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.30, 127.0.0.1:57972][0m
+[2019-02-28 16:27:43] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.30, 127.0.0.1:57972][0m
+[2019-02-28 16:27:56] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.21, 127.0.0.1:57972][0m
+[2019-02-28 16:27:56] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/css/bootstrap.min.css 200 [0.06, 127.0.0.1:58006][0m
+[2019-02-28 16:27:56] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/css/newstyle2.css 200 [0.04, 127.0.0.1:58012][0m
+[2019-02-28 16:27:56] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/css/style.css 200 [0.06, 127.0.0.1:58010][0m
+[2019-02-28 16:27:56] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/style.css 200 [0.08, 127.0.0.1:58008][0m
+[2019-02-28 16:27:56] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js 200 [0.11, 127.0.0.1:57972][0m
+[2019-02-28 16:27:56] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/js/validation/jquery.validate.js 200 [0.12, 127.0.0.1:58004][0m
+[2019-02-28 16:27:56] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/css/main.css 200 [0.06, 127.0.0.1:58006][0m
+[2019-02-28 16:27:56] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/css/newstylenew.css 200 [0.05, 127.0.0.1:58010][0m
+[2019-02-28 16:27:56] INFO [django.channels.server.log_action:141] [mHTTP GET /static/Projects/custom/css/projects.css 200 [0.04, 127.0.0.1:57972][0m
+[2019-02-28 16:27:56] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/icon1.png 200 [0.04, 127.0.0.1:58012][0m
+[2019-02-28 16:27:56] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/logo.png 200 [0.05, 127.0.0.1:58008][0m
+[2019-02-28 16:27:56] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/js/bootstrap.min.js 200 [0.02, 127.0.0.1:58008][0m
+[2019-02-28 16:27:56] INFO [django.channels.server.log_action:141] [mHTTP GET /static/faq/js/jquery-2.1.1.js 200 [0.01, 127.0.0.1:58008][0m
+[2019-02-28 16:27:56] INFO [django.channels.server.log_action:141] [mHTTP GET /static/faq/js/jquery.mobile.custom.min.js 200 [0.01, 127.0.0.1:58008][0m
+[2019-02-28 16:27:56] INFO [django.channels.server.log_action:141] [mHTTP GET /static/faq/js/main.js 200 [0.01, 127.0.0.1:58008][0m
+[2019-02-28 16:28:16] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/fonts/fontsstylesheet.css 200 [0.02, 127.0.0.1:58008][0m
+[2019-02-28 16:28:16] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/logout1.png 200 [0.02, 127.0.0.1:58012][0m
+[2019-02-28 16:28:16] INFO [django.channels.server.log_action:141] [mHTTP GET /static/js/waterbubble.js 200 [0.04, 127.0.0.1:58008][0m
+[2019-02-28 16:28:16] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs/jobban2.png 200 [0.06, 127.0.0.1:58008][0m
+[2019-02-28 16:28:27] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.28, 127.0.0.1:58008][0m
+[2019-02-28 16:29:48] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-02-28 16:29:48] WARNING [django.channels.server.log_action:149] [33mHTTP GET /favicon.ico 404 [0.18, 127.0.0.1:58034][0m
+[2019-02-28 16:32:43] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.38, 127.0.0.1:58162][0m
+[2019-02-28 16:58:19] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [1.01, 127.0.0.1:58846][0m
+[2019-02-28 16:58:38] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-02-28 16:58:38] WARNING [django.channels.server.log_action:149] [33mHTTP GET /favicon.ico 404 [0.13, 127.0.0.1:58846][0m
+[2019-02-28 16:59:50] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/terms/ 200 [0.38, 127.0.0.1:58900][0m
+[2019-02-28 16:59:52] INFO [django.channels.server.log_action:147] [32mHTTP GET /workexperience/pay/ 302 [0.01, 127.0.0.1:58900][0m
+[2019-02-28 16:59:52] INFO [django.channels.server.log_action:141] [mHTTP GET /login/?next=/workexperience/pay/ 200 [0.14, 127.0.0.1:58900][0m
+[2019-02-28 17:00:00] INFO [django.channels.server.log_action:147] [32mHTTP POST /login/?next=/workexperience/pay/ 302 [1.36, 127.0.0.1:58900][0m
+[2019-02-28 17:00:00] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.25, 127.0.0.1:58900][0m
+[2019-02-28 17:05:04] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.36, 127.0.0.1:58982][0m
+[2019-02-28 17:06:00] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.23, 127.0.0.1:58982][0m
+[2019-02-28 17:06:03] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.16, 127.0.0.1:58982][0m
+[2019-02-28 17:06:03] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/css/bootstrap.min.css 200 [0.06, 127.0.0.1:59022][0m
+[2019-02-28 17:06:03] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/style.css 200 [0.07, 127.0.0.1:59024][0m
+[2019-02-28 17:06:03] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js 200 [0.09, 127.0.0.1:58982][0m
+[2019-02-28 17:06:03] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/css/style.css 200 [0.06, 127.0.0.1:59026][0m
+[2019-02-28 17:06:03] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/css/newstyle2.css 200 [0.05, 127.0.0.1:59028][0m
+[2019-02-28 17:06:03] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/js/validation/jquery.validate.js 200 [0.13, 127.0.0.1:59020][0m
+[2019-02-28 17:06:03] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/css/main.css 200 [0.05, 127.0.0.1:58982][0m
+[2019-02-28 17:06:03] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/css/newstylenew.css 200 [0.05, 127.0.0.1:59024][0m
+[2019-02-28 17:06:03] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/logo.png 200 [0.05, 127.0.0.1:59022][0m
+[2019-02-28 17:06:03] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/icon1.png 200 [0.03, 127.0.0.1:59028][0m
+[2019-02-28 17:06:03] INFO [django.channels.server.log_action:141] [mHTTP GET /static/Projects/custom/css/projects.css 200 [0.07, 127.0.0.1:59026][0m
+[2019-02-28 17:06:03] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/js/bootstrap.min.js 200 [0.02, 127.0.0.1:59022][0m
+[2019-02-28 17:06:03] INFO [django.channels.server.log_action:141] [mHTTP GET /static/faq/js/jquery-2.1.1.js 200 [0.03, 127.0.0.1:59022][0m
+[2019-02-28 17:06:03] INFO [django.channels.server.log_action:141] [mHTTP GET /static/faq/js/jquery.mobile.custom.min.js 200 [0.01, 127.0.0.1:59022][0m
+[2019-02-28 17:06:03] INFO [django.channels.server.log_action:141] [mHTTP GET /static/faq/js/main.js 200 [0.01, 127.0.0.1:59022][0m
+[2019-02-28 17:06:04] INFO [django.channels.server.log_action:141] [mHTTP GET /static/js/waterbubble.js 200 [0.03, 127.0.0.1:59022][0m
+[2019-02-28 17:06:05] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/fonts/fontsstylesheet.css 200 [0.05, 127.0.0.1:59022][0m
+[2019-02-28 17:06:05] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/logout1.png 200 [0.05, 127.0.0.1:59026][0m
+[2019-02-28 17:06:05] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs/jobban2.png 200 [0.04, 127.0.0.1:59026][0m
+[2019-02-28 17:06:10] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-02-28 17:06:10] WARNING [django.channels.server.log_action:149] [33mHTTP GET /favicon.ico 404 [0.06, 127.0.0.1:59026][0m
+[2019-02-28 17:07:09] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.21, 127.0.0.1:59026][0m
+[2019-02-28 17:08:13] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.19, 127.0.0.1:59082][0m
+[2019-02-28 17:08:53] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.29, 127.0.0.1:59082][0m
+[2019-02-28 17:09:32] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.24, 127.0.0.1:59082][0m
+[2019-02-28 17:09:40] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.31, 127.0.0.1:59082][0m
+[2019-02-28 17:09:59] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.21, 127.0.0.1:59082][0m
+[2019-02-28 17:10:02] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.37, 127.0.0.1:59082][0m
+[2019-02-28 17:10:02] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js 200 [0.01, 127.0.0.1:59082][0m
+[2019-02-28 17:10:02] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/js/validation/jquery.validate.js 200 [0.05, 127.0.0.1:59114][0m
+[2019-02-28 17:10:02] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/css/bootstrap.min.css 200 [0.05, 127.0.0.1:59116][0m
+[2019-02-28 17:10:02] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/style.css 200 [0.05, 127.0.0.1:59118][0m
+[2019-02-28 17:10:02] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/css/newstyle2.css 200 [0.05, 127.0.0.1:59122][0m
+[2019-02-28 17:10:02] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/css/style.css 200 [0.07, 127.0.0.1:59120][0m
+[2019-02-28 17:10:02] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/css/main.css 200 [0.06, 127.0.0.1:59082][0m
+[2019-02-28 17:10:02] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/css/newstylenew.css 200 [0.04, 127.0.0.1:59114][0m
+[2019-02-28 17:10:02] INFO [django.channels.server.log_action:141] [mHTTP GET /static/Projects/custom/css/projects.css 200 [0.02, 127.0.0.1:59118][0m
+[2019-02-28 17:10:02] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/logo.png 200 [0.04, 127.0.0.1:59122][0m
+[2019-02-28 17:10:02] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/icon1.png 200 [0.02, 127.0.0.1:59082][0m
+[2019-02-28 17:10:02] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/fonts/fontsstylesheet.css 200 [0.01, 127.0.0.1:59082][0m
+[2019-02-28 17:10:02] INFO [django.channels.server.log_action:141] [mHTTP GET /static/faq/js/jquery-2.1.1.js 200 [0.04, 127.0.0.1:59122][0m
+[2019-02-28 17:10:02] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/js/bootstrap.min.js 200 [0.05, 127.0.0.1:59082][0m
+[2019-02-28 17:10:02] INFO [django.channels.server.log_action:141] [mHTTP GET /static/faq/js/jquery.mobile.custom.min.js 200 [0.04, 127.0.0.1:59118][0m
+[2019-02-28 17:10:02] INFO [django.channels.server.log_action:141] [mHTTP GET /static/faq/js/main.js 200 [0.04, 127.0.0.1:59114][0m
+[2019-02-28 17:10:02] INFO [django.channels.server.log_action:141] [mHTTP GET /static/js/waterbubble.js 200 [0.04, 127.0.0.1:59120][0m
+[2019-02-28 17:10:02] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/logout1.png 200 [0.04, 127.0.0.1:59116][0m
+[2019-02-28 17:10:03] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs/jobban2.png 200 [0.02, 127.0.0.1:59082][0m
+[2019-02-28 17:10:07] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-02-28 17:10:07] WARNING [django.channels.server.log_action:149] [33mHTTP GET /favicon.ico 404 [0.05, 127.0.0.1:59082][0m
+[2019-02-28 17:10:20] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.21, 127.0.0.1:59082][0m
+[2019-02-28 17:11:07] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.24, 127.0.0.1:59082][0m
+[2019-02-28 17:11:31] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.23, 127.0.0.1:59082][0m
+[2019-02-28 17:12:00] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.24, 127.0.0.1:59082][0m
+[2019-02-28 17:12:08] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.23, 127.0.0.1:59082][0m
+[2019-02-28 17:14:32] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.28, 127.0.0.1:59176][0m
+[2019-02-28 17:14:49] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.28, 127.0.0.1:59176][0m
+[2019-02-28 17:15:02] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.20, 127.0.0.1:59176][0m
+[2019-02-28 17:15:45] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.28, 127.0.0.1:59176][0m
+[2019-02-28 17:16:03] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.23, 127.0.0.1:59176][0m
+[2019-02-28 17:17:08] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.23, 127.0.0.1:59210][0m
+[2019-02-28 17:17:36] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.20, 127.0.0.1:59210][0m
+[2019-02-28 17:17:54] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.26, 127.0.0.1:59210][0m
+[2019-02-28 17:17:54] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js 200 [0.06, 127.0.0.1:59210][0m
+[2019-02-28 17:17:54] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/css/style.css 200 [0.05, 127.0.0.1:59236][0m
+[2019-02-28 17:17:54] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/style.css 200 [0.05, 127.0.0.1:59234][0m
+[2019-02-28 17:17:54] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/js/validation/jquery.validate.js 200 [0.06, 127.0.0.1:59230][0m
+[2019-02-28 17:17:54] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/css/bootstrap.min.css 200 [0.07, 127.0.0.1:59232][0m
+[2019-02-28 17:17:54] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/css/newstyle2.css 200 [0.06, 127.0.0.1:59238][0m
+[2019-02-28 17:17:54] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/css/main.css 200 [0.07, 127.0.0.1:59210][0m
+[2019-02-28 17:17:54] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/logo.png 200 [0.04, 127.0.0.1:59236][0m
+[2019-02-28 17:17:54] INFO [django.channels.server.log_action:141] [mHTTP GET /static/Projects/custom/css/projects.css 200 [0.05, 127.0.0.1:59234][0m
+[2019-02-28 17:17:54] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/icon1.png 200 [0.04, 127.0.0.1:59232][0m
+[2019-02-28 17:17:54] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/css/newstylenew.css 200 [0.06, 127.0.0.1:59230][0m
+[2019-02-28 17:17:54] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/js/bootstrap.min.js 200 [0.01, 127.0.0.1:59230][0m
+[2019-02-28 17:17:54] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/fonts/fontsstylesheet.css 200 [0.01, 127.0.0.1:59230][0m
+[2019-02-28 17:17:54] INFO [django.channels.server.log_action:141] [mHTTP GET /static/faq/js/jquery-2.1.1.js 200 [0.04, 127.0.0.1:59230][0m
+[2019-02-28 17:17:54] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/logout1.png 200 [0.04, 127.0.0.1:59210][0m
+[2019-02-28 17:17:54] INFO [django.channels.server.log_action:141] [mHTTP GET /static/js/waterbubble.js 200 [0.05, 127.0.0.1:59232][0m
+[2019-02-28 17:17:54] INFO [django.channels.server.log_action:141] [mHTTP GET /static/faq/js/main.js 200 [0.06, 127.0.0.1:59234][0m
+[2019-02-28 17:17:54] INFO [django.channels.server.log_action:141] [mHTTP GET /static/faq/js/jquery.mobile.custom.min.js 200 [0.07, 127.0.0.1:59236][0m
+[2019-02-28 17:17:55] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs/jobban2.png 200 [0.02, 127.0.0.1:59236][0m
+[2019-02-28 17:17:59] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-02-28 17:17:59] WARNING [django.channels.server.log_action:149] [33mHTTP GET /favicon.ico 404 [0.08, 127.0.0.1:59236][0m
+[2019-02-28 17:18:07] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.29, 127.0.0.1:59236][0m
+[2019-02-28 17:18:32] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.16, 127.0.0.1:59236][0m
+[2019-02-28 17:18:52] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.21, 127.0.0.1:59236][0m
+[2019-02-28 17:18:59] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.22, 127.0.0.1:59236][0m
+[2019-02-28 17:19:06] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.24, 127.0.0.1:59236][0m
+[2019-02-28 17:19:51] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.20, 127.0.0.1:59236][0m
+[2019-02-28 17:20:23] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.21, 127.0.0.1:59236][0m
+[2019-02-28 17:20:43] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.22, 127.0.0.1:59236][0m
+[2019-02-28 17:20:50] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.24, 127.0.0.1:59236][0m
+[2019-02-28 17:21:04] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.28, 127.0.0.1:59236][0m
+[2019-02-28 17:21:12] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.21, 127.0.0.1:59236][0m
+[2019-02-28 17:21:19] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.17, 127.0.0.1:59236][0m
+[2019-02-28 17:21:24] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.15, 127.0.0.1:59236][0m
+[2019-02-28 17:21:24] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js 200 [0.05, 127.0.0.1:59236][0m
+[2019-02-28 17:21:24] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/css/bootstrap.min.css 200 [0.08, 127.0.0.1:59292][0m
+[2019-02-28 17:21:24] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/js/validation/jquery.validate.js 200 [0.10, 127.0.0.1:59290][0m
+[2019-02-28 17:21:24] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/style.css 200 [0.10, 127.0.0.1:59294][0m
+[2019-02-28 17:21:24] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/css/newstyle2.css 200 [0.11, 127.0.0.1:59298][0m
+[2019-02-28 17:21:24] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/css/style.css 200 [0.13, 127.0.0.1:59296][0m
+[2019-02-28 17:21:24] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/css/main.css 200 [0.13, 127.0.0.1:59236][0m
+[2019-02-28 17:21:24] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/css/newstylenew.css 200 [0.06, 127.0.0.1:59292][0m
+[2019-02-28 17:21:24] INFO [django.channels.server.log_action:141] [mHTTP GET /static/Projects/custom/css/projects.css 200 [0.05, 127.0.0.1:59290][0m
+[2019-02-28 17:21:24] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/logo.png 200 [0.05, 127.0.0.1:59294][0m
+[2019-02-28 17:21:24] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/icon1.png 200 [0.04, 127.0.0.1:59296][0m
+[2019-02-28 17:21:24] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/js/bootstrap.min.js 200 [0.03, 127.0.0.1:59296][0m
+[2019-02-28 17:21:24] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/fonts/fontsstylesheet.css 200 [0.04, 127.0.0.1:59290][0m
+[2019-02-28 17:21:24] INFO [django.channels.server.log_action:141] [mHTTP GET /static/js/waterbubble.js 200 [0.04, 127.0.0.1:59298][0m
+[2019-02-28 17:21:24] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/logout1.png 200 [0.03, 127.0.0.1:59296][0m
+[2019-02-28 17:21:24] INFO [django.channels.server.log_action:141] [mHTTP GET /static/faq/js/main.js 200 [0.05, 127.0.0.1:59236][0m
+[2019-02-28 17:21:24] INFO [django.channels.server.log_action:141] [mHTTP GET /static/faq/js/jquery-2.1.1.js 200 [0.06, 127.0.0.1:59294][0m
+[2019-02-28 17:21:24] INFO [django.channels.server.log_action:141] [mHTTP GET /static/faq/js/jquery.mobile.custom.min.js 200 [0.06, 127.0.0.1:59292][0m
+[2019-02-28 17:21:25] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs/jobban2.png 200 [0.01, 127.0.0.1:59294][0m
+[2019-02-28 17:21:29] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-02-28 17:21:29] WARNING [django.channels.server.log_action:149] [33mHTTP GET /favicon.ico 404 [0.06, 127.0.0.1:59294][0m
+[2019-02-28 17:21:55] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.20, 127.0.0.1:59294][0m
+[2019-02-28 17:22:24] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.24, 127.0.0.1:59294][0m
+[2019-02-28 17:22:35] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.23, 127.0.0.1:59294][0m
+[2019-02-28 17:22:53] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.28, 127.0.0.1:59294][0m
+[2019-02-28 17:23:35] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.23, 127.0.0.1:59294][0m
+[2019-02-28 17:23:43] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.21, 127.0.0.1:59294][0m
+[2019-02-28 17:24:18] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.23, 127.0.0.1:59294][0m
+[2019-02-28 17:24:32] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.24, 127.0.0.1:59294][0m
+[2019-02-28 17:25:37] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.17, 127.0.0.1:59342][0m
+[2019-02-28 17:25:52] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.21, 127.0.0.1:59342][0m
+[2019-02-28 17:26:28] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.21, 127.0.0.1:59342][0m
+[2019-02-28 17:26:54] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.24, 127.0.0.1:59342][0m
+[2019-02-28 17:27:13] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.25, 127.0.0.1:59342][0m
+[2019-02-28 17:27:23] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.16, 127.0.0.1:59342][0m
+[2019-02-28 17:27:35] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.25, 127.0.0.1:59342][0m
+[2019-02-28 17:28:28] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.44, 127.0.0.1:59342][0m
+[2019-02-28 17:28:59] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.17, 127.0.0.1:59342][0m
+[2019-02-28 17:29:23] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.22, 127.0.0.1:59342][0m
+[2019-02-28 17:29:31] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.12, 127.0.0.1:59342][0m
+[2019-02-28 17:32:15] INFO [django.channels.server.log_action:147] [32mHTTP GET /workexperience/pay/ 302 [0.01, 127.0.0.1:60004][0m
+[2019-02-28 17:32:15] INFO [django.channels.server.log_action:141] [mHTTP GET /login/?next=/workexperience/pay/ 200 [0.02, 127.0.0.1:60004][0m
+[2019-02-28 17:32:26] INFO [django.channels.server.log_action:147] [32mHTTP POST /login/?next=/workexperience/pay/ 302 [1.00, 127.0.0.1:60004][0m
+[2019-02-28 17:32:26] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.18, 127.0.0.1:60004][0m
+[2019-02-28 17:33:18] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.27, 127.0.0.1:60004][0m
+[2019-02-28 17:33:30] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.15, 127.0.0.1:60004][0m
+[2019-02-28 17:34:13] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.22, 127.0.0.1:60004][0m
+[2019-02-28 17:35:01] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.21, 127.0.0.1:60004][0m
+[2019-02-28 17:35:16] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.23, 127.0.0.1:60004][0m
+[2019-02-28 17:35:25] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.24, 127.0.0.1:60004][0m
+[2019-02-28 17:35:57] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.22, 127.0.0.1:60004][0m
+[2019-02-28 17:36:09] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.24, 127.0.0.1:60004][0m
+[2019-02-28 17:36:31] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.14, 127.0.0.1:60004][0m
+[2019-02-28 17:36:45] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.22, 127.0.0.1:60004][0m
+[2019-02-28 17:36:53] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.13, 127.0.0.1:60004][0m
+[2019-02-28 17:37:04] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.13, 127.0.0.1:60004][0m
+[2019-02-28 17:37:36] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.23, 127.0.0.1:60004][0m
+[2019-02-28 17:37:46] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.20, 127.0.0.1:60004][0m
+[2019-02-28 17:37:52] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.25, 127.0.0.1:60004][0m
+[2019-02-28 17:37:58] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.25, 127.0.0.1:60004][0m
+[2019-02-28 17:39:15] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.21, 127.0.0.1:60136][0m
+[2019-02-28 17:40:30] INFO [django.channels.server.log_action:141] [mHTTP GET /access_course 200 [0.34, 127.0.0.1:60142][0m
+[2019-02-28 17:40:33] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.35, 127.0.0.1:60142][0m
+[2019-02-28 17:40:39] INFO [django.channels.server.log_action:141] [mHTTP GET /access_course 200 [0.16, 127.0.0.1:60142][0m
+[2019-02-28 17:43:09] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.15, 127.0.0.1:60182][0m
+[2019-02-28 17:43:15] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.25, 127.0.0.1:60182][0m
+[2019-02-28 17:43:16] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js 200 [0.06, 127.0.0.1:60182][0m
+[2019-02-28 17:43:16] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/js/validation/jquery.validate.js 200 [0.07, 127.0.0.1:60192][0m
+[2019-02-28 17:43:16] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/css/style.css 200 [0.07, 127.0.0.1:60198][0m
+[2019-02-28 17:43:16] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/css/newstyle2.css 200 [0.07, 127.0.0.1:60200][0m
+[2019-02-28 17:43:16] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/css/bootstrap.min.css 200 [0.09, 127.0.0.1:60194][0m
+[2019-02-28 17:43:16] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/style.css 200 [0.09, 127.0.0.1:60196][0m
+[2019-02-28 17:43:16] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/css/main.css 200 [0.08, 127.0.0.1:60182][0m
+[2019-02-28 17:43:16] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/css/newstylenew.css 200 [0.07, 127.0.0.1:60192][0m
+[2019-02-28 17:43:16] INFO [django.channels.server.log_action:141] [mHTTP GET /static/Projects/custom/css/projects.css 200 [0.04, 127.0.0.1:60198][0m
+[2019-02-28 17:43:16] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/logo.png 200 [0.04, 127.0.0.1:60194][0m
+[2019-02-28 17:43:16] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/icon1.png 200 [0.04, 127.0.0.1:60196][0m
+[2019-02-28 17:43:16] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/js/bootstrap.min.js 200 [0.02, 127.0.0.1:60196][0m
+[2019-02-28 17:43:16] INFO [django.channels.server.log_action:141] [mHTTP GET /static/faq/js/jquery-2.1.1.js 200 [0.01, 127.0.0.1:60196][0m
+[2019-02-28 17:43:16] INFO [django.channels.server.log_action:141] [mHTTP GET /static/faq/js/jquery.mobile.custom.min.js 200 [0.01, 127.0.0.1:60196][0m
+[2019-02-28 17:43:16] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/fonts/fontsstylesheet.css 200 [0.01, 127.0.0.1:60196][0m
+[2019-02-28 17:43:16] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/logout1.png 200 [0.02, 127.0.0.1:60198][0m
+[2019-02-28 17:43:16] INFO [django.channels.server.log_action:141] [mHTTP GET /static/faq/js/main.js 200 [0.04, 127.0.0.1:60196][0m
+[2019-02-28 17:43:16] INFO [django.channels.server.log_action:141] [mHTTP GET /static/js/waterbubble.js 200 [0.04, 127.0.0.1:60194][0m
+[2019-02-28 17:43:17] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs/jobban2.png 200 [0.02, 127.0.0.1:60194][0m
+[2019-02-28 17:43:21] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-02-28 17:43:21] WARNING [django.channels.server.log_action:149] [33mHTTP GET /favicon.ico 404 [0.07, 127.0.0.1:60194][0m
+[2019-02-28 17:43:56] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.19, 127.0.0.1:60194][0m
+[2019-02-28 17:45:04] INFO [django.channels.server.log_action:147] [32mHTTP GET /workexperience/ 302 [0.09, 127.0.0.1:60370][0m
+[2019-02-28 17:45:04] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/profile/ 200 [0.52, 127.0.0.1:60370][0m
+[2019-02-28 17:45:05] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs/prof2.png 200 [0.03, 127.0.0.1:60370][0m
+[2019-02-28 17:45:05] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/prof1.png 304 [0.01, 127.0.0.1:60380][0m
+[2019-02-28 17:45:11] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.46, 127.0.0.1:60380][0m
+[2019-02-28 17:45:21] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/terms/ 200 [0.19, 127.0.0.1:60380][0m
+[2019-02-28 17:45:24] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.22, 127.0.0.1:60380][0m
+[2019-02-28 17:52:29] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.27, 127.0.0.1:60854][0m
+[2019-02-28 17:52:32] WARNING [django.channels.server.log_action:149] [33mHTTP GET /static/home/images/favicon.ico 404 [0.03, 127.0.0.1:60854][0m
+[2019-02-28 17:56:38] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.14, 127.0.0.1:32804][0m
+[2019-02-28 17:57:20] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.19, 127.0.0.1:32804][0m
+[2019-02-28 17:57:58] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.23, 127.0.0.1:32804][0m
+[2019-02-28 17:59:35] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.85, 127.0.0.1:32842][0m
+[2019-02-28 18:00:46] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.24, 127.0.0.1:32862][0m
+[2019-02-28 18:00:50] INFO [django.channels.server.log_action:141] [mHTTP GET /static/favicon.ico 200 [0.02, 127.0.0.1:32862][0m
+[2019-02-28 18:00:55] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [0.27, 127.0.0.1:32862][0m
+[2019-02-28 18:02:16] INFO [django.channels.server.log_action:147] [32mHTTP GET /workexperience/ 302 [0.18, 127.0.0.1:32882][0m
+[2019-02-28 18:02:17] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/profile/ 200 [0.24, 127.0.0.1:32882][0m
+[2019-02-28 18:02:23] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.34, 127.0.0.1:32882][0m
+[2019-02-28 18:04:03] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/terms/ 200 [0.21, 127.0.0.1:32900][0m
+[2019-02-28 18:04:10] INFO [django.channels.server.log_action:147] [32mHTTP GET /workexperience/pay/ 302 [0.02, 127.0.0.1:32900][0m
+[2019-02-28 18:04:10] INFO [django.channels.server.log_action:141] [mHTTP GET /login/?next=/workexperience/pay/ 200 [0.03, 127.0.0.1:32900][0m
+[2019-02-28 18:04:13] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [0.09, 127.0.0.1:32900][0m
+[2019-02-28 18:04:19] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/ 200 [0.25, 127.0.0.1:32900][0m
+[2019-02-28 18:04:19] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/aoc.png 200 [0.04, 127.0.0.1:32900][0m
+[2019-02-28 18:04:19] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/graduate.png 200 [0.04, 127.0.0.1:32906][0m
+[2019-02-28 18:04:19] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/prooo.png 200 [0.09, 127.0.0.1:32908][0m
+[2019-02-28 18:04:20] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs/wok.png 200 [0.03, 127.0.0.1:32908][0m
+[2019-02-28 18:04:20] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs/womann.jpg 200 [0.08, 127.0.0.1:32900][0m
+[2019-02-28 18:04:20] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/radio1.png 304 [0.02, 127.0.0.1:32908][0m
+[2019-02-28 18:04:20] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs/aboutrec.png 200 [0.11, 127.0.0.1:32906][0m
+[2019-02-28 18:06:02] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/terms/ 200 [0.19, 127.0.0.1:32950][0m
+[2019-02-28 18:06:43] INFO [django.channels.server.log_action:147] [32mHTTP GET /workexperience/pay/ 302 [0.49, 127.0.0.1:32956][0m
+[2019-02-28 18:06:43] INFO [django.channels.server.log_action:141] [mHTTP GET /login/?next=/workexperience/pay/ 200 [0.03, 127.0.0.1:32956][0m
+[2019-02-28 18:06:52] INFO [django.channels.server.log_action:147] [32mHTTP POST /login/?next=/workexperience/pay/ 302 [0.87, 127.0.0.1:32956][0m
+[2019-02-28 18:06:52] INFO [django.channels.server.log_action:147] [32mHTTP GET /workexperience/pay/ 302 [0.13, 127.0.0.1:32956][0m
+[2019-02-28 18:06:52] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/profile/ 200 [0.28, 127.0.0.1:32956][0m
+[2019-02-28 18:07:08] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [0.24, 127.0.0.1:32956][0m
+[2019-02-28 18:08:53] INFO [django.channels.server.log_action:147] [32mHTTP GET /workexperience/ 302 [0.18, 127.0.0.1:32976][0m
+[2019-02-28 18:08:53] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/profile/ 200 [0.21, 127.0.0.1:32976][0m
+[2019-02-28 18:08:56] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [0.23, 127.0.0.1:32976][0m
+[2019-02-28 18:12:19] INFO [django.channels.server.log_action:141] [mHTTP GET /logout 200 [0.30, 127.0.0.1:32998][0m
+[2019-02-28 18:12:21] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [0.14, 127.0.0.1:32998][0m
+[2019-02-28 18:12:31] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/ 200 [0.22, 127.0.0.1:32998][0m
+[2019-02-28 18:12:41] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/terms/ 200 [0.23, 127.0.0.1:32998][0m
+[2019-02-28 18:13:10] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [0.24, 127.0.0.1:32998][0m
+[2019-02-28 20:21:10] WARNING [django.request.get_response:93] Not Found: /robots.txt
+[2019-02-28 20:21:10] WARNING [django.channels.server.log_action:149] [33mHTTP GET /robots.txt 404 [0.56, 127.0.0.1:46704][0m
+[2019-02-28 20:21:14] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [6.58, 127.0.0.1:46702][0m
+[2019-02-28 20:33:29] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/terms/ 200 [0.82, 127.0.0.1:47116][0m
+[2019-02-28 20:33:40] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/css/main.css 304 [0.01, 127.0.0.1:47116][0m
+[2019-02-28 20:33:40] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/css/newstyle2.css 304 [0.01, 127.0.0.1:47116][0m
+[2019-02-28 20:33:45] INFO [django.channels.server.log_action:147] [32mHTTP GET /workexperience/pay/ 302 [0.01, 127.0.0.1:47116][0m
+[2019-02-28 20:33:46] INFO [django.channels.server.log_action:141] [mHTTP GET /login/?next=/workexperience/pay/ 200 [0.03, 127.0.0.1:47116][0m
+[2019-02-28 20:33:46] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-02-28 20:33:46] WARNING [django.channels.server.log_action:149] [33mHTTP GET /favicon.ico 404 [0.09, 127.0.0.1:47116][0m
+[2019-02-28 20:34:03] INFO [django.channels.server.log_action:141] [mHTTP POST /login/?next=/workexperience/pay/ 200 [0.59, 127.0.0.1:47116][0m
+[2019-02-28 20:34:07] INFO [django.channels.server.log_action:141] [mHTTP GET /signup 200 [0.03, 127.0.0.1:47116][0m
+[2019-02-28 20:34:31] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /signup
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/lib64/python3.6/site-packages/MySQLdb/cursors.py", line 255, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/lib64/python3.6/site-packages/MySQLdb/connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "/usr/lib64/python3.6/site-packages/MySQLdb/cursors.py", line 252, in execute
+    res = self._query(query)
+  File "/usr/lib64/python3.6/site-packages/MySQLdb/cursors.py", line 378, in _query
+    db.query(q)
+  File "/usr/lib64/python3.6/site-packages/MySQLdb/connections.py", line 280, in query
+    _mysql.connection.query(self, query)
+_mysql_exceptions.IntegrityError: (1062, "Duplicate entry 'jack10' for key 'username'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mololuwa/Desktop/linuxjobber/Django/Linuxjobber/home/views.py", line 66, in signup
+    user.save()
+  File "/usr/lib/python3.6/site-packages/django/contrib/auth/base_user.py", line 73, in save
+    super().save(*args, **kwargs)
+  File "/usr/lib/python3.6/site-packages/django/db/models/base.py", line 729, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/lib/python3.6/site-packages/django/db/models/base.py", line 759, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/usr/lib/python3.6/site-packages/django/db/models/base.py", line 842, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/usr/lib/python3.6/site-packages/django/db/models/base.py", line 880, in _do_insert
+    using=using, raw=raw)
+  File "/usr/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/lib/python3.6/site-packages/django/db/models/query.py", line 1125, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/usr/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1285, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/lib/python3.6/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/lib/python3.6/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/lib/python3.6/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/lib64/python3.6/site-packages/MySQLdb/cursors.py", line 255, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/lib64/python3.6/site-packages/MySQLdb/connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "/usr/lib64/python3.6/site-packages/MySQLdb/cursors.py", line 252, in execute
+    res = self._query(query)
+  File "/usr/lib64/python3.6/site-packages/MySQLdb/cursors.py", line 378, in _query
+    db.query(q)
+  File "/usr/lib64/python3.6/site-packages/MySQLdb/connections.py", line 280, in query
+    _mysql.connection.query(self, query)
+django.db.utils.IntegrityError: (1062, "Duplicate entry 'jack10' for key 'username'")
+[2019-02-28 20:34:31] ERROR [django.channels.server.log_action:154] [35;1mHTTP POST /signup 500 [1.10, 127.0.0.1:47116][0m
+[2019-02-28 20:34:40] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [0.11, 127.0.0.1:47116][0m
+[2019-02-28 20:34:53] INFO [django.channels.server.log_action:141] [mHTTP GET /login/ 200 [0.03, 127.0.0.1:47116][0m
+[2019-02-28 20:35:04] INFO [django.channels.server.log_action:147] [32mHTTP POST /login/ 302 [0.59, 127.0.0.1:47116][0m
+[2019-02-28 20:35:04] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/userinterest 200 [0.17, 127.0.0.1:47116][0m
+[2019-02-28 20:35:10] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/ 200 [0.17, 127.0.0.1:47116][0m
+[2019-02-28 20:35:14] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/terms/ 200 [0.43, 127.0.0.1:47116][0m
+[2019-02-28 20:36:09] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/pay/ 200 [0.26, 127.0.0.1:47116][0m
+[2019-02-28 21:05:35] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [1.43, 127.0.0.1:48054][0m
+[2019-02-28 21:05:35] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [0.17, 127.0.0.1:48076][0m
