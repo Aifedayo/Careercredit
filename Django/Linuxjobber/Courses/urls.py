@@ -22,4 +22,6 @@ urlpatterns = [
     path('update/<int:lab_no>', views.linux_result_update, name='linux_result_update'),
     path('topic_stat/<int:lab_no>', views.topic_stat, name='topic_stat'),
     path('task_update/<int:lab_no>/<int:task_no>/', views.task_update, name='task_update'),
+    path('labprofile', views.labprofile, name='labprofile'),
+    path('<slug:course_name>/labprofiledetail/<int:lab_no>', views.labprofiledetail, name='labprofiledetail')
     ]

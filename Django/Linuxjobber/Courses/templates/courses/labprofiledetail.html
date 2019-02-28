@@ -1,0 +1,78 @@
+{% extends 'home/base.html' %}
+
+{% load staticfiles%}
+
+{% block content %}
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<div class="carousel-inner" role="listbox">
+  <div class="item active">
+    
+  </div>
+</div>
+</div>
+<style type="text/css">
+
+
+	#myList{
+		padding-bottom: 20px;
+	}
+</style>
+<div class="row raise-to-banner2">
+			<div class="col-md-8 col-md-offset-2 text-center">
+				<div class="display-t">
+					<div class="display-tc animate-box h1-bg" data-animate-effect="fadeIn">
+						<br>
+						<h1>{{course_name}} Lab Result</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+<div class="container">
+<br><br>
+	<div class="lab-details labprof">
+		<div class ='row topic-bg'>
+			<div class="col-md-1 col-xs-1 topic-class"></div>
+            <div class="col-md-6 col-xs-6 topic-class"><h4>Lab</h4></div>
+            <div class="col-md-5 col-xs-5 topic-class"><h4>Result</h4></div>
+        </div> 
+	</div>
+	<div id="myList">
+	    {% for topic in topics %}
+	    {%if topic.has_labs == 1%}
+
+	    <div class="row line-ht">
+	    	<div class="col-md-1 col-xs-1"></div>
+	        <div class="col-md-6 col-xs-6">
+	        	<p>{{topic}}</p>
+	        </div>
+	        <div class="col-md-5 col-xs-5">
+	        	<a id="relink{{topic.id}}" href="{% url 'Courses:linux_result' topic.course.course_title.split|join:'_' topic.topic_number%}">View</a>
+	        </div>
+	    </div>
+	    {%endif%}
+	    {% endfor %}
+	</div>
+</div>
+
+<script type="text/javascript">
+	jQuery(function(){
+		{%for topic in topics%}
+		{%if topic.has_labs == 1%}
+			$.ajax({
+				type: 'GET',
+				data:'', 
+				url: '{% url "Courses:topic_stat" topic.id %}',
+				success: function (data) { 
+					$.each(data, function(index, value){
+						if(value == "not attempted"){
+							color =  'grey';
+							$('#'+'relink'+'{{topic.id}}').replaceWith(function() { return"Not Attempted"});
+            			}
+					});
+				}
+			});
+		{%endif%}
+		{%endfor%}
+	});
+</script>
+{%endblock%}

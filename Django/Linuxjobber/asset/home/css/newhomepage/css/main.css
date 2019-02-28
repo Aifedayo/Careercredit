@@ -71,14 +71,15 @@
 
 .navhead{
 	background: url(../imgs/jobban2.png);
-	height: 11vh;
+	height: 70px;
 	background-size: cover;
     background-repeat: no-repeat;
+    display:block;
 }
 
 .homebanner{
 	background: url(../imgs/homebanner.png);
-	min-height: 82vh;
+	min-height: 530px;
 	background-size: cover;
     background-repeat: no-repeat;
 }
@@ -211,7 +212,7 @@
 .homesignhd{
 	margin-bottom: 0px;
 	padding-bottom: 0px;
-	line-height: 0px;
+	line-height: 20px;
 }
 
 .homesignp{
@@ -282,7 +283,8 @@
 @media (min-width: 320px) and (max-width: 640px) {
 	.homebanner{
 		background-size: 418px 200px;
-		min-height: 35vh;
+		min-height: 200px;
+		margin-bottom: 20px;
 	}
 
 	.homebantext{
@@ -500,11 +502,13 @@
 	.homebanner{
 		background-size: 1506px 500px;
 		width: 100%;
-		min-height: 50vh;
+		min-height: 90px;
+		padding-bottom: 80px;
 	}
 
 	.navhead{
-		height: 7vh;
+		min-height: 70px;
+		display:block;
 	}
 
 	.homeworkima{
@@ -519,7 +523,7 @@
 
 @media (device-width: 768px) and (device-height: 1024px) and (orientation:portrait) {
 	.navhead{
-		height: 6vh;
+		height: 60px;
 	}
 }
 
@@ -528,6 +532,7 @@
 	.homebanner{
 		background-size: 1106px 500px;
 		width: 100%;
+		padding-bottom: 80px;
 	}
 
   .homeworkleft{
@@ -535,7 +540,7 @@
 	}
 
 	.navhead{
-		height: 9vh;
+		height: 70px;
 	}
 }
 
@@ -544,11 +549,12 @@
 	.homebanner{
 		background-size: 1106px 500px;
 		width: 100%;
-		min-height: 40vh;
+		min-height: 350px;
+		padding-bottom: 100px;
 	}
 
 	.navhead{
-		height: 5.5vh;
+		height: 70px;
 	}
 
 	.homesignhd{
@@ -560,3 +566,5 @@
 	}
 
 }
+
+
