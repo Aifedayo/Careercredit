@@ -189,7 +189,7 @@ def aboutus(request):
  
 def policies(request):
     return render(request, 'home/policies.html', {'courses' : get_courses(), 'tools' : get_tools()})
- 
+
 
 def jobs(request):
     posts = FullTimePostion.objects.all()
@@ -199,6 +199,7 @@ def partime(request):
     cv = None
     position = None
     high = None
+    message = None
     if request.method == "POST":
         form = PartimeApplicationForm(request.POST, request.FILES)
         if form.is_valid():
@@ -215,7 +216,22 @@ def partime(request):
                 high = 'Yes'
             else:
                 high = 'No'
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you applied for a part-time role at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.POST['email']])
+
+            message = """Hello, you are receiving this email because you applied for a part-time role at linuxjobber.com.\n
+            Your resume was received with pleasure! Your background skills looks good! I hope you are doing okay.
+            \n\nThis role is expected to fill a position in Linuxjobber,Inc.\n\n
+            By the time you respond, we expect that you would have already visited our website at https://linuxjobber.com, 
+            and seen that we are a training company that is focused on helping job seekers get their junior and mid-level positions.
+            \n\nTo achieve this, our company builds applications as well as training materials, including videos.
+
+            \nIf you are accepted into this Part-time role, you will mostly handle
+            programming tasks.
+
+            \n\nDo you understand our mission and is this a challenge that you are willing to take on? Are you still interested in this role?
+
+            Best Regards,.\n\n Thanks & Regards \n Linuxjobber"""
+
+            send_mail('Linuxjobber Newsletter', message, settings.EMAIL_HOST_USER, [request.POST['email']])
             send_mail('Part-Time Job Application Alert', 'Hello,\n'+request.POST['fullname']+' with email: '+request.POST['email']+ ' just applied for a part time role, '+position.job_title+'.\nCV can be found here: '+cv+'\n Phone number is: '+request.POST['phone']+' and high salary choice is: '+high+'.\nplease kindly review.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
             return redirect("home:jobfeed")
         else:
@@ -594,6 +610,11 @@ def pay(request):
     DISCLMR = "Please note that you will be charged ${} upfront. However, you may cancel at any time. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ${}".format(PRICE,PRICE)
     stripeset = StripePayment.objects.all()
     stripe.api_key = stripeset[0].secretkey
+    try:
+        workexp = wepeoples.objects.get(user=request.user)
+        return redirect("home:workexprofile")
+    except wepeoples.DoesNotExist:
+        pass
     if request.method == "POST":
         token = request.POST.get("stripeToken")
         try:

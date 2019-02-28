@@ -122,6 +122,21 @@ class LabTask(models.Model):
         
     def __str__(self):
         return self.task
+
+class UserInterest(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete = models.CASCADE)
+    course = models.ForeignKey(Course, on_delete = models.CASCADE)
+
+class UserCourseStat(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete = models.CASCADE)
+    course = models.ForeignKey(Course, on_delete = models.CASCADE)
+    visit = models.IntegerField()
+
+    class Meta:
+        ordering = ('user', 'course')
+    
+    def __str__(self):
+        return user.email
     
     
 class GradesReport(models.Model):

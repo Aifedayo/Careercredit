@@ -15,35 +15,50 @@ Pay | {{ PAY_FOR }} | Linuxjobber
     background-repeat: no-repeat;
 }
 
-.workterms{
-    height: 500px;
-    overflow: auto;
-    color: black;
+.paydiv{
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
-.workterms::-webkit-scrollbar {
-    width: 12px;
-    background-color: rgba(0, 0, 0, 0.25);
-    color: grey;
+.paydotr{
+    height: 10px;
+    width: 10px;
+    color: #fff;
+    background-color: #1B539E;
+    border-radius: 50%;
+    font-size: 45px;
+    display: inline-block;
+    margin-left: 5px;
+    margin-top: 20px;
 }
 
-.workterms::-webkit-scrollbar-thumb {
+.pay-blue{
+    color: #1B539E;
+    font-size: 14px;
+}
+
+.payford{
+    padding-top: 15px;
+}
+
+.payamountd{
+    font-size: 36px;
+    color: #1B539E; 
+}
+
+.stripe-button-el span{
+    background: linear-gradient(20.03deg, #0075FF 23.7%, #81B8F9 85.01%);
+    box-shadow: 0px 0px 4px rgba(255, 255, 255, 0.25);
     border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px black; 
+    padding-left: 18px;
+    padding-right: 18px;
+    height: 42px;
+    padding-top: 5px;
+    text-transform: uppercase;
 }
 
-.workterms::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px white; 
-    border-radius: 10px;
-}
 
-.worktermspan{
-    color: black;
-}
 
-.workt{
-    margin-top: 250px;
-}
 @media (max-width: 640px) and (min-width: 360px){
     .inner-box {
         height: 300px !important;
@@ -52,17 +67,20 @@ Pay | {{ PAY_FOR }} | Linuxjobber
 
 </style>
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-    <div class="carousel-inner" role="listbox">
-        <div class="item active"></div>      
-    </div>      
+<div class="jobbaner2">
+    <div class="text-center jobbantext2">
+        <h1>PAYMENT</h1>
+        <span>Enter your payment details</span>    
+    </div>
+    </div>
 </div>
 
+
+    
+
 <div class="container">
-    <div class="workt">
     {% if messages %}
-          {% for message in messages %}
+        {% for message in messages %}
             {% if message.tags == "success" %}
             <div class="alert alert-success" role="alert">
             <p style="color:#155724">{{message}}</p>
@@ -72,159 +90,49 @@ Pay | {{ PAY_FOR }} | Linuxjobber
             <p style="color:#721c24">{{message}}</p>
             </div>
             {%endif%}
-          {% endfor %}
-        {% endif %}
-        <div class="workterms">
-            <span class="worktermspan">
-                Student Enrollment Agreement 
-
- 
-
-This Student Enrollment Agreement (this “Agreement”), is a binding agreement between you, the Student (the “Student”), and Linuxjobber, Inc. with regard to a single enrollment in an Advanced Career Training program that may consist of a single or multiple programs. This Agreement becomes binding and effective upon the Student’s acceptance, indicated by online acknowledgement of receipt of, and agreement to, the provisions of this Agreement.<br><br>
- 
-The parties hereto agree as follows: <br>
-
- 
-
-1. ADMISSIONS CRITERIA: The Student has completed technical training in the area of interest and is seeking “hands-on” field experience to better understand daily responsibilities of a working professional in that area. <br><br>
-
- 
-
-2. TUITION: The Student agrees to pay a one-time, non-refundable registration payment of $399 and additional 8% of the Student’s one-year salary when the Student gains employment in any field related to the area of interest. <br><br>
-
- 
-
-3. COMPLETION REQUIREMENTS: In order to receive a Certificate of Completion, the Student must successfully complete the program by the date indicated on the Stduent’s Linuxjobber profile following the date on which the Student enrolls in the program, and tuition must be paid in full before the Student can receive a Certificate of Completion. <br><br>
-
- 
-
-4. SCHEDULE: The duration of the program is 3 months and the Student is required to attend daily online meetings (Mondays through Friday) for the entire duration of the program. It is the responsibility of the Student to attend the meeting and to meet privately with instructors to cover materials for missed classes. <br><br>
-
- 
-
-5. PROGRAM CANCELLATION POLICY: The Student may request the Student's enrollment be canceled at any time before the Student is registered for and granted access to the program. <br><br>
-
- 
-
-6. REFUND POLICY: For refunds requested within ten (7) calendar days commencement of the Work Experience training, as shown on Student’s Linuxjobber profile, one hundred percent (100%) of the tuition amount shall be 
-
-For refund requests within Eight (8) to twenty-four (24) calendar days of commencement of the Work Experience training, as shown on Student’s Linuxjobber profile, fifty percent (50%) of the tuition amount shall be refunded.  
-
-Refund requests must be made through email by the Student.<br><br>
-
-No refunds shall be available after the twenty-four (24) calendar days of commencement of the Work Experience program Start Date as shown on the Student’s Linuxjobber profile. <br><br>
-
- 
-
-7. TRANSFER POLICY: The Student may transfer from one program to another within sixty (60) days following the Student’s registration date. There is a transfer fee of one hundred twenty-five dollars ($125), plus any applicable taxes, if the transfer takes place after the first ten (10) calendar days of the Start Date listed in the Student’s Linuxjobber profile. If the program to which the Student wishes to transfer costs less than the original program in which the Student is registered, the Student shall be credited the difference, minus the transfer fee. If the program to which the Student wishes to transfer costs more than the original program in which the Student is registered, the Student shall be charged the difference, plus the transfer fee and any applicable taxes. <br><br>
-
- 
-
-8. HOLD POLICY: A “hold” is a permitted suspension of the Student’s participation in the program without penalty. The Student may request a hold of up to thirty (30) days and holds will only be granted for those with extenuating circumstances, at Linuxjobber’s discretion, such as military deployment or documented medical concerns. Some program holds may incur a fee and the student shall be made aware of this before the hold is initiated. If the Student has used a  loan, they are still responsible for the regular loan payments throughout the hold period. If the Student remains on hold for more than thirty (30) days, the Student shall be dropped from the program without a refund and the Student’s grade shall be shown as Incomplete on the school’s records. <br><br>
-
- 
-
-9. STUDENT CONSENT TO RELEASE OF DATA: The Student hereby authorizes (a) Linuxjobber and its authorized testing provider(s) to release the Student’s name and certification result (“Student Results”) to employers and third party requesters  (b) Linuxjobber to collect, use, store, and transfer Student Results in connection with: researching, developing, or improving its products or services; public aggregated reporting of pass/fail rates; and compliance reporting. The Student also hereby authorizes Linuxjobber to provide Student Results to third parties if: (x) Linuxjobber believes in good faith the disclosure is required by law, such as to comply with a subpoena, warrant, court order, or similar legal or administrative process; and (z) a third party purchases or otherwise acquires Linuxjobber, in which case Student Results will likely be among the assets transferred. <br><br>
-
- 
-
-10. GROUNDS FOR TERMINATION: The Student’s enrollment may be terminated for several reasons, upon Linuxjobber’s decision, including failure of the Student to comply with Linuxjobber’s rules and policies, or failure to comply with the terms and conditions set forth herein. Linuxjobber may terminate the Student’s enrollment at any time for such violations. Linuxjobber further reserves the right to modify the rules and policies. In addition, if the Student owes any amount on a loan and is delinquent on the Student’s loan payments or installments for more than ninety (30) days, Linuxjobber reserves the right to terminate the student’s access to the program without a refund. <br><br>
- 
-12. NO GUARANTEE:  THE STUDENT UNDERSTANDS AND AGREES THAT COMPLETION OF THE PROGRAM IS NOT A GUARANTEE OF EMPLOYMENT OR OF OBTAINING AN INTERNSHIP OR EXTERNSHIP. LINUXJOBBER HAS NOT MADE ANY PROMISE TO THE STUDENT, EXPRESS OR IMPLIED, REGARDING ANY OPPORTUNITIES FOR THE STUDENT FOLLOWING COMPLETION OF THE PROGRAM.  THE STUDENT AGREES TO RELEASE, INDEMNIFY, DEFEND AND HOLD HARMLESS LINUXJOBBER AND CENGAGE LEARNING, INC., THEIR SHAREHOLDERS, OFFICERS, DIRECTORS, EMPLOYEES, AGENTS AND ASSIGNS FROM ANY SUCH CLAIM. <br><br>
- 
-13. GOVERNING LAW AND JURISDICTION FOR DISPUTES: This Agreement shall be construed and enforced in accordance with all United States Laws, without regard to its conflict of law provisions which would require the application of the laws of another jurisdiction. Any suit, action or proceeding arising out of or relating to this Agreement may be commenced and maintained only in a Maryland state court of competent subject matter jurisdiction in Howard County, MD, and each Party waives objection to such jurisdiction and venue.  The Parties expressly, knowingly and voluntarily waive any right to a trial by jury in any proceeding arising out of or relating to, and/or to enforce this Agreement. <br><br>
-
- 
-
- 
-            </span>
-        </div>
-    </div>
-    <button type="button" class="btn btn-lg btn-primary buttoons pull-right">I Agree</button>
-    </div>
-    <br><br>
-
-<div class="main-container workpay">
-    <div class="container"> 
-        
+        {% endfor %}
+    {% endif %}
+    <div class="paydiv">
         <div class="row">
-        
-            
-        <div class="col-md-1"></div>
-            <div class="col-md-6 page-content">
-                <div class="inner-box category-content" style="box-shadow: 0px 4px 30px rgba(255, 255, 255); height:200px;">
-                	
-                    <h2 class="title-4"><i class="icon-user-add"></i>
-                    
-                        Pay For {{ PAY_FOR }}
-                                            
-                    </h2>
-                    <hr class='hr-color'/>
-                    <div class="row">
-                        <div class="col-sm-12">
-                        
-                       	
-                        <form action="{% url 'home:pay' %}" method="POST" id='stripejsfilemain'>
-                            <div class="form-group required">
-                                <div  class="col-md-4"></div>
-                                <div class="col-md-8">
-                                {% csrf_token %}
-                                	<script id='stripejsfile' src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-	                                    data-key="{{ stripe_key }}"
-	                                    data-amount="{{ amount }}"
-	                                    data-email="{{ user.email }}"
-	                                    data-name="Linuxjobber"
-	                                    data-description="{{ PAY_FOR }}"
-	                                    data-image="{% static 'home/images/logo.png' %}"
-	                                    data-locale="auto"
-	                                    data-allow-remember-me="false"
-	                                    data-currency="usd">
-                                    </script>
-                             
-                                </div>
-                            </div>	
-                                                    
-                            <p style="font-size:14px !important; color: #000;">
-                                <small>{{ DISCLMR }}</small></p>
-                        </form>
-                        
-                        </div>
-                    </div>
-                </div>
-            </div>
-           
+            <div class="col-md-6">
+                  <p><span class="paydotr"></span> Access all courses, videos, labs and tests with a <span class="pay-blue">14-day free trial.</span></p>
 
-            <div class="col-md-4 reg-sidebar">
-                <div class="reg-sidebar-inner text-center">
-                    <div class="promo-text-box"><i class=" icon-picture fa fa-4x icon-color-1"></i>
-                     
-                            <p style="color: #000;">Pay For {{ PAY_FOR }}</p>
-                            </div><br>						
-                            <h3>{{ mode }}<h3>
-                            <h1 class='title-4'>${{ price }}</h1>                  
+                  <p><span class="paydotr"></span> Please note that you will be charged $29 upfront. However, you may cancel at any time within 14 days for a full refund. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you $29/Monthly</p>
+                  <br><br>
+
+                  <form action="{% url 'home:pay' %}" method="POST" id='stripejsfilemain'>
+                        
+                            {% csrf_token %}
+                                <script id='stripejsfile' src="https://checkout.stripe.com/checkout.js" class="stripe-button stripebtn"
+                                    data-key="{{ stripe_key }}"
+                                    data-amount="{{ amount }}"
+                                    data-email="{{ user.email }}"
+                                    data-name="Linuxjobber"
+                                    data-description="{{ PAY_FOR }}"
+                                    data-image="{% static 'home/images/logo.png' %}"
+                                    data-locale="auto"
+                                    data-allow-remember-me="false"
+                                    data-currency="usd">
+                                </script>
+                         
+                                                      
+                    </form>
+                        
+            </div>
+            <div class="col-md-6">
+                <div class="payford">
+                    <span class="blue">YOU'RE PAYING FOR</span><br><br>
+                    <span>LinuxJobber Work Experience Program</span><br><br>
+                    <span>One Time Payment</span><br><br>
+                    <span class="payamountd">$399</span>
                 </div>
             </div>
-            <div class="col-md-1"></div>
-        </div>
-        <!-- /.row -->
+          </div>
     </div>
-    <!-- /.container -->
 </div>
-
-<script type="text/javascript">
-$('.workpay').hide();
-    
-
-$('.buttoons').click(function() {
-    $('.workpay').show();
-    $('.workterms').hide();
-    $('.buttoons').hide();
-});
+        
 
 
-
-
-</script>
 
 
 {% endblock %}
