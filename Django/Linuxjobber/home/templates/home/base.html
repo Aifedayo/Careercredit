@@ -25,7 +25,7 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700"
 	rel="stylesheet">
-
+<link rel="shortcut icon" href="{% static 'favicon.ico' %}">
 <!-- Bootstrap -->
 <link href="{% static 'home/css/newdesigner/css/bootstrap.min.css' %}"
 	rel="stylesheet">
@@ -244,9 +244,17 @@ bottom: 200px;
 											</div>
 										</div>
 									</div></li>
-
+								{%if not user.is_authenticated%}
 								<li class=" sub-menu "><a class=""
 									href="{% url 'home:monthly_subscription' %}">Try Free</a></li>
+								{%else%}
+									{%if user.role >= 1 and user.role <= 3%}
+
+									{%else%}
+										<li class=" sub-menu "><a class=""
+											href="{% url 'home:monthly_subscription' %}">Try Free</a></li>
+									{%endif%}
+								{%endif%}
 							</ul>
 						</nav>
 					</div>

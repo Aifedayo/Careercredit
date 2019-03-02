@@ -207,6 +207,14 @@ class Resume(models.Model):
 	def __str__(self):
 		return self.user.username
 
+class TryFreeRecord(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete = models.CASCADE)
+    paid_date = models.DateTimeField(default=timezone.now, null=False)
+    webhook_response = models.DateTimeField(default=timezone.now, null=True)
+
+    def __str__(self):
+        return self.user.username
+
 
 class UserOrder(models.Model):
     user = models.ForeignKey(CustomUser, on_delete = models.CASCADE)

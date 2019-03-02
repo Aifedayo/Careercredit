@@ -67,6 +67,9 @@
 							<p style='color: red;'>Firstname or Lastname cannot contain
 								numbers or special characters</p>
 							{% endif %}
+							{%if exists%}
+							<p style='color: blue;'>You have signed up with that email already, please login</p>
+							{%endif%}
 							<div class="form-group">
 								<button type="submit" class="btn btn-loginform text-white title">SUBMIT</button>
 							</div>

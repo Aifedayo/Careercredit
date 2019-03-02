@@ -1,0 +1,34 @@
+{% extends 'home/base.html' %}
+{% block content %}
+
+<div class="jobbaner2">
+	<div class="text-center jobbantext2">
+		<h1>APPLICATIONS</h1>
+		
+	</div>
+</div>
+<br>
+<div class="container">
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8 modal-content">
+		<br>
+		<h2>Are You Willing?</h2>
+		<hr>
+		<p class="req-p space1">Please Note</p>
+		<ul>
+			<li>- By accepting challenge, the next tasks you are to carry out will be sent to your email.</li>
+		</ul>
+		<br>
+		<div class="sldbtnd">
+		<a href="{% url 'home:challenge' 'yes' %}" class="btn btn-primary get">Yes, I am ready</a>
+		</div>
+		<br><br>
+		
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+</div>
+<br><br>
+
+{% endblock %}
