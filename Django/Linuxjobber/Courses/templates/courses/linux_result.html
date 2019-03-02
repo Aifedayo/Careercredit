@@ -145,8 +145,9 @@ jQuery(function(){
             		$('#'+'{{results.lab.task_number}}').replaceWith(function() { return"<span style='color:"+color+";'>"+value[{{forloop.counter0}}]+"</span>"});
             	{%endfor%}
 
-            	if(value[0] == "Grading" && score == 0){
+            	if(score == 0){
             		$(".scoper").replaceWith(function() { return"<span class='scoper'>0</span>"});
+            		$('.scoresult').replaceWith(function() { return"<p>Failed</p>"});y
             	}
             	else{
             		percent = (score / total) * 100;

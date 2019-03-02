@@ -14,7 +14,7 @@ from django.db.models import Q
 
 #################################################
 #    IMPORTS FROM WITHIN Linuxjobber APPLICATION  #
-from .models import GradesReport, Course, CourseTopic, CourseDescription, CoursePermission, Note, NoteComment, TopicStatus, LabTask
+from .models import GradesReport, Course, CourseTopic, CourseDescription, CoursePermission, Note, NoteComment, TopicStatus, LabTask, UserInterest, UserCourseStat
 from home.models import Location, AwsCredential
 from users.models import CustomUser
 from .forms import *
@@ -53,6 +53,8 @@ class CourseTopicsView(generic.ListView):
         add_location(ip,self.request.user)
         stat = checkstat(self.request.user,Course.objects.get(course_title = self.kwargs.get('course_name').replace("_", " ")))
 
+        Coursestat(self.request.user,Course.objects.get(course_title = self.kwargs.get('course_name').replace("_", " ")))
+
         context = super().get_context_data(**kwargs)
         context['course'] = Course.objects.get(course_title = self.kwargs.get('course_name').replace("_", " "))
         context['aws'] = check_aws(self.request.user)
@@ -84,6 +86,14 @@ def add_location(ip,user):
     except requests.exceptions.RequestException as e:
         pass
 
+def Coursestat(user,course):
+    try:
+        stat = UserCourseStat.objects.get(user=user,course=course)
+        stat.visit = stat.visit + 1
+        stat.save(update_fields=['visit'])
+    except UserCourseStat.DoesNotExist:
+        stat = UserCourseStat.objects.create(user=user,course=course,visit=1)
+        stat.save()
 def check_aws(user):
     try:
         aws = AwsCredential.objects.get(user=user)
@@ -570,8 +580,15 @@ def handle_rslts(obj,userr,topic):
 
 def description(request, course_name):
     course = course_name.replace("_"," ")
-    #course = Course.objects.get(course=course)
-    description = CourseDescription.objects.get(course__course_title=course)
+    coursed = Course.objects.get(course_title=course)
+    description = CourseDescription.objects.get(course__course_title=coursed)
+
+    #record type
+    try:
+        interest = UserInterest.objects.get(user=request.user, course=coursed)
+    except UserInterest.DoesNotExist:
+        newobj = UserInterest.objects.create(user=request.user, course=coursed)
+        newobj.save()
     return render(request, 'courses/coursedescription.html', {'description':description})
 
 def userinterest(request):
