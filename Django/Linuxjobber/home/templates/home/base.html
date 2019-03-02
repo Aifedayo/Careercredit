@@ -244,9 +244,17 @@ bottom: 200px;
 											</div>
 										</div>
 									</div></li>
-
+								{%if not user.is_authenticated%}
 								<li class=" sub-menu "><a class=""
 									href="{% url 'home:monthly_subscription' %}">Try Free</a></li>
+								{%else%}
+									{%if user.role >= 1 and user.role <= 3%}
+
+									{%else%}
+										<li class=" sub-menu "><a class=""
+											href="{% url 'home:monthly_subscription' %}">Try Free</a></li>
+									{%endif%}
+								{%endif%}
 							</ul>
 						</nav>
 					</div>

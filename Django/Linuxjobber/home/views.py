@@ -21,7 +21,7 @@ from rest_framework.authtoken.models import Token
 from datetime import timedelta
 
 from .models import *
-from Courses.models import Course, CoursePermission
+from Courses.models import Course, CoursePermission, UserInterest
 from ToolsApp.models import Tool
 from users.models import CustomUser
 from .forms import JobPlacementForm, JobApplicationForm, AWSCredUpload, InternshipForm, ResumeForm, PartimeApplicationForm, WeForm
@@ -58,17 +58,22 @@ def signup(request):
         password = request.POST['password']
         username = email.split('@')[0]
 
-        if (firstname):
-            user = CustomUser(username=username, email=email)
-            user.set_password(password)
-            user.first_name = firstname
-            user.last_name = lastname
-            user.save()
-            send_mail('Account has been Created', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + ' and your email is ' +email + '\n Follow this url to login with your username and password '+settings.ENV_URL+'login \n\n Thanks & Regards \n Admin.', settings.EMAIL_HOST_USER, [email])
-            return render(request, "home/registration/success.html", {'user': user})
-        else:
-            error = True
-            return render(request, 'home/registration/signup.html', {'error':error})
+        try:
+            userd = CustomUser.objects.get(email=email)
+            exists = True
+            return render(request, 'home/registration/signup.html', {'exists':exists})
+        except CustomUser.DoesNotExist:
+            if (firstname):
+                user = CustomUser(username=username, email=email)
+                user.set_password(password)
+                user.first_name = firstname
+                user.last_name = lastname
+                user.save()
+                send_mail('Account has been Created', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + ' and your email is ' +email + '\n Follow this url to login with your username and password '+settings.ENV_URL+'login \n\n Thanks & Regards \n Admin.', settings.EMAIL_HOST_USER, [email])
+                return render(request, "home/registration/success.html", {'user': user})
+            else:
+                error = True
+                return render(request, 'home/registration/signup.html', {'error':error})
     else:
         return render(request, 'home/registration/signup.html')  
 
@@ -229,6 +234,7 @@ def partime(request):
 
             \n\nDo you understand our mission and is this a challenge that you are willing to take on? Are you still interested in this role?
 
+            \n\n If so visit this link to and click the yes button: 
             Best Regards,.\n\n Thanks & Regards \n Linuxjobber"""
 
             send_mail('Linuxjobber Newsletter', message, settings.EMAIL_HOST_USER, [request.POST['email']])
@@ -241,6 +247,30 @@ def partime(request):
         form = PartimeApplicationForm()
     form = PartimeApplicationForm()
     return render(request, 'home/partime.html', {'form': form})
+
+def jobchallenge(request, respon=None):
+    if respon:
+        message = """ 
+                Thanks for responding.\n
+                Here is the preparation you need for the interview:\n\n
+
+                1. Watch and practice: http://linuxjobber.com/tutorials/lab_video/1/1\n
+                2. Watch and practice: https://www.youtube.com/watch?v=0PtBREh74r4\n
+                3. Make a video of your own (3 mins or more) performing and explaining
+                the actual tasks you are doing based on the two videos above.\n\n
+
+                Here is a video recording application that you can use for free:
+                https://screencast-o-matic.com/ \n\n
+
+                Done!\n
+
+                Upload video to google drive and send link to joseph.showunmi@linuxjobber.com .\n
+
+                Best Regards,.\n\n Thanks & Regards \n Linuxjobber
+                        """
+        send_mail('Linuxjobber Job Challenge', message, settings.EMAIL_HOST_USER, [request.user.email])
+        return redirect("home:index")
+    return render(request, 'home/jobchallenge.html')
 
 def jobfeed(request):
     return render(request, 'home/jobfeed.html')
@@ -302,14 +332,20 @@ def log_in(request):
             if user.role == 4:
                 check_permission_expiry(user)
             if next == "":
+
                 #check if user paid for work experience and has not filled the form
                 try:
                     weps = wepeoples.objects.get(user=request.user)
                     if not weps.types:
                         return redirect("home:workexpform")
                 except wepeoples.DoesNotExist:
+                    pass
+
+                stats = UserInterest.objects.filter(user=request.user)
+                if stats:
+                    return redirect("home:index")
+                else:
                     return redirect("Courses:userinterest")
-                return redirect("Courses:userinterest")
             else:
                 return HttpResponseRedirect(next)
         else:
@@ -352,7 +388,7 @@ def linux_full_training(request):
             standard_logger.error('error')
             return render (request, 'home/linux_full_training.html', {'news_letter_message': 'Something went wrong please try again!', 'courses' : get_courses(), 'tools' : get_tools()})
     else:
-        return render(request, 'home/linux_full_training.html', {'news_letter_message': news_letter_message ,'courses' : get_courses(), 'tools' : get_tools()})
+        return render(request, 'home/linux_full_training.html', {'news_letter_message': news_letter_message})
 
 
 def aws_full_training(request):
@@ -432,6 +468,42 @@ def oracledb_certification(request):
     else:
         return render(request, 'home/oracledb_certification.html', {'news_letter_message': news_letter_message ,'courses' : get_courses(), 'tools' : get_tools()})
 
+def devops_class(request):
+    return render(request, 'home/devops.html')
+
+@login_required
+def devops_pay(request):
+    
+    amount= 1695 
+    stripeset = StripePayment.objects.all()
+    # Stripe uses cent notation for amount 10 USD = 10 * 100
+    stripe.api_key = stripeset[0].secretkey
+    context = { "stripe_key": stripeset[0].publickey,
+                   'amount': amount,
+                }
+    if request.method == "POST":
+
+       # stripe.api_key = "sk_test_FInuRlOzwpM1b3RIw5fwirtv"
+        stripe.api_key = stripeset[0].secretkey
+        token = request.POST.get("stripeToken")
+        try:
+            charge = stripe.Charge.create(
+                amount= amount * 100,
+                currency='usd',
+                description='DevOps Class Payment',
+                source=token,
+            )
+            UserPayment.objects.create(user=request.user, amount=amount,
+                                        trans_id = charge.id, pay_for = charge.description,
+                                        )
+            messages.success(request, 'You have paid for DevOps Class successfully.')
+            
+            return redirect("home:devops_class")
+        except stripe.error.CardError as ce:
+            return False, ce
+
+    
+    return render(request, 'home/devops_pay.html', context)
 
 def workexperience(request):
     if request.user.is_authenticated:
@@ -592,7 +664,8 @@ def apply(request,level):
                         'level':level,
                         }
                     return render(request,'home/failed_application.html',context)
-                return render(request,'home/accepted.html')
+                send_mail('Linuxjobber Jobplacement Program', 'Hello, you have succesfully signed up for Linuxjobber Jobplacement program,\n\nIf you havent signed the agreement, visit this link to do so: https://leif.org/commit?product_id=5b304639e59b74063647c484#/.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.user.email])
+                return render(request,'home/jobaccepted.html')
             except Exception as error:
                 print(error)
                 context = {
@@ -634,7 +707,7 @@ def pay(request):
             _, created = wepeoples.objects.update_or_create(user=request.user,types=None,current_position=None,
                                                     person_type=None,state=None,income=None,relocation=None,
                                                     last_verification=None,Paystub=None,graduation_date=None)
-            send_mail('Linuxjobber Work-Experience Program', 'Hello, you have succesfully paid for Linuxjobber work experience program.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.user.email])
+            send_mail('Linuxjobber Work-Experience Program', 'Hello, you have succesfully paid for Linuxjobber work experience program,\n\nIf you havent signed the agreement, visit this link to do so: https://leif.org/commit?product_id=5b30461fe59b74063647c483#/.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.user.email])
             return render(request,'home/accepted.html')
         except Exception as error:
             messages.error(request, 'An error occurred while trying to pay please try again')
@@ -706,6 +779,13 @@ def check_subscription_status(request):
                 user.save()
                 return HttpResponse(status=200)
 
+        #Record time of response from webhook
+        try:
+            tryf = TryFreeRecord.objects.get(user=user)
+            tryf.webhook_response = datetime.now()
+            tryf.save(update_fields=['webhook_response'])
+        except TryFreeRecord.DoesNotExist:
+            pass
 
     return render(request, 'home/check_subscription.html')
 
@@ -756,6 +836,8 @@ def monthly_subscription(request):
             )
 
             order.save()
+
+            TryFreeRecord.objects.create(user=request.user,webhook_response=None)
 
             messages.success(request, 'Thanks for your sucbscription! Please allow 10-20 seconds for your account to be updated as we have to wait for confirmation from the credit card processor.')
             if nexturl:

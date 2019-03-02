@@ -7,6 +7,7 @@ from .models import *
 
 class CourseTopicAdmin(admin.ModelAdmin):
 	search_fields = ('course__course_title','topic',)
+	list_display = ('topic','course')
 
 class CoursePermissionAdmin(admin.ModelAdmin):
 	search_fields = ('user__username','user__email',)
@@ -24,12 +25,29 @@ class NoteAdminForm(forms.ModelForm):
 class NoteAdmin(admin.ModelAdmin):
 	form = NoteAdminForm
 
+class UserInterestAdmin(admin.ModelAdmin):
+	list_display = ('user', 'course')
+
+class UserCourseStatAdmin(admin.ModelAdmin):
+	list_display = ('user', 'course', 'visit')
+
+class GradesReportAdmin(admin.ModelAdmin):
+	list_display = ('user','course_topic','grade')
+
+class LabTaskAdmin(admin.ModelAdmin):
+	list_display = ('task', 'lab')
+
+class TopicStatusAdmin(admin.ModelAdmin):
+	list_display = ('user','topic','video','lab')
+
 admin.site.register(Course)
 admin.site.register(CourseTopic, CourseTopicAdmin)
 admin.site.register(CourseDescription)
 admin.site.register(CoursePermission, CoursePermissionAdmin)
 admin.site.register(LabTask, LabTaskAdmin)
-admin.site.register(GradesReport)
+admin.site.register(GradesReport, GradesReportAdmin)
 admin.site.register(Note, NoteAdmin)
 admin.site.register(NoteComment)
-admin.site.register(TopicStatus)
+admin.site.register(TopicStatus,TopicStatusAdmin)
+admin.site.register(UserInterest,UserInterestAdmin)
+admin.site.register(UserCourseStat,UserCourseStatAdmin)
