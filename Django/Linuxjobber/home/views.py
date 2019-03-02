@@ -878,6 +878,7 @@ def group(request,pk):
             user = CustomUser.objects.get(email=email)
             the_user = authenticate(email=email,password=password)
 
+            
             if the_user:
                 login(request,the_user)
             else:
