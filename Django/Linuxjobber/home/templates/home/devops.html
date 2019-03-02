@@ -1,0 +1,87 @@
+{% extends 'home/base.html' %}
+{% load staticfiles%}
+{% block content %}
+
+                <div class="selfs" role="listbox">
+                    <div class="item active">
+
+                        <div class=" text-center selfie" >
+                   <h1>DevOps <br> Class</h1>
+
+
+
+
+
+                        </div>
+                      </div>
+                    </div>
+
+
+
+                <br>
+                <section class="selfstudy">
+                  <div class="container">
+                    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == "success" %}
+            <div class="alert alert-success" role="alert">
+            <p style="color:#155724">{{message}}</p>
+            </div>
+            {%else%}
+            <div class="alert alert-danger" role="alert">
+            <p style="color:#721c24">{{message}}</p>
+            </div>
+            {%endif%}
+        {% endfor %}
+    {% endif %}
+                    <div class="row border-back">
+                      <div class="col-xs-12 col-sm-12 col-lg-6">
+                        <i class="fa fa-lightbulb-o rnd-back"></i>
+                        <h3 class="hblue">One-on-One with Live Instructor
+ </h3>
+                        <p class="mgg-20">Step-by-step walk-through of the entire course with a live professional. Get the dedicated attention, schedule and time of an active professional going through the entire course materials with you..
+                    </p>
+                      </div>
+                      <div class="col-xs-12 col-sm-12 col-lg-6 text-center checkout-col">
+                        <h3 class="hblue mgb30">$1695 One Time</h3>
+
+                        <a href="{% url 'home:devops_pay' %}"><button class="btn btn-checkout" id = "packages-self">Check Out</button></a>
+                      </div>
+                      </div>
+
+                    <br>
+
+                    <br>
+                    
+                  </div>
+                </section>
+
+
+
+        <section class="trial-container-study">
+              <div class="container">
+                <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-lg-6">
+                  <img class="thanks-img" src="https://linuxjobber.com/img/ab.png" style="">
+                  
+                    <!-- <img class = "thanks-img" src="https://linuxjobber.com/newhomepage/img/drey.png"> -->
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-lg-6">
+                    <div class="text-center thanks-text">
+                    
+                    <h2 id="thank">Thankfully</h2>
+                    
+                    <p style="font-size:16px; color: black"> I passed the exam in one shot. <br>
+                    I am very excited to have my DevOps Certificate in my hands. <br>
+                    Linuxjobber course materials helped me prepare for, and pass, the exam. <br>
+                    I am very happy.</p>
+                    <p id="name">- Azeem A.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+
+            
+                {% endblock %}
