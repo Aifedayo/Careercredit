@@ -169,7 +169,7 @@ def resumepay(request):
             return False, ce
     else:
         pass
-    return render(request, 'home/resumepay.html', {'courses' : get_courses(), 'tools' : get_tools()})
+    return render(request, 'home/resumepay.html', {'stripe_key':stripeset[0].publickey})
 
 @login_required(login_url='/login')
 def resumeupload(request):
@@ -483,7 +483,6 @@ def devops_pay(request):
                 }
     if request.method == "POST":
 
-       # stripe.api_key = "sk_test_FInuRlOzwpM1b3RIw5fwirtv"
         stripe.api_key = stripeset[0].secretkey
         token = request.POST.get("stripeToken")
         try:
