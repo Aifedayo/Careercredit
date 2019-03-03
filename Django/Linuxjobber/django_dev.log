@@ -2826,3 +2826,15 @@ django.db.utils.ProgrammingError: (1146, "Table 'linuxjobber.home_tryfreerecord'
 [2019-03-02 09:26:15] INFO [django.channels.server.log_action:141] [mHTTP GET /admin/jsi18n/ 200 [0.09, 127.0.0.1:46182][0m
 [2019-03-02 09:26:15] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/admin/img/icon-calendar.svg 304 [0.03, 127.0.0.1:46182][0m
 [2019-03-02 09:26:15] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/admin/img/icon-clock.svg 304 [0.03, 127.0.0.1:46228][0m
+[2019-03-02 23:24:57] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [1.07, 127.0.0.1:33056][0m
+[2019-03-02 23:24:57] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/css/newstyle2.css 304 [0.02, 127.0.0.1:33056][0m
+[2019-03-02 23:24:57] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/css/main.css 304 [0.01, 127.0.0.1:33058][0m
+[2019-03-02 23:24:58] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs/homebanner.png 200 [0.16, 127.0.0.1:33058][0m
+[2019-03-02 23:25:00] INFO [django.channels.server.log_action:141] [mHTTP GET /login/ 200 [0.03, 127.0.0.1:33058][0m
+[2019-03-02 23:25:00] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/imgback.jpg 200 [0.04, 127.0.0.1:33058][0m
+[2019-03-02 23:25:00] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-03-02 23:25:00] WARNING [django.channels.server.log_action:149] [33mHTTP GET /favicon.ico 404 [0.21, 127.0.0.1:33058][0m
+[2019-03-02 23:25:07] INFO [django.channels.server.log_action:147] [32mHTTP POST /login/ 302 [1.01, 127.0.0.1:33058][0m
+[2019-03-02 23:25:07] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [0.13, 127.0.0.1:33058][0m
+[2019-03-02 23:25:12] INFO [django.channels.server.log_action:141] [mHTTP GET /devops/class/ 200 [0.15, 127.0.0.1:33058][0m
+[2019-03-02 23:25:15] INFO [django.channels.server.log_action:141] [mHTTP GET /devops/class/pay 200 [0.16, 127.0.0.1:33058][0m
