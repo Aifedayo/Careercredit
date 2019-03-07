@@ -783,6 +783,7 @@ def check_subscription_status(request):
         except TryFreeRecord.DoesNotExist:
             pass
 
+        return HttpResponse(status=200)
     return HttpResponse(status=200)
 
 @login_required
