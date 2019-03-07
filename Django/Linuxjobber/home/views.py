@@ -234,7 +234,7 @@ def partime(request):
 
             \n\nDo you understand our mission and is this a challenge that you are willing to take on? Are you still interested in this role?
 
-            \n\n If so visit this link to and click the yes button: 
+            \n\n If so visit this link to and click the yes button: """+ settings.ENV_URL+"""jobs/challenge/ \n
             Best Regards,.\n\n Thanks & Regards \n Linuxjobber"""
 
             send_mail('Linuxjobber Newsletter', message, settings.EMAIL_HOST_USER, [request.POST['email']])
@@ -750,8 +750,7 @@ def check_subscription_status(request):
                 user = CustomUser.objects.get(email=customersubscription.user.email)
                 user.role = 6
                 user.save()
-                return HttpResponse(status=200)
-
+                
         elif types == 'invoice.payment_failed' and customer_id:
             if customersubscription:
                 customersubscription.status = "failed"
@@ -763,7 +762,6 @@ def check_subscription_status(request):
                 user = CustomUser.objects.get(email=customersubscription.user.email)
                 user.role = 6
                 user.save()
-                return HttpResponse(status=200)
 
         elif types == 'invoice.payment_succeeded' and customer_id:
             if customersubscription:
@@ -776,7 +774,6 @@ def check_subscription_status(request):
                 user = CustomUser.objects.get(email=customersubscription.user.email)
                 user.role = 3
                 user.save()
-                return HttpResponse(status=200)
 
         #Record time of response from webhook
         try:
@@ -786,7 +783,7 @@ def check_subscription_status(request):
         except TryFreeRecord.DoesNotExist:
             pass
 
-    return render(request, 'home/check_subscription.html')
+    return HttpResponse(status=200)
 
 @login_required
 def monthly_subscription(request):
