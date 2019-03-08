@@ -249,6 +249,9 @@ class RHCSAOrder(models.Model):
 class NewsLetterSubscribers(models.Model):
     email = models.EmailField(max_length = 200)
 
+class Unsubscriber(models.Model):
+    email = models.EmailField(max_length = 200)
+
 class Location(models.Model):
     user = models.ForeignKey(CustomUser, on_delete = models.CASCADE)
     ipaddress = models.CharField(max_length = 50)

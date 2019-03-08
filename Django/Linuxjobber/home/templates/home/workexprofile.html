@@ -98,8 +98,8 @@ Work Experience Profile | Linuxjobber
                 {%endif%}
               </tbody>
               </table>
-              <div class="col-md-3"><div class="workcard text-muted non">Start Date<br><br><span class="jobfinputp wsp">{{weps.start_date|date}}</span> </div></div>
-                <div class="col-md-3"><div class="workcard text-muted non">Graduation Date<br><br><span class="jobfinputp wsp">{{weps.graduation_date|date}}</span></div></div>
+              <div class="col-md-3"><div class="workcard text-muted non">Start Date<br><br>{%if weps.start_date%}<span class="jobfinputp wsp">{{weps.start_date|date}}</span>{%else%}<span class="jobfinputp wsp">Not set</span>{%endif%} </div></div>
+                <div class="col-md-3"><div class="workcard text-muted non">Graduation Date<br><br>{%if weps.graduation_date%}<span class="jobfinputp wsp">{{weps.graduation_date|date}}</span>{%else%}<span class="jobfinputp wsp">Not set</span>{%endif%} </div></div>
             </div>
           </div>
           <div class="col-md-4 workleft workpar2">
