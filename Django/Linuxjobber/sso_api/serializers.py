@@ -10,6 +10,8 @@ from Courses.models import LabTask
 
 from Courses.models import Note
 
+from classroom.models import AttendanceLog
+
 
 class GroupClassSerializer(serializers.ModelSerializer):
     course=serializers.StringRelatedField()
@@ -21,7 +23,7 @@ class GroupClassSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
-        fields = ['id','username','email','first_name','last_name']
+        fields = ['id','username','email','first_name','last_name','profile_img','role']
 
 class GroupUserSerializer(serializers.ModelSerializer):
     user=UserSerializer(many=True)
@@ -59,6 +61,16 @@ class TopicLabSerializer(serializers.ModelSerializer):
     class Meta:
         model = CourseTopic
         fields = "__all__"
-        ord
 
+class AttendanceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=AttendanceLog
+        fields=['timestamp','video_url']
+
+class UserAttendaceSerializer(serializers.ModelSerializer):
+
+    group_attendance = AttendanceSerializer(many=True)
+    class Meta:
+        model = CustomUser
+        fields=['group_attendance','user']
 

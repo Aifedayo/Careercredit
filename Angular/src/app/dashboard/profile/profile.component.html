@@ -1,0 +1,75 @@
+<main >
+    <div class="section container">
+  <div class="row">
+    <div class="col s12 m4">
+      <span class="settings-title">Personal Information</span>
+        <img [(src)]="user.profile_img" alt="" class=" circle responsive-img">
+        <div class="form-group" style="display:flex">
+      <div class="image-upload">
+    <label for="file-input">
+        <i class="btn btn-primary">Upload</i>
+    </label>
+    <input id="file-input" (change)="fileChange($event)" type="file"/>
+      </div></div>
+
+    </div>
+               <div class="col s12 m8">
+
+      <div class="setting-group">
+        <ul class="collapsible setting" materialize="collapsible">
+          <li>
+            <div class="collapsible-header">
+              <span>Username</span>
+              <i class="material-icons caret right">keyboard_arrow_right</i>
+            </div>
+            <div class="collapsible-body">
+              <div class="input-field">
+                <input  (change)="updateInfo($event)" [(ngModel)]="user.username" type="text" class="validate" disabled>
+                <label for="username">Username</label>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header">
+              <span>First Name</span>
+              <i class="material-icons caret right">keyboard_arrow_right</i>
+            </div>
+            <div class="collapsible-body">
+              <div class="input-field">
+                <input (change)="updateInfo($event)" [(ngModel)]="user.first_name" id="first_name" type="text" class="validate">
+                <label for="first_name">First Name</label>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header">
+              <span>Last Name</span>
+              <i class="material-icons caret right">keyboard_arrow_right</i>
+            </div>
+            <div class="collapsible-body">
+              <div class="input-field">
+                <input (change)="updateInfo($event)"  [(ngModel)]="user.last_name" id="last_name" type="text" class="validate">
+                <label for="last_name">Last Name</label>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header">
+              <span>Attendance Logs</span>
+              <i class="material-icons caret right">keyboard_arrow_right</i>
+            </div>
+            <div class="collapsible-body">
+              <p *ngFor="let item of attendance$|async"> {{ item.timestamp }} </p>
+              <p> Tuesday 7th January 2018, @ 4:00pm </p>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+    </main>

@@ -44,9 +44,9 @@ export class CourseComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params=> {
-
     this.classes=this.apiService.getAvailableClasses();
     const selectedClass = + params["group_id"];
+    sessionStorage.setItem('active_group', selectedClass.toString() );
     this.selectedGroup=selectedClass;
     if (selectedClass){
       const selectedTopic = + params["topic_id"];

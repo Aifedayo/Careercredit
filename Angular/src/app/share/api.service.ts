@@ -9,6 +9,7 @@ import {Topic} from "../course/topic.model";
 import {ClassModel} from "./class-model";
 import {UserModel} from "./user-model";
 import {GroupMember} from "./group-member";
+import {AttendanceModel} from "./attendance-model";
 
 @Injectable({
   providedIn: 'root'
@@ -69,7 +70,7 @@ export class ApiService {
         topic.video=entry.video;
         topic.tasks=entry.tasks;
         this.CurrentTopics.push(topic);
-        })
+        });
             this.allTopics.next(this.CurrentTopics);
         this.CurrentTopics=[]
       });
@@ -98,5 +99,54 @@ export class ApiService {
     // return this.httpClient.put( 'http://localhost:8000/sso_api/upload',data,{headers:this.fileheaders})
     return this.httpClient.put( environment.API_URL+ 'sso_api/upload',data,{headers:this.fileheaders})
   }
+
+  getUserAttendance(group_id,user_id=null){
+    if (user_id===null){
+      return this.httpClient.get(environment.API_URL + `sso_api/group/`+group_id+`/userlog`,{headers:this.headers})
+      // return this.httpClient.get(environment.API_URL + `sso_api/group/`+group_id+`/userlog`,{headers:this.headers})
+
+    }
+    return this.httpClient.get(environment.API_URL + `sso_api/group/`+group_id+`/userlog/`+user_id,{headers:this.headers})
+    // return this.httpClient.get<AttendanceModel[]>(environment.API_URL + `sso_api/group/`+group_id+`/userlog/`+user_id,{headers:this.headers})
+
+
+  }
+    getUserInfo(user_id=null){
+    if (user_id===null){
+      return this.httpClient.get<UserModel>(environment.API_URL + `sso_api/user/`,{headers:this.headers})
+    }
+    return this.httpClient.get<UserModel>(environment.API_URL + `sso_api/user/`+user_id,{headers:this.headers})
+
+
+  }
+
+  getGroupInfo(group_id){
+    return this.httpClient.get<ClassModel>(environment.API_URL + `sso_api/group/`+group_id+`/detail`,{headers:this.headers})
+  }
+
+   uploadImage(data){
+    let head=new HttpHeaders();
+    head=head.append('Authorization', 'Token e973d9bef2d8464bb84cdc06af35fd4a76a37b90'  );
+    // return this.httpClient.put( 'http://localhost:8000/sso_api/upload',data,{headers:this.fileheaders})
+    return this.httpClient.put( environment.API_URL+ 'sso_api/user/upload',data,{headers:this.fileheaders})
+  }
+
+  updateUserInfo(obj:UserModel){
+     let head=new HttpHeaders();
+    head=this.headers;
+    head=head.append('Content-Type','application/json');
+    const x={'first_name':obj.first_name,'last_name':obj.last_name};
+    return this.httpClient.post(environment.API_URL + 'sso_api/user/',JSON.stringify(x),{headers:head})
+  }
+    updateGroupInfo(obj:ClassModel){
+     let head=new HttpHeaders();
+    head=this.headers;
+    head=head.append('Content-Type','application/json');
+    const x={'video_required':obj.video_required};
+    return this.httpClient.post(environment.API_URL + 'sso_api/group/'+obj.id+`/detail`,JSON.stringify(x),{headers:head})
+  }
+
+
+
 
 }

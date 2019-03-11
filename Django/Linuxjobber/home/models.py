@@ -109,7 +109,7 @@ class Groupclass(models.Model):
     class_meet = models.CharField(max_length= 50)
     type_of_class = models.CharField(max_length= 100)
     date = models.DateTimeField(default=timezone.now, null=False)
-    # New Relationship for groupclass
+    video_required = models.BooleanField(default=False)
     users=models.ManyToManyField(CustomUser,blank=True,null=True)
     course=models.ForeignKey(Course,on_delete=models.CASCADE,null=True)
 
