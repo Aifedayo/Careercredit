@@ -5531,3 +5531,335 @@ RuntimeError: You called this URL via POST, but the URL doesn't end in a slash a
 [2019-03-11 06:10:24] INFO [django.server.log_message:124] "GET /sso_api/user/17 HTTP/1.1" 200 176
 [2019-03-11 06:10:24] INFO [django.server.log_message:124] "GET /media/chat_uploads/2.jpg HTTP/1.1" 304 0
 [2019-03-11 06:10:24] INFO [django.server.log_message:124] "GET /sso_api/group/1/userlog/ HTTP/1.1" 200 326
+[2019-03-11 06:27:35] INFO [django.server.log_message:124] "GET /sso_api/group/1/userlog HTTP/1.1" 301 0
+[2019-03-11 06:27:35] INFO [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 200 176
+[2019-03-11 06:27:35] INFO [django.server.log_message:124] "GET /sso_api/user/17 HTTP/1.1" 200 176
+[2019-03-11 06:27:36] INFO [django.server.log_message:124] "GET /sso_api/group/1/detail HTTP/1.1" 200 277
+[2019-03-11 06:27:36] INFO [django.server.log_message:124] "GET /media/chat_uploads/2.jpg HTTP/1.1" 304 0
+[2019-03-11 06:27:36] INFO [django.server.log_message:124] "GET /sso_api/group/1/userlog/ HTTP/1.1" 200 326
+[2019-03-11 06:28:23] INFO [django.server.log_message:124] "GET /sso_api/user/17 HTTP/1.1" 200 176
+[2019-03-11 06:28:23] INFO [django.server.log_message:124] "GET /sso_api/group/1/userlog HTTP/1.1" 301 0
+[2019-03-11 06:28:23] INFO [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 200 176
+[2019-03-11 06:28:24] INFO [django.server.log_message:124] "GET /media/chat_uploads/2.jpg HTTP/1.1" 304 0
+[2019-03-11 06:28:24] INFO [django.server.log_message:124] "GET /sso_api/group/1/detail HTTP/1.1" 200 277
+[2019-03-11 06:28:24] INFO [django.server.log_message:124] "GET /sso_api/group/1/userlog/ HTTP/1.1" 200 326
+[2019-03-11 06:29:05] INFO [django.server.log_message:124] "GET /sso_api/group/1/userlog HTTP/1.1" 301 0
+[2019-03-11 06:29:05] INFO [django.server.log_message:124] "GET /sso_api/user/17 HTTP/1.1" 200 176
+[2019-03-11 06:29:05] INFO [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 200 176
+[2019-03-11 06:29:05] INFO [django.server.log_message:124] "GET /media/chat_uploads/2.jpg HTTP/1.1" 304 0
+[2019-03-11 06:29:05] INFO [django.server.log_message:124] "GET /sso_api/group/1/detail HTTP/1.1" 200 277
+[2019-03-11 06:29:07] INFO [django.server.log_message:124] "GET /sso_api/group/1/userlog/ HTTP/1.1" 200 326
+[2019-03-11 06:29:31] INFO [django.server.log_message:124] "GET /sso_api/group/1/userlog HTTP/1.1" 301 0
+[2019-03-11 06:29:31] INFO [django.server.log_message:124] "GET /sso_api/user/17 HTTP/1.1" 200 176
+[2019-03-11 06:29:31] INFO [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 200 176
+[2019-03-11 06:29:31] INFO [django.server.log_message:124] "GET /sso_api/group/1/userlog/ HTTP/1.1" 200 326
+[2019-03-11 06:29:32] INFO [django.server.log_message:124] "GET /media/chat_uploads/2.jpg HTTP/1.1" 304 0
+[2019-03-11 06:29:32] INFO [django.server.log_message:124] "GET /sso_api/group/1/detail HTTP/1.1" 200 277
+[2019-03-11 06:30:56] INFO [django.server.log_message:124] "GET /sso_api/group/1/userlog HTTP/1.1" 301 0
+[2019-03-11 06:30:56] INFO [django.server.log_message:124] "GET /sso_api/user/17 HTTP/1.1" 200 176
+[2019-03-11 06:30:57] INFO [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 200 176
+[2019-03-11 06:30:57] INFO [django.server.log_message:124] "GET /media/chat_uploads/2.jpg HTTP/1.1" 304 0
+[2019-03-11 06:30:57] INFO [django.server.log_message:124] "GET /sso_api/group/1/detail HTTP/1.1" 200 277
+[2019-03-11 06:30:57] INFO [django.server.log_message:124] "GET /sso_api/group/1/userlog/ HTTP/1.1" 200 326
+[2019-03-11 06:31:44] INFO [django.server.log_message:124] "GET /sso_api/group/1/userlog HTTP/1.1" 301 0
+[2019-03-11 06:31:44] INFO [django.server.log_message:124] "GET /sso_api/user/17 HTTP/1.1" 200 176
+[2019-03-11 06:31:44] INFO [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 200 176
+[2019-03-11 06:31:45] INFO [django.server.log_message:124] "GET /media/chat_uploads/2.jpg HTTP/1.1" 304 0
+[2019-03-11 06:31:45] INFO [django.server.log_message:124] "GET /sso_api/group/1/detail HTTP/1.1" 200 277
+[2019-03-11 06:31:45] INFO [django.server.log_message:124] "GET /sso_api/group/1/userlog/ HTTP/1.1" 200 326
+[2019-03-11 06:32:47] INFO [django.server.log_message:124] "GET /sso_api/user/17 HTTP/1.1" 200 176
+[2019-03-11 06:32:47] INFO [django.server.log_message:124] "GET /sso_api/group/1/userlog HTTP/1.1" 301 0
+[2019-03-11 06:32:47] INFO [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 200 176
+[2019-03-11 06:32:48] INFO [django.server.log_message:124] "GET /media/chat_uploads/2.jpg HTTP/1.1" 304 0
+[2019-03-11 06:32:48] INFO [django.server.log_message:124] "GET /sso_api/group/1/detail HTTP/1.1" 200 277
+[2019-03-11 06:32:48] INFO [django.server.log_message:124] "GET /sso_api/group/1/userlog/ HTTP/1.1" 200 326
+[2019-03-11 06:35:40] INFO [django.server.log_message:124] "GET /sso_api/group/1/userlog HTTP/1.1" 301 0
+[2019-03-11 06:35:40] INFO [django.server.log_message:124] "GET /sso_api/user/17 HTTP/1.1" 200 176
+[2019-03-11 06:35:40] INFO [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 200 176
+[2019-03-11 06:35:40] INFO [django.server.log_message:124] "GET /media/chat_uploads/2.jpg HTTP/1.1" 304 0
+[2019-03-11 06:35:40] INFO [django.server.log_message:124] "GET /sso_api/group/1/detail HTTP/1.1" 200 277
+[2019-03-11 06:35:40] INFO [django.server.log_message:124] "GET /sso_api/group/1/userlog/ HTTP/1.1" 200 326
+[2019-03-11 06:37:51] INFO [django.server.log_message:124] "GET /sso_api/user/17 HTTP/1.1" 200 176
+[2019-03-11 06:37:51] INFO [django.server.log_message:124] "GET /sso_api/group/1/userlog HTTP/1.1" 301 0
+[2019-03-11 06:37:51] INFO [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 200 176
+[2019-03-11 06:37:53] INFO [django.server.log_message:124] "GET /media/chat_uploads/2.jpg HTTP/1.1" 304 0
+[2019-03-11 06:37:53] INFO [django.server.log_message:124] "GET /sso_api/group/1/detail HTTP/1.1" 200 277
+[2019-03-11 06:37:53] INFO [django.server.log_message:124] "GET /sso_api/group/1/userlog/ HTTP/1.1" 200 326
+[2019-03-11 06:39:37] INFO [django.server.log_message:124] "GET /sso_api/user/17 HTTP/1.1" 200 176
+[2019-03-11 06:39:37] INFO [django.server.log_message:124] "GET /sso_api/group/1/userlog HTTP/1.1" 301 0
+[2019-03-11 06:39:37] INFO [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 200 176
+[2019-03-11 06:39:37] INFO [django.server.log_message:124] "GET /media/chat_uploads/2.jpg HTTP/1.1" 304 0
+[2019-03-11 06:39:37] INFO [django.server.log_message:124] "GET /sso_api/group/1/detail HTTP/1.1" 200 277
+[2019-03-11 06:39:37] INFO [django.server.log_message:124] "GET /sso_api/group/1/userlog/ HTTP/1.1" 200 326
+[2019-03-11 06:39:52] INFO [django.server.log_message:124] "GET /sso_api/group/1/userlog HTTP/1.1" 301 0
+[2019-03-11 06:39:52] INFO [django.server.log_message:124] "GET /sso_api/user/17 HTTP/1.1" 200 176
+[2019-03-11 06:39:52] INFO [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 200 176
+[2019-03-11 06:39:52] INFO [django.server.log_message:124] "GET /media/chat_uploads/2.jpg HTTP/1.1" 304 0
+[2019-03-11 06:39:52] INFO [django.server.log_message:124] "GET /sso_api/group/1/detail HTTP/1.1" 200 277
+[2019-03-11 06:39:52] INFO [django.server.log_message:124] "GET /sso_api/group/1/userlog/ HTTP/1.1" 200 326
+[2019-03-11 06:40:36] INFO [django.server.log_message:124] "GET /sso_api/user/17 HTTP/1.1" 200 176
+[2019-03-11 06:40:36] INFO [django.server.log_message:124] "GET /sso_api/group/1/userlog HTTP/1.1" 301 0
+[2019-03-11 06:40:36] INFO [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 200 176
+[2019-03-11 06:40:37] INFO [django.server.log_message:124] "GET /media/chat_uploads/2.jpg HTTP/1.1" 304 0
+[2019-03-11 06:40:37] INFO [django.server.log_message:124] "GET /sso_api/group/1/detail HTTP/1.1" 200 277
+[2019-03-11 06:40:37] INFO [django.server.log_message:124] "GET /sso_api/group/1/userlog/ HTTP/1.1" 200 326
+[2019-03-11 06:40:48] INFO [django.server.log_message:124] "POST /sso_api/user/ HTTP/1.1" 200 172
+[2019-03-11 06:40:56] INFO [django.server.log_message:124] "GET /sso_api/group/1/users2 HTTP/1.1" 200 386
+[2019-03-11 06:40:58] INFO [django.server.log_message:124] "GET /sso_api/user/17 HTTP/1.1" 200 172
+[2019-03-11 06:40:58] INFO [django.server.log_message:124] "GET /sso_api/group/1/userlog/ HTTP/1.1" 200 326
+[2019-03-11 06:41:01] INFO [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 200 172
+[2019-03-11 06:41:01] INFO [django.server.log_message:124] "GET /sso_api/group/1/detail HTTP/1.1" 200 277
+[2019-03-11 06:41:03] INFO [django.server.log_message:124] "GET /sso_api/group/1/users2 HTTP/1.1" 200 386
+[2019-03-11 06:41:04] INFO [django.server.log_message:124] "GET /sso_api/user/17 HTTP/1.1" 200 172
+[2019-03-11 06:41:04] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/1/userlog/17 HTTP/1.1" 200 0
+[2019-03-11 06:41:04] INFO [django.server.log_message:124] "GET /sso_api/group/1/userlog/17 HTTP/1.1" 200 326
+[2019-03-11 06:42:23] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 570
+[2019-03-11 06:43:10] INFO [django.server.log_message:124] "OPTIONS /sso_api/confirm_key HTTP/1.1" 200 0
+[2019-03-11 06:43:10] INFO [django.server.log_message:124] "POST /sso_api/confirm_key HTTP/1.1" 202 94
+[2019-03-11 06:43:12] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/1 HTTP/1.1" 200 0
+[2019-03-11 06:43:12] INFO [django.server.log_message:124] "OPTIONS /sso_api/groups HTTP/1.1" 200 0
+[2019-03-11 06:43:12] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/1/users2 HTTP/1.1" 200 0
+[2019-03-11 06:43:12] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/1/users HTTP/1.1" 200 0
+[2019-03-11 06:43:12] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 200 277
+[2019-03-11 06:43:13] INFO [django.server.log_message:124] "GET /sso_api/group/1/users2 HTTP/1.1" 200 386
+[2019-03-11 06:43:13] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 570
+[2019-03-11 06:43:13] INFO [django.server.log_message:124] "GET /sso_api/group/1/users HTTP/1.1" 200 94
+[2019-03-11 06:43:19] INFO [django.server.log_message:124] "OPTIONS /sso_api/user/ HTTP/1.1" 200 0
+[2019-03-11 06:43:19] INFO [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 200 172
+[2019-03-11 06:43:19] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/1/detail HTTP/1.1" 200 0
+[2019-03-11 06:43:20] INFO [django.server.log_message:124] "GET /sso_api/group/1/detail HTTP/1.1" 200 277
+[2019-03-11 06:43:22] INFO [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 200 172
+[2019-03-11 06:43:23] INFO [django.server.log_message:124] "GET /sso_api/group/1/detail HTTP/1.1" 200 277
+[2019-03-11 06:43:23] INFO [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 200 172
+[2019-03-11 06:43:23] INFO [django.server.log_message:124] "GET /sso_api/group/1/detail HTTP/1.1" 200 277
+[2019-03-11 06:43:24] INFO [django.server.log_message:124] "GET /sso_api/group/1/users2 HTTP/1.1" 200 386
+[2019-03-11 06:43:26] INFO [django.server.log_message:124] "GET /sso_api/group/1/detail HTTP/1.1" 200 277
+[2019-03-11 06:43:29] INFO [django.server.log_message:124] "GET /sso_api/group/1/users2 HTTP/1.1" 200 386
+[2019-03-11 06:43:30] INFO [django.server.log_message:124] "OPTIONS /sso_api/user/17 HTTP/1.1" 200 0
+[2019-03-11 06:43:30] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/1/userlog HTTP/1.1" 200 0
+[2019-03-11 06:43:30] INFO [django.server.log_message:124] "GET /sso_api/user/17 HTTP/1.1" 200 172
+[2019-03-11 06:43:30] INFO [django.server.log_message:124] "GET /media/chat_uploads/2.jpg HTTP/1.1" 200 70471
+[2019-03-11 06:43:30] INFO [django.server.log_message:124] "GET /sso_api/group/1/userlog HTTP/1.1" 301 0
+[2019-03-11 06:43:30] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/1/userlog/ HTTP/1.1" 200 0
+[2019-03-11 06:43:31] INFO [django.server.log_message:124] "GET /sso_api/group/1/detail HTTP/1.1" 200 277
+[2019-03-11 06:43:34] INFO [django.server.log_message:124] "POST /sso_api/group/1/detail HTTP/1.1" 200 278
+[2019-03-11 06:43:36] INFO [django.server.log_message:124] "GET /sso_api/group/1/users2 HTTP/1.1" 200 386
+[2019-03-11 06:43:37] INFO [django.server.log_message:124] "GET /sso_api/user/17 HTTP/1.1" 200 172
+[2019-03-11 06:43:38] INFO [django.server.log_message:124] "GET /sso_api/group/1/userlog/ HTTP/1.1" 200 326
+[2019-03-11 06:43:51] INFO [django.server.log_message:124] "GET /sso_api/group/1/users2 HTTP/1.1" 200 386
+[2019-03-11 06:43:52] INFO [django.server.log_message:124] "GET /sso_api/user/17 HTTP/1.1" 200 172
+[2019-03-11 06:43:52] INFO [django.server.log_message:124] "GET /sso_api/group/1/userlog/ HTTP/1.1" 200 326
+[2019-03-11 06:43:53] INFO [django.server.log_message:124] "GET /sso_api/group/1/users2 HTTP/1.1" 200 386
+[2019-03-11 06:43:55] INFO [django.server.log_message:124] "GET /sso_api/user/17 HTTP/1.1" 200 172
+[2019-03-11 06:43:55] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/1/userlog/17 HTTP/1.1" 200 0
+[2019-03-11 06:43:55] INFO [django.server.log_message:124] "GET /sso_api/group/1/userlog/17 HTTP/1.1" 200 326
+[2019-03-11 06:51:09] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /sso_api/groups
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\base\base.py", line 216, in ensure_connection
+    self.connect()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\base\base.py", line 194, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\mysql\base.py", line 234, in get_new_connection
+    return Database.connect(**conn_params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\__init__.py", line 86, in Connect
+    return Connection(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\connections.py", line 204, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+_mysql_exceptions.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' (10061)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 471, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 388, in initial
+    self.perform_authentication(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 314, in perform_authentication
+    request.user
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\request.py", line 222, in user
+    self._authenticate()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\request.py", line 375, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\authentication.py", line 190, in authenticate
+    return self.authenticate_credentials(token)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\authentication.py", line 195, in authenticate_credentials
+    token = model.objects.select_related('user').get(key=key)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 397, in get
+    num = len(clone)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 254, in __len__
+    self._fetch_all()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\compiler.py", line 1055, in execute_sql
+    sql, params = self.as_sql()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\compiler.py", line 461, in as_sql
+    where, w_params = self.compile(self.where) if self.where is not None else ("", [])
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\compiler.py", line 393, in compile
+    sql, params = node.as_sql(self, self.connection)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\where.py", line 80, in as_sql
+    sql, params = compiler.compile(child)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\compiler.py", line 393, in compile
+    sql, params = node.as_sql(self, self.connection)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\lookups.py", line 160, in as_sql
+    lhs_sql, params = self.process_lhs(compiler, connection)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\lookups.py", line 153, in process_lhs
+    db_type = self.lhs.output_field.db_type(connection=connection)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\__init__.py", line 648, in db_type
+    return connection.data_types[self.get_internal_type()] % data
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\mysql\base.py", line 133, in data_types
+    if self.features.supports_microsecond_precision:
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\mysql\features.py", line 65, in supports_microsecond_precision
+    return self.connection.mysql_version >= (5, 6, 4)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\mysql\base.py", line 343, in mysql_version
+    with self.temporary_connection() as cursor:
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\contextlib.py", line 59, in __enter__
+    return next(self.gen)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\base\base.py", line 576, in temporary_connection
+    cursor = self.cursor()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\base\base.py", line 255, in cursor
+    return self._cursor()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\base\base.py", line 232, in _cursor
+    self.ensure_connection()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\base\base.py", line 216, in ensure_connection
+    self.connect()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\base\base.py", line 216, in ensure_connection
+    self.connect()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\base\base.py", line 194, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\mysql\base.py", line 234, in get_new_connection
+    return Database.connect(**conn_params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\__init__.py", line 86, in Connect
+    return Connection(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\connections.py", line 204, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+django.db.utils.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' (10061)")
+[2019-03-11 06:51:15] ERROR [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 500 28532
+[2019-03-11 06:51:23] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /sso_api/groups
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\base\base.py", line 216, in ensure_connection
+    self.connect()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\base\base.py", line 194, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\mysql\base.py", line 234, in get_new_connection
+    return Database.connect(**conn_params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\__init__.py", line 86, in Connect
+    return Connection(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\connections.py", line 204, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+_mysql_exceptions.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' (10061)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 471, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 388, in initial
+    self.perform_authentication(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 314, in perform_authentication
+    request.user
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\request.py", line 222, in user
+    self._authenticate()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\request.py", line 375, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\authentication.py", line 190, in authenticate
+    return self.authenticate_credentials(token)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\authentication.py", line 195, in authenticate_credentials
+    token = model.objects.select_related('user').get(key=key)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 397, in get
+    num = len(clone)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 254, in __len__
+    self._fetch_all()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\compiler.py", line 1055, in execute_sql
+    sql, params = self.as_sql()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\compiler.py", line 461, in as_sql
+    where, w_params = self.compile(self.where) if self.where is not None else ("", [])
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\compiler.py", line 393, in compile
+    sql, params = node.as_sql(self, self.connection)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\where.py", line 80, in as_sql
+    sql, params = compiler.compile(child)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\compiler.py", line 393, in compile
+    sql, params = node.as_sql(self, self.connection)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\lookups.py", line 160, in as_sql
+    lhs_sql, params = self.process_lhs(compiler, connection)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\lookups.py", line 153, in process_lhs
+    db_type = self.lhs.output_field.db_type(connection=connection)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\__init__.py", line 648, in db_type
+    return connection.data_types[self.get_internal_type()] % data
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\mysql\base.py", line 133, in data_types
+    if self.features.supports_microsecond_precision:
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\mysql\features.py", line 65, in supports_microsecond_precision
+    return self.connection.mysql_version >= (5, 6, 4)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\mysql\base.py", line 343, in mysql_version
+    with self.temporary_connection() as cursor:
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\contextlib.py", line 59, in __enter__
+    return next(self.gen)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\base\base.py", line 576, in temporary_connection
+    cursor = self.cursor()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\base\base.py", line 255, in cursor
+    return self._cursor()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\base\base.py", line 232, in _cursor
+    self.ensure_connection()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\base\base.py", line 216, in ensure_connection
+    self.connect()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\base\base.py", line 216, in ensure_connection
+    self.connect()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\base\base.py", line 194, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\mysql\base.py", line 234, in get_new_connection
+    return Database.connect(**conn_params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\__init__.py", line 86, in Connect
+    return Connection(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\connections.py", line 204, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+django.db.utils.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' (10061)")
+[2019-03-11 06:51:29] ERROR [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 500 28567
