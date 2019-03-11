@@ -15,6 +15,7 @@ import {FormsModule} from "@angular/forms";
 import {SafePipe} from "../share/safe.pipe";
 import {OrderModule} from "ngx-order-pipe";
 import {SharedModule} from "../../shared/shared.module";
+import { VerificationComponent } from './verification/verification.component';
 
 @NgModule({
   imports: [
@@ -35,6 +36,7 @@ import {SharedModule} from "../../shared/shared.module";
     TopicNotesComponent,
     TopicVideoComponent,
     SafePipe,
+    VerificationComponent,
 
   ],
   providers: [],

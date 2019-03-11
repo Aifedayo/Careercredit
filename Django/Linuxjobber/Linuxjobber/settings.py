@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'Projects.apps.ProjectsConfig',
     'ToolsApp.apps.ToolsappConfig',
     'classroom.apps.ClassroomConfig',
-    'rest_framework.authtoken'
+    'rest_framework.authtoken',
+    'sso_api'
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -284,3 +285,5 @@ GROUP_CLASS_URL = config('GROUP_CLASS_URL', 'http://localhost:4200/classroom/')
 
 # Session Expiration set to 10 mins
 SESSION_COOKIE_AGE = 30 * 60
+
+

@@ -1,0 +1,29 @@
+<div *ngIf="user$|async as user">
+            <div class="col s6"><img class="responsive-img circle" [src]="user.profile_img" alt="">
+            <p class="align-center"> {{ user.first_name }} {{ user.last_name }} </p>
+            </div>
+            <div class="col s6">
+                <div class="row">
+                    <div class="col">
+                        <p><b>Login History</b></p>
+                        <table>
+        <thead>
+          <tr>
+              <th>Date</th>
+              <th>Video</th>
+          </tr>
+        </thead>
+
+
+                            <tr *ngFor="let item of attendance$|async">
+                                <td >{{ item.timestamp }} </td>
+                                <td *ngIf="item.video_url !== null"><a [href]="item.video_url">View</a> </td>
+                                <td *ngIf="item.video_url ==null"> -  </td>
+                            </tr>
+
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+</div>

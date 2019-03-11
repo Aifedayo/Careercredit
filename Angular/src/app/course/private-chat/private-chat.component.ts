@@ -40,7 +40,6 @@ export class PrivateChatComponent implements OnInit {
         }
         const chat_scroll = document.getElementById('chat_div_space');
         chat_scroll.scrollTop = chat_scroll.scrollHeight;
-        console.log(this.messages);
     };
    }
   ngOnInit() {

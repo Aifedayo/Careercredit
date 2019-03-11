@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
 import {ActivatedRoute,  Router} from '@angular/router';
 import {environment} from "../environments/environment";
 import {Location} from "@angular/common";
-import {_MatInkBarPositioner} from "@angular/material";
 
 @Injectable({
   providedIn: 'root'
@@ -94,7 +93,8 @@ export class DataService {
       sessionStorage.clear();
       sessionStorage.setItem('username', data['username']);
       sessionStorage.setItem('token', data['token']);
-      sessionStorage.setItem('id', data['id']);
+      sessionStorage.setItem('role', data['role']);
+      sessionStorage.setItem('user_id', data['id']);
       alert('Signed in! Moving to class');
       this.router.navigate(['/classroom',group_id]);
       return true;
