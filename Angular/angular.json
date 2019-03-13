@@ -18,6 +18,7 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
+            "webpackConfig": "webpack.config.js",
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -29,6 +30,7 @@
             "scripts": [
               "./node_modules/jquery/dist/jquery.js",
               "./node_modules/materialize-css/dist/js/materialize.min.js",
+              "./node_modules/videojs-record/dist/videojs.record.min.js",
                "./node_modules/hammerjs/hammer.js"
             ]
           },
