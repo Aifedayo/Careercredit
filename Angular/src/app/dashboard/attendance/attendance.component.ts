@@ -4,6 +4,7 @@ import {ApiService} from "../../share/api.service";
 import {AttendanceModel} from "../../share/attendance-model";
 import {ActivatedRoute, Router} from "@angular/router";
 import {UserModel} from "../../share/user-model";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-attendance',
@@ -12,6 +13,7 @@ import {UserModel} from "../../share/user-model";
 })
 export class AttendanceComponent implements OnInit {
 
+  url=environment.API_URL;
   public a;
   public attendance$;
   public user$:Observable<UserModel>;

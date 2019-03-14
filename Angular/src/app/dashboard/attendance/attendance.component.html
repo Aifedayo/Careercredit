@@ -17,7 +17,7 @@
 
                             <tr *ngFor="let item of attendance$|async">
                                 <td >{{ item.timestamp }} </td>
-                                <td *ngIf="item.video_url !== null"><a [href]="item.video_url">View</a> </td>
+                                <td *ngIf="item.video_url !== null"><a [href]="url + item.video_url" download="_video">View</a> </td>
                                 <td *ngIf="item.video_url ==null"> -  </td>
                             </tr>
 
