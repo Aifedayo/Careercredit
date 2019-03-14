@@ -10,6 +10,7 @@ import { AuthGuard } from '../auth.guard';
 import {TopicVideoComponent} from "./topic-video/topic-video.component";
 import {TopicLabComponent} from "./topic-lab/topic-lab.component";
 import {TopicNotesComponent} from "./topic-notes/topic-notes.component";
+import {VerificationGuard} from "../verification.guard";
 
 
 
@@ -37,6 +38,6 @@ const courseRoutes: Routes = [
     RouterModule.forChild(courseRoutes),
   ],
   exports: [RouterModule],
-  providers: [AuthGuard]
+  providers: [AuthGuard,VerificationGuard]
 })
 export class CourseRoutingModule { }

@@ -6,6 +6,7 @@ import { CourseComponent } from './course/course.component';
 import { AuthGuard } from './auth.guard';
 import {ContentComponent} from "./dashboard/content/content.component";
 import {VerificationComponent} from "./course/verification/verification.component";
+import {VerificationGuard} from "./verification.guard";
 
 
 

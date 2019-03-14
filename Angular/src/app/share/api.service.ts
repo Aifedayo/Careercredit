@@ -15,138 +15,198 @@ import {AttendanceModel} from "./attendance-model";
   providedIn: 'root'
 })
 export class ApiService {
-  CurrentClasses=[];
+  CurrentClasses = [];
   private tt;
   private sharedTopic;
-  public CurrentTopics=[];
-  private allTopics= new Subject();
-  _allTopics$=this.allTopics.asObservable();
+  public CurrentTopics = [];
+  private allTopics = new Subject();
+  _allTopics$ = this.allTopics.asObservable();
   private _data = new Subject();
   data$ = this._data.asObservable();
-  private _users=new Subject();
+  private _users = new Subject();
   users$ = this._users.asObservable();
 
 
   private headers: HttpHeaders = new HttpHeaders();
   private fileheaders: HttpHeaders = new HttpHeaders();
-  constructor(private httpClient:HttpClient,location:Location,route:ActivatedRoute) {
-    this.headers=this.headers.append('Accept', 'application/json');
-    this.headers=this.headers.append('Authorization', 'Token ' + sessionStorage.getItem('token'));
-    this.fileheaders=this.fileheaders.append('Authorization', 'Token ' + sessionStorage.getItem('token'));
-    this._allTopics$.subscribe(res=>{
-      this.tt=res
+
+  constructor(private httpClient: HttpClient, location: Location, route: ActivatedRoute) {
+    this.headers = this.headers.append('Accept', 'application/json');
+    this.headers = this.headers.append('Authorization', 'Token ' + sessionStorage.getItem('token'));
+    this.fileheaders = this.fileheaders.append('Authorization', 'Token ' + sessionStorage.getItem('token'));
+    this._allTopics$.subscribe(res => {
+      this.tt = res
     })
   }
-   setActiveTopic(id){
-     this._data.next(this.getTopic(id))
-  }
-  getActiveTopic(){
-     return this.sharedTopic
-  }
-  getTopic(id: number) {
-     return this.tt.find(
-    (data) => {
-      return data.id === id;
-    }
-  )
 
-}
+  refreshToken() {
+
+    this.headers = new HttpHeaders();
+    this.fileheaders = new HttpHeaders();
+    this.headers = this.headers.append('Accept', 'application/json');
+    this.headers = this.headers.append('Authorization', 'Token ' + sessionStorage.getItem('token'));
+    this.fileheaders = this.fileheaders.append('Authorization', 'Token ' + sessionStorage.getItem('token'));
+
+  }
+
+  setActiveTopic(id) {
+    this._data.next(this.getTopic(id))
+  }
+
+  getActiveTopic() {
+    return this.sharedTopic
+  }
+
+  getTopic(id: number) {
+    return this.tt.find(
+      (data) => {
+        return data.id === id;
+      }
+    )
+
+  }
+
   getUsers(id: number) {
-   const _class = this.CurrentClasses.find(
-    (data) => {
-      return data.id === id;
-    }
-  );
+    const _class = this.CurrentClasses.find(
+      (data) => {
+        return data.id === id;
+      }
+    );
     return _class
-}
-  LoadData(selectedClass){
+  }
+
+  LoadData(selectedClass) {
     this.getCourseDetails(selectedClass)
-          .subscribe(res=>{
-        res['topics'].forEach(entry=>{
+      .subscribe(res => {
+        res['topics'].forEach(entry => {
           let topic = new CourseTopicModel();
-        topic.id=entry.id;
-        topic.note= entry.note;
-        topic.topic=entry.topic;
-        topic.video=entry.video;
-        topic.tasks=entry.tasks;
-        this.CurrentTopics.push(topic);
+          topic.id = entry.id;
+          topic.note = entry.note;
+          topic.topic = entry.topic;
+          topic.video = entry.video;
+          topic.tasks = entry.tasks;
+          this.CurrentTopics.push(topic);
         });
-            this.allTopics.next(this.CurrentTopics);
-        this.CurrentTopics=[]
+        this.allTopics.next(this.CurrentTopics);
+        this.CurrentTopics = []
       });
 
   }
-  getCourseDetails(id){
-    return this.httpClient.get(environment.API_URL + `sso_api/group/` + id,{headers:this.headers})
+
+  getCourseDetails(id) {
+    this.refreshToken()
+    return this.httpClient.get(environment.API_URL + `sso_api/group/` + id, {headers: this.headers})
   }
-  getAvailableClasses():Observable<ClassModel[]>{
-    return this.httpClient.get<ClassModel[]>(environment.API_URL + `sso_api/groups`,{headers:this.headers})
+
+  getAvailableClasses(): Observable<ClassModel[]> {
+    this.refreshToken()
+    return this.httpClient.get<ClassModel[]>(environment.API_URL + `sso_api/groups`, {headers: this.headers})
   }
-  getGroupMembers(group_id):Observable<GroupMember[]>{
+
+  getGroupMembers(group_id): Observable<GroupMember[]> {
+    this.refreshToken()
     // this.httpClient.get<UserModel[]>(environment.API_URL + `sso_api/group/`+group_id+`/users`,{headers:this.headers}).subscribe(data=>{
     // })
 
-    return this.httpClient.get<GroupMember[]>(environment.API_URL + `sso_api/group/`+group_id+`/users`,{headers:this.headers})
+    return this.httpClient.get<GroupMember[]>(environment.API_URL + `sso_api/group/` + group_id + `/users`, {headers: this.headers})
   }
-  getMembers(group_id):Observable<UserModel[]>{
-    return this.httpClient.get<UserModel[]>(environment.API_URL + `sso_api/group/`+group_id+`/users2`,{headers:this.headers})
+
+  getMembers(group_id): Observable<UserModel[]> {
+    this.refreshToken()
+    return this.httpClient.get<UserModel[]>(environment.API_URL + `sso_api/group/` + group_id + `/users2`, {headers: this.headers})
     // return this.httpClient.get<GroupMember[]>(environment.API_URL + `sso_api/group/`+group_id+`/users`,{headers:this.headers})
   }
 
-  uploadFile(data){
-    let head=new HttpHeaders()
-    head=head.append('Authorization', 'Token e973d9bef2d8464bb84cdc06af35fd4a76a37b90'  )
+  uploadFile(data) {
+    this.refreshToken()
+    let head = new HttpHeaders();
+    head = head.append('Authorization', 'Token e973d9bef2d8464bb84cdc06af35fd4a76a37b90')
     // return this.httpClient.put( 'http://localhost:8000/sso_api/upload',data,{headers:this.fileheaders})
-    return this.httpClient.put( environment.API_URL+ 'sso_api/upload',data,{headers:this.fileheaders})
+    return this.httpClient.put(environment.API_URL + 'sso_api/upload', data, {headers: this.fileheaders})
   }
 
-  getUserAttendance(group_id,user_id=null){
-    if (user_id===null){
-      return this.httpClient.get(environment.API_URL + `sso_api/group/`+group_id+`/userlog`,{headers:this.headers})
+  getUserAttendance(group_id, user_id = null) {
+    if (user_id === null) {
+      return this.httpClient.get(environment.API_URL + `sso_api/group/` + group_id + `/userlog`, {headers: this.headers})
       // return this.httpClient.get(environment.API_URL + `sso_api/group/`+group_id+`/userlog`,{headers:this.headers})
 
     }
-    return this.httpClient.get(environment.API_URL + `sso_api/group/`+group_id+`/userlog/`+user_id,{headers:this.headers})
+    return this.httpClient.get(environment.API_URL + `sso_api/group/` + group_id + `/userlog/` + user_id, {headers: this.headers})
     // return this.httpClient.get<AttendanceModel[]>(environment.API_URL + `sso_api/group/`+group_id+`/userlog/`+user_id,{headers:this.headers})
 
 
   }
-    getUserInfo(user_id=null){
-    if (user_id===null){
-      return this.httpClient.get<UserModel>(environment.API_URL + `sso_api/user/`,{headers:this.headers})
+
+  getUserInfo(user_id = null) {
+    this.refreshToken()
+    if (user_id === null) {
+      return this.httpClient.get<UserModel>(environment.API_URL + `sso_api/user/`, {headers: this.headers})
     }
-    return this.httpClient.get<UserModel>(environment.API_URL + `sso_api/user/`+user_id,{headers:this.headers})
+    return this.httpClient.get<UserModel>(environment.API_URL + `sso_api/user/` + user_id, {headers: this.headers})
 
 
   }
 
-  getGroupInfo(group_id){
-    return this.httpClient.get<ClassModel>(environment.API_URL + `sso_api/group/`+group_id+`/detail`,{headers:this.headers})
+  getGroupInfo(group_id) {
+    this.refreshToken()
+    return this.httpClient.get<ClassModel>(environment.API_URL + `sso_api/group/` + group_id + `/detail`, {headers: this.headers})
   }
 
-   uploadImage(data){
-    let head=new HttpHeaders();
-    head=head.append('Authorization', 'Token e973d9bef2d8464bb84cdc06af35fd4a76a37b90'  );
+  uploadImage(data) {
+    this.refreshToken()
+    let head = new HttpHeaders();
+    head = head.append('Authorization', 'Token e973d9bef2d8464bb84cdc06af35fd4a76a37b90');
     // return this.httpClient.put( 'http://localhost:8000/sso_api/upload',data,{headers:this.fileheaders})
-    return this.httpClient.put( environment.API_URL+ 'sso_api/user/upload',data,{headers:this.fileheaders})
+    return this.httpClient.put(environment.API_URL + 'sso_api/user/upload', data, {headers: this.fileheaders})
   }
 
-  updateUserInfo(obj:UserModel){
-     let head=new HttpHeaders();
-    head=this.headers;
-    head=head.append('Content-Type','application/json');
-    const x={'first_name':obj.first_name,'last_name':obj.last_name};
-    return this.httpClient.post(environment.API_URL + 'sso_api/user/',JSON.stringify(x),{headers:head})
-  }
-    updateGroupInfo(obj:ClassModel){
-     let head=new HttpHeaders();
-    head=this.headers;
-    head=head.append('Content-Type','application/json');
-    const x={'video_required':obj.video_required};
-    return this.httpClient.post(environment.API_URL + 'sso_api/group/'+obj.id+`/detail`,JSON.stringify(x),{headers:head})
+  uploadVideo(data) {
+    this.refreshToken()
+    let head = new HttpHeaders();
+    head = head.append('Authorization', 'Token e973d9bef2d8464bb84cdc06af35fd4a76a37b90');
+    // return this.httpClient.put( 'http://localhost:8000/sso_api/upload',data,{headers:this.fileheaders})
+    return this.httpClient.put(environment.API_URL + 'sso_api/user/upload', data, {headers: this.fileheaders})
   }
 
 
+  updateUserInfo(obj: UserModel) {
+    this.refreshToken()
+    let head = new HttpHeaders();
+    head = this.headers;
+    head = head.append('Content-Type', 'application/json');
+    const x = {'first_name': obj.first_name, 'last_name': obj.last_name};
+    return this.httpClient.post(environment.API_URL + 'sso_api/user/', JSON.stringify(x), {headers: head})
+  }
+
+  updateGroupInfo(obj: ClassModel) {
+    this.refreshToken()
+    let head = new HttpHeaders();
+    head = this.headers;
+    head = head.append('Content-Type', 'application/json');
+    const x = {'video_required': obj.video_required};
+    return this.httpClient.post(environment.API_URL + 'sso_api/group/' + obj.id + `/detail`, JSON.stringify(x), {headers: head})
+  }
+
+  getUserVerification(){
+
+  }
 
 
+   videoUploded(group_id) {
+    this.refreshToken();
+    this.httpClient.get(environment.API_URL + `sso_api/group/` + group_id
+      + `/user/verification`, {headers: this.headers}).subscribe(res=>{
+        return !! res['uploaded']
+    });
+    return false
+  }
+
+   videoRequired(group_id){
+        this.refreshToken();
+     this.httpClient.get<ClassModel>(environment.API_URL + `sso_api/group/` + group_id + `/detail`, {headers: this.headers})
+.subscribe(res=>{
+      return !! res['video_required']
+    });
+     return false
+  }
 }

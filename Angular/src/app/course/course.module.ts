@@ -16,6 +16,8 @@ import {SafePipe} from "../share/safe.pipe";
 import {OrderModule} from "ngx-order-pipe";
 import {SharedModule} from "../../shared/shared.module";
 import { VerificationComponent } from './verification/verification.component';
+import {AuthGuard} from "../auth.guard";
+import {VerificationGuard} from "../verification.guard";
 
 @NgModule({
   imports: [
@@ -39,7 +41,7 @@ import { VerificationComponent } from './verification/verification.component';
     VerificationComponent,
 
   ],
-  providers: [],
+  providers: [AuthGuard,VerificationGuard],
   bootstrap: [CourseComponent]
 })
 export class CourseModule { }

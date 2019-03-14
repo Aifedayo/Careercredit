@@ -1,4 +1,56 @@
 /* change player background color */
 .video-js video {
-  background-color: #42f489;
+  background-color: #6c63ff;
 }
+
+
+
+
+nav {
+    background-color: #6c63ff;
+}
+
+nav ul a:hover {
+
+  border-bottom: 4px solid #6c63ff;
+}
+
+.logo {
+    height: 15%;
+    width: 15%;
+    margin-top: 17px
+    }
+
+.logo-text {
+  position: absolute;
+  padding-left: 3px;
+  font-weight: 700;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.4rem;
+}
+
+.dropdown {
+  position: absolute;
+}
+
+.dropdown:hover {
+  background-color: #6c63ff;
+  border-bottom: 4px solid #6c63ff;
+}
+.dropdown-content{
+    width: max-content !important;
+    height:auto !important;
+ }
+#video {
+  margin-right: 4px;
+  margin-left: 4px;
+}
+#lab {
+  margin-right: 4px;
+  margin-left: 4px;
+}
+#chat {
+    margin-right: 4px;
+    margin-left: 4px;
+}
+

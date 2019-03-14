@@ -7,7 +7,7 @@ import {ApiService} from "../share/api.service";
   providedIn: 'root'
 })
 export class AdminGuard implements CanActivate {
-  private role:number =6;
+  private role:number = 3;
    constructor(private apiService:ApiService){
       this.apiService.getUserInfo().subscribe(res=>{
       this.role= res['role'];

@@ -21,7 +21,7 @@ export class ProfileComponent implements OnInit {
       this.user.username=data['username'];
       this.user.first_name=data['first_name']
       this.user.last_name=data['last_name']
-      this.user.profile_img=data['profile_img']
+      this.user.profile_img= environment.API_URL + data['profile_img']
       this.user.id=data['id']
     });
     this.attendance$=this.apiService.getUserAttendance(sessionStorage.getItem('active_group'))

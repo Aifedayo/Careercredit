@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
 import {ActivatedRoute,  Router} from '@angular/router';
 import {environment} from "../environments/environment";
 import {Location} from "@angular/common";
+import {ApiService} from "./share/api.service";
 
 @Injectable({
   providedIn: 'root'
@@ -18,93 +19,70 @@ export class DataService {
   public username;
   public id;
   public users;
+    private headers: HttpHeaders = new HttpHeaders();
+
 
   public httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
   public authOptions;
+  private required:boolean = false;
+  private uploaded:boolean = true;
 
-  constructor(private http: HttpClient, private router: Router,private route: ActivatedRoute,location:Location) { }
 
-  djangostudents() {
-    return this.http.get( environment.API_URL + '');
+  constructor(private http: HttpClient, private router: Router,
+              private route: ActivatedRoute,location:Location,
+             ) {
+
   }
 
-  createUser() {
-    this.http.post( environment.API_URL + 'sso_api/login', JSON.stringify({'email': this.createuser_email, 'password': this.createuser_password, 'username': this.createuser_username}), this.httpOptions).subscribe(
-        data => {
-            this.message = data['message'];
-            this.createuser_email = '';
-            this.createuser_password = '';
-            this.createuser_username = '';
-            this.id = '';
-        },
-        err => {
-            this.message = 'User Creation Failed! Unexpected Error!';
-            console.error(err);
-            this.createuser_email = '';
-            this.createuser_password = '';
-            this.createuser_username = '';
-        }
-    );
-  }
-
-  login() {
-    this.http.post( environment.API_URL + 'sso_api/login', JSON.stringify({'username': this.login_username, 'password': this.login_password}), this.httpOptions).subscribe(
-        data => {
-
-            sessionStorage.setItem('username', data['username']);
-            sessionStorage.setItem('token', data['token']);
-            sessionStorage.setItem('id', data['id']);
-            this.router.navigate(['classroom']);
-            this.username=sessionStorage.getItem('username');
-            this.authOptions = {
-                headers: new HttpHeaders({'Content-Type': 'application/json', 'Authorization': 'JWT ' + data['token']})
-            };
-        },
-        err => {
-            if (err['status'] === 400) {
-              this.message = 'Login Failed: Invalid Credentials.';
-            } else {
-              this.message = 'Login Failed! Unexpected Error!';
-            console.error(err);
-            this.login_username = '';
-            this.login_password = '';
-            }
-        }
-    );
-  }
 
   static islogin() {
       return !!sessionStorage.getItem('token');
   }
 
   logout() {
-    this.username = '';
-
-    sessionStorage.removeItem('username');
-    sessionStorage.removeItem('token');
-    sessionStorage.removeItem('id');
+    sessionStorage.clear()
     window.location.replace(environment.API_URL)
   }
 
-  sessionSet(token:string,group_id:string) {
-    this.http.post(environment.API_URL + 'sso_api/confirm_key',JSON.stringify({'token':token}),this.httpOptions).subscribe(data=>{
+
+   sessionSet(token:string,group_id:string)  {
+    this.http.post(environment.API_URL + 'sso_api/confirm_key/' + group_id,JSON.stringify({'token':token}),this.httpOptions)
+      .subscribe(data=>{
       sessionStorage.clear();
       sessionStorage.setItem('username', data['username']);
       sessionStorage.setItem('token', data['token']);
       sessionStorage.setItem('role', data['role']);
       sessionStorage.setItem('user_id', data['id']);
-      alert('Signed in! Moving to class');
-      this.router.navigate(['/classroom',group_id]);
-      return true;
+      sessionStorage.setItem('active_group', group_id);
+      sessionStorage.setItem('video_required', data['video_required']);
+      sessionStorage.setItem('uploaded', data['uploaded']);
+      console.log(data['video_required'])
+      console.log(data['uploaded'])
+      if(!!data['video_required']){
+        if(!data['uploaded']){
+          console.log('video not uploaded')
+          this.router.navigate(['/v'])
+        }
+        else {
+               this.router.navigate(['/classroom', group_id])
+        return true;
+        }
+
+      }
+      else{
+        console.log('video not required')
+        this.router.navigate(['/classroom' ,group_id])
+        return true;
+      }
+
+
 
     },error => {
-      console.log(error);
+        alert('Cannot communicate with server, please try again')
       return false;
-
     })
-
   }
 }
 

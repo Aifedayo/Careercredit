@@ -10,11 +10,12 @@ urlpatterns = [
     path('user/upload',views.UserView.as_view()),
     path('user/<int:user_id>',views.UserView.as_view()),
     path('group/<int:group_id>',views.GroupCourseDetail.as_view()),
+    path('group/<int:group_id>/user/verification',views.Verification.as_view()),
     path('group/<int:group_id>/detail',views.GroupDetail.as_view()),
     path('group/<int:group_id>/users',views.GroupMembers.as_view()),
     path('group/<int:group_id>/users2',views.GroupUsers.as_view()),
     path('group/<int:group_id>/userlog/',views.UserAttendance.as_view()),
     path('group/<int:group_id>/userlog/<int:user_id>',views.UserAttendance.as_view()),
-    path('confirm_key',views.confirm_api),
+    path('confirm_key/<int:group_id>',views.confirm_api),
     path('api-token-auth',auth.obtain_auth_token)
 ]

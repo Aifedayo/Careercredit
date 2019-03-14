@@ -4,6 +4,7 @@ import {ApiService} from "../../share/api.service";
 import {ClassModel} from "../../share/class-model";
 import {Observable} from "rxjs/index";
 import {UserModel} from "../../share/user-model";
+import {DataService} from "../../data.service";
 
 @Component({
   selector: 'app-header',
@@ -14,7 +15,11 @@ export class HeaderComponent implements OnInit {
 
   public user$:Observable<UserModel>=null;
   public group$:Observable<ClassModel>=null;
-  constructor(private apiService:ApiService) { }
+  constructor(private apiService:ApiService, private dataservice: DataService) { }
+
+  logout(){
+    this.dataservice.logout();
+  }
 
   public openClasses(){
     $('#sclass').click(function(){

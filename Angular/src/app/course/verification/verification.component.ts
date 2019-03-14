@@ -12,6 +12,9 @@ import * as RecordRTC from 'recordrtc';
 
 // register videojs-record plugin with this import
 import * as Record from 'videojs-record/dist/videojs.record.js';
+import {environment} from "../../../environments/environment";
+import {ApiService} from "../../share/api.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'videojs-record',
@@ -22,17 +25,17 @@ import * as Record from 'videojs-record/dist/videojs.record.js';
 export class VerificationComponent implements OnInit, OnDestroy {
 
   // reference to the element itself: used to access events and methods
-  private _elementRef: ElementRef
+  private _elementRef: ElementRef;
 
   // index to create unique ID for component
-  @Input() idx: string;
-
+  // @Input() idx: string;
+  idx='1';
   private config: any;
   private player: any;
   private plugin: any;
 
   // constructor initializes our declared vars
-  constructor(elementRef: ElementRef) {
+  constructor(elementRef: ElementRef,private apiService:ApiService,private router:Router) {
     this.player = false;
 
     // save reference to plugin (so it initializes)
@@ -44,8 +47,8 @@ export class VerificationComponent implements OnInit, OnDestroy {
       autoplay: false,
       fluid: false,
       loop: false,
-      width: 320,
-      height: 240,
+      width: 450,
+      height: 400,
       controlBar: {
         volumePanel: false
       },
@@ -94,6 +97,7 @@ export class VerificationComponent implements OnInit, OnDestroy {
       // recordedData is a blob object containing the recorded data that
       // can be downloaded by the user, stored on server etc.
       console.log('finished recording: ', this.player.recordedData);
+      this.uploadVideo(this.player.recordedData)
     });
 
     // error handling
@@ -113,5 +117,22 @@ export class VerificationComponent implements OnInit, OnDestroy {
       this.player = false;
     }
   }
+
+  uploadVideo(data): void {
+            const formData = new FormData();
+            formData.append('video', data, data.name);
+            formData.append('active_group', sessionStorage.getItem('active_group'));
+
+            this.apiService.uploadVideo(formData)
+                 .subscribe(
+                     data => {
+                       const url= environment.API_URL + data['video_url'];
+                       console.log(url)
+                       this.router.navigate(['/classroom/'+sessionStorage.getItem('active_group')])
+                     },
+                     error => alert('Video not uploaded, try again')
+                 );
+
+    }
 
 }
