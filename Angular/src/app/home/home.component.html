@@ -21,7 +21,7 @@
   <div class="login_wrapper">
       <br><br>
       <h4 class="bold center" id="home_login">LOGIN</h4>
-      <form (ngSubmit)="login()">
+      <form>
           <div class="form-group">
               <input required class="form-control" type="text" id="login_username" [(ngModel)]="dataservice.login_username" name="username" placeholder="Username">
           </div>
@@ -32,7 +32,7 @@
           <br>
 
           <div class="form-group">
-              <input class="form-control btn btn-default submit" (click)="login()" type="submit" value="LOGIN">
+              <input class="form-control btn btn-default submit" type="submit" value="LOGIN">
           </div>
       </form>
       <br>
