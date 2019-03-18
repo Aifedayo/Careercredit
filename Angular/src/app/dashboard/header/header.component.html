@@ -24,7 +24,7 @@
             <li class="bold waves-effect"><a [routerLink]="['./students']" class="collapsible-header">Students<i class="material-icons chevron">chevron_left</i></a>
 
             </li>
-            <li *ngIf="user.role == 3" class="bold waves-effect"><a [routerLink]="['./settings']" class="collapsible-header">Settings<i class="material-icons chevron">chevron_left</i></a>
+            <li *ngIf="user.role == 2" class="bold waves-effect"><a [routerLink]="['./settings']" class="collapsible-header">Settings<i class="material-icons chevron">chevron_left</i></a>
 
             </li>
             <li class="bold waves-effect active"><a (click)="logout()" class="collapsible-header">Logout<i class="material-icons chevron">settings</i></a>
