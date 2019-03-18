@@ -219,7 +219,7 @@ def partime(request):
 
             position = PartTimePostion.objects.get(id=request.POST['position'])
 
-            if request.POST['high_salary'] == 1:
+            if request.POST['high_salary'] == '1':
                 high = 'Yes'
             else:
                 high = 'No'
