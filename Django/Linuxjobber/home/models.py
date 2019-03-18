@@ -245,12 +245,22 @@ class RHCSAOrder(models.Model):
     def __str__(self):
         return self.transaction_id
 
+class Message(models.Model):
+    title = models.CharField(max_length = 50)
+    message = models.TextField()
+    slug = models.SlugField(max_length=40)
+    
+    def __str__(self):
+        return self.title
 
 class NewsLetterSubscribers(models.Model):
     email = models.EmailField(max_length = 200)
 
 class Unsubscriber(models.Model):
     email = models.EmailField(max_length = 200)
+        
+    def __str__(self):
+        return self.email
 
 class Location(models.Model):
     user = models.ForeignKey(CustomUser, on_delete = models.CASCADE)

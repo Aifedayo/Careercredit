@@ -5,6 +5,8 @@ import subprocess, json, os
 import random, string
 import datetime
 import pytz
+import requests
+
 from smtplib import SMTPException
 from urllib.parse import urlparse
 from django.conf import settings
@@ -727,9 +729,16 @@ def accepted(request):
 @csrf_exempt
 def check_subscription_status(request):
 
+    data = """ PASTE COPIED JSON REQUEST HERE """
+    
+
     if request.method == "POST":
         event_json = json.loads(request.body)
         jsonObject = event_json
+
+        output = open("check_subscription.html", "w")
+        output.write(jsonObject)
+        output.close()
 
         subscription_id = jsonObject['data']['object']['subscription']
         customer_id = jsonObject['data']['object']['customer']
@@ -843,11 +852,12 @@ def monthly_subscription(request):
                     group_item.users.add(request.user)
                 return redirect("home:"+nexturl) 
             else:
-                return redirect("home:monthly_subscription")
+                return render(request,'home/standardPlan_pay_success.html')
         except stripe.error.CardError as ce:
             return False, ce
 
     return render(request, 'home/monthly_subscription.html', {'email':email,'publickey':stripeset[0].publickey})
+
 
 def group(request,pk):
     group_item = get_object_or_404(Groupclass,pk=pk)
