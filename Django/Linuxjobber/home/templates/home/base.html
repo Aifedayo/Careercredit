@@ -75,7 +75,7 @@ li.sub-menu a.b-n::after {
         z-index: 0;
 }
 .navbar-toggle {
-        background: #bcc6d4fc;
+        background: transparent;
 }
 .navbar-collapse.in {
     text-align: left;
@@ -84,7 +84,7 @@ li.sub-menu a.b-n::after {
 }
 
 .icon-bar {
-        background-color: #1b539e;
+        background-color: #fff;
 }
 .inner-box.category-content {
     height:200px;
@@ -198,7 +198,7 @@ bottom: 200px;
 									<div class="dropdowns transparent-style" id="course">
 										<div class="container text-1">
 											{% if courses %} {% for course in courses %} {% with count_min_one=forloop.counter|add:"-1"|divisibleby:4 %} {% if forloop.counter == 1 or count_min_one %}
-											<div class="col-md-3 col-sm-4">
+											<div class="col-md-3 col-sm-4 col-xs-12">
 												<ul>
 											{% endif %}
 													<li><a href="{% url 'Courses:topics' course.course_title.split|join:'_' %}"><span class="link-icon"><i class="fa {{course.icon}} fa-2x"></i></span>{{course.course_title}}</a></li>
@@ -283,7 +283,7 @@ bottom: 200px;
 											</div>
 											<div class="col-md-4 col-sm-6">
 												<ul>							
-													<li><a href="/users/orderlist"><span class="link-icon"><img src="https://linuxjobber.com/images/icon1.png" alt="" /></span>Order List</a></li>
+													<li><a href="/users/orderlist"><span class="link-icon"><img src="{% static 'home/images/icon1.png' %}" alt="" /></span>Order List</a></li>
 												</ul>
 											</div>		
 											<div class="col-md-4 col-sm-6">

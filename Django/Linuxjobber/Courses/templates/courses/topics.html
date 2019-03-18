@@ -6,6 +6,30 @@
 <style>
 #myCarousel .carousel-inner{height: 250px; padding: 70px 0 20px !important;}
 .popover { max-width:160px !important;}
+
+.containerlan{
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+.stot{
+    height: 100px;
+}
+
+@media (min-width: 320px) and (max-width: 640px) {
+    .containerlan{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#myCarousel .carousel-inner{
+    height: 400px;
+}
+
+.stot{
+    height: 220px;
+}
+}
 </style>
     
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -20,7 +44,7 @@
               <div class="col-md-4 animate-box">
                     
                     <span style="float:right;"> 
-                        <div class="row border-box" style="height: 100px;font-size: 15px;">
+                        <div class="row stot border-box" style="font-size: 15px;">
                         <div class="col-md-2" style="margin:20px 0;">Skill</div>                      
                         <div class="col-md-4">
                         <canvas id="demo"></canvas>
@@ -36,16 +60,16 @@
     </div>
   </div>
 
-<div class="container">             
-    <div class="col-xs-12 lab-details"><br><br>    
-            <div class="container">             
-            <div class="col-xs-12 lab-details">
+            
+    <div class="col-xs-12 "><br><br>    
+            <div class="containerlan">             
+            <div class="lab-details labprof">
                 <div class ='row topic-bg'>
                     <div class="col-md-1"></div>
-                    <div class="col-md-5 topic-class"><h4>Topics</h4></div>
-                    <div class="col-md-2 topic-class"><h4>Notes</h4></div>
-                    <div class="col-md-2 topic-class"><h4>Lab</h4></div>
-                    <div class="col-md-2 topic-class"><h4>Status</h4></div>
+                    <div class="col-md-5 col-xs-3 topic-class"><h4>Topics</h4></div>
+                    <div class="col-md-2 col-xs-3 topic-class"><h4>Notes</h4></div>
+                    <div class="col-md-2 col-xs-2 topic-class"><h4>Lab</h4></div>
+                    <div class="col-md-2 col-xs-3 topic-class"><h4>Status</h4></div>
                 </div>   
                 <!--For Admin and role 3 roles who have uploaded aws credentials, we allow free access to videos, labs and courses-->
                 <div id="myList">
@@ -54,15 +78,15 @@
                 {% for topic in object_list %}         
                 <div class ="row line-ht">
 
-                    <div class="col-md-1">
+                    <div class="col-md-1 col-xs-1">
                         <a href="{% url 'Courses:topic_details' course.course_title.split|join:'_' topic.topic_number %}"><img src="{% static 'home/images/Movie-icon.jpg' %}" alt="Topic" /></a>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-5 col-xs-3">
                         <a href="{% url 'Courses:topic_details' course.course_title.split|join:'_' topic.topic_number %}">{{ topic }}</a>
                     </div>
-                    <div class="col-md-2">{%if topic.has_notes == 1 %}<a href="{% url 'Courses:Note' topic.course.course_title.split|join:'_' topic.topic_number %}">View</a>{%else%}---{%endif%}</div>
-                    <div class="col-md-1">{%if topic.has_labs == 1 %}<a href="{% url 'Courses:labs' topic.course.course_title.split|join:'_' topic.topic_number %}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a>{%else%}---{%endif%}</div>
-                    <div class="col-md-3" data-toggle="popover" title="Topic Stats" data-content="Video : 50% of 100%     ">
+                    <div class="col-md-2 col-xs-2">{%if topic.has_notes == 1 %}<a href="{% url 'Courses:Note' topic.course.course_title.split|join:'_' topic.topic_number %}">View</a>{%else%}---{%endif%}</div>
+                    <div class="col-md-1 col-xs-2">{%if topic.has_labs == 1 %}<a href="{% url 'Courses:labs' topic.course.course_title.split|join:'_' topic.topic_number %}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a>{%else%}---{%endif%}</div>
+                    <div class="col-md-3 col-xs-3" data-toggle="popover" title="Topic Stats" data-content="Video : 50% of 100%     ">
                         {%for stat in topic.topicstatus_set.all %}
                             {%if stat.user == request.user and stat.topic == topic%}
                                 <div class="prgbarin" >
@@ -105,15 +129,15 @@
                     <!--Admin and role 3 havent uploaded their credentials, and topic is not free, take them to aws to upload credentials-->        
                 <div class ="row line-ht">
 
-                    <div class="col-md-1">
+                    <div class="col-md-1 col-xs-1">
                         <a href="{% url 'home:account_settings' %}"><img src="{% static 'home/images/Movie-icon.jpg' %}" alt="Topic" /></a>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-5 col-xs-3">
                         <a href="{% url 'home:account_settings' %}">{{ topic }}</a>
                     </div>
-                    <div class="col-md-2">{%if topic.has_notes == 1 %}<a href="{% url 'home:account_settings' %}">View</a>{%else%}---{%endif%}</div>
-                    <div class="col-md-1">{%if topic.has_labs == 1 %}<a href="{% url 'home:account_settings' %}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a>{%else%}---{%endif%}</div>
-                    <div class="col-md-3" data-toggle="popover" title="Topic Stats" data-content="Video : 50% of 100%     ">
+                    <div class="col-md-2 col-xs-2">{%if topic.has_notes == 1 %}<a href="{% url 'home:account_settings' %}">View</a>{%else%}---{%endif%}</div>
+                    <div class="col-md-1 col-xs-2">{%if topic.has_labs == 1 %}<a href="{% url 'home:account_settings' %}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a>{%else%}---{%endif%}</div>
+                    <div class="col-md-3 col-xs-3" data-toggle="popover" title="Topic Stats" data-content="Video : 50% of 100%     ">
                         {%for stat in topic.topicstatus_set.all %}
                             {%if stat.user == request.user and stat.topic == topic%}
                                 <div class="prgbarin" >
@@ -151,15 +175,15 @@
                 <!--Admin and role 3 havent uploaded their credentials, but topic is free, so let them have access-->  
                     <div class ="row line-ht">
 
-                    <div class="col-md-1">
+                    <div class="col-md-1 col-xs-1">
                         <a href="{% url 'Courses:topic_details' course.course_title.split|join:'_' topic.topic_number %}"><img src="{% static 'home/images/Movie-icon.jpg' %}" alt="Topic" /></a>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-5 col-xs-3">
                         <a href="{% url 'Courses:topic_details' course.course_title.split|join:'_' topic.topic_number %}">{{ topic }}</a>
                     </div>
-                    <div class="col-md-2">{%if topic.has_notes == 1 %}<a href="{% url 'Courses:Note' topic.course.course_title.split|join:'_' topic.topic_number %}">View</a>{%else%}---{%endif%}</div>
-                    <div class="col-md-1">{%if topic.has_labs == 1 %}<a href="{% url 'Courses:labs' topic.course.course_title.split|join:'_' topic.topic_number %}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a>{%else%}---{%endif%}</div>
-                    <div class="col-md-3" data-toggle="popover" title="Topic Stats" data-content="Video : 50% of 100%     ">
+                    <div class="col-md-2 col-xs-2">{%if topic.has_notes == 1 %}<a href="{% url 'Courses:Note' topic.course.course_title.split|join:'_' topic.topic_number %}">View</a>{%else%}---{%endif%}</div>
+                    <div class="col-md-1 col-xs-2">{%if topic.has_labs == 1 %}<a href="{% url 'Courses:labs' topic.course.course_title.split|join:'_' topic.topic_number %}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a>{%else%}---{%endif%}</div>
+                    <div class="col-md-3 col-xs-3" data-toggle="popover" title="Topic Stats" data-content="Video : 50% of 100%     ">
                         {%for stat in topic.topicstatus_set.all %}
                             {%if stat.user == request.user and stat.topic == topic%}
                                 <div class="prgbarin" >
@@ -200,15 +224,15 @@
                     {% for topic in object_list %}         
                 <div class ="row line-ht">
 
-                    <div class="col-md-1">
+                    <div class="col-md-1 col-xs-1">
                         <a href="{% url 'Courses:topic_details' course.course_title.split|join:'_' topic.topic_number %}"><img src="{% static 'home/images/Movie-icon.jpg' %}" alt="Topic" /></a>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-5 col-xs-3">
                         <a href="{% url 'Courses:topic_details' course.course_title.split|join:'_' topic.topic_number %}">{{ topic }}</a>
                     </div>
-                    <div class="col-md-2">{%if topic.has_notes == 1 %}<a href="{% url 'Courses:Note' topic.course.course_title.split|join:'_' topic.topic_number %}">View</a>{%else%}---{%endif%}</div>
-                    <div class="col-md-1">{%if topic.has_labs == 1 %}<a href="{% url 'Courses:labs' topic.course.course_title.split|join:'_' topic.topic_number %}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a>{%else%}---{%endif%}</div>
-                    <div class="col-md-3" data-toggle="popover" title="Topic Stats" data-content="Video : 50% of 100%     ">
+                    <div class="col-md-2 col-xs-2">{%if topic.has_notes == 1 %}<a href="{% url 'Courses:Note' topic.course.course_title.split|join:'_' topic.topic_number %}">View</a>{%else%}---{%endif%}</div>
+                    <div class="col-md-1 col-xs-2">{%if topic.has_labs == 1 %}<a href="{% url 'Courses:labs' topic.course.course_title.split|join:'_' topic.topic_number %}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a>{%else%}---{%endif%}</div>
+                    <div class="col-md-3 col-xs-3" data-toggle="popover" title="Topic Stats" data-content="Video : 50% of 100%     ">
                         {%for stat in topic.topicstatus_set.all %}
                             {%if stat.user == request.user and stat.topic == topic%}
                                 <div class="prgbarin" >
@@ -255,15 +279,15 @@
                         {%if topic.free == 0%}
                             <div class ="row line-ht">
 
-                        <div class="col-md-1">
+                        <div class="col-md-1 col-xs-1">
                             <a href="{% url 'home:account_settings' %}"><img src="{% static 'home/images/Movie-icon.jpg' %}" alt="Topic" /></a>
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-5 col-xs-3">
                             <a href="{% url 'home:account_settings' %}">{{ topic }}</a>
                         </div>
-                        <div class="col-md-2">{%if topic.has_notes == 1 %}<a href="{% url 'home:account_settings' %}">View</a>{%else%}---{%endif%}</div>
-                        <div class="col-md-1">{%if topic.has_labs == 1 %}<a href="{% url 'home:account_settings' %}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a>{%else%}---{%endif%}</div>
-                        <div class="col-md-3" data-toggle="popover" title="Topic Stats" data-content="Video : 50% of 100%     ">
+                        <div class="col-md-2 col-xs-2">{%if topic.has_notes == 1 %}<a href="{% url 'home:account_settings' %}">View</a>{%else%}---{%endif%}</div>
+                        <div class="col-md-1 col-xs-2">{%if topic.has_labs == 1 %}<a href="{% url 'home:account_settings' %}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a>{%else%}---{%endif%}</div>
+                        <div class="col-md-3 col-xs-3" data-toggle="popover" title="Topic Stats" data-content="Video : 50% of 100%     ">
                             {%for stat in topic.topicstatus_set.all %}
                                 {%if stat.user == request.user and stat.topic == topic%}
                                     <div class="prgbarin" >
@@ -301,15 +325,15 @@
                         {%else%}
                             <div class ="row line-ht">
 
-                                    <div class="col-md-1">
+                                    <div class="col-md-1 col-xs-1">
                                         <a href="{% url 'Courses:topic_details' course.course_title.split|join:'_' topic.topic_number %}"><img src="{% static 'home/images/Movie-icon.jpg' %}" alt="Topic" /></a>
                                     </div>
-                                    <div class="col-md-5">
+                                    <div class="col-md-5 col-xs-3">
                                         <a href="{% url 'Courses:topic_details' course.course_title.split|join:'_' topic.topic_number %}">{{ topic }}</a>
                                     </div>
-                                    <div class="col-md-2">{%if topic.has_notes == 1 %}<a href="{% url 'Courses:Note' topic.course.course_title.split|join:'_' topic.topic_number %}">View</a>{%else%}---{%endif%}</div>
-                                    <div class="col-md-1">{%if topic.has_labs == 1 %}<a href="{% url 'Courses:labs' topic.course.course_title.split|join:'_' topic.topic_number %}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a>{%else%}---{%endif%}</div>
-                                    <div class="col-md-3" data-toggle="popover" title="Topic Stats" data-content="Video : 50% of 100%     ">
+                                    <div class="col-md-2 col-xs-2">{%if topic.has_notes == 1 %}<a href="{% url 'Courses:Note' topic.course.course_title.split|join:'_' topic.topic_number %}">View</a>{%else%}---{%endif%}</div>
+                                    <div class="col-md-1 col-xs-2">{%if topic.has_labs == 1 %}<a href="{% url 'Courses:labs' topic.course.course_title.split|join:'_' topic.topic_number %}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a>{%else%}---{%endif%}</div>
+                                    <div class="col-md-3 col-xs-3" data-toggle="popover" title="Topic Stats" data-content="Video : 50% of 100%     ">
                                         {%for stat in topic.topicstatus_set.all %}
                                             {%if stat.user == request.user and stat.topic == topic%}
                                                 <div class="prgbarin" >
@@ -346,15 +370,15 @@
                         {%elif course.aws_credential_required == 1 and aws%}
                             <div class ="row line-ht">
 
-                            <div class="col-md-1">
+                            <div class="col-md-1 col-xs-1">
                                 <a href="{% url 'Courses:topic_details' course.course_title.split|join:'_' topic.topic_number %}"><img src="{% static 'home/images/Movie-icon.jpg' %}" alt="Topic" /></a>
                             </div>
-                            <div class="col-md-5">
+                            <div class="col-md-5 col-xs-3">
                                 <a href="{% url 'Courses:topic_details' course.course_title.split|join:'_' topic.topic_number %}">{{ topic }}</a>
                             </div>
-                            <div class="col-md-2">{%if topic.has_notes == 1 %}<a href="{% url 'Courses:Note' topic.course.course_title.split|join:'_' topic.topic_number %}">View</a>{%else%}---{%endif%}</div>
-                            <div class="col-md-1">{%if topic.has_labs == 1 %}<a href="{% url 'Courses:labs' topic.course.course_title.split|join:'_' topic.topic_number %}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a>{%else%}---{%endif%}</div>
-                            <div class="col-md-3" data-toggle="popover" title="Topic Stats" data-content="Video : 50% of 100%     ">
+                            <div class="col-md-2 col-xs-2">{%if topic.has_notes == 1 %}<a href="{% url 'Courses:Note' topic.course.course_title.split|join:'_' topic.topic_number %}">View</a>{%else%}---{%endif%}</div>
+                            <div class="col-md-1 col-xs-2">{%if topic.has_labs == 1 %}<a href="{% url 'Courses:labs' topic.course.course_title.split|join:'_' topic.topic_number %}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a>{%else%}---{%endif%}</div>
+                            <div class="col-md-3 col-xs-3" data-toggle="popover" title="Topic Stats" data-content="Video : 50% of 100%     ">
                                 {%for stat in topic.topicstatus_set.all %}
                                     {%if stat.user == request.user and stat.topic == topic%}
                                         <div class="prgbarin" >
@@ -390,15 +414,15 @@
                         {%else%}
                             <div class ="row line-ht">
 
-                            <div class="col-md-1">
+                            <div class="col-md-1 col-xs-1">
                                 <a href="{% url 'Courses:topic_details' course.course_title.split|join:'_' topic.topic_number %}"><img src="{% static 'home/images/Movie-icon.jpg' %}" alt="Topic" /></a>
                             </div>
-                            <div class="col-md-5">
+                            <div class="col-md-5 col-xs-3">
                                 <a href="{% url 'Courses:topic_details' course.course_title.split|join:'_' topic.topic_number %}">{{ topic }}</a>
                             </div>
-                            <div class="col-md-2">{%if topic.has_notes == 1 %}<a href="{% url 'Courses:Note' topic.course.course_title.split|join:'_' topic.topic_number %}">View</a>{%else%}---{%endif%}</div>
-                            <div class="col-md-1">{%if topic.has_labs == 1 %}<a href="{% url 'Courses:labs' topic.course.course_title.split|join:'_' topic.topic_number %}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a>{%else%}---{%endif%}</div>
-                            <div class="col-md-3" data-toggle="popover" title="Topic Stats" data-content="Video : 50% of 100%     ">
+                            <div class="col-md-2 col-xs-2">{%if topic.has_notes == 1 %}<a href="{% url 'Courses:Note' topic.course.course_title.split|join:'_' topic.topic_number %}">View</a>{%else%}---{%endif%}</div>
+                            <div class="col-md-1 col-xs-2">{%if topic.has_labs == 1 %}<a href="{% url 'Courses:labs' topic.course.course_title.split|join:'_' topic.topic_number %}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a>{%else%}---{%endif%}</div>
+                            <div class="col-md-3 col-xs-3" data-toggle="popover" title="Topic Stats" data-content="Video : 50% of 100%     ">
                                 {%for stat in topic.topicstatus_set.all %}
                                     {%if stat.user == request.user and stat.topic == topic%}
                                         <div class="prgbarin" >
@@ -437,15 +461,15 @@
                         <!--for role 4 users, if topic is free give access-->
                         {%if topic.free == 0%}
                             <div class ="row line-ht">
-                            <div class="col-md-1">
+                            <div class="col-md-1 col-xs-1">
                                 <a href="{% url 'home:monthly_subscription'%}"><img src="{% static 'home/images/Movie-icon.jpg' %}" alt="Topic" /></a>
                             </div>
-                            <div class="col-md-5">
+                            <div class="col-md-5 col-xs-3">
                                 <a href="{% url 'home:monthly_subscription'%}">{{ topic }}</a>
                             </div>
-                            <div class="col-md-2"><a href="{% url 'home:monthly_subscription'%}">View</a></div>
-                            <div class="col-md-1"><a href="{% url 'home:monthly_subscription'%}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a></div>
-                            <div class="col-md-3" data-toggle="popover" title="Topic Stats" data-content="Video : 0% of 100%     ">
+                            <div class="col-md-2 col-xs-2"><a href="{% url 'home:monthly_subscription'%}">View</a></div>
+                            <div class="col-md-1 col-xs-2"><a href="{% url 'home:monthly_subscription'%}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a></div>
+                            <div class="col-md-3 col-xs-3" data-toggle="popover" title="Topic Stats" data-content="Video : 0% of 100%     ">
                                {%for stat in topic.topicstatus_set.all %}
                                     {%if stat.user == request.user and stat.topic == topic%}
                                         <div class="prgbarin" >
@@ -481,15 +505,15 @@
                     <!--for role 4 users, no access-->
                         <div class ="row line-ht">
                         
-                            <div class="col-md-1">
+                            <div class="col-md-1 col-xs-1">
                                 <a href="{% url 'Courses:topic_details' course.course_title.split|join:'_' topic.topic_number %}"><img src="{% static 'home/images/Movie-icon.jpg' %}" alt="Topic" /></a>
                             </div>
-                            <div class="col-md-5">
+                            <div class="col-md-5 col-xs-3">
                                 <a href="{% url 'Courses:topic_details' course.course_title.split|join:'_' topic.topic_number %}">{{ topic }}</a>
                             </div>
-                            <div class="col-md-2">{%if topic.has_notes == 1 %}<a href="{% url 'Courses:Note' topic.course.course_title.split|join:'_' topic.topic_number %}">View</a>{%else%}---{%endif%}</div>
-                            <div class="col-md-1">{%if topic.has_labs == 1 %}<a href="{% url 'Courses:labs' topic.course.course_title.split|join:'_' topic.topic_number %}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a>{%else%}---{%endif%}</div>
-                            <div class="col-md-3" data-toggle="popover" title="Topic Stats" data-content="Video : 0% of 100%     ">
+                            <div class="col-md-2 col-xs-2">{%if topic.has_notes == 1 %}<a href="{% url 'Courses:Note' topic.course.course_title.split|join:'_' topic.topic_number %}">View</a>{%else%}---{%endif%}</div>
+                            <div class="col-md-1 col-xs-2">{%if topic.has_labs == 1 %}<a href="{% url 'Courses:labs' topic.course.course_title.split|join:'_' topic.topic_number %}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a>{%else%}---{%endif%}</div>
+                            <div class="col-md-3 col-xs-3" data-toggle="popover" title="Topic Stats" data-content="Video : 0% of 100%     ">
                             {%for stat in topic.topicstatus_set.all %}
                             {%if stat.user == request.user and stat.topic == topic%}
                                 <div class="prgbarin" >
@@ -531,15 +555,15 @@
                     <!--for role 6 users, no access topic is not free-->
                     {%if topic.free == 0%}
                      <div class ="row line-ht">
-                    <div class="col-md-1">
+                    <div class="col-md-1 col-xs-1">
                         <a href="{% url 'home:monthly_subscription'%}"><img src="{% static 'home/images/Movie-icon.jpg' %}" alt="Topic" /></a>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-5 col-xs-3">
                         <a href="{% url 'home:monthly_subscription'%}">{{ topic }}</a>
                     </div>
-                    <div class="col-md-2"><a href="{% url 'home:monthly_subscription'%}">View</a></div>
-                    <div class="col-md-1"><a href="{% url 'home:monthly_subscription'%}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a></div>
-                    <div class="col-md-3" data-toggle="popover" title="Topic Stats" data-content="Video : 0% of 100%     ">
+                    <div class="col-md-2 col-xs-2"><a href="{% url 'home:monthly_subscription'%}">View</a></div>
+                    <div class="col-md-1 col-xs-2"><a href="{% url 'home:monthly_subscription'%}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a></div>
+                    <div class="col-md-3 col-xs-3" data-toggle="popover" title="Topic Stats" data-content="Video : 0% of 100%     ">
                        {%for stat in topic.topicstatus_set.all %}
                             {%if stat.user == request.user and stat.topic == topic%}
                                 <div class="prgbarin" >
@@ -576,15 +600,15 @@
                         <div class ="row line-ht">
                         
                         
-                        <div class="col-md-1">
+                        <div class="col-md-1 col-xs-1">
                             <a href="{% url 'Courses:topic_details' course.course_title.split|join:'_' topic.topic_number %}"><img src="{% static 'home/images/Movie-icon.jpg' %}" alt="Topic" /></a>
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-5 col-xs-3">
                             <a href="{% url 'Courses:topic_details' course.course_title.split|join:'_' topic.topic_number %}">{{ topic }}</a>
                         </div>
-                        <div class="col-md-2">{%if topic.has_notes == 1 %}<a href="{% url 'Courses:Note' topic.course.course_title.split|join:'_' topic.topic_number %}">View</a>{%else%}---{%endif%}</div>
-                        <div class="col-md-1">{%if topic.has_labs == 1 %}<a href="{% url 'Courses:labs' topic.course.course_title.split|join:'_' topic.topic_number %}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a>{%else%}---{%endif%}</div>
-                        <div class="col-md-3" data-toggle="popover" title="Topic Stats" data-content="Video : 0% of 100%     ">
+                        <div class="col-md-2 col-xs-2">{%if topic.has_notes == 1 %}<a href="{% url 'Courses:Note' topic.course.course_title.split|join:'_' topic.topic_number %}">View</a>{%else%}---{%endif%}</div>
+                        <div class="col-md-1 col-xs-2">{%if topic.has_labs == 1 %}<a href="{% url 'Courses:labs' topic.course.course_title.split|join:'_' topic.topic_number %}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a>{%else%}---{%endif%}</div>
+                        <div class="col-md-3 col-xs-3" data-toggle="popover" title="Topic Stats" data-content="Video : 0% of 100%     ">
                             {%for stat in topic.topicstatus_set.all %}
                             {%if stat.user == request.user and stat.topic == topic%}
                                 <div class="prgbarin" >
@@ -627,7 +651,6 @@
                              
                 </div>
             </div>
-        </div>      
 
 
 <script type="text/javascript">
