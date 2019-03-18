@@ -736,9 +736,12 @@ def check_subscription_status(request):
         event_json = json.loads(request.body)
         jsonObject = event_json
 
-        output = open("check_subscription.html", "w")
-        output.write(jsonObject)
-        output.close()
+        try:
+            output = open("home/check_subscription.html", "w")
+            output.write(jsonObject)
+            output.close()
+        except IOError:
+            pass
 
         subscription_id = jsonObject['data']['object']['subscription']
         customer_id = jsonObject['data']['object']['customer']
