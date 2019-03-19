@@ -219,7 +219,7 @@ def partime(request):
 
             position = PartTimePostion.objects.get(id=request.POST['position'])
 
-            if request.POST['high_salary'] == 1:
+            if request.POST['high_salary'] == '1':
                 high = 'Yes'
             else:
                 high = 'No'
@@ -236,7 +236,7 @@ def partime(request):
 
             \n\nDo you understand our mission and is this a challenge that you are willing to take on? Are you still interested in this role?
 
-            \n\n If so visit this link to and click the yes button: """+ settings.ENV_URL+"""jobs/challenge/ \n
+            \n\n If so visit this link to login, if you dont have an account, register here: """+ settings.ENV_URL+"""  and click the yes button: """+ settings.ENV_URL+"""jobs/challenge/ \n
             Best Regards,.\n\n Thanks & Regards \n Linuxjobber"""
 
             send_mail('Linuxjobber Newsletter', message, settings.EMAIL_HOST_USER, [request.POST['email']])
@@ -250,6 +250,7 @@ def partime(request):
     form = PartimeApplicationForm()
     return render(request, 'home/partime.html', {'form': form})
 
+@login_required
 def jobchallenge(request, respon=None):
     if respon:
         message = """ 
@@ -736,9 +737,12 @@ def check_subscription_status(request):
         event_json = json.loads(request.body)
         jsonObject = event_json
 
-        output = open("check_subscription.html", "w")
-        output.write(jsonObject)
-        output.close()
+        try:
+            output = open("home/check_subscription.html", "w")
+            output.write(jsonObject)
+            output.close()
+        except IOError:
+            pass
 
         subscription_id = jsonObject['data']['object']['subscription']
         customer_id = jsonObject['data']['object']['customer']
