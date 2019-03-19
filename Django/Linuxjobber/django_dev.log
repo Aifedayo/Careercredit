@@ -3511,3 +3511,128 @@ stripe.error.InvalidRequestError: Request req_eCpMavctvDR1XH: You cannot use a S
 [2019-03-18 21:16:07] INFO [django.channels.server.log_action:141] [mHTTP GET /jobs/parttime/apply 200 [0.82, 127.0.0.1:59330][0m
 [2019-03-18 21:16:32] INFO [django.channels.server.log_action:147] [32mHTTP POST /jobs/parttime/apply 302 [0.22, 127.0.0.1:59330][0m
 [2019-03-18 21:16:32] INFO [django.channels.server.log_action:141] [mHTTP GET /jobs/feedback 200 [0.15, 127.0.0.1:59330][0m
+[2019-03-19 14:18:54] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [0.96, 127.0.0.1:34554][0m
+[2019-03-19 14:18:55] INFO [django.channels.server.log_action:141] [mHTTP GET /static/faq/js/jquery-2.1.1.js 200 [0.28, 127.0.0.1:34554][0m
+[2019-03-19 14:18:55] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/logo.png 304 [0.24, 127.0.0.1:34560][0m
+[2019-03-19 14:18:56] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/jobphone.png 304 [0.21, 127.0.0.1:34560][0m
+[2019-03-19 14:18:56] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/homelive.png 304 [0.09, 127.0.0.1:34554][0m
+[2019-03-19 14:18:56] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/testi.png 304 [0.03, 127.0.0.1:34554][0m
+[2019-03-19 14:18:57] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs/homebanner.png 200 [0.64, 127.0.0.1:34566][0m
+[2019-03-19 14:19:21] INFO [django.channels.server.log_action:141] [mHTTP GET /jobs/challenge/ 200 [0.32, 127.0.0.1:34566][0m
+[2019-03-19 14:19:44] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /jobs/challenge/yes/
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mololuwa/Desktop/linuxjobber/Django/Linuxjobber/home/views.py", line 273, in jobchallenge
+    send_mail('Linuxjobber Job Challenge', message, settings.EMAIL_HOST_USER, [request.user.email])
+  File "/usr/lib/python3.6/site-packages/django/utils/functional.py", line 216, in inner
+    return func(self._wrapped, *args)
+AttributeError: 'AnonymousUser' object has no attribute 'email'
+[2019-03-19 14:19:45] ERROR [django.channels.server.log_action:154] [35;1mHTTP GET /jobs/challenge/yes/ 500 [0.37, 127.0.0.1:34566][0m
+[2019-03-19 14:19:46] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-03-19 14:19:46] WARNING [django.channels.server.log_action:149] [33mHTTP GET /favicon.ico 404 [0.08, 127.0.0.1:34566][0m
+[2019-03-19 14:21:14] INFO [django.channels.server.log_action:147] [32mHTTP GET /jobs/challenge/yes/ 302 [0.68, 127.0.0.1:34596][0m
+[2019-03-19 14:21:15] INFO [django.channels.server.log_action:141] [mHTTP GET /login/?next=/jobs/challenge/yes/ 200 [0.69, 127.0.0.1:34596][0m
+[2019-03-19 14:21:15] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/styles.css 304 [0.01, 127.0.0.1:34596][0m
+[2019-03-19 14:21:15] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/imgback.jpg 200 [0.09, 127.0.0.1:34596][0m
+[2019-03-19 14:21:25] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [0.24, 127.0.0.1:34596][0m
+[2019-03-19 14:30:59] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/django/urls/base.py", line 75, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+KeyError: 'courses'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mololuwa/Desktop/linuxjobber/Django/Linuxjobber/home/views.py", line 52, in index
+    return render (request, 'home/index2.html')
+  File "/usr/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/usr/lib/python3.6/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/usr/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/lib/python3.6/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/usr/lib/python3.6/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/usr/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/usr/lib/python3.6/site-packages/django/template/loader_tags.py", line 155, in render
+    return compiled_parent._render(context)
+  File "/usr/lib/python3.6/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/usr/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/usr/lib/python3.6/site-packages/django/template/loader_tags.py", line 67, in render
+    result = block.nodelist.render(context)
+  File "/usr/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/usr/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/usr/lib/python3.6/site-packages/django/template/defaulttags.py", line 447, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/lib/python3.6/site-packages/django/urls/base.py", line 86, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'courses' is not a registered namespace
+[2019-03-19 14:30:59] ERROR [django.channels.server.log_action:154] [35;1mHTTP GET / 500 [1.26, 127.0.0.1:34664][0m
+[2019-03-19 14:31:10] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [0.24, 127.0.0.1:34664][0m
+[2019-03-19 14:31:13] INFO [django.channels.server.log_action:141] [mHTTP GET /static/favicon.ico 200 [0.03, 127.0.0.1:34664][0m
+[2019-03-19 14:31:18] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/userinterest 200 [0.19, 127.0.0.1:34664][0m
+[2019-03-19 14:31:19] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/lin-logo.png 304 [0.04, 127.0.0.1:34664][0m
+[2019-03-19 14:31:19] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/button-left.png 304 [0.05, 127.0.0.1:34674][0m
+[2019-03-19 14:31:19] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/rchsaa.png 304 [0.04, 127.0.0.1:34678][0m
+[2019-03-19 14:31:19] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/ppt.png 304 [0.05, 127.0.0.1:34676][0m
+[2019-03-19 14:31:19] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/jjava.png 304 [0.05, 127.0.0.1:34680][0m
+[2019-03-19 14:31:19] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/amazons.png 304 [0.06, 127.0.0.1:34682][0m
+[2019-03-19 14:31:19] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/csecurity.png 304 [0.03, 127.0.0.1:34674][0m
+[2019-03-19 14:31:19] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/ajs.png 304 [0.03, 127.0.0.1:34680][0m
+[2019-03-19 14:31:19] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/biz.png 304 [0.04, 127.0.0.1:34676][0m
+[2019-03-19 14:31:19] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/dba.png 304 [0.04, 127.0.0.1:34682][0m
+[2019-03-19 14:31:19] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/py.png 304 [0.02, 127.0.0.1:34678][0m
+[2019-03-19 14:31:19] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs//list-bg.png 200 [0.03, 127.0.0.1:34676][0m
+[2019-03-19 14:31:23] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [0.78, 127.0.0.1:34676][0m
+[2019-03-19 14:31:38] INFO [django.channels.server.log_action:141] [mHTTP GET /resumeservice 200 [0.23, 127.0.0.1:34676][0m
+[2019-03-19 14:31:38] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/lady.png 200 [0.05, 127.0.0.1:34676][0m
+[2019-03-19 14:31:38] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/how_works.jpg 200 [0.05, 127.0.0.1:34678][0m
+[2019-03-19 14:31:38] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/prcar.png 200 [0.05, 127.0.0.1:34664][0m
+[2019-03-19 14:31:38] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/lpgu.png 200 [0.06, 127.0.0.1:34674][0m
+[2019-03-19 14:31:38] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/left_icon.png 200 [0.05, 127.0.0.1:34678][0m
+[2019-03-19 14:31:38] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/uusr.png 200 [0.09, 127.0.0.1:34680][0m
+[2019-03-19 14:31:38] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/uprs.png 200 [0.11, 127.0.0.1:34682][0m
+[2019-03-19 14:31:38] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/right_icon.png 200 [0.07, 127.0.0.1:34676][0m
+[2019-03-19 14:31:38] WARNING [django.channels.server.log_action:149] [33mHTTP GET /static/home/css/newhomepage/img/bg_line_h.png 404 [0.03, 127.0.0.1:34682][0m
+[2019-03-19 14:31:38] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/img/con_bg.jpg 200 [0.05, 127.0.0.1:34676][0m
+[2019-03-19 14:31:38] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newdesigner/fonts/gothamrnd-bold.ttf 200 [0.06, 127.0.0.1:34680][0m
+[2019-03-19 14:31:40] INFO [django.channels.server.log_action:147] [32mHTTP GET /resumeservice/pay 302 [0.02, 127.0.0.1:34680][0m
+[2019-03-19 14:31:40] INFO [django.channels.server.log_action:141] [mHTTP GET /login/?next=/resumeservice/pay 200 [0.02, 127.0.0.1:34680][0m
+[2019-03-19 14:31:49] INFO [django.channels.server.log_action:147] [32mHTTP POST /login/?next=/resumeservice/pay 302 [2.73, 127.0.0.1:34680][0m
+[2019-03-19 14:31:49] INFO [django.channels.server.log_action:141] [mHTTP GET /resumeservice/pay 200 [0.66, 127.0.0.1:34680][0m
+[2019-03-19 14:31:49] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/logout1.png 304 [0.01, 127.0.0.1:34680][0m
+[2019-03-19 14:31:49] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/images/icon1.png 304 [0.01, 127.0.0.1:34680][0m
+[2019-03-19 14:32:00] INFO [django.channels.server.log_action:141] [mHTTP GET /home/packages 200 [0.39, 127.0.0.1:34680][0m
+[2019-03-19 14:32:00] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/images/server_bg.jpg 200 [0.03, 127.0.0.1:34680][0m
+[2019-03-19 14:32:04] INFO [django.channels.server.log_action:141] [mHTTP GET /access_course 200 [0.29, 127.0.0.1:34680][0m
+[2019-03-19 14:33:06] INFO [django.channels.server.log_action:141] [mHTTP GET /access_course 200 [0.35, 127.0.0.1:34712][0m
+[2019-03-19 14:33:11] INFO [django.channels.server.log_action:141] [mHTTP GET /resumeservice 200 [0.21, 127.0.0.1:34712][0m
+[2019-03-19 14:33:12] WARNING [django.channels.server.log_action:149] [33mHTTP GET /static/home/css/newhomepage/img/bg_line_h.png 404 [0.02, 127.0.0.1:34712][0m
+[2019-03-19 14:33:13] INFO [django.channels.server.log_action:141] [mHTTP GET /resumeservice/pay 200 [0.26, 127.0.0.1:34712][0m
+[2019-03-19 14:33:50] INFO [django.channels.server.log_action:141] [mHTTP GET /resumeservice/pay 200 [0.26, 127.0.0.1:34712][0m
+[2019-03-19 14:33:58] INFO [django.channels.server.log_action:141] [mHTTP GET /static/favicon.ico 200 [0.10, 127.0.0.1:34712][0m
+[2019-03-19 14:34:12] INFO [django.channels.server.log_action:141] [mHTTP GET /resumeservice/pay 200 [0.46, 127.0.0.1:34712][0m
+[2019-03-19 14:34:13] INFO [django.channels.server.log_action:141] [mHTTP GET /static/favicon.ico 200 [0.02, 127.0.0.1:34712][0m

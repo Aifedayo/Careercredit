@@ -236,7 +236,7 @@ def partime(request):
 
             \n\nDo you understand our mission and is this a challenge that you are willing to take on? Are you still interested in this role?
 
-            \n\n If so visit this link to and click the yes button: """+ settings.ENV_URL+"""jobs/challenge/ \n
+            \n\n If so visit this link to login, if you dont have an account, register here: """+ settings.ENV_URL+"""  and click the yes button: """+ settings.ENV_URL+"""jobs/challenge/ \n
             Best Regards,.\n\n Thanks & Regards \n Linuxjobber"""
 
             send_mail('Linuxjobber Newsletter', message, settings.EMAIL_HOST_USER, [request.POST['email']])
@@ -250,6 +250,7 @@ def partime(request):
     form = PartimeApplicationForm()
     return render(request, 'home/partime.html', {'form': form})
 
+@login_required
 def jobchallenge(request, respon=None):
     if respon:
         message = """ 
