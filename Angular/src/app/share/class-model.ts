@@ -3,6 +3,7 @@ export class ClassModel {
   course:string;
   name:string;
   users=[];
+  video_required:boolean
   constructor(){
 
   }

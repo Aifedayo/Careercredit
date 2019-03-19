@@ -1,0 +1,75 @@
+  <header class="scroll-hide" *ngIf="user$|async as user">
+      <div class="navbar-fixed">
+        <nav class="navbar white">
+          <div class="nav-wrapper"><a class="brand-logo grey-text text-darken-4">Settings</a>
+            <ul id="nav-mobile" class="right">
+              <li class="hide-on-med-and-down" *ngIf="group$|async as _group">{{ _group.name }} </li>
+              <li class="hide-on-med-and-down"><a class="dropdown-trigger" (click)="openClasses()" data-target="chat-dropdown" id="sclass" ><i class="material-icons">class</i></a></li>
+              <li><a  data-target="chat-dropdown" class="dropdown-trigger waves-effect"><i class="material-icons">settings</i></a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <ul id="sidenav-left" class="sidenav sidenav-fixed" style="padding-top: 16px">
+        <li><a  class="logo-container"><img  class="responsive-img" src="assets/image/Final-Logo.png"  height="50px" alt=""></a></li>
+        <li class="no-padding">
+          <ul class="collapsible collapsible-accordion">
+            <li class="bold waves-effect"><a  [routerLink]="['./classes']" class="collapsible-header">Classes<i class="material-icons chevron">chevron_left</i></a>
+
+            </li>
+
+            <li class="bold waves-effect"><a [routerLink]="['./profile']" class="collapsible-header">Profile<i class="material-icons chevron">chevron_left</i></a>
+
+            </li>
+            <li class="bold waves-effect"><a [routerLink]="['./students']" class="collapsible-header">Students<i class="material-icons chevron">chevron_left</i></a>
+
+            </li>
+            <li *ngIf="user.role == 2" class="bold waves-effect"><a [routerLink]="['./settings']" class="collapsible-header">Settings<i class="material-icons chevron">chevron_left</i></a>
+
+            </li>
+            <li class="bold waves-effect active"><a (click)="logout()" class="collapsible-header">Logout<i class="material-icons chevron">settings</i></a>
+
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <div id="chat-dropdown" class="dropdown-content dropdown-tabbed">
+        <ul class="tabs tabs-fixed-width">
+          <li class="tab col s3"><a href="#settings">Settings</a></li>
+          <li class="tab col s3"><a href="#friends" class="active">Friends</a></li>
+        </ul>
+        <div id="settings" class="col s12">
+          <div class="settings-group">
+            <div class="setting">Night Mode
+              <div class="switch right">
+                <label>
+                  <input type="checkbox"><span class="lever"></span>
+                </label>
+              </div>
+            </div>
+            <div class="setting">Beta Testing
+              <label class="right">
+                <input type="checkbox"><span></span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div id="friends" class="col s12">
+          <ul class="collection flush">
+            <li class="collection-item avatar">
+              <div class="badged-circle online"><img src="../../cdn.shopify.com/s/files/1/1775/8583/t/1/assets/portrait10e4f.jpg?7262588947120957653" alt="avatar" class="circle"></div><span class="title">Jane Doe</span>
+              <p class="truncate">Lo-fi you probably haven't heard of them</p>
+            </li>
+            <li class="collection-item avatar">
+              <div class="badged-circle"><img src="../../cdn.shopify.com/s/files/1/1775/8583/t/1/assets/portrait20e4f.jpg?7262588947120957653" alt="avatar" class="circle"></div><span class="title">John Chang</span>
+              <p class="truncate">etsy leggings raclette kickstarter four dollar toast</p>
+            </li>
+            <li class="collection-item avatar">
+              <div class="badged-circle"><img src="../../cdn.shopify.com/s/files/1/1775/8583/t/1/assets/portrait30e4f.jpg?7262588947120957653" alt="avatar" class="circle"></div><span class="title">Lisa Simpson</span>
+              <p class="truncate">Raw denim fingerstache food truck chia health goth synth</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
