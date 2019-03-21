@@ -250,6 +250,7 @@ def partime(request):
     form = PartimeApplicationForm()
     return render(request, 'home/partime.html', {'form': form})
 
+
 @login_required
 def jobchallenge(request, respon=None):
     if respon:
