@@ -3,6 +3,7 @@ import subprocess
 import sys
 import zipfile
 import logging
+import time
 
 from os import fdopen, remove
 from shutil import move
@@ -10,12 +11,21 @@ from tempfile import mkstemp
 
 import selenium
 import selenium.webdriver
+from selenium.webdriver.firefox.options import Options
+
+
+
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from selenium.webdriver.support.ui import Select
+
+
+
+
+
 import django
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 
 from Courses.models import *
-
-#from selenium import webdriver
 
 os.environ.setdefault("_SETTINGS_MODULE","server.settings")
 
@@ -28,36 +38,102 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 APPLICATION_DIR = os.path.join(BASE_DIR, 'Courses')
 PROJECT_DIR = os.path.join(BASE_DIR, 'Linuxjobber')
 PROJECT_MEDIA_DIR = os.path.join(BASE_DIR, 'media/uploads') # Directory that contains projects media
-MEDIA_DIR = os.path.join(APPLICATION_DIR, 'media') #Directory that contains media exclucive to DjangoLabs Application
+DJANGO_LAB_SUB_DIR = os.path.join(APPLICATION_DIR, 'utils/DjangoLabSubmissions/') #Directory that contains media exclucive to DjangoLabs Application
 VERYFD_BASE_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))),'veryfd') #Project to install students application 
 VERYFD_PROJECT_DIR = os.path.join(VERYFD_BASE_DIR, 'veryfd') #Verifyd project directory containing the settings.py and urls.py
 
 ############################################################################################################################################################
 
+#REQUIREMENT_TEXT = 'Django==2.0\ngunicorn==19.9.0\nmysqlclient==1.3.12\n'
+REQUIREMENT_TEXT = 'Django==2.0\n'
 
-VERYFD_ADDRESS = 'http://127.0.0.1:8005/'
 
-os.environ['PATH'] += ':' + PROJECT_DIR + '__init__.py'
 
 #--------------------------------------------------------------------------------------------------------
 #FUNCTIONS
 #--------------------------------------------------------------------------------------------------------
-def replace(file_path, pattern, subst):
-	fh, abs_path = mkstemp()
-	with fdopen(fh,'w') as new_file:
-		with open(file_path) as old_file:
-			for line in old_file:
-				new_file.write(line.replace(pattern,subst))
-	remove(file_path)
-	move(abs_path, file_path)
 
-def save_grade(lab_number, mark, current_user, grade):
-	course_topic = CourseTopic.objects.get(topic_number = lab_number, course_id = 1)
-	report = GradesReport(score = str(mark), course_topic = course_topic, user_id = current_user.id, grade = str(grade))
-	report.save()
+def check_if_upload_is_django_project(EXTRACT_LOCATION, user):
+	flag=0
+	for root, dirs, files in os.walk(EXTRACT_LOCATION):
+		for dirname in dirs:
+			if dirname == 'myscrumy':
+				flag+=1
+		for dirname in dirs:
+			if dirname == user + 'scrumy':
+				flag+=1
+		for file in files:
+			if file.endswith('dmin.py') or file.endswith('odels.py') or file.endswith('iews.py') or file.endswith('ests.py') or file.endswith('pps.py') or file.endswith('settings.py') or file.endswith('manage.py'):
+				flag+=1
+		for file in files:
+			if file.endswith('urls.py'):
+				flag+= 1
+	if flag > 9:
+		return(True)
+	else:
+		return(False)
+
+
+
+def save_grade(lab_number, current_user, result):
+	try:
+		course_topic = CourseTopic.objects.get(topic_number = lab_number, course__course_title = 'Django')
+
+		i=0
+		GradesReport.objects.filter(user=current_user,course_topic=course_topic).delete()
+		for key,value in result.items():
+			i+=1
+			task=LabTask.objects.get(task_number=i, lab__topic_number=lab_number)
+			if value=='done':
+				report = GradesReport(score = 1, course_topic=course_topic, user=current_user, grade='passed', lab=task)
+				report.save()
+			else:
+				report = GradesReport(score = 0, course_topic=course_topic, user=current_user, grade='failed', lab=task)
+				report.save()
+	except Exception as e:
+		print(e)
+
+
+
+	#report = GradesReport(score = str(mark), course_topic=course_topic, user=current_user, grade=str(grade), lab=lab)
+	#report.save()
 	#print('saved grade')
 
 
+def create_docker_file(EXTRACT_LOCATION,PORT,USERNAME):
+
+	DOCKER_CONFIG = {
+		'LINE_1':'FROM python:3.6\n',
+		'LINE_2':'MAINTAINER '+USERNAME+'\n',
+		'LINE_3':'ADD . '+EXTRACT_LOCATION+'/myscrumy'+'\n',
+		'LINE_4':'WORKDIR '+EXTRACT_LOCATION+'/myscrumy'+'\n',
+		'LINE_5':'COPY requirements.txt ./'+'\n',
+		'LINE_6':'RUN pip install --no-cache-dir -r requirements.txt'+'\n',
+		'LINE_7':'EXPOSE '+str(PORT)+'\n',
+		'LINE_8':'CMD [ "python", "./manage.py", "runserver", "0.0.0.0:'+str(PORT)+'" ]',
+	}
+
+	try:
+		with open(os.path.join(EXTRACT_LOCATION,'myscrumy/Dockerfile'),'w') as dock:
+			for key,value in DOCKER_CONFIG.items():
+				dock.write(value)
+	except Exception as e:
+		print(e)
+
+def stop_and_remove_docker_container(USERNAME,LAB_NUMBER):
+	try:
+		subprocess.run(["sudo","docker","stop",USERNAME+"scrumy_"+LAB_NUMBER]) #stop container
+		subprocess.run(["sudo","docker","rm",USERNAME+"scrumy_"+LAB_NUMBER]) #remove container
+	except Exception as e:
+		print(e)
+
+
+def build_and_run_docker(USERNAME,LAB_NUMBER,PORT):
+	try:
+		subprocess.run(["sudo","docker","build","-t",USERNAME+"scrumy_img","."]) #Build docker image
+		subprocess.run(["sudo","docker","run","--name="+USERNAME+"scrumy_"+LAB_NUMBER,"-d","-p",PORT+":"+PORT,USERNAME+"scrumy_img"]) #run docker image
+	except Exception as e:
+		print(e)
 #-------------------------------------------------------------------------------------------------------
 
 
@@ -74,1279 +150,1630 @@ dbalogger = logging.getLogger('dba')
 
 
 
-def grade_django_lab20(file, lab_number, current_user):
+def grade_django_lab20(file, lab_number, current_user, topic, course):
+	error = {
+		'error_msg':'',
+	}
+	if file.name.endswith('myscrumy.zip') and file.name.startswith('myscrumy'):
+
+		EXTRACT_LOCATION = DJANGO_LAB_SUB_DIR+current_user.username+'_'+str(lab_number)
 
 
-	try:
-		lab19 = CourseTopic.objects.get(topic_number = 19)
-		check_lab19_status = ''
-		check_lab19_status = GradesReport.objects.get(course_topic_id = lab19, user_id = current_user, grade = 'Passed')
-	except ObjectDoesNotExist:
-		check_lab19_status = ''
-	except MultipleObjectsReturned:
-		check_lab19_status = 'MultipleObjects'
-	
-	file_upload = ''
-	xpected_app_name = current_user.username + 'scrumy'
-	grade = ''
-	mark = 0
-	file_name = ''
+		result = {
+			'task_one_status' : 'undone',
+			'task_two_status' : 'undone',
+			'task_three_status' : 'undone',
+		}
 
-	if file.name.endswith('.zip'):
-		file_upload = os.path.join(PROJECT_MEDIA_DIR, current_user.username + '_' + str(lab_number) + '.zip')
-		file_name = file.name.split('-')[1]
-	elif file.name.endswith('.gz'):
-		file_upload = os.path.join(PROJECT_MEDIA_DIR, current_user.username + '_' + str(lab_number) + '.gz')
-		file_name = file.name.split('-')[1]
-	else:
-		file_name = ''
-
-
-	if check_lab19_status != '' or check_lab19_status == 'MultipleObjects':
-		if xpected_app_name == file_name:
-			dp = 0
-			try:
-				subprocess.call([sys.executable, "-m", "pip", "install", file_upload])
-			except Exception as e:
-				dp += 1
-			finally:
-				os.remove(file_upload)
-			
-			if dp < 1:
-				options = webdriver.ChromeOptions()
-				options.add_argument("headless")
-				driver = webdriver.Chrome(chrome_options = options)
-				try:
-					driver.get(VERYFD_ADDRESS+xpected_app_name)
-					fname = driver.find_element_by_name('first_name').get_attribute('name')
-					lname = driver.find_element_by_name('last_name').get_attribute('name')
-					email = driver.find_element_by_name('email').get_attribute('name')
-					uname = driver.find_element_by_name('username').get_attribute('name')
-					pword = driver.find_element_by_name('password').get_attribute('name')
-				except Exception as e:
-					print (e)
-				if fname.startswith('first') and lname.startswith('last') and email.startswith('emai') and uname.startswith('user') and pword.startswith('passw'):
-					grade = "Passed"
-					mark = 100
-				else:
-					print('Failed')
-					grade = 'Failed'
-					mark = 0
-				save_grade(lab_number, mark, current_user, grade)
-				return(grade)
-			else:
-
-				return('Something went wrong please try again')
+		try:
+			zfile = zipfile.ZipFile(file) 
+		except zipfile.BadZipfile as ex:
+			error['error_msg']='The file you uploaded is a bad zipfile or not a zipfile'
+			return(error)
 		else:
-			os.remove(file_upload)
-			return("The name of the file you are submitting should be of the format 'django-your linuxjobber username+scrumy-x.x' where x is an integer value and - is an hyphen")
-	else:
-		os.remove(file_upload)
-		return('You have not completed Lab 18 please do so to procede with this lab')
 
-
-def grade_django_lab19(file, lab_number, current_user):
-
-
-	try:
-		lab18 = CourseTopic.objects.get(topic_number = 18)
-		check_lab18_status = ''
-		check_lab18_status = GradesReport.objects.get(course_topic_id = lab18, user_id = current_user, grade = 'Passed')
-	except ObjectDoesNotExist:
-		check_lab18_status = ''
-	except MultipleObjectsReturned:
-		check_lab18_status = 'MultipleObjects'
-	
-	file_upload = ''
-	xpected_app_name = current_user.username + 'scrumy'
-	grade = ''
-	mark = 0
-	file_name = ''
-
-	if file.name.endswith('.zip'):
-		file_upload = os.path.join(PROJECT_MEDIA_DIR, current_user.username + '_' + str(lab_number) + '.zip')
-		file_name = file.name.split('-')[1]
-	elif file.name.endswith('.gz'):
-		file_upload = os.path.join(PROJECT_MEDIA_DIR, current_user.username + '_' + str(lab_number) + '.gz')
-		file_name = file.name.split('-')[1]
-	else:
-		file_name = ''
-
-
-	if check_lab18_status != '' or check_lab18_status == 'MultipleObjects':
-		if xpected_app_name == file_name:
-			dp = 0
-			try:
-				subprocess.call([sys.executable, "-m", "pip", "install", file_upload])
-			except Exception as e:
-				dp += 1
-			finally:
-				os.remove(file_upload)
-			
-			if dp < 1:
-				options = webdriver.ChromeOptions()
-				options.add_argument("headless")
-				driver = webdriver.Chrome(chrome_options = options)
-				try:
-					driver.get(VERYFD_ADDRESS+xpected_app_name)
-					fname = driver.find_element_by_name('first_name').get_attribute('name')
-					lname = driver.find_element_by_name('last_name').get_attribute('name')
-					email = driver.find_element_by_name('email').get_attribute('name')
-					uname = driver.find_element_by_name('username').get_attribute('name')
-					pword = driver.find_element_by_name('password').get_attribute('name')
-
-					driver.get(VERYFD_ADDRESS+xpected_app_name+'/home')
-					driver.find_element_by_xpath('//a').click()
-					gname = driver.find_element_by_name('goal_name').get_attribute('name')
-					user = driver.find_element_by_name('user').get_attribute('name')
-
-				except Exception as e:
-					print (e)
-				if fname.startswith('first') and lname.startswith('last') and email.startswith('emai') and uname.startswith('user') and pword.startswith('passw') and gname.startswith('goal') and user.startswith('us'):
-					grade = "Passed"
-					mark = 100
-				else:
-					print('Failed')
-					grade = 'Failed'
-					mark = 0
-				save_grade(lab_number, mark, current_user, grade)
-				return(grade)
+			'''
+				Checks through the entire achive of the opened zifile to pick out any bad member of the achive
+			'''
+			ret = zfile.testzip()
+			if ret is not None:
+				error['error_msg']='A file in the zip achive is corrupt'
+				return(error)
 			else:
-
-				return('Something went wrong please try again')
-		else:
-			os.remove(file_upload)
-			return("The name of the file you are submitting should be of the format 'django-your linuxjobber username+scrumy-x.x' where x is an integer value and - is an hyphen")
-	else:
-		os.remove(file_upload)
-		return('You have not completed Lab 18 please do so to procede with this lab')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def grade_django_lab18(file, lab_number, current_user):
-
-
-	try:
-		lab17 = CourseTopic.objects.get(topic_number = 17)
-		check_lab17_status = ''
-		check_lab17_status = GradesReport.objects.get(course_topic_id = lab17, user_id = current_user, grade = 'Passed')
-	except ObjectDoesNotExist:
-		check_lab17_status = ''
-	except MultipleObjectsReturned:
-		check_lab17_status = 'MultipleObjects'
-	
-	file_upload = ''
-	xpected_app_name = current_user.username + 'scrumy'
-	grade = ''
-	mark = 0
-	file_name = ''
-
-	if file.name.endswith('.zip'):
-		file_upload = os.path.join(PROJECT_MEDIA_DIR, current_user.username + '_' + str(lab_number) + '.zip')
-		file_name = file.name.split('-')[1]
-	elif file.name.endswith('.gz'):
-		file_upload = os.path.join(PROJECT_MEDIA_DIR, current_user.username + '_' + str(lab_number) + '.gz')
-		file_name = file.name.split('-')[1]
-	else:
-		file_name = ''
-
-
-	if check_lab17_status != '' or check_lab17_status == 'MultipleObjects':
-		if xpected_app_name == file_name:
-			dp = 0
-			try:
-				subprocess.call([sys.executable, "-m", "pip", "install", file_upload])
-			except Exception as e:
-				dp += 1
-			finally:
-				os.remove(file_upload)
-			
-			if dp < 1:
-				options = webdriver.ChromeOptions()
-				options.add_argument("headless")
-				driver = webdriver.Chrome(chrome_options = options)
-				csrf_t = ''
-				try:
-					driver.get(VERYFD_ADDRESS+xpected_app_name+'/accounts/login')
-					form_method = driver.find_element_by_xpath('//form').get_attribute('method')
-					csrf_t = driver.find_element_by_name('csrfmiddlewaretoken').get_attribute('type')
-				except Exception as e:
-					print (e)
-				if form_method == 'post' or form_method == 'POST' or form_method == 'Post' and csrf_t == 'hidden':
-					grade = "Passed"
-					mark = 100
-				else:
-					print('Failed')
-					grade = 'Failed'
-					mark = 0
-				save_grade(lab_number, mark, current_user, grade)
-				return(grade)
-			else:
-
-				return('Something went wrong please try again')
-		else:
-			os.remove(file_upload)
-			return("The name of the file you are submitting should be of the format 'django-your linuxjobber username+scrumy-x.x' where x is an integer value and - is an hyphen")
-	else:
-		os.remove(file_upload)
-		return('You have not completed Lab 17 please do so to procede with this lab')
-
-
-
-
-def grade_django_lab17(file, lab_number, current_user):
-	try:
-		lab16 = CourseTopic.objects.get(topic_number = 16)
-		check_lab16_status = ''
-		check_lab16_status = GradesReport.objects.get(course_topic_id = lab16, user_id = current_user, grade = 'Passed')
-	except ObjectDoesNotExist:
-		check_lab16_status = ''
-	except MultipleObjectsReturned:
-		check_lab16_status = 'MultipleObjects'		
-	
-	file_upload = ''
-	xpected_app_name = current_user.username + 'scrumy'
-	grade = ''
-	mark = 0
-	file_name = ''
-
-	if file.name.endswith('.zip'):
-		file_upload = os.path.join(PROJECT_MEDIA_DIR, current_user.username + '_' + str(lab_number) + '.zip')
-		file_name = file.name.split('-')[1]
-	elif file.name.endswith('.gz'):
-		file_upload = os.path.join(PROJECT_MEDIA_DIR, current_user.username + '_' + str(lab_number) + '.gz')
-		file_name = file.name.split('-')[1]
-	else:
-		file_name = ''
-
-
-	if check_lab16_status != '' or check_lab16_status == 'MultipleObjects':
-		if xpected_app_name == file_name:
-			dp = 0
-			try:
-				subprocess.call([sys.executable, "-m", "pip", "install", file_upload])
-			except Exception as e:
-				dp += 1
-			finally:
-				os.remove(file_upload)
-			
-			if dp < 1:
-				options = webdriver.ChromeOptions()
-				options.add_argument("headless")
-				driver = webdriver.Chrome(chrome_options = options)
-				html = ''
-				try:
-					driver.get(VERYFD_ADDRESS+xpected_app_name+'/accounts/login')
-					html = driver.find_element_by_xpath('//a')
-					check = html.get_attribute('innerHTML')
-					html.click()
-				except Exception as e:
-					print (e)
-				if html != '':
-					grade = "Passed"
-					mark = 100
-				else:
-					print('Failed')
-					grade = 'Failed'
-					mark = 0
-				save_grade(lab_number, mark, current_user, grade)
-				return(grade)
-			else:
-
-				return('Something went wrong please try again')
-		else:
-			os.remove(file_upload)
-			return("The name of the file you are submitting should be of the format 'django-your linuxjobber username+scrumy-x.x' where x is an integer value and - is an hyphen")
-	else:
-		os.remove(file_upload)
-		return('You have not completed Lab 16 please do so to procede with this lab')
-
-
-
-
-
-def grade_django_lab16(file, lab_number, current_user):
-
-	try:
-		lab15 = CourseTopic.objects.get(topic_number = 15)
-		check_lab15_status = ''
-		check_lab15_status = GradesReport.objects.get(course_topic_id = lab15, user_id = current_user, grade = 'Passed')
-	except ObjectDoesNotExist:
-		check_lab15_status = ''
-	except MultipleObjectsReturned:
-		check_lab15_status = 'MultipleObjects'		
-	
-	file_upload = ''
-	xpected_app_name = current_user.username + 'scrumy'
-	grade = ''
-	mark = 0
-	file_name = ''
-
-	if file.name.endswith('.zip'):
-		file_upload = os.path.join(PROJECT_MEDIA_DIR, current_user.username + '_' + str(lab_number) + '.zip')
-		file_name = file.name.split('-')[1]
-	elif file.name.endswith('.gz'):
-		file_upload = os.path.join(PROJECT_MEDIA_DIR, current_user.username + '_' + str(lab_number) + '.gz')
-		file_name = file.name.split('-')[1]
-	else:
-		file_name = ''
-
-
-	if check_lab15_status != '' or check_lab15_status == 'MultipleObjects':
-		if xpected_app_name == file_name:
-			dp = 0
-			try:
-				subprocess.call([sys.executable, "-m", "pip", "install", file_upload])
-			except Exception as e:
-				dp += 1
-			finally:
-				os.remove(file_upload)
-			
-			if dp < 1:
-				options = webdriver.ChromeOptions()
-				options.add_argument("headless")
-				driver = webdriver.Chrome(chrome_options = options)
-				verify_goal_find_split = []
-				done_goal_find_split = []
-				verify_goal_find = ''
-				done_goal_find = ''
-				try:
-					driver.get(VERYFD_ADDRESS+xpected_app_name+'/home')
-					verify_goal_find = driver.find_element_by_xpath("//tr[2]/td[4]").get_attribute('innerHTML')
-					done_goal_find = driver.find_element_by_xpath("//tr[2]/td[5]").get_attribute('innerHTML')
-					verify_goal_find_split = verify_goal_find.split('T')
-					done_goal_find_split = done_goal_find.split('T')
-				except Exception as e:
-					print (e)
-				if verify_goal_find_split[1].startswith('est') and done_goal_find_split[1].startswith('est'):
-					grade = "Passed"
-					mark = 100
-				else:
-					print('Failed')
-					grade = 'Failed'
-					mark = 0
-				save_grade(lab_number, mark, current_user, grade)
-				return(grade)
-			else:
-
-				return('Something went wrong please try again')
-		else:
-			os.remove(file_upload)
-			return("The name of the file you are submitting should be of the format 'django-your linuxjobber username+scrumy-x.x' where x is an integer value and - is an hyphen")
-	else:
-		os.remove(file_upload)
-		return('You have not completed Lab 15 please do so to procede with this lab')
-
-
-
-
-
-
-def grade_django_lab15(file, lab_number, current_user):
-
-	try:
-		lab14 = CourseTopic.objects.get(topic_number = 14)
-		check_lab14_status = ''
-		check_lab14_status = GradesReport.objects.get(course_topic_id = lab14, user_id = current_user, grade = 'Passed')
-	except ObjectDoesNotExist:
-		check_lab14_status = ''
-	except MultipleObjectsReturned:
-		check_lab14_status = 'MultipleObjects'		
-	
-	file_upload = ''
-	xpected_app_name = current_user.username + 'scrumy'
-	grade = ''
-	mark = 0
-	file_name = ''
-
-	if file.name.endswith('.zip'):
-		file_upload = os.path.join(PROJECT_MEDIA_DIR, current_user.username + '_' + str(lab_number) + '.zip')
-		file_name = file.name.split('-')[1]
-	elif file.name.endswith('.gz'):
-		file_upload = os.path.join(PROJECT_MEDIA_DIR, current_user.username + '_' + str(lab_number) + '.gz')
-		file_name = file.name.split('-')[1]
-	else:
-		file_name = ''
-
-
-	if check_lab14_status != '' or check_lab14_status == 'MultipleObjects':
-		if xpected_app_name == file_name:
-			dp = 0
-			try:
-				subprocess.call([sys.executable, "-m", "pip", "install", file_upload])
-			except Exception as e:
-				dp += 1
-			finally:
-				os.remove(file_upload)
-			
-			if dp < 1:
-				options = webdriver.ChromeOptions()
-				options.add_argument("headless")
-				driver = webdriver.Chrome(chrome_options = options)
-				html = ''
-				try:
-					driver.get(VERYFD_ADDRESS+xpected_app_name+"/movegoal/100")
-					html = driver.find_element_by_xpath('//body').get_attribute('innerHTML')
-				except Exception as e:
-					print (e)
-				if html.rstrip('\n').lower().endswith('a record with that goal id does not exist'):
-					grade = "Passed"
-					mark = 100
-				else:
-					print('Failed')
-					grade = 'Failed'
-					mark = 0
-				save_grade(lab_number, mark, current_user, grade)
-				return(grade)
-			else:
-
-				return('Something went wrong please try again')
-		else:
-			os.remove(file_upload)
-			return("The name of the file you are submitting should be of the format 'django-your linuxjobber username+scrumy-x.x' where x is an integer value and - is an hyphen")
-	else:
-		os.remove(file_upload)
-		return('You have not completed Lab 14 please do so to procede with this lab')
-
-
-
-
-def grade_django_lab14(file, lab_number, current_user):
-
-	try:
-		lab13 = CourseTopic.objects.get(topic_number = 13)
-		check_lab13_status = ''
-		check_lab13_status = GradesReport.objects.get(course_topic_id = lab13, user_id = current_user, grade = 'Passed')
-	except ObjectDoesNotExist:
-		check_lab13_status = ''
-	except MultipleObjectsReturned:
-		check_lab13_status = 'MultipleObjects'		
-	
-	file_upload = ''
-	xpected_app_name = current_user.username + 'scrumy'
-	grade = ''
-	mark = 0
-	file_name = ''
-
-	if file.name.endswith('.zip'):
-		file_upload = os.path.join(PROJECT_MEDIA_DIR, current_user.username + '_' + str(lab_number) + '.zip')
-		file_name = file.name.split('-')[1]
-	elif file.name.endswith('.gz'):
-		file_upload = os.path.join(PROJECT_MEDIA_DIR, current_user.username + '_' + str(lab_number) + '.gz')
-		file_name = file.name.split('-')[1]
-	else:
-		file_name = ''
-
-
-	if check_lab13_status != '' or check_lab13_status == 'MultipleObjects':
-		if xpected_app_name == file_name:
-			dp = 0
-			try:
-				subprocess.call([sys.executable, "-m", "pip", "install", file_upload])
-			except Exception as e:
-				dp += 1
-			finally:
-				os.remove(file_upload)
-			
-			if dp < 1:
-				options = webdriver.ChromeOptions()
-				options.add_argument("headless")
-				driver = webdriver.Chrome(chrome_options = options)
-				html = ''
-				try:
-					driver.get(VERYFD_ADDRESS+xpected_app_name+"/home")
-					html = driver.find_element_by_xpath('//td[contains(text(),"louis")]').get_attribute('innerHTML')
-				except Exception as e:
-					print (e)
-				if html != '':
-					grade = "Passed"
-					mark = 100
-					print('Passed')
-				else:
-					print('Failed')
-					grade = 'Failed'
-					mark = 0
-				save_grade(lab_number, mark, current_user, grade)
-				return(grade)
-			else:
-
-				return('Something went wrong please try again')
-		else:
-			os.remove(file_upload)
-			return("The name of the file you are submitting should be of the format 'django-your linuxjobber username+scrumy-x.x' where x is an integer value and - is an hyphen")
-	else:
-		os.remove(file_upload)
-		return('You have not completed Lab 13 please do so to procede with this lab')
-
-
-
-
-
-
-def grade_django_lab13(file, lab_number, current_user):
-	try:
-		lab12 = CourseTopic.objects.get(topic_number = 12)
-		check_lab12_status = ''
-		check_lab12_status = GradesReport.objects.get(course_topic_id = lab12, user_id = current_user, grade = 'Passed')
-	except ObjectDoesNotExist:
-		check_lab12_status = ''
-	except MultipleObjectsReturned:
-		check_lab12_status = 'MultipleObjects'		
-	
-	file_upload = ''
-	xpected_app_name = current_user.username + 'scrumy'
-	grade = ''
-	mark = 0
-	file_name = ''
-
-	if file.name.endswith('.zip'):
-		file_upload = os.path.join(PROJECT_MEDIA_DIR, current_user.username + '_' + str(lab_number) + '.zip')
-		file_name = file.name.split('-')[1]
-	elif file.name.endswith('.gz'):
-		file_upload = os.path.join(PROJECT_MEDIA_DIR, current_user.username + '_' + str(lab_number) + '.gz')
-		file_name = file.name.split('-')[1]
-	else:
-		file_name = ''
-
-
-	if check_lab12_status != '' or check_lab12_status == 'MultipleObjects':
-		if xpected_app_name == file_name:
-			dp = 0
-			try:
-				subprocess.call([sys.executable, "-m", "pip", "install", file_upload])
-			except Exception as e:
-				dp += 1
-			finally:
-				os.remove(file_upload)
-			
-			if dp < 1:
-				options = webdriver.ChromeOptions()
-				options.add_argument("headless")
-				driver = webdriver.Chrome(chrome_options = options)
-				html = 'html'
-				try:
-					driver.get(VERYFD_ADDRESS+xpected_app_name+"/addgoal")
-					driver.get(VERYFD_ADDRESS+xpected_app_name+"/home")
-					html = driver.find_element_by_xpath('//body').get_attribute('innerHTML')
-				except Exception as e:
-					print(e)
-				if html.lower().startswith('keep learning django'):
-					grade = "Passed"
-					mark = 100
-					print('Passed')
-				else:
-					print('Failed')
-					grade = 'Failed'
-					mark = 0
-				save_grade(lab_number, mark, current_user, grade)
-				return(grade)
-			else:
-
-				return('Something went wrong please try again')
-		else:
-			os.remove(file_upload)
-			return("The name of the file you are submitting should be of the format 'django-your linuxjobber username+scrumy-x.x' where x is an integer value and - is an hyphen")
-	else:
-		os.remove(file_upload)
-		return('You have not completed Lab 12 please do so to procede with this lab')
-
-
-
-
-def grade_django_lab12(file, lab_number, current_user):
-	try:
-		lab11 = CourseTopic.objects.get(topic_number = 11)
-		check_lab11_status = ''
-		check_lab11_status = GradesReport.objects.get(course_topic_id = lab11, user_id = current_user, grade = 'Passed')
-	except ObjectDoesNotExist:
-		check_lab11_status = ''
-	except MultipleObjectsReturned:
-		check_lab11_status = 'MultipleObjects'
-		
-	
-	file_upload = ''
-	xpected_app_name = current_user.username + 'scrumy'
-	grade = ''
-	mark = 0
-	file_name = ''
-
-	if file.name.endswith('.zip'):
-		file_upload = os.path.join(PROJECT_MEDIA_DIR, current_user.username + '_' + str(lab_number) + '.zip')
-		file_name = file.name.split('-')[1]
-	elif file.name.endswith('.gz'):
-		file_upload = os.path.join(PROJECT_MEDIA_DIR, current_user.username + '_' + str(lab_number) + '.gz')
-		file_name = file.name.split('-')[1]
-	else:
-		file_name = ''
-
-	if check_lab11_status != '' or check_lab11_status == 'MultipleObjects':
-		if xpected_app_name == file_name:
-			dp = 0
-			try:
-				subprocess.call([sys.executable, "-m", "pip", "install", file_upload])
-			except Exception as e:
-				dp += 1
-			finally:
-				os.remove(file_upload)
-			
-			if dp < 1:
-				options = webdriver.ChromeOptions()
-				options.add_argument("headless")
-				driver = webdriver.Chrome(chrome_options = options)
-				html = ''
-				try:
-					driver.get(VERYFD_ADDRESS+xpected_app_name+"/movegoal/1")
-					html = driver.find_element_by_xpath('//body').get_attribute('innerHTML')
-				except Exception as e:
-					print (e)
-				if html != '':
-					grade = "Passed"
-					mark = 100
-					print('Passed')
-				else:
-					print('Failed')
-					grade = 'Failed'
-					mark = 0
-				save_grade(lab_number, mark, current_user, grade)
-				return(grade)
-			else:
-
-				return('Something went wrong please try again')
-		else:
-			os.remove(file_upload)
-			return("The name of the file you are submitting should be of the format 'django-your linuxjobber username+scrumy-x.x' where x is an integer value and - is an hyphen")
-	else:
-		os.remove(file_upload)
-		return('You have not completed Lab 11 please do so to procede with this lab')
-
-	standard_logger.debug('')
-
-
-
-def grade_django_lab11(file, lab_number, current_user):
-	try:
-		lab10 = CourseTopic.objects.get(topic_number = 10)
-		check_lab10_status = ''
-		check_lab10_status = GradesReport.objects.filter(course_topic_id = lab10, user_id = current_user, grade = 'Passed').exists()
-	except Exception as e:
-		error = e
-	
-	file_upload = ''
-	xpected_app_name = current_user.username + 'scrumy'
-	grade = ''
-	mark = 0
-	file_name = ''
-
-	if file.name.endswith('.zip') and file.name.lower().startswith('django-'):
-		file_upload = os.path.join(PROJECT_MEDIA_DIR, current_user.username + '_' + str(lab_number) + '.zip')
-		file_name = file.name.split('-')[1]
-	else:
-		file_name = ''
-
-
-	if check_lab10_status:
-		if xpected_app_name == file_name and file.name.endswith('.zip'):
-			dp = 0
-			try:
-				a = subprocess.call(["pip", "install", file_upload])
-			except Exception as e:
-				dp += 1
-			finally:
-				os.remove(file_upload)
-			
-			if a == 0:
-				options = selenium.webdriver.ChromeOptions()
-				options.add_argument("headless")
-				driver = selenium.webdriver.Chrome(chrome_options = options)
-				html = ''
-				try:
-					driver.get(VERYFD_ADDRESS+xpected_app_name)
-					html = driver.find_element_by_xpath('//body').get_attribute('innerHTML')
-				except Exception as e:
-					error = e
-				if html != '':
-					grade = "Passed"
-					mark = 100
-				else:
-					grade = 'Failed'
-					mark = 0
-				save_grade(lab_number, mark, current_user, grade)
-				return(grade)
-			else:
-
-				return('Something went wrong please try again')
-		else:
-			os.remove(file_upload)
-			return("The name of the file you are submitting should be of the format 'django-your linuxjobber username+scrumy-x.x' where x is an integer value and - is an hyphen")
-	else:
-		os.remove(file_upload)
-		return('You have not completed Lab 10 please do so to procede with this lab')
-
-
-
-
-
-
-def grade_django_lab10(file, lab_number, current_user):
-
-	try:
-		lab9 = CourseTopic.objects.get(topic_number = 9)
-		check_lab9_status = ''
-		check_lab9_status = GradesReport.objects.filter(course_topic_id = lab9, user_id = current_user, grade = 'Passed').exists()
-	except Exception as e:
-		print(e)
-		return ('Something went wrong')
-	
-	try:
-		lab10 = CourseTopic.objects.get(topic_number = lab_number)
-		check_lab10_fail_status = '' 
-		check_lab10_pass_status = ''
-		check_lab10_fail_status = GradesReport.objects.filter(course_topic_id = lab10, user_id = current_user, grade = 'Failed').exists()
-		check_lab10_pass_status = GradesReport.objects.filter(course_topic_id = lab10, user_id = current_user, grade = 'Passed').exists()
-	except Exception as e:
-		return('Something went wrong')
-	
-	file_upload = ''
-	xpected_app_name = current_user.username + 'scrumy'
-	grade = ''
-	mark = 0
-	file_name = ''
-
-	if file.name.endswith('.zip') and file.name.lower().startswith('django-'):
-		file_upload = os.path.join(PROJECT_MEDIA_DIR, current_user.username + '_' + str(lab_number) + '.zip')
-		file_name = file.name.split('-')[1]
-	else:
-		file_name = ''
-
-
-	if check_lab9_status:
-		if check_lab10_pass_status:
-			os.remove(file_upload)
-			return('You have already done and passed this lab')
-		else:
-			if check_lab10_fail_status:
-				# only installation and selenium operation
-				if xpected_app_name == file_name and file.name.endswith('.zip'):
-					dp = 0
-					try:
-						a = subprocess.call(["pip", "install", file_upload])
-					except Exception as e:
-						dp += 1
-					finally:
-						os.remove(file_upload)
-					if a == 0:
-						options = selenium.webdriver.ChromeOptions()
-						options.add_argument("headless")
-						driver = selenium.webdriver.Chrome(chrome_options = options)
-						driver.get(VERYFD_ADDRESS+xpected_app_name)
-
-						html = driver.find_element_by_xpath('//body').get_attribute('innerHTML')
-						if html != '':
-							grade = "Passed"
-							mark = 100
-						else:
-							grade = 'Failed'
-							mark = 0
-						save_grade(lab_number, mark, current_user, grade) 
-						return(grade)
-					else:
-						# If this line ever gets to be executed,
-						# a line of code that automaticaly restarts the server
-						# should be added within this block
-						return ('Something went wrong please try again') 
-				else:
-					os.remove(file_upload)
-					return("The name of the file you are submitting should be of the format 'django-your linuxjobber username+scrumy-x.x' where x is an integer value and - is an hyphen")
-			else:
-				if xpected_app_name == file_name and file.name.endswith('.zip'):
-					dp = 0
-					try:
-						a = subprocess.call(["pip", "install", file_upload])
-					except Exception as e:
-						dp +=1
-					finally:
-						os.remove(file_upload)
+				zfile.extractall(EXTRACT_LOCATION)
+
+				PORT = current_user.id+2910
+
+				if check_if_upload_is_django_project(EXTRACT_LOCATION,current_user.username):
+					profile = selenium.webdriver.FirefoxProfile()
+					profile.accept_untrusted_certs = True
+					options = selenium.webdriver.FirefoxOptions()
+					options.add_argument('--headless')
+					driver = selenium.webdriver.Firefox(firefox_profile=profile, firefox_options=options)
 					
-					if a == 0:
+					try:
+
+						create_docker_file(EXTRACT_LOCATION,PORT,current_user.username)
+
+						with open(os.path.join(EXTRACT_LOCATION,'myscrumy/requirements.txt'),'w') as req:
+							req.write(REQUIREMENT_TEXT)
+
+						working_dir=os.getcwd()
+						
+						os.chdir(os.path.join(EXTRACT_LOCATION,'myscrumy'))
+
+						build_and_run_docker(current_user.username,str(lab_number),str(PORT))
+
+						with open(os.path.join(EXTRACT_LOCATION,'myscrumy/myscrumy/settings.py'),'r') as settings_file:
+							for eachline in settings_file:
+								if eachline.startswith('LOGIN_REDIRECT_URL'):
+									result['task_three_status']='done'
+					except Exception as e:
+						print(e)
+
+					shutil.rmtree(EXTRACT_LOCATION)
+					time.sleep(10)
+
+					
+					try:
+						csrf_t = ''
+						form_method = ''
+
 						try:
-							options = selenium.webdriver.ChromeOptions()
-							options.add_argument("headless")
-							driver = selenium.webdriver.Chrome(chrome_options = options)
-							driver.get(VERYFD_ADDRESS+'admin')
-							driver.find_element_by_name('username').send_keys('louis')
-							driver.find_element_by_name('password').send_keys('L0u15_linux')
-							driver.find_element_by_xpath('//input[@type="submit"]').click()
-							driver.get(VERYFD_ADDRESS+'admin/'+xpected_app_name+'/goalstatus/add/')
-							driver.find_element_by_name('status_name').send_keys('Weekly Goal')
-							driver.find_element_by_name('_save').click()
-							driver.get(VERYFD_ADDRESS+'admin/'+xpected_app_name+'/goalstatus/add/')
-							driver.find_element_by_name('status_name').send_keys('Daily Goal')
-							driver.find_element_by_name('_save').click()
-							driver.get(VERYFD_ADDRESS+'admin/'+xpected_app_name+'/goalstatus/add/')
-							driver.find_element_by_name('status_name').send_keys('Verify Goal')
-							driver.find_element_by_name('_save').click()
-							driver.get(VERYFD_ADDRESS+'admin/'+xpected_app_name+'/goalstatus/add/')
-							driver.find_element_by_name('status_name').send_keys('Done Goal')
-							driver.find_element_by_name('_save').click()
-
-							driver.get(VERYFD_ADDRESS+'admin/'+xpected_app_name+'/scrumygoals/add/')
-							driver.find_element_by_name('goal_name').send_keys('Learn Django')
-							driver.find_element_by_name('goal_id').send_keys('1')
-							driver.find_element_by_name('created_by').send_keys('Louis')
-							driver.find_element_by_name('moved_by').send_keys('Louis')
-							driver.find_element_by_name('owner').send_keys('Louis')
-							driver.find_element_by_xpath(".//*[@id='id_goal_status']/option[text()='GoalStatus object (1)']").click()
-							driver.find_element_by_xpath(".//*[@id='id_user']/option[text()='louis']").click()
-							driver.find_element_by_name('_save').click()
-
-							driver.get(VERYFD_ADDRESS+'admin/'+xpected_app_name+'/scrumygoals/add/')
-							driver.find_element_by_name('goal_name').send_keys('Test Verify Goal')
-							driver.find_element_by_name('goal_id').send_keys('163')
-							driver.find_element_by_name('created_by').send_keys('Louis')
-							driver.find_element_by_name('moved_by').send_keys('Louis')
-							driver.find_element_by_name('owner').send_keys('Louis')
-							driver.find_element_by_xpath(".//*[@id='id_goal_status']/option[text()='GoalStatus object (3)']").click()
-							driver.find_element_by_xpath(".//*[@id='id_user']/option[text()='louis']").click()
-							driver.find_element_by_name('_save').click()
-
-							driver.get(VERYFD_ADDRESS+'admin/'+xpected_app_name+'/scrumygoals/add/')
-							driver.find_element_by_name('goal_name').send_keys('Test Done Goal')
-							driver.find_element_by_name('goal_id').send_keys('164')
-							driver.find_element_by_name('created_by').send_keys('Louis')
-							driver.find_element_by_name('moved_by').send_keys('Louis')
-							driver.find_element_by_name('owner').send_keys('Louis')
-							driver.find_element_by_xpath(".//*[@id='id_goal_status']/option[text()='GoalStatus object (4)']").click()
-							driver.find_element_by_xpath(".//*[@id='id_user']/option[text()='louis']").click()
-							driver.find_element_by_name('_save').click()
-
-							driver.get(VERYFD_ADDRESS+'admin/logout')
-
-							driver.get(VERYFD_ADDRESS+xpected_app_name)
-
-							html = driver.find_element_by_xpath('//body').get_attribute('innerHTML')
-							
-							if html != '':
-								grade = "Passed"
-								mark = 100
-							else:
-								grade = 'Failed'
-								mark = 0
-							save_grade(lab_number, mark, current_user, grade) 
+							driver.get('http:localhost:'+str(PORT)+'/'+current_user.username+'scrumy/accounts/login')
+							form_method = driver.find_element_by_xpath('//form').get_attribute('method')
+							csrf_t = driver.find_element_by_name('csrfmiddlewaretoken').get_attribute('type')
 						except Exception as e:
-							# If this block of code ever gets to be executed, the next upgrade of this grader should 
-							# implement the functionality that asks the user to repeat the previous and then the grader
-							# logs in to the admin interface and deletes the model belonging to that user.
-							grade = 'Failed'
-							mark = 0
-							save_grade(lab_number, mark, current_user, grade)
-						return(grade)
-					else:
-						return('something went wrong please try again')
-				else:
-					os.remove(file_upload)
-					return("The name of the file you are submitting should be of the format 'django-your linuxjobber username+scrumy-x.x' where x is an integer value and - is an hyphen")
-	else:
-		os.remove(file_upload)
-		return('You have not completed Lab 9 please do so to procede with this lab')
+							print (e)
 
+						if csrf_t == 'hidden':
+							result['task_two_status']='done'
+
+						inputs=driver.find_elements_by_tag_name('input')
+						if form_method=='post' or form_method=='POST' and len(inputs) > 1:
+							result['task_one_status']='done'
+					except Exception as e:
+						print(e)
+					finally:
+						driver.quit()
+
+					stop_and_remove_docker_container(current_user.username,str(lab_number))
+					save_grade(lab_number, current_user, result)
+					return(result)
+				else:
+					shutil.rmtree(EXTRACT_LOCATION)
+					error['error_msg']='The file you uploaded does not contain your scrumy project or one of the project files are missing.'
+					return(error)
+	else:
+		error['error_msg']='Please verify that the file you are uploading corresponds to the format specified in the lab instructions and try again'
+		return(error)
+
+
+
+def grade_django_lab19(file, lab_number, current_user, topic, course):
+	error = {
+		'error_msg':'',
+	}
+	if file.name.endswith('myscrumy.zip') and file.name.startswith('myscrumy'):
+
+		EXTRACT_LOCATION = DJANGO_LAB_SUB_DIR+current_user.username+'_'+str(lab_number)
+
+
+		result = {
+			'task_one_status' : 'undone',
+			'task_two_status' : 'undone',
+			'task_three_status' : 'undone',
+		}
+
+		try:
+			zfile = zipfile.ZipFile(file) 
+		except zipfile.BadZipfile as ex:
+			error['error_msg']='The file you uploaded is a bad zipfile or not a zipfile'
+			return(error)
+		else:
+
+			'''
+				Checks through the entire achive of the opened zifile to pick out any bad member of the achive
+			'''
+			ret = zfile.testzip()
+			if ret is not None:
+				error['error_msg']='A file in the zip achive is corrupt'
+				return(error)
+			else:
+				zfile.extractall(EXTRACT_LOCATION)
+
+				PORT = current_user.id+2910
+
+				if check_if_upload_is_django_project(EXTRACT_LOCATION,current_user.username):
+					profile = selenium.webdriver.FirefoxProfile()
+					profile.accept_untrusted_certs = True
+					options = selenium.webdriver.FirefoxOptions()
+					options.add_argument('--headless')
+					driver = selenium.webdriver.Firefox(firefox_profile=profile, firefox_options=options)
+					
+					try:
+
+						create_docker_file(EXTRACT_LOCATION,PORT,current_user.username)
+
+						with open(os.path.join(EXTRACT_LOCATION,'myscrumy/requirements.txt'),'w') as req:
+							req.write(REQUIREMENT_TEXT)
+
+						working_dir=os.getcwd()
+						
+						os.chdir(os.path.join(EXTRACT_LOCATION,'myscrumy'))
+
+						build_and_run_docker(current_user.username,str(lab_number),str(PORT))
+
+						with open(os.path.join(EXTRACT_LOCATION,'myscrumy/myscrumy/settings.py'),'r') as settings_file:
+							for eachline in settings_file:
+								if eachline.startswith('LOGIN_REDIRECT_URL'):
+									result['task_three_status']='done'
+					except Exception as e:
+						print(e)
+
+					shutil.rmtree(EXTRACT_LOCATION)
+					time.sleep(10)
+
+					
+					try:
+						csrf_t = ''
+						form_method = ''
+
+						try:
+							driver.get('http:localhost:'+str(PORT)+'/'+current_user.username+'scrumy/accounts/login')
+							form_method = driver.find_element_by_xpath('//form').get_attribute('method')
+							csrf_t = driver.find_element_by_name('csrfmiddlewaretoken').get_attribute('type')
+						except Exception as e:
+							print (e)
+
+						if csrf_t == 'hidden':
+							result['task_two_status']='done'
+
+						inputs=driver.find_elements_by_tag_name('input')
+						if form_method=='post' or form_method=='POST' and len(inputs) > 1:
+							result['task_one_status']='done'
+					except Exception as e:
+						print(e)
+					finally:
+						driver.quit()
+
+					stop_and_remove_docker_container(current_user.username,str(lab_number))
+					save_grade(lab_number, current_user, result) 
+					return(result)
+				else:
+					shutil.rmtree(EXTRACT_LOCATION)
+					error['error_msg']='The file you uploaded does not contain your scrumy project or one of the project files are missing.'
+					return(error)
+	else:
+		error['error_msg']='Please verify that the file you are uploading corresponds to the format specified in the lab instructions and try again'
+		return(error)
+
+
+
+
+
+
+
+#Creating Forms in Templates
+def grade_django_lab18(file, lab_number, current_user, topic, course):
+	error = {
+		'error_msg':'',
+	}
+	if file.name.endswith('myscrumy.zip') and file.name.startswith('myscrumy'):
+
+		EXTRACT_LOCATION = DJANGO_LAB_SUB_DIR+current_user.username+'_'+str(lab_number)
+
+
+		result = {
+			'task_one_status' : 'undone',
+			'task_two_status' : 'undone',
+			'task_three_status' : 'undone',
+		}
+
+		try:
+			zfile = zipfile.ZipFile(file) 
+		except zipfile.BadZipfile as ex:
+			error['error_msg']='The file you uploaded is a bad zipfile or not a zipfile'
+			return(error)
+		else:
+
+			'''
+				Checks through the entire achive of the opened zifile to pick out any bad member of the achive
+			'''
+			ret = zfile.testzip()
+			if ret is not None:
+				error['error_msg']='A file in the zip achive is corrupt'
+				return(error)
+			else:
+				zfile.extractall(EXTRACT_LOCATION)
+
+				PORT = current_user.id+2910
+
+				if check_if_upload_is_django_project(EXTRACT_LOCATION,current_user.username):
+					profile = selenium.webdriver.FirefoxProfile()
+					profile.accept_untrusted_certs = True
+					options = selenium.webdriver.FirefoxOptions()
+					options.add_argument('--headless')
+					driver = selenium.webdriver.Firefox(firefox_profile=profile, firefox_options=options)
+					
+					try:
+
+						create_docker_file(EXTRACT_LOCATION,PORT,current_user.username)
+
+						with open(os.path.join(EXTRACT_LOCATION,'myscrumy/requirements.txt'),'w') as req:
+							req.write(REQUIREMENT_TEXT)
+
+						working_dir=os.getcwd()
+						
+						os.chdir(os.path.join(EXTRACT_LOCATION,'myscrumy'))
+
+						build_and_run_docker(current_user.username,str(lab_number),str(PORT))
+
+						with open(os.path.join(EXTRACT_LOCATION,'myscrumy/myscrumy/settings.py'),'r') as settings_file:
+							for eachline in settings_file:
+								if eachline.startswith('LOGIN_REDIRECT_URL'):
+									result['task_three_status']='done'
+					except Exception as e:
+						print(e)
+
+					shutil.rmtree(EXTRACT_LOCATION)
+					time.sleep(10)
+
+					
+					try:
+						csrf_t = ''
+						form_method = ''
+
+						try:
+							driver.get('http:localhost:'+str(PORT)+'/'+current_user.username+'scrumy/accounts/login')
+							form_method = driver.find_element_by_xpath('//form').get_attribute('method')
+							csrf_t = driver.find_element_by_name('csrfmiddlewaretoken').get_attribute('type')
+						except Exception as e:
+							print (e)
+
+						if csrf_t == 'hidden':
+							result['task_two_status']='done'
+
+						inputs=driver.find_elements_by_tag_name('input')
+						if form_method=='post' or form_method=='POST' and len(inputs) > 1:
+							result['task_one_status']='done'
+					except Exception as e:
+						print(e)
+					finally:
+						driver.quit()
+
+					stop_and_remove_docker_container(current_user.username,str(lab_number))
+					save_grade(lab_number, current_user, result)
+					return(result)
+				else:
+					shutil.rmtree(EXTRACT_LOCATION)
+					error['error_msg']='The file you uploaded does not contain your scrumy project or one of the project files are missing.'
+					return(error)
+	else:
+		error['error_msg']='Please verify that the file you are uploading corresponds to the format specified in the lab instructions and try again'
+		return(error)
+
+
+
+
+#Removing hardcoded urls
+def grade_django_lab17(file, lab_number, current_user, topic, course):
+	error = {
+		'error_msg':'',
+	}
+	if file.name.endswith('myscrumy.zip') and file.name.startswith('myscrumy'):
+
+		EXTRACT_LOCATION = DJANGO_LAB_SUB_DIR+current_user.username+'_'+str(lab_number)
+
+		result = {
+			'task_one_status' : 'undone',
+			'task_two_status' : 'undone',
+			'task_three_status' : 'undone',
+		}
+
+		try:
+			zfile = zipfile.ZipFile(file) 
+		except zipfile.BadZipfile as ex:
+			error['error_msg']='The file you uploaded is a bad zipfile or not a zipfile'
+			return(error)
+		else:
+
+			'''
+				Checks through the entire achive of the opened zifile to pick out any bad member of the achive
+			'''
+			ret = zfile.testzip()
+			if ret is not None:
+				error['error_msg']='A file in the zip achive is corrupt'
+				return(error)
+			else:
+				zfile.extractall(EXTRACT_LOCATION)
+
+				PORT = current_user.id+2910
+
+				if check_if_upload_is_django_project(EXTRACT_LOCATION,current_user.username):
+					profile = selenium.webdriver.FirefoxProfile()
+					profile.accept_untrusted_certs = True
+					options = selenium.webdriver.FirefoxOptions()
+					options.add_argument('--headless')
+					driver = selenium.webdriver.Firefox(firefox_profile=profile, firefox_options=options)
+
+					try:
+						create_docker_file(EXTRACT_LOCATION,PORT,current_user.username)
+
+						with open(os.path.join(EXTRACT_LOCATION,'myscrumy/requirements.txt'),'w') as req:
+							req.write(REQUIREMENT_TEXT)
+						
+						os.chdir(os.path.join(EXTRACT_LOCATION,'myscrumy'))
+
+						build_and_run_docker(current_user.username,str(lab_number),str(PORT))
+					except Exception as e:
+						print(e)
+
+					shutil.rmtree(EXTRACT_LOCATION)
+					time.sleep(10)
+
+					
+					try:
+						inner_html=''
+						try:
+							driver.get('http:localhost:'+str(PORT)+'/'+current_user.username+'scrumy/accounts/login')
+							inner_html=driver.find_element_by_id('summary').get_attribute('innerHTML').rstrip('\n')
+						except Exception as e:
+							print(e)
+
+						if inner_html == '':
+							result['task_one_status']='done'
+
+						if result['task_one_status']=='done':
+							result['task_two_status']='done'
+
+							driver.find_element_by_tag_name('a').click()
+							html=driver.find_element_by_xpath('//body').get_attribute('innerHTML').rstrip('\n')
+							if html.lower()=='hello world':
+								result['task_three_status']='done'
+					except Exception as e:
+						print(e)
+					finally:
+						driver.quit()
+					stop_and_remove_docker_container(current_user.username,str(lab_number))
+					save_grade(lab_number, current_user, result)
+					return(result)
+				else:
+					shutil.rmtree(EXTRACT_LOCATION)
+					error['error_msg']='The file you uploaded does not contain your scrumy project or one of the project files are missing.'
+					return(error)
+	else:
+		error['error_msg']='Please verify that the file you are uploading corresponds to the format specified in the lab instructions and try again'
+		return(error)
+
+
+
+
+
+#Using Django API to Access Foreign Keys in database within a Template
+def grade_django_lab16(file, lab_number, current_user, topic, course):
+	error = {
+		'error_msg':'',
+	}
+	if file.name.endswith('myscrumy.zip') and file.name.startswith('myscrumy'):
+
+		EXTRACT_LOCATION = DJANGO_LAB_SUB_DIR+current_user.username+'_'+str(lab_number)
+
+
+		result = {
+			'task_one_status' : 'undone',
+			'task_two_status' : 'undone',
+		}
+
+		try:
+			zfile = zipfile.ZipFile(file) 
+		except zipfile.BadZipfile as ex:
+			error['error_msg']='The file you uploaded is a bad zipfile or not a zipfile'
+			return(error)
+		else:
+
+			'''
+				Checks through the entire achive of the opened zifile to pick out any bad member of the achive
+			'''
+			ret = zfile.testzip()
+			if ret is not None:
+				error['error_msg']='A file in the zip achive is corrupt'
+				return(error)
+			else:
+				zfile.extractall(EXTRACT_LOCATION)
+
+				PORT = current_user.id+2910
+
+				if check_if_upload_is_django_project(EXTRACT_LOCATION,current_user.username):
+					profile = selenium.webdriver.FirefoxProfile()
+					profile.accept_untrusted_certs = True
+					options = selenium.webdriver.FirefoxOptions()
+					options.add_argument('--headless')
+					driver = selenium.webdriver.Firefox(firefox_profile=profile, firefox_options=options)
+
+					try:
+
+						create_docker_file(EXTRACT_LOCATION,PORT,current_user.username)
+
+						with open(os.path.join(EXTRACT_LOCATION,'myscrumy/requirements.txt'),'w') as req:
+							req.write(REQUIREMENT_TEXT)
+
+						working_dir=os.getcwd()
+						
+						os.chdir(os.path.join(EXTRACT_LOCATION,'myscrumy'))
+
+						build_and_run_docker(current_user.username,str(lab_number),str(PORT))
+					except Exception as e:
+						print(e)
+
+					shutil.rmtree(EXTRACT_LOCATION)
+					time.sleep(10)
+
+					
+					try:
+						driver.get('http:localhost:'+str(PORT)+'/'+current_user.username+'scrumy/home')
+
+						ths=driver.find_elements_by_tag_name('th')
+						daily_goal_position=0
+						z=0
+						for th in ths:
+							z+=1
+							if th.get_attribute('innerHTML').rstrip('\n').lower()=='daily goals':
+								daily_goal_position=z
+
+						learn_django_position=0
+						y=0
+						tds=driver.find_elements_by_tag_name('td')
+						for td in tds:
+							y+=1
+							if td.get_attribute('innerHTML').rstrip('\n').lower()=='learn django':
+								learn_django_position=y
+
+						if daily_goal_position==learn_django_position and daily_goal_position!=0:
+							result['task_one_status']='done'
+							result['task_two_status']='done'
+					except Exception as e:
+						print(e)
+					finally:
+						driver.quit()
+
+					stop_and_remove_docker_container(current_user.username,str(lab_number))
+					save_grade(lab_number, current_user, result)
+					return(result)
+				else:
+					shutil.rmtree(EXTRACT_LOCATION)
+					error['error_msg']='The file you uploaded does not contain your scrumy project or one of the project files are missing.'
+					return(error)
+	else:
+		error['error_msg']='Please verify that the file you are uploading corresponds to the format specified in the lab instructions and try again'
+		return(error)
+
+
+
+
+
+
+
+
+
+def grade_django_lab15(file, lab_number, current_user, topic, course):
+	error = {
+		'error_msg':'',
+	}
+	if file.name.endswith('myscrumy.zip') and file.name.startswith('myscrumy'):
+
+		EXTRACT_LOCATION = DJANGO_LAB_SUB_DIR+current_user.username+'_'+str(lab_number)
+
+
+		result = {
+			'task_one_status' : 'undone',
+		}
+
+		try:
+			zfile = zipfile.ZipFile(file) 
+		except zipfile.BadZipfile as ex:
+			error['error_msg']='The file you uploaded is a bad zipfile or not a zipfile'
+			return(error)
+		else:
+
+			'''
+				Checks through the entire achive of the opened zifile to pick out any bad member of the achive
+			'''
+			ret = zfile.testzip()
+			if ret is not None:
+				error['error_msg']='A file in the zip achive is corrupt'
+				return(error)
+			else:
+				zfile.extractall(EXTRACT_LOCATION)
+
+				PORT = current_user.id+2910
+
+				if check_if_upload_is_django_project(EXTRACT_LOCATION,current_user.username):
+					profile = selenium.webdriver.FirefoxProfile()
+					profile.accept_untrusted_certs = True
+					options = selenium.webdriver.FirefoxOptions()
+					options.add_argument('--headless')
+					driver = selenium.webdriver.Firefox(firefox_profile=profile, firefox_options=options)
+					try:
+
+						create_docker_file(EXTRACT_LOCATION,PORT,current_user.username)
+
+						with open(os.path.join(EXTRACT_LOCATION,'myscrumy/requirements.txt'),'w') as req:
+							req.write(REQUIREMENT_TEXT)
+						
+						os.chdir(os.path.join(EXTRACT_LOCATION,'myscrumy'))
+
+						build_and_run_docker(current_user.username,str(lab_number),str(PORT))
+					except Exception as e:
+						print(e)
+
+					shutil.rmtree(EXTRACT_LOCATION)
+					time.sleep(10)
+
+					
+					try:
+						driver.get('http:localhost:'+str(PORT)+'/'+current_user.username+'scrumy/movegoal/386')
+						inner_html=''
+						try:
+							inner_html=driver.find_element_by_id('summary').get_attribute('innerHTML').rstrip('\n')
+						except Exception as e:
+							print(e)
+						if inner_html == '':
+							result['task_one_status']='done'
+					except Exception as e:
+						print(e)
+					finally:
+						driver.quit()
+
+					stop_and_remove_docker_container(current_user.username,str(lab_number))
+					save_grade(lab_number, current_user, result)
+					return(result)
+				else:
+					shutil.rmtree(EXTRACT_LOCATION)
+					error['error_msg']='The file you uploaded does not contain your scrumy project or one of the project files are missing.'
+					return(error)
+	else:
+		error['error_msg']='Please verify that the file you are uploading corresponds to the format specified in the lab instructions and try again'
+		return(error)
+
+
+
+
+def grade_django_lab14(file, lab_number, current_user, topic, course):
+	error = {
+		'error_msg':'',
+	}
+
+	if file.name.endswith('myscrumy.zip') and file.name.startswith('myscrumy'):
+
+		EXTRACT_LOCATION = DJANGO_LAB_SUB_DIR+current_user.username+'_'+str(lab_number)
+
+
+		result = {
+			'task_one_status' : 'undone',
+			'task_two_status' : 'undone',
+			'task_three_status' : 'undone',
+		}
+
+
+		try:
+			zfile = zipfile.ZipFile(file) 
+		except zipfile.BadZipfile as ex:
+			error['error_msg']='The file you uploaded is a bad zipfile or not a zipfile'
+			return(error)
+		else:
+
+			'''
+				Checks through the entire achive of the opened zifile to pick out any bad member of the achive
+			'''
+			ret = zfile.testzip()
+			if ret is not None:
+				error['error_msg']='A file in the zip achive is corrupt'
+				return(error)
+			else:
+				zfile.extractall(EXTRACT_LOCATION)
+
+				PORT = current_user.id+2910
+				if check_if_upload_is_django_project(EXTRACT_LOCATION,current_user.username):
+					profile = selenium.webdriver.FirefoxProfile()
+					profile.accept_untrusted_certs = True
+					options = selenium.webdriver.FirefoxOptions()
+					options.add_argument('--headless')
+					driver = selenium.webdriver.Firefox(firefox_profile=profile, firefox_options=options)
+					try:
+
+						create_docker_file(EXTRACT_LOCATION,PORT,current_user.username)
+
+						with open(os.path.join(EXTRACT_LOCATION,'myscrumy/requirements.txt'),'w') as req:
+							req.write(REQUIREMENT_TEXT)
+
+						working_dir=os.getcwd()
+						
+						os.chdir(os.path.join(EXTRACT_LOCATION,'myscrumy'))
+
+						build_and_run_docker(current_user.username,str(lab_number),str(PORT))
+					except Exception as e:
+						print(e)
+
+					shutil.rmtree(EXTRACT_LOCATION)
+					time.sleep(10)
+
+					
+					try:
+						driver.get('http:localhost:'+str(PORT)+'/'+current_user.username+'scrumy/home')
+
+						user_inner_html = driver.find_element_by_xpath('//td[contains(text(),"louis")]').get_attribute('innerHTML').rstrip('\n')
+						if user_inner_html.lower() == 'louis':
+							result['task_one_status']='done'
+							result['task_two_status']='done'
+							result['task_three_status']='done'
+					except Exception as e:
+						print(e)
+					finally:
+						driver.quit()
+
+					stop_and_remove_docker_container(current_user.username,str(lab_number))
+					save_grade(lab_number, current_user, result) 
+					return(result)
+				else:
+					shutil.rmtree(EXTRACT_LOCATION)
+					error['error_msg']='The file you uploaded does not contain your scrumy project or one of the project files are missing.'
+					return(error)
+	else:
+		error['error_msg']='Please verify that the file you are uploading corresponds to the format specified in the lab instructions and try again'
+		return(error)
+
+
+#CREATING VIEWS THAT ACCESS THE DATABASE
+def grade_django_lab13(file, lab_number, current_user, topic, course):
+	error = {
+		'error_msg':'',
+	}
+
+	if file.name.endswith('myscrumy.zip') and file.name.startswith('myscrumy'):
+
+		EXTRACT_LOCATION = DJANGO_LAB_SUB_DIR+current_user.username+'_'+str(lab_number)
+
+
+		result = {
+			'task_one_status' : 'undone',
+			'task_two_status' : 'undone',
+			'task_three_status' : 'undone',
+			'task_four_status' : 'undone',
+		}
+
+		try:
+			zfile = zipfile.ZipFile(file) 
+		except zipfile.BadZipfile as ex:
+			error['error_msg']='The file you uploaded is a bad zipfile or not a zipfile'
+			return(error)
+		else:
+
+			'''
+				Checks through the entire achive of the opened zifile to pick out any bad member of the achive
+			'''
+			ret = zfile.testzip()
+			if ret is not None:
+				error['error_msg']='A file in the zip achive is corrupt'
+				return(error)
+			else:
+				zfile.extractall(EXTRACT_LOCATION)
+
+				PORT = current_user.id+2910
+				if check_if_upload_is_django_project(EXTRACT_LOCATION,current_user.username):
+					profile = selenium.webdriver.FirefoxProfile()
+					profile.accept_untrusted_certs = True
+					options = selenium.webdriver.FirefoxOptions()
+					options.add_argument('--headless')
+					driver = selenium.webdriver.Firefox(firefox_profile=profile, firefox_options=options)
+					driver2 = selenium.webdriver.Firefox(firefox_profile=profile, firefox_options=options)
+					try:
+
+						create_docker_file(EXTRACT_LOCATION,PORT,current_user.username)
+
+						with open(os.path.join(EXTRACT_LOCATION,'myscrumy/requirements.txt'),'w') as req:
+							req.write(REQUIREMENT_TEXT)
+
+						working_dir=os.getcwd()
+						
+						os.chdir(os.path.join(EXTRACT_LOCATION,'myscrumy'))
+
+						build_and_run_docker(current_user.username,str(lab_number),str(PORT))
+					except Exception as e:
+						print(e)
+
+					shutil.rmtree(EXTRACT_LOCATION)
+					time.sleep(10)
+					try:
+						driver.get('http:localhost:'+str(PORT)+'/'+current_user.username+'scrumy/addgoal')
+						inner_html=''
+						try:
+							inner_html=driver.find_element_by_id('summary').get_attribute('innerHTML').rstrip('\n')
+						except Exception as e:
+							print(e)
+						print(inner_html)
+						if inner_html == '':
+							result['task_one_status']='done'
+					except Exception as e:
+						print(e)
+					
+					try:
+						driver2.get('http:localhost:'+str(PORT)+'/'+current_user.username+'scrumy/home')
+
+						inner_html=driver2.find_element_by_xpath('//body').get_attribute('innerHTML').rstrip('\n')
+						if inner_html.lower() == 'learn django':
+							result['task_two_status']='done'
+							result['task_three_status']='done'
+					except Exception as e:
+						print(e)
+					finally:
+						driver.quit()
+						driver2.quit()
+
+					if result['task_one_status']=='done' and result['task_two_status']=='done':
+						result['task_four_status']='done'
+
+					stop_and_remove_docker_container(current_user.username,str(lab_number))
+					save_grade(lab_number, current_user, result)
+					return(result)
+				else:
+					shutil.rmtree(EXTRACT_LOCATION)
+					error['error_msg']='The file you uploaded does not contain your scrumy project or one of the project files are missing.'
+					return(error)				
+	else:
+		error['error_msg']='Please verify that the file you are uploading corresponds to the format specified in the lab instructions and try again'
+		return(error)
+
+
+
+#CREATING VIEWS THAT ACCEPT ARGUMENTS
+def grade_django_lab12(file, lab_number, current_user, topic, course):
+	error = {
+		'error_msg':'',
+	}
+
+	if file.name.endswith('myscrumy.zip') and file.name.startswith('myscrumy'):
+
+		EXTRACT_LOCATION = DJANGO_LAB_SUB_DIR+current_user.username+'_'+str(lab_number)
+
+
+		result = {
+			'task_one_status' : 'undone',
+			'task_two_status' : 'undone',
+		}
+
+		try:
+			zfile = zipfile.ZipFile(file) 
+		except zipfile.BadZipfile as ex:
+			error['error_msg']='The file you uploaded is a bad zipfile or not a zipfile'
+			return(error)
+		else:
+
+
+			'''
+				Checks through the entire achive of the opened zifile to pick out any bad member of the achive
+			'''
+			ret = zfile.testzip()
+			if ret is not None:
+				error['error_msg']='A file in the zip achive is corrupt'
+				return(error)
+			else:
+				zfile.extractall(EXTRACT_LOCATION)
+
+				PORT = current_user.id+2910
+				if check_if_upload_is_django_project(EXTRACT_LOCATION,current_user.username):
+					profile = selenium.webdriver.FirefoxProfile()
+					profile.accept_untrusted_certs = True
+					options = selenium.webdriver.FirefoxOptions()
+					options.add_argument('--headless')
+					driver = selenium.webdriver.Firefox(firefox_profile=profile, firefox_options=options)
+					try:
+
+						create_docker_file(EXTRACT_LOCATION,PORT,current_user.username)
+
+						with open(os.path.join(EXTRACT_LOCATION,'myscrumy/requirements.txt'),'w') as req:
+							req.write(REQUIREMENT_TEXT)
+
+						working_dir=os.getcwd()
+						
+						os.chdir(os.path.join(EXTRACT_LOCATION,'myscrumy'))
+
+						build_and_run_docker(current_user.username,str(lab_number),str(PORT))
+					except Exception as e:
+						print(e)
+
+					shutil.rmtree(EXTRACT_LOCATION)
+					time.sleep(10)
+					try:
+						driver.get('http:localhost:'+str(PORT)+'/admin')
+
+						driver.find_element_by_name('username').send_keys('louis')
+						driver.find_element_by_name('password').send_keys('DJANGO_123')
+						driver.find_element_by_xpath('//input[@type="submit"]').click()
+
+						driver.find_element_by_partial_link_text('Scrumy goals').click()
+						scrumy_goal_records = driver.find_elements_by_partial_link_text('ScrumyGoals object')
+
+						record_length = len(scrumy_goal_records)
+						goal_id=''
+						for rec in range(record_length):
+							driver.get('http:localhost:'+str(PORT)+'/admin')
+							driver.find_element_by_partial_link_text('Scrumy goals').click()
+							scrumy_goal_records = driver.find_elements_by_partial_link_text('ScrumyGoals object')
+							scrumy_goal_records[rec].click()
+							goal_id=driver.find_element_by_name('goal_id').get_attribute('value').rstrip('\n')
 		
-
-
-
-
-
-
-def grade_django_lab9(file, lab_number, current_user):
-
-	try:
-		lab8 = CourseTopic.objects.get(topic_number = 8)
-		check_lab8_status = ''
-		check_lab8_status = GradesReport.objects.get(course_topic_id = lab8, user_id = current_user, grade = 'Passed')
-	except ObjectDoesNotExist:
-		check_lab8_status = ''
-	except MultipleObjectsReturned:
-		check_lab8_status = 'MultipleObjects'
-
-
-	file_upload = ''
-	file_name = ''
-
-	if file.name.endswith('.zip') and file.name.lower().startswith('django-'):
-		file_upload = os.path.join(PROJECT_MEDIA_DIR, current_user.username + '_' + str(lab_number) + '.zip')
-		file_name = file.name.split('-')[1]
-	else:
-		file_name = ''
-
-	if check_lab8_status != '' or check_lab8_status == 'MultipleObjects':
-
-		xpected_app_name = current_user.username + 'scrumy'
-		grade = ''
-		mark = 0
-		task_1 = 0
-		task_2 = 0
-		task_3 = 0
-		task_4 = 0
-		task_5 = 0
-
-		if xpected_app_name == file_name and file.name.endswith('.zip'):
-			dp = 0
-
-			try:
-				a = subprocess.call(["pip", "install", file_upload])
-			except Exception as e:
-				dp += 1 
-			finally:
-				os.remove(file_upload)
-			if a == 0:
-
-				cwd = os.getcwd()
-				os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))), 'veryfd'))
-				print(os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))), 'veryfd'))
-				os.system('python3.6 manage.py makemigrations')
-				os.system('python3.6 manage.py migrate')
-				os.chdir(cwd)
-
-				try:
-					options = selenium.webdriver.ChromeOptions()
-					options.add_argument("headless")
-					driver = selenium.webdriver.Chrome(chrome_options = options)
-					driver.get(VERYFD_ADDRESS + "admin")
-					driver.find_element_by_name('username').send_keys('louis')
-					driver.find_element_by_name('password').send_keys('L0u15_linux')
-					driver.find_element_by_xpath('//input[@type="submit"]').click()
-					goal_status = driver.find_element_by_partial_link_text('Goal status').get_attribute('innerHTML').rstrip('\n')
-					scrumy_goals = driver.find_element_by_partial_link_text('Scrumy goals').get_attribute('innerHTML').rstrip('\n')
-					scrumy_history = driver.find_element_by_partial_link_text('Scrumy historys').get_attribute('innerHTML').rstrip('\n')
-					if goal_status and scrumy_goals and scrumy_history:
-						task_1 += 1
-						task_5 += 1
-				except Exception as e:
-					task_1 = 0
-
-				try:
-					driver.find_element_by_partial_link_text('Scrumy goals').click()
-					driver.find_element_by_class_name('addlink').click()
-					goal_name = driver.find_element_by_name('goal_name').get_attribute('name')
-					goal_id = driver.find_element_by_name('goal_id').get_attribute('name')
-					created_by = driver.find_element_by_name('created_by').get_attribute('name')
-					moved_by = driver.find_element_by_name('moved_by').get_attribute('name')
-					owner = driver.find_element_by_name('owner').get_attribute('name')
-					goal_status = driver.find_element_by_name('goal_status').get_attribute('name')
-					user = driver.find_element_by_name('user').get_attribute('name')
-
-					if goal_name and goal_id and created_by and moved_by and owner and goal_status and user:
-						task_2 += 1
-						task_3 += 1
-						task_4 += 1
-				except Exception as e:
-					task_2 = 0
-					task_3 = 0
-
-				try:
-					driver.find_element_by_partial_link_text('Home').click()
-					driver.find_element_by_partial_link_text('Scrumy historys').click()
-					driver.find_element_by_class_name('addlink').click()
-
-					created_by = driver.find_element_by_name('created_by').get_attribute('name')
-					moved_by = driver.find_element_by_name('moved_by').get_attribute('name')
-					moved_from = driver.find_element_by_name('moved_from').get_attribute('name')
-					moved_to = driver.find_element_by_name('moved_to').get_attribute('name')
-					time_0 = driver.find_element_by_name('time_of_action_0').get_attribute('name')
-					time_1 = driver.find_element_by_name('time_of_action_1').get_attribute('name')
-					goal_name = driver.find_element_by_name('goal').get_attribute('name')
-
-					if created_by and moved_by and moved_from and moved_to and time_0 and time_1 and goal_name:
-						task_4 += 1
-				except Exception as e:
-					task_4 = 0
-
-				x = task_1 + task_2 + task_3 + task_4 + task_5
-				if x > 5:
-					grade = 'Passed'
-					mark = int((task_1 + task_2 + task_3 + task_4 + task_5)/6 * 100)
+						elem=''
+		
+						try:
+							driver.get('http://localhost:'+str(PORT)+'/'+current_user.username+'scrumy/movegoal/'+goal_id)
+							elem=driver.find_element_by_xpath('//div[@id="summary"]').get_attribute('id').rstrip('\n')
+							print(elem)
+						except Exception as e:
+							print(e)
+						if elem != 'summary':
+							result['task_one_status']='done'
+							result['task_two_status']='done'
+					except Exception as e:
+						print(e)
+					finally:
+						driver.quit()
+					stop_and_remove_docker_container(current_user.username,str(lab_number))
+					save_grade(lab_number, current_user, result)
+					return(result)
 				else:
-					grade = 'Failed'
-					mark = int((task_1 + task_2 + task_3 + task_4 + task_5)/6 * 100)
-
-				save_grade(lab_number, mark, current_user, grade)
-				return (grade)
-			else:
-				grade = 'Failed'
-				mark = 0
-				save_grade(lab_number, mark, current_user, grade)
-				return("Something went wrong, you may not have packaged your application correctly")
-		else:
-			os.remove(file_upload)
-			return("The name of the file you are submitting should be of the format 'django-your linuxjobber username+scrumy-x.x' where x is an integer value and - is an hyphen")
+					shutil.rmtree(EXTRACT_LOCATION)
+					error['error_msg']='The file you uploaded does not contain your scrumy project or one of the project files are missing.'
+					return(error)					
 	else:
-		os.remove(file_upload)
-		return('You have not completed lab 8, please do so to procede with this lab')
+		error['error_msg']='Please verify that the file you are uploading corresponds to the format specified in the lab instructions and try again'
+		return(error)
 
 
 
 
 
-def grade_django_lab8(file, lab_number, current_user):
+def grade_django_lab11(file, lab_number, current_user, topic, course):
+	error = {
+		'error_msg':'',
+	}
+	if file.name.endswith('myscrumy.zip') and file.name.startswith('myscrumy'):
 
-	try:
-		lab7 = CourseTopic.objects.get(topic_number = 7)
-		check_lab7_status = ''
-		check_lab7_status = GradesReport.objects.get(course_topic_id = lab7, user_id = current_user, grade = 'Passed')
-	except ObjectDoesNotExist:
-		check_lab7_status = ''
-	except MultipleObjectsReturned:
-		check_lab7_status = 'MultipleObjects'
-
-	file_upload = ''
-
-	xpected_app_name = current_user.username + 'scrumy'
-	grade = ''
-	mark = 0
-	file_name = ''
-
-	if file.name.endswith('.zip') and file.name.lower().startswith('django-'):
-		file_upload = os.path.join(PROJECT_MEDIA_DIR, current_user.username + '_' + str(lab_number) + '.zip')
-		file_name = file.name.split('-')[1]
-	else:
-		file_name = ''
-
-	if check_lab7_status != '' or check_lab7_status == 'MultipleObjects':
-		if xpected_app_name == file_name and file.name.endswith('.zip'):
-			try:
-				a = subprocess.call(["pip", "install", file_upload])
-				if a == 0:
-
-					options = selenium.webdriver.ChromeOptions()
-					options.add_argument("headless")
-					driver = selenium.webdriver.Chrome(chrome_options = options)
-
-					driver.get(VERYFD_ADDRESS+xpected_app_name)
-
-					html = driver.find_element_by_xpath('//body').get_attribute('innerHTML')
-				
-					if html.rstrip('\n').lower() == 'hello world':
-						grade = "Passed"
-						mark = 100
-					else:
-						grade = 'Failed'
-						mark = 0
-					save_grade(lab_number, mark, current_user, grade)
-					return(grade)
-				else:
-					mark = 0
-					grade = 'Failed'
-					save_grade(lab_number, mark, current_user, grade)
-					return(grade)
-			except Exception as e:
-				grade = 'Failed'
-				mark = 0
-				save_grade(lab_number, mark, current_user, grade)
-			finally:
-				os.remove(file_upload)
-		else:
-			os.remove(file_upload)
-			return("The name of the file you are submitting should be of the format 'django-your linuxjobber username+scrumy-x.x' where x is an integer value and - is an hyphen")
-	else:
-		os.remove(file_upload)
-		return('You have not completed lab 7, please do so to procede with this lab')
+		EXTRACT_LOCATION = DJANGO_LAB_SUB_DIR+current_user.username+'_'+str(lab_number)
 
 
+		result = {
+			'task_one_status' : 'undone',
+			'task_two_status' : 'undone',
+			'task_three_status' : 'undone',
+		}
 
-
-def grade_django_lab7(file, lab_number, current_user):
-	file_upload = ''
-	file_name = ''
-	xpected_app_name = current_user.username + 'scrumy'
-	grade = ''
-	mark = 0
-	my_list = ''
-
-	if file.name.endswith('.zip') and file.name.lower().startswith('django-'):
-		file_upload = os.path.join(PROJECT_MEDIA_DIR, current_user.username + '_' + str(lab_number) + '.zip')
-		file_name = file.name.split('-')[1]
-	else:
-		file_name = ''
-
-	if xpected_app_name == file_name and file.name.endswith('.zip'):
-		dy = 0
 		try:
-			a = subprocess.call(["pip", "install", file_upload])
-		except Exception as e:
-			pass
-		finally:
-			os.remove(file_upload)
-
-		if a == 0:
-			grade = 'Passed'
-			mark = 100 - dear
-			save_grade(lab_number, mark, current_user, grade)
-			with open(os.path.join(VERYFD_PROJECT_DIR , 'settings.py'), 'r') as settings_file:
-				for eachline in settings_file:
-					if eachline.rstrip('\n') == "    "+"'"+xpected_app_name+"'"+",":
-						my_list = eachline
-			if my_list == '':
-				replace(os.path.join(VERYFD_PROJECT_DIR, 'settings.py'), 'INSTALLED_APPS = [', "INSTALLED_APPS = [\n    '"+xpected_app_name+"',")
-				replace(os.path.join(VERYFD_PROJECT_DIR, 'urls.py'), 'urlpatterns = [', "urlpatterns = [\n    path('"+ xpected_app_name +"/', include('"+ xpected_app_name +".urls')),")
-			return (grade)
+			zfile = zipfile.ZipFile(file) 
+		except zipfile.BadZipfile as ex:
+			error['error_msg']='The file you uploaded is a bad zipfile or not a zipfile'
+			return(error)
 		else:
-			grade = 'Failed'
-			save_grade(lab_number, mark, current_user, grade)
-			return(grade)
+
+
+			'''
+				Checks through the entire achive of the opened zifile to pick out any bad member of the achive
+			'''
+			ret = zfile.testzip()
+			if ret is not None:
+				error['error_msg']='A file in the zip achive is corrupt'
+				return(error)
+			else:
+				zfile.extractall(EXTRACT_LOCATION)
+
+				PORT = current_user.id+2910
+				if check_if_upload_is_django_project(EXTRACT_LOCATION,current_user.username):
+					profile = selenium.webdriver.FirefoxProfile()
+					profile.accept_untrusted_certs = True
+					options = selenium.webdriver.FirefoxOptions()
+					options.add_argument('--headless')
+					driver = selenium.webdriver.Firefox(firefox_profile=profile, firefox_options=options)
+					try:
+
+						create_docker_file(EXTRACT_LOCATION,PORT,current_user.username)
+
+						with open(os.path.join(EXTRACT_LOCATION,'myscrumy/requirements.txt'),'w') as req:
+							req.write(REQUIREMENT_TEXT)
+
+						working_dir=os.getcwd()
+						
+						os.chdir(os.path.join(EXTRACT_LOCATION,'myscrumy'))
+
+						build_and_run_docker(current_user.username,str(lab_number),str(PORT))
+					except Exception as e:
+						print(e)
+
+					shutil.rmtree(EXTRACT_LOCATION)
+
+					time.sleep(10)
+
+					try:
+						driver.get('http:localhost:'+str(PORT)+'/admin')
+
+						driver.find_element_by_name('username').send_keys('louis')
+						driver.find_element_by_name('password').send_keys('DJANGO_123')
+						driver.find_element_by_xpath('//input[@type="submit"]').click()
+
+						driver.find_element_by_partial_link_text('Scrumy goals').click()
+						scrumy_goal_records = driver.find_elements_by_partial_link_text('ScrumyGoals object')
+
+						record_length = len(scrumy_goal_records)
+						m_list=[]
+						for rec in range(record_length):
+							driver.get('http:localhost:'+str(PORT)+'/admin')
+							driver.find_element_by_partial_link_text('Scrumy goals').click()
+							scrumy_goal_records = driver.find_elements_by_partial_link_text('ScrumyGoals object')
+							scrumy_goal_records[rec].click()
+							goal_name=driver.find_element_by_name('goal_name').get_attribute('value').rstrip('\n')
+							goal_id=driver.find_element_by_name('goal_id').get_attribute('value').rstrip('\n')
+							created_by=driver.find_element_by_name('created_by').get_attribute('value').rstrip('\n')
+							moved_by=driver.find_element_by_name('moved_by').get_attribute('value').rstrip('\n')
+							owner=driver.find_element_by_name('owner').get_attribute('value').rstrip('\n')
+							select_element = Select(driver.find_element_by_name("goal_status"))
+							goal_status = select_element.first_selected_option.text
+
+
+							m_list.append({'goal_status':goal_status,'goal_name':goal_name,'goal_id':goal_id,'created_by':created_by,'moved_by':moved_by,'owner':owner})
+						for each_entry in m_list:
+							if each_entry['goal_name'].lower()=='learn django' and each_entry['goal_id'].lower()=='1' and each_entry['created_by'].lower()=='oma' and each_entry['moved_by'].lower()=='louis' and each_entry['owner'].lower()=='louis':
+								result['task_one_status']='done'
+
+						driver.get('http:localhost:'+str(PORT)+'/admin')
+						driver.find_element_by_partial_link_text('Goal status').click()
+						goal_status_records = driver.find_elements_by_partial_link_text('GoalStatus object')
+						
+						goal_status_record_length = len(goal_status_records)
+						
+						
+						for rec in range(goal_status_record_length):
+							driver.get('http:localhost:'+str(PORT)+'/admin')
+							driver.find_element_by_partial_link_text('Goal status').click()
+							goal_status_records = driver.find_elements_by_partial_link_text('GoalStatus object')
+							goal_status_records[rec].click()
+							p=driver.find_element_by_name('status_name').get_attribute('value').rstrip('\n').lower()
+							print('here is p')
+							print(p)
+							if p =='daily goal':
+								driver.get('http:localhost:'+str(PORT)+'/admin')
+								driver.find_element_by_partial_link_text('Goal status').click()
+								goal_status_records_2 = driver.find_elements_by_partial_link_text('GoalStatus object')
+								for each_entry in m_list:
+
+									if each_entry['goal_status']==goal_status_records_2[rec].get_attribute('innerHTML').rstrip('\n'):
+										result['task_two_status']='done'
+
+						driver.get('http:localhost:'+str(PORT)+'/'+current_user.username+'scrumy')
+						elem = driver.find_element_by_xpath('//body').get_attribute('innerHTML')
+						if elem != '':
+							result['task_three_status']='done'
+					except Exception as e:
+						print(e)
+					finally:
+						driver.quit()
+
+					stop_and_remove_docker_container(current_user.username,str(lab_number))
+					save_grade(lab_number, current_user, result)
+					return(result)
+				else:
+					shutil.rmtree(EXTRACT_LOCATION)
+					error['error_msg']='The file you uploaded does not contain your scrumy project or one of the project files are missing.'
+					return(error)						
 	else:
-		os.remove(file_upload)
-		return ("The name of the file you are submitting should be of the format 'django-your linuxjobber username+scrumy-x.x' where x is an integer value and - is an hyphen")
-	standard_logger.error("na wa")
+		error['error_msg']='Please verify that the file you are uploading corresponds to the format specified in the lab instructions and try again'
+		return(error)
+
+
+def grade_django_lab10(file, lab_number, current_user, topic, course):
+	error = {
+		'error_msg':'',
+	}
+
+	if file.name.endswith('myscrumy.zip') and file.name.startswith('myscrumy'):
+
+
+		EXTRACT_LOCATION = DJANGO_LAB_SUB_DIR+current_user.username+'_'+str(lab_number)
+
+
+		result = {
+			'task_one_status' : 'undone',
+			'task_two_status' : 'undone',
+			'task_three_status' : 'undone',
+		}
+
+		try:
+			zfile = zipfile.ZipFile(file) 
+		except zipfile.BadZipfile as ex:
+			error['error_msg']='The file you uploaded is a bad zipfile or not a zipfile'
+			return(error)
+		else:
+
+			'''
+				Checks through the entire achive of the opened zifile to pick out any bad member of the achive
+			'''
+			ret = zfile.testzip()
+			if ret is not None:
+				error['error_msg']='A file in the zip achive is corrupt'
+				return(error)
+			else:
+				zfile.extractall(EXTRACT_LOCATION)
+
+				PORT = current_user.id+2910
+				if check_if_upload_is_django_project(EXTRACT_LOCATION,current_user.username):
+					profile = selenium.webdriver.FirefoxProfile()
+					profile.accept_untrusted_certs = True
+					options = selenium.webdriver.FirefoxOptions()
+					options.add_argument('--headless')
+					driver = selenium.webdriver.Firefox(firefox_profile=profile, firefox_options=options)
+					try:
+
+						create_docker_file(EXTRACT_LOCATION,PORT,current_user.username)
+
+						with open(os.path.join(EXTRACT_LOCATION,'myscrumy/requirements.txt'),'w') as req:
+							req.write(REQUIREMENT_TEXT)
+
+						working_dir=os.getcwd()
+						
+						os.chdir(os.path.join(EXTRACT_LOCATION,'myscrumy'))
+
+						build_and_run_docker(current_user.username,str(lab_number),str(PORT))
+					except Exception as e:
+						print(e)
+
+					shutil.rmtree(EXTRACT_LOCATION)
+
+					time.sleep(10)
+
+					try:
+						driver.get('http:localhost:'+str(PORT)+'/admin')
+
+						driver.find_element_by_name('username').send_keys('louis')
+						driver.find_element_by_name('password').send_keys('DJANGO_123')
+						driver.find_element_by_xpath('//input[@type="submit"]').click()
+
+						driver.find_element_by_partial_link_text('Goal status').click()
+						goal_status_records = driver.find_elements_by_partial_link_text('GoalStatus object')
+
+						record_length = len(goal_status_records)
+
+
+						count=0
+						for rec in range(record_length):
+							driver.get('http:localhost:'+str(PORT)+'/admin')
+							driver.find_element_by_partial_link_text('Goal status').click()
+							goal_status_records = driver.find_elements_by_partial_link_text('GoalStatus object')
+							goal_status_records[rec].click()
+							x = driver.find_element_by_name('status_name').get_attribute('value').rstrip('\n')
+							if x.lower() == 'weekly goal' or x.lower() == 'daily goal' or x.lower() == 'verify goal' or x.lower() == 'done goal':
+								count+=1
+
+						if count>3:
+							result['task_one_status']='done'
+							result['task_two_status']='done'
+
+
+						driver.get('http:localhost:'+str(PORT)+'/admin')
+						driver.find_element_by_partial_link_text('Scrumy goals').click()
+						scrumy_goal_records = driver.find_elements_by_partial_link_text('ScrumyGoals object')
+
+						record_length = len(scrumy_goal_records)
+						m_list=[]
+						count2=0
+						for rec in range(record_length):
+							driver.get('http:localhost:'+str(PORT)+'/admin')
+							driver.find_element_by_partial_link_text('Scrumy goals').click()
+							scrumy_goal_records = driver.find_elements_by_partial_link_text('ScrumyGoals object')
+							scrumy_goal_records[rec].click()
+							goal_name=driver.find_element_by_name('goal_name').get_attribute('value').rstrip('\n')
+							goal_id=driver.find_element_by_name('goal_id').get_attribute('value').rstrip('\n')
+							created_by=driver.find_element_by_name('created_by').get_attribute('value').rstrip('\n')
+							moved_by=driver.find_element_by_name('moved_by').get_attribute('value').rstrip('\n')
+							owner=driver.find_element_by_name('owner').get_attribute('value').rstrip('\n')
+
+							m_list.append({'goal_name':goal_name,'goal_id':goal_id,'created_by':created_by,'moved_by':moved_by,'owner':owner})
+						for each_entry in m_list:
+							if each_entry['goal_name'].lower()=='learn django' and each_entry['goal_id'].lower()=='1' and each_entry['created_by'].lower()=='louis' and each_entry['moved_by'].lower()=='louis' and each_entry['owner'].lower()=='louis':
+								result['task_three_status']='done'
+					except Exception as e:
+						print(e)
+					finally:
+						driver.quit()
+
+					stop_and_remove_docker_container(current_user.username,str(lab_number))
+					save_grade(lab_number, current_user, result)
+					return(result)
+				else:
+					shutil.rmtree(EXTRACT_LOCATION)
+					error['error_msg']='The file you uploaded does not contain your scrumy project or one of the project files are missing.'
+					return(error)	
+	else:
+		error['error_msg']='Please verify that the file you are uploading corresponds to the format specified in the lab instructions and try again'
+		return(error)
+
+
+
+#WORKING WITH DJANGO MODELS
+def grade_django_lab9(file, lab_number, current_user, topic, course):
+	error = {
+		'error_msg':'',
+	}
+	if file.name.endswith('myscrumy.zip') and file.name.startswith('myscrumy'):
+
+		EXTRACT_LOCATION = DJANGO_LAB_SUB_DIR+current_user.username+'_'+str(lab_number)
+
+		result = {
+			'task_one_status' : 'undone',
+			'task_two_status' : 'undone',
+			'task_three_status' : 'undone',
+			'task_four_status': 'undone',
+			'task_five_status' : 'undone',
+		}
+
+
+		try:
+			zfile = zipfile.ZipFile(file) 
+		except zipfile.BadZipfile as ex:
+			error['error_msg']='The file you uploaded is a bad zipfile or not a zipfile'
+			return(error)
+		else:
+
+			'''
+				Checks through the entire achive of the opened zifile to pick out any bad member of the achive
+			'''
+			ret = zfile.testzip()
+			if ret is not None:
+				error['error_msg']='A file in the zip achive is corrupt'
+				return(error)
+			else:
+				zfile.extractall(EXTRACT_LOCATION)
+
+				PORT = current_user.id+2910
+				if check_if_upload_is_django_project(EXTRACT_LOCATION,current_user.username):
+					profile = selenium.webdriver.FirefoxProfile()
+					profile.accept_untrusted_certs = True
+					options = selenium.webdriver.FirefoxOptions()
+					options.add_argument('--headless')
+					driver = selenium.webdriver.Firefox(firefox_profile=profile, firefox_options=options)
+					try:
+
+						create_docker_file(EXTRACT_LOCATION,PORT,current_user.username)
+
+						with open(os.path.join(EXTRACT_LOCATION,'myscrumy/requirements.txt'),'w') as req:
+							req.write(REQUIREMENT_TEXT)
+
+						working_dir=os.getcwd()
+						
+						os.chdir(os.path.join(EXTRACT_LOCATION,'myscrumy'))
+
+						build_and_run_docker(current_user.username,str(lab_number),str(PORT))
+					except Exception as e:
+						print(e)
+
+					shutil.rmtree(EXTRACT_LOCATION)
+
+					time.sleep(10)
+
+					#log into users project admin page (localhost:PORT/admin)
+					
+					
+					try:
+						driver.get('http:localhost:'+str(PORT)+'/admin')
+
+						driver.find_element_by_name('username').send_keys('louis')
+						driver.find_element_by_name('password').send_keys('DJANGO_123')
+						driver.find_element_by_xpath('//input[@type="submit"]').click()
+
+						goal_status = driver.find_element_by_partial_link_text('Goal status').get_attribute('innerHTML').rstrip('\n')
+						scrumy_goals = driver.find_element_by_partial_link_text('Scrumy goals').get_attribute('innerHTML').rstrip('\n')
+						scrumy_history = driver.find_element_by_partial_link_text('Scrumy historys').get_attribute('innerHTML').rstrip('\n')
+						if goal_status=='Goal statuss' and scrumy_goals=='Scrumy goalss' and scrumy_history=='Scrumy historys':
+							result['task_one_status']='done'
+							result['task_five_status']='done'
+
+
+						driver.find_element_by_partial_link_text('Scrumy goals').click()
+						driver.find_element_by_class_name('addlink').click()
+						goal_name = driver.find_element_by_name('goal_name').get_attribute('name')
+						goal_id = driver.find_element_by_name('goal_id').get_attribute('name')
+						created_by = driver.find_element_by_name('created_by').get_attribute('name')
+						moved_by = driver.find_element_by_name('moved_by').get_attribute('name')
+						owner = driver.find_element_by_name('owner').get_attribute('name')
+
+						driver.get('http://localhost:'+str(PORT)+'/admin')
+						driver.find_element_by_partial_link_text('Goal status').click()
+						driver.find_element_by_class_name('addlink').click()
+						status_name = driver.find_element_by_name('status_name').get_attribute('name')
+
+						driver.get('http://localhost:'+str(PORT)+'/admin')
+						driver.find_element_by_partial_link_text('Scrumy history').click()
+						driver.find_element_by_class_name('addlink').click()
+						h_created_by = driver.find_element_by_name('created_by').get_attribute('name')
+						h_moved_by = driver.find_element_by_name('moved_by').get_attribute('name')
+						h_moved_from = driver.find_element_by_name('moved_from').get_attribute('name')
+						h_moved_to = driver.find_element_by_name('moved_to').get_attribute('name')
+						#time_0 = driver.find_element_by_name('time_of_action_0').get_attribute('name')
+						#time_1 = driver.find_element_by_name('time_of_action_1').get_attribute('name')	
+						if goal_name=='goal_name' and goal_id=='goal_id' and created_by=='created_by' and moved_by=='moved_by' and owner=='owner' and status_name == 'status_name' and h_moved_to=='moved_to' and h_moved_from=='moved_from' and h_moved_by=='moved_by'and h_created_by=='created_by':
+							result['task_two_status']='done'
+
+						driver.get('http:localhost:'+str(PORT)+'/admin')
+						driver.find_element_by_partial_link_text('Scrumy goals').click()
+						driver.find_element_by_class_name('addlink').click()
+						goal_status_2 = driver.find_element_by_name('goal_status').get_attribute('name')
+						usr = driver.find_element_by_name('user').get_attribute('name')
+
+						driver.get('http://localhost:'+str(PORT)+'/admin')
+						driver.find_element_by_partial_link_text('Scrumy history').click()
+						driver.find_element_by_class_name('addlink').click()
+						goal = driver.find_element_by_name('goal').get_attribute('name')
+
+						if usr == 'user':
+							result['task_three_status']='done'
+
+						if usr=='user' and goal_status_2=='goal_status' and goal=='goal':
+							result['task_four_status']='done'
+
+						driver.close()
+					except Exception as e:
+						print(e)
+					finally:
+						driver.quit()
+					stop_and_remove_docker_container(current_user.username,str(lab_number))
+					save_grade(lab_number, current_user, result)
+					return(result)
+				else:
+					shutil.rmtree(EXTRACT_LOCATION)
+					error['error_msg']='The file you uploaded does not contain your scrumy project or one of the project files are missing.'
+					return(error)	
+	else:
+		error['error_msg']='Please verify that the file you are uploading corresponds to the format specified in the lab instructions and try again'
+		return(error)
+
+
+
+#CREATING DJANGO VIEWS
+def grade_django_lab8(file, lab_number, current_user, topic, course):
+	error = {
+		'error_msg':'',
+	}
+	if file.name.endswith('myscrumy.zip') and file.name.startswith('myscrumy'):
+
+		EXTRACT_LOCATION = DJANGO_LAB_SUB_DIR+current_user.username+'_'+str(lab_number)
+
+		result = {
+			'task_one_status' : 'undone',
+		}
+
+
+		try:
+			zfile = zipfile.ZipFile(file) 
+		except zipfile.BadZipfile as ex:
+			error['error_msg']='The file you uploaded is a bad zipfile or not a zipfile'
+			return(error)
+		else:
+
+
+			'''
+				Checks through the entire achive of the opened zifile to pick out any bad member of the achive
+			'''
+			ret = zfile.testzip()
+			if ret is not None:
+				error['error_msg']='A file in the zip achive is corrupt'
+				return(error)
+			else:
+				zfile.extractall(EXTRACT_LOCATION)
+
+				PORT = current_user.id+2910
+				if check_if_upload_is_django_project(EXTRACT_LOCATION,current_user.username):
+					profile = selenium.webdriver.FirefoxProfile()
+					profile.accept_untrusted_certs = True
+					options = selenium.webdriver.FirefoxOptions()
+					options.add_argument('--headless')
+					driver = selenium.webdriver.Firefox(firefox_profile=profile, firefox_options=options)
+					try:
+						create_docker_file(EXTRACT_LOCATION,PORT,current_user.username)
+
+						with open(os.path.join(EXTRACT_LOCATION,'myscrumy/requirements.txt'),'w') as req:
+							req.write(REQUIREMENT_TEXT)
+
+						working_dir=os.getcwd()
+						
+						os.chdir(os.path.join(EXTRACT_LOCATION,'myscrumy'))
+
+						build_and_run_docker(current_user.username,str(lab_number),str(PORT))
+					except Exception as e:
+						print(e)
+
+					shutil.rmtree(EXTRACT_LOCATION)
+
+					time.sleep(10)
+
+					try:
+						driver.get('http://localhost:'+str(PORT)+'/'+current_user.username+'scrumy')
+						elem = driver.find_element_by_xpath('//body')
+						if elem:
+							result['task_one_status']='done'
+					except Exception as e:
+						print(e)
+					finally:
+						driver.quit()
+					stop_and_remove_docker_container(current_user.username,str(lab_number))
+					save_grade(lab_number, current_user, result)
+					return(result)
+				else:
+					shutil.rmtree(EXTRACT_LOCATION)
+					error['error_msg']='The file you uploaded does not contain your scrumy project or one of the project files are missing.'
+					return(error)					
+	else:
+		error['error_msg']='Please verify that the file you are uploading corresponds to the format specified in the lab instructions and try again'
+		return(error)
+
+
+'''
+ Making your Django application reusable for other projects.
+'''
+def grade_django_lab7(file, lab_number, current_user, topic, course):
+
+	error = {
+		'error_msg':'',
+	}
+
+	result = {
+		'task_one_status' : 'undone',
+		'task_two_status' : 'undone',
+		'task_three_status' : 'undone',
+		'task_four_status' : 'undone',
+		'task_five_status' : 'undone',
+		'task_six_status' : 'undone',
+		'task_seven_status' : 'undone',
+	}
+
+	EXTRACT_LOCATION = DJANGO_LAB_SUB_DIR+current_user.username+'_'+str(lab_number)
+
+	if file.name.endswith('.zip'):
+		try:
+			zfile = zipfile.ZipFile(file) 
+		except zipfile.BadZipfile as ex:
+			error['error_msg']='The file you uploaded is a bad zipfile or not a zipfile'
+			return(error)
+
+		'''
+			Checks through the entire achive of the opened zifile to pick out any bad member of the achive
+		'''
+		ret = zfile.testzip()
+		if ret is not None:
+			error['error_msg']='A file in the zip achive is corrupt'
+			return(error)
+		else:
+			zfile.extractall(EXTRACT_LOCATION)
+			for root, dirs, files in os.walk(EXTRACT_LOCATION):
+				for afile in files:
+					if afile.endswith('top_level.txt') or afile.endswith('sources.txt') or afile.endswith('dependency_links.txt'):
+						result['task_one_status']='done'
+					if afile.endswith('README.rst'):
+						result['task_three_status']='done'
+					if afile.endswith('setup.py'):
+						result['task_four_status']='done'
+					if afile.endswith('PKG-INFO'): #come back here louis.
+						result['task_five_status']='done'
+					if afile.endswith('MANIFEST.in'):
+						result['task_six_status']='done'
+
+				for dirname in dirs:
+					if dirname.startswith('django_'+current_user.username+'scrumy'):
+						result['task_two_status']='done'
+			print(file)
+			if file.name.endswith('.zip'):
+				result['task_seven_status']='done'
+			save_grade(lab_number, current_user, result)
+			shutil.rmtree(EXTRACT_LOCATION)
+			return(result)
+	else:
+		error['error_msg']='Please verify that the file you are uploading corresponds to the format specified in the lab instructions and try again'
+		return(error)
 
 
 
 
 
+def grade_django_lab6(file, lab_number, current_user, topic, course):
 
-def grade_django_lab6(file, lab_number, current_user):
+	match_count = 0
+	mark = 0
 
+	result = {
+		'task_one_status' : 'undone',
+	}
+
+	error = {
+		'error_msg':'',
+	}
+
+	if file.name.endswith('.sql'):
+		with open(os.path.join(DJANGO_LAB_SUB_DIR, current_user.username+'_'+str(lab_number)),'w') as db_file:
+			db_file.write('')
+
+		with open(os.path.join(DJANGO_LAB_SUB_DIR, current_user.username+'_'+str(lab_number)), 'wb+') as destination:
+			for chunk in file.chunks():
+				destination.write(chunk)
+
+		with open(os.path.join(DJANGO_LAB_SUB_DIR, current_user.username+'_'+str(lab_number)),'r') as db_file:
+			for eachline in db_file:
+				if eachline.rstrip('\n') == "INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES":
+					match_count +=1
+				if match_count > 0:
+					result['task_one_status']='done'
+		save_grade(lab_number, current_user, result)
+		os.remove(os.path.join(DJANGO_LAB_SUB_DIR, current_user.username+'_'+str(lab_number)))
+		return(result)
+	else:
+		error['error_msg']='The file you uploaded is not an sql document'
+		return(error)
+
+
+
+
+def grade_django_lab5(file, lab_number, current_user, topic, course):
 	match_count = 0
 	grade = ''
 	mark = 0
 
+	result = {
+		'task_one_status' : 'undone',
+		'task_two_status' : 'undone',
+		'task_three_status' : 'undone',
+		'task_four_status' : 'undone',
+	}
+
+	error = {
+		'error_msg':'',
+	}
 	if file.name.endswith('.sql'):
-		try:
-			with open(os.path.join(PROJECT_MEDIA_DIR, current_user.username + '_' + str(lab_number) + '.sql'), 'r') as sql_database:
-				for each_line in sql_database:
-					if each_line.rstrip('\n') == "INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES":
-						match_count += 1
+		with open(os.path.join(DJANGO_LAB_SUB_DIR, current_user.username+'_'+str(lab_number)),'w') as db_file:
+			db_file.write('')
 
-			mark = int(100 * match_count/1)
-			if mark > 69:
-				grade = "Passed"
-			else:
-				grade = "Failed"
-		except Exception as e:
-			print(e)
-			grade = 'Failed'
-		finally:
-			os.remove(os.path.join(PROJECT_MEDIA_DIR, current_user.username + '_' + str(lab_number) + '.sql'))
+		with open(os.path.join(DJANGO_LAB_SUB_DIR, current_user.username+'_'+str(lab_number)), 'wb+') as destination:
+			for chunk in file.chunks():
+				destination.write(chunk)
+
+		with open(os.path.join(DJANGO_LAB_SUB_DIR, current_user.username+'_'+str(lab_number)),'r') as db_file:
+			for eachline in db_file:
+				if eachline.rstrip('\n') == "CREATE TABLE IF NOT EXISTS `django_migrations` (" or eachline.rstrip('\n') == "CREATE TABLE `django_migrations` (" or eachline.rstrip('\n') == "CREATE TABLE IF NOT EXISTS `django_session` (" or eachline.rstrip('\n') == "CREATE TABLE `django_session` (":
+					match_count +=1
+				if match_count > 0:
+					result['task_one_status']='done'
+					result['task_two_status']='done'
+					result['task_three_status']='done'
+					result['task_four_status']='done'
+					
+		save_grade(lab_number, current_user, result)
+		os.remove(os.path.join(DJANGO_LAB_SUB_DIR, current_user.username+'_'+str(lab_number)))
+		return(result)
 	else:
-		grade = 'Failed'
-		os.remove(os.path.join(PROJECT_MEDIA_DIR, current_user.username + '_' + str(lab_number) + '.sql'))
-	save_grade(lab_number, mark, current_user, grade)
-	return (grade)
-
-
-
-def grade_django_lab5(file, lab_number, current_user):
-	match_count = 0
-	grade = ''
-	mark = 0
-
-	if file.name.endswith('.sql'):
-		try:
-			with open(os.path.join(PROJECT_MEDIA_DIR, current_user.username + '_' + str(lab_number) + '.sql'), 'r') as sql_database:
-				for each_line in sql_database:
-					if each_line.rstrip('\n') == "CREATE TABLE IF NOT EXISTS `django_migrations` (" or each_line.rstrip('\n') == "CREATE TABLE `django_migrations` (" or each_line.rstrip('\n') == "CREATE TABLE IF NOT EXISTS `django_admin_log` (" or each_line.rstrip('\n') == "CREATE TABLE `django_admin_log` (" or each_line.rstrip('\n') == "CREATE TABLE IF NOT EXISTS `django_session` (" or each_line.rstrip('\n') == "CREATE TABLE `django_session` (":
-						match_count += 1
-			
-			mark = int(100 * match_count/3)
-			if mark > 69:
-				grade = "Passed"
-			else:
-				grade = "Failed"
-		except Exception as e:
-			print(e)
-			grade = 'Failed'
-		finally:
-			os.remove(os.path.join(PROJECT_MEDIA_DIR, current_user.username + '_' + str(lab_number) + '.sql'))
-	else:
-		grade = "Failed"
-		os.remove(os.path.join(PROJECT_MEDIA_DIR, current_user.username + '_' + str(lab_number) + '.sql'))
-	save_grade(lab_number, mark, current_user, grade)
-	return (grade)
+		error['error_msg']='The file you uploaded is not an sql document'
+		return(error)
 
 
 
 
-def grade_django_lab4(file, lab_number, current_user):
 
+def grade_django_lab4(file, lab_number, current_user, topic, course):
+	zfile = ''
+	zfile_name = file.name
+	exfile_name = zfile_name.rstrip('.zip')
 	count = 0
 	grade = ''
 	mark = 0
 
-	if file.name.startswith('settings'):
+	error = {
+		'error_msg':'',
+	}
+
+	result = {
+		'task_one':'undone',
+		'task_two':'undone',
+	}
+
+	EXTRACT_LOCATION = DJANGO_LAB_SUB_DIR+current_user.username+'_'+str(lab_number)
+
+	if zfile_name.endswith('.zip') and zfile_name.startswith('myscrumy'):	#Checks if uploaded file is of the format myscrumy.zip
+		'''Opens the uploaded zipfile but if file cant be opened then its a bad zipfile'''
 		try:
-			with open(os.path.join(PROJECT_MEDIA_DIR, current_user.username + '_' + str(lab_number) + '.py'), 'r') as settings_file:
+			zfile = zipfile.ZipFile(file) 
+		except zipfile.BadZipfile as ex:
+			error['error_msg']='The file you uploaded is a bad zipfile or not a zipfile'
+			return(error)
+
+		'''
+			Checks through the entire achive of the opened zifile to pick out any bad member of the achive
+		'''
+		ret = zfile.testzip()
+		if ret is not None:
+			error['error_msg']='A file in the zip achive is corrupt'
+			return(error)
+		else:
+			zfile.extractall(EXTRACT_LOCATION)
+
+		try:
+			with open(EXTRACT_LOCATION+'/myscrumy/myscrumy/settings.py', 'r') as settings_file:
 				for eachline in settings_file:
 					if eachline.rstrip('\n') == "        'ENGINE': 'django.db.backends.sqlite3'," or eachline.rstrip('\n') == "        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),":
 						count += 1
 
-			if count > 1:
-				grade = 'Passed'
-				mark = 100
-			else:
-				grade = 'Failed'
-				mark = 0
-		except Exception as e:
-			print (e)
-			grade = 'Failed'
-		finally:
-			os.remove(os.path.join(PROJECT_MEDIA_DIR, current_user.username + '_' + str(lab_number) + '.py'))
+			if count > 0:
+				result['task_one'] = 'done'
+				result['task_two'] = 'done'
+				save_grade(lab_number, current_user, result)
+		except FileNotFoundError:
+			print('error here')
+			error['error_msg']='settings.py file is missing'
+			return(error)
+		shutil.rmtree(EXTRACT_LOCATION)
+		return(result)
 	else:
-		grade = 'Failed'
-		os.remove(os.path.join(PROJECT_MEDIA_DIR, current_user.username + '_' + str(lab_number) + '.py'))	
-	save_grade(lab_number, mark, current_user, grade)
-	return (grade)
+		error['error_msg']='Please verify that the file you are uploading corresponds to the format specified in the lab instructions and try again'
+		return(error)
 
 
 
 
-def grade_django_lab3(file, lab_number, current_user):
-	surname = current_user.username
+
+def grade_django_lab3(file, lab_number, current_user, topic, course):
 	zfile = ''
 	zfile_name = file.name
 	exfile_name = zfile_name.rstrip('.zip')
 	task_1= 0
+	task_2 = 0
 	task_3 = 0
 	task_4 = 0
 	task_5 = 0
 	task_6 = 0
 	grade = ''
 	mark = 0
+	result = {
+		'task_one_status' : 'undone',
+		'task_two_status' : 'undone',
+		'task_three_status' : 'undone',
+		'task_four_status' : 'undone',
+		'task_five_status' : 'undone',
+		'task_six_status' : 'undone',
+	}
+	error = {
+		'error_msg':'',
+	}
 
-	os.remove(os.path.join(PROJECT_MEDIA_DIR, current_user.username + '_' + str(lab_number) + '.zip'))
 
-	if zfile_name.endswith('.zip') and zfile_name.startswith('myscrumy'):	
+	EXTRACT_LOCATION = DJANGO_LAB_SUB_DIR+current_user.username+'_'+str(lab_number)
+
+
+	if zfile_name.endswith('.zip') and zfile_name.startswith('myscrumy'):	#Checks if uploaded file is of the format myscrumy.zip
+		'''Opens the uploaded zipfile but if file cant be opened then its a bad zipfile'''
 		try:
-			zfile = zipfile.ZipFile(file)
+			zfile = zipfile.ZipFile(file) 
 		except zipfile.BadZipfile as ex:
-			print("%s no a zip file" % file)
-		'''finally:
-			os.remove(os.path.join(PROJECT_MEDIA_DIR, current_user.username + '_' + str(lab_number) + '.zip'))'''
+			error['error_msg']='The file you uploaded is a bad zipfile or not a zipfile'
+			return(error)
 
+		'''
+			Checks through the entire achive of the opened zifile to pick out any bad member of the achive
+		'''
 		ret = zfile.testzip()
-	
 		if ret is not None:
-			grade = 'Failed'
-			print("%s is a bad zip file, error: %s" % file, ret)
+			error['error_msg']='A file in the zip achive is corrupt'
+			return(error)
 		else:
-			lab_docs = zfile.extractall(MEDIA_DIR)
+			zfile.extractall(EXTRACT_LOCATION)
 
-			for root, dirs, files in os.walk(MEDIA_DIR):
+			for root, dirs, files in os.walk(EXTRACT_LOCATION):
 				for dirnames in dirs:
 					if dirnames == 'myscrumy':
-						task_1 += 1
+						result['task_one_status'] = 'done'
 				for dirnames in dirs:
-					if dirnames == surname + 'scrumy':
+					if dirnames == current_user.username + 'scrumy':
 						task_3 += 1
 				for file in files:
 					if file.endswith('dmin.py') or file.endswith('odels.py') or file.endswith('iews.py') or file.endswith('ests.py') or file.endswith('pps.py'):
@@ -1354,28 +1781,43 @@ def grade_django_lab3(file, lab_number, current_user):
 				for file in files:
 					if file.endswith('rls.py'):
 						task_4 += 1
+			try:
+				with open(os.path.join(EXTRACT_LOCATION, 'myscrumy/myscrumy/urls.py'), 'r') as project_url:
+					for eachline in project_url:
+						
+						if eachline.rstrip('\n') == "	path('"+current_user.username+"scrumy/', include("+'"'+current_user.username+'scrumy.urls")),' or eachline.rstrip('\n') == "	path('"+current_user.username+"scrumy/', include('"+current_user.username+"scrumy.urls'))," or eachline.rstrip('\n') == '	path("'+current_user.username+'scrumy/", include('+"'"+current_user.username+"scrumy.urls'))," or eachline.rstrip('\n') == '	path("'+current_user.username+'scrumy/", include("'+current_user.username+'scrumy.urls")),':
+							result['task_five_status'] = 'done'
+			except FileNotFoundError:
+				print('file not found')
+			try:
+				with open(os.path.join(EXTRACT_LOCATION, 'myscrumy/'+current_user.username+'scrumy/urls.py'), 'r') as app_url:
+					print(eachline)
+					for eachline in app_url:
+						if eachline.rstrip('\n') == "	path('', views.index)," or eachline.rstrip('\n') == '	path("", views.index),':
+							result['task_six_status'] = 'done'
+			except FileNotFoundError:
+				print('error')
+			shutil.rmtree(EXTRACT_LOCATION)
 
-			with open(os.path.join(MEDIA_DIR, 'myscrumy/' + surname +'scrumy/urls.py'), 'r') as project_url:
-				for eachline in project_url:
-					if eachline.rstrip('\n') == "    path('"+surname+"scrumy/', include("+'"'+surname+'scrumy.urls")),' or eachline.rstrip('\n') == "    path('"+surname+"scrumy/', include('"+surname+"scrumy.urls'))," or eachline.rstrip('\n') == '    path("'+surname+'scrumy/", include('+"'"+surname+"scrumy.urls'))," or eachline.rstrip('\n') == '    path("'+surname+'scrumy/", include("'+surname+'scrumy.urls")),':
-						task_5 += 1
 
-			with open(os.path.join(MEDIA_DIR, 'myscrumy/'+surname+'scrumy/urls.py'), 'r') as app_url:
-				for eachline in app_url:
-					if eachline.rstrip('\n') == "    path('', views.index)," or eachline.rstrip('\n') == '    path("", views.index),':
-						task_6 += 1
-			shutil.rmtree(MEDIA_DIR+'/myscrumy')
+			if task_3 > 5 or task_3 == 6:
+				result['task_three_status'] = 'done'
 
-			mark = int(100* (task_1 + task_3 + task_4 + task_5 + task_6)/12)
+			if result['task_three_status'] == 'done':
+				result['task_two_status'] = 'done'
 
-			if mark < 70:
-				grade = "Failed"
-			else:
-				grade = "Passed"
+			if task_4 > 1:
+				result['task_four_status'] = 'done'
+
+			save_grade(lab_number, current_user, result)
+			return (result)
 	else:
-		grade = 'Failed'
-	save_grade(lab_number, mark, current_user, grade)
-	return (grade)
+		error['error_msg']='The file you uploaded is a bad zipfile or not a zipfile'
+		return(error)
+
+	
+
+	
 
 
 
@@ -1417,64 +1859,134 @@ def grade_django_lab2(file, lab_number, current_user):
 
 
 
-def grade_django_lab(file, lab_number, current_user):
+
+
+
+
+def display_django_result(course, lab_number, current_user):
+
+	score=0
+	percent=0
+	stat=0
+	leng=0
+	topic=CourseTopic.objects.get(course__course_title = course, topic_number = lab_number)
+	try:
+		next_topic=CourseTopic.objects.get(course__course_title = course, topic_number = int(lab_number)+1)
+	except CourseTopic.DoesNotExist:
+		next_topic=None
+
+	grades=GradesReport.objects.filter(user=current_user, course_topic=topic)
+	for grade in grades:
+		leng=leng+1
+		if grade.grade=="passed":
+			score=score+1
+	if leng==0:
+		stat="Not attempted"
+	else:
+		percent=(score/leng)*100
+
+		if percent > 70:
+			stat="passed"
+		else:
+			stat="Failed"
+
+    #check if still grading
+	'''for grade in grades:
+		for gra in grade:
+			if gra.grade == "Grading":
+			    stat = "Grading" '''
+
+	context = {
+	    'topic' : topic,
+	    'result' : GradesReport.objects.filter(user=current_user,course_topic=topic),
+	    'related_topic': CourseTopic.objects.filter(course=topic.course),
+	    'course_name' : course,
+	    'lab_no': lab_number,
+	    'next_topic': next_topic,
+	    'percent': int(percent),
+	    'stat': stat,
+	}
+	return (context)
+
+
+def grade_django_lab(file, lab_number, current_user, topic, course):
+
 
 	if lab_number == 3:
-		grade = grade_django_lab3(file, lab_number, current_user)
-		return (grade)
+		grade = grade_django_lab3(file, lab_number, current_user, topic, course)
+		context=display_django_result(course, lab_number, current_user)
+		return (context)
 	elif lab_number == 4:
-		grade = grade_django_lab4(file, lab_number, current_user)
-		return (grade)
+		grade = grade_django_lab4(file, lab_number, current_user, topic, course)
+		context=display_django_result(course, lab_number, current_user)
+		return (context)
 	elif lab_number == 5:
-		grade = grade_django_lab5(file, lab_number, current_user)
-		return (grade)
+		grade = grade_django_lab5(file, lab_number, current_user, topic, course)
+		context=display_django_result(course, lab_number, current_user)
+		return (context)
 	elif lab_number == 6:
-		grade = grade_django_lab6(file, lab_number, current_user)
-		return (grade)
+		grade = grade_django_lab6(file, lab_number, current_user, topic, course)
+		context=display_django_result(course, lab_number, current_user)
+		return (context)
 	elif lab_number == 7:
-		grade = grade_django_lab7(file, lab_number, current_user)
-		return (grade)
+		grade = grade_django_lab7(file, lab_number, current_user, topic, course)
+		context=display_django_result(course, lab_number, current_user)
+		return (context)
 	elif lab_number == 8:
-		grade = grade_django_lab8(file, lab_number, current_user)
-		return (grade)
+		grade = grade_django_lab8(file, lab_number, current_user, topic, course)
+		context=display_django_result(course, lab_number, current_user)
+		return (context)
 	elif lab_number == 9:
-		grade = grade_django_lab9(file, lab_number, current_user)
-		return (grade)
+		grade = grade_django_lab9(file, lab_number, current_user, topic, course)
+		context=display_django_result(course, lab_number, current_user)
+		return (context)
 	elif lab_number == 10:
-		grade = grade_django_lab10(file, lab_number, current_user)
-		return (grade)
+		grade = grade_django_lab10(file, lab_number, current_user, topic, course)
+		context=display_django_result(course, lab_number, current_user)
+		return (context)
 	elif lab_number == 11:
-		grade = grade_django_lab11(file, lab_number, current_user)
-		return (grade)
+		grade = grade_django_lab11(file, lab_number, current_user, topic, course)
+		context=display_django_result(course, lab_number, current_user)
+		return (context)
 	elif lab_number == 12:
-		grade = grade_django_lab12(file, lab_number, current_user)
-		return (grade)
+		grade = grade_django_lab12(file, lab_number, current_user, topic, course)
+		context=display_django_result(course, lab_number, current_user)
+		return (context)
 	elif lab_number == 13:
-		grade = grade_django_lab13(file, lab_number, current_user)
-		return (grade)
+		grade = grade_django_lab13(file, lab_number, current_user, topic, course)
+		context=display_django_result(course, lab_number, current_user)
+		return (context)
 	elif lab_number == 14:
-		grade = grade_django_lab14(file, lab_number, current_user)
-		return (grade)
+		grade = grade_django_lab14(file, lab_number, current_user, topic, course)
+		context=display_django_result(course, lab_number, current_user)
+		return (context)
 	elif lab_number == 15:
-		grade = grade_django_lab15(file, lab_number, current_user)
-		return (grade)
+		grade = grade_django_lab15(file, lab_number, current_user, topic, course)
+		context=display_django_result(course, lab_number, current_user)
+		return (context)
 	elif lab_number == 16:
-		grade = grade_django_lab16(file, lab_number, current_user)
-		return (grade)
+		grade = grade_django_lab16(file, lab_number, current_user, topic, course)
+		context=display_django_result(course, lab_number, current_user)
+		return (context)
 	elif lab_number == 17:
-		grade = grade_django_lab17(file, lab_number, current_user)
-		return (grade)
+		grade = grade_django_lab17(file, lab_number, current_user, topic, course)
+		context=display_django_result(course, lab_number, current_user)
+		return (context)
 	elif lab_number == 18:
-		grade = grade_django_lab18(file, lab_number, current_user)
-		return (grade)
+		grade = grade_django_lab18(file, lab_number, current_user, topic, course)
+		context=display_django_result(course, lab_number, current_user)
+		return (context)
 	elif lab_number == 19:
-		grade = grade_django_lab19(file, lab_number, current_user)
-		return (grade)
+		grade = grade_django_lab19(file, lab_number, current_user, topic, course)
+		context=display_django_result(course, lab_number, current_user)
+		return (context)
 	elif lab_number == 20:
-		grade = grade_django_lab20(file, lab_number, current_user)
-		return (grade)
+		grade = grade_django_lab20(file, lab_number, current_user, topic, course)
+		context=display_django_result(course, lab_number, current_user)
+		return (context)
 	elif lab_number == 21:
-		grade = grade_django_lab21(file, lab_number, current_user)
-		return (grade)
+		grade = grade_django_lab21(file, lab_number, current_user, topic, course)
+		context=display_django_result(course, lab_number, current_user)
+		return (context)
 	else:
 		return ('Invalid request')
