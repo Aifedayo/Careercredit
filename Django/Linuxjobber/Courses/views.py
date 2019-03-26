@@ -271,18 +271,17 @@ class LabDetailsView(generic.DetailView):
         user_Add = request.POST.get('machine')
         sub_type = topic.course.lab_submission_type
         if sub_type == 1:
-            form = DocumentGradingForm(request.POST, request.FILES)
-            if not form.is_valid():
-                return HttpResponseBadRequest("Invalid Request")
-            new_upload = form.save(commit = False)
-            new_upload.user = request.user
-            new_upload.course_topic = topic
-            form.save()
-            output = grade_django_lab(request.FILES['document'], topic.topic_number, request.user)                
-            if output == 'Failed':
-                return HttpResponse("Result: " + output +" \n <a href='/courses/Django/labs/"+str(topic.topic_number)+"/'>Click here to try again</a>")
+            if course.course_title == 'Django' or course.course_title == 'django' or course.course_title == 'DJANGO':
+                form = DocumentGradingForm(request.POST, request.FILES)
+                if not form.is_valid():
+                    print(form.errors)
+                    return HttpResponseBadRequest("Invalid Request")
+                else:
+                    context = grade_django_lab(request.FILES['document'], topic.topic_number, request.user, topic, course)
+
+                    return render(request, 'courses/linux_result.html',context)
             else:
-                return HttpResponse(output)
+                return HttpResponse('Course does not exist')
         #For Linux and Rscha labs        
         elif sub_type == 2:
             IP = request.POST['ip_address']

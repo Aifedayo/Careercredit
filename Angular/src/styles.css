@@ -1,7 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 @import '../node_modules/materialize-css/dist/css/materialize.min.css';
-/*@import '../node_modules/bulma/css/bulma.min.css';*/
+@import '~video.js/dist/video-js.css';
+/*
+videojs.wavesurfer.css is only required when recording audio-only:
+@import '~videojs-wavesurfer/dist/css/videojs.wavesurfer.css';
+*/
+@import '~videojs-record/dist/css/videojs.record.css';
+
 a{
   cursor: pointer;
 }
@@ -9,9 +15,10 @@ a{
 body::-webkit-scrollbar {
   width: 0 !important;
   -ms-overflow-style: none;
-  overflow: -moz-scrollbars-none;  
+  overflow: -moz-scrollbars-none;
 /*   width: 0.7em;
    border: 0.5em;
    border-radius: 20px;*/
 }
+
 

@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'Projects.apps.ProjectsConfig',
     'ToolsApp.apps.ToolsappConfig',
     'classroom.apps.ClassroomConfig',
-    'rest_framework.authtoken'
+    'rest_framework.authtoken',
+    'sso_api'
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -110,8 +111,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': config('DATABASE_NAME', 'linuxjobber'),  # linuxjb
-        'USER': config('DATABASE_USER', 'root'),  # linuxjobber
-        'PASSWORD': config('DATABASE_PASSWORD', 'samjam1989'),  # linuxjobber
+        'USER': config('DATABASE_USER', 'linuxjobber'),  # linuxjobber
+        'PASSWORD': config('DATABASE_PASSWORD', 'linuxjobber'),  # linuxjobber
         'HOST': config('DATABASE_HOST', 'localhost'),
         'PORT': config('DATABASE_PORT', ''),
 
@@ -284,3 +285,5 @@ GROUP_CLASS_URL = config('GROUP_CLASS_URL', 'http://localhost:4200/classroom/')
 
 # Session Expiration set to 10 mins
 SESSION_COOKIE_AGE = 30 * 60
+
+
