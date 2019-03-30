@@ -324,3 +324,14 @@ class GroupDetail(APIView):
         return Response(GroupClassSerializer(g).data,status.HTTP_200_OK)
 
 
+class CourseInfo(APIView):
+    authentication_classes = (authentication.TokenAuthentication,)
+    serializer_class = CourseSerializer
+
+    def get(self,id):
+        try:
+            c= Course.objects.get(pk=id)
+            return Response(CourseSerializer(c).data,status=status.HTTP_200_OK)
+
+        except:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
