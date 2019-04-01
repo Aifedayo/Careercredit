@@ -1,96 +1,138 @@
-<div class="navbar">
-  <nav>
-    <div class="nav-wrapper">
-      <div class="container-fluid">
-        <div class="row">
 
-          <div class="col l3 m3 s3">
-            <a class="brand-logo"><img src="assets/image/Final-Logo.png" alt="nav-logo" class="logo"><span class="logo-text">ClassRoom</span></a>
-          </div>
 
-          <div class="col l3 m3 s3">
-            <a materialize="dropdown" class="dropdown-button dropdown" data-activates="dropdown1" style="cursor:pointer;">
-                Select Course
-                <i class="material-icons right">arrow_drop_down</i>
-            </a>
-            <!-- Dropdown Structure -->
-            <ul style="cursor: pointer;" id="dropdown1" class="dropdown-content">
-                <li *ngFor="let item of classes | async ">
-                    <a [routerLink]="['/classroom',item.id]" >{{ item.name }}</a>
+<nav class="navbar navbar-fixed">
+      <div class="container" style="margin-top: 10px">
+        <div class="navbar-header" style="">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#" style="margin-left: -130px;margin-top: -10px">
+              <img style="width: 166px;height: 42px;" src="/assets/image/Final-Logo.png" alt="no image" >
+          </a>
+            Classroom
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right" style="margin-right: -100px">
+            <li><a [routerLink]="['/dashboard']" style="margin-right: -100px">{{ username }}</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+<div class="container-fluid all-field">
+  <div class="row">
+    <div
+      class="col-md-3 scroll-hide"
+      style="background-color:#353535; min-height: 90vh; overflow: auto;"
+    >
+      <div class="top-head">
+        <a [routerLink]="['/classroom']">
+          <i class="material-icons play-icon">arrow_back</i>
+          <p>Your Courses</p>
+        </a>
+      </div>
+
+      <div class="left-pad">
+        <ul class="nav nav-tabs left-tab">
+          <li class="active"><a data-toggle="tab" href="#topics">Topics</a></li>
+          <li>
+            <a data-toggle="tab" href="#students"
+              >Students(<span *ngIf="(noOfUsers$ | async) as users">{{
+                users.length
+              }}</span
+              >)</a
+            >
+          </li>
+        </ul>
+        <div class="tab-content course_topic_area scroll-hide">
+          <div id="topics" class="tab-pane fade in active">
+            <div
+              class="course_topic_area scroll-hide"
+              style="max-height: 80vmin;overflow: auto;"
+            >
+              <ul class="collection-list" style="padding: 16px 0;">
+                <li
+                  class="video-list"
+                  *ngFor="let topic of (topicsSub | async)"
+                >
+                  <a class (click)="setTopic(topic.id)" id="vid">
+                    <i class="material-icons play-icon">play_arrow</i>
+                    <p class="vid-title">{{ topic.topic }}</p>
+                  </a>
                 </li>
-
-            </ul>
-
-          </div>
-            <div class="col l6 m6 s6">
-              <ul class="right">
-                <li><a [routerLink]="['/dashboard']">{{username}}</a></li>
-                <li><a (click)="logout()" id="logout">LOGOUT</a></li>
               </ul>
             </div>
+          </div>
+          <div id="students" class="tab-pane fade">
+            <div *ngIf="(groupMembers$ | async) as members" class="scroll-hide">
+              <ul
+                style="padding: 8px 0;"
+                *ngIf="(members | keyvalue) as m"
+                class="student-list"
+              >
+                <li
+                  id="students"
+                  style="color:darkgrey; font-weight: bolder; font-size: 15px; padding: 8px 0;"
+                  *ngFor="let day of (m | orderBy: m.key:false)"
+                >
+                  {{ day.key }}
+                  <Hr />
+                  <ul>
+                    <li *ngFor="let i of day.value">
+                      <a
+                        style="color:#fff;"
+                        [routerLink]="['./private-chat', i.id]"
+                        routerLinkActive="active"
+                      >
+                        {{ i.username }}
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </nav>
-</div>
+    <div class="col-md-9">
+      <ul style="display:flex;" class="con-list">
+        <li  [class.active]="videoTab">
+          <a [routerLink]="['./video']" routerLinkActive="active" id="video"
+            >Video</a
+          >
+        </li>
+        <li
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col l3 m3 s3 scroll-hide" style="background-color:#4d394b; min-height: 90vh; overflow: auto;">
-      <h6 style="text-align: center; font-weight: bold;"> Registered Students | <span *ngIf="noOfUsers$ |async as users ">{{ users.length }}</span></h6>
+          [class.active]="labTab"
+          *ngIf="selectedTopic"
+        >
+          <a (click)="goToLab()"> Lab </a>
+        </li>
+        <li
 
-        <div *ngIf="groupMembers$ |async as members">
-            <ul *ngIf="members|keyvalue as m">
-          <li id="students" style="color:darkgrey; font-weight: bolder; font-size: 15px;"
-              *ngFor="let day of m |orderBy:m.key:false">
-              {{ day.key }}
-              <Hr>
-                <ul>
-                  <li *ngFor="let i of day.value"><a [routerLink]="['./private-chat', i.id]" routerLinkActive="active" > {{i.username}} </a></li>
-                </ul>
-
-
-          </li>
-
-
-        </ul>
-        </div>
-
-
-    </div>
-    <div class="col l6 m6 s9" style="">
-      <ul style="display:flex;">
-        <li><a [routerLink]="['./video']" routerLinkActive="active" id="video">Video</a></li> |
-        <li *ngIf="selectedTopic"><a  (click)="goToLab()"> Lab </a></li> |
-        <li *ngIf="selectedTopic"><a  (click)="goToNote()"> Note </a></li> |
-        <li><a [routerLink]="['./topic-chat']" routerLinkActive="active"id="chat"> Chat</a></li>
+          [class.active]="noteTab"
+          *ngIf="selectedTopic"
+        >
+          <a (click)="goToNote()"> Note </a>
+        </li>
+        <li  [class.active]="chatTab">
+          <a
+            [routerLink]="['./topic-chat']"
+            routerLinkActive="active"
+            id="chat"
+          >
+            Chat</a
+          >
+        </li>
       </ul>
-      <hr>
+      <hr />
       <div>
-
         <router-outlet></router-outlet>
       </div>
     </div>
-    <div class="col l3 m3 s12">
-      <div class="">
-
-          <h5 style="text-align:center; font-weight: bolder;">Topics</h5>
-          <div class="course_topic_area scroll-hide" style="max-height: 80vmin;overflow: auto;">
-
-         <ul class="collection">
-
-              <li class="collection-item avatar" *ngFor="let topic of topicsSub | async">
-
-
-                <a class (click)="setTopic(topic.id)"><i class="material-icons circle red">play_arrow</i> {{topic.topic}}
-
-                </a>
-              </li>
-
-            </ul>
-          </div>
-        </div>
-    </div>
   </div>
 </div>
-

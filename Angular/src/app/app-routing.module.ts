@@ -7,6 +7,7 @@ import { AuthGuard } from './auth.guard';
 import {ContentComponent} from "./dashboard/content/content.component";
 import {VerificationComponent} from "./course/verification/verification.component";
 import {VerificationGuard} from "./verification.guard";
+import {CourseListComponent} from "./course/course-list/course-list.component";
 
 
 
@@ -14,10 +15,11 @@ import {VerificationGuard} from "./verification.guard";
 
 const routes: Routes = [
   { path: '', redirectTo: '/classroom', pathMatch: 'full'},
-  { path: 'classroom', component: CourseComponent, canActivate: [AuthGuard]},
+  { path: 'classroom', component: CourseListComponent, canActivate: [AuthGuard]},
   { path: 'dashboard', component: ContentComponent },
   { path: 'home', component: HomeComponent},
   { path: 'v', component: VerificationComponent},
+  { path: 'x', component: CourseListComponent},
 ];
 
 
