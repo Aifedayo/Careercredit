@@ -9,14 +9,18 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#" style="margin-left: -130px;margin-top: -10px">
+          <a class="navbar-brand" href="#" style="margin-left: -150px;margin-top: -10px">
               <img style="width: 166px;height: 42px;" src="/assets/image/Final-Logo.png" alt="no image" >
           </a>
-            Classroom
+            <span class="head-text" *ngIf="group$ |async as course" style="
+            padding-left: 70px;
+
+
+"> {{ course.name }}  <span style="font-size: 12px;">{{ course.start_date}} - {{course.end_date}}</span> </span>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right" style="margin-right: -100px">
-            <li><a [routerLink]="['/dashboard']" style="margin-right: -100px">{{ username }}</a></li>
+            <li><a [routerLink]="['/dashboard']" class="head-text" style="margin-right: -100px">{{ username }}</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
