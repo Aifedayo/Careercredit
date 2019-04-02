@@ -111,8 +111,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': config('DATABASE_NAME', 'linuxjobber'),  # linuxjb
-        'USER': config('DATABASE_USER', 'root'),  # linuxjobber
-        'PASSWORD': config('DATABASE_PASSWORD', 'samjam1989'),  # linuxjobber
+        'USER': config('DATABASE_USER', 'linuxjobber'),  # linuxjobber
+        'PASSWORD': config('DATABASE_PASSWORD', 'linuxjobber'),  # linuxjobber
         'HOST': config('DATABASE_HOST', 'localhost'),
         'PORT': config('DATABASE_PORT', ''),
 

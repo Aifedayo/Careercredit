@@ -1,27 +1,26 @@
 #message_box {
     display: block!important;
-    height:1.7rem!important;
     padding: .5rem!important;
-    border: 2px solid #636566de;
     transition: all 1s;
-    border-radius: .5rem!important;
-    box-shadow: none;
+height: 30px;
+background: #FFFFFF;
+box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+border-radius: 10px;
     width: 98%!important;
   }
 
 
 #submit {
-    height: 2.9rem!important;
-    border-top-right-radius: .5rem;
-    border-bottom-right-radius: .5rem;
+  background-color: white;
+  border: 0;
+    height: 30px!important;
     margin-left: -50px;
-    padding-right: 10px;
-    border-right: 2px solid #636566de;
-    border-top: 2px solid #636566de;
-    border-bottom: 2px solid #636566de;
-    box-shadow: none;
-    padding-left: auto;
-    margin-bottom: 0px;
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: normal;
+
+color: #1B539E;
 }
 
 
@@ -50,7 +49,7 @@ i.medium{
 .scroll-hide::-webkit-scrollbar {
 /*  width: 0 !important;
   -ms-overflow-style: none;
-  overflow: -moz-scrollbars-none;*/  
+  overflow: -moz-scrollbars-none;*/
    width: 0.7em;
    border: 0.5em;
    border-radius: 20px;
@@ -64,4 +63,28 @@ i.medium{
 .mat-card{
   padding: 0;
   padding-bottom: 1em;
+}
+
+.mat-list-item {
+  margin-top: 10px;
+background: rgba(0, 0, 0, 0.05);
+border-radius: 10px;
+width: 50%;
+margin-left: 20px;
+}
+
+  .me >.mat-list-item {
+    float: right;
+  background: rgba(27, 83, 158, 0.2);
+border-radius: 10px;
+    margin-top: 10px;
+width: 50%;
+margin-left: 20px;
+}
+
+  .mat-card:not([class*="mat-elevation-z"]) {
+    box-shadow:none;
+}
+.mat-list-avatar {
+  background-color: white;
 }

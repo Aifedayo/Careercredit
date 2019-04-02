@@ -19,6 +19,8 @@ import { OrderPipe } from 'ngx-order-pipe';
 })
 export class CourseComponent implements OnInit {
   items: ClassModel[];
+  public chatTab;
+  public videoTab;
   topicsSub:any;
   classes: Observable<ClassModel[]>;
   topics = [];
