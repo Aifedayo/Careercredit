@@ -49,6 +49,12 @@ def get_tools():
 
 #INDEX VIEW
 def index(request):
+    try:
+        output = open("home/check_subscription.html", "w")
+        output.write("djdjdj")
+        output.close()
+    except IOError:
+        pass
     return render (request, 'home/index2.html')
 
 
@@ -249,6 +255,7 @@ def partime(request):
         form = PartimeApplicationForm()
     form = PartimeApplicationForm()
     return render(request, 'home/partime.html', {'form': form})
+
 
 @login_required
 def jobchallenge(request, respon=None):
