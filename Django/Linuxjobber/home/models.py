@@ -111,6 +111,7 @@ class Groupclass(models.Model):
     date = models.DateTimeField(default=timezone.now, null=False)
     video_required = models.BooleanField(default=False)
     users=models.ManyToManyField(CustomUser,blank=True,null=True)
+    description=models.TextField(null=True)
     course=models.ForeignKey(Course,on_delete=models.CASCADE,null=True)
 
     def __str__(self):

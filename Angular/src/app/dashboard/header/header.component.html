@@ -3,7 +3,7 @@
         <nav class="navbar white">
           <div class="nav-wrapper"><a class="brand-logo grey-text text-darken-4">Settings</a>
             <ul id="nav-mobile" class="right">
-              <li class="hide-on-med-and-down" *ngIf="group$|async as _group">{{ _group.name }} </li>
+              <li class="hide-on-med-and-down" *ngIf="group$|async as _group"><a [routerLink]="['/classroom',_group.id]">{{ _group.name }}</a>  </li>
               <li class="hide-on-med-and-down"><a class="dropdown-trigger" (click)="openClasses()" data-target="chat-dropdown" id="sclass" ><i class="material-icons">class</i></a></li>
               <li><a  data-target="chat-dropdown" class="dropdown-trigger waves-effect"><i class="material-icons">settings</i></a></li>
             </ul>

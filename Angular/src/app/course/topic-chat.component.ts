@@ -7,6 +7,7 @@ import {ChatMessage} from "../share/chat-message";
 import {Observable} from "rxjs/index";
 import {MatList, MatListItem} from "@angular/material";
 import {environment} from "../../environments/environment";
+import {UserModel} from "../share/user-model";
 
 export enum TYPE {Plain='plain', Image='image', File='file'}
 
@@ -39,8 +40,10 @@ export class TopicChatComponent implements OnInit {
 
   // getting a reference to the items/messages within the list
   @ViewChildren(MatListItem, { read: ElementRef }) matListItems: QueryList<MatListItem>;
+  private user$: Observable<UserModel>;
   constructor(private http: HttpClient, private apiService:ApiService) {
 
+    this.user$=this.apiService.getUserInfo();
     this.current_user = sessionStorage.getItem('username');
     this.avatar=environment.API_URL + `media/avatar.png`;
     this.websocket = new WebSocket(environment.WS_URL);
@@ -100,7 +103,8 @@ export class TopicChatComponent implements OnInit {
   }
 
    sendMessage(message,type:string) {
-    const now = new Date();
+    if (message!==""){
+          const now = new Date();
     const m = new ChatMessage();
     m.user=sessionStorage.getItem('username');
     m.message= message;
@@ -110,6 +114,8 @@ export class TopicChatComponent implements OnInit {
       JSON.stringify(m)
     );
     this.chat_text = '';
+    }
+
   }
   openImage(url):void{
 
