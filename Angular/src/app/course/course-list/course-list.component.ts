@@ -11,7 +11,7 @@ import {ClassModel} from "../../share/class-model";
 export class CourseListComponent implements OnInit {
 
   public courses$:Observable<ClassModel[]>;
-  public username:any
+  public username:any;
   constructor(private apiService:ApiService) {
     this.username=sessionStorage.getItem('username');
   }

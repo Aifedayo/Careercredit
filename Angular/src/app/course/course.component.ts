@@ -19,6 +19,7 @@ import { OrderPipe } from 'ngx-order-pipe';
 })
 export class CourseComponent implements OnInit {
   items: ClassModel[];
+  course:ClassModel;
   public chatTab;
   public videoTab;
   topicsSub:any;
@@ -26,10 +27,12 @@ export class CourseComponent implements OnInit {
   topics = [];
   public  selectedTopic:number = 0;
   username:string;
-  private  selectedGroup:number = 0;
+  public  selectedGroup:number = 0;
+
   // public groupMembers$: Observable<UserModel[]>;
   public groupMembers$: Observable<GroupMember[]>;
   public noOfUsers$:Observable<any>;
+  public group$: Observable<ClassModel>;
 
   constructor(
     private apiService:ApiService,
@@ -37,7 +40,7 @@ export class CourseComponent implements OnInit {
     public dataservice:DataService ,
     private router:Router,
     private location:Location,
-    private cdr:ChangeDetectorRef)
+)
 
   {
     this.username=sessionStorage.getItem('username');
@@ -49,6 +52,7 @@ export class CourseComponent implements OnInit {
     this.classes=this.apiService.getAvailableClasses();
     const selectedClass = + params["group_id"];
     sessionStorage.setItem('active_group', selectedClass.toString() );
+    this.group$ = this.apiService.getGroupInfo(sessionStorage.getItem('active_group'))
     this.selectedGroup=selectedClass;
     if (selectedClass){
       const selectedTopic = + params["topic_id"];
@@ -56,7 +60,6 @@ export class CourseComponent implements OnInit {
       this.topicsSub=this.apiService._allTopics$;
 
 
-      this.groupMembers$ = this.apiService.getGroupMembers(selectedClass);
       this.noOfUsers$ = this.apiService.getMembers(selectedClass);
 
 
@@ -64,6 +67,8 @@ export class CourseComponent implements OnInit {
         this.setTopic(this.selectedTopic)
       }
     })
+
+    this.groupMembers$ = this.apiService.getGroupMembers(sessionStorage.getItem('active_group'));
 
   }
 
