@@ -295,3 +295,26 @@ color: rgba(255, 255, 255, 0.8);
   text-align: center;
 }
 
+.head-text{
+  font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: normal;
+text-align: center;
+color: rgba(255, 255, 255, 0.8);
+}
+a.head-text{
+    font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: normal;
+text-align: center;
+color: rgba(255, 255, 255, 0.8);
+
+}
+
+a:focus{
+  background:  #333333;;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+}
