@@ -40,7 +40,6 @@ class CoursePermission(models.Model):
         return self.user.email
 
 
-
 class CourseTopic(models.Model):
     course = models.ForeignKey(Course, on_delete = models.CASCADE, related_name='topics',related_query_name='topic')
     topic_number = models.PositiveSmallIntegerField(default=0)
@@ -126,6 +125,7 @@ class LabTask(models.Model):
 class UserInterest(models.Model):
     user = models.ForeignKey(CustomUser, on_delete = models.CASCADE)
     course = models.ForeignKey(Course, on_delete = models.CASCADE)
+    date_created = models.DateTimeField(default=timezone.now, null=False)
 
     class Meta:
         ordering = ('user', 'course')
@@ -137,6 +137,7 @@ class UserCourseStat(models.Model):
     user = models.ForeignKey(CustomUser, on_delete = models.CASCADE)
     course = models.ForeignKey(Course, on_delete = models.CASCADE)
     visit = models.IntegerField()
+    date_created = models.DateTimeField(default=timezone.now, null=False)
 
     class Meta:
         ordering = ('user', 'course')
