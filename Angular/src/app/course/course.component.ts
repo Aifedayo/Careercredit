@@ -27,12 +27,12 @@ export class CourseComponent implements OnInit {
   topics = [];
   public  selectedTopic:number = 0;
   username:string;
-  private  selectedGroup:number = 0;
+  public  selectedGroup:number = 0;
 
   // public groupMembers$: Observable<UserModel[]>;
   public groupMembers$: Observable<GroupMember[]>;
   public noOfUsers$:Observable<any>;
-  private group$: Observable<ClassModel>;
+  public group$: Observable<ClassModel>;
 
   constructor(
     private apiService:ApiService,

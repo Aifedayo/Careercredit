@@ -246,10 +246,18 @@ class RHCSAOrder(models.Model):
     def __str__(self):
         return self.transaction_id
 
+
+class MessageGroup(models.Model):
+    group = models.CharField(max_length = 250)
+
+    def __str__(self):
+        return self.group
+
 class Message(models.Model):
-    title = models.CharField(max_length = 50)
+    title = models.CharField(max_length = 250)
     message = models.TextField()
     slug = models.SlugField(max_length=40)
+    group = models.ForeignKey(MessageGroup, default=1, on_delete = models.CASCADE)
     
     def __str__(self):
         return self.title
