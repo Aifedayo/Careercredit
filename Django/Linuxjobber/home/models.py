@@ -340,7 +340,14 @@ class GroupClassLog(models.Model):
 
     def get_log(group_id):
         data={}
-        list=GroupClassLog.objects.filter(group=group_id).order_by('-last_login')
+        from datetime import datetime,timedelta
+        current_day= datetime.now().strftime('%A')
+        range = None
+        if current_day == "Monday":
+            range = datetime.now() - timedelta(days=5)
+        else:
+            range = datetime.now() - timedelta(days=3)
+        list=GroupClassLog.objects.filter(group=group_id,last_login__gte=range).order_by('-last_login')
         for i in list:
             data.setdefault(i.last_login.strftime('%D'),[])
             data[i.last_login.strftime('%D')].append({'username':i.user.username,'id':i.user.id})

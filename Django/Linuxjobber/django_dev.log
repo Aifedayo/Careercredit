@@ -1432,3 +1432,1258 @@ TypeError: The `fields` option must be a list or tuple or "__all__". Got str.
 [2019-04-03 09:52:49] INFO [django.server.log_message:124] "GET /media/chat_uploads/9ja.png HTTP/1.1" 304 0
 [2019-04-03 09:52:50] WARNING [django.request.get_response:93] Not Found: /favicon.ico
 [2019-04-03 09:52:50] WARNING [django.server.log_message:124] "GET /favicon.ico HTTP/1.1" 404 13482
+[2019-04-07 17:41:12] INFO [django.server.log_message:124] "OPTIONS /sso_api/confirm_key/1 HTTP/1.1" 200 0
+[2019-04-07 17:41:12] INFO [django.server.log_message:124] "POST /sso_api/confirm_key/1 HTTP/1.1" 202 134
+[2019-04-07 17:41:12] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/1 HTTP/1.1" 200 0
+[2019-04-07 17:41:12] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/1/detail HTTP/1.1" 200 0
+[2019-04-07 17:41:12] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/1/users2 HTTP/1.1" 200 0
+[2019-04-07 17:41:12] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/1/users HTTP/1.1" 200 0
+[2019-04-07 17:41:12] INFO [django.server.log_message:124] "GET /sso_api/group/1/detail HTTP/1.1" 200 296
+[2019-04-07 17:41:13] INFO [django.server.log_message:124] "GET /sso_api/group/1/users2 HTTP/1.1" 200 364
+[2019-04-07 17:41:13] INFO [django.server.log_message:124] "GET /sso_api/group/1/users HTTP/1.1" 200 94
+[2019-04-07 17:41:13] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 200 277
+[2019-04-07 17:44:00] INFO [django.server.log_message:124] "GET /sso_api/group/1/detail HTTP/1.1" 200 296
+[2019-04-07 17:44:00] INFO [django.server.log_message:124] "GET /sso_api/group/1/users2 HTTP/1.1" 200 364
+[2019-04-07 17:44:00] INFO [django.server.log_message:124] "GET /sso_api/group/1/users HTTP/1.1" 200 94
+[2019-04-07 17:44:00] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 200 277
+[2019-04-07 17:45:26] INFO [django.server.log_message:124] "GET /sso_api/group/1/detail HTTP/1.1" 200 296
+[2019-04-07 17:45:26] INFO [django.server.log_message:124] "GET /sso_api/group/1/users2 HTTP/1.1" 200 364
+[2019-04-07 17:45:26] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 200 277
+[2019-04-07 17:45:26] INFO [django.server.log_message:124] "GET /sso_api/group/1/users HTTP/1.1" 200 94
+[2019-04-07 17:45:59] INFO [django.server.log_message:124] "GET /sso_api/group/1/detail HTTP/1.1" 200 296
+[2019-04-07 17:45:59] INFO [django.server.log_message:124] "GET /sso_api/group/1/users2 HTTP/1.1" 200 364
+[2019-04-07 17:45:59] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 200 277
+[2019-04-07 17:45:59] INFO [django.server.log_message:124] "GET /sso_api/group/1/users HTTP/1.1" 200 94
+[2019-04-07 19:17:30] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/3 HTTP/1.1" 200 0
+[2019-04-07 19:17:30] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/3/detail HTTP/1.1" 200 0
+[2019-04-07 19:17:30] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/3/users2 HTTP/1.1" 200 0
+[2019-04-07 19:17:30] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/3/users HTTP/1.1" 200 0
+[2019-04-07 19:17:31] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/3 HTTP/1.1" 200 0
+[2019-04-07 19:17:31] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/3/detail HTTP/1.1" 200 0
+[2019-04-07 19:17:31] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/3/users2 HTTP/1.1" 200 0
+[2019-04-07 19:17:31] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/3/users HTTP/1.1" 200 0
+[2019-04-07 19:17:31] WARNING [django.server.log_message:124] "GET /sso_api/group/3/detail HTTP/1.1" 401 27
+[2019-04-07 19:17:31] WARNING [django.server.log_message:124] "GET /sso_api/group/3 HTTP/1.1" 401 27
+[2019-04-07 19:17:31] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users2 HTTP/1.1" 401 27
+[2019-04-07 19:17:31] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users HTTP/1.1" 401 27
+[2019-04-07 19:17:32] WARNING [django.server.log_message:124] "GET /sso_api/group/3 HTTP/1.1" 401 27
+[2019-04-07 19:17:32] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users2 HTTP/1.1" 401 27
+[2019-04-07 19:17:32] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users HTTP/1.1" 401 27
+[2019-04-07 19:17:32] WARNING [django.server.log_message:124] "GET /sso_api/group/3/detail HTTP/1.1" 401 27
+[2019-04-07 19:17:32] INFO [django.server.log_message:124] "OPTIONS /sso_api/user/ HTTP/1.1" 200 0
+[2019-04-07 19:17:33] INFO [django.server.log_message:124] "OPTIONS /sso_api/user/ HTTP/1.1" 200 0
+[2019-04-07 19:17:33] INFO [django.server.log_message:124] "OPTIONS /sso_api/user/ HTTP/1.1" 200 0
+[2019-04-07 19:17:33] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-07 19:17:33] INFO [django.server.log_message:124] "GET /media/avatar.png HTTP/1.1" 200 19037
+[2019-04-07 19:17:33] INFO [django.server.log_message:124] "OPTIONS /sso_api/user/ HTTP/1.1" 200 0
+[2019-04-07 19:17:33] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-07 19:17:33] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-07 19:17:33] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-07 19:18:04] WARNING [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 401 27
+[2019-04-07 19:18:04] WARNING [django.server.log_message:124] "GET /sso_api/group/1/users2 HTTP/1.1" 401 27
+[2019-04-07 19:18:04] WARNING [django.server.log_message:124] "GET /sso_api/group/1/detail HTTP/1.1" 401 27
+[2019-04-07 19:18:04] WARNING [django.server.log_message:124] "GET /sso_api/group/1/users HTTP/1.1" 401 27
+[2019-04-07 19:18:17] INFO [django.server.log_message:124] "POST /sso_api/confirm_key/1 HTTP/1.1" 202 134
+[2019-04-07 19:18:17] INFO [django.server.log_message:124] "GET /sso_api/group/1/users2 HTTP/1.1" 200 364
+[2019-04-07 19:18:17] INFO [django.server.log_message:124] "GET /sso_api/group/1/detail HTTP/1.1" 200 296
+[2019-04-07 19:18:17] INFO [django.server.log_message:124] "GET /sso_api/group/1/users HTTP/1.1" 200 94
+[2019-04-07 19:18:17] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 200 277
+[2019-04-07 19:18:55] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2 HTTP/1.1" 200 0
+[2019-04-07 19:18:55] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/detail HTTP/1.1" 200 0
+[2019-04-07 19:18:55] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users2 HTTP/1.1" 200 0
+[2019-04-07 19:18:55] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/2/users HTTP/1.1" 200 0
+[2019-04-07 19:18:55] INFO [django.server.log_message:124] "GET /sso_api/group/2/users2 HTTP/1.1" 200 1562
+[2019-04-07 19:18:55] INFO [django.server.log_message:124] "GET /sso_api/group/2/detail HTTP/1.1" 200 307
+[2019-04-07 19:18:55] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 255
+[2019-04-07 19:18:55] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-04-07 19:19:17] INFO [django.server.log_message:124] "GET /sso_api/group/2/users2 HTTP/1.1" 200 1562
+[2019-04-07 19:19:17] INFO [django.server.log_message:124] "GET /sso_api/group/2/detail HTTP/1.1" 200 307
+[2019-04-07 19:19:17] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1004
+[2019-04-07 19:19:17] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 255
+[2019-04-07 19:19:52] WARNING [django.server.log_message:124] "GET /sso_api/topic/3/lab HTTP/1.1" 400 0
+[2019-04-07 19:22:09] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /sso_api/topic/3/labs
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+TypeError: get() got an unexpected keyword argument 'type'
+[2019-04-07 19:22:09] ERROR [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 500 21778
+[2019-04-07 19:22:34] WARNING [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 400 0
+[2019-04-07 19:22:35] WARNING [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 400 0
+[2019-04-07 19:23:21] WARNING [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 400 0
+[2019-04-07 19:24:04] WARNING [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 400 0
+[2019-04-07 19:25:01] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /sso_api/topic/3/labs
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 441, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 100, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'QuerySet' object has no attribute 'course'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\sso_api\views.py", line 349, in get
+    return Response(TopicLabSerializer(l).data, status=status.HTTP_200_OK)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 560, in data
+    ret = super(Serializer, self).data
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 262, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 514, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 462, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `course` on serializer `TopicLabSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `QuerySet` instance.
+Original exception text was: 'QuerySet' object has no attribute 'course'.
+[2019-04-07 19:25:01] ERROR [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 500 23623
+[2019-04-07 19:25:16] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /sso_api/topic/3/labs
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 441, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 100, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'QuerySet' object has no attribute 'course'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\sso_api\views.py", line 349, in get
+    return Response(TopicLabSerializer(l).data, status=status.HTTP_200_OK)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 560, in data
+    ret = super(Serializer, self).data
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 262, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 514, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 462, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `course` on serializer `TopicLabSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `QuerySet` instance.
+Original exception text was: 'QuerySet' object has no attribute 'course'.
+[2019-04-07 19:25:16] ERROR [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 500 23623
+[2019-04-07 19:26:26] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /sso_api/topic/3/labs
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 441, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 100, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'QuerySet' object has no attribute 'topic'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\sso_api\views.py", line 349, in get
+    return Response(TopicLabSerializer(l).data, status=status.HTTP_200_OK)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 560, in data
+    ret = super(Serializer, self).data
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 262, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 514, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 462, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `topic` on serializer `TopicLabSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `QuerySet` instance.
+Original exception text was: 'QuerySet' object has no attribute 'topic'.
+[2019-04-07 19:26:26] ERROR [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 500 23618
+[2019-04-07 19:27:07] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /sso_api/topic/3/note
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\sso_api\views.py", line 343, in get
+    n=Note.objects.get(topic=topic_id)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 394, in get
+    clone = self.filter(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 836, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 854, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\query.py", line 1253, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\query.py", line 1277, in _add_q
+    split_subq=split_subq,
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\query.py", line 1153, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\query.py", line 1015, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\query.py", line 1379, in names_to_path
+    "Choices are: %s" % (name, ", ".join(available)))
+django.core.exceptions.FieldError: Cannot resolve keyword 'topic' into field. Choices are: Detail, Topic, Topic_id, id, notecomment
+[2019-04-07 19:27:07] ERROR [django.server.log_message:124] "GET /sso_api/topic/3/note HTTP/1.1" 500 23729
+[2019-04-07 19:28:21] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /sso_api/topic/3/note
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\sso_api\views.py", line 343, in get
+    n=Note.objects.get(Topic=topic_id)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 403, in get
+    self.model._meta.object_name
+Courses.models.DoesNotExist: Note matching query does not exist.
+[2019-04-07 19:28:21] ERROR [django.server.log_message:124] "GET /sso_api/topic/3/note HTTP/1.1" 500 22267
+[2019-04-07 19:29:56] WARNING [django.request.get_response:93] Not Found: /sso_api/topic/3/note
+[2019-04-07 19:29:56] WARNING [django.server.log_message:124] "GET /sso_api/topic/3/note HTTP/1.1" 404 0
+[2019-04-07 19:30:18] WARNING [django.request.get_response:93] Not Found: /sso_api/topic/3/note
+[2019-04-07 19:30:18] WARNING [django.server.log_message:124] "GET /sso_api/topic/3/note HTTP/1.1" 404 11
+[2019-04-07 19:31:09] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /sso_api/topic/3/labs
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 441, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 100, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'QuerySet' object has no attribute 'course'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\sso_api\views.py", line 352, in get
+    return Response(TopicLabSerializer(l).data, status=status.HTTP_200_OK)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 560, in data
+    ret = super(Serializer, self).data
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 262, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 514, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 462, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `course` on serializer `TopicLabSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `QuerySet` instance.
+Original exception text was: 'QuerySet' object has no attribute 'course'.
+[2019-04-07 19:31:09] ERROR [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 500 23623
+[2019-04-07 19:35:05] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /sso_api/topic/3/labs
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 441, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 100, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'QuerySet' object has no attribute 'course'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\sso_api\views.py", line 352, in get
+    return Response(TopicLabSerializer(l).data, status=status.HTTP_200_OK)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 560, in data
+    ret = super(Serializer, self).data
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 262, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 514, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 462, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `course` on serializer `TopicLabSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `QuerySet` instance.
+Original exception text was: 'QuerySet' object has no attribute 'course'.
+[2019-04-07 19:35:05] ERROR [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 500 23623
+[2019-04-07 19:35:16] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /sso_api/topic/3/labs
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 441, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 100, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'QuerySet' object has no attribute 'course'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\sso_api\views.py", line 352, in get
+    return Response(TopicLabSerializer(l).data, status=status.HTTP_200_OK)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 560, in data
+    ret = super(Serializer, self).data
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 262, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 514, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 462, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `course` on serializer `TopicLabSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `QuerySet` instance.
+Original exception text was: 'QuerySet' object has no attribute 'course'.
+[2019-04-07 19:35:16] ERROR [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 500 23624
+[2019-04-07 19:36:09] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /sso_api/topic/3/labs
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 441, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 100, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'QuerySet' object has no attribute 'course'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\sso_api\views.py", line 352, in get
+    return Response(TopicLabSerializer(l).data, status=status.HTTP_200_OK)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 560, in data
+    ret = super(Serializer, self).data
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 262, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 514, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 462, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `course` on serializer `TopicLabSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `QuerySet` instance.
+Original exception text was: 'QuerySet' object has no attribute 'course'.
+[2019-04-07 19:36:09] ERROR [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 500 23623
+[2019-04-07 19:37:39] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /sso_api/topic/3/labs
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 441, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 100, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'QuerySet' object has no attribute 'topic'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\sso_api\views.py", line 352, in get
+    return Response(TopicLabSerializer(l).data, status=status.HTTP_200_OK)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 560, in data
+    ret = super(Serializer, self).data
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 262, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 514, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 462, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `topic` on serializer `TopicLabSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `QuerySet` instance.
+Original exception text was: 'QuerySet' object has no attribute 'topic'.
+[2019-04-07 19:37:39] ERROR [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 500 23619
+[2019-04-07 19:37:57] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /sso_api/topic/3/labs
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 441, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 100, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'QuerySet' object has no attribute 'topic'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\sso_api\views.py", line 352, in get
+    return Response(TopicLabSerializer(l).data, status=status.HTTP_200_OK)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 560, in data
+    ret = super(Serializer, self).data
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 262, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 514, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 462, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `topic` on serializer `TopicLabSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `QuerySet` instance.
+Original exception text was: 'QuerySet' object has no attribute 'topic'.
+[2019-04-07 19:37:57] ERROR [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 500 23619
+[2019-04-07 19:38:59] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /sso_api/topic/3/labs
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 441, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 100, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'LabTask' object has no attribute 'topic'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\sso_api\views.py", line 352, in get
+    return Response(TopicLabSerializer(l,many=True).data, status=status.HTTP_200_OK)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 765, in data
+    ret = super(ListSerializer, self).data
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 262, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 683, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 683, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 514, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 462, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `topic` on serializer `TopicLabSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `LabTask` instance.
+Original exception text was: 'LabTask' object has no attribute 'topic'.
+[2019-04-07 19:38:59] ERROR [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 500 24020
+[2019-04-07 19:39:01] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /sso_api/topic/3/labs
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 441, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 100, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'LabTask' object has no attribute 'topic'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\sso_api\views.py", line 352, in get
+    return Response(TopicLabSerializer(l,many=True).data, status=status.HTTP_200_OK)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 765, in data
+    ret = super(ListSerializer, self).data
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 262, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 683, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 683, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 514, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\fields.py", line 462, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `topic` on serializer `TopicLabSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `LabTask` instance.
+Original exception text was: 'LabTask' object has no attribute 'topic'.
+[2019-04-07 19:39:01] ERROR [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 500 24021
+[2019-04-07 19:40:21] INFO [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 200 567
+[2019-04-07 19:44:44] WARNING [django.request.get_response:93] Not Found: /sso_api/topic/3/note
+[2019-04-07 19:44:44] WARNING [django.server.log_message:124] "GET /sso_api/topic/3/note HTTP/1.1" 404 11
+[2019-04-07 19:47:04] WARNING [django.request.get_response:93] Not Found: /sso_api/topic/3/note
+[2019-04-07 19:47:04] WARNING [django.server.log_message:124] "GET /sso_api/topic/3/note HTTP/1.1" 404 11
+[2019-04-07 19:47:05] WARNING [django.request.get_response:93] Not Found: /sso_api/topic/3/note
+[2019-04-07 19:47:05] WARNING [django.server.log_message:124] "GET /sso_api/topic/3/note HTTP/1.1" 404 11
+[2019-04-07 19:47:35] WARNING [django.request.get_response:93] Not Found: /sso_api/topic/3/note
+[2019-04-07 19:47:35] WARNING [django.server.log_message:124] "GET /sso_api/topic/3/note HTTP/1.1" 404 11
+[2019-04-07 19:49:05] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /sso_api/topic/3/note
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\sso_api\views.py", line 345, in get
+    n=Note.objects.get(Topic=CourseTopic.objects.get(topic_id))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 394, in get
+    clone = self.filter(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 836, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 854, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\query.py", line 1253, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\query.py", line 1277, in _add_q
+    split_subq=split_subq,
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\query.py", line 1150, in build_filter
+    arg, value = filter_expr
+TypeError: 'int' object is not iterable
+[2019-04-07 19:49:05] ERROR [django.server.log_message:124] "GET /sso_api/topic/3/note HTTP/1.1" 500 23143
+[2019-04-07 19:49:26] WARNING [django.request.get_response:93] Not Found: /sso_api/topic/3/note
+[2019-04-07 19:49:26] WARNING [django.server.log_message:124] "GET /sso_api/topic/3/note HTTP/1.1" 404 11
+[2019-04-07 19:50:14] WARNING [django.request.get_response:93] Not Found: /sso_api/topic/3/note
+[2019-04-07 19:50:14] WARNING [django.server.log_message:124] "GET /sso_api/topic/3/note HTTP/1.1" 404 11
+[2019-04-07 19:50:15] WARNING [django.request.get_response:93] Not Found: /sso_api/topic/3/note
+[2019-04-07 19:50:15] WARNING [django.server.log_message:124] "GET /sso_api/topic/3/note HTTP/1.1" 404 11
+[2019-04-07 19:50:15] WARNING [django.request.get_response:93] Not Found: /sso_api/topic/3/note
+[2019-04-07 19:50:15] WARNING [django.server.log_message:124] "GET /sso_api/topic/3/note HTTP/1.1" 404 11
+[2019-04-08 02:18:46] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /sso_api/topic/3/note
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\sso_api\views.py", line 346, in get
+    return Response(NoteSerializer(n).data, status=status.HTTP_200_OK)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 560, in data
+    ret = super(Serializer, self).data
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 262, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 510, in to_representation
+    fields = self._readable_fields
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 376, in _readable_fields
+    field for field in self.fields.values()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 363, in fields
+    for key, value in self.get_fields().items():
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 1045, in get_fields
+    source, info, model, depth
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 1190, in build_field
+    return self.build_unknown_field(field_name, model_class)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 1302, in build_unknown_field
+    (field_name, model_class.__name__)
+django.core.exceptions.ImproperlyConfigured: Field name `detail` is not valid for model `Note`.
+[2019-04-08 02:18:46] ERROR [django.server.log_message:124] "GET /sso_api/topic/3/note HTTP/1.1" 500 23595
+[2019-04-08 02:20:50] INFO [django.server.log_message:124] "GET /sso_api/topic/3/note HTTP/1.1" 200 57
+[2019-04-08 02:20:51] INFO [django.server.log_message:124] "GET /sso_api/topic/3/note HTTP/1.1" 200 57
+[2019-04-08 02:21:06] INFO [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 200 567
+[2019-04-08 02:22:28] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/3/detail HTTP/1.1" 200 0
+[2019-04-08 02:22:28] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/3 HTTP/1.1" 200 0
+[2019-04-08 02:22:28] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/3/users2 HTTP/1.1" 200 0
+[2019-04-08 02:22:28] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/3/users HTTP/1.1" 200 0
+[2019-04-08 02:22:31] WARNING [django.server.log_message:124] "GET /sso_api/group/3/detail HTTP/1.1" 401 27
+[2019-04-08 02:22:31] WARNING [django.server.log_message:124] "GET /sso_api/group/3 HTTP/1.1" 401 27
+[2019-04-08 02:22:31] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users2 HTTP/1.1" 401 27
+[2019-04-08 02:22:31] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users HTTP/1.1" 401 27
+[2019-04-08 02:25:57] INFO [django.server.log_message:124] "GET /sso_api/topic/3/note HTTP/1.1" 200 57
+[2019-04-08 02:26:10] WARNING [django.server.log_message:124] "GET /sso_api/group/3/detail HTTP/1.1" 401 27
+[2019-04-08 02:26:10] WARNING [django.server.log_message:124] "GET /sso_api/group/3 HTTP/1.1" 401 27
+[2019-04-08 02:26:10] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users HTTP/1.1" 401 27
+[2019-04-08 02:26:10] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users2 HTTP/1.1" 401 27
+[2019-04-08 02:26:19] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /sso_api/topic/3/note
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\sso_api\views.py", line 346, in get
+    return Response(NoteSerializer(n).data, status=status.HTTP_200_OK)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 560, in data
+    ret = super(Serializer, self).data
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 262, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 510, in to_representation
+    fields = self._readable_fields
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 376, in _readable_fields
+    field for field in self.fields.values()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 363, in fields
+    for key, value in self.get_fields().items():
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 1020, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\serializers.py", line 1121, in get_field_names
+    serializer_class=self.__class__.__name__
+AssertionError: The field 'Topic' was declared on serializer NoteSerializer, but has not been included in the 'fields' option.
+[2019-04-08 02:26:19] ERROR [django.server.log_message:124] "GET /sso_api/topic/3/note HTTP/1.1" 500 23548
+[2019-04-08 02:26:42] INFO [django.server.log_message:124] "GET /sso_api/topic/3/note HTTP/1.1" 200 83
+[2019-04-08 02:28:23] INFO [django.server.log_message:124] "GET /sso_api/group/2/detail HTTP/1.1" 200 307
+[2019-04-08 02:28:23] INFO [django.server.log_message:124] "GET /sso_api/group/2/users2 HTTP/1.1" 200 1562
+[2019-04-08 02:28:24] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 255
+[2019-04-08 02:28:24] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1017
+[2019-04-08 02:28:33] INFO [django.server.log_message:124] "OPTIONS /sso_api/topic/NaN/note HTTP/1.1" 200 0
+[2019-04-08 02:28:33] WARNING [django.request.get_response:93] Not Found: /sso_api/topic/NaN/note
+[2019-04-08 02:28:33] WARNING [django.server.log_message:124] "GET /sso_api/topic/NaN/note HTTP/1.1" 404 16471
+[2019-04-08 02:32:10] WARNING [django.server.log_message:124] "GET /sso_api/group/3/detail HTTP/1.1" 401 27
+[2019-04-08 02:32:10] WARNING [django.server.log_message:124] "GET /sso_api/group/3 HTTP/1.1" 401 27
+[2019-04-08 02:32:10] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users HTTP/1.1" 401 27
+[2019-04-08 02:32:10] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users2 HTTP/1.1" 401 27
+[2019-04-08 02:32:58] INFO [django.server.log_message:124] "GET /sso_api/group/2/detail HTTP/1.1" 200 307
+[2019-04-08 02:32:58] INFO [django.server.log_message:124] "OPTIONS /sso_api/topic/null/note HTTP/1.1" 200 0
+[2019-04-08 02:32:58] INFO [django.server.log_message:124] "GET /sso_api/group/2/users2 HTTP/1.1" 200 1562
+[2019-04-08 02:32:58] WARNING [django.request.get_response:93] Not Found: /sso_api/topic/null/note
+[2019-04-08 02:32:58] WARNING [django.server.log_message:124] "GET /sso_api/topic/null/note HTTP/1.1" 404 16474
+[2019-04-08 02:32:58] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1017
+[2019-04-08 02:32:59] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 255
+[2019-04-08 02:33:19] INFO [django.server.log_message:124] "OPTIONS /sso_api/topic/3/note HTTP/1.1" 200 0
+[2019-04-08 02:33:19] INFO [django.server.log_message:124] "GET /sso_api/topic/3/note HTTP/1.1" 200 83
+[2019-04-08 02:34:19] INFO [django.server.log_message:124] "GET /sso_api/topic/3/note HTTP/1.1" 200 83
+[2019-04-08 02:34:59] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1017
+[2019-04-08 02:34:59] INFO [django.server.log_message:124] "GET /sso_api/group/2/detail HTTP/1.1" 200 307
+[2019-04-08 02:34:59] INFO [django.server.log_message:124] "GET /sso_api/group/2/users2 HTTP/1.1" 200 1562
+[2019-04-08 02:34:59] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 255
+[2019-04-08 02:34:59] INFO [django.server.log_message:124] "GET /sso_api/topic/3/note HTTP/1.1" 200 83
+[2019-04-08 02:35:03] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/3 HTTP/1.1" 200 0
+[2019-04-08 02:35:03] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/3/detail HTTP/1.1" 200 0
+[2019-04-08 02:35:03] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/3/users2 HTTP/1.1" 200 0
+[2019-04-08 02:35:03] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/3/users HTTP/1.1" 200 0
+[2019-04-08 02:35:04] WARNING [django.server.log_message:124] "GET /sso_api/group/3 HTTP/1.1" 401 27
+[2019-04-08 02:35:04] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users2 HTTP/1.1" 401 27
+[2019-04-08 02:35:04] WARNING [django.server.log_message:124] "GET /sso_api/group/3/detail HTTP/1.1" 401 27
+[2019-04-08 02:35:04] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users HTTP/1.1" 401 27
+[2019-04-08 02:35:06] INFO [django.server.log_message:124] "OPTIONS /sso_api/user/ HTTP/1.1" 200 0
+[2019-04-08 02:35:06] INFO [django.server.log_message:124] "OPTIONS /sso_api/user/ HTTP/1.1" 200 0
+[2019-04-08 02:35:06] INFO [django.server.log_message:124] "OPTIONS /sso_api/user/ HTTP/1.1" 200 0
+[2019-04-08 02:35:06] INFO [django.server.log_message:124] "OPTIONS /sso_api/user/ HTTP/1.1" 200 0
+[2019-04-08 02:35:06] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 02:35:06] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 02:35:06] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 02:35:06] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 02:36:43] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1017
+[2019-04-08 02:36:43] INFO [django.server.log_message:124] "GET /sso_api/group/2/detail HTTP/1.1" 200 307
+[2019-04-08 02:36:43] INFO [django.server.log_message:124] "GET /sso_api/group/2/users2 HTTP/1.1" 200 1562
+[2019-04-08 02:36:43] INFO [django.server.log_message:124] "GET /sso_api/topic/3/note HTTP/1.1" 200 83
+[2019-04-08 02:36:43] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 255
+[2019-04-08 02:36:46] WARNING [django.server.log_message:124] "GET /sso_api/group/3 HTTP/1.1" 401 27
+[2019-04-08 02:36:46] WARNING [django.server.log_message:124] "GET /sso_api/group/3/detail HTTP/1.1" 401 27
+[2019-04-08 02:36:46] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users2 HTTP/1.1" 401 27
+[2019-04-08 02:36:46] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users HTTP/1.1" 401 27
+[2019-04-08 02:36:49] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 02:36:49] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 02:36:49] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 02:36:49] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 02:39:04] INFO [django.server.log_message:124] "GET /sso_api/group/2/detail HTTP/1.1" 200 307
+[2019-04-08 02:39:04] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1017
+[2019-04-08 02:39:04] INFO [django.server.log_message:124] "GET /sso_api/group/2/users2 HTTP/1.1" 200 1562
+[2019-04-08 02:39:04] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 255
+[2019-04-08 02:39:04] INFO [django.server.log_message:124] "GET /sso_api/topic/3/note HTTP/1.1" 200 83
+[2019-04-08 02:39:06] WARNING [django.server.log_message:124] "GET /sso_api/group/3 HTTP/1.1" 401 27
+[2019-04-08 02:39:06] WARNING [django.server.log_message:124] "GET /sso_api/group/3/detail HTTP/1.1" 401 27
+[2019-04-08 02:39:07] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users2 HTTP/1.1" 401 27
+[2019-04-08 02:39:07] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users HTTP/1.1" 401 27
+[2019-04-08 02:39:08] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 02:39:09] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 02:39:09] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 02:39:09] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 02:39:10] INFO [django.server.log_message:124] "OPTIONS /sso_api/topic/3/labs HTTP/1.1" 200 0
+[2019-04-08 02:39:10] INFO [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 200 567
+[2019-04-08 02:41:22] INFO [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 200 567
+[2019-04-08 02:47:14] INFO [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 200 567
+[2019-04-08 02:47:29] INFO [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 200 567
+[2019-04-08 02:47:30] INFO [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 200 567
+[2019-04-08 02:48:59] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /sso_api/topic/3/labs
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\sso_api\views.py", line 353, in get
+    return Response({'labs': TopicLabSerializer(l,many=True).data,'topic':l.lab.name}, status=status.HTTP_200_OK)
+AttributeError: 'QuerySet' object has no attribute 'lab'
+[2019-04-08 02:48:59] ERROR [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 500 21996
+[2019-04-08 02:49:19] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /sso_api/topic/3/labs
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\sso_api\views.py", line 353, in get
+    return Response({'labs': TopicLabSerializer(l,many=True).data,'topic':l.tasks.name}, status=status.HTTP_200_OK)
+AttributeError: 'QuerySet' object has no attribute 'tasks'
+[2019-04-08 02:49:19] ERROR [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 500 22003
+[2019-04-08 02:49:32] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /sso_api/topic/3/labs
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\sso_api\views.py", line 353, in get
+    return Response({'labs': TopicLabSerializer(l,many=True).data,'topic':l.task.name}, status=status.HTTP_200_OK)
+AttributeError: 'QuerySet' object has no attribute 'task'
+[2019-04-08 02:49:33] ERROR [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 500 21999
+[2019-04-08 02:50:57] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /sso_api/topic/3/labs
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\sso_api\views.py", line 353, in get
+    return Response({'labs': TopicLabSerializer(l,many=True).data,'topic':c.title}, status=status.HTTP_200_OK)
+AttributeError: 'CourseTopic' object has no attribute 'title'
+[2019-04-08 02:50:57] ERROR [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 500 22004
+[2019-04-08 02:51:26] INFO [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 200 602
+[2019-04-08 02:51:34] INFO [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 200 602
+[2019-04-08 02:52:35] INFO [django.server.log_message:124] "GET /sso_api/group/2/users2 HTTP/1.1" 200 1562
+[2019-04-08 02:52:35] INFO [django.server.log_message:124] "GET /sso_api/group/2/detail HTTP/1.1" 200 307
+[2019-04-08 02:52:35] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 255
+[2019-04-08 02:52:35] INFO [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 200 602
+[2019-04-08 02:52:35] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1017
+[2019-04-08 02:52:38] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/3 HTTP/1.1" 200 0
+[2019-04-08 02:52:38] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/3/detail HTTP/1.1" 200 0
+[2019-04-08 02:52:38] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/3/users HTTP/1.1" 200 0
+[2019-04-08 02:52:38] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/3/users2 HTTP/1.1" 200 0
+[2019-04-08 02:52:39] WARNING [django.server.log_message:124] "GET /sso_api/group/3 HTTP/1.1" 401 27
+[2019-04-08 02:52:39] WARNING [django.server.log_message:124] "GET /sso_api/group/3/detail HTTP/1.1" 401 27
+[2019-04-08 02:52:39] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users HTTP/1.1" 401 27
+[2019-04-08 02:52:39] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users2 HTTP/1.1" 401 27
+[2019-04-08 02:52:39] INFO [django.server.log_message:124] "OPTIONS /sso_api/user/ HTTP/1.1" 200 0
+[2019-04-08 02:52:40] INFO [django.server.log_message:124] "OPTIONS /sso_api/user/ HTTP/1.1" 200 0
+[2019-04-08 02:52:40] INFO [django.server.log_message:124] "OPTIONS /sso_api/user/ HTTP/1.1" 200 0
+[2019-04-08 02:52:40] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 02:52:40] INFO [django.server.log_message:124] "OPTIONS /sso_api/user/ HTTP/1.1" 200 0
+[2019-04-08 02:52:40] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 02:52:40] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 02:52:40] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 02:54:49] INFO [django.server.log_message:124] "GET /sso_api/group/2/detail HTTP/1.1" 200 307
+[2019-04-08 02:54:49] INFO [django.server.log_message:124] "GET /sso_api/group/2/users2 HTTP/1.1" 200 1562
+[2019-04-08 02:54:49] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1017
+[2019-04-08 02:54:49] INFO [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 200 602
+[2019-04-08 02:54:49] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 255
+[2019-04-08 02:54:51] WARNING [django.server.log_message:124] "GET /sso_api/group/3/detail HTTP/1.1" 401 27
+[2019-04-08 02:54:51] WARNING [django.server.log_message:124] "GET /sso_api/group/3 HTTP/1.1" 401 27
+[2019-04-08 02:54:51] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users2 HTTP/1.1" 401 27
+[2019-04-08 02:54:51] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users HTTP/1.1" 401 27
+[2019-04-08 02:54:53] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 02:54:54] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 02:54:54] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 02:54:54] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 02:55:12] INFO [django.server.log_message:124] "GET /media/avatar.png HTTP/1.1" 200 19037
+[2019-04-08 02:55:12] INFO [django.server.log_message:124] "OPTIONS /sso_api/user/ HTTP/1.1" 200 0
+[2019-04-08 02:55:12] INFO [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 200 150
+[2019-04-08 02:55:12] INFO [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 200 150
+[2019-04-08 02:55:13] INFO [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 200 150
+[2019-04-08 02:55:13] INFO [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 200 150
+[2019-04-08 02:55:21] INFO [django.server.log_message:124] "OPTIONS /sso_api/topic/1/note HTTP/1.1" 200 0
+[2019-04-08 02:55:21] WARNING [django.request.get_response:93] Not Found: /sso_api/topic/1/note
+[2019-04-08 02:55:21] WARNING [django.server.log_message:124] "GET /sso_api/topic/1/note HTTP/1.1" 404 11
+[2019-04-08 02:55:26] INFO [django.server.log_message:124] "OPTIONS /sso_api/topic/1/labs HTTP/1.1" 200 0
+[2019-04-08 02:55:26] INFO [django.server.log_message:124] "GET /sso_api/topic/1/labs HTTP/1.1" 200 201
+[2019-04-08 02:55:28] WARNING [django.request.get_response:93] Not Found: /sso_api/topic/1/note
+[2019-04-08 02:55:28] WARNING [django.server.log_message:124] "GET /sso_api/topic/1/note HTTP/1.1" 404 11
+[2019-04-08 02:57:01] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1017
+[2019-04-08 02:57:01] INFO [django.server.log_message:124] "GET /sso_api/group/2/detail HTTP/1.1" 200 307
+[2019-04-08 02:57:01] INFO [django.server.log_message:124] "GET /sso_api/group/2/users2 HTTP/1.1" 200 1562
+[2019-04-08 02:57:01] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 255
+[2019-04-08 02:57:01] WARNING [django.request.get_response:93] Not Found: /sso_api/topic/1/note
+[2019-04-08 02:57:01] WARNING [django.server.log_message:124] "GET /sso_api/topic/1/note HTTP/1.1" 404 11
+[2019-04-08 02:57:04] WARNING [django.server.log_message:124] "GET /sso_api/group/3 HTTP/1.1" 401 27
+[2019-04-08 02:57:04] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users2 HTTP/1.1" 401 27
+[2019-04-08 02:57:04] WARNING [django.server.log_message:124] "GET /sso_api/group/3/detail HTTP/1.1" 401 27
+[2019-04-08 02:57:04] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users HTTP/1.1" 401 27
+[2019-04-08 02:57:07] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 02:57:08] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 02:57:08] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 02:57:08] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 02:58:09] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1017
+[2019-04-08 02:58:09] INFO [django.server.log_message:124] "GET /sso_api/group/2/detail HTTP/1.1" 200 307
+[2019-04-08 02:58:09] INFO [django.server.log_message:124] "GET /sso_api/group/2/users2 HTTP/1.1" 200 1562
+[2019-04-08 02:58:09] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 255
+[2019-04-08 02:58:09] WARNING [django.request.get_response:93] Not Found: /sso_api/topic/1/note
+[2019-04-08 02:58:09] WARNING [django.server.log_message:124] "GET /sso_api/topic/1/note HTTP/1.1" 404 11
+[2019-04-08 02:58:13] WARNING [django.server.log_message:124] "GET /sso_api/group/3 HTTP/1.1" 401 27
+[2019-04-08 02:58:13] WARNING [django.server.log_message:124] "GET /sso_api/group/3/detail HTTP/1.1" 401 27
+[2019-04-08 02:58:13] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users2 HTTP/1.1" 401 27
+[2019-04-08 02:58:13] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users HTTP/1.1" 401 27
+[2019-04-08 02:58:16] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 02:58:16] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 02:58:16] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 02:58:16] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 02:59:18] INFO [django.server.log_message:124] "GET /sso_api/group/2/detail HTTP/1.1" 200 307
+[2019-04-08 02:59:18] INFO [django.server.log_message:124] "GET /sso_api/group/2/users2 HTTP/1.1" 200 1562
+[2019-04-08 02:59:18] WARNING [django.request.get_response:93] Not Found: /sso_api/topic/1/note
+[2019-04-08 02:59:18] WARNING [django.server.log_message:124] "GET /sso_api/topic/1/note HTTP/1.1" 404 11
+[2019-04-08 02:59:18] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1017
+[2019-04-08 02:59:18] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 255
+[2019-04-08 02:59:21] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users2 HTTP/1.1" 401 27
+[2019-04-08 02:59:21] WARNING [django.server.log_message:124] "GET /sso_api/group/3/detail HTTP/1.1" 401 27
+[2019-04-08 02:59:21] WARNING [django.server.log_message:124] "GET /sso_api/group/3 HTTP/1.1" 401 27
+[2019-04-08 02:59:21] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users HTTP/1.1" 401 27
+[2019-04-08 02:59:22] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 02:59:23] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 02:59:23] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 02:59:23] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:00:07] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1017
+[2019-04-08 03:00:07] INFO [django.server.log_message:124] "GET /sso_api/group/2/detail HTTP/1.1" 200 307
+[2019-04-08 03:00:07] INFO [django.server.log_message:124] "GET /sso_api/group/2/users2 HTTP/1.1" 200 1562
+[2019-04-08 03:00:07] WARNING [django.request.get_response:93] Not Found: /sso_api/topic/1/note
+[2019-04-08 03:00:07] WARNING [django.server.log_message:124] "GET /sso_api/topic/1/note HTTP/1.1" 404 11
+[2019-04-08 03:00:07] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 255
+[2019-04-08 03:00:11] WARNING [django.server.log_message:124] "GET /sso_api/group/3 HTTP/1.1" 401 27
+[2019-04-08 03:00:11] WARNING [django.server.log_message:124] "GET /sso_api/group/3/detail HTTP/1.1" 401 27
+[2019-04-08 03:00:11] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users2 HTTP/1.1" 401 27
+[2019-04-08 03:00:11] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users HTTP/1.1" 401 27
+[2019-04-08 03:00:13] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:00:14] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:00:14] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:00:14] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:00:28] INFO [django.server.log_message:124] "GET /sso_api/group/2/users2 HTTP/1.1" 200 1562
+[2019-04-08 03:00:28] INFO [django.server.log_message:124] "GET /sso_api/group/2/detail HTTP/1.1" 200 307
+[2019-04-08 03:00:28] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1017
+[2019-04-08 03:00:28] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 255
+[2019-04-08 03:00:28] WARNING [django.request.get_response:93] Not Found: /sso_api/topic/1/note
+[2019-04-08 03:00:28] WARNING [django.server.log_message:124] "GET /sso_api/topic/1/note HTTP/1.1" 404 11
+[2019-04-08 03:00:31] WARNING [django.server.log_message:124] "GET /sso_api/group/3 HTTP/1.1" 401 27
+[2019-04-08 03:00:31] WARNING [django.server.log_message:124] "GET /sso_api/group/3/detail HTTP/1.1" 401 27
+[2019-04-08 03:00:31] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users2 HTTP/1.1" 401 27
+[2019-04-08 03:00:31] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users HTTP/1.1" 401 27
+[2019-04-08 03:00:33] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:00:33] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:00:33] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:00:34] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:00:47] INFO [django.server.log_message:124] "OPTIONS /sso_api/topic/2/note HTTP/1.1" 200 0
+[2019-04-08 03:00:47] WARNING [django.request.get_response:93] Not Found: /sso_api/topic/2/note
+[2019-04-08 03:00:47] WARNING [django.server.log_message:124] "GET /sso_api/topic/2/note HTTP/1.1" 404 11
+[2019-04-08 03:00:58] INFO [django.server.log_message:124] "GET /sso_api/topic/3/note HTTP/1.1" 200 83
+[2019-04-08 03:01:01] INFO [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 200 602
+[2019-04-08 03:01:42] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1017
+[2019-04-08 03:01:42] INFO [django.server.log_message:124] "GET /sso_api/group/2/detail HTTP/1.1" 200 307
+[2019-04-08 03:01:42] INFO [django.server.log_message:124] "GET /sso_api/group/2/users2 HTTP/1.1" 200 1562
+[2019-04-08 03:01:42] INFO [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 200 602
+[2019-04-08 03:01:42] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 255
+[2019-04-08 03:01:45] WARNING [django.server.log_message:124] "GET /sso_api/group/3 HTTP/1.1" 401 27
+[2019-04-08 03:01:45] WARNING [django.server.log_message:124] "GET /sso_api/group/3/detail HTTP/1.1" 401 27
+[2019-04-08 03:01:45] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users HTTP/1.1" 401 27
+[2019-04-08 03:01:45] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users2 HTTP/1.1" 401 27
+[2019-04-08 03:01:46] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:01:46] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:01:46] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:01:46] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:02:31] INFO [django.server.log_message:124] "GET /sso_api/topic/3/note HTTP/1.1" 200 83
+[2019-04-08 03:03:08] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1017
+[2019-04-08 03:03:08] INFO [django.server.log_message:124] "GET /sso_api/group/2/detail HTTP/1.1" 200 307
+[2019-04-08 03:03:08] INFO [django.server.log_message:124] "GET /sso_api/group/2/users2 HTTP/1.1" 200 1562
+[2019-04-08 03:03:08] INFO [django.server.log_message:124] "GET /sso_api/topic/3/note HTTP/1.1" 200 83
+[2019-04-08 03:03:08] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 255
+[2019-04-08 03:03:13] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/3/users HTTP/1.1" 200 0
+[2019-04-08 03:03:13] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/3/users2 HTTP/1.1" 200 0
+[2019-04-08 03:03:13] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/3/detail HTTP/1.1" 200 0
+[2019-04-08 03:03:14] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/3 HTTP/1.1" 200 0
+[2019-04-08 03:03:15] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users HTTP/1.1" 401 27
+[2019-04-08 03:03:15] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users2 HTTP/1.1" 401 27
+[2019-04-08 03:03:15] WARNING [django.server.log_message:124] "GET /sso_api/group/3/detail HTTP/1.1" 401 27
+[2019-04-08 03:03:15] WARNING [django.server.log_message:124] "GET /sso_api/group/3 HTTP/1.1" 401 27
+[2019-04-08 03:03:16] INFO [django.server.log_message:124] "OPTIONS /sso_api/user/ HTTP/1.1" 200 0
+[2019-04-08 03:03:16] INFO [django.server.log_message:124] "OPTIONS /sso_api/user/ HTTP/1.1" 200 0
+[2019-04-08 03:03:16] INFO [django.server.log_message:124] "OPTIONS /sso_api/user/ HTTP/1.1" 200 0
+[2019-04-08 03:03:16] INFO [django.server.log_message:124] "OPTIONS /sso_api/user/ HTTP/1.1" 200 0
+[2019-04-08 03:03:16] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:03:16] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:03:16] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:03:16] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:03:47] INFO [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 200 602
+[2019-04-08 03:03:57] INFO [django.server.log_message:124] "GET /sso_api/topic/3/note HTTP/1.1" 200 83
+[2019-04-08 03:03:58] INFO [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 200 602
+[2019-04-08 03:04:50] INFO [django.server.log_message:124] "GET /sso_api/group/2/users2 HTTP/1.1" 200 1562
+[2019-04-08 03:04:50] INFO [django.server.log_message:124] "GET /sso_api/group/2/detail HTTP/1.1" 200 307
+[2019-04-08 03:04:50] INFO [django.server.log_message:124] "GET /sso_api/group/2/users HTTP/1.1" 200 255
+[2019-04-08 03:04:50] INFO [django.server.log_message:124] "GET /sso_api/topic/3/labs HTTP/1.1" 200 602
+[2019-04-08 03:04:50] INFO [django.server.log_message:124] "GET /sso_api/group/2 HTTP/1.1" 200 1017
+[2019-04-08 03:04:54] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users2 HTTP/1.1" 401 27
+[2019-04-08 03:04:54] WARNING [django.server.log_message:124] "GET /sso_api/group/3/detail HTTP/1.1" 401 27
+[2019-04-08 03:04:54] WARNING [django.server.log_message:124] "GET /sso_api/group/3 HTTP/1.1" 401 27
+[2019-04-08 03:04:54] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users HTTP/1.1" 401 27
+[2019-04-08 03:04:56] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:04:56] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:04:56] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:04:56] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:05:14] INFO [django.server.log_message:124] "OPTIONS /sso_api/groups HTTP/1.1" 200 0
+[2019-04-08 03:05:14] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 606
+[2019-04-08 03:05:30] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 606
+[2019-04-08 03:05:59] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 606
+[2019-04-08 03:06:03] WARNING [django.server.log_message:124] "GET /sso_api/group/3/detail HTTP/1.1" 401 27
+[2019-04-08 03:06:03] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users2 HTTP/1.1" 401 27
+[2019-04-08 03:06:03] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users HTTP/1.1" 401 27
+[2019-04-08 03:06:03] WARNING [django.server.log_message:124] "GET /sso_api/group/3 HTTP/1.1" 401 27
+[2019-04-08 03:06:04] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:06:05] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:06:05] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:06:05] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:07:41] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 606
+[2019-04-08 03:07:44] WARNING [django.server.log_message:124] "GET /sso_api/group/3 HTTP/1.1" 401 27
+[2019-04-08 03:07:44] WARNING [django.server.log_message:124] "GET /sso_api/group/3/detail HTTP/1.1" 401 27
+[2019-04-08 03:07:44] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users2 HTTP/1.1" 401 27
+[2019-04-08 03:07:44] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users HTTP/1.1" 401 27
+[2019-04-08 03:07:46] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:07:46] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:07:46] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:07:47] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:08:17] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 606
+[2019-04-08 03:08:22] WARNING [django.server.log_message:124] "GET /sso_api/group/3 HTTP/1.1" 401 27
+[2019-04-08 03:08:22] WARNING [django.server.log_message:124] "GET /sso_api/group/3/detail HTTP/1.1" 401 27
+[2019-04-08 03:08:22] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users2 HTTP/1.1" 401 27
+[2019-04-08 03:08:22] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users HTTP/1.1" 401 27
+[2019-04-08 03:08:23] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:08:23] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:08:24] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:08:24] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:09:23] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 606
+[2019-04-08 03:09:28] WARNING [django.server.log_message:124] "GET /sso_api/group/3 HTTP/1.1" 401 27
+[2019-04-08 03:09:28] WARNING [django.server.log_message:124] "GET /sso_api/group/3/detail HTTP/1.1" 401 27
+[2019-04-08 03:09:28] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users2 HTTP/1.1" 401 27
+[2019-04-08 03:09:28] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users HTTP/1.1" 401 27
+[2019-04-08 03:09:31] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:09:31] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:09:31] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:09:31] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:09:46] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 606
+[2019-04-08 03:09:53] WARNING [django.server.log_message:124] "GET /sso_api/group/3 HTTP/1.1" 401 27
+[2019-04-08 03:09:53] WARNING [django.server.log_message:124] "GET /sso_api/group/3/detail HTTP/1.1" 401 27
+[2019-04-08 03:09:53] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users2 HTTP/1.1" 401 27
+[2019-04-08 03:09:53] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users HTTP/1.1" 401 27
+[2019-04-08 03:09:55] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:09:55] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:09:55] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:09:55] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:12:58] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 606
+[2019-04-08 03:13:05] WARNING [django.server.log_message:124] "GET /sso_api/group/3 HTTP/1.1" 401 27
+[2019-04-08 03:13:05] WARNING [django.server.log_message:124] "GET /sso_api/group/3/detail HTTP/1.1" 401 27
+[2019-04-08 03:13:05] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users2 HTTP/1.1" 401 27
+[2019-04-08 03:13:05] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users HTTP/1.1" 401 27
+[2019-04-08 03:13:07] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:13:07] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:13:08] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:13:08] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:13:31] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 606
+[2019-04-08 03:13:39] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/3 HTTP/1.1" 200 0
+[2019-04-08 03:13:39] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/3/detail HTTP/1.1" 200 0
+[2019-04-08 03:13:39] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/3/users2 HTTP/1.1" 200 0
+[2019-04-08 03:13:39] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/3/users HTTP/1.1" 200 0
+[2019-04-08 03:13:39] WARNING [django.server.log_message:124] "GET /sso_api/group/3/detail HTTP/1.1" 401 27
+[2019-04-08 03:13:39] WARNING [django.server.log_message:124] "GET /sso_api/group/3 HTTP/1.1" 401 27
+[2019-04-08 03:13:39] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users2 HTTP/1.1" 401 27
+[2019-04-08 03:13:39] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users HTTP/1.1" 401 27
+[2019-04-08 03:13:41] INFO [django.server.log_message:124] "OPTIONS /sso_api/user/ HTTP/1.1" 200 0
+[2019-04-08 03:13:41] INFO [django.server.log_message:124] "OPTIONS /sso_api/user/ HTTP/1.1" 200 0
+[2019-04-08 03:13:41] INFO [django.server.log_message:124] "OPTIONS /sso_api/user/ HTTP/1.1" 200 0
+[2019-04-08 03:13:41] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:13:41] INFO [django.server.log_message:124] "OPTIONS /sso_api/user/ HTTP/1.1" 200 0
+[2019-04-08 03:13:42] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:13:42] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:13:42] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:14:23] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 606
+[2019-04-08 03:14:29] WARNING [django.server.log_message:124] "GET /sso_api/group/3 HTTP/1.1" 401 27
+[2019-04-08 03:14:29] WARNING [django.server.log_message:124] "GET /sso_api/group/3/detail HTTP/1.1" 401 27
+[2019-04-08 03:14:29] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users2 HTTP/1.1" 401 27
+[2019-04-08 03:14:29] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users HTTP/1.1" 401 27
+[2019-04-08 03:14:31] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:14:32] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:14:32] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:14:32] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:15:14] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 606
+[2019-04-08 03:15:36] WARNING [django.server.log_message:124] "GET /sso_api/group/3 HTTP/1.1" 401 27
+[2019-04-08 03:15:36] WARNING [django.server.log_message:124] "GET /sso_api/group/3/detail HTTP/1.1" 401 27
+[2019-04-08 03:15:36] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users2 HTTP/1.1" 401 27
+[2019-04-08 03:15:36] WARNING [django.server.log_message:124] "GET /sso_api/group/3/users HTTP/1.1" 401 27
+[2019-04-08 03:15:40] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:15:40] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:15:40] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 03:15:40] WARNING [django.server.log_message:124] "GET /sso_api/user/ HTTP/1.1" 401 27
+[2019-04-08 17:06:58] INFO [django.server.log_message:124] "OPTIONS /sso_api/confirm_key/1 HTTP/1.1" 200 0
+[2019-04-08 17:06:59] INFO [django.server.log_message:124] "POST /sso_api/confirm_key/1 HTTP/1.1" 202 134
+[2019-04-08 17:07:00] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/1 HTTP/1.1" 200 0
+[2019-04-08 17:07:00] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/1/detail HTTP/1.1" 200 0
+[2019-04-08 17:07:00] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/1/users2 HTTP/1.1" 200 0
+[2019-04-08 17:07:00] INFO [django.server.log_message:124] "OPTIONS /sso_api/group/1/users HTTP/1.1" 200 0
+[2019-04-08 17:07:00] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 200 277
+[2019-04-08 17:07:00] INFO [django.server.log_message:124] "GET /sso_api/group/1/users2 HTTP/1.1" 200 364
+[2019-04-08 17:07:00] INFO [django.server.log_message:124] "GET /sso_api/group/1/users HTTP/1.1" 200 94
+[2019-04-08 17:07:00] INFO [django.server.log_message:124] "GET /sso_api/group/1/detail HTTP/1.1" 200 296
+[2019-04-08 17:07:26] INFO [django.server.log_message:124] "GET /sso_api/group/1 HTTP/1.1" 200 277
+[2019-04-08 17:07:38] INFO [django.server.log_message:124] "GET /sso_api/groups HTTP/1.1" 200 606
+[2019-04-08 17:09:55] INFO [django.server.log_message:124] "GET /sso_api/group/1/users HTTP/1.1" 200 94
+[2019-04-08 17:21:53] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /sso_api/group/1/users
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\rest_framework\views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\sso_api\views.py", line 169, in get
+    log=GroupClassLog.get_log(g)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\models.py", line 350, in get_log
+    list=GroupClassLog.objects.filter(group=group_id,last_login__ge=range).order_by('-last_login')
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 836, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 854, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\query.py", line 1253, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\query.py", line 1277, in _add_q
+    split_subq=split_subq,
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\query.py", line 1215, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\query.py", line 1079, in build_lookup
+    lhs = self.try_transform(lhs, lookup_name)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\query.py", line 1115, in try_transform
+    (name, lhs.output_field.__class__.__name__))
+django.core.exceptions.FieldError: Unsupported lookup 'ge' for DateTimeField or join on the field not permitted.
+[2019-04-08 17:21:53] ERROR [django.server.log_message:124] "GET /sso_api/group/1/users HTTP/1.1" 500 23746
+[2019-04-08 17:22:24] INFO [django.server.log_message:124] "GET /sso_api/group/1/users HTTP/1.1" 200 49
+[2019-04-08 17:22:49] INFO [django.server.log_message:124] "GET /sso_api/group/1/users HTTP/1.1" 200 94
+[2019-04-08 17:23:07] INFO [django.server.log_message:124] "GET /sso_api/group/1/users HTTP/1.1" 200 49

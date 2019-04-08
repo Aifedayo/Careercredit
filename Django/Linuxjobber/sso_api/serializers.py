@@ -52,9 +52,8 @@ class CourseSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 class TopicLabSerializer(serializers.ModelSerializer):
-    course=CourseSerializer()
     class Meta:
-        model = CourseTopic
+        model = LabTask
         fields = "__all__"
 
 class AttendanceSerializer(serializers.ModelSerializer):
@@ -78,3 +77,9 @@ class GroupClassSerializer(serializers.ModelSerializer):
     class Meta:
         model = Groupclass
         fields = "__all__"
+
+class NoteSerializer(serializers.ModelSerializer):
+    Topic=serializers.StringRelatedField()
+    class Meta:
+        model = Note
+        fields = ['Detail','Topic']

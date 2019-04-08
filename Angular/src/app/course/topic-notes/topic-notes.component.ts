@@ -9,27 +9,20 @@ import {ApiService} from "../../share/api.service";
 })
 export class TopicNotesComponent implements OnInit {
 
+  note$:any
  route:any ;
   public data$: any;
   constructor(
     private apiService:ApiService,route:ActivatedRoute,
-    private router:Router,
-    private cdr:ChangeDetectorRef) {
-    this.route=route;
- this.data$=this.apiService.data$
+    private router:Router,) {
+    this.note$=this.apiService.getNotes(sessionStorage.getItem('active_topic'))
 
   }
   ngOnInit() {
 
-    // this.route.params.subscribe(params => {
-    //   const selectedClass = + params["group_id"];
-    // if (selectedClass){
-    //   // this.apiService.LoadData(selectedClass);
-    // this.apiService.setActiveTopic(+params["topic_id"]);
-    //    }
-    // });
-    //
-    //
+
+
+
 
   }
 

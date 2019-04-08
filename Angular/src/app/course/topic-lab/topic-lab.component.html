@@ -1,9 +1,9 @@
 <div class="section" style="max-height: 100vmin;overflow: scroll;">
-<div class="card"  *ngIf="_task |async as topic">
-     <div class="card-title">{{ topic.topic }}</div>
+<div class="card"  *ngIf="labs |async as labs">
+     <div class="card-title">Labs for {{ labs.topic }}</div>
   <div class="card-content" id="chat_div_space">
       <ol>
-          <li  class="" *ngFor="let item of topic.tasks">
+          <li  class="" *ngFor="let item of labs.labs">
               <ul>
                   <li>{{ item.comment }}</li>
                   <li> <b >Note :</b> <p>{{ item.note }}</p> </li>
