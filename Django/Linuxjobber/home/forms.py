@@ -4,7 +4,7 @@ from .models import Document, Internship, Resume, PartTimePostion, FullTimePosti
 
 class WeForm(forms.Form):
 	types = forms.ModelChoiceField(queryset=wetype.objects.all(), empty_label="Select",widget = forms.Select(attrs = {'class':'form-control'}) )
-
+	date = forms.DateField(widget=forms.TextInput(attrs={'class':'datepicker form-control','placeholder': 'Enter date of graduation'}))
 
 class JobApplicationForm(forms.ModelForm):
 	fullname = forms.CharField(label='First Name', widget = forms.TextInput(attrs = {'placeholder': 'Your full name', 'id' :'JobFname', 'class':'form-control jobfinput'}) )
