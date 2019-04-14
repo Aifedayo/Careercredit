@@ -337,7 +337,6 @@ def log_in(request):
                 check_permission_expiry(user)
             if next == "":
 
-                
                 #check if user paid for work experience and has not filled the form
                 try:
                     weps = wepeoples.objects.get(user=request.user)
