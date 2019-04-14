@@ -38,7 +38,8 @@ class LabTaskAdmin(admin.ModelAdmin):
 	list_display = ('task', 'lab')
 
 class TopicStatusAdmin(admin.ModelAdmin):
-	list_display = ('user','topic','video','lab')
+	list_display = ('user','topic','start_video','stop_video','lab','last_watched')
+	search_fields = ('user__email',)
 
 admin.site.register(Course)
 admin.site.register(CourseTopic, CourseTopicAdmin)

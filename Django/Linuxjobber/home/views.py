@@ -535,7 +535,6 @@ def workexpform(request):
         state = request.POST['state']
         income = request.POST['income']
         relocate = request.POST['relocate']
-        person = request.POST['type']
         date = request.POST['date']
 
         today = datetime.datetime.now().strftime("%Y-%m-%d")
@@ -543,18 +542,18 @@ def workexpform(request):
         month6 = month6.strftime("%Y-%m-%d")
         
         if date < today:
-            person = 'Trainee'
+            person = werole.objects.get(roles='Trainee')
         else:
             if today < date < month6:
-                person = 'Graduant'
+                person = werole.objects.get(roles='Graduant')
             else:
-                person = 'Student'
+                person = werole.objects.get(roles='Student')
         
         try:
             weps = wepeoples.objects.get(user=request.user)
             weps.types = trainee
             weps.current_position = current
-            weps.person_type = person
+            weps.person = person
             weps.state = state
             weps.income = income
             weps.relocation = relocate
@@ -566,7 +565,7 @@ def workexpform(request):
             weps.save()
         except wepeoples.DoesNotExist:
             weps = wepeoples.objects.create(user=request.user,types=trainee,
-                current_position=current,person_type=person,state=state,income=income,
+                current_position=current,person=person,state=state,income=income,
                 relocation=relocate,last_verification=None,Paystub=None,graduation_date=None,start_date=None)
             weps.save()
         return redirect("home:workexprofile")
