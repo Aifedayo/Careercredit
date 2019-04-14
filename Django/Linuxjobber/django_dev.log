@@ -1908,3 +1908,87 @@ django.urls.exceptions.NoReverseMatch: Reverse for 'videostat' with arguments '(
 [2019-04-14 05:17:32] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/Linux_Fundamentals/topics/ 200 [2.56, 127.0.0.1:45858][0m
 [2019-04-14 05:17:32] INFO [django.channels.server.log_action:141] [mHTTP GET /static/favicon.ico 200 [0.03, 127.0.0.1:45858][0m
 [2019-04-14 05:21:02] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/Linux_Fundamentals/topic/3/ 200 [5.65, 127.0.0.1:46084][0m
+[2019-04-14 18:16:55] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [2.22, 127.0.0.1:55358][0m
+[2019-04-14 18:17:00] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js 200 [0.04, 127.0.0.1:55358][0m
+[2019-04-14 18:17:02] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css 304 [0.01, 127.0.0.1:55358][0m
+[2019-04-14 18:17:05] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs/homebanner.png 200 [0.25, 127.0.0.1:55358][0m
+[2019-04-14 18:17:09] INFO [django.channels.server.log_action:141] [mHTTP GET /login/ 200 [0.05, 127.0.0.1:55358][0m
+[2019-04-14 18:17:10] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/imgback.jpg 200 [0.30, 127.0.0.1:55358][0m
+[2019-04-14 18:17:12] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-04-14 18:17:12] WARNING [django.channels.server.log_action:149] [33mHTTP GET /favicon.ico 404 [0.08, 127.0.0.1:55358][0m
+[2019-04-14 18:17:22] INFO [django.channels.server.log_action:147] [32mHTTP POST /login/ 302 [2.49, 127.0.0.1:55358][0m
+[2019-04-14 18:17:22] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [0.26, 127.0.0.1:55358][0m
+[2019-04-14 18:17:29] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/profile/ 200 [0.44, 127.0.0.1:55358][0m
+[2019-04-14 18:18:58] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /workexperience/profile/
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python3.6/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mololuwa/Desktop/linuxjobber/Django/Linuxjobber/home/views.py", line 604, in workexprofile
+    send_mail('Pay Stub verification needed', 'Hello,\n '+request.user.email+' just uploaded is pay stub at: '+link+'.\nPlease review and confirm last verification', settings.EMAIL_HOST_USER, ['mololuwasamuel12@gmail.com'])
+  File "/usr/lib/python3.6/site-packages/django/core/mail/__init__.py", line 60, in send_mail
+    return mail.send()
+  File "/usr/lib/python3.6/site-packages/django/core/mail/message.py", line 294, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/usr/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 103, in send_messages
+    new_conn_created = self.open()
+  File "/usr/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 63, in open
+    self.connection = self.connection_class(self.host, self.port, **connection_params)
+  File "/usr/lib64/python3.6/smtplib.py", line 251, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/lib64/python3.6/smtplib.py", line 336, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/lib64/python3.6/smtplib.py", line 307, in _get_socket
+    self.source_address)
+  File "/usr/lib64/python3.6/socket.py", line 704, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "/usr/lib64/python3.6/socket.py", line 745, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+[2019-04-14 18:18:58] ERROR [django.channels.server.log_action:154] [35;1mHTTP POST /workexperience/profile/ 500 [61.68, 127.0.0.1:55358][0m
+[2019-04-14 18:19:30] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /workexperience/profile/
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python3.6/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mololuwa/Desktop/linuxjobber/Django/Linuxjobber/home/views.py", line 604, in workexprofile
+    send_mail('Pay Stub verification needed', 'Hello,\n '+request.user.email+' just uploaded is pay stub at: '+link+'.\nPlease review and confirm last verification', settings.EMAIL_HOST_USER, ['mololuwasamuel12@gmail.com'])
+  File "/usr/lib/python3.6/site-packages/django/core/mail/__init__.py", line 60, in send_mail
+    return mail.send()
+  File "/usr/lib/python3.6/site-packages/django/core/mail/message.py", line 294, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/usr/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 103, in send_messages
+    new_conn_created = self.open()
+  File "/usr/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 63, in open
+    self.connection = self.connection_class(self.host, self.port, **connection_params)
+  File "/usr/lib64/python3.6/smtplib.py", line 251, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/lib64/python3.6/smtplib.py", line 336, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/lib64/python3.6/smtplib.py", line 307, in _get_socket
+    self.source_address)
+  File "/usr/lib64/python3.6/socket.py", line 704, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "/usr/lib64/python3.6/socket.py", line 745, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+[2019-04-14 18:19:30] ERROR [django.channels.server.log_action:154] [35;1mHTTP POST /workexperience/profile/ 500 [20.58, 127.0.0.1:55358][0m
+[2019-04-14 18:21:32] INFO [django.channels.server.log_action:147] [32mHTTP POST /workexperience/profile/ 302 [12.19, 127.0.0.1:55444][0m
+[2019-04-14 18:21:32] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/profile/ 200 [0.33, 127.0.0.1:55444][0m
+[2019-04-14 18:29:59] INFO [django.channels.server.log_action:141] [mHTTP GET /media/resume/Screenshot_from_2019-04-11_13-00-39_O38OxMY.png 200 [0.21, 127.0.0.1:55628][0m
+[2019-04-14 18:31:34] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/profile/ 200 [0.31, 127.0.0.1:55672][0m
+[2019-04-14 18:31:35] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/prof1.png 304 [0.01, 127.0.0.1:55672][0m
+[2019-04-14 18:31:35] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/imgs/prof2.png 304 [0.01, 127.0.0.1:55672][0m
+[2019-04-14 18:31:37] INFO [django.channels.server.log_action:141] [mHTTP GET /static/favicon.ico 200 [0.02, 127.0.0.1:55672][0m
+[2019-04-14 18:33:03] INFO [django.channels.server.log_action:147] [32mHTTP POST /workexperience/profile/ 302 [33.99, 127.0.0.1:55672][0m
+[2019-04-14 18:33:03] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/profile/ 200 [0.27, 127.0.0.1:55672][0m

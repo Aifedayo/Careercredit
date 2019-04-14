@@ -597,8 +597,13 @@ def workexprofile(request):
         if request.POST['type'] == '1':
             last_verify = request.FILES['verify']
             weps.Paystub = last_verify
-            weps.save(update_fields=["Paystub"])
-            messages.success(request, 'Paystub uploaded successfully, Last verification would be updated as soon as Paystub is verified')
+            weps.last_verification = datetime.datetime.now()
+            weps.save(update_fields=["Paystub","last_verification"])
+
+            link = settings.ENV_URL+weps.Paystub.url.strip("/")
+            
+            send_mail('Pay Stub verification needed', 'Hello,\n '+request.user.email+' just uploaded is pay stub at: '+link+'.\nPlease review and confirm last verification', settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
+            messages.success(request, 'Paystub uploaded successfully, Last verification would be confirmed as soon as Paystub is verified')
             return redirect("home:workexprofile")
         elif request.POST['type'] == '2':
             income = request.POST['income']
