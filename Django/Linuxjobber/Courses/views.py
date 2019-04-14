@@ -1,4 +1,4 @@
-import subprocess, json, os, requests, random
+import subprocess, json, os, requests, random, datetime
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseBadRequest
 from django.shortcuts import render, redirect, get_object_or_404
@@ -132,20 +132,30 @@ def TopicNote(request, course_name, lab_no):
     return render(request, 'courses/note.html', {'template':template, 'note':Notes, 'randoms': Random, 'course': course_name, 'comments':comments})
 
 @csrf_exempt
-def videostat(request, topic):
+def videostat(request, topic, stat):
     if request.method == "POST":
         topic = CourseTopic.objects.get(id=topic)
-        stat = TopicStatus.objects.get(topic=topic,user=request.user)
+        stats = TopicStatus.objects.get(topic=topic,user=request.user)
 
         #does not have lab
         if topic.has_labs == 0:
-            stat.video = 50
-            stat.lab = 50
-            stat.save(update_fields=['video','lab'])
+            stats.start_video = 25
+            stats.stop_video = 25
+            stats.lab = 50
+            stats.last_watched = datetime.datetime.now()
+            if stat == 0:
+                stats.save(update_fields=['start_video','last_watched','lab'])
+            else:
+                stats.save(update_fields=['stop_video','last_watched','lab'])
         #has lab
         else:
-            stat.video = 50
-            stat.save(update_fields=['video'])
+            stats.start_video = 25
+            stats.stop_video = 25
+            stats.last_watched = datetime.datetime.now()
+            if stat == 0:
+                stats.save(update_fields=['start_video','last_watched'])
+            else:
+                stats.save(update_fields=['stop_video','last_watched'])
         return HttpResponse("Result:done")
 
 def totalstat(user,course):
@@ -153,7 +163,7 @@ def totalstat(user,course):
     tostat = total = 0
     for topic in topics:
         stat = TopicStatus.objects.get(topic=topic, user=user)
-        tostat = tostat + stat.video + stat.lab
+        tostat = tostat + stat.start_video + stat.stop_video + stat.lab
     
     total = tostat / len(topics)
 

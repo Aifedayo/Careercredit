@@ -46,6 +46,8 @@
 	rel="stylesheet">
 <!-- PROJECTS APPLICATION CUSTOM STYLESHEET -->
 <link rel="stylesheet" type="text/css" href="{% static 'Projects/custom/css/projects.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css' %}">
+<script src="{% static 'home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js' %}"></script>
 <style>
 
 
@@ -453,11 +455,20 @@ bottom: 200px;
 
 		});
 	</script>
-	<script src="{% static 'faq/js/jquery-2.1.1.js' %} "></script>
+	
 	<script src="{% static 'faq/js/jquery.mobile.custom.min.js' %} "></script>
 	<script src="{% static 'faq/js/main.js' %} "></script>
-	<script src="http://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
+	
 <script src="{% static 'js/waterbubble.js' %}"></script>
+<script>
+  $( function() {
+    $( ".datepicker" ).datepicker({
+    	changeMonth: true,
+      changeYear: true,
+      dateFormat: "yy-mm-dd",
+    });
+  } );
+  </script>
 
 </body>
 </html>

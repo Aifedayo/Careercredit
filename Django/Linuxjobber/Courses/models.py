@@ -64,8 +64,10 @@ class CourseTopic(models.Model):
 class TopicStatus(models.Model):
     topic = models.ForeignKey(CourseTopic, on_delete = models.CASCADE)
     user = models.ForeignKey(CustomUser, on_delete = models.CASCADE)
-    video = models.IntegerField(default=0, validators=[MaxValueValidator(50)])
+    start_video = models.IntegerField(default=0, validators=[MaxValueValidator(25)])
+    stop_video = models.IntegerField(default=0, validators=[MaxValueValidator(25)])
     lab = models.IntegerField(default=0, validators=[MaxValueValidator(50)])
+    last_watched = models.DateTimeField(default=timezone.now, null=False)
 
     def __str__(self):
         return self.user.email    

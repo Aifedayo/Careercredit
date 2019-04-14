@@ -49,12 +49,6 @@ def get_tools():
 
 #INDEX VIEW
 def index(request):
-    try:
-        output = open("home/check_subscription.html", "w")
-        output.write("djdjdj")
-        output.close()
-    except IOError:
-        pass
     return render (request, 'home/index2.html')
 
 
@@ -536,19 +530,30 @@ def workexpform(request):
 
     if request.method == 'POST':
         trainee = request.POST['types']
+        trainee = wetype.objects.get(id=trainee)
         current = request.POST['current_position']
         state = request.POST['state']
         income = request.POST['income']
         relocate = request.POST['relocate']
-        person = request.POST['type']
+        date = request.POST['date']
 
-        trainee = wetype.objects.get(id=trainee)
+        today = datetime.datetime.now().strftime("%Y-%m-%d")
+        month6 = datetime.datetime.now() + timedelta(days=180)
+        month6 = month6.strftime("%Y-%m-%d")
+        
+        if date < today:
+            person = werole.objects.get(roles='Trainee')
+        else:
+            if today < date < month6:
+                person = werole.objects.get(roles='Graduant')
+            else:
+                person = werole.objects.get(roles='Student')
         
         try:
             weps = wepeoples.objects.get(user=request.user)
             weps.types = trainee
             weps.current_position = current
-            weps.person_type = person
+            weps.person = person
             weps.state = state
             weps.income = income
             weps.relocation = relocate
@@ -560,7 +565,7 @@ def workexpform(request):
             weps.save()
         except wepeoples.DoesNotExist:
             weps = wepeoples.objects.create(user=request.user,types=trainee,
-                current_position=current,person_type=person,state=state,income=income,
+                current_position=current,person=person,state=state,income=income,
                 relocation=relocate,last_verification=None,Paystub=None,graduation_date=None,start_date=None)
             weps.save()
         return redirect("home:workexprofile")
@@ -569,7 +574,7 @@ def workexpform(request):
 
 @login_required
 def workexprofile(request):
-    
+    group = []
     try:
         weps = wepeoples.objects.get(user=request.user)
 
@@ -580,10 +585,15 @@ def workexprofile(request):
 
     status = wework.objects.filter(we_people__user=request.user)
 
+    for sta in status:
+        group.append(sta.task.id)
+
+    listask = wetask.objects.filter(types=weps.types)
+    
+
 
 
     if request.method == "POST":
-        print(request.POST['type'])
         if request.POST['type'] == '1':
             last_verify = request.FILES['verify']
             weps.Paystub = last_verify
@@ -617,7 +627,7 @@ def workexprofile(request):
             messages.error(request, 'Sorry, an error occured. please contact admin@linuxjobber.com')
             return redirect("home:workexprofile")
 
-    return render(request, 'home/workexprofile.html',{'weps': weps, 'status':status})
+    return render(request, 'home/workexprofile.html',{'weps': weps, 'status':status, 'group':group, 'listask':listask})
 
 def jobplacements(request):
     return render(request, 'home/jobplacements.html',{'courses' : get_courses(), 'tools' : get_tools()})
