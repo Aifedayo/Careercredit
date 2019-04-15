@@ -176,7 +176,7 @@ def checkstat(user,course):
         try:
             stat = TopicStatus.objects.get(user=user,topic=topic)
         except TopicStatus.DoesNotExist:
-            stat = TopicStatus(user=user,topic=topic,lab=0,video=0)
+            stat = TopicStatus(user=user,topic=topic,lab=0,start_video=0,stop_video=0)
             stat.save()
         
 def signup(request):
