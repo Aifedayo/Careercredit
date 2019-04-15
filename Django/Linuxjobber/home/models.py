@@ -290,10 +290,16 @@ class wetype(models.Model):
     def __str__(self):
         return self.types
 
+class werole(models.Model):
+    roles = models.CharField(max_length = 50,null=True)
+
+    def __str__(self):
+        return self.roles
+
 class wepeoples(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     profile_picture = models.ImageField(upload_to = 'resume', null=True) 
-    person_type = models.CharField(max_length = 20, null=True)
+    person = models.ForeignKey(werole, on_delete = models.CASCADE, null=True)
     current_position = models.CharField(max_length = 20, null=True)
     state = models.CharField(max_length = 20, null=True)
     income = models.CharField(max_length = 20, null=True)
@@ -303,6 +309,7 @@ class wepeoples(models.Model):
     start_date = models.DateTimeField(default=timezone.now, null=True)
     graduation_date = models.DateTimeField(default=timezone.now, null=True)
     types = models.ForeignKey(wetype, on_delete = models.CASCADE, null=True)
+
 
     def __str__(self):
         return self.user.email
