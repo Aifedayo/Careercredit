@@ -1992,3 +1992,43 @@ socket.gaierror: [Errno -2] Name or service not known
 [2019-04-14 18:31:37] INFO [django.channels.server.log_action:141] [mHTTP GET /static/favicon.ico 200 [0.02, 127.0.0.1:55672][0m
 [2019-04-14 18:33:03] INFO [django.channels.server.log_action:147] [32mHTTP POST /workexperience/profile/ 302 [33.99, 127.0.0.1:55672][0m
 [2019-04-14 18:33:03] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/profile/ 200 [0.27, 127.0.0.1:55672][0m
+[2019-04-15 18:37:08] INFO [django.server.log_message:124] "GET /login/ HTTP/1.1" 200 3408
+[2019-04-15 18:37:08] INFO [django.server.log_message:124] "GET /static/home/css/styles.css HTTP/1.1" 200 7692
+[2019-04-15 18:37:08] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 200 7177
+[2019-04-15 18:37:09] INFO [django.server.log_message:124] "GET /static/home/images/imgback.jpg HTTP/1.1" 200 1032219
+[2019-04-15 18:37:10] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-04-15 18:37:10] WARNING [django.server.log_message:124] "GET /favicon.ico HTTP/1.1" 404 13482
+[2019-04-15 18:40:19] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 20322
+[2019-04-15 18:40:20] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 200 1163
+[2019-04-15 18:40:20] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2019-04-15 18:40:20] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 39923
+[2019-04-15 18:40:20] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 200 7450
+[2019-04-15 18:40:20] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 143036
+[2019-04-15 18:40:20] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 200 7720
+[2019-04-15 18:40:20] INFO [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 200 8372
+[2019-04-15 18:40:20] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css HTTP/1.1" 200 29279
+[2019-04-15 18:40:20] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2019-04-15 18:40:20] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 200 3979
+[2019-04-15 18:40:20] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js HTTP/1.1" 200 240434
+[2019-04-15 18:40:21] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/jobphone.png HTTP/1.1" 200 81490
+[2019-04-15 18:40:21] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 200 3066
+[2019-04-15 18:40:21] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/LaptopBook.png HTTP/1.1" 200 199346
+[2019-04-15 18:40:21] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 200 29115
+[2019-04-15 18:40:21] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 200 9198
+[2019-04-15 18:40:21] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/jobban2.png HTTP/1.1" 200 143991
+[2019-04-15 18:40:21] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/homelive.png HTTP/1.1" 200 126445
+[2019-04-15 18:40:21] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 200 4488
+[2019-04-15 18:40:21] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/homebanner.png HTTP/1.1" 200 916024
+[2019-04-15 18:40:21] INFO [django.server.log_message:124] "GET /static/js/waterbubble.js HTTP/1.1" 200 6268
+[2019-04-15 18:40:21] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/get3.png HTTP/1.1" 200 3867
+[2019-04-15 18:40:21] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/get2.png HTTP/1.1" 200 3347
+[2019-04-15 18:40:21] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/get1.png HTTP/1.1" 200 3968
+[2019-04-15 18:40:21] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/testi.png HTTP/1.1" 200 158800
+[2019-04-15 18:40:21] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/hq1.png HTTP/1.1" 200 3291
+[2019-04-15 18:40:21] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/hq2.png HTTP/1.1" 200 3242
+[2019-04-15 18:40:22] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/client3.png HTTP/1.1" 200 6337
+[2019-04-15 18:40:22] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/client2.png HTTP/1.1" 200 22913
+[2019-04-15 18:40:22] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/client1.png HTTP/1.1" 200 7837
+[2019-04-15 18:40:23] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-04-15 18:40:32] WARNING [django.request.get_response:93] Not Found: /djnd
+[2019-04-15 18:40:32] WARNING [django.server.log_message:124] "GET /djnd HTTP/1.1" 404 13461
