@@ -1992,3 +1992,22 @@ socket.gaierror: [Errno -2] Name or service not known
 [2019-04-14 18:31:37] INFO [django.channels.server.log_action:141] [mHTTP GET /static/favicon.ico 200 [0.02, 127.0.0.1:55672][0m
 [2019-04-14 18:33:03] INFO [django.channels.server.log_action:147] [32mHTTP POST /workexperience/profile/ 302 [33.99, 127.0.0.1:55672][0m
 [2019-04-14 18:33:03] INFO [django.channels.server.log_action:141] [mHTTP GET /workexperience/profile/ 200 [0.27, 127.0.0.1:55672][0m
+[2019-04-15 15:38:28] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [5.17, 127.0.0.1:56644][0m
+[2019-04-15 15:38:28] WARNING [django.request.get_response:93] Not Found: /robots.txt
+[2019-04-15 15:38:28] WARNING [django.channels.server.log_action:149] [33mHTTP GET /robots.txt 404 [0.13, 127.0.0.1:56646][0m
+[2019-04-15 15:38:30] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js 200 [0.09, 127.0.0.1:56644][0m
+[2019-04-15 15:38:30] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/css/main.css 304 [0.01, 127.0.0.1:56646][0m
+[2019-04-15 15:38:30] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css 304 [0.01, 127.0.0.1:56646][0m
+[2019-04-15 15:38:30] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs/LaptopBook.png 200 [0.02, 127.0.0.1:56644][0m
+[2019-04-15 15:38:32] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs/testi.png 200 [0.39, 127.0.0.1:56644][0m
+[2019-04-15 15:38:32] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs/homebanner.png 200 [0.48, 127.0.0.1:56646][0m
+[2019-04-15 15:38:38] INFO [django.channels.server.log_action:141] [mHTTP GET /signup 200 [0.09, 127.0.0.1:56646][0m
+[2019-04-15 15:38:40] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/imgback.jpg 200 [0.20, 127.0.0.1:56646][0m
+[2019-04-15 15:38:42] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-04-15 15:38:42] WARNING [django.channels.server.log_action:149] [33mHTTP GET /favicon.ico 404 [0.08, 127.0.0.1:56646][0m
+[2019-04-15 15:39:30] INFO [django.channels.server.log_action:141] [mHTTP POST /signup 200 [27.38, 127.0.0.1:56646][0m
+[2019-04-15 15:40:30] INFO [django.channels.server.log_action:141] [mHTTP GET /login/ 200 [1.15, 127.0.0.1:56646][0m
+[2019-04-15 15:40:54] INFO [django.channels.server.log_action:147] [32mHTTP POST /login/ 302 [10.78, 127.0.0.1:56646][0m
+[2019-04-15 15:40:54] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/userinterest 200 [0.60, 127.0.0.1:56646][0m
+[2019-04-15 15:40:55] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs//list-bg.png 200 [0.14, 127.0.0.1:56646][0m
+[2019-04-15 15:41:29] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/Linux_Fundamentals/topics/ 200 [10.75, 127.0.0.1:56646][0m
