@@ -71,13 +71,37 @@ def signup(request):
                 user.first_name = firstname
                 user.last_name = lastname
                 user.save()
+                ip = get_client_ip(request)
+                add_location(ip,request.user)
                 send_mail('Account has been Created', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + ' and your email is ' +email + '\n Follow this url to login with your username and password '+settings.ENV_URL+'login \n\n Thanks & Regards \n Admin.', settings.EMAIL_HOST_USER, [email])
                 return render(request, "home/registration/success.html", {'user': user})
             else:
                 error = True
                 return render(request, 'home/registration/signup.html', {'error':error})
     else:
-        return render(request, 'home/registration/signup.html')  
+        return render(request, 'home/registration/signup.html') 
+
+def add_location(ip,user):
+    url = 'http://api.ipstack.com/'+str(ip)+'?access_key=456c503b74c8697e41cf68f67655842d'
+    try:
+        r = requests.get(url)
+        details = r.json()
+        if details['country_name'] is not None:
+            locuser = Location(user=user,ipaddress=ip,country=details['country_name'],region=details['region_name'],latitude=details['latitude'],longtitude=details['longitude'],)
+            locuser.save()
+        else:
+            pass
+    except requests.exceptions.RequestException as e:
+        pass
+
+#Get users IP address
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    return ip 
 
 def forgot_password(request):
     email = ''
@@ -332,7 +356,8 @@ def log_in(request):
         
         if user is not None:
             login(request, user)
-
+            ip = get_client_ip(request)
+            add_location(ip,request.user)
             if user.role == 4:
                 check_permission_expiry(user)
             if next == "":

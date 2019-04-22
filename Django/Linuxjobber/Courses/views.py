@@ -15,7 +15,7 @@ from django.db.models import Q
 #################################################
 #    IMPORTS FROM WITHIN Linuxjobber APPLICATION  #
 from .models import GradesReport, Course, CourseTopic, CourseDescription, CoursePermission, Note, NoteComment, TopicStatus, LabTask, UserInterest, UserCourseStat
-from home.models import Location, AwsCredential
+from home.models import UserLocation, AwsCredential
 from users.models import CustomUser
 from .forms import *
 from .utils.djangolabsutils import grade_django_lab
@@ -165,8 +165,11 @@ def totalstat(user,course):
         stat = TopicStatus.objects.get(topic=topic, user=user)
         tostat = tostat + stat.start_video + stat.stop_video + stat.lab
     
-    total = tostat / len(topics)
-
+    if len(topics) == 0:
+        total=0
+        return total
+    else:
+        total = tostat / len(topics)
     return int(total)
 
 
