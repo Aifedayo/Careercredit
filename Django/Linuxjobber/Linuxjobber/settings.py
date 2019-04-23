@@ -34,7 +34,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'channels',
-    # 'ckeditor',
+    'ckeditor',
     'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
