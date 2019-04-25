@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin',admin.site.urls),
     path('login/', views.log_in, name = 'login'),
     path('signup', views.signup, name='signup'),
+    path('unsubscribe', views.unsubscribe, name='unsubscribe'),
     path('selfstudy', views.selfstudy, name='selfstudy'),
     path('linux/certification', views.linux_certification, name='linux_certification'),
     path('aws/certification', views.aws_certification, name='aws_certification'),
