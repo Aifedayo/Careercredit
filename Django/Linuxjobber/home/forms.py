@@ -1,6 +1,6 @@
 from django import forms
 from . import models
-from .models import Document, Internship, Resume, PartTimePostion, FullTimePostion, wepeoples, wetype
+from .models import Document, Internship, Resume, PartTimePostion, FullTimePostion, wepeoples, wetype, Unsubscriber
 
 class WeForm(forms.Form):
 	types = forms.ModelChoiceField(queryset=wetype.objects.all(), empty_label="Select",widget = forms.Select(attrs = {'class':'form-control'}) )
@@ -83,3 +83,9 @@ class AWSCredUpload(forms.ModelForm):
 	class Meta:
 		model = Document
 		fields = ['document',]
+
+class UnsubscribeForm(forms.ModelForm):
+		email = forms.CharField(label='Email Address', max_length=50)
+		class Meta:
+			model = Unsubscriber
+			fields = ['email']

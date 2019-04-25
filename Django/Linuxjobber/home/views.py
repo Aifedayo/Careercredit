@@ -23,10 +23,11 @@ from rest_framework.authtoken.models import Token
 from datetime import timedelta
 
 from .models import *
+from users.models import *
 from Courses.models import Course, CoursePermission, UserInterest
 from ToolsApp.models import Tool
 from users.models import CustomUser
-from .forms import JobPlacementForm, JobApplicationForm, AWSCredUpload, InternshipForm, ResumeForm, PartimeApplicationForm, WeForm
+from .forms import JobPlacementForm, JobApplicationForm, AWSCredUpload, InternshipForm, ResumeForm, PartimeApplicationForm, WeForm, UnsubscribeForm
 
 fs = FileSystemStorage(location= settings.MEDIA_ROOT+'/uploads')
 # stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -52,6 +53,25 @@ def index(request):
     return render (request, 'home/index2.html')
 
 
+def unsubscribe(request):
+    form = UnsubscribeForm(request.POST or None)
+
+    if form.is_valid():
+        instance = form.save(commit=False)
+        if CustomUser.objects.filter(email=instance.email).exists():
+            CustomUser.objects.get_or_create(email=instance.email, is_subscribed = False)
+            Unsubscriber.objects.get_or_create(email=instance.email)
+            success =True
+            return render(request, 'home/registration/unsubscribe.html', {'success':success,'form':form})
+        else:
+            error = True
+            return render(request, 'home/registration/unsubscribe.html', {'error':error,'form':form})
+    else:
+        return render(request,'home/registration/unsubscribe.html', {'form':form} )
+
+
+
+
 def signup(request):
     if request.method == "POST":
         firstname = request.POST['fullname'].split()[0]
@@ -71,7 +91,8 @@ def signup(request):
                 user.first_name = firstname
                 user.last_name = lastname
                 user.save()
-                send_mail('Account has been Created', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + ' and your email is ' +email + '\n Follow this url to login with your username and password '+settings.ENV_URL+'login \n\n Thanks & Regards \n Admin.', settings.EMAIL_HOST_USER, [email])
+                send_mail('Account has been Created', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + ' and your email is ' +email + '\n Follow this url to login with your username and password '+settings.ENV_URL+'login \n\n Thanks & Regards \n Admin. \n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe',
+                 settings.EMAIL_HOST_USER, [email])
                 return render(request, "home/registration/success.html", {'user': user})
             else:
                 error = True
@@ -89,7 +110,7 @@ def forgot_password(request):
             u.pwd_reset_token = ''.join(random.choice(string.ascii_lowercase) for x in range(64))
             u.save()
             password_reset_link = 'reset_password/'+str(u.pwd_reset_token)
-            send_mail('Linuxjobber Account Password Reset', 'Hello, \n' + 'You are receiving this email because we received a request to reset your password,\nignore this message if you did not initiate the request else click the link below to reset your password.\n'+settings.ENV_URL+''+password_reset_link+'\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
+            send_mail('Linuxjobber Account Password Reset', 'Hello, \n' + 'You are receiving this email because we received a request to reset your password,\n ignore this message if you did not initiate the request else click the link below to reset your password.\n'+settings.ENV_URL+''+password_reset_link+'\n\n Thanks & Regards \n Linuxjobber. \n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [email])
 
             return render(request, 'home/registration/forgot_password.html',{'message':'An email with password reset information has been sent to you. Check your email to proceede.'})
         else:
@@ -137,7 +158,7 @@ def internships(request):
             internform = form.save(commit=False)
             internform.save()
             messages.success(request, 'Thanks for applying for the internship which starts on '+ str(internsh.strftime('%b %d, %y')) +'. Please ensure you keep in touch with Linuxjobber latest updates on our various social media platform. Thanks')
-            send_mail('Linuxjobber Internship', 'Hello, you are receiving this email because you applied for an internship at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.POST['email']])
+            send_mail('Linuxjobber Internship', 'Hello, you are receiving this email because you applied for an internship at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber.\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [request.POST['email']])
             return render(request, 'home/internships.html', {'form': form, 'courses' : get_courses(), 'tools' : get_tools()})
     else:
         form = InternshipForm()
@@ -237,10 +258,10 @@ def partime(request):
             \n\nDo you understand our mission and is this a challenge that you are willing to take on? Are you still interested in this role?
 
             \n\n If so visit this link to login, if you dont have an account, register here: """+ settings.ENV_URL+"""  and click the yes button: """+ settings.ENV_URL+"""jobs/challenge/ \n
-            Best Regards,.\n\n Thanks & Regards \n Linuxjobber"""
+            Best Regards,.\n\n Thanks & Regards \n Linuxjobber. \n\n\n\n\n\n\n\n To Unsubscribe go here \n""" +settings.ENV_URL+"""unsubscribe"""
 
             send_mail('Linuxjobber Newsletter', message, settings.EMAIL_HOST_USER, [request.POST['email']])
-            send_mail('Part-Time Job Application Alert', 'Hello,\n'+request.POST['fullname']+' with email: '+request.POST['email']+ ' just applied for a part time role, '+position.job_title+'.\nCV can be found here: '+cv+'\n Phone number is: '+request.POST['phone']+' and high salary choice is: '+high+'.\nplease kindly review.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
+            send_mail('Part-Time Job Application Alert', 'Hello,\n'+request.POST['fullname']+' with email: '+request.POST['email']+ ' just applied for a part time role, '+position.job_title+'.\nCV can be found here: '+cv+'\n Phone number is: '+request.POST['phone']+' and high salary choice is: '+high+'.\nplease kindly review.\n\n Thanks & Regards \n Linuxjobber. \n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
             return redirect("home:jobfeed")
         else:
             form = PartimeApplicationForm()
@@ -270,8 +291,8 @@ def jobchallenge(request, respon=None):
 
                 Upload video to google drive and send link to joseph.showunmi@linuxjobber.com .\n
 
-                Best Regards,.\n\n Thanks & Regards \n Linuxjobber
-                        """
+                Best Regards,.\n\n Thanks & Regards \n Linuxjobber.\n\n\n\n\n\n\n\n To Unsubscribe go here \n"""+settings.ENV_URL+"""unsubscribe"""
+                        
         send_mail('Linuxjobber Job Challenge', message, settings.EMAIL_HOST_USER, [request.user.email])
         return redirect("home:index")
     return render(request, 'home/jobchallenge.html')
@@ -302,8 +323,8 @@ def jobapplication(request, job):
             else:
                 cv = request.POST['cv_link']
 
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you applied for a full-time role at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.POST['email']])
-            send_mail('Full-Time Job Application Alert', 'Hello,\n'+request.POST['fullname']+' with email: '+request.POST['email']+ 'just applied for a full time role, '+posts.job_title+'. \nCV can be found here: '+cv+'\n Phone number is:'+request.POST['phone']+'\nplease kindly review.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you applied for a full-time role at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [request.POST['email']])
+            send_mail('Full-Time Job Application Alert', 'Hello,\n'+request.POST['fullname']+' with email: '+request.POST['email']+ 'just applied for a full time role, '+posts.job_title+'. \nCV can be found here: '+cv+'\n Phone number is:'+request.POST['phone']+'\nplease kindly review.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
             return redirect("home:jobfeed")
         else:
             form = JobApplicationForm()
@@ -386,7 +407,7 @@ def linux_full_training(request):
         try:
             subscriber = NewsLetterSubscribers(email = email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [email])
             return render (request, 'home/linux_full_training.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
         except Exception as e:
             standard_logger.error('error')
@@ -402,7 +423,7 @@ def aws_full_training(request):
         try:
             subscriber = NewsLetterSubscribers(email = email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [email])
             return render (request, 'home/aws_full_training.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
         except Exception as e:
             standard_logger.error('error')
@@ -418,7 +439,7 @@ def oracledb_full_training(request):
         try:
             subscriber = NewsLetterSubscribers(email = email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [email])
             return render (request, 'home/oracledb_full_training.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
         except Exception as e:
             standard_logger.error('error')
@@ -434,7 +455,7 @@ def linux_certification(request):
         try:
             subscriber = NewsLetterSubscribers(email = email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [email])
             return render (request, 'home/linux_certification.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
         except Exception as e:
             standard_logger.error('error')
@@ -449,7 +470,7 @@ def aws_certification(request):
         try:
             subscriber = NewsLetterSubscribers(email = email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [email])
             return render (request, 'home/aws_certification.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
         except Exception as e:
             standard_logger.error('error')
@@ -464,7 +485,7 @@ def oracledb_certification(request):
         try:
             subscriber = NewsLetterSubscribers(email = email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [email])
             return render (request, 'home/oracledb_certification.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
         except Exception as e:
             standard_logger.error('error')
@@ -602,7 +623,7 @@ def workexprofile(request):
 
             link = settings.ENV_URL+weps.Paystub.url.strip("/")
             
-            send_mail('Pay Stub verification needed', 'Hello,\n '+request.user.email+' just uploaded is pay stub at: '+link+'.\nPlease review and confirm last verification', settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
+            send_mail('Pay Stub verification needed', 'Hello,\n '+request.user.email+' just uploaded is pay stub at: '+link+'.\nPlease review and confirm last verification\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
             messages.success(request, 'Paystub uploaded successfully, Last verification would be confirmed as soon as Paystub is verified')
             return redirect("home:workexprofile")
         elif request.POST['type'] == '2':
@@ -688,7 +709,7 @@ def apply(request,level):
                         'level':level,
                         }
                     return render(request,'home/failed_application.html',context)
-                send_mail('Linuxjobber Jobplacement Program', 'Hello, you have succesfully signed up for Linuxjobber Jobplacement program,\n\nIf you havent signed the agreement, visit this link to do so: https://leif.org/commit?product_id=5b304639e59b74063647c484#/.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.user.email])
+                send_mail('Linuxjobber Jobplacement Program', 'Hello, you have succesfully signed up for Linuxjobber Jobplacement program,\n\nIf you havent signed the agreement, visit this link to do so: https://leif.org/commit?product_id=5b304639e59b74063647c484#/.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [request.user.email])
                 return render(request,'home/jobaccepted.html')
             except Exception as error:
                 print(error)
@@ -731,7 +752,7 @@ def pay(request):
             _, created = wepeoples.objects.update_or_create(user=request.user,types=None,current_position=None,
                                                     person_type=None,state=None,income=None,relocation=None,
                                                     last_verification=None,Paystub=None,graduation_date=None)
-            send_mail('Linuxjobber Work-Experience Program', 'Hello, you have succesfully paid for Linuxjobber work experience program,\n\nIf you havent signed the agreement, visit this link to do so: https://leif.org/commit?product_id=5b30461fe59b74063647c483#/.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.user.email])
+            send_mail('Linuxjobber Work-Experience Program', 'Hello, you have succesfully paid for Linuxjobber work experience program,\n\nIf you havent signed the agreement, visit this link to do so: https://leif.org/commit?product_id=5b30461fe59b74063647c483#/.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe',settings.EMAIL_HOST_USER, [request.user.email])
             return render(request,'home/accepted.html')
         except Exception as error:
             messages.error(request, 'An error occurred while trying to pay please try again')
@@ -930,7 +951,7 @@ def group(request,pk):
                 user.first_name = firstname
                 user.last_name = lastname
                 user.save()
-                # send_mail('Linuxjobber Free Account Creation', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + '\n Follow this link http://35.167.153.1:8001/login to login to you account\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+                #  ('Linuxjobber Free Account Creation', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + '\n Follow this link http://35.167.153.1:8001/login to login to you account\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', 'settings.EMAIL_HOST_USER', [email])
 
                 groupreg = GroupClassRegister.objects.create(user= user, is_paid=0, amount=29, type_of_class = group_item.type_of_class)
                 groupreg.save()
@@ -1387,7 +1408,7 @@ def students_packages(request):
         try:
             subscriber = NewsLetterSubscribers(email = email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [email])
             return render (request, 'home/students_packages.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
         except Exception as e:
             standard_logger.error('error')
@@ -1405,7 +1426,7 @@ def server_service(request):
         try:
             subscriber = NewsLetterSubscribers(email = email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [email])
             return render (request, 'home/server_service.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
         except Exception as e:
             standard_logger.error('error')
@@ -1442,7 +1463,7 @@ def pay_live_help(request):
                 UserPayment.objects.create(user=request.user, amount=PRICE,
                                             trans_id = charge.id, pay_for = charge.description,
                                             )
-                send_mail('Linuxjobber Live Help Subscription', 'Hello, you have successfuly subscribed for Live Help on Linuxjobber.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.user.email])
+                send_mail('Linuxjobber Live Help Subscription', 'Hello, you have successfuly subscribed for Live Help on Linuxjobber.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [request.user.email])
                 return render(request,'home/live_help_pay_success.html')
             except SMTPException as error:
                 print(error)
@@ -1492,7 +1513,7 @@ def tryfree(request, sub_plan):
                     user = request.user
                     user.role = 3
                     user.save()
-                    send_mail('Linuxjobber Standard Plan Subscription', 'Hello, you have successfuly subscribed for our Standard Plan package.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.user.email])
+                    send_mail('Linuxjobber Standard Plan Subscription', 'Hello, you have successfuly subscribed for our Standard Plan package.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [request.user.email])
                     return render(request,'home/standardPlan_pay_success.html')
                 except SMTPException as error:
                     print(error)
@@ -1511,7 +1532,7 @@ def tryfree(request, sub_plan):
                        'tools' : get_tools()}
             return render(request, 'home/standard_plan_pay.html', context)
     else:
-        PRICE = 2499
+        PRICE = 1695
         mode = "One Time Payment"
         PAY_FOR = "PREMIUM PLAN"
         DISCLMR = "Please note that you will be charged ${} upfront. However, you may cancel at any time within 14 days for a full refund. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ONE TIME ${}".format(PRICE,PRICE)
@@ -1536,7 +1557,7 @@ def tryfree(request, sub_plan):
                     user = request.user
                     user.role = 4
                     user.save()
-                    send_mail('Linuxjobber Premium Plan Subscription', 'Hello, you have successfuly subscribed for our Premium Plan package.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.user.email])
+                    send_mail('Linuxjobber Premium Plan Subscription', 'Hello, you have successfuly subscribed for our Premium Plan package.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe',settings.EMAIL_HOST_USER, [request.user.email])
                     return render(request,'home/premiumPlan_pay_success.html')
                 except SMTPException as error:
                     print(error)
@@ -1638,7 +1659,7 @@ def group_list(request):
                 user.first_name = firstname
                 user.last_name = lastname
                 user.save()
-                #send_mail('Account has been Created', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + ' and your email is ' +email + '\n Follow this url to login with your username and password '+settings.ENV_URL+'login \n\n Thanks & Regards \n Admin.', settings.EMAIL_HOST_USER, [email])
+                #send_mail('Account has been Created', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + ' and your email is ' +email + '\n Follow this url to login with your username and password '+settings.ENV_URL+'login \n\n Thanks & Regards \n Admin.\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [email])
 
                 groupreg = GroupClassRegister.objects.create(user= user, is_paid=0, amount=29, type_of_class = group_item.type_of_class)
                 groupreg.save()
