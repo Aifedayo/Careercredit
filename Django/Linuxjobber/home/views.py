@@ -59,7 +59,7 @@ def unsubscribe(request):
     if form.is_valid():
         instance = form.save(commit=False)
         if CustomUser.objects.filter(email=instance.email).exists():
-            CustomUser.objects.get_or_create(email=instance.email, is_subscribed = False)
+            # CustomUser.objects.get_or_create(email=instance.email, is_subscribed = False)
             Unsubscriber.objects.get_or_create(email=instance.email)
             success =True
             return render(request, 'home/registration/unsubscribe.html', {'success':success,'form':form})
