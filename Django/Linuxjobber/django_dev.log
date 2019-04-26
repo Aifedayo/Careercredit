@@ -3564,3 +3564,13 @@ django.urls.exceptions.NoReverseMatch: 'tryfree' is not a registered namespace i
 [2019-04-26 15:28:47] WARNING [django.channels.server.log_action:149] HTTP GET /tryfree/awsPlan/images/icon5.png 404 [0.06, 127.0.0.1:55545]
 [2019-04-26 15:28:48] WARNING [django.request.get_response:93] Not Found: /tryfree/awsPlan/images/icon5.png
 [2019-04-26 15:28:48] WARNING [django.channels.server.log_action:149] HTTP GET /tryfree/awsPlan/images/icon5.png 404 [0.05, 127.0.0.1:55547]
+[2019-04-26 15:48:04] INFO [django.channels.server.log_action:147] HTTP GET /access_course 302 [0.03, 127.0.0.1:56356]
+[2019-04-26 15:48:04] INFO [django.channels.server.log_action:141] HTTP GET /login/?next=/access_course 200 [0.06, 127.0.0.1:56356]
+[2019-04-26 15:48:04] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/styles.css 200 [0.25, 127.0.0.1:56361]
+[2019-04-26 15:48:05] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-04-26 15:48:11] INFO [django.channels.server.log_action:147] HTTP POST /login/?next=/access_course 302 [1.39, 127.0.0.1:56356]
+[2019-04-26 15:48:12] INFO [django.channels.server.log_action:141] HTTP GET /access_course 200 [0.36, 127.0.0.1:56356]
+[2019-04-26 15:48:12] WARNING [django.request.get_response:93] Not Found: /images/icon5.png
+[2019-04-26 15:48:12] WARNING [django.channels.server.log_action:149] HTTP GET /images/icon5.png 404 [0.13, 127.0.0.1:56377]
+[2019-04-26 15:48:12] WARNING [django.request.get_response:93] Not Found: /images/icon5.png
+[2019-04-26 15:48:12] WARNING [django.channels.server.log_action:149] HTTP GET /images/icon5.png 404 [0.06, 127.0.0.1:56378]
