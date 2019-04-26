@@ -3544,3 +3544,23 @@ django.urls.exceptions.NoReverseMatch: 'tryfree' is not a registered namespace i
 [2019-04-26 15:00:52] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/logout1.png 304 [0.32, 127.0.0.1:53907]
 [2019-04-26 15:00:52] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/jobban2.png 304 [0.11, 127.0.0.1:53909]
 [2019-04-26 15:00:52] WARNING [django.channels.server.log_action:149] HTTP GET /tryfree/awsPlan/images/icon5.png 404 [0.45, 127.0.0.1:53910]
+[2019-04-26 15:28:02] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/img/trialimg.jpg 200 [0.10, 127.0.0.1:55500]
+[2019-04-26 15:28:03] WARNING [django.request.get_response:93] Not Found: /aws/images/icon5.png
+[2019-04-26 15:28:07] INFO [django.channels.server.log_action:141] HTTP GET /tryfree/awsPlan/ 200 [0.52, 127.0.0.1:55507]
+[2019-04-26 15:28:07] WARNING [django.request.get_response:93] Not Found: /tryfree/awsPlan/images/icon5.png
+[2019-04-26 15:28:07] WARNING [django.channels.server.log_action:149] HTTP GET /tryfree/awsPlan/images/icon5.png 404 [0.06, 127.0.0.1:55507]
+[2019-04-26 15:28:08] WARNING [django.request.get_response:93] Not Found: /tryfree/awsPlan/images/icon5.png
+[2019-04-26 15:28:08] WARNING [django.channels.server.log_action:149] HTTP GET /tryfree/awsPlan/images/icon5.png 404 [0.05, 127.0.0.1:55511]
+[2019-04-26 15:28:29] INFO [django.channels.server.log_action:141] HTTP GET /aws/full_training 200 [0.30, 127.0.0.1:55507]
+[2019-04-26 15:28:29] WARNING [django.request.get_response:93] Not Found: /aws/images/icon5.png
+[2019-04-26 15:28:32] INFO [django.channels.server.log_action:141] HTTP GET /tryfree/awsPlan/ 200 [0.34, 127.0.0.1:55507]
+[2019-04-26 15:28:32] WARNING [django.request.get_response:93] Not Found: /tryfree/awsPlan/images/icon5.png
+[2019-04-26 15:28:32] WARNING [django.channels.server.log_action:149] HTTP GET /tryfree/awsPlan/images/icon5.png 404 [0.12, 127.0.0.1:55507]
+[2019-04-26 15:28:32] WARNING [django.request.get_response:93] Not Found: /tryfree/awsPlan/images/icon5.png
+[2019-04-26 15:28:32] WARNING [django.channels.server.log_action:149] HTTP GET /tryfree/awsPlan/images/icon5.png 404 [0.04, 127.0.0.1:55507]
+[2019-04-26 15:28:43] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-04-26 15:28:47] INFO [django.channels.server.log_action:141] HTTP GET /tryfree/awsPlan/ 200 [0.22, 127.0.0.1:55545]
+[2019-04-26 15:28:47] WARNING [django.request.get_response:93] Not Found: /tryfree/awsPlan/images/icon5.png
+[2019-04-26 15:28:47] WARNING [django.channels.server.log_action:149] HTTP GET /tryfree/awsPlan/images/icon5.png 404 [0.06, 127.0.0.1:55545]
+[2019-04-26 15:28:48] WARNING [django.request.get_response:93] Not Found: /tryfree/awsPlan/images/icon5.png
+[2019-04-26 15:28:48] WARNING [django.channels.server.log_action:149] HTTP GET /tryfree/awsPlan/images/icon5.png 404 [0.05, 127.0.0.1:55547]
