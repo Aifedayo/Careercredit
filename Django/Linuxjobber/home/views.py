@@ -1569,7 +1569,7 @@ def tryfree(request, sub_plan):
             else:
                 context = { "stripe_key": stripeset[0].publickey,
                        'price': PRICE,
-                       'amount': str(PRICE)+'00',
+                       'amount': str(PRICE)+'00',  
                        'mode': mode,
                        'PAY_FOR': PAY_FOR,
                        'DISCLMR': DISCLMR,
