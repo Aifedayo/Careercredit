@@ -1531,8 +1531,54 @@ def tryfree(request, sub_plan):
                        'courses' : get_courses(),
                        'tools' : get_tools()}
             return render(request, 'home/standard_plan_pay.html', context)
+
+    if sub_plan == 'awsPlan':
+            PRICE = 1695
+            mode = "One Time Payment"
+            PAY_FOR = "AWS Full Training"
+            DISCLMR = "Please note that you will be charged ${} upfront. However, you may cancel at any time within 14 days for a full refund. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ${} One Time".format(PRICE,PRICE)
+            stripeset = StripePayment.objects.all()
+            stripe.api_key = stripeset[0].secretkey
+            if request.method == "POST":
+                token = request.POST.get("stripeToken")
+                try:
+                    charge = stripe.Charge.create(
+                        amount = PRICE *100,
+                        currency = "usd",
+                        source = token,
+                        description = sub_plan.lower()
+                    )
+                except stripe.error.CardError as ce:
+                    return False, ce
+                else:
+                    try:
+                        UserPayment.objects.create(user=request.user, amount=PRICE,
+                                                    trans_id = charge.id, pay_for = charge.description,
+                                                    )
+                        user = request.user
+                        user.role = 3
+                        user.save()
+                        send_mail('Linuxjobber AWS Full Training Subscription', 'Hello, you have successfuly subscribed for our Full Training Plan package.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [request.user.email])
+                        return render(request,'home/awsFull_pay_success.html')
+                    except SMTPException as error:
+                        print(error)
+                        return render(request,'home/awsFull_pay_success.html')
+                    except Exception as error:
+                        print(error)
+                        return redirect("home:index")
+            else:
+                context = { "stripe_key": stripeset[0].publickey,
+                       'price': PRICE,
+                       'amount': str(PRICE)+'00',
+                       'mode': mode,
+                       'PAY_FOR': PAY_FOR,
+                       'DISCLMR': DISCLMR,
+                       'courses' : get_courses(),
+                       'tools' : get_tools()}
+                return render(request, 'home/awsFull_plan_pay.html', context)
+
     else:
-        PRICE = 1695
+        PRICE = 2495
         mode = "One Time Payment"
         PAY_FOR = "PREMIUM PLAN"
         DISCLMR = "Please note that you will be charged ${} upfront. However, you may cancel at any time within 14 days for a full refund. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ONE TIME ${}".format(PRICE,PRICE)
@@ -1699,4 +1745,5 @@ def group_list(request):
         user_token,_=Token.objects.get_or_create(user=request.user)
 
     return TemplateResponse(request,'home/group_class.html',{'groups': Groupclass.objects.all(), 'GROUP_URL':settings.GROUP_CLASS_URL, 'token':user_token})
+
 
