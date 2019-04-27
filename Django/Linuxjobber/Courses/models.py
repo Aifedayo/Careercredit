@@ -61,12 +61,11 @@ class CourseTopic(models.Model):
     def get_status(self):
         return self.topicstatus_set.filter()
 
-class TopicStatus(models.Model):
+class TopicStat(models.Model):
     topic = models.ForeignKey(CourseTopic, on_delete = models.CASCADE)
     user = models.ForeignKey(CustomUser, on_delete = models.CASCADE)
-    start_video = models.IntegerField(default=0, validators=[MaxValueValidator(25)])
-    stop_video = models.IntegerField(default=0, validators=[MaxValueValidator(25)])
-    lab = models.IntegerField(default=0, validators=[MaxValueValidator(50)])
+    video = models.IntegerField(default=0, validators=[MaxValueValidator(25)])
+    status = models.CharField(default='start_video',max_length = 200)
     last_watched = models.DateTimeField(default=timezone.now, null=False)
 
     def __str__(self):

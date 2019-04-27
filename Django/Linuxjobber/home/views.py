@@ -87,8 +87,18 @@ def add_location(ip,user):
         r = requests.get(url)
         details = r.json()
         if details['country_name'] is not None:
-            locuser = Location(user=user,ipaddress=ip,country=details['country_name'],region=details['region_name'],latitude=details['latitude'],longtitude=details['longitude'],)
-            locuser.save()
+            try:
+                loc = UserLocation.objects.get(user=user)
+                loc.ipaddress = ip
+                loc.country=details['country_name']
+                loc.region=details['region_name']
+                loc.latitude=details['latitude']
+                loc.longtitude=details['longtitude']
+                loc.save()
+
+            except UserLocation.DoesNotExist:
+                locuser = UserLocation.objects.create(user=user,ipaddress=ip,country=details['country_name'],region=details['region_name'],latitude=details['latitude'],longtitude=details['longitude'],)
+                locuser.save()
         else:
             pass
     except requests.exceptions.RequestException as e:
