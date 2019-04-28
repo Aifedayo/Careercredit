@@ -271,8 +271,8 @@ class Unsubscriber(models.Model):
     def __str__(self):
         return self.email
 
-class Location(models.Model):
-    user = models.ForeignKey(CustomUser, on_delete = models.CASCADE)
+class UserLocation(models.Model):
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     ipaddress = models.CharField(max_length = 50)
     country = models.CharField(max_length= 100,blank=True)
     region = models.CharField(max_length= 100,blank=True)
