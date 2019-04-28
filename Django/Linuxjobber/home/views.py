@@ -104,6 +104,7 @@ def add_location(ip,user):
     except requests.exceptions.RequestException as e:
         pass
 
+
 #Get users IP address
 def get_client_ip(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
