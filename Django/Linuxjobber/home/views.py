@@ -112,9 +112,7 @@ def add_location(ip,user):
                 loc.ipaddress = ip
                 loc.country=details['country_name']
                 loc.region=details['region_name']
-                loc.latitude=details['latitude']
-                loc.longtitude=details['longtitude']
-                loc.save()
+                loc.save(update_fields=["country_name","region_name"])
 
             except UserLocation.DoesNotExist:
                 locuser = UserLocation.objects.create(user=user,ipaddress=ip,country=details['country_name'],region=details['region_name'],latitude=details['latitude'],longtitude=details['longtitude'],)
