@@ -265,7 +265,6 @@ def topictot(request,lab_no):
                     stat = stat + 50
                 else:
                     pass
-
     except TopicStat.DoesNotExist:
         stat = 0
     stat ={'stat': stat}

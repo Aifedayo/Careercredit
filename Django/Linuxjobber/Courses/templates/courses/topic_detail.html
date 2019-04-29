@@ -64,11 +64,8 @@
 jQuery(function(){
  $('.aftervideo').hide();
  $('.lab').hide();
-
- $('#myVideo').bind("playing", function(){
- 	end(0);
- });
-
+end(0);
+ 
  $('#myVideo').bind("ended", function(){
  	$('.videoname').hide();
  	$('.aftervideo').show();
