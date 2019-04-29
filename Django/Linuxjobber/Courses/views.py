@@ -14,8 +14,8 @@ from django.db.models import Q
 
 #################################################
 #    IMPORTS FROM WITHIN Linuxjobber APPLICATION  #
-from .models import GradesReport, Course, CourseTopic, CourseDescription, CoursePermission, Note, NoteComment, TopicStatus, LabTask, UserInterest, UserCourseStat
-from home.models import Location, AwsCredential
+from .models import GradesReport, Course, CourseTopic, CourseDescription, CoursePermission, Note, NoteComment, TopicStat, LabTask, UserInterest, UserCourseStat
+from home.models import UserLocation, AwsCredential
 from users.models import CustomUser
 from .forms import *
 from .utils.djangolabsutils import grade_django_lab
@@ -49,17 +49,17 @@ class CourseTopicsView(generic.ListView):
         return CourseTopic.objects.filter(course__course_title = self.kwargs.get('course_name').replace("_", " "))
  
     def get_context_data(self, **kwargs):
-        ip = get_client_ip(self.request)
-        add_location(ip,self.request.user)
-        stat = checkstat(self.request.user,Course.objects.get(course_title = self.kwargs.get('course_name').replace("_", " ")))
+        #ip = get_client_ip(self.request)
+        #add_location(ip,self.request.user)
+        #stat = checkstat(self.request.user,Course.objects.get(course_title = self.kwargs.get('course_name').replace("_", " ")))
 
-        Coursestat(self.request.user,Course.objects.get(course_title = self.kwargs.get('course_name').replace("_", " ")))
+        #Coursestat(self.request.user,Course.objects.get(course_title = self.kwargs.get('course_name').replace("_", " ")))
 
         context = super().get_context_data(**kwargs)
         context['course'] = Course.objects.get(course_title = self.kwargs.get('course_name').replace("_", " "))
         context['aws'] = check_aws(self.request.user)
-        context['totalstats'] = totalstat(self.request.user,Course.objects.get(course_title = self.kwargs.get('course_name').replace("_", " ")))
-
+        #context['totalstats'] = totalstat(self.request.user,Course.objects.get(course_title = self.kwargs.get('course_name').replace("_", " ")))
+        #context['totalstats'] = 0
         if self.request.user.role == 4:
             try:
                 context['permission'] = CoursePermission.objects.get(user=self.request.user,course=context['course'])
@@ -135,38 +135,153 @@ def TopicNote(request, course_name, lab_no):
 def videostat(request, topic, stat):
     if request.method == "POST":
         topic = CourseTopic.objects.get(id=topic)
-        stats = TopicStatus.objects.get(topic=topic,user=request.user)
 
         #does not have lab
         if topic.has_labs == 0:
-            stats.start_video = 25
-            stats.stop_video = 25
-            stats.lab = 50
-            stats.last_watched = datetime.datetime.now()
             if stat == 0:
-                stats.save(update_fields=['start_video','last_watched','lab'])
+                status='start_video'  
             else:
-                stats.save(update_fields=['stop_video','last_watched','lab'])
+                status='stop_video'  
+            video = 50
         #has lab
         else:
-            stats.start_video = 25
-            stats.stop_video = 25
-            stats.last_watched = datetime.datetime.now()
-            if stat == 0:
-                stats.save(update_fields=['start_video','last_watched'])
+            if stat == 1:
+                status='start_video'
             else:
-                stats.save(update_fields=['stop_video','last_watched'])
+                status='stop_video' 
+            video = 25
+
+        stats = TopicStat.objects.create(topic=topic,user=request.user,video=video,status=status)
+        stats.save()
         return HttpResponse("Result:done")
+
+def coursetot(request,lab_no):
+    course = Course.objects.get(id=lab_no)
+    topics = CourseTopic.objects.filter(course=course)
+    stat = 0
+    totscore= 0
+    totstat = 0
+    count = 0
+    for topic in topics:
+        leng = 0
+        score = 0
+        count = count + 1
+        grades = GradesReport.objects.filter(user=request.user,course_topic=topic),
+    
+        try:
+            start = TopicStat.objects.filter(topic=topic, user=request.user, status='start_video').last()
+            stop = TopicStat.objects.filter(topic=topic, user=request.user, status='stop_video').last()
+            #does not have lab
+            if topic.has_labs == 0:
+                if start is None:
+                    stat = stat + 0
+                else:
+                    stat = stat + start.video
+                
+                if stop is None:
+                    stat = stat + 0
+                else:
+                    stat = stat + stop.video
+            else:
+                if start is None:
+                    stat = stat + 0
+                else:
+                    stat = stat + start.video
+                
+                if stop is None:
+                    stat = stat + 0
+                else:
+                    stat = stat + stop.video
+
+                for grade in grades:
+                    for gra in grade:
+                        leng = leng+1 
+                        if gra.grade == "passed":
+                            score = score + 1
+                if leng == 0:
+                    stat = stat + 0
+                else:
+                    percent = (score/ leng) * 100
+                    if percent > 70:
+                        stat = stat + 50
+                    else:
+                        pass
+
+        except TopicStat.DoesNotExist:
+            stat = 0
+    if len(topics) == 0:
+        totstat = 0
+    else:
+        totstat = stat / len(topics)
+    totstat ={'totstat': totstat}
+    return JsonResponse(totstat)
+
+def topictot(request,lab_no):
+    stat = 0
+    leng = 0
+    totscore= 0
+    score = 0
+    topics = CourseTopic.objects.get(id=lab_no)
+
+    grades = GradesReport.objects.filter(user=request.user,course_topic=topics),
+    
+
+    try:
+        start = TopicStat.objects.filter(topic=topics, user=request.user, status='start_video').last()
+        stop = TopicStat.objects.filter(topic=topics, user=request.user, status='stop_video').last()
+        #does not have lab
+        if topics.has_labs == 0:
+            if start is None:
+                stat = stat + 0
+            else:
+                stat = stat + start.video
+            
+            if stop is None:
+                stat = stat + 0
+            else:
+                stat = stat + stop.video
+        else:
+            if start is None:
+                stat = stat + 0
+            else:
+                stat = stat + start.video
+            
+            if stop is None:
+                stat = stat + 0
+            else:
+                stat = stat + stop.video
+
+            for grade in grades:
+                for gra in grade:
+                    leng = leng+1 
+                    if gra.grade == "passed":
+                        score = score + 1
+            if leng == 0:
+                percent = 0
+            else:
+                percent = (score/ leng) * 100
+                
+                if percent > 70:
+                    stat = stat + 50
+                else:
+                    pass
+    except TopicStat.DoesNotExist:
+        stat = 0
+    stat ={'stat': stat}
+    return JsonResponse(stat)
 
 def totalstat(user,course):
     topics = CourseTopic.objects.filter(course=course)
     tostat = total = 0
     for topic in topics:
-        stat = TopicStatus.objects.get(topic=topic, user=user)
+        stat = TopicStat.objects.get(topic=topic, user=user)
         tostat = tostat + stat.start_video + stat.stop_video + stat.lab
     
-    total = tostat / len(topics)
-
+    if len(topics) == 0:
+        total=0
+        return total
+    else:
+        total = tostat / len(topics)
     return int(total)
 
 
@@ -174,9 +289,9 @@ def checkstat(user,course):
     topics = CourseTopic.objects.filter(course=course)
     for topic in topics:
         try:
-            stat = TopicStatus.objects.get(user=user,topic=topic)
-        except TopicStatus.DoesNotExist:
-            stat = TopicStatus(user=user,topic=topic,lab=0,start_video=0,stop_video=0)
+            stat = TopicStat.objects.get(user=user,topic=topic)
+        except TopicStat.DoesNotExist:
+            stat = TopicStat(user=user,topic=topic,lab=0,start_video=0,stop_video=0)
             stat.save()
         
 def signup(request):
@@ -351,7 +466,7 @@ def grader(request,topic):
         expected = len(reports)
         total = (scored / expected) * 100
 
-        status = TopicStatus.objects.get(user__id =user_ID,topic__id=topic_id)
+        status = TopicStat.objects.get(user__id =user_ID,topic__id=topic_id)
         if total >= 70:
             status.lab = 50
             status.save(update_fields=['lab'])
@@ -504,7 +619,7 @@ def store_lab_result(request):
         expected = len(reports)
         total = (scored / expected) * 100
 
-        status = TopicStatus.objects.get(user__id =user_ID,topic__id=topic_id)
+        status = TopicStat.objects.get(user__id =user_ID,topic__id=topic_id)
         if total >= 70:
             status.lab = 50
             status.save(update_fields=['lab'])
@@ -587,6 +702,7 @@ def handle_rslts(obj,userr,topic):
         # here record and created can be used to ascertain when a record is either created or updated.
     os.remove(obj)
 
+@login_required
 def description(request, course_name):
     course = course_name.replace("_"," ")
     coursed = Course.objects.get(course_title=course)
