@@ -117,7 +117,7 @@ nav ul a:hover {
   border-radius: 20px;
 }
 
-#vid,
+.vid,
 .top-head a {
   width: 100%;
   display: flex;

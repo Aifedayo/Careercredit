@@ -73,6 +73,7 @@ export class CourseComponent implements OnInit {
   }
 
   public setTopic(id){
+    sessionStorage.setItem('active_topic',id);
     this.selectedTopic=id;
     this.apiService.setActiveTopic(id);
     this.goToVideo();

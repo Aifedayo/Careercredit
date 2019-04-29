@@ -10,20 +10,12 @@ import {Observable} from "rxjs/index";
 })
 export class TopicLabComponent implements OnInit {
   route:any ;
-  public _task:Observable<any>;
+  public labs:any;
   constructor(private apiService:ApiService,route:ActivatedRoute,
-              private router:Router,
-              private cdr:ChangeDetectorRef) {
-    this.route=route;
-
-
+              private router:Router) {
+   this.labs=this.apiService.getLabs(sessionStorage.getItem('active_topic'))
   }
   ngOnInit() {
-            this.route.params.subscribe(params => {
-
-              this.cdr.reattach()
-    this._task=this.apiService.data$
-        });
 
   }
 
