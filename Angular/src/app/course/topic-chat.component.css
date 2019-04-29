@@ -42,7 +42,8 @@ i.medium{
   margin-top: 10px;
 background: rgba(0, 0, 0, 0.05);
 border-radius: 10px;
-width: 40%;
+width: auto;
+  max-width: 350px;
 margin-left: 20px;
 }
 
@@ -54,6 +55,9 @@ border-radius: 10px;
     margin-top: 10px;
 width: auto;
     max-width: 350px;
+    padding: 0;
+    height: auto;
+    max-height: 500px;
 
 }
 

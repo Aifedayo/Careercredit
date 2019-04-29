@@ -1,8 +1,17 @@
-<div class="card medium" style="max-height: 100vh;" *ngIf="data$ |async as topic">
-     <div class="card-title">Notes for {{ topic.topic }}</div>
+<div class="card card-default medium" style="max-height: 90vmin;" *ngIf="note$ |async as note;else other_content">
+     <div class="card-title" style="padding-left: 30px">Notes for {{ note.Topic }}</div>
   <div class="card-content" style="overflow:auto" id="chat_div_space">
       <div>
-          <p>{{ topic.notes }}</p>
+          <p>{{ note.Detail }}</p>
            </div>
 </div>
  </div>
+
+
+<ng-template #other_content>
+
+  <div class="card medium">
+      <div class="card-title" style="padding-left: 30px">No notes available</div>
+  </div>
+
+</ng-template>
