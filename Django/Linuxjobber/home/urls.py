@@ -1,8 +1,11 @@
 from django.contrib import admin
 from django.urls import path, include, re_path
 from . import views
+from django.views.decorators.csrf import csrf_exempt
+
 
 app_name = 'home'
+tryfree = views.tryfree
 
 jp_patterns = [
     path('', views.jobplacements, name='jobplacements'),
@@ -21,6 +24,7 @@ wp_patterns = [
 urlpatterns = [
     path('', views.index, name='index'),
     path('admin',admin.site.urls),
+    path('webhooks', views.my_webhook_view, name='my_webhook_view'),
     path('login/', views.log_in, name = 'login'),
     path('signup', views.signup, name='signup'),
     path('unsubscribe', views.unsubscribe, name='unsubscribe'),
@@ -74,7 +78,7 @@ urlpatterns = [
     path('home/pay/livehelp', views.pay_live_help, name='pay_live_help'),
     path('home/server/service', views.server_service, name='server_service'),
     path('home/liveinstructor', views.in_person_training, name='in_person_training'),
-    path('tryfree/<slug:sub_plan>/', views.tryfree, name='tryfree'),
+    path('tryfree/<slug:sub_plan>/', csrf_exempt(tryfree), name='tryfree'),
     path('user/RHCSA/order_details', views.rhcsa_order, name='rhcsa_order'),
     path('tutorials/userinterest', views.user_interest, name='user_interest'),
     path('profile_picture/update',views.upload_profile_pic,name='profile_img_upload'),

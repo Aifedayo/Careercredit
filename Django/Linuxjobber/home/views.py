@@ -21,6 +21,8 @@ from django.core.mail import send_mail
 from django.http import HttpResponse, HttpResponseRedirect
 from rest_framework.authtoken.models import Token
 from datetime import timedelta
+from django.views.decorators.csrf import csrf_protect
+
 
 from .models import *
 from users.models import *
@@ -39,6 +41,30 @@ Log non database errors with the standard_logger instance'''
 standard_logger = logging.getLogger(__name__)
 dbalogger = logging.getLogger('dba')
 utc=pytz.UTC
+
+
+
+
+
+
+
+# Using Django
+def my_webhook_view(request):
+ # Retrieve the request's body and parse it as JSON:
+ event_json = json.loads(request.body)
+
+ # Do something with event_json
+
+ # Return a response to acknowledge receipt of the event
+ return HttpResponse(status=200)
+
+
+
+
+
+
+
+
 
 
 def get_courses():
@@ -1439,6 +1465,9 @@ def server_service(request):
 def live_help(request):
     return render(request, 'home/live_help.html', {'courses' : get_courses(), 'tools' : get_tools()} )
 
+
+
+
 @login_required
 def pay_live_help(request):
     PRICE = 399
@@ -1484,6 +1513,8 @@ def pay_live_help(request):
 def in_person_training(request):
     return render(request, 'home/in_person_training.html', {'courses' : get_courses(), 'tools' : get_tools()})
 
+
+
 @login_required
 def tryfree(request, sub_plan):
 
@@ -1494,6 +1525,8 @@ def tryfree(request, sub_plan):
         DISCLMR = "Please note that you will be charged ${} upfront. However, you may cancel at any time within 14 days for a full refund. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ${}/Monthly".format(PRICE,PRICE)
         stripeset = StripePayment.objects.all()
         stripe.api_key = stripeset[0].secretkey
+
+       
         if request.method == "POST":
             token = request.POST.get("stripeToken")
             try:
@@ -1539,6 +1572,9 @@ def tryfree(request, sub_plan):
             DISCLMR = "Please note that you will be charged ${} upfront. However, you may cancel at any time within 14 days for a full refund. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ${} One Time".format(PRICE,PRICE)
             stripeset = StripePayment.objects.all()
             stripe.api_key = stripeset[0].secretkey
+            # endpoint = stripe.WebhookEndpoint.create(
+            #                      url='https://3a96fb68.ngrok.io/home/awsFull_pay_success',
+            #                     enabled_events=['charge.failed', 'charge.succeeded'],)
             if request.method == "POST":
                 token = request.POST.get("stripeToken")
                 try:
@@ -1548,6 +1584,8 @@ def tryfree(request, sub_plan):
                         source = token,
                         description = sub_plan.lower()
                     )
+
+                    
                 except stripe.error.CardError as ce:
                     return False, ce
                 else:
