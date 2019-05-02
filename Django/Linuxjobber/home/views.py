@@ -102,21 +102,16 @@ def signup(request):
         return render(request, 'home/registration/signup.html') 
 
 def add_location(ip,user):
-    url = 'http://api.ipstack.com/'+str(ip)+'?access_key=456c503b74c8697e41cf68f67655842d'
+    url = 'https://api.ipgeolocation.io/ipgeo?apiKey=a953f6ff477b431f9a77bfeb4572fd8e&ip='+str(ip)
     try:
         r = requests.get(url)
         details = r.json()
         if details['country_name'] is not None:
             try:
                 loc = UserLocation.objects.get(user=user)
-                loc.ipaddress = ip
-                loc.country=details['country_name']
-                loc.region=details['region_name']
-                loc.latitude=details['latitude']
-                loc.longtitude=details['longitude']
-                loc.save()
+                pass
             except UserLocation.DoesNotExist:
-                locuser = UserLocation.objects.create(user=user,ipaddress=ip,country=details['country_name'],region=details['region_name'],latitude=details['latitude'],longtitude=details['longitude'],)
+                locuser = UserLocation.objects.create(user=user,ipaddress=ip,country=details['country_name'],region=details['city'],latitude=details['latitude'],longtitude=details['longitude'],)
                 locuser.save()
         else:
             pass

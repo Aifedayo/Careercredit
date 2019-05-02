@@ -74,7 +74,7 @@ class CourseTopicsView(generic.ListView):
         using the topic number provided and the course name
 """
 def add_location(ip,user):
-    url = 'http://api.ipstack.com/'+str(ip)+'?access_key=456c503b74c8697e41cf68f67655842d'
+    url = 'https://api.ipgeolocation.io/ipgeo?apiKey=a953f6ff477b431f9a77bfeb4572fd8e&ip='+str(ip)
     try:
         r = requests.get(url)
         details = r.json()
