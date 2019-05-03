@@ -106,13 +106,13 @@ def ulocation(request):
     if request.user.is_authenticated:
         if request.method == "POST":            
             res = request.POST
-            print(res)
+            #print(res)
             try:
                 loc = UserLocation.objects.get(user=request.user)
                 pass
             except UserLocation.DoesNotExist:
-                locuser = UserLocation.objects.create(user=request.user,ipaddress=res['query'],country=res['country'],region=res['regionName'],latitude=res['lat'],longtitude=res['lon'],)
-            locuser.save()
+                locuser = UserLocation.objects.create(user=request.user,ipaddress=res['ip'],country=res['country_name'],region=res['region'],latitude=res['lat'],longtitude=res['lon'],)
+                locuser.save()
             
         return HttpResponse(status=200)
 
