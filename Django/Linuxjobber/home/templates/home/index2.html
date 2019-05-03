@@ -227,4 +227,31 @@ Home | Linuxjobber
 	</div>
 </div>
 
+<script type="text/javascript">
+	jQuery(function(){
+
+function ipLookUp () {
+  $.ajax('http://ip-api.com/json')
+  .then(
+      function success(response) {
+          //console.log('User\'s Location Data is ', response);
+          //console.log('User\'s Country', response.country);
+          $.ajax({
+            type: 'POST',
+            data: response, 
+            url: '{% url "home:ulocation" %}',
+            success: function (data) {
+                console.log("done");
+            }
+        });
+      },
+
+      function fail(data, status) {
+          //console.log('Request failed.  Returned status of', status);
+      }
+  );
+}
+ipLookUp();
+});
+</script>
 {%endblock%}
