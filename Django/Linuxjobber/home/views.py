@@ -111,10 +111,12 @@ def ulocation(request):
                 loc = UserLocation.objects.get(user=request.user)
                 pass
             except UserLocation.DoesNotExist:
-                locuser = UserLocation.objects.create(user=request.user,ipaddress=res['ip'],country=res['country_name'],region=res['region'],latitude=res['lat'],longtitude=res['lon'],)
+                locuser = UserLocation.objects.create(user=request.user,ipaddress=res['ip'],country=res['country_name'],region=res['region'],latitude=res['latitude'],longtitude=res['longitude'],)
                 locuser.save()
             
         return HttpResponse(status=200)
+    return HttpResponse(status=200)
+
 
 def add_location(ip,user):
     url = 'https://api.ipgeolocation.io/ipgeo?apiKey=a953f6ff477b431f9a77bfeb4572fd8e&ip='+str(ip)
