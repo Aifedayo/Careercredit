@@ -92,14 +92,29 @@ def signup(request):
                 user.last_name = lastname
                 user.save()
                 send_mail('Account has been Created', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + ' and your email is ' +email + '\n Follow this url to login with your username and password '+settings.ENV_URL+'login \n\n Thanks & Regards \n Admin. \n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [email])
-                ip = get_client_ip(request)
-                add_location(ip,user)
+                #ip = get_client_ip(request)
+                #add_location(ip,user)
                 return render(request, "home/registration/success.html", {'user': user})
             else:
                 error = True
                 return render(request, 'home/registration/signup.html', {'error':error})
     else:
         return render(request, 'home/registration/signup.html') 
+
+@csrf_exempt
+def ulocation(request):
+    if request.user.is_authenticated:
+        if request.method == "POST":            
+            res = request.POST
+            #print(res)
+            try:
+                loc = UserLocation.objects.get(user=request.user)
+                pass
+            except UserLocation.DoesNotExist:
+                locuser = UserLocation.objects.create(user=request.user,ipaddress=res['ip'],country=res['country_name'],region=res['region'],latitude=res['lat'],longtitude=res['lon'],)
+                locuser.save()
+            
+        return HttpResponse(status=200)
 
 def add_location(ip,user):
     url = 'https://api.ipgeolocation.io/ipgeo?apiKey=a953f6ff477b431f9a77bfeb4572fd8e&ip='+str(ip)
@@ -126,6 +141,7 @@ def get_client_ip(request):
         ip = x_forwarded_for.split(',')[0]
     else:
         ip = request.META.get('REMOTE_ADDR')
+        ip=True
     return ip 
 
 def forgot_password(request):
@@ -381,8 +397,8 @@ def log_in(request):
         
         if user is not None:
             login(request, user)
-            ip = get_client_ip(request)
-            add_location(ip,request.user)
+            #ip = get_client_ip(request)
+            #add_location(ip,request.user)
             if user.role == 4:
                 check_permission_expiry(user)
             if next == "":
@@ -939,7 +955,6 @@ def group(request,pk):
     group_item = get_object_or_404(Groupclass,pk=pk)
     user = None
     if request.user.is_authenticated:
-        print('user authenticated')
         user=CustomUser.objects.get(email=request.user)
     # try:
     #     user = CustomUser.objects.get(email=request.user)
