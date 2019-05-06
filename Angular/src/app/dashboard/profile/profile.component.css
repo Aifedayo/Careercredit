@@ -77,10 +77,15 @@ left: 750px;
 top: 320px;
 
 }
-button{
+.save{
 width: 89px;
 height: 30px;
 background: rgba(0, 0, 0, 0.8);
 border-radius: 5px;
 color:white;
+font-family: Roboto;
+font-style: normal;
+font-weight: 500;
+font-size: 11px;
+line-height: 13px;
 }

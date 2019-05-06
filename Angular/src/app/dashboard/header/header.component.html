@@ -14,10 +14,10 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav vcenter">
-        <li class="active" style="color:grey;"><a href="#">Classroom Profile</a></li>
+        <li class="active" ><a href="#" style="color: whitesmoke;">Classroom Profile</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right" style="margin-right: -100px">
-        <li><a style="margin-right: -100px;color:gray;" *ngIf="group$|async as _group" [routerLink]="['/classroom',_group.id]">Go to Classroom</a></li>
+        <li><a style="margin-right: -100px;color: whitesmoke;" *ngIf="group$|async as _group" [routerLink]="['/classroom',_group.id]">Go to Classroom</a></li>
       </ul>
     </div>
   </div>
@@ -26,11 +26,11 @@
 
 
 <div class="ellip">
-  <img class="ellipse" [src]="user.profile_img" alt="profile" >
+  <img [src]="user.profile_img" class="ellipse"  alt="profile" >
 </div>
 <div class="setup">
 <p class="rite">{{ user.first_name }} {{ user.last_name }}</p>
-<span style="font-size: 13px; margin-left:2px;">{{ user.email }}</span><br>
+<span style="font-size: 13px; margin-left:4px;">{{ user.email }}</span><br>
 <a class="hg" (click)="logout()">LOGOUT</a><br><br><br>
 <a  [routerLink]="['./classes']">Courses</a><br>
 <a [routerLink]="['./profile']" >Profile</a><br>
