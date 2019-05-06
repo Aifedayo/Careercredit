@@ -1,4 +1,4 @@
-<div class="rectangle">
+<!-- <div class="rectangle"> -->
 <div *ngIf="user$|async as user">
             <div class="col s6"><img class="responsive-img circle" [src]="user.profile_img" alt="">
             <p class="align-center"> {{ user.first_name }} {{ user.last_name }} </p>
@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col">
                         <p><b>Login History</b></p>
-                        <table style="margin-left: 70px;">
+                        <table>
         <thead>
           <tr>
               <th>Date</th>
@@ -26,4 +26,4 @@
                 </div>
             </div>
 </div>
-</div>
+<!-- </div> -->

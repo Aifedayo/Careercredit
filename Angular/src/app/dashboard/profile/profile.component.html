@@ -5,7 +5,7 @@
   <label for="file-input">
     <i class="btn btn-primary" style="display: inline;
     position: absolute;
-    left: 600px; top: 320px;
+    left: 300px; top: 170px;
     text-align: center;
     font-size: 12px;
 width: 127px;
@@ -19,7 +19,7 @@ border-radius: 35px;
   <input class="f" id="file-input" (change)="fileChange($event)" type="file" ><br><br><br>
   <div>
     <form>
-    <label for="username">Username</label><br>
+    <label for="username" style="color:black;">Username</label><br>
   <input style="
   width: 500px;
 height: 31px;
@@ -27,9 +27,9 @@ height: 31px;
 
 background: #FFFFFF;
 border: 1px solid rgba(0, 0, 0, 0.727);
-border-radius: 5px; " class="fname" (change)="updateInfo($event)" [(ngModel)]="user.username" type="text" class="validate"><br><br><br>
+border-radius: 5px; " class="fname" (change)="updateInfo($event)" [(ngModel)]="user.username" type="text"  class="validate" name="username"><br><br><br>
 
-  <label for="first_name">Firstname</label><br>
+  <label for="first_name" style="color:black;">First Name</label><br>
   <input style="
   width: 500px;
 height: 31px;
@@ -37,9 +37,9 @@ height: 31px;
 
 background: #FFFFFF;
 border: 1px solid rgba(0, 0, 0, 0.727);
-border-radius: 5px;"  class="gname" (change)="updateInfo($event)" [(ngModel)]="user.first_name"  type="text" class="validate"><br><br><br>
+border-radius: 5px;"  class="gname" (change)="updateInfo($event)" [(ngModel)]="user.first_name"  type="text" class="validate" name="first_name"><br><br><br>
 
-  <label for="last_name">Lastname</label><br>
+  <label for="last_name" style="color:black;">Last Name</label><br>
   <input style="
   width: 500px;
 height: 31px;
@@ -47,7 +47,7 @@ height: 31px;
 
 background: #FFFFFF;
 border: 1px solid rgba(0, 0, 0, 0.727);
-border-radius: 5px;"  class="unname" (change)="updateInfo($event)"  [(ngModel)]="user.last_name"  type="text" class="validate" ><br><br><br>
+border-radius: 5px;"  class="unname" (change)="updateInfo($event)"  [(ngModel)]="user.last_name"  type="text" class="validate" name="last_name" ><br><br><br>
 
 <input class="save" type="submit" value="SAVE">
 

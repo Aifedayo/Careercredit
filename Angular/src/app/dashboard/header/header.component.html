@@ -26,7 +26,7 @@
 
 
 <div class="ellip">
-  <img [src]="user.profile_img" class="ellipse"  alt="profile" >
+  <img [src]="user.profile_img" class="ellipse"  alt="" >
 </div>
 <div class="setup">
 <p class="rite">{{ user.first_name }} {{ user.last_name }}</p>
@@ -36,6 +36,13 @@
 <a [routerLink]="['./profile']" >Profile</a><br>
 <a [routerLink]="['./attendance']">Attendace</a><br>
 <a [routerLink]="['./students']" >Students</a>
+</div>
+
+
+<div class="rectangle">
+
+</div>
+
 
       <!-- <div id="chat-dropdown" class="dropdown-content dropdown-tabbed">
         <ul class="tabs tabs-fixed-width">
@@ -75,5 +82,5 @@
           </ul>
         </div>
       </div> -->
-</div>
+
     </header>
