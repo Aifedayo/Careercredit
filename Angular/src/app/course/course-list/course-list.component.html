@@ -23,9 +23,13 @@
     </nav>
 
 
-<main class="container" style="margin-left: 12%;">
+<main class="rectangle" style="margin-left:20%;">
 
-		<div class="row" style="margin-right: -10%;" *ngFor="let course of courses$ |async">
+  <p style="font-family: 'Roboto',san-serif;">Your Courses</p>
+
+  <a class="exit" (click)= "addcourse()"> ADD COURSE</a>
+
+		<div class="row" style="" *ngFor="let course of courses$ |async">
             <a [routerLink]="['/classroom',course.id]" style="color: black">
               <div class="col-md col-xl">
 				<div class="panel panel-default" style="height: 187px;">

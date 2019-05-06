@@ -1,7 +1,8 @@
-/* @import "../style.css";
+/* @import "../style.css"; */
+
 img.img-responsive{
   height:50px;
-} */
+}
 
 .navbar{
   height: 77px;
@@ -101,31 +102,26 @@ color: rgba(255, 255, 255, 0.8);
  }
  .hg{
    font-size: 10px;
-  margin-left: 40px;
+  margin-left: 60px;
+  text-align: center;
   padding-bottom: 5px;
    border-bottom:2px black solid;
  }
  .rite{
-  /* position: absolute;
-width: 109px;
-height: 22px;
-left: 176px;
-top: 281px; */
-
 font-family:'Roboto',sans-serif;
 font-style: normal;
 font-weight: 500;
 font-size: 18px;
 line-height: 21px;
-
+text-align: center;
 color: rgba(0, 0, 0, 0.8);
 }
 .ellipse{
   position: absolute;
   width: 118px;
   height: 118px;
-  left: 100px;
-  top: 150px;
+  left: 120px;
+  top: 170px;
   border-radius: 118px;
 border: 1px rgb(15, 15, 15) solid;
 background: #FFFFFF;

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ApiService} from "../../share/api.service";
 import {Observable} from "rxjs/index";
 import {ClassModel} from "../../share/class-model";
+import {DataService} from "../../data.service";
 
 @Component({
   selector: 'app-course-list',
@@ -12,7 +13,7 @@ export class CourseListComponent implements OnInit {
 
   public courses$:Observable<ClassModel[]>;
   public username:any;
-  constructor(private apiService:ApiService) {
+  constructor(private apiService:ApiService,private dataservice: DataService) {
     this.username=sessionStorage.getItem('username');
   }
 
@@ -21,6 +22,9 @@ export class CourseListComponent implements OnInit {
         this.courses$=this.apiService.getAvailableClasses();
 
 
+  }
+  addcourse(){
+    this.dataservice.addcourse();
   }
 
 }

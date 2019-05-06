@@ -46,6 +46,11 @@ export class DataService {
     window.location.replace(environment.API_URL)
   }
 
+  addcourse(){
+    sessionStorage.getItem('username')
+    window.location.replace(environment.API_URL + 'groupCourse/')
+  }
+
 
    sessionSet(token:string,group_id:string)  {
     this.http.post(environment.API_URL + 'sso_api/confirm_key/' + group_id,JSON.stringify({'token':token}),this.httpOptions)
