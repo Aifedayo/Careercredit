@@ -1,4 +1,134 @@
-@import "../style.css";
+/* @import "../style.css";
 img.img-responsive{
   height:50px;
+} */
+
+.navbar{
+  height: 77px;
+  background: #333333;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
 }
+
+.lj-text {
+  color: rgba(255, 255, 255, 0.8);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.img-container{
+  position: absolute;
+width: 166px;
+height: 42px;
+left: calc(50% - 166px/2 - 587px);
+top: 18px;
+
+}
+
+.text-course{
+  position: absolute;
+width: 141px;
+height: 29px;
+left: 649px;
+top: 24px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: normal;
+
+color: rgba(255, 255, 255, 0.8);
+}
+
+.panel{
+    margin-right: 0;
+}
+
+.panel-body > .foot{
+ position: absolute;
+        bottom: 0;
+}
+
+#foot > .col-md-3{
+  padding: 0;
+}
+
+
+.bottom {
+    display: table;
+}
+
+.bottom > div {
+    float: none;
+    display: table-cell;
+}
+
+.nav  > li{
+  padding-right: 30px;
+  font-size: 12px;
+
+}
+
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
+}
+.setup{
+  margin-top: 230px;
+  display: inline-block;
+  align-items: center;
+  margin-left: 100px;
+  align-content: center;
+
+ }
+ a{
+ text-decoration: none;
+ font-family: Roboto;
+ font-style: normal;
+ font-weight: 500;
+ font-size: 16px;
+ line-height: 16px;
+ /* identical to box height */
+ /* display: flex; */
+ /* align-items: center; */
+
+ color: rgba(0, 0, 0, 0.8);
+ }
+ .hg{
+   font-size: 10px;
+  margin-left: 40px;
+  padding-bottom: 5px;
+   border-bottom:2px black solid;
+ }
+ .rite{
+  /* position: absolute;
+width: 109px;
+height: 22px;
+left: 176px;
+top: 281px; */
+
+font-family: Roboto;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 21px;
+
+color: rgba(0, 0, 0, 0.8);
+}
+.ellipse{
+  position: absolute;
+  width: 118px;
+  height: 118px;
+  left: 100px;
+  top: 150px;
+  border-radius: 118px;
+border: 1px rgb(15, 15, 15) solid;
+background: #FFFFFF;
+box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+  }

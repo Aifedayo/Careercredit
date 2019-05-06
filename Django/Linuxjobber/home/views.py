@@ -6,6 +6,7 @@ import random, string
 import datetime
 import pytz
 import requests
+from djstripe import webhooks
 
 from smtplib import SMTPException
 from urllib.parse import urlparse
@@ -51,7 +52,10 @@ utc=pytz.UTC
 # Using Django
 def my_webhook_view(request):
  # Retrieve the request's body and parse it as JSON:
- event_json = json.loads(request.body)
+ # body=request
+ print(request.body)
+
+ event_json = json.loads(request.body.decode())
 
  # Do something with event_json
 
@@ -1492,6 +1496,8 @@ def pay_live_help(request):
                 UserPayment.objects.create(user=request.user, amount=PRICE,
                                             trans_id = charge.id, pay_for = charge.description,
                                             )
+
+                
                 send_mail('Linuxjobber Live Help Subscription', 'Hello, you have successfuly subscribed for Live Help on Linuxjobber.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [request.user.email])
                 return render(request,'home/live_help_pay_success.html')
             except SMTPException as error:
@@ -1516,6 +1522,7 @@ def in_person_training(request):
 
 
 @login_required
+@csrf_exempt
 def tryfree(request, sub_plan):
 
     if sub_plan == 'standardPlan':
@@ -1543,6 +1550,8 @@ def tryfree(request, sub_plan):
                     UserPayment.objects.create(user=request.user, amount=PRICE,
                                                 trans_id = charge.id, pay_for = charge.description,
                                                 )
+
+
                     user = request.user
                     user.role = 3
                     user.save()
@@ -1564,6 +1573,7 @@ def tryfree(request, sub_plan):
                        'courses' : get_courses(),
                        'tools' : get_tools()}
             return render(request, 'home/standard_plan_pay.html', context)
+        # return HttpResponse(status=200)
 
     if sub_plan == 'awsPlan':
             PRICE = 1695
@@ -1572,9 +1582,9 @@ def tryfree(request, sub_plan):
             DISCLMR = "Please note that you will be charged ${} upfront. However, you may cancel at any time within 14 days for a full refund. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ${} One Time".format(PRICE,PRICE)
             stripeset = StripePayment.objects.all()
             stripe.api_key = stripeset[0].secretkey
-            # endpoint = stripe.WebhookEndpoint.create(
-            #                      url='https://3a96fb68.ngrok.io/home/awsFull_pay_success',
-            #                     enabled_events=['charge.failed', 'charge.succeeded'],)
+            endpoint = stripe.WebhookEndpoint.create(
+                                 url='https://3a96fb68.ngrok.io/home/awsFull_pay_success',
+                                enabled_events=['charge.failed', 'charge.succeeded'],)
             if request.method == "POST":
                 token = request.POST.get("stripeToken")
                 try:
@@ -1614,6 +1624,9 @@ def tryfree(request, sub_plan):
                        'courses' : get_courses(),
                        'tools' : get_tools()}
                 return render(request, 'home/awsFull_plan_pay.html', context)
+            # return HttpResponse(status=200)
+
+
 
     else:
         PRICE = 2495
@@ -1659,6 +1672,8 @@ def tryfree(request, sub_plan):
                        'courses' : get_courses(),
                        'tools' : get_tools()}
             return render(request, 'home/premium_plan_pay.html', context)
+    return HttpResponse(status=200)
+
 
 
 

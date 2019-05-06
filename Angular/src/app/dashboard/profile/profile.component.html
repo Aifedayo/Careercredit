@@ -1,4 +1,77 @@
-<main >
+<main>
+<div class="rectangle">
+  <p>Edit Profile</p>
+  <img [src]="user.profile_img">
+  <label for="file-input">
+    <i class="btn btn-primary" style="display: inline;
+    position: absolute;
+    left: 600px; top: 320px;
+width: 127px;
+height: 31px;
+background: #FFFFFF;
+border: 1px solid rgba(0, 0, 0, 0.8);
+border-radius: 35px;
+">Upload</i>
+</label>
+  <input class="f" id="file-input" (change)="fileChange($event)" type="file" ><br><br><br>
+  <div>
+    <form>
+    <label for="username">Username</label><br>
+  <input style="
+  width: 500px;
+height: 31px;
+
+
+background: #FFFFFF;
+border: 1px solid rgba(0, 0, 0, 0.727);
+border-radius: 5px; " class="fname" (change)="updateInfo($event)" [(ngModel)]="user.username" type="text" class="validate"><br><br><br>
+
+  <label for="first_name">Firstname</label><br>
+  <input style="
+  width: 500px;
+height: 31px;
+
+
+background: #FFFFFF;
+border: 1px solid rgba(0, 0, 0, 0.727);
+border-radius: 5px;"  class="gname" (change)="updateInfo($event)" [(ngModel)]="user.first_name"  type="text" class="validate"><br><br><br>
+
+  <label for="last_name">Lastname</label><br>
+  <input style="
+  width: 500px;
+height: 31px;
+
+
+background: #FFFFFF;
+border: 1px solid rgba(0, 0, 0, 0.727);
+border-radius: 5px;"  class="unname" (change)="updateInfo($event)"  [(ngModel)]="user.last_name"  type="text" class="validate" ><br><br><br>
+
+  <button> SAVE</button>
+
+</form>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <main >
     <div class="section container">
   <div class="row">
     <div class="col s12 m4">
@@ -52,8 +125,8 @@
                 <label for="last_name">Last Name</label>
               </div>
             </div>
-          </li>
-          <li>
+          </li> -->
+          <!-- <li>
             <div class="collapsible-header">
               <span>Attendance Logs</span>
               <i class="material-icons caret right">keyboard_arrow_right</i>
@@ -62,14 +135,15 @@
               <p *ngFor="let item of attendance$|async"> {{ item.timestamp }} </p>
               <p> Tuesday 7th January 2018, @ 4:00pm </p>
             </div>
-          </li>
+          </li> -->
 
-        </ul>
-      </div>
+        <!-- </ul> -->
+      <!-- </div>
 
     </div>
   </div>
 
 </div>
 
-    </main>
+    </main> -->
+</main>

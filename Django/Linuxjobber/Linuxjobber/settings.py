@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
 
     'rest_framework',
+    # 'djstripe',
     'channels',
     'ckeditor',
     'corsheaders',
@@ -261,9 +262,16 @@ EMAIL_HOST_USER = config('EMAIL_HOST_USER', 'admin@linuxjobber.com')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', 'm4k3Aw!y')
 EMAIL_USE_TLS = True
 
-STRIPE_PUBLIC_KEY = "pk_test_1zBTca83q29gl9iwRw1oIBvD"
+STRIPE_PUBLIC_KEY = "pk_test_w1kMWsWp53qxIwH2XHedu9co00waZwHxdJ"
 STRIPE_SECRET_KEY = "Something"
 AUTH_USER_MODEL = 'users.CustomUser'
+
+
+
+STRIPE_TEST_PUBLIC_KEY = os.environ.get("STRIPE_TEST_PUBLIC_KEY", "")
+STRIPE_TEST_SECRET_KEY = os.environ.get("STRIPE_TEST_SECRET_KEY", "")
+STRIPE_LIVE_MODE = False
+DJSTRIPE_WEBHOOK_SECRET = "whsec_3o62zcRDbp7X4tpJa7BYHztqK6rbKoSv"
 
 # Channels
 ASGI_APPLICATION = 'Linuxjobber.routing.application'

@@ -2,10 +2,13 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from . import views
 from django.views.decorators.csrf import csrf_exempt
+import djstripe,stripe
 
 
 app_name = 'home'
 tryfree = views.tryfree
+webhookview = views.my_webhook_view
+
 
 jp_patterns = [
     path('', views.jobplacements, name='jobplacements'),
@@ -22,9 +25,10 @@ wp_patterns = [
 
 
 urlpatterns = [
+    # path("stripe/", include("djstripe.urls", namespace="djstripe")),
     path('', views.index, name='index'),
     path('admin',admin.site.urls),
-    path('webhooks', views.my_webhook_view, name='my_webhook_view'),
+    path('webhooks',  csrf_exempt(webhookview), name='my_webhook_view'),
     path('login/', views.log_in, name = 'login'),
     path('signup', views.signup, name='signup'),
     path('unsubscribe', views.unsubscribe, name='unsubscribe'),
