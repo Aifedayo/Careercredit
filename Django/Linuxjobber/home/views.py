@@ -10,6 +10,7 @@ import requests
 from smtplib import SMTPException
 from urllib.parse import urlparse
 from django.conf import settings
+from django.core.mail import send_mail, BadHeaderError
 from django.shortcuts import render,redirect, reverse, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required, permission_required
@@ -17,7 +18,7 @@ from django.template.response import TemplateResponse
 from django.utils.datastructures import MultiValueDictKeyError
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
-from django.core.mail import send_mail
+#from django.core.mail import send_mail
 from django.http import HttpResponse, HttpResponseRedirect
 from rest_framework.authtoken.models import Token
 from datetime import timedelta
@@ -1085,14 +1086,18 @@ def contact_us(request):
     error = ''
     success = ''
     if request.method == "POST":
-        fname = request.POST['full_name']
-        phone = request.POST['phonenumber']
-        email = request.POST['email']
-        subj = request.POST['subject']
+        #fname = request.POST.get['full_name','']
+        #phone = request.POST.get['phonenumber','']
+        #email = request.POST.get['email','']
+        #message = request.POST.get['message','']
+        from_email = settings.DEFAULT_FROM_EMAIL
+        subject = request.POST['subject']
         message = request.POST['message']
         try:
-            contact_message = ContactMessages(full_name=fname, phone_no=phone, email=email, message_subject=subj, message=message)
-            contact_message.save()
+            #send_mail(full_name=fname, subject=subject, phone_no=phone, email=email, message_subject=subj, message=message, from_email=from_email, ['elena.edwards@linuxjobber.com'])
+            send_mail(subject, message, from_email)
+            #contact_message = ContactMessages(full_name=fname, phone_no=phone, email=email, message_subject=subj, message=message)
+            #contact_message.save()
         except Exception as e:
             error = 'yes'
         else:
