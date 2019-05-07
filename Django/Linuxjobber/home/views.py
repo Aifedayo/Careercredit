@@ -6,7 +6,6 @@ import random, string
 import datetime
 import pytz
 import requests
-from djstripe import webhooks
 
 from smtplib import SMTPException
 from urllib.parse import urlparse

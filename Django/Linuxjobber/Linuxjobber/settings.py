@@ -33,7 +33,6 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
 
     'rest_framework',
-    # 'djstripe',
     'channels',
     'ckeditor',
     'corsheaders',
@@ -268,10 +267,6 @@ AUTH_USER_MODEL = 'users.CustomUser'
 
 
 
-STRIPE_TEST_PUBLIC_KEY = os.environ.get("STRIPE_TEST_PUBLIC_KEY", "")
-STRIPE_TEST_SECRET_KEY = os.environ.get("STRIPE_TEST_SECRET_KEY", "")
-STRIPE_LIVE_MODE = False
-DJSTRIPE_WEBHOOK_SECRET = "whsec_3o62zcRDbp7X4tpJa7BYHztqK6rbKoSv"
 
 # Channels
 ASGI_APPLICATION = 'Linuxjobber.routing.application'

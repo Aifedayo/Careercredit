@@ -8461,3 +8461,119 @@ users.models.MultipleObjectsReturned: get() returned more than one CustomUser --
 [2019-05-06 12:33:17] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.08, 127.0.0.1:55294]
 [2019-05-06 12:33:20] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/groups 200 [0.02, 127.0.0.1:55294]
 [2019-05-06 12:33:20] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.12, 127.0.0.1:55294]
+[2019-05-06 12:41:00] INFO [django.channels.server.log_action:141] HTTP GET /groupCourse/ 200 [0.17, 127.0.0.1:55703]
+[2019-05-06 12:41:38] INFO [django.channels.server.log_action:147] HTTP GET /admin 302 [0.49, 127.0.0.1:55771]
+[2019-05-06 12:41:40] INFO [django.channels.server.log_action:141] HTTP GET /admin/login/?next=/admin 200 [1.35, 127.0.0.1:55771]
+[2019-05-06 12:41:45] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/base.css 200 [1.61, 127.0.0.1:55788]
+[2019-05-06 12:41:46] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/responsive.css 200 [1.69, 127.0.0.1:55786]
+[2019-05-06 12:41:46] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/login.css 200 [1.87, 127.0.0.1:55787]
+[2019-05-06 12:42:20] INFO [django.channels.server.log_action:141] HTTP POST /admin/login/?next=/admin 200 [0.90, 127.0.0.1:55839]
+[2019-05-06 12:42:20] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/fonts.css 200 [0.03, 127.0.0.1:55839]
+[2019-05-06 12:42:21] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/fonts/Roboto-Bold-webfont.woff 200 [0.60, 127.0.0.1:55840]
+[2019-05-06 12:42:21] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/fonts/Roboto-Light-webfont.woff 200 [0.61, 127.0.0.1:55839]
+[2019-05-06 12:42:21] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/fonts/Roboto-Regular-webfont.woff 200 [0.81, 127.0.0.1:55844]
+[2019-05-06 12:42:37] INFO [django.channels.server.log_action:141] HTTP POST /admin/login/?next=/admin 200 [0.58, 127.0.0.1:55872]
+[2019-05-06 12:42:46] INFO [django.channels.server.log_action:147] HTTP POST /admin/login/?next=/admin 302 [0.65, 127.0.0.1:55889]
+[2019-05-06 12:42:47] INFO [django.channels.server.log_action:141] HTTP GET /admin 200 [0.65, 127.0.0.1:55889]
+[2019-05-06 12:42:47] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/dashboard.css 200 [0.03, 127.0.0.1:55889]
+[2019-05-06 12:42:47] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/icon-changelink.svg 200 [0.01, 127.0.0.1:55890]
+[2019-05-06 12:42:47] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/icon-addlink.svg 200 [0.04, 127.0.0.1:55889]
+[2019-05-06 12:42:59] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/stripepayment/ 200 [0.66, 127.0.0.1:55908]
+[2019-05-06 12:42:59] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/vendor/jquery/jquery.js 200 [0.07, 127.0.0.1:55911]
+[2019-05-06 12:42:59] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/changelists.css 200 [0.13, 127.0.0.1:55908]
+[2019-05-06 12:42:59] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/jquery.init.js 200 [0.02, 127.0.0.1:55911]
+[2019-05-06 12:42:59] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 200 [0.06, 127.0.0.1:55908]
+[2019-05-06 12:42:59] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/core.js 200 [0.09, 127.0.0.1:55911]
+[2019-05-06 12:42:59] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/actions.js 200 [0.03, 127.0.0.1:55908]
+[2019-05-06 12:42:59] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/urlify.js 200 [0.02, 127.0.0.1:55911]
+[2019-05-06 12:42:59] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.36, 127.0.0.1:55909]
+[2019-05-06 12:42:59] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 200 [0.08, 127.0.0.1:55908]
+[2019-05-06 12:42:59] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/prepopulate.js 200 [0.13, 127.0.0.1:55917]
+[2019-05-06 12:43:00] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/tooltag-add.svg 200 [0.01, 127.0.0.1:55917]
+[2019-05-06 12:43:02] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/stripepayment/1/change/ 200 [0.33, 127.0.0.1:55917]
+[2019-05-06 12:43:02] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/forms.css 200 [0.04, 127.0.0.1:55917]
+[2019-05-06 12:43:02] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/prepopulate_init.js 200 [0.04, 127.0.0.1:55911]
+[2019-05-06 12:43:02] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.06, 127.0.0.1:55908]
+[2019-05-06 12:43:02] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/change_form.js 200 [0.06, 127.0.0.1:55909]
+[2019-05-06 12:43:02] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/widgets.css 200 [0.04, 127.0.0.1:55909]
+[2019-05-06 12:43:11] INFO [django.channels.server.log_action:147] HTTP POST /admin/home/stripepayment/1/change/ 302 [0.17, 127.0.0.1:55938]
+[2019-05-06 12:43:11] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/stripepayment/1/change/ 200 [0.21, 127.0.0.1:55938]
+[2019-05-06 12:43:11] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.15, 127.0.0.1:55938]
+[2019-05-06 12:43:11] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/icon-yes.svg 200 [0.01, 127.0.0.1:55938]
+[2019-05-06 12:43:27] WARNING [django.security.csrf._reject:153] Forbidden (CSRF token missing or incorrect.): /groupCourse/
+[2019-05-06 12:43:27] WARNING [django.channels.server.log_action:151] HTTP POST /groupCourse/ 403 [0.12, 127.0.0.1:55964]
+[2019-05-06 12:44:26] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/user/ 200 [0.01, 127.0.0.1:56026]
+[2019-05-06 12:44:26] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.17, 127.0.0.1:56026]
+[2019-05-06 12:44:26] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/group/3/detail 200 [0.03, 127.0.0.1:56026]
+[2019-05-06 12:44:26] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.05, 127.0.0.1:56026]
+[2019-05-06 12:44:30] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/groups 200 [0.01, 127.0.0.1:56026]
+[2019-05-06 12:44:30] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.08, 127.0.0.1:56026]
+[2019-05-06 12:44:33] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.09, 127.0.0.1:56026]
+[2019-05-06 12:44:33] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.11, 127.0.0.1:56026]
+[2019-05-06 12:44:38] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/user/3 200 [0.01, 127.0.0.1:56052]
+[2019-05-06 12:44:38] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.07, 127.0.0.1:56052]
+[2019-05-06 12:44:38] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/3 200 [0.06, 127.0.0.1:56055]
+[2019-05-06 12:44:38] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.11, 127.0.0.1:56055]
+[2019-05-06 12:44:38] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_pfavqDo.png 304 [0.01, 127.0.0.1:56064]
+[2019-05-06 12:44:49] INFO [django.channels.server.log_action:141] HTTP POST /sso_api/user/ 200 [0.10, 127.0.0.1:56077]
+[2019-05-06 12:45:04] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/user/upload 200 [0.02, 127.0.0.1:56102]
+[2019-05-06 12:45:05] INFO [django.channels.server.log_action:141] HTTP PUT /sso_api/user/upload 201 [0.71, 127.0.0.1:56102]
+[2019-05-06 12:46:46] INFO [django.channels.server.log_action:141] HTTP GET /groupCourse/ 200 [0.18, 127.0.0.1:56208]
+[2019-05-06 12:46:52] INFO [django.channels.server.log_action:147] HTTP POST /groupCourse/ 302 [0.24, 127.0.0.1:56208]
+[2019-05-06 12:46:52] INFO [django.channels.server.log_action:141] HTTP GET /groupCourse/ 200 [0.13, 127.0.0.1:56208]
+[2019-05-06 12:47:08] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/group/4 200 [0.01, 127.0.0.1:56272]
+[2019-05-06 12:47:08] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/group/4/detail 200 [0.01, 127.0.0.1:56272]
+[2019-05-06 12:47:08] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/group/4/users 200 [0.03, 127.0.0.1:56274]
+[2019-05-06 12:47:08] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/group/4/users2 200 [0.06, 127.0.0.1:56273]
+[2019-05-06 12:47:09] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/4/users 200 [0.15, 127.0.0.1:56274]
+[2019-05-06 12:47:09] WARNING [django.channels.server.log_action:151] HTTP GET /sso_api/group/4 403 [0.23, 127.0.0.1:56272]
+[2019-05-06 12:47:09] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/4/detail 200 [0.23, 127.0.0.1:56275]
+[2019-05-06 12:47:09] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/4/users2 200 [0.18, 127.0.0.1:56273]
+[2019-05-06 12:47:14] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/groups 200 [0.03, 127.0.0.1:56273]
+[2019-05-06 12:47:14] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.10, 127.0.0.1:56273]
+[2019-05-06 12:47:35] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.14, 127.0.0.1:56337]
+[2019-05-06 12:47:38] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/user/ 200 [0.03, 127.0.0.1:56337]
+[2019-05-06 12:47:38] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.11, 127.0.0.1:56337]
+[2019-05-06 12:47:38] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/4/detail 200 [0.08, 127.0.0.1:56337]
+[2019-05-06 12:47:44] INFO [django.channels.server.log_action:141] HTTP GET / 200 [0.17, 127.0.0.1:56363]
+[2019-05-06 12:48:09] INFO [django.channels.server.log_action:141] HTTP GET /groupCourse/ 200 [0.24, 127.0.0.1:56394]
+[2019-05-06 12:48:17] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/confirm_key/4 200 [0.01, 127.0.0.1:56432]
+[2019-05-06 12:48:17] INFO [django.channels.server.log_action:141] HTTP POST /sso_api/confirm_key/4 202 [0.20, 127.0.0.1:56432]
+[2019-05-06 12:48:18] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/4/detail 200 [0.06, 127.0.0.1:56435]
+[2019-05-06 12:48:18] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/4/users2 200 [0.10, 127.0.0.1:56435]
+[2019-05-06 12:48:18] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/4 200 [0.18, 127.0.0.1:56432]
+[2019-05-06 12:48:18] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/4/users 200 [0.10, 127.0.0.1:56435]
+[2019-05-06 12:48:25] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.14, 127.0.0.1:56435]
+[2019-05-06 12:48:50] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/4 200 [1.46, 127.0.0.1:56495]
+[2019-05-06 12:48:51] INFO [django.channels.server.log_action:141] HTTP GET /groupCourse/ 200 [0.30, 127.0.0.1:56520]
+[2019-05-06 12:49:06] INFO [django.channels.server.log_action:141] HTTP GET /home/packages 200 [0.18, 127.0.0.1:56554]
+[2019-05-06 12:49:06] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/images/server_bg.jpg 200 [0.08, 127.0.0.1:56554]
+[2019-05-06 12:49:13] INFO [django.channels.server.log_action:141] HTTP GET /tryfree/premiumPlan/ 200 [0.16, 127.0.0.1:56554]
+[2019-05-06 12:49:30] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/linuxlogo.png 200 [0.21, 127.0.0.1:56601]
+[2019-05-06 12:49:40] INFO [django.channels.server.log_action:141] HTTP GET /access_course 200 [0.16, 127.0.0.1:56634]
+[2019-05-06 12:51:51] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /access_course
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\ADMIN\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\ADMIN\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\ADMIN\AppData\Local\Programs\Python\Python35\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\ADMIN\Desktop\REALONE\linuxjobber2\Django\Linuxjobber\home\views.py", line 899, in monthly_subscription
+    plan = stripe.Plan.retrieve(plan_id)
+  File "C:\Users\ADMIN\AppData\Local\Programs\Python\Python35\lib\site-packages\stripe\api_resources\abstract\api_resource.py", line 12, in retrieve
+    instance.refresh()
+  File "C:\Users\ADMIN\AppData\Local\Programs\Python\Python35\lib\site-packages\stripe\api_resources\abstract\api_resource.py", line 16, in refresh
+    self.refresh_from(self.request("get", self.instance_url()))
+  File "C:\Users\ADMIN\AppData\Local\Programs\Python\Python35\lib\site-packages\stripe\stripe_object.py", line 243, in request
+    response, api_key = requestor.request(method, url, params, headers)
+  File "C:\Users\ADMIN\AppData\Local\Programs\Python\Python35\lib\site-packages\stripe\api_requestor.py", line 121, in request
+    resp = self.interpret_response(rbody, rcode, rheaders)
+  File "C:\Users\ADMIN\AppData\Local\Programs\Python\Python35\lib\site-packages\stripe\api_requestor.py", line 372, in interpret_response
+    self.handle_error_response(rbody, rcode, resp.data, rheaders)
+  File "C:\Users\ADMIN\AppData\Local\Programs\Python\Python35\lib\site-packages\stripe\api_requestor.py", line 151, in handle_error_response
+    raise err
+stripe.error.InvalidRequestError: Request req_gpRCux2uQoSkIQ: No such plan: 1
+[2019-05-06 12:51:51] ERROR [django.channels.server.log_action:154] HTTP POST /access_course 500 [4.61, 127.0.0.1:56778]
