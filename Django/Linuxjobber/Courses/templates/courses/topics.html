@@ -50,7 +50,7 @@
                         <canvas id="demo"></canvas>
                         <!--div class="easy-pie-chart percentage" data-size="30" data-color="#468AC6" data-percent=""></div-->
                         </div>                      
-                        <div class="col-md-6 text-right" style="margin:20px 0;ight:66px;"><span class="percents"> {{totalstats}}</span>% completed</div>  
+                        <div class="col-md-6 text-right" style="margin:20px 0;ight:66px;"><span class="percents" id="perge"></span>% Completed</div>  
                         </div>
                     </span>                     
                               </div>
@@ -87,35 +87,18 @@
                     <div class="col-md-2 col-xs-2">{%if topic.has_notes == 1 %}<a href="{% url 'Courses:Note' topic.course.course_title.split|join:'_' topic.topic_number %}">View</a>{%else%}---{%endif%}</div>
                     <div class="col-md-1 col-xs-2">{%if topic.has_labs == 1 %}<a href="{% url 'Courses:labs' topic.course.course_title.split|join:'_' topic.topic_number %}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a>{%else%}---{%endif%}</div>
                     <div class="col-md-3 col-xs-3" data-toggle="popover" title="Topic Stats" data-content="Video : 50% of 100%     ">
-                        {%for stat in topic.topicstatus_set.all %}
-                            {%if stat.user == request.user and stat.topic == topic%}
-                                <div class="prgbarin" >
-                                    <div class="row">
+                        <div class="prgbarin" >
+                                <div class="row">
                                     <div class="col-md-4">
                                     <div class="progress" style="width:60px;">
-                                    <div class="progress-bar progress-bar-primary" role="progressbar"
-                                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:{{stat.start_video|add:stat.stop_video|add:stat.lab}}%"></div>
+                                    <div class="progress-bar progress-bar-primary" id="prode{{topic.id}}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
                                     </div>
+                     
                                     </div>
-                                    <div class="col-md-8">{{stat.start_video|add:stat.stop_video|add:stat.lab}}% Complete </div>
+                                    <div class="col-md-8" id="comp{{topic.id}}">% Complete </div>
                                     
                                 </div>
-                                 </div>
-                            {%endif%}
-                        {% empty %}
-                                <div class="prgbarin" >
-                                    <div class="row">
-                                    <div class="col-md-4">
-                                    <div class="progress" style="width:60px;">
-                                    <div class="progress-bar progress-bar-primary" role="progressbar"
-                                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
-                                    </div>
-                                    </div>
-                                    <div class="col-md-8">0% Complete </div>
-                                    
-                                </div>
-                                 </div>
-                        {%endfor%}
+                            </div>
                     </div>
                     
                     
@@ -138,35 +121,18 @@
                     <div class="col-md-2 col-xs-2">{%if topic.has_notes == 1 %}<a href="{% url 'home:account_settings' %}">View</a>{%else%}---{%endif%}</div>
                     <div class="col-md-1 col-xs-2">{%if topic.has_labs == 1 %}<a href="{% url 'home:account_settings' %}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a>{%else%}---{%endif%}</div>
                     <div class="col-md-3 col-xs-3" data-toggle="popover" title="Topic Stats" data-content="Video : 50% of 100%     ">
-                        {%for stat in topic.topicstatus_set.all %}
-                            {%if stat.user == request.user and stat.topic == topic%}
-                                <div class="prgbarin" >
-                                    <div class="row">
+                        <div class="prgbarin" >
+                                <div class="row">
                                     <div class="col-md-4">
                                     <div class="progress" style="width:60px;">
-                                    <div class="progress-bar progress-bar-primary" role="progressbar"
-                                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:{{stat.start_video|add:stat.stop_video|add:stat.lab}}%"></div>
+                                    <div class="progress-bar progress-bar-primary" id="prode{{topic.id}}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
                                     </div>
+                     
                                     </div>
-                                    <div class="col-md-8">{{stat.start_video|add:stat.stop_video|add:stat.lab}}% Complete </div>
+                                    <div class="col-md-8" id="comp{{topic.id}}">% Complete </div>
                                     
                                 </div>
-                                 </div>
-                            {%endif%}
-                        {% empty %}
-                                <div class="prgbarin" >
-                                    <div class="row">
-                                    <div class="col-md-4">
-                                    <div class="progress" style="width:60px;">
-                                    <div class="progress-bar progress-bar-primary" role="progressbar"
-                                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
-                                    </div>
-                                    </div>
-                                    <div class="col-md-8">0% Complete </div>
-                                    
-                                </div>
-                                 </div>
-                        {%endfor%}
+                            </div>
                     </div>
                     
                     
@@ -184,35 +150,18 @@
                     <div class="col-md-2 col-xs-2">{%if topic.has_notes == 1 %}<a href="{% url 'Courses:Note' topic.course.course_title.split|join:'_' topic.topic_number %}">View</a>{%else%}---{%endif%}</div>
                     <div class="col-md-1 col-xs-2">{%if topic.has_labs == 1 %}<a href="{% url 'Courses:labs' topic.course.course_title.split|join:'_' topic.topic_number %}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a>{%else%}---{%endif%}</div>
                     <div class="col-md-3 col-xs-3" data-toggle="popover" title="Topic Stats" data-content="Video : 50% of 100%     ">
-                        {%for stat in topic.topicstatus_set.all %}
-                            {%if stat.user == request.user and stat.topic == topic%}
-                                <div class="prgbarin" >
-                                    <div class="row">
+                        <div class="prgbarin" >
+                                <div class="row">
                                     <div class="col-md-4">
                                     <div class="progress" style="width:60px;">
-                                    <div class="progress-bar progress-bar-primary" role="progressbar"
-                                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:{{stat.start_video|add:stat.stop_video|add:stat.lab}}%"></div>
+                                    <div class="progress-bar progress-bar-primary" id="prode{{topic.id}}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
                                     </div>
+                     
                                     </div>
-                                    <div class="col-md-8">{{stat.start_video|add:stat.stop_video|add:stat.lab}}% Complete </div>
+                                    <div class="col-md-8" id="comp{{topic.id}}">% Complete </div>
                                     
                                 </div>
-                                 </div>
-                            {%endif%}
-                        {% empty %}
-                                <div class="prgbarin" >
-                                    <div class="row">
-                                    <div class="col-md-4">
-                                    <div class="progress" style="width:60px;">
-                                    <div class="progress-bar progress-bar-primary" role="progressbar"
-                                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
-                                    </div>
-                                    </div>
-                                    <div class="col-md-8">0% Complete </div>
-                                    
-                                </div>
-                                 </div>
-                        {%endfor%}
+                            </div>
                     </div>
                     
                     
@@ -233,35 +182,18 @@
                     <div class="col-md-2 col-xs-2">{%if topic.has_notes == 1 %}<a href="{% url 'Courses:Note' topic.course.course_title.split|join:'_' topic.topic_number %}">View</a>{%else%}---{%endif%}</div>
                     <div class="col-md-1 col-xs-2">{%if topic.has_labs == 1 %}<a href="{% url 'Courses:labs' topic.course.course_title.split|join:'_' topic.topic_number %}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a>{%else%}---{%endif%}</div>
                     <div class="col-md-3 col-xs-3" data-toggle="popover" title="Topic Stats" data-content="Video : 50% of 100%     ">
-                        {%for stat in topic.topicstatus_set.all %}
-                            {%if stat.user == request.user and stat.topic == topic%}
-                                <div class="prgbarin" >
-                                    <div class="row">
+                        <div class="prgbarin" >
+                                <div class="row">
                                     <div class="col-md-4">
                                     <div class="progress" style="width:60px;">
-                                    <div class="progress-bar progress-bar-primary" role="progressbar"
-                                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:{{stat.start_video|add:stat.stop_video|add:stat.lab}}%"></div>
+                                    <div class="progress-bar progress-bar-primary" id="prode{{topic.id}}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
                                     </div>
+                     
                                     </div>
-                                    <div class="col-md-8">{{stat.start_video|add:stat.stop_video|add:stat.lab}}% Complete </div>
+                                    <div class="col-md-8" id="comp{{topic.id}}">% Complete </div>
                                     
                                 </div>
-                                 </div>
-                            {%endif%}
-                        {% empty %}
-                                <div class="prgbarin" >
-                                    <div class="row">
-                                    <div class="col-md-4">
-                                    <div class="progress" style="width:60px;">
-                                    <div class="progress-bar progress-bar-primary" role="progressbar"
-                                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
-                                    </div>
-                                    </div>
-                                    <div class="col-md-8">0% Complete </div>
-                                    
-                                </div>
-                                 </div>
-                        {%endfor%}
+                            </div>
                     </div>
                     
                     
@@ -288,35 +220,18 @@
                         <div class="col-md-2 col-xs-2">{%if topic.has_notes == 1 %}<a href="{% url 'home:account_settings' %}">View</a>{%else%}---{%endif%}</div>
                         <div class="col-md-1 col-xs-2">{%if topic.has_labs == 1 %}<a href="{% url 'home:account_settings' %}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a>{%else%}---{%endif%}</div>
                         <div class="col-md-3 col-xs-3" data-toggle="popover" title="Topic Stats" data-content="Video : 50% of 100%     ">
-                            {%for stat in topic.topicstatus_set.all %}
-                                {%if stat.user == request.user and stat.topic == topic%}
-                                    <div class="prgbarin" >
-                                        <div class="row">
-                                        <div class="col-md-4">
-                                        <div class="progress" style="width:60px;">
-                                        <div class="progress-bar progress-bar-primary" role="progressbar"
-                                        aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:{{stat.start_video|add:stat.stop_video|add:stat.lab}}%"></div>
-                                        </div>
-                                        </div>
-                                        <div class="col-md-8">{{stat.start_video|add:stat.stop_video|add:stat.lab}}% Complete </div>
-                                        
+                            <div class="prgbarin" >
+                                <div class="row">
+                                    <div class="col-md-4">
+                                    <div class="progress" style="width:60px;">
+                                    <div class="progress-bar progress-bar-primary" id="prode{{topic.id}}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
                                     </div>
-                                     </div>
-                                {%endif%}
-                            {% empty %}
-                                    <div class="prgbarin" >
-                                        <div class="row">
-                                        <div class="col-md-4">
-                                        <div class="progress" style="width:60px;">
-                                        <div class="progress-bar progress-bar-primary" role="progressbar"
-                                        aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
-                                        </div>
-                                        </div>
-                                        <div class="col-md-8">0% Complete </div>
-                                        
+                     
                                     </div>
-                                     </div>
-                            {%endfor%}
+                                    <div class="col-md-8" id="comp{{topic.id}}">% Complete </div>
+                                    
+                                </div>
+                            </div>
                         </div>
                         
                         
@@ -334,35 +249,18 @@
                                     <div class="col-md-2 col-xs-2">{%if topic.has_notes == 1 %}<a href="{% url 'Courses:Note' topic.course.course_title.split|join:'_' topic.topic_number %}">View</a>{%else%}---{%endif%}</div>
                                     <div class="col-md-1 col-xs-2">{%if topic.has_labs == 1 %}<a href="{% url 'Courses:labs' topic.course.course_title.split|join:'_' topic.topic_number %}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a>{%else%}---{%endif%}</div>
                                     <div class="col-md-3 col-xs-3" data-toggle="popover" title="Topic Stats" data-content="Video : 50% of 100%     ">
-                                        {%for stat in topic.topicstatus_set.all %}
-                                            {%if stat.user == request.user and stat.topic == topic%}
-                                                <div class="prgbarin" >
-                                                    <div class="row">
-                                                    <div class="col-md-4">
-                                                    <div class="progress" style="width:60px;">
-                                                    <div class="progress-bar progress-bar-primary" role="progressbar"
-                                                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:{{stat.start_video|add:stat.stop_video|add:stat.lab}}%"></div>
-                                                    </div>
-                                                    </div>
-                                                    <div class="col-md-8">{{stat.start_video|add:stat.stop_video|add:stat.lab}}% Complete </div>
-                                                    
-                                                </div>
-                                                 </div>
-                                            {%endif%}
-                                        {% empty %}
-                                                <div class="prgbarin" >
-                                                    <div class="row">
-                                                    <div class="col-md-4">
-                                                    <div class="progress" style="width:60px;">
-                                                    <div class="progress-bar progress-bar-primary" role="progressbar"
-                                                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
-                                                    </div>
-                                                    </div>
-                                                    <div class="col-md-8">0% Complete </div>
-                                                    
-                                                </div>
-                                                 </div>
-                                       {%endfor%}
+                                       <div class="prgbarin" >
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                            <div class="progress" style="width:60px;">
+                                            <div class="progress-bar progress-bar-primary" id="prode{{topic.id}}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
+                                            </div>
+                             
+                                            </div>
+                                            <div class="col-md-8" id="comp{{topic.id}}">% Complete </div>
+                                            
+                                        </div>
+                                    </div>
                                     </div>
                                 </div>  
                         {%endif%}
@@ -379,35 +277,18 @@
                             <div class="col-md-2 col-xs-2">{%if topic.has_notes == 1 %}<a href="{% url 'Courses:Note' topic.course.course_title.split|join:'_' topic.topic_number %}">View</a>{%else%}---{%endif%}</div>
                             <div class="col-md-1 col-xs-2">{%if topic.has_labs == 1 %}<a href="{% url 'Courses:labs' topic.course.course_title.split|join:'_' topic.topic_number %}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a>{%else%}---{%endif%}</div>
                             <div class="col-md-3 col-xs-3" data-toggle="popover" title="Topic Stats" data-content="Video : 50% of 100%     ">
-                                {%for stat in topic.topicstatus_set.all %}
-                                    {%if stat.user == request.user and stat.topic == topic%}
-                                        <div class="prgbarin" >
-                                            <div class="row">
-                                            <div class="col-md-4">
-                                            <div class="progress" style="width:60px;">
-                                            <div class="progress-bar progress-bar-primary" role="progressbar"
-                                            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:{{stat.start_video|add:stat.stop_video|add:stat.lab}}%"></div>
-                                            </div>
-                                            </div>
-                                            <div class="col-md-8">{{stat.start_video|add:stat.stop_video|add:stat.lab}}% Complete </div>
-                                            
-                                        </div>
-                                         </div>
-                                    {%endif%}
-                                {% empty %}
-                                        <div class="prgbarin" >
-                                            <div class="row">
-                                            <div class="col-md-4">
-                                            <div class="progress" style="width:60px;">
-                                            <div class="progress-bar progress-bar-primary" role="progressbar"
-                                            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
-                                            </div>
-                                            </div>
-                                            <div class="col-md-8">0% Complete </div>
-                                            
-                                        </div>
-                                         </div>
-                                {%endfor%}
+                                <div class="prgbarin" >
+                                <div class="row">
+                                    <div class="col-md-4">
+                                    <div class="progress" style="width:60px;">
+                                    <div class="progress-bar progress-bar-primary" id="prode{{topic.id}}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
+                                    </div>
+                     
+                                    </div>
+                                    <div class="col-md-8" id="comp{{topic.id}}">% Complete </div>
+                                    
+                                </div>
+                            </div>
                             </div>
                         </div>                            
                         <!--if it doesnt required aws uploads -->
@@ -423,35 +304,18 @@
                             <div class="col-md-2 col-xs-2">{%if topic.has_notes == 1 %}<a href="{% url 'Courses:Note' topic.course.course_title.split|join:'_' topic.topic_number %}">View</a>{%else%}---{%endif%}</div>
                             <div class="col-md-1 col-xs-2">{%if topic.has_labs == 1 %}<a href="{% url 'Courses:labs' topic.course.course_title.split|join:'_' topic.topic_number %}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a>{%else%}---{%endif%}</div>
                             <div class="col-md-3 col-xs-3" data-toggle="popover" title="Topic Stats" data-content="Video : 50% of 100%     ">
-                                {%for stat in topic.topicstatus_set.all %}
-                                    {%if stat.user == request.user and stat.topic == topic%}
-                                        <div class="prgbarin" >
-                                            <div class="row">
-                                            <div class="col-md-4">
-                                            <div class="progress" style="width:60px;">
-                                            <div class="progress-bar progress-bar-primary" role="progressbar"
-                                            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:{{stat.start_video|add:stat.stop_video|add:stat.lab}}%"></div>
-                                            </div>
-                                            </div>
-                                            <div class="col-md-8">{{stat.start_video|add:stat.stop_video|add:stat.lab}}% Complete </div>
-                                            
-                                        </div>
-                                         </div>
-                                    {%endif%}
-                                {% empty %}
-                                        <div class="prgbarin" >
-                                            <div class="row">
-                                            <div class="col-md-4">
-                                            <div class="progress" style="width:60px;">
-                                            <div class="progress-bar progress-bar-primary" role="progressbar"
-                                            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
-                                            </div>
-                                            </div>
-                                            <div class="col-md-8">0% Complete </div>
-                                            
-                                        </div>
-                                         </div>
-                                {%endfor%}
+                                <div class="prgbarin" >
+                                <div class="row">
+                                    <div class="col-md-4">
+                                    <div class="progress" style="width:60px;">
+                                    <div class="progress-bar progress-bar-primary" id="prode{{topic.id}}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
+                                    </div>
+                     
+                                    </div>
+                                    <div class="col-md-8" id="comp{{topic.id}}">% Complete </div>
+                                    
+                                </div>
+                            </div>
                             </div>
                         </div>
                         {%endif%}
@@ -470,35 +334,18 @@
                             <div class="col-md-2 col-xs-2"><a href="{% url 'home:monthly_subscription'%}">View</a></div>
                             <div class="col-md-1 col-xs-2"><a href="{% url 'home:monthly_subscription'%}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a></div>
                             <div class="col-md-3 col-xs-3" data-toggle="popover" title="Topic Stats" data-content="Video : 0% of 100%     ">
-                               {%for stat in topic.topicstatus_set.all %}
-                                    {%if stat.user == request.user and stat.topic == topic%}
-                                        <div class="prgbarin" >
-                                            <div class="row">
-                                            <div class="col-md-4">
-                                            <div class="progress" style="width:60px;">
-                                            <div class="progress-bar progress-bar-primary" role="progressbar"
-                                            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:{{stat.start_video|add:stat.stop_video|add:stat.lab}}%"></div>
-                                            </div>
-                                            </div>
-                                            <div class="col-md-8">{{stat.start_video|add:stat.stop_video|add:stat.lab}}% Complete </div>
-                                            
-                                        </div>
-                                         </div>
-                                    {%endif%}
-                                {% empty %}
-                                        <div class="prgbarin" >
-                                            <div class="row">
-                                            <div class="col-md-4">
-                                            <div class="progress" style="width:60px;">
-                                            <div class="progress-bar progress-bar-primary" role="progressbar"
-                                            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
-                                            </div>
-                                            </div>
-                                            <div class="col-md-8">0% Complete </div>
-                                            
-                                        </div>
-                                         </div>
-                                {%endfor%}
+                               <div class="prgbarin" >
+                                <div class="row">
+                                    <div class="col-md-4">
+                                    <div class="progress" style="width:60px;">
+                                    <div class="progress-bar progress-bar-primary" id="prode{{topic.id}}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
+                                    </div>
+                     
+                                    </div>
+                                    <div class="col-md-8" id="comp{{topic.id}}">% Complete </div>
+                                    
+                                </div>
+                            </div>
                             </div>
                         </div>
                     {%else%}
@@ -514,35 +361,18 @@
                             <div class="col-md-2 col-xs-2">{%if topic.has_notes == 1 %}<a href="{% url 'Courses:Note' topic.course.course_title.split|join:'_' topic.topic_number %}">View</a>{%else%}---{%endif%}</div>
                             <div class="col-md-1 col-xs-2">{%if topic.has_labs == 1 %}<a href="{% url 'Courses:labs' topic.course.course_title.split|join:'_' topic.topic_number %}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a>{%else%}---{%endif%}</div>
                             <div class="col-md-3 col-xs-3" data-toggle="popover" title="Topic Stats" data-content="Video : 0% of 100%     ">
-                            {%for stat in topic.topicstatus_set.all %}
-                            {%if stat.user == request.user and stat.topic == topic%}
                                 <div class="prgbarin" >
-                                    <div class="row">
+                                <div class="row">
                                     <div class="col-md-4">
                                     <div class="progress" style="width:60px;">
-                                    <div class="progress-bar progress-bar-primary" role="progressbar"
-                                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:{{stat.start_video|add:stat.stop_video|add:stat.lab}}%"></div>
+                                    <div class="progress-bar progress-bar-primary" id="prode{{topic.id}}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
                                     </div>
+                     
                                     </div>
-                                    <div class="col-md-8">{{stat.start_video|add:stat.stop_video|add:stat.lab}}% Complete </div>
+                                    <div class="col-md-8" id="comp{{topic.id}}">% Complete </div>
                                     
                                 </div>
-                                 </div>
-                            {%endif%}
-                        {% empty %}
-                                <div class="prgbarin" >
-                                    <div class="row">
-                                    <div class="col-md-4">
-                                    <div class="progress" style="width:60px;">
-                                    <div class="progress-bar progress-bar-primary" role="progressbar"
-                                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
-                                    </div>
-                                    </div>
-                                    <div class="col-md-8">0% Complete </div>
-                                    
-                                </div>
-                                 </div>
-                        {%endfor%}
+                            </div>
                             </div>
                         
                     </div>
@@ -564,35 +394,18 @@
                     <div class="col-md-2 col-xs-2"><a href="{% url 'home:monthly_subscription'%}">View</a></div>
                     <div class="col-md-1 col-xs-2"><a href="{% url 'home:monthly_subscription'%}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a></div>
                     <div class="col-md-3 col-xs-3" data-toggle="popover" title="Topic Stats" data-content="Video : 0% of 100%     ">
-                       {%for stat in topic.topicstatus_set.all %}
-                            {%if stat.user == request.user and stat.topic == topic%}
-                                <div class="prgbarin" >
-                                    <div class="row">
+                       <div class="prgbarin" >
+                                <div class="row">
                                     <div class="col-md-4">
                                     <div class="progress" style="width:60px;">
-                                    <div class="progress-bar progress-bar-primary" role="progressbar"
-                                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:{{stat.start_video|add:stat.stop_video|add:stat.lab}}%"></div>
+                                    <div class="progress-bar progress-bar-primary" id="prode{{topic.id}}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
                                     </div>
+                     
                                     </div>
-                                    <div class="col-md-8">{{stat.start_video|add:stat.stop_video|add:stat.lab}}% Complete </div>
+                                    <div class="col-md-8" id="comp{{topic.id}}">% Complete </div>
                                     
                                 </div>
-                                 </div>
-                            {%endif%}
-                        {% empty %}
-                                <div class="prgbarin" >
-                                    <div class="row">
-                                    <div class="col-md-4">
-                                    <div class="progress" style="width:60px;">
-                                    <div class="progress-bar progress-bar-primary" role="progressbar"
-                                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
-                                    </div>
-                                    </div>
-                                    <div class="col-md-8">0% Complete </div>
-                                    
-                                </div>
-                                 </div>
-                        {%endfor%}
+                            </div>
                     </div>
                 </div>
                     {%else%}
@@ -609,35 +422,18 @@
                         <div class="col-md-2 col-xs-2">{%if topic.has_notes == 1 %}<a href="{% url 'Courses:Note' topic.course.course_title.split|join:'_' topic.topic_number %}">View</a>{%else%}---{%endif%}</div>
                         <div class="col-md-1 col-xs-2">{%if topic.has_labs == 1 %}<a href="{% url 'Courses:labs' topic.course.course_title.split|join:'_' topic.topic_number %}"><img style="float: left; height: 24px; width: 24px;" src="{% static 'home/images/icon9.png' %}" alt="Lab" /></a>{%else%}---{%endif%}</div>
                         <div class="col-md-3 col-xs-3" data-toggle="popover" title="Topic Stats" data-content="Video : 0% of 100%     ">
-                            {%for stat in topic.topicstatus_set.all %}
-                            {%if stat.user == request.user and stat.topic == topic%}
-                                <div class="prgbarin" >
-                                    <div class="row">
+                            <div class="prgbarin" >
+                                <div class="row">
                                     <div class="col-md-4">
                                     <div class="progress" style="width:60px;">
-                                    <div class="progress-bar progress-bar-primary" role="progressbar"
-                                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:{{stat.start_video|add:stat.stop_video|add:stat.lab}}%"></div>
+                                    <div class="progress-bar progress-bar-primary" id="prode{{topic.id}}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
                                     </div>
+                     
                                     </div>
-                                    <div class="col-md-8">{{stat.start_video|add:stat.stop_video|add:stat.lab}}% Complete </div>
+                                    <div class="col-md-8" id="comp{{topic.id}}">% Complete </div>
                                     
                                 </div>
-                                 </div>
-                            {%endif%}
-                        {% empty %}
-                                <div class="prgbarin" >
-                                    <div class="row">
-                                    <div class="col-md-4">
-                                    <div class="progress" style="width:60px;">
-                                    <div class="progress-bar progress-bar-primary" role="progressbar"
-                                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
-                                    </div>
-                                    </div>
-                                    <div class="col-md-8">0% Complete </div>
-                                    
-                                </div>
-                                 </div>
-                        {%endfor%}
+                            </div>
                         </div>
                         
                         
@@ -666,10 +462,41 @@
     });
 
 
-    $('#demo').waterbubble({data: parseInt('{{totalstats}}')/100,txt: '{{totalstats}}%'});
+    //$('#demo').waterbubble({data: parseInt('{{totalstats}}')/100,txt: '{{totalstats}}%'});
 });
 
+jQuery(function(){
 
+function ipLookUp () {
+  
+    {%for topic in object_list %}
+        $.ajax({
+            type: 'GET',
+            data:'', 
+            url: '{% url "Courses:topictot" topic.id %}',
+            success: function (data) {
+                $.each(data, function(index, value){
+                    //console.log(value)
+                    $('#'+'prode'+'{{topic.id}}').replaceWith(function() { return"<div class='progress-bar progress-bar-primary' role='progressbar' aria-valuenow='0' aria-valuemin='0' aria-valuemax='100' id='prode{{topic.id}}' style='width:"+value+"%'></div>"});
+                    $('#'+'comp'+'{{topic.id}}').replaceWith(function() { return"<div class='col-md-8' id='comp{{topic.id}}'>"+value+"% Complete </div>"});
+
+                });
+            }
+        });
+    {%endfor%}
+    $.ajax({
+            type: 'GET',
+            data:'', 
+            url: '{% url "Courses:coursetot" course.id %}',
+            success: function (data) {
+                $.each(data, function(index, value){
+                    console.log(data);
+                    $('#demo').waterbubble({data: value/100,txt: value+'%'});
+                    $('#'+'perge').replaceWith(function() { return"<span class='percents' id='perge'>"+value+"</span>"});
+                });
+            }
+        });
+});
 
 </script>
 {% endblock %}

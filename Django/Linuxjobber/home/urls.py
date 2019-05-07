@@ -34,6 +34,7 @@ urlpatterns = [
     path('linux/full_training', views.linux_full_training, name='linux_full_training'),
     path('aws/full_training', views.aws_full_training, name='aws_full_training'),
     path('faq', views.faq, name='faq'),
+    path('ulocation', views.ulocation, name='ulocation'),
     path('workexperience/', include(wp_patterns)),
     path('gainexperience', views.gainexperience, name='gainexperience'),
     path('internships', views.internships, name='internships'),
