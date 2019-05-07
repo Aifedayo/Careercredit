@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from . import views
 from django.views.decorators.csrf import csrf_exempt
-import djstripe,stripe
+import stripe
 
 
 app_name = 'home'
