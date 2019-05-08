@@ -907,8 +907,7 @@ def monthly_subscription(request):
                 order_id = customer.id,
                 subscription = subscription.id,
                 status="pending",
-                order_amount = int(amount)/100,
-                user_id = 5
+                order_amount = int(amount)/100
             )
             
 
