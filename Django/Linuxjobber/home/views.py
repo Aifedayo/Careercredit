@@ -811,67 +811,46 @@ def check_subscription_status(request):
         event_json = json.loads(request.body.decode())
         jsonObject = event_json
 
-        # try:
-        #     output = open("home/check_subscription.html", "w")
-        #     output.write(str(jsonObject))
-        #     output.close()
-        # except IOError:
-        #     pass
-
         subscription_id = jsonObject['data']['object']
         customer_id= jsonObject['data']['object']
         amount_paid = jsonObject['data']['object']
         types = jsonObject['type']
-        name = jsonObject['data']['object']
-        # email = str(jsonObject['data']['object'])
-        print(name)
-
-        
-
-        customersubscription = UserOrder.objects.create(order_id=customer_id, subscription= subscription_id,user_id=5, user=name, status="pending")
-       
+ 
+        customersubscription = UserOrder.objects.all()
+    
      
         if types == 'customer.subscription.deleted' and customer_id:
-            if customersubscription:
-                customersubscription.status = "inactive/deleted"
-                customersubscription.save()
 
-                billing = BillingHistory(user=customersubscription.user, amount=amount, subscription_id=subscription_id, status="inactive/deleted")
-                billing.save()
-
-                user = CustomUser.objects.get(email=customersubscription.user.email)
-                user.role = 6
-                user.save()
-                
-        elif types == 'invoice.payment_failed' and customer_id:
-            if customersubscription:
-                customersubscription.status = "failed"
-                customersubscription.save()
-
-                billing = BillingHistory(user=customersubscription.user, amount=amount, subscription_id=subscription_id, status="Failed")
-                billing.save()
-
-                user = CustomUser.objects.get(email=customersubscription.user.email)
+                BillingHistory.objects.create(user= CustomUser.objects.get(email=customersubscription[0]), amount=29, subscription_id="subscriptions", status="inactive/deleted")
+                customersubscription.update(status="inactive/deleted")
+        
+                user = CustomUser.objects.get(email=customersubscription[0])
                 user.role = 6
                 user.save()
 
-        elif types == 'invoice.payment_succeeded' and customer_id:
-            if customersubscription:
-                customersubscription.status = "success"
-                customersubscription.save()
                 
-            
-                billing = BillingHistory(user=customersubscription.user, amount=amount_paid, subscription_id=subscription_id, status="Failed")
-                billing.save()
+        if types == 'invoice.payment_failed' and customer_id:
 
-                user = CustomUser.objects.get(email=customersubscription.user.email)
+                BillingHistory.objects.create(user= CustomUser.objects.get(email=customersubscription[0]), amount=29, subscription_id="subscriptions", status="failed")
+                customersubscription.update(status="failed")
+        
+                user = CustomUser.objects.get(email=customersubscription[0])
+                user.role = 6
+                user.save()
+
+        if types == 'invoice.payment_succeeded' and customer_id:
+                
+                BillingHistory.objects.create(user= CustomUser.objects.get(email=customersubscription[0]), amount=29, subscription_id="subscriptions", status="success")
+                customersubscription.update(status="success")
+        
+                user = CustomUser.objects.get(email=customersubscription[0])
                 user.role = 3
                 user.save()
 
-        #Record time of response from webhook
-        # user = CustomUser.objects.get(email=customersubscription.user.email)
+        # Record time of response from webhook
+
         try:
-            tryf = TryFreeRecord.objects.get(user=CustomUser.objects.get(email=customersubscription.user.email))
+            tryf = TryFreeRecord.objects.get(user=CustomUser.objects.get(email=customersubscription[0]))
             tryf.webhook_response = datetime.now()
             tryf.save(update_fields=['webhook_response'])
         except TryFreeRecord.DoesNotExist:
