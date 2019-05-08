@@ -844,6 +844,7 @@ def check_subscription_status(request):
 
         if types == 'invoice.payment_succeeded' and customer_id:
             if customersubscription:
+                
                 BillingHistory.objects.create(user= CustomUser.objects.get(email=customersubscription[0]), amount=29, subscription_id=p, status="success")
                 customersubscription.update(status="success")
         
