@@ -1081,7 +1081,7 @@ def group_pay(request,pk):
         return redirect("home:group")
     return render(request, 'home/group_pay.html', context)
 
-
+'''
 def contact_us(request):
     error = ''
     success = ''
@@ -1095,7 +1095,7 @@ def contact_us(request):
         message = request.POST['message']
         try:
             #send_mail(full_name=fname, subject=subject, phone_no=phone, email=email, message_subject=subj, message=message, from_email=from_email, ['elena.edwards@linuxjobber.com'])
-            send_mail(subject, message, from_email)
+            send_mail(subject, message, from_email, fail_silently=False)
             #contact_message = ContactMessages(full_name=fname, phone_no=phone, email=email, message_subject=subj, message=message)
             #contact_message.save()
         except Exception as e:
@@ -1106,6 +1106,23 @@ def contact_us(request):
     else:
         return render(request, 'home/contact_us.html',{'error':error, 'success':success,'courses' : get_courses(), 'tools' : get_tools()})
 
+'''
+
+def contact_us(request):
+    subject = request.POST.get('subject', '')
+    message = request.POST.get('message', '')
+    from_email = settings.DEFAULT_FROM_EMAIL
+    if subject and message and from_email:
+        try:
+            send_mail(subject, message, from_email)
+        except BadHeaderError:
+            return HttpResponse('Invalid header found.')
+        return HttpResponseRedirect('home/contact_us.html')
+    else:
+        # In reality we'd use a form class
+        # to get proper validation errors.
+        return HttpResponse('Make sure all fields are entered and valid.')
+        
 
 def location(request):
     return render(request, 'home/location.html', {'courses' : get_courses(), 'tools' : get_tools()})
