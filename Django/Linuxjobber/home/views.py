@@ -3,7 +3,7 @@ import csv, io
 import logging
 import subprocess, json, os
 import random, string
-import datetime
+# from datetime import datetime
 import pytz
 import requests
 
@@ -30,6 +30,7 @@ from Courses.models import Course, CoursePermission, UserInterest
 from ToolsApp.models import Tool
 from users.models import CustomUser
 from .forms import JobPlacementForm, JobApplicationForm, AWSCredUpload, InternshipForm, ResumeForm, PartimeApplicationForm, WeForm, UnsubscribeForm
+from datetime import datetime
 
 fs = FileSystemStorage(location= settings.MEDIA_ROOT+'/uploads')
 # stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -803,27 +804,33 @@ def accepted(request):
 def check_subscription_status(request):
 
     data = """ PASTE COPIED JSON REQUEST HERE """
+
     
 
     if request.method == "POST":
-        event_json = json.loads(request.body)
+        event_json = json.loads(request.body.decode())
         jsonObject = event_json
 
-        try:
-            output = open("home/check_subscription.html", "w")
-            output.write(jsonObject)
-            output.close()
-        except IOError:
-            pass
+        # try:
+        #     output = open("home/check_subscription.html", "w")
+        #     output.write(str(jsonObject))
+        #     output.close()
+        # except IOError:
+        #     pass
 
-        subscription_id = jsonObject['data']['object']['subscription']
-        customer_id = jsonObject['data']['object']['customer']
-        amount = jsonObject['data']['object']['amount_paid'] / 100
+        subscription_id = jsonObject['data']['object']
+        customer_id= jsonObject['data']['object']
+        amount_paid = jsonObject['data']['object']
         types = jsonObject['type']
+        name = jsonObject['data']['object']
+        # email = str(jsonObject['data']['object'])
+        print(name)
 
+        
 
-        customersubscription = UserOrder.objects.get(order_id=customer_id, subscription= subscription_id)
-
+        customersubscription = UserOrder.objects.create(order_id=customer_id, subscription= subscription_id,user_id=5, user=name, status="pending")
+       
+     
         if types == 'customer.subscription.deleted' and customer_id:
             if customersubscription:
                 customersubscription.status = "inactive/deleted"
@@ -852,8 +859,9 @@ def check_subscription_status(request):
             if customersubscription:
                 customersubscription.status = "success"
                 customersubscription.save()
-
-                billing = BillingHistory(user=customersubscription.user, amount=amount, subscription_id=subscription_id, status="success")
+                
+            
+                billing = BillingHistory(user=customersubscription.user, amount=amount_paid, subscription_id=subscription_id, status="Failed")
                 billing.save()
 
                 user = CustomUser.objects.get(email=customersubscription.user.email)
@@ -861,8 +869,9 @@ def check_subscription_status(request):
                 user.save()
 
         #Record time of response from webhook
+        # user = CustomUser.objects.get(email=customersubscription.user.email)
         try:
-            tryf = TryFreeRecord.objects.get(user=user)
+            tryf = TryFreeRecord.objects.get(user=CustomUser.objects.get(email=customersubscription.user.email))
             tryf.webhook_response = datetime.now()
             tryf.save(update_fields=['webhook_response'])
         except TryFreeRecord.DoesNotExist:
@@ -909,17 +918,18 @@ def monthly_subscription(request):
                 plan = plan_id,
             )
 
-            order = UserOrder(
+            UserOrder.objects.create(
                 user = request.user,
                 order_id = customer.id,
                 subscription = subscription.id,
                 status="pending",
                 order_amount = int(amount)/100,
+                user_id = 5
             )
-
-            order.save()
+            
 
             TryFreeRecord.objects.create(user=request.user,webhook_response=None)
+            # return HttpResponse(status=200)
 
             messages.success(request, 'Thanks for your sucbscription! Please allow 10-20 seconds for your account to be updated as we have to wait for confirmation from the credit card processor.')
             if nexturl:
@@ -1521,7 +1531,6 @@ def in_person_training(request):
 
 
 @login_required
-@csrf_exempt
 def tryfree(request, sub_plan):
 
     if sub_plan == 'standardPlan':
@@ -1671,8 +1680,7 @@ def tryfree(request, sub_plan):
                        'courses' : get_courses(),
                        'tools' : get_tools()}
             return render(request, 'home/premium_plan_pay.html', context)
-    return HttpResponse(status=200)
-
+   
 
 
 
