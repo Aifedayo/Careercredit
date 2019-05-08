@@ -817,11 +817,14 @@ def check_subscription_status(request):
         types = jsonObject['type']
  
         customersubscription = UserOrder.objects.all()
-    
-     
-        if types == 'customer.subscription.deleted' and customer_id:
 
-                BillingHistory.objects.create(user= CustomUser.objects.get(email=customersubscription[0]), amount=29, subscription_id="subscriptions", status="inactive/deleted")
+        for e in customersubscription:
+            p = e.subscription
+        
+        if types == 'customer.subscription.deleted' and customer_id:
+            if customersubscription:
+
+                BillingHistory.objects.create(user= CustomUser.objects.get(email=customersubscription[0]), amount=29, subscription_id=p, status="inactive/deleted")
                 customersubscription.update(status="inactive/deleted")
         
                 user = CustomUser.objects.get(email=customersubscription[0])
@@ -830,8 +833,9 @@ def check_subscription_status(request):
 
                 
         if types == 'invoice.payment_failed' and customer_id:
+            if customersubscription:
 
-                BillingHistory.objects.create(user= CustomUser.objects.get(email=customersubscription[0]), amount=29, subscription_id="subscriptions", status="failed")
+                BillingHistory.objects.create(user= CustomUser.objects.get(email=customersubscription[0]), amount=29, subscription_id=p, status="failed")
                 customersubscription.update(status="failed")
         
                 user = CustomUser.objects.get(email=customersubscription[0])
@@ -839,8 +843,8 @@ def check_subscription_status(request):
                 user.save()
 
         if types == 'invoice.payment_succeeded' and customer_id:
-                
-                BillingHistory.objects.create(user= CustomUser.objects.get(email=customersubscription[0]), amount=29, subscription_id="subscriptions", status="success")
+            if customersubscription:
+                BillingHistory.objects.create(user= CustomUser.objects.get(email=customersubscription[0]), amount=29, subscription_id=p, status="success")
                 customersubscription.update(status="success")
         
                 user = CustomUser.objects.get(email=customersubscription[0])
