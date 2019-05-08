@@ -300,3 +300,183 @@ django.utils.datastructures.MultiValueDictKeyError: ('subject', '')
 [2019-05-08 08:10:11] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
 [2019-05-08 08:10:11] WARNING [django.channels.server.log_action:149] HTTP GET /images/icon5.png 404 [0.08, 127.0.0.1:61118]
 [2019-05-08 08:10:14] INFO [django.channels.server.log_action:141] HTTP GET /companys/contact 200 [0.02, 127.0.0.1:61122]
+[2019-05-08 08:20:43] INFO [django.channels.server.log_action:147] HTTP GET /admin 302 [1.57, 127.0.0.1:61631]
+[2019-05-08 08:20:44] INFO [django.channels.server.log_action:141] HTTP GET /admin/login/?next=/admin 200 [0.63, 127.0.0.1:61631]
+[2019-05-08 08:20:44] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/base.css 304 [0.20, 127.0.0.1:61634]
+[2019-05-08 08:20:44] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/responsive.css 304 [0.22, 127.0.0.1:61636]
+[2019-05-08 08:20:44] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/login.css 304 [0.31, 127.0.0.1:61635]
+[2019-05-08 08:20:45] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/fonts.css 304 [0.05, 127.0.0.1:61635]
+[2019-05-08 08:20:46] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Regular-webfont.woff 304 [0.08, 127.0.0.1:61636]
+[2019-05-08 08:20:46] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Light-webfont.woff 304 [0.11, 127.0.0.1:61635]
+[2019-05-08 08:21:17] INFO [django.channels.server.log_action:147] HTTP POST /admin/login/?next=/admin 302 [1.40, 127.0.0.1:61676]
+[2019-05-08 08:21:18] INFO [django.channels.server.log_action:141] HTTP GET /admin 200 [0.92, 127.0.0.1:61676]
+[2019-05-08 08:21:18] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/dashboard.css 304 [0.03, 127.0.0.1:61676]
+[2019-05-08 08:21:18] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/icon-addlink.svg 304 [0.04, 127.0.0.1:61676]
+[2019-05-08 08:21:18] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/icon-changelink.svg 304 [0.05, 127.0.0.1:61675]
+[2019-05-08 08:21:18] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Bold-webfont.woff 304 [0.03, 127.0.0.1:61675]
+[2019-05-08 08:21:34] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/message/ 200 [0.52, 127.0.0.1:61702]
+[2019-05-08 08:21:34] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/jquery.init.js 200 [0.08, 127.0.0.1:61707]
+[2019-05-08 08:21:34] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/changelists.css 200 [0.14, 127.0.0.1:61702]
+[2019-05-08 08:21:34] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/vendor/jquery/jquery.js 200 [0.16, 127.0.0.1:61708]
+[2019-05-08 08:21:34] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 200 [0.19, 127.0.0.1:61705]
+[2019-05-08 08:21:34] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/core.js 200 [0.25, 127.0.0.1:61706]
+[2019-05-08 08:21:34] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.29, 127.0.0.1:61703]
+[2019-05-08 08:21:34] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/actions.js 200 [0.21, 127.0.0.1:61707]
+[2019-05-08 08:21:34] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/urlify.js 200 [0.25, 127.0.0.1:61702]
+[2019-05-08 08:21:34] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/prepopulate.js 200 [0.16, 127.0.0.1:61705]
+[2019-05-08 08:21:34] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 200 [0.21, 127.0.0.1:61706]
+[2019-05-08 08:21:35] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/search.svg 200 [0.04, 127.0.0.1:61706]
+[2019-05-08 08:21:35] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/tooltag-add.svg 200 [0.04, 127.0.0.1:61706]
+[2019-05-08 08:21:40] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/ 200 [0.35, 127.0.0.1:61724]
+[2019-05-08 08:21:57] INFO [django.channels.server.log_action:141] HTTP GET /admin/ 200 [0.24, 127.0.0.1:61746]
+[2019-05-08 08:55:15] INFO [django.channels.server.log_action:141] HTTP GET / 200 [4.07, 127.0.0.1:64421]
+[2019-05-08 08:55:16] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-05-08 08:55:16] WARNING [django.channels.server.log_action:149] HTTP GET /images/icon5.png 404 [0.19, 127.0.0.1:64421]
+[2019-05-08 08:55:17] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/icon1.png 304 [0.27, 127.0.0.1:64421]
+[2019-05-08 08:55:17] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/logout1.png 304 [0.25, 127.0.0.1:64433]
+[2019-05-08 08:55:22] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.85, 127.0.0.1:64446]
+[2019-05-08 08:55:27] INFO [django.channels.server.log_action:141] HTTP GET /companys/contact 200 [0.03, 127.0.0.1:64459]
+[2019-05-08 08:58:25] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.59, 127.0.0.1:64743]
+[2019-05-08 09:00:47] INFO [django.channels.server.log_action:141] HTTP GET /companys/contact 200 [0.03, 127.0.0.1:64887]
+[2019-05-08 09:01:04] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.15, 127.0.0.1:64907]
+[2019-05-08 09:01:07] INFO [django.channels.server.log_action:141] HTTP GET /companys/contact 200 [0.04, 127.0.0.1:64923]
+[2019-05-08 09:02:51] INFO [django.channels.server.log_action:141] HTTP GET /companys/contact 200 [0.95, 127.0.0.1:65054]
+[2019-05-08 09:02:57] INFO [django.channels.server.log_action:141] HTTP GET / 200 [1.13, 127.0.0.1:65063]
+[2019-05-08 09:02:59] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.14, 127.0.0.1:65063]
+[2019-05-08 09:17:14] INFO [django.channels.server.log_action:141] HTTP GET / 200 [3.10, 127.0.0.1:49899]
+[2019-05-08 09:17:15] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-05-08 09:17:15] WARNING [django.channels.server.log_action:149] HTTP GET /images/icon5.png 404 [0.17, 127.0.0.1:49899]
+[2019-05-08 09:17:21] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.19, 127.0.0.1:49918]
+[2019-05-08 09:17:33] INFO [django.channels.server.log_action:147] HTTP GET /companys/contact 302 [0.04, 127.0.0.1:49937]
+[2019-05-08 09:17:33] WARNING [django.request.log_response:228] Not Found: /companys/home/contact_us.html
+[2019-05-08 09:17:33] WARNING [django.channels.server.log_action:149] HTTP GET /companys/home/contact_us.html 404 [0.14, 127.0.0.1:49937]
+[2019-05-08 09:18:56] INFO [django.channels.server.log_action:141] HTTP GET /companys/contact 200 [0.14, 127.0.0.1:50056]
+[2019-05-08 09:21:12] INFO [django.channels.server.log_action:141] HTTP GET /companys/contact 200 [1.44, 127.0.0.1:50229]
+[2019-05-08 09:21:13] WARNING [django.request.log_response:228] Not Found: /companys/images/icon5.png
+[2019-05-08 09:21:13] WARNING [django.channels.server.log_action:149] HTTP GET /companys/images/icon5.png 404 [0.26, 127.0.0.1:50229]
+[2019-05-08 09:21:51] INFO [django.channels.server.log_action:141] HTTP POST /companys/contact 200 [0.11, 127.0.0.1:50287]
+[2019-05-08 09:21:51] WARNING [django.request.log_response:228] Not Found: /companys/images/icon5.png
+[2019-05-08 09:21:52] WARNING [django.channels.server.log_action:149] HTTP GET /companys/images/icon5.png 404 [0.26, 127.0.0.1:50287]
+[2019-05-08 09:27:58] INFO [django.channels.server.log_action:141] HTTP GET / 200 [2.78, 127.0.0.1:50814]
+[2019-05-08 09:27:59] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-05-08 09:27:59] WARNING [django.channels.server.log_action:149] HTTP GET /images/icon5.png 404 [0.26, 127.0.0.1:50814]
+[2019-05-08 09:28:03] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.07, 127.0.0.1:50835]
+[2019-05-08 09:30:38] INFO [django.channels.server.log_action:141] HTTP GET /companys/contact 200 [1.44, 127.0.0.1:51028]
+[2019-05-08 10:01:51] INFO [django.channels.server.log_action:141] HTTP GET /aboutus 200 [2.43, 127.0.0.1:53967]
+[2019-05-08 10:01:54] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-05-08 10:01:54] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/partners-logo.png 200 [0.19, 127.0.0.1:53985]
+[2019-05-08 10:01:54] WARNING [django.channels.server.log_action:149] HTTP GET /images/icon5.png 404 [0.22, 127.0.0.1:53986]
+[2019-05-08 10:02:25] INFO [django.channels.server.log_action:141] HTTP GET /companys/contact 200 [0.03, 127.0.0.1:54061]
+[2019-05-08 10:05:28] INFO [django.channels.server.log_action:147] HTTP GET /companys/contact 302 [0.60, 127.0.0.1:54335]
+[2019-05-08 10:05:29] WARNING [django.request.log_response:228] Not Found: /companys/home/contact_us.html
+[2019-05-08 10:05:29] WARNING [django.channels.server.log_action:149] HTTP GET /companys/home/contact_us.html 404 [0.10, 127.0.0.1:54335]
+[2019-05-08 10:06:23] INFO [django.channels.server.log_action:147] HTTP GET /companys/contact 302 [0.08, 127.0.0.1:54434]
+[2019-05-08 10:06:23] WARNING [django.request.log_response:228] Not Found: /companys/home/contact_us.html
+[2019-05-08 10:06:23] WARNING [django.channels.server.log_action:149] HTTP GET /companys/home/contact_us.html 404 [0.07, 127.0.0.1:54434]
+[2019-05-08 10:10:43] INFO [django.channels.server.log_action:147] HTTP GET /companys/contact 302 [0.50, 127.0.0.1:54853]
+[2019-05-08 10:10:43] WARNING [django.request.log_response:228] Not Found: /companys/home/contact_us.html
+[2019-05-08 10:10:43] WARNING [django.channels.server.log_action:149] HTTP GET /companys/home/contact_us.html 404 [0.11, 127.0.0.1:54853]
+[2019-05-08 10:15:07] WARNING [django.request.log_response:228] Not Found: /companys/home/contact_us.html
+[2019-05-08 10:15:07] WARNING [django.channels.server.log_action:149] HTTP GET /companys/home/contact_us.html 404 [1.60, 127.0.0.1:55294]
+[2019-05-08 10:22:32] INFO [django.channels.server.log_action:141] HTTP GET /companys/contact 200 [1.45, 127.0.0.1:56670]
+[2019-05-08 10:22:32] WARNING [django.request.log_response:228] Not Found: /companys/images/icon5.png
+[2019-05-08 10:22:32] WARNING [django.channels.server.log_action:149] HTTP GET /companys/images/icon5.png 404 [0.18, 127.0.0.1:56670]
+[2019-05-08 10:23:09] ERROR [django.request.log_response:228] Internal Server Error: /companys/contact
+Traceback (most recent call last):
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\josh\Desktop\linuxjobber2\Django\linuxjobber\home\views.py", line 1094, in contact_us
+    subject = request.POST.get['subject']
+TypeError: 'method' object is not subscriptable
+[2019-05-08 10:23:09] ERROR [django.channels.server.log_action:154] HTTP POST /companys/contact 500 [0.42, 127.0.0.1:56801]
+[2019-05-08 10:26:00] INFO [django.channels.server.log_action:141] HTTP GET /companys/contact 200 [1.57, 127.0.0.1:57360]
+[2019-05-08 10:26:00] WARNING [django.request.log_response:228] Not Found: /companys/images/icon5.png
+[2019-05-08 10:26:00] WARNING [django.channels.server.log_action:149] HTTP GET /companys/images/icon5.png 404 [0.18, 127.0.0.1:57360]
+[2019-05-08 10:30:41] INFO [django.channels.server.log_action:141] HTTP POST /companys/contact 200 [0.27, 127.0.0.1:58237]
+[2019-05-08 10:30:41] WARNING [django.request.log_response:228] Not Found: /companys/images/icon5.png
+[2019-05-08 10:30:41] WARNING [django.channels.server.log_action:149] HTTP GET /companys/images/icon5.png 404 [0.18, 127.0.0.1:58237]
+[2019-05-08 10:41:58] INFO [django.channels.server.log_action:141] HTTP POST /companys/contact 200 [1.63, 127.0.0.1:60296]
+[2019-05-08 10:41:59] WARNING [django.request.log_response:228] Not Found: /companys/images/icon5.png
+[2019-05-08 10:41:59] WARNING [django.channels.server.log_action:149] HTTP GET /companys/images/icon5.png 404 [0.13, 127.0.0.1:60296]
+[2019-05-08 10:43:09] INFO [django.channels.server.log_action:141] HTTP POST /companys/contact 200 [1.00, 127.0.0.1:60574]
+[2019-05-08 10:43:09] WARNING [django.request.log_response:228] Not Found: /companys/images/icon5.png
+[2019-05-08 10:43:10] WARNING [django.channels.server.log_action:149] HTTP GET /companys/images/icon5.png 404 [0.25, 127.0.0.1:60574]
+[2019-05-08 10:43:39] INFO [django.channels.server.log_action:141] HTTP POST /companys/contact 200 [0.27, 127.0.0.1:60695]
+[2019-05-08 10:43:39] WARNING [django.request.log_response:228] Not Found: /companys/images/icon5.png
+[2019-05-08 10:43:40] WARNING [django.channels.server.log_action:149] HTTP GET /companys/images/icon5.png 404 [0.29, 127.0.0.1:60695]
+[2019-05-08 11:06:03] INFO [django.channels.server.log_action:141] HTTP POST /companys/contact 200 [4.10, 127.0.0.1:64966]
+[2019-05-08 11:06:05] WARNING [django.request.log_response:228] Not Found: /companys/images/icon5.png
+[2019-05-08 11:06:06] WARNING [django.channels.server.log_action:149] HTTP GET /companys/images/icon5.png 404 [0.09, 127.0.0.1:64995]
+[2019-05-08 11:06:19] INFO [django.channels.server.log_action:141] HTTP GET /static/favicon.ico 200 [0.13, 127.0.0.1:65100]
+[2019-05-08 12:23:27] ERROR [django.request.log_response:228] Internal Server Error: /companys/contact
+Traceback (most recent call last):
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\josh\Desktop\linuxjobber2\Django\linuxjobber\home\views.py", line 1103, in contact_us
+    return render(request, 'home/contact_us.html',{'error':error, 'success':success,'courses' : get_courses(), 'tools' : get_tools()})
+NameError: name 'error' is not defined
+[2019-05-08 12:23:27] ERROR [django.channels.server.log_action:154] HTTP GET /companys/contact 500 [2.22, 127.0.0.1:62790]
+[2019-05-08 12:24:00] INFO [django.channels.server.log_action:141] HTTP GET /static/favicon.ico 200 [0.17, 127.0.0.1:62927]
+[2019-05-08 12:24:05] ERROR [django.request.log_response:228] Internal Server Error: /companys/contact
+Traceback (most recent call last):
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\josh\Desktop\linuxjobber2\Django\linuxjobber\home\views.py", line 1103, in contact_us
+    return render(request, 'home/contact_us.html',{'error':error, 'success':success,'courses' : get_courses(), 'tools' : get_tools()})
+NameError: name 'error' is not defined
+[2019-05-08 12:24:05] ERROR [django.channels.server.log_action:154] HTTP GET /companys/contact 500 [0.21, 127.0.0.1:62942]
+[2019-05-08 14:57:31] INFO [django.channels.server.log_action:141] HTTP GET / 200 [2.77, 127.0.0.1:50111]
+[2019-05-08 14:57:32] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js 200 [0.51, 127.0.0.1:50111]
+[2019-05-08 14:57:32] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validate.js 200 [0.50, 127.0.0.1:50118]
+[2019-05-08 14:57:32] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/css/style.css 200 [0.49, 127.0.0.1:50121]
+[2019-05-08 14:57:32] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/style.css 200 [0.51, 127.0.0.1:50120]
+[2019-05-08 14:57:32] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/css/bootstrap.min.css 200 [0.53, 127.0.0.1:50119]
+[2019-05-08 14:57:32] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/newstyle2.css 200 [0.60, 127.0.0.1:50122]
+[2019-05-08 14:57:32] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/main.css 200 [0.15, 127.0.0.1:50111]
+[2019-05-08 14:57:32] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/newstylenew.css 200 [0.19, 127.0.0.1:50120]
+[2019-05-08 14:57:32] INFO [django.channels.server.log_action:141] HTTP GET /static/Projects/custom/css/projects.css 200 [0.20, 127.0.0.1:50118]
+[2019-05-08 14:57:32] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css 200 [0.23, 127.0.0.1:50121]
+[2019-05-08 14:57:32] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js 200 [0.29, 127.0.0.1:50119]
+[2019-05-08 14:57:32] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/logo.png 200 [0.12, 127.0.0.1:50121]
+[2019-05-08 14:57:32] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-05-08 14:57:32] WARNING [django.channels.server.log_action:149] HTTP GET /images/icon5.png 404 [0.16, 127.0.0.1:50118]
+[2019-05-08 14:57:33] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/bootstrap.min.js 200 [0.07, 127.0.0.1:50118]
+[2019-05-08 14:57:33] INFO [django.channels.server.log_action:141] HTTP GET /static/faq/js/jquery.mobile.custom.min.js 200 [0.14, 127.0.0.1:50121]
+[2019-05-08 14:57:33] INFO [django.channels.server.log_action:141] HTTP GET /static/faq/js/main.js 200 [0.05, 127.0.0.1:50118]
+[2019-05-08 14:57:33] INFO [django.channels.server.log_action:141] HTTP GET /static/js/waterbubble.js 200 [0.07, 127.0.0.1:50119]
+[2019-05-08 14:57:33] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/fonts/fontsstylesheet.css 200 [0.12, 127.0.0.1:50121]
+[2019-05-08 14:57:33] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/jobphone.png 200 [0.09, 127.0.0.1:50119]
+[2019-05-08 14:57:33] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/LaptopBook.png 200 [0.13, 127.0.0.1:50118]
+[2019-05-08 14:57:34] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/get1.png 200 [0.10, 127.0.0.1:50111]
+[2019-05-08 14:57:34] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/hq1.png 200 [0.10, 127.0.0.1:50122]
+[2019-05-08 14:57:34] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/hq2.png 200 [0.03, 127.0.0.1:50111]
+[2019-05-08 14:57:34] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/homelive.png 200 [0.19, 127.0.0.1:50118]
+[2019-05-08 14:57:34] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/client2.png 200 [0.05, 127.0.0.1:50111]
+[2019-05-08 14:57:34] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/client1.png 200 [0.03, 127.0.0.1:50118]
+[2019-05-08 14:57:34] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/testi.png 200 [0.21, 127.0.0.1:50120]
+[2019-05-08 14:57:34] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/client3.png 200 [0.11, 127.0.0.1:50122]
+[2019-05-08 14:57:34] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/get3.png 200 [0.24, 127.0.0.1:50119]
+[2019-05-08 14:57:34] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/get2.png 200 [0.23, 127.0.0.1:50121]
+[2019-05-08 14:57:34] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/jobban2.png 200 [0.12, 127.0.0.1:50120]
+[2019-05-08 14:57:34] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/homebanner.png 200 [0.17, 127.0.0.1:50119]
+[2019-05-08 14:57:47] INFO [django.channels.server.log_action:141] HTTP GET /companys/contact 200 [0.16, 127.0.0.1:50133]
+[2019-05-08 14:57:47] WARNING [django.request.log_response:228] Not Found: /companys/images/icon5.png
+[2019-05-08 14:57:47] WARNING [django.channels.server.log_action:149] HTTP GET /companys/images/icon5.png 404 [0.26, 127.0.0.1:50133]
+[2019-05-08 14:58:21] INFO [django.channels.server.log_action:141] HTTP POST /companys/contact 200 [0.23, 127.0.0.1:50160]
+[2019-05-08 14:58:22] WARNING [django.request.log_response:228] Not Found: /companys/images/icon5.png
+[2019-05-08 14:58:22] WARNING [django.channels.server.log_action:149] HTTP GET /companys/images/icon5.png 404 [0.22, 127.0.0.1:50160]
+[2019-05-08 15:00:04] INFO [django.channels.server.log_action:141] HTTP POST /companys/contact 200 [0.20, 127.0.0.1:50196]
+[2019-05-08 15:00:04] WARNING [django.request.log_response:228] Not Found: /companys/images/icon5.png
+[2019-05-08 15:00:05] WARNING [django.channels.server.log_action:149] HTTP GET /companys/images/icon5.png 404 [0.30, 127.0.0.1:50196]

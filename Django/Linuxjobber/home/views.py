@@ -1086,16 +1086,34 @@ def contact_us(request):
     error = ''
     success = ''
     if request.method == "POST":
-        #fname = request.POST.get['full_name','']
-        #phone = request.POST.get['phonenumber','']
-        #email = request.POST.get['email','']
-        #message = request.POST.get['message','']
-        from_email = settings.DEFAULT_FROM_EMAIL
+        fname = request.POST['full_name']
+        phone = request.POST['phonenumber']
+        email = request.POST['email']
+        subj = request.POST['subject']
+        message = request.POST['message']
+        try:
+            contact_message = ContactMessages(full_name=fname, phone_no=phone, email=email, message_subject=subj, message=message)
+            contact_message.save()
+        except Exception as e:
+            error = 'yes'
+        else:
+            success = 'yes'    
+        return render(request, 'home/contact_us.html',{'error':error, 'success':success})
+    else:
+        return render(request, 'home/contact_us.html',{'error':error, 'success':success,'courses' : get_courses(), 'tools' : get_tools()})
+'''
+def contact_us(request):
+    error = ''
+    success = ''
+    if request.method == "POST":
+        fname = request.POST['full_name']
+        phone = request.POST['phonenumber']
+        #email = request.POST['email']
+        from_email = request.POST['email']
         subject = request.POST['subject']
         message = request.POST['message']
         try:
-            #send_mail(full_name=fname, subject=subject, phone_no=phone, email=email, message_subject=subj, message=message, from_email=from_email, ['elena.edwards@linuxjobber.com'])
-            send_mail(subject, message, from_email, fail_silently=False)
+            send_mail(message, subject, from_email, ['elena.edwards@linuxjobber.com'])
             #contact_message = ContactMessages(full_name=fname, phone_no=phone, email=email, message_subject=subj, message=message)
             #contact_message.save()
         except Exception as e:
@@ -1106,23 +1124,8 @@ def contact_us(request):
     else:
         return render(request, 'home/contact_us.html',{'error':error, 'success':success,'courses' : get_courses(), 'tools' : get_tools()})
 
-'''
 
-def contact_us(request):
-    subject = request.POST.get('subject', '')
-    message = request.POST.get('message', '')
-    from_email = settings.DEFAULT_FROM_EMAIL
-    if subject and message and from_email:
-        try:
-            send_mail(subject, message, from_email)
-        except BadHeaderError:
-            return HttpResponse('Invalid header found.')
-        return HttpResponseRedirect('home/contact_us.html')
-    else:
-        # In reality we'd use a form class
-        # to get proper validation errors.
-        return HttpResponse('Make sure all fields are entered and valid.')
-        
+
 
 def location(request):
     return render(request, 'home/location.html', {'courses' : get_courses(), 'tools' : get_tools()})
