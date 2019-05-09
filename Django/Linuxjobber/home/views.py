@@ -1081,27 +1081,6 @@ def group_pay(request,pk):
         return redirect("home:group")
     return render(request, 'home/group_pay.html', context)
 
-'''
-def contact_us(request):
-    error = ''
-    success = ''
-    if request.method == "POST":
-        fname = request.POST['full_name']
-        phone = request.POST['phonenumber']
-        email = request.POST['email']
-        subj = request.POST['subject']
-        message = request.POST['message']
-        try:
-            contact_message = ContactMessages(full_name=fname, phone_no=phone, email=email, message_subject=subj, message=message)
-            contact_message.save()
-        except Exception as e:
-            error = 'yes'
-        else:
-            success = 'yes'    
-        return render(request, 'home/contact_us.html',{'error':error, 'success':success})
-    else:
-        return render(request, 'home/contact_us.html',{'error':error, 'success':success,'courses' : get_courses(), 'tools' : get_tools()})
-'''
 def contact_us(request):
     error = ''
     success = ''
@@ -1113,7 +1092,7 @@ def contact_us(request):
         subject = request.POST['subject']
         message = request.POST['message']
         try:
-            send_mail(message, subject, from_email, ['elena.edwards@linuxjobber.com'])
+            send_mail(message, subject, from_email, ['samsonadejoro@gmail.com'])
             #contact_message = ContactMessages(full_name=fname, phone_no=phone, email=email, message_subject=subj, message=message)
             #contact_message.save()
         except Exception as e:
