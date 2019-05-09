@@ -10,6 +10,7 @@ import requests
 from smtplib import SMTPException
 from urllib.parse import urlparse
 from django.conf import settings
+from django.core.mail import send_mail, BadHeaderError
 from django.shortcuts import render,redirect, reverse, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required, permission_required
@@ -17,7 +18,7 @@ from django.template.response import TemplateResponse
 from django.utils.datastructures import MultiValueDictKeyError
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
-from django.core.mail import send_mail
+#from django.core.mail import send_mail
 from django.http import HttpResponse, HttpResponseRedirect
 from rest_framework.authtoken.models import Token
 from datetime import timedelta
@@ -1080,19 +1081,20 @@ def group_pay(request,pk):
         return redirect("home:group")
     return render(request, 'home/group_pay.html', context)
 
-
 def contact_us(request):
     error = ''
     success = ''
     if request.method == "POST":
         fname = request.POST['full_name']
         phone = request.POST['phonenumber']
-        email = request.POST['email']
-        subj = request.POST['subject']
+        #email = request.POST['email']
+        from_email = request.POST['email']
+        subject = request.POST['subject']
         message = request.POST['message']
         try:
-            contact_message = ContactMessages(full_name=fname, phone_no=phone, email=email, message_subject=subj, message=message)
-            contact_message.save()
+            send_mail(message, subject, from_email, ['elena.edwards@linuxjobber.com'])
+            #contact_message = ContactMessages(full_name=fname, phone_no=phone, email=email, message_subject=subj, message=message)
+            #contact_message.save()
         except Exception as e:
             error = 'yes'
         else:
@@ -1100,6 +1102,8 @@ def contact_us(request):
         return render(request, 'home/contact_us.html',{'error':error, 'success':success})
     else:
         return render(request, 'home/contact_us.html',{'error':error, 'success':success,'courses' : get_courses(), 'tools' : get_tools()})
+
+
 
 
 def location(request):
