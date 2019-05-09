@@ -1092,7 +1092,7 @@ def contact_us(request):
         subject = request.POST['subject']
         message = request.POST['message']
         try:
-            send_mail(message, subject, from_email, ['samsonadejoro@gmail.com'])
+            send_mail(message, subject, from_email, ['elena.edwards@linuxjobber.com'])
             #contact_message = ContactMessages(full_name=fname, phone_no=phone, email=email, message_subject=subj, message=message)
             #contact_message.save()
         except Exception as e:

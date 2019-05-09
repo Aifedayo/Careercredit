@@ -254,27 +254,17 @@ LOGIN_REDIRECT_URL = '/home'
 # EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
 ENV_URL = "http://127.0.0.1:8000/"
 #EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-'''
+
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = config('EMAIL_HOST', 'smtp.linuxjobber.com')
 EMAIL_PORT = config('EMAIL_PORT', '587')
 EMAIL_HOST_USER = config('EMAIL_HOST_USER', 'admin@linuxjobber.com')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', 'm4k3Aw!y')
 EMAIL_USE_TLS = True
-'''
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST =  'smtp.linuxjobber.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'admin@linuxjobber.com'
-EMAIL_HOST_PASSWORD = 'm4k3Aw!y'
-EMAIL_USE_TLS = True
-'''
-DEFAULT_FROM_EMAIL = 'Elena Edwards <elena.edwards@linuxjobber.com>'
-ADMINS = (
-    ('Elena Edwards', 'elena.edwards@linuxjobber.com'),
-)
-MANAGERS = ADMINS
-'''
+
+
+
+
 STRIPE_PUBLIC_KEY = "pk_test_1zBTca83q29gl9iwRw1oIBvD"
 STRIPE_SECRET_KEY = "Something"
 AUTH_USER_MODEL = 'users.CustomUser'

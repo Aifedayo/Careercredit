@@ -592,3 +592,13 @@ NameError: name 'error' is not defined
 [2019-05-09 01:30:22] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
 [2019-05-09 01:30:22] WARNING [django.channels.server.log_action:149] HTTP GET /images/icon5.png 404 [0.32, 127.0.0.1:54544]
 [2019-05-09 01:30:35] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.04, 127.0.0.1:54585]
+[2019-05-09 04:15:26] INFO [django.channels.server.log_action:141] HTTP GET / 200 [9.86, 127.0.0.1:61422]
+[2019-05-09 04:15:37] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-05-09 04:15:37] WARNING [django.channels.server.log_action:149] HTTP GET /images/icon5.png 404 [1.48, 127.0.0.1:61434]
+[2019-05-09 04:15:59] INFO [django.channels.server.log_action:141] HTTP GET /static/favicon.ico 200 [1.31, 127.0.0.1:61440]
+[2019-05-09 04:16:58] INFO [django.channels.server.log_action:141] HTTP GET /companys/contact 200 [2.28, 127.0.0.1:61462]
+[2019-05-09 04:17:01] WARNING [django.request.log_response:228] Not Found: /companys/images/icon5.png
+[2019-05-09 04:17:01] WARNING [django.channels.server.log_action:149] HTTP GET /companys/images/icon5.png 404 [0.33, 127.0.0.1:61469]
+[2019-05-09 04:17:50] INFO [django.channels.server.log_action:141] HTTP POST /companys/contact 200 [2.94, 127.0.0.1:61486]
+[2019-05-09 04:17:50] WARNING [django.request.log_response:228] Not Found: /companys/images/icon5.png
+[2019-05-09 04:17:50] WARNING [django.channels.server.log_action:149] HTTP GET /companys/images/icon5.png 404 [0.25, 127.0.0.1:61486]
