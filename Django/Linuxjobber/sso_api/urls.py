@@ -7,6 +7,7 @@ urlpatterns = [
     path('upload',views.MyUploadView.as_view()),
     path('groups',views.UserGroups.as_view()),
     path('course/<int:id>',views.CourseInfo.as_view()),
+    path('topic/<int:topic_id>/<slug:the_type>',views.CourseInfo.as_view()),
     path('user/',views.UserView.as_view()),
     path('user/upload',views.UserView.as_view()),
     path('user/<int:user_id>',views.UserView.as_view()),

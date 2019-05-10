@@ -211,4 +211,16 @@ export class ApiService {
   }
 
 
+  getLabs(topic_id){
+    this.refreshToken();
+    return this.httpClient.get<UserModel>(environment.API_URL + `sso_api/topic/` + topic_id+ `/labs`, {headers: this.headers})
+
+  }
+  getNotes(topic_id){
+    this.refreshToken();
+    return this.httpClient.get<UserModel>(environment.API_URL + `sso_api/topic/` + topic_id+ `/note`, {headers: this.headers})
+
+  }
+
+
 }

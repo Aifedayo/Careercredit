@@ -10,6 +10,7 @@ import requests
 from smtplib import SMTPException
 from urllib.parse import urlparse
 from django.conf import settings
+from django.core.mail import send_mail, BadHeaderError
 from django.shortcuts import render,redirect, reverse, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required, permission_required
@@ -17,7 +18,7 @@ from django.template.response import TemplateResponse
 from django.utils.datastructures import MultiValueDictKeyError
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
-from django.core.mail import send_mail
+#from django.core.mail import send_mail
 from django.http import HttpResponse, HttpResponseRedirect
 from rest_framework.authtoken.models import Token
 from datetime import timedelta
@@ -121,14 +122,60 @@ def signup(request):
                 user.first_name = firstname
                 user.last_name = lastname
                 user.save()
-                send_mail('Account has been Created', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + ' and your email is ' +email + '\n Follow this url to login with your username and password '+settings.ENV_URL+'login \n\n Thanks & Regards \n Admin. \n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe',
-                 settings.EMAIL_HOST_USER, [email])
+                send_mail('Account has been Created', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + ' and your email is ' +email + '\n Follow this url to login with your username and password '+settings.ENV_URL+'login \n\n Thanks & Regards \n Admin. \n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [email])
+                #ip = get_client_ip(request)
+                #add_location(ip,user)
                 return render(request, "home/registration/success.html", {'user': user})
             else:
                 error = True
                 return render(request, 'home/registration/signup.html', {'error':error})
     else:
-        return render(request, 'home/registration/signup.html')  
+        return render(request, 'home/registration/signup.html') 
+
+@csrf_exempt
+def ulocation(request):
+    if request.user.is_authenticated:
+        if request.method == "POST":            
+            res = request.POST
+            #print(res)
+            try:
+                loc = UserLocation.objects.get(user=request.user)
+                pass
+            except UserLocation.DoesNotExist:
+                locuser = UserLocation.objects.create(user=request.user,ipaddress=res['ip'],country=res['country_name'],region=res['region'],latitude=res['latitude'],longtitude=res['longitude'],)
+                locuser.save()
+            
+        return HttpResponse(status=200)
+    return HttpResponse(status=200)
+
+
+def add_location(ip,user):
+    url = 'https://api.ipgeolocation.io/ipgeo?apiKey=a953f6ff477b431f9a77bfeb4572fd8e&ip='+str(ip)
+    try:
+        r = requests.get(url)
+        details = r.json()
+        if details['country_name'] is not None:
+            try:
+                loc = UserLocation.objects.get(user=user)
+                pass
+            except UserLocation.DoesNotExist:
+                locuser = UserLocation.objects.create(user=user,ipaddress=ip,country=details['country_name'],region=details['city'],latitude=details['latitude'],longtitude=details['longitude'],)
+                locuser.save()
+        else:
+            pass
+    except requests.exceptions.RequestException as e:
+        pass
+
+
+#Get users IP address
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+        ip=True
+    return ip 
 
 def forgot_password(request):
     email = ''
@@ -383,7 +430,8 @@ def log_in(request):
         
         if user is not None:
             login(request, user)
-
+            #ip = get_client_ip(request)
+            #add_location(ip,request.user)
             if user.role == 4:
                 check_permission_expiry(user)
             if next == "":
@@ -932,7 +980,6 @@ def group(request,pk):
     group_item = get_object_or_404(Groupclass,pk=pk)
     user = None
     if request.user.is_authenticated:
-        print('user authenticated')
         user=CustomUser.objects.get(email=request.user)
     # try:
     #     user = CustomUser.objects.get(email=request.user)
@@ -1053,19 +1100,20 @@ def group_pay(request,pk):
         return redirect("home:group")
     return render(request, 'home/group_pay.html', context)
 
-
 def contact_us(request):
     error = ''
     success = ''
     if request.method == "POST":
         fname = request.POST['full_name']
         phone = request.POST['phonenumber']
-        email = request.POST['email']
-        subj = request.POST['subject']
+        #email = request.POST['email']
+        from_email = request.POST['email']
+        subject = request.POST['subject']
         message = request.POST['message']
         try:
-            contact_message = ContactMessages(full_name=fname, phone_no=phone, email=email, message_subject=subj, message=message)
-            contact_message.save()
+            send_mail(message, subject, from_email, ['elena.edwards@linuxjobber.com'])
+            #contact_message = ContactMessages(full_name=fname, phone_no=phone, email=email, message_subject=subj, message=message)
+            #contact_message.save()
         except Exception as e:
             error = 'yes'
         else:
@@ -1073,6 +1121,8 @@ def contact_us(request):
         return render(request, 'home/contact_us.html',{'error':error, 'success':success})
     else:
         return render(request, 'home/contact_us.html',{'error':error, 'success':success,'courses' : get_courses(), 'tools' : get_tools()})
+
+
 
 
 def location(request):
