@@ -661,185 +661,75 @@ NameError: name 'error' is not defined
 [2019-05-09 15:41:58] WARNING [django.request.log_response:228] Not Found: /companys/images/icon5.png
 [2019-05-09 15:41:58] WARNING [django.channels.server.log_action:149] HTTP GET /companys/images/icon5.png 404 [1.23, 127.0.0.1:51090]
 [2019-05-09 15:42:47] INFO [django.channels.server.log_action:141] HTTP GET /static/favicon.ico 200 [0.44, 127.0.0.1:51146]
-[2019-05-10 07:51:00] WARNING [django.request.get_response:93] Not Found: /robots.txt
-[2019-05-10 07:51:00] WARNING [django.channels.server.log_action:149] [33mHTTP GET /robots.txt 404 [0.19, 127.0.0.1:51396][0m
-[2019-05-10 07:51:01] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [1.62, 127.0.0.1:51394][0m
-[2019-05-10 07:51:01] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/css/main.css 304 [0.01, 127.0.0.1:51396][0m
-[2019-05-10 07:51:01] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js 200 [0.15, 127.0.0.1:51394][0m
-[2019-05-10 07:51:01] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css 304 [0.01, 127.0.0.1:51396][0m
-[2019-05-10 07:51:17] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs/homebanner.png 200 [0.30, 127.0.0.1:51394][0m
-[2019-05-10 07:51:21] INFO [django.channels.server.log_action:141] [mHTTP GET /login/ 200 [0.09, 127.0.0.1:51394][0m
-[2019-05-10 07:51:21] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/imgback.jpg 200 [0.16, 127.0.0.1:51394][0m
-[2019-05-10 07:51:22] WARNING [django.request.get_response:93] Not Found: /favicon.ico
-[2019-05-10 07:51:22] WARNING [django.channels.server.log_action:149] [33mHTTP GET /favicon.ico 404 [0.06, 127.0.0.1:51394][0m
-[2019-05-10 07:51:42] INFO [django.channels.server.log_action:147] [32mHTTP POST /login/ 302 [0.90, 127.0.0.1:51394][0m
-[2019-05-10 07:51:42] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [0.14, 127.0.0.1:51394][0m
-[2019-05-10 07:51:45] INFO [django.channels.server.log_action:141] [mHTTP POST /ulocation 200 [0.04, 127.0.0.1:51394][0m
-[2019-05-10 07:51:51] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/Linux_Fundamentals/topics/ 200 [0.32, 127.0.0.1:51394][0m
-[2019-05-10 07:51:52] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/24 200 [0.23, 127.0.0.1:51396][0m
-[2019-05-10 07:51:52] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/23 200 [0.27, 127.0.0.1:51394][0m
-[2019-05-10 07:51:52] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/26 200 [0.37, 127.0.0.1:51434][0m
-[2019-05-10 07:51:52] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/28 200 [0.39, 127.0.0.1:51436][0m
-[2019-05-10 07:51:52] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/29 200 [0.37, 127.0.0.1:51438][0m
-[2019-05-10 07:51:52] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/32 200 [0.43, 127.0.0.1:51440][0m
-[2019-05-10 07:51:52] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/25 200 [0.28, 127.0.0.1:51394][0m
-[2019-05-10 07:51:52] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/27 200 [0.29, 127.0.0.1:51434][0m
-[2019-05-10 07:51:52] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/31 200 [0.19, 127.0.0.1:51438][0m
-[2019-05-10 07:51:52] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/30 200 [0.26, 127.0.0.1:51436][0m
-[2019-05-10 07:51:53] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/coursetot/2 200 [0.60, 127.0.0.1:51396][0m
-[2019-05-10 07:52:02] INFO [django.channels.server.log_action:147] [32mHTTP GET /admin 302 [0.44, 127.0.0.1:51396][0m
-[2019-05-10 07:52:02] INFO [django.channels.server.log_action:147] [32mHTTP GET /admin 302 [0.07, 127.0.0.1:51436][0m
-[2019-05-10 07:52:02] INFO [django.channels.server.log_action:141] [mHTTP GET /admin/login/?next=/admin 200 [0.37, 127.0.0.1:51396][0m
-[2019-05-10 07:52:03] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/admin/css/login.css 304 [0.05, 127.0.0.1:51396][0m
-[2019-05-10 07:52:03] INFO [django.channels.server.log_action:141] [mHTTP GET /admin/login/?next=/admin 200 [0.16, 127.0.0.1:51436][0m
-[2019-05-10 07:52:03] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/admin/css/fonts.css 304 [0.01, 127.0.0.1:51436][0m
-[2019-05-10 07:52:42] INFO [django.channels.server.log_action:147] [32mHTTP POST /admin/login/?next=/admin 302 [0.83, 127.0.0.1:51436][0m
-[2019-05-10 07:52:43] INFO [django.channels.server.log_action:141] [mHTTP GET /admin 200 [0.43, 127.0.0.1:51436][0m
-[2019-05-10 07:52:43] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/admin/css/fonts.css 304 [0.01, 127.0.0.1:51436][0m
-[2019-05-10 07:52:54] INFO [django.channels.server.log_action:141] [mHTTP GET /admin/users/customuser/ 200 [2.20, 127.0.0.1:51436][0m
-[2019-05-10 07:52:54] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/admin/css/fonts.css 304 [0.01, 127.0.0.1:51458][0m
-[2019-05-10 07:52:54] INFO [django.channels.server.log_action:141] [mHTTP GET /static/admin/js/vendor/jquery/jquery.js 200 [0.10, 127.0.0.1:51436][0m
-[2019-05-10 07:52:54] INFO [django.channels.server.log_action:141] [mHTTP GET /admin/jsi18n/ 200 [0.13, 127.0.0.1:51396][0m
-[2019-05-10 07:52:56] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [0.13, 127.0.0.1:51436][0m
-[2019-05-10 07:52:57] INFO [django.channels.server.log_action:141] [mHTTP POST /ulocation 200 [0.04, 127.0.0.1:51436][0m
-[2019-05-10 07:52:59] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/Linux_Fundamentals/topics/ 200 [0.34, 127.0.0.1:51436][0m
-[2019-05-10 07:53:00] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/23 200 [0.21, 127.0.0.1:51436][0m
-[2019-05-10 07:53:00] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/24 200 [0.33, 127.0.0.1:51396][0m
-[2019-05-10 07:53:00] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/25 200 [0.34, 127.0.0.1:51458][0m
-[2019-05-10 07:53:00] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/28 200 [0.37, 127.0.0.1:51466][0m
-[2019-05-10 07:53:00] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/26 200 [0.44, 127.0.0.1:51462][0m
-[2019-05-10 07:53:00] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/27 200 [0.45, 127.0.0.1:51464][0m
-[2019-05-10 07:53:00] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/29 200 [0.32, 127.0.0.1:51436][0m
-[2019-05-10 07:53:00] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/31 200 [0.31, 127.0.0.1:51458][0m
-[2019-05-10 07:53:00] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/30 200 [0.34, 127.0.0.1:51396][0m
-[2019-05-10 07:53:00] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/32 200 [0.26, 127.0.0.1:51466][0m
-[2019-05-10 07:53:01] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/coursetot/2 200 [0.41, 127.0.0.1:51462][0m
-[2019-05-10 07:53:04] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/Linux_Fundamentals/notes/3/ 200 [0.33, 127.0.0.1:51462][0m
-[2019-05-10 07:53:11] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/Linux_Fundamentals/notes/7/ 200 [0.19, 127.0.0.1:51462][0m
-[2019-05-10 07:53:16] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/Linux_Fundamentals/notes/10/ 200 [0.20, 127.0.0.1:51462][0m
-[2019-05-10 07:53:21] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/Linux_Fundamentals/notes/9/ 200 [0.27, 127.0.0.1:51462][0m
-[2019-05-10 07:54:16] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/Linux_Proficiency/topics/ 200 [0.45, 127.0.0.1:51462][0m
-[2019-05-10 07:54:17] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/35 200 [0.27, 127.0.0.1:51500][0m
-[2019-05-10 07:54:17] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/38 200 [0.33, 127.0.0.1:51502][0m
-[2019-05-10 07:54:17] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/34 200 [0.35, 127.0.0.1:51462][0m
-[2019-05-10 07:54:17] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/41 200 [0.37, 127.0.0.1:51506][0m
-[2019-05-10 07:54:17] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/42 200 [0.40, 127.0.0.1:51508][0m
-[2019-05-10 07:54:17] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/39 200 [0.45, 127.0.0.1:51504][0m
-[2019-05-10 07:54:17] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/46 200 [0.25, 127.0.0.1:51462][0m
-[2019-05-10 07:54:17] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/43 200 [0.38, 127.0.0.1:51500][0m
-[2019-05-10 07:54:17] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/44 200 [0.34, 127.0.0.1:51502][0m
-[2019-05-10 07:54:17] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/45 200 [0.26, 127.0.0.1:51508][0m
-[2019-05-10 07:54:18] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/48 200 [0.38, 127.0.0.1:51506][0m
-[2019-05-10 07:54:18] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/47 200 [0.37, 127.0.0.1:51504][0m
-[2019-05-10 07:54:18] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/33 200 [0.54, 127.0.0.1:51500][0m
-[2019-05-10 07:54:18] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/37 200 [0.46, 127.0.0.1:51508][0m
-[2019-05-10 07:54:18] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/36 200 [0.56, 127.0.0.1:51502][0m
-[2019-05-10 07:54:18] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/40 200 [0.40, 127.0.0.1:51506][0m
-[2019-05-10 07:54:18] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/coursetot/3 200 [0.77, 127.0.0.1:51462][0m
-[2019-05-10 07:54:27] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /courses/Linux_Proficiency/notes/9/
-Traceback (most recent call last):
-  File "/usr/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
-    response = get_response(request)
-  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/home/mololuwa/Desktop/linuxjobber/Django/Linuxjobber/Courses/views.py", line 111, in TopicNote
-    Notes = Note.objects.get(Topic__topic_number=lab_no,Topic__course__course_title = course_name.replace("_", " "))
-  File "/usr/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
-    return getattr(self.get_queryset(), name)(*args, **kwargs)
-  File "/usr/lib/python3.6/site-packages/django/db/models/query.py", line 403, in get
-    self.model._meta.object_name
-Courses.models.DoesNotExist: Note matching query does not exist.
-[2019-05-10 07:54:27] ERROR [django.channels.server.log_action:154] [35;1mHTTP GET /courses/Linux_Proficiency/notes/9/ 500 [0.46, 127.0.0.1:51462][0m
-[2019-05-10 07:55:36] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /courses/Linux_Proficiency/notes/8/
-Traceback (most recent call last):
-  File "/usr/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
-    response = get_response(request)
-  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/home/mololuwa/Desktop/linuxjobber/Django/Linuxjobber/Courses/views.py", line 111, in TopicNote
-    Notes = Note.objects.get(Topic__topic_number=lab_no,Topic__course__course_title = course_name.replace("_", " "))
-  File "/usr/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
-    return getattr(self.get_queryset(), name)(*args, **kwargs)
-  File "/usr/lib/python3.6/site-packages/django/db/models/query.py", line 403, in get
-    self.model._meta.object_name
-Courses.models.DoesNotExist: Note matching query does not exist.
-[2019-05-10 07:55:36] ERROR [django.channels.server.log_action:154] [35;1mHTTP GET /courses/Linux_Proficiency/notes/8/ 500 [0.51, 127.0.0.1:51572][0m
-[2019-05-10 07:55:39] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/Linux_Proficiency/topics/ 200 [0.37, 127.0.0.1:51572][0m
-[2019-05-10 07:55:39] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/33 200 [0.17, 127.0.0.1:51572][0m
-[2019-05-10 07:55:39] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/34 200 [0.24, 127.0.0.1:51574][0m
-[2019-05-10 07:55:40] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/35 200 [0.36, 127.0.0.1:51576][0m
-[2019-05-10 07:55:40] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/37 200 [0.38, 127.0.0.1:51580][0m
-[2019-05-10 07:55:40] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/36 200 [0.41, 127.0.0.1:51578][0m
-[2019-05-10 07:55:40] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/38 200 [0.48, 127.0.0.1:51582][0m
-[2019-05-10 07:55:40] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/39 200 [0.42, 127.0.0.1:51572][0m
-[2019-05-10 07:55:40] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/40 200 [0.41, 127.0.0.1:51574][0m
-[2019-05-10 07:55:40] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/41 200 [0.29, 127.0.0.1:51576][0m
-[2019-05-10 07:55:40] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/42 200 [0.33, 127.0.0.1:51580][0m
-[2019-05-10 07:55:40] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/43 200 [0.33, 127.0.0.1:51578][0m
-[2019-05-10 07:55:40] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/44 200 [0.32, 127.0.0.1:51582][0m
-[2019-05-10 07:55:40] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/45 200 [0.30, 127.0.0.1:51572][0m
-[2019-05-10 07:55:40] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/46 200 [0.24, 127.0.0.1:51574][0m
-[2019-05-10 07:55:40] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/47 200 [0.46, 127.0.0.1:51576][0m
-[2019-05-10 07:55:40] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/48 200 [0.37, 127.0.0.1:51580][0m
-[2019-05-10 07:55:41] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/coursetot/3 200 [0.74, 127.0.0.1:51578][0m
-[2019-05-10 07:55:41] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/Linux_Proficiency/notes/3/ 200 [0.22, 127.0.0.1:51580][0m
-[2019-05-10 07:55:47] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /courses/Linux_Proficiency/notes/6/
-Traceback (most recent call last):
-  File "/usr/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
-    response = get_response(request)
-  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/home/mololuwa/Desktop/linuxjobber/Django/Linuxjobber/Courses/views.py", line 111, in TopicNote
-    Notes = Note.objects.get(Topic__topic_number=lab_no,Topic__course__course_title = course_name.replace("_", " "))
-  File "/usr/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
-    return getattr(self.get_queryset(), name)(*args, **kwargs)
-  File "/usr/lib/python3.6/site-packages/django/db/models/query.py", line 403, in get
-    self.model._meta.object_name
-Courses.models.DoesNotExist: Note matching query does not exist.
-[2019-05-10 07:55:47] ERROR [django.channels.server.log_action:154] [35;1mHTTP GET /courses/Linux_Proficiency/notes/6/ 500 [0.47, 127.0.0.1:51580][0m
-[2019-05-10 07:58:59] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/Linux_Proficiency/topics/ 200 [0.98, 127.0.0.1:51668][0m
-[2019-05-10 07:59:00] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/33 200 [0.18, 127.0.0.1:51668][0m
-[2019-05-10 07:59:00] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/34 200 [0.36, 127.0.0.1:51672][0m
-[2019-05-10 07:59:00] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/36 200 [0.36, 127.0.0.1:51676][0m
-[2019-05-10 07:59:00] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/35 200 [0.41, 127.0.0.1:51674][0m
-[2019-05-10 07:59:00] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/37 200 [0.41, 127.0.0.1:51678][0m
-[2019-05-10 07:59:00] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/38 200 [0.56, 127.0.0.1:51680][0m
-[2019-05-10 07:59:00] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/39 200 [0.46, 127.0.0.1:51668][0m
-[2019-05-10 07:59:00] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/40 200 [0.34, 127.0.0.1:51672][0m
-[2019-05-10 07:59:00] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/42 200 [0.32, 127.0.0.1:51674][0m
-[2019-05-10 07:59:00] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/41 200 [0.36, 127.0.0.1:51676][0m
-[2019-05-10 07:59:01] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/43 200 [0.38, 127.0.0.1:51678][0m
-[2019-05-10 07:59:01] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/44 200 [0.34, 127.0.0.1:51680][0m
-[2019-05-10 07:59:01] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/46 200 [0.29, 127.0.0.1:51672][0m
-[2019-05-10 07:59:01] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/45 200 [0.39, 127.0.0.1:51668][0m
-[2019-05-10 07:59:01] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/47 200 [0.24, 127.0.0.1:51674][0m
-[2019-05-10 07:59:01] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/48 200 [0.26, 127.0.0.1:51676][0m
-[2019-05-10 07:59:01] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/coursetot/3 200 [0.53, 127.0.0.1:51678][0m
-[2019-05-10 07:59:02] INFO [django.channels.server.log_action:141] [mHTTP GET /static/favicon.ico 200 [0.04, 127.0.0.1:51678][0m
-[2019-05-10 07:59:05] INFO [django.channels.server.log_action:147] [32mHTTP GET /courses/Linux_Proficiency/notes/6/ 302 [0.05, 127.0.0.1:51678][0m
-[2019-05-10 07:59:05] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [0.15, 127.0.0.1:51678][0m
-[2019-05-10 07:59:06] INFO [django.channels.server.log_action:141] [mHTTP POST /ulocation 200 [0.03, 127.0.0.1:51678][0m
-[2019-05-10 08:03:01] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/Linux_Proficiency/topics/ 200 [0.39, 127.0.0.1:51790][0m
-[2019-05-10 08:03:01] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/33 200 [0.16, 127.0.0.1:51790][0m
-[2019-05-10 08:03:01] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/34 200 [0.30, 127.0.0.1:51792][0m
-[2019-05-10 08:03:01] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/36 200 [0.28, 127.0.0.1:51798][0m
-[2019-05-10 08:03:02] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/37 200 [0.38, 127.0.0.1:51800][0m
-[2019-05-10 08:03:02] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/35 200 [0.52, 127.0.0.1:51796][0m
-[2019-05-10 08:03:02] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/38 200 [0.50, 127.0.0.1:51802][0m
-[2019-05-10 08:03:02] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/39 200 [0.46, 127.0.0.1:51790][0m
-[2019-05-10 08:03:02] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/40 200 [0.35, 127.0.0.1:51792][0m
-[2019-05-10 08:03:02] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/41 200 [0.40, 127.0.0.1:51798][0m
-[2019-05-10 08:03:02] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/42 200 [0.35, 127.0.0.1:51800][0m
-[2019-05-10 08:03:02] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/43 200 [0.30, 127.0.0.1:51796][0m
-[2019-05-10 08:03:02] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/44 200 [0.36, 127.0.0.1:51802][0m
-[2019-05-10 08:03:02] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/45 200 [0.40, 127.0.0.1:51790][0m
-[2019-05-10 08:03:02] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/46 200 [0.42, 127.0.0.1:51792][0m
-[2019-05-10 08:03:02] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/47 200 [0.30, 127.0.0.1:51798][0m
-[2019-05-10 08:03:02] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/48 200 [0.30, 127.0.0.1:51800][0m
-[2019-05-10 08:03:03] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/coursetot/3 200 [0.57, 127.0.0.1:51796][0m
+[2019-05-10 12:28:44] INFO [django.channels.server.log_action:141] HTTP GET / 200 [4.46, 127.0.0.1:49718]
+[2019-05-10 12:28:46] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js 200 [0.90, 127.0.0.1:49720]
+[2019-05-10 12:28:46] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validate.js 200 [0.89, 127.0.0.1:49721]
+[2019-05-10 12:28:46] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/style.css 200 [0.89, 127.0.0.1:49723]
+[2019-05-10 12:28:46] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/css/bootstrap.min.css 200 [0.93, 127.0.0.1:49722]
+[2019-05-10 12:28:46] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/newstyle2.css 200 [0.93, 127.0.0.1:49725]
+[2019-05-10 12:28:46] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/css/style.css 200 [1.01, 127.0.0.1:49724]
+[2019-05-10 12:28:46] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/newstylenew.css 200 [0.13, 127.0.0.1:49721]
+[2019-05-10 12:28:46] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/main.css 200 [0.15, 127.0.0.1:49720]
+[2019-05-10 12:28:46] INFO [django.channels.server.log_action:141] HTTP GET /static/Projects/custom/css/projects.css 200 [0.08, 127.0.0.1:49723]
+[2019-05-10 12:28:46] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css 200 [0.09, 127.0.0.1:49722]
+[2019-05-10 12:28:46] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js 200 [0.17, 127.0.0.1:49724]
+[2019-05-10 12:28:52] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/logo.png 200 [0.24, 127.0.0.1:49724]
+[2019-05-10 12:28:53] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-05-10 12:28:53] WARNING [django.channels.server.log_action:149] HTTP GET /images/icon5.png 404 [0.36, 127.0.0.1:49722]
+[2019-05-10 12:28:53] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/bootstrap.min.js 200 [0.24, 127.0.0.1:49724]
+[2019-05-10 12:28:54] INFO [django.channels.server.log_action:141] HTTP GET /static/faq/js/main.js 200 [0.30, 127.0.0.1:49722]
+[2019-05-10 12:28:54] INFO [django.channels.server.log_action:141] HTTP GET /static/faq/js/jquery.mobile.custom.min.js 200 [0.34, 127.0.0.1:49724]
+[2019-05-10 12:28:55] INFO [django.channels.server.log_action:141] HTTP GET /static/js/waterbubble.js 200 [0.21, 127.0.0.1:49724]
+[2019-05-10 12:28:55] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/LaptopBook.png 200 [0.26, 127.0.0.1:49722]
+[2019-05-10 12:28:55] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/jobphone.png 200 [0.47, 127.0.0.1:49722]
+[2019-05-10 12:28:57] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/fonts/fontsstylesheet.css 200 [0.21, 127.0.0.1:49722]
+[2019-05-10 12:28:57] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/homelive.png 200 [0.22, 127.0.0.1:49724]
+[2019-05-10 12:28:57] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/get2.png 200 [0.31, 127.0.0.1:49722]
+[2019-05-10 12:28:57] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/get3.png 200 [0.35, 127.0.0.1:49724]
+[2019-05-10 12:28:57] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/get1.png 200 [0.10, 127.0.0.1:49724]
+[2019-05-10 12:28:57] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/testi.png 200 [0.11, 127.0.0.1:49722]
+[2019-05-10 12:28:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/hq1.png 200 [0.04, 127.0.0.1:49724]
+[2019-05-10 12:28:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/hq2.png 200 [0.05, 127.0.0.1:49724]
+[2019-05-10 12:28:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/client3.png 200 [0.12, 127.0.0.1:49722]
+[2019-05-10 12:28:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/client2.png 200 [0.09, 127.0.0.1:49724]
+[2019-05-10 12:28:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/client1.png 200 [0.04, 127.0.0.1:49722]
+[2019-05-10 12:29:11] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/homebanner.png 200 [0.09, 127.0.0.1:49752]
+[2019-05-10 12:29:11] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/jobban2.png 200 [0.13, 127.0.0.1:49751]
+[2019-05-10 12:31:25] INFO [django.channels.server.log_action:141] HTTP GET / 200 [2.01, 127.0.0.1:49820]
+[2019-05-10 12:31:28] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-05-10 12:31:28] WARNING [django.channels.server.log_action:149] HTTP GET /images/icon5.png 404 [0.28, 127.0.0.1:49820]
+[2019-05-10 12:34:39] INFO [django.channels.server.log_action:141] HTTP GET /static/favicon.ico 200 [0.24, 127.0.0.1:49912]
+[2019-05-10 15:27:48] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.14, 127.0.0.1:50613]
+[2019-05-10 15:29:46] INFO [django.channels.server.log_action:141] HTTP GET /groupCourse/ 200 [2.41, 127.0.0.1:50655]
+[2019-05-10 15:29:47] WARNING [django.request.log_response:228] Not Found: /groupCourse/images/icon5.png
+[2019-05-10 15:29:47] WARNING [django.channels.server.log_action:149] HTTP GET /groupCourse/images/icon5.png 404 [0.29, 127.0.0.1:50655]
+[2019-05-10 15:29:47] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/groupicon3.png 200 [0.25, 127.0.0.1:50662]
+[2019-05-10 15:29:47] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/groupicon2.png 200 [0.15, 127.0.0.1:50665]
+[2019-05-10 15:29:47] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/groupicon1.png 200 [0.18, 127.0.0.1:50664]
+[2019-05-10 15:29:47] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/groupclassbot.png 200 [0.19, 127.0.0.1:50666]
+[2019-05-10 15:29:47] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/groupclass.png 200 [0.30, 127.0.0.1:50663]
+[2019-05-10 15:29:47] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/fonts/glyphicons-halflings-regular.woff 200 [0.10, 127.0.0.1:50666]
+[2019-05-10 15:34:05] INFO [django.channels.server.log_action:141] HTTP GET / 200 [1.03, 127.0.0.1:50866]
+[2019-05-10 15:34:06] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-05-10 15:34:06] WARNING [django.channels.server.log_action:149] HTTP GET /images/icon5.png 404 [0.45, 127.0.0.1:50872]
+[2019-05-10 15:34:15] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.03, 127.0.0.1:50885]
+[2019-05-10 15:36:38] INFO [django.channels.server.log_action:141] HTTP GET /devops/class/ 200 [0.87, 127.0.0.1:50995]
+[2019-05-10 15:36:38] WARNING [django.request.log_response:228] Not Found: /devops/class/images/icon5.png
+[2019-05-10 15:36:38] WARNING [django.channels.server.log_action:149] HTTP GET /devops/class/images/icon5.png 404 [0.16, 127.0.0.1:50995]
+[2019-05-10 15:36:39] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/selfs.png 200 [0.33, 127.0.0.1:50995]
+[2019-05-10 15:36:39] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/img/trialimg.jpg 200 [0.20, 127.0.0.1:50994]
+[2019-05-10 15:37:59] INFO [django.channels.server.log_action:141] HTTP GET / 200 [0.25, 127.0.0.1:51030]
+[2019-05-10 15:37:59] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-05-10 15:37:59] WARNING [django.channels.server.log_action:149] HTTP GET /images/icon5.png 404 [0.18, 127.0.0.1:51030]
+[2019-05-10 15:38:09] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.03, 127.0.0.1:51046]
+[2019-05-10 17:12:05] INFO [django.channels.server.log_action:141] HTTP GET / 200 [1.70, 127.0.0.1:51231]
+[2019-05-10 17:12:10] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-05-10 17:12:10] WARNING [django.channels.server.log_action:149] HTTP GET /images/icon5.png 404 [0.39, 127.0.0.1:51238]
+[2019-05-10 17:12:29] INFO [django.channels.server.log_action:141] HTTP GET /static/favicon.ico 200 [0.12, 127.0.0.1:51253]
+[2019-05-10 17:12:49] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.05, 127.0.0.1:51259]
+[2019-05-10 17:12:59] INFO [django.channels.server.log_action:141] HTTP GET /companys/contact 200 [2.08, 127.0.0.1:51267]
+[2019-05-10 17:13:00] WARNING [django.request.log_response:228] Not Found: /companys/images/icon5.png
+[2019-05-10 17:13:00] WARNING [django.channels.server.log_action:149] HTTP GET /companys/images/icon5.png 404 [0.27, 127.0.0.1:51267]
+[2019-05-10 17:13:55] INFO [django.channels.server.log_action:141] HTTP POST /companys/contact 200 [12.75, 127.0.0.1:51294]
+[2019-05-10 17:13:55] WARNING [django.request.log_response:228] Not Found: /companys/images/icon5.png
+[2019-05-10 17:13:55] WARNING [django.channels.server.log_action:149] HTTP GET /companys/images/icon5.png 404 [0.15, 127.0.0.1:51294]

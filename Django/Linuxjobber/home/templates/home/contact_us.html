@@ -45,10 +45,17 @@ Contact Us | Linuxjobber
 				</div>
 				<div class="col-md-6 animate-box">
 
-					<h3>Get In Touch</h3>
+					<h4>Get In Touch</h4>
 					<form method='post'>
 						{% csrf_token %}
 						<div class="row form-group">
+							{% if error != '' %}
+								<p>Your message was not sent please try again! </p>
+							{% endif %}
+							{% if success != '' %}
+								<p>Message sent!</p>
+							{endif}
+						
 							<div class="col-md-6">
 								<!-- <label for="fname">First Name</label> -->
 								<input type="text" name='full_name' id="fname" class="form-control" placeholder="Your Full Name" required="">
@@ -85,12 +92,6 @@ Contact Us | Linuxjobber
 							</div>
 						</div>
 						
-						{% if error != '' %}
-							<p>Your message was not sent please try again! </p>
-						{% endif %}
-						{% if success != '' %}
-							<p>Message sent!</p>
-						{% endif %}
 						
 
 					</form>		
