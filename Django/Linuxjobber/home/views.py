@@ -946,7 +946,6 @@ def group(request,pk):
 
         # type_of_class = request.POST['name']
         # amount = request.POST['price']
-
         # request.session['email'] = email
         # request.session['amount'] = amount
         # request.session['class'] = type_of_class
@@ -955,7 +954,6 @@ def group(request,pk):
             user = CustomUser.objects.get(email=email)
             the_user = authenticate(email=email,password=password)
 
-            
             if the_user:
                 login(request,the_user)
             else:
@@ -1019,7 +1017,6 @@ def group_pay(request,pk):
                 }
     if request.method == "POST":
 
-       # stripe.api_key = "sk_test_FInuRlOzwpM1b3RIw5fwirtv"
         stripe.api_key = stripeset[0].secretkey
         token = request.POST.get("stripeToken")
         try:
