@@ -830,8 +830,7 @@ def check_subscription_status(request):
         
                 user = CustomUser.objects.get(email=customersubscription.get(user=name))
                 user.role = 6
-                user.save()
-
+                user.save() 
                 
         if types == 'invoice.payment_failed' and customer_id:
             if customersubscription:
