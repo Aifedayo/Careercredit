@@ -1628,7 +1628,7 @@ def tryfree(request, sub_plan):
             token = request.POST.get("stripeToken")
             try:
                 charge = stripe.Charge.create(
-                    amount = PRICE,
+                    amount = PRICE *100,
                     currency = "usd",
                     source = token,
                     description = sub_plan.lower()
