@@ -661,1104 +661,215 @@ NameError: name 'error' is not defined
 [2019-05-09 15:41:58] WARNING [django.request.log_response:228] Not Found: /companys/images/icon5.png
 [2019-05-09 15:41:58] WARNING [django.channels.server.log_action:149] HTTP GET /companys/images/icon5.png 404 [1.23, 127.0.0.1:51090]
 [2019-05-09 15:42:47] INFO [django.channels.server.log_action:141] HTTP GET /static/favicon.ico 200 [0.44, 127.0.0.1:51146]
-[2019-05-10 07:51:00] WARNING [django.request.get_response:93] Not Found: /robots.txt
-[2019-05-10 07:51:00] WARNING [django.channels.server.log_action:149] [33mHTTP GET /robots.txt 404 [0.19, 127.0.0.1:51396][0m
-[2019-05-10 07:51:01] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [1.62, 127.0.0.1:51394][0m
-[2019-05-10 07:51:01] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/newhomepage/css/main.css 304 [0.01, 127.0.0.1:51396][0m
-[2019-05-10 07:51:01] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js 200 [0.15, 127.0.0.1:51394][0m
-[2019-05-10 07:51:01] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css 304 [0.01, 127.0.0.1:51396][0m
-[2019-05-10 07:51:17] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/css/newhomepage/imgs/homebanner.png 200 [0.30, 127.0.0.1:51394][0m
-[2019-05-10 07:51:21] INFO [django.channels.server.log_action:141] [mHTTP GET /login/ 200 [0.09, 127.0.0.1:51394][0m
-[2019-05-10 07:51:21] INFO [django.channels.server.log_action:141] [mHTTP GET /static/home/images/imgback.jpg 200 [0.16, 127.0.0.1:51394][0m
-[2019-05-10 07:51:22] WARNING [django.request.get_response:93] Not Found: /favicon.ico
-[2019-05-10 07:51:22] WARNING [django.channels.server.log_action:149] [33mHTTP GET /favicon.ico 404 [0.06, 127.0.0.1:51394][0m
-[2019-05-10 07:51:42] INFO [django.channels.server.log_action:147] [32mHTTP POST /login/ 302 [0.90, 127.0.0.1:51394][0m
-[2019-05-10 07:51:42] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [0.14, 127.0.0.1:51394][0m
-[2019-05-10 07:51:45] INFO [django.channels.server.log_action:141] [mHTTP POST /ulocation 200 [0.04, 127.0.0.1:51394][0m
-[2019-05-10 07:51:51] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/Linux_Fundamentals/topics/ 200 [0.32, 127.0.0.1:51394][0m
-[2019-05-10 07:51:52] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/24 200 [0.23, 127.0.0.1:51396][0m
-[2019-05-10 07:51:52] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/23 200 [0.27, 127.0.0.1:51394][0m
-[2019-05-10 07:51:52] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/26 200 [0.37, 127.0.0.1:51434][0m
-[2019-05-10 07:51:52] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/28 200 [0.39, 127.0.0.1:51436][0m
-[2019-05-10 07:51:52] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/29 200 [0.37, 127.0.0.1:51438][0m
-[2019-05-10 07:51:52] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/32 200 [0.43, 127.0.0.1:51440][0m
-[2019-05-10 07:51:52] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/25 200 [0.28, 127.0.0.1:51394][0m
-[2019-05-10 07:51:52] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/27 200 [0.29, 127.0.0.1:51434][0m
-[2019-05-10 07:51:52] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/31 200 [0.19, 127.0.0.1:51438][0m
-[2019-05-10 07:51:52] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/30 200 [0.26, 127.0.0.1:51436][0m
-[2019-05-10 07:51:53] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/coursetot/2 200 [0.60, 127.0.0.1:51396][0m
-[2019-05-10 07:52:02] INFO [django.channels.server.log_action:147] [32mHTTP GET /admin 302 [0.44, 127.0.0.1:51396][0m
-[2019-05-10 07:52:02] INFO [django.channels.server.log_action:147] [32mHTTP GET /admin 302 [0.07, 127.0.0.1:51436][0m
-[2019-05-10 07:52:02] INFO [django.channels.server.log_action:141] [mHTTP GET /admin/login/?next=/admin 200 [0.37, 127.0.0.1:51396][0m
-[2019-05-10 07:52:03] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/admin/css/login.css 304 [0.05, 127.0.0.1:51396][0m
-[2019-05-10 07:52:03] INFO [django.channels.server.log_action:141] [mHTTP GET /admin/login/?next=/admin 200 [0.16, 127.0.0.1:51436][0m
-[2019-05-10 07:52:03] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/admin/css/fonts.css 304 [0.01, 127.0.0.1:51436][0m
-[2019-05-10 07:52:42] INFO [django.channels.server.log_action:147] [32mHTTP POST /admin/login/?next=/admin 302 [0.83, 127.0.0.1:51436][0m
-[2019-05-10 07:52:43] INFO [django.channels.server.log_action:141] [mHTTP GET /admin 200 [0.43, 127.0.0.1:51436][0m
-[2019-05-10 07:52:43] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/admin/css/fonts.css 304 [0.01, 127.0.0.1:51436][0m
-[2019-05-10 07:52:54] INFO [django.channels.server.log_action:141] [mHTTP GET /admin/users/customuser/ 200 [2.20, 127.0.0.1:51436][0m
-[2019-05-10 07:52:54] INFO [django.channels.server.log_action:145] [36mHTTP GET /static/admin/css/fonts.css 304 [0.01, 127.0.0.1:51458][0m
-[2019-05-10 07:52:54] INFO [django.channels.server.log_action:141] [mHTTP GET /static/admin/js/vendor/jquery/jquery.js 200 [0.10, 127.0.0.1:51436][0m
-[2019-05-10 07:52:54] INFO [django.channels.server.log_action:141] [mHTTP GET /admin/jsi18n/ 200 [0.13, 127.0.0.1:51396][0m
-[2019-05-10 07:52:56] INFO [django.channels.server.log_action:141] [mHTTP GET / 200 [0.13, 127.0.0.1:51436][0m
-[2019-05-10 07:52:57] INFO [django.channels.server.log_action:141] [mHTTP POST /ulocation 200 [0.04, 127.0.0.1:51436][0m
-[2019-05-10 07:52:59] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/Linux_Fundamentals/topics/ 200 [0.34, 127.0.0.1:51436][0m
-[2019-05-10 07:53:00] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/23 200 [0.21, 127.0.0.1:51436][0m
-[2019-05-10 07:53:00] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/24 200 [0.33, 127.0.0.1:51396][0m
-[2019-05-10 07:53:00] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/25 200 [0.34, 127.0.0.1:51458][0m
-[2019-05-10 07:53:00] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/28 200 [0.37, 127.0.0.1:51466][0m
-[2019-05-10 07:53:00] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/26 200 [0.44, 127.0.0.1:51462][0m
-[2019-05-10 07:53:00] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/27 200 [0.45, 127.0.0.1:51464][0m
-[2019-05-10 07:53:00] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/29 200 [0.32, 127.0.0.1:51436][0m
-[2019-05-10 07:53:00] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/31 200 [0.31, 127.0.0.1:51458][0m
-[2019-05-10 07:53:00] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/30 200 [0.34, 127.0.0.1:51396][0m
-[2019-05-10 07:53:00] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/32 200 [0.26, 127.0.0.1:51466][0m
-[2019-05-10 07:53:01] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/coursetot/2 200 [0.41, 127.0.0.1:51462][0m
-[2019-05-10 07:53:04] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/Linux_Fundamentals/notes/3/ 200 [0.33, 127.0.0.1:51462][0m
-[2019-05-10 07:53:11] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/Linux_Fundamentals/notes/7/ 200 [0.19, 127.0.0.1:51462][0m
-[2019-05-10 07:53:16] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/Linux_Fundamentals/notes/10/ 200 [0.20, 127.0.0.1:51462][0m
-[2019-05-10 07:53:21] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/Linux_Fundamentals/notes/9/ 200 [0.27, 127.0.0.1:51462][0m
-[2019-05-10 07:54:16] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/Linux_Proficiency/topics/ 200 [0.45, 127.0.0.1:51462][0m
-[2019-05-10 07:54:17] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/35 200 [0.27, 127.0.0.1:51500][0m
-[2019-05-10 07:54:17] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/38 200 [0.33, 127.0.0.1:51502][0m
-[2019-05-10 07:54:17] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/34 200 [0.35, 127.0.0.1:51462][0m
-[2019-05-10 07:54:17] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/41 200 [0.37, 127.0.0.1:51506][0m
-[2019-05-10 07:54:17] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/42 200 [0.40, 127.0.0.1:51508][0m
-[2019-05-10 07:54:17] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/39 200 [0.45, 127.0.0.1:51504][0m
-[2019-05-10 07:54:17] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/46 200 [0.25, 127.0.0.1:51462][0m
-[2019-05-10 07:54:17] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/43 200 [0.38, 127.0.0.1:51500][0m
-[2019-05-10 07:54:17] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/44 200 [0.34, 127.0.0.1:51502][0m
-[2019-05-10 07:54:17] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/45 200 [0.26, 127.0.0.1:51508][0m
-[2019-05-10 07:54:18] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/48 200 [0.38, 127.0.0.1:51506][0m
-[2019-05-10 07:54:18] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/47 200 [0.37, 127.0.0.1:51504][0m
-[2019-05-10 07:54:18] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/33 200 [0.54, 127.0.0.1:51500][0m
-[2019-05-10 07:54:18] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/37 200 [0.46, 127.0.0.1:51508][0m
-[2019-05-10 07:54:18] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/36 200 [0.56, 127.0.0.1:51502][0m
-[2019-05-10 07:54:18] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/40 200 [0.40, 127.0.0.1:51506][0m
-[2019-05-10 07:54:18] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/coursetot/3 200 [0.77, 127.0.0.1:51462][0m
-[2019-05-10 07:54:27] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /courses/Linux_Proficiency/notes/9/
+[2019-05-10 12:28:44] INFO [django.channels.server.log_action:141] HTTP GET / 200 [4.46, 127.0.0.1:49718]
+[2019-05-10 12:28:46] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js 200 [0.90, 127.0.0.1:49720]
+[2019-05-10 12:28:46] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validate.js 200 [0.89, 127.0.0.1:49721]
+[2019-05-10 12:28:46] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/style.css 200 [0.89, 127.0.0.1:49723]
+[2019-05-10 12:28:46] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/css/bootstrap.min.css 200 [0.93, 127.0.0.1:49722]
+[2019-05-10 12:28:46] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/newstyle2.css 200 [0.93, 127.0.0.1:49725]
+[2019-05-10 12:28:46] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/css/style.css 200 [1.01, 127.0.0.1:49724]
+[2019-05-10 12:28:46] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/newstylenew.css 200 [0.13, 127.0.0.1:49721]
+[2019-05-10 12:28:46] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/main.css 200 [0.15, 127.0.0.1:49720]
+[2019-05-10 12:28:46] INFO [django.channels.server.log_action:141] HTTP GET /static/Projects/custom/css/projects.css 200 [0.08, 127.0.0.1:49723]
+[2019-05-10 12:28:46] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css 200 [0.09, 127.0.0.1:49722]
+[2019-05-10 12:28:46] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js 200 [0.17, 127.0.0.1:49724]
+[2019-05-10 12:28:52] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/logo.png 200 [0.24, 127.0.0.1:49724]
+[2019-05-10 12:28:53] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-05-10 12:28:53] WARNING [django.channels.server.log_action:149] HTTP GET /images/icon5.png 404 [0.36, 127.0.0.1:49722]
+[2019-05-10 12:28:53] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/bootstrap.min.js 200 [0.24, 127.0.0.1:49724]
+[2019-05-10 12:28:54] INFO [django.channels.server.log_action:141] HTTP GET /static/faq/js/main.js 200 [0.30, 127.0.0.1:49722]
+[2019-05-10 12:28:54] INFO [django.channels.server.log_action:141] HTTP GET /static/faq/js/jquery.mobile.custom.min.js 200 [0.34, 127.0.0.1:49724]
+[2019-05-10 12:28:55] INFO [django.channels.server.log_action:141] HTTP GET /static/js/waterbubble.js 200 [0.21, 127.0.0.1:49724]
+[2019-05-10 12:28:55] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/LaptopBook.png 200 [0.26, 127.0.0.1:49722]
+[2019-05-10 12:28:55] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/jobphone.png 200 [0.47, 127.0.0.1:49722]
+[2019-05-10 12:28:57] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/fonts/fontsstylesheet.css 200 [0.21, 127.0.0.1:49722]
+[2019-05-10 12:28:57] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/homelive.png 200 [0.22, 127.0.0.1:49724]
+[2019-05-10 12:28:57] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/get2.png 200 [0.31, 127.0.0.1:49722]
+[2019-05-10 12:28:57] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/get3.png 200 [0.35, 127.0.0.1:49724]
+[2019-05-10 12:28:57] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/get1.png 200 [0.10, 127.0.0.1:49724]
+[2019-05-10 12:28:57] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/testi.png 200 [0.11, 127.0.0.1:49722]
+[2019-05-10 12:28:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/hq1.png 200 [0.04, 127.0.0.1:49724]
+[2019-05-10 12:28:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/hq2.png 200 [0.05, 127.0.0.1:49724]
+[2019-05-10 12:28:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/client3.png 200 [0.12, 127.0.0.1:49722]
+[2019-05-10 12:28:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/client2.png 200 [0.09, 127.0.0.1:49724]
+[2019-05-10 12:28:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/client1.png 200 [0.04, 127.0.0.1:49722]
+[2019-05-10 12:29:11] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/homebanner.png 200 [0.09, 127.0.0.1:49752]
+[2019-05-10 12:29:11] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/jobban2.png 200 [0.13, 127.0.0.1:49751]
+[2019-05-10 12:31:25] INFO [django.channels.server.log_action:141] HTTP GET / 200 [2.01, 127.0.0.1:49820]
+[2019-05-10 12:31:28] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-05-10 12:31:28] WARNING [django.channels.server.log_action:149] HTTP GET /images/icon5.png 404 [0.28, 127.0.0.1:49820]
+[2019-05-10 12:34:39] INFO [django.channels.server.log_action:141] HTTP GET /static/favicon.ico 200 [0.24, 127.0.0.1:49912]
+[2019-05-10 15:27:48] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.14, 127.0.0.1:50613]
+[2019-05-10 15:29:46] INFO [django.channels.server.log_action:141] HTTP GET /groupCourse/ 200 [2.41, 127.0.0.1:50655]
+[2019-05-10 15:29:47] WARNING [django.request.log_response:228] Not Found: /groupCourse/images/icon5.png
+[2019-05-10 15:29:47] WARNING [django.channels.server.log_action:149] HTTP GET /groupCourse/images/icon5.png 404 [0.29, 127.0.0.1:50655]
+[2019-05-10 15:29:47] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/groupicon3.png 200 [0.25, 127.0.0.1:50662]
+[2019-05-10 15:29:47] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/groupicon2.png 200 [0.15, 127.0.0.1:50665]
+[2019-05-10 15:29:47] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/groupicon1.png 200 [0.18, 127.0.0.1:50664]
+[2019-05-10 15:29:47] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/groupclassbot.png 200 [0.19, 127.0.0.1:50666]
+[2019-05-10 15:29:47] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/groupclass.png 200 [0.30, 127.0.0.1:50663]
+[2019-05-10 15:29:47] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/fonts/glyphicons-halflings-regular.woff 200 [0.10, 127.0.0.1:50666]
+[2019-05-10 15:34:05] INFO [django.channels.server.log_action:141] HTTP GET / 200 [1.03, 127.0.0.1:50866]
+[2019-05-10 15:34:06] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-05-10 15:34:06] WARNING [django.channels.server.log_action:149] HTTP GET /images/icon5.png 404 [0.45, 127.0.0.1:50872]
+[2019-05-10 15:34:15] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.03, 127.0.0.1:50885]
+[2019-05-10 15:36:38] INFO [django.channels.server.log_action:141] HTTP GET /devops/class/ 200 [0.87, 127.0.0.1:50995]
+[2019-05-10 15:36:38] WARNING [django.request.log_response:228] Not Found: /devops/class/images/icon5.png
+[2019-05-10 15:36:38] WARNING [django.channels.server.log_action:149] HTTP GET /devops/class/images/icon5.png 404 [0.16, 127.0.0.1:50995]
+[2019-05-10 15:36:39] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/selfs.png 200 [0.33, 127.0.0.1:50995]
+[2019-05-10 15:36:39] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/img/trialimg.jpg 200 [0.20, 127.0.0.1:50994]
+[2019-05-10 15:37:59] INFO [django.channels.server.log_action:141] HTTP GET / 200 [0.25, 127.0.0.1:51030]
+[2019-05-10 15:37:59] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-05-10 15:37:59] WARNING [django.channels.server.log_action:149] HTTP GET /images/icon5.png 404 [0.18, 127.0.0.1:51030]
+[2019-05-10 15:38:09] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.03, 127.0.0.1:51046]
+[2019-05-10 17:12:05] INFO [django.channels.server.log_action:141] HTTP GET / 200 [1.70, 127.0.0.1:51231]
+[2019-05-10 17:12:10] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-05-10 17:12:10] WARNING [django.channels.server.log_action:149] HTTP GET /images/icon5.png 404 [0.39, 127.0.0.1:51238]
+[2019-05-10 17:12:29] INFO [django.channels.server.log_action:141] HTTP GET /static/favicon.ico 200 [0.12, 127.0.0.1:51253]
+[2019-05-10 17:12:49] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.05, 127.0.0.1:51259]
+[2019-05-10 17:12:59] INFO [django.channels.server.log_action:141] HTTP GET /companys/contact 200 [2.08, 127.0.0.1:51267]
+[2019-05-10 17:13:00] WARNING [django.request.log_response:228] Not Found: /companys/images/icon5.png
+[2019-05-10 17:13:00] WARNING [django.channels.server.log_action:149] HTTP GET /companys/images/icon5.png 404 [0.27, 127.0.0.1:51267]
+[2019-05-10 17:13:55] INFO [django.channels.server.log_action:141] HTTP POST /companys/contact 200 [12.75, 127.0.0.1:51294]
+[2019-05-10 17:13:55] WARNING [django.request.log_response:228] Not Found: /companys/images/icon5.png
+[2019-05-10 17:13:55] WARNING [django.channels.server.log_action:149] HTTP GET /companys/images/icon5.png 404 [0.15, 127.0.0.1:51294]
+[2019-05-10 19:53:41] ERROR [django.request.log_response:228] Internal Server Error: /companys/contact
 Traceback (most recent call last):
-  File "/usr/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
-    response = get_response(request)
-  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/home/mololuwa/Desktop/linuxjobber/Django/Linuxjobber/Courses/views.py", line 111, in TopicNote
-    Notes = Note.objects.get(Topic__topic_number=lab_no,Topic__course__course_title = course_name.replace("_", " "))
-  File "/usr/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
-    return getattr(self.get_queryset(), name)(*args, **kwargs)
-  File "/usr/lib/python3.6/site-packages/django/db/models/query.py", line 403, in get
-    self.model._meta.object_name
-Courses.models.DoesNotExist: Note matching query does not exist.
-[2019-05-10 07:54:27] ERROR [django.channels.server.log_action:154] [35;1mHTTP GET /courses/Linux_Proficiency/notes/9/ 500 [0.46, 127.0.0.1:51462][0m
-[2019-05-10 07:55:36] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /courses/Linux_Proficiency/notes/8/
-Traceback (most recent call last):
-  File "/usr/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
-    response = get_response(request)
-  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/home/mololuwa/Desktop/linuxjobber/Django/Linuxjobber/Courses/views.py", line 111, in TopicNote
-    Notes = Note.objects.get(Topic__topic_number=lab_no,Topic__course__course_title = course_name.replace("_", " "))
-  File "/usr/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
-    return getattr(self.get_queryset(), name)(*args, **kwargs)
-  File "/usr/lib/python3.6/site-packages/django/db/models/query.py", line 403, in get
-    self.model._meta.object_name
-Courses.models.DoesNotExist: Note matching query does not exist.
-[2019-05-10 07:55:36] ERROR [django.channels.server.log_action:154] [35;1mHTTP GET /courses/Linux_Proficiency/notes/8/ 500 [0.51, 127.0.0.1:51572][0m
-[2019-05-10 07:55:39] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/Linux_Proficiency/topics/ 200 [0.37, 127.0.0.1:51572][0m
-[2019-05-10 07:55:39] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/33 200 [0.17, 127.0.0.1:51572][0m
-[2019-05-10 07:55:39] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/34 200 [0.24, 127.0.0.1:51574][0m
-[2019-05-10 07:55:40] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/35 200 [0.36, 127.0.0.1:51576][0m
-[2019-05-10 07:55:40] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/37 200 [0.38, 127.0.0.1:51580][0m
-[2019-05-10 07:55:40] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/36 200 [0.41, 127.0.0.1:51578][0m
-[2019-05-10 07:55:40] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/38 200 [0.48, 127.0.0.1:51582][0m
-[2019-05-10 07:55:40] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/39 200 [0.42, 127.0.0.1:51572][0m
-[2019-05-10 07:55:40] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/40 200 [0.41, 127.0.0.1:51574][0m
-[2019-05-10 07:55:40] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/41 200 [0.29, 127.0.0.1:51576][0m
-[2019-05-10 07:55:40] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/42 200 [0.33, 127.0.0.1:51580][0m
-[2019-05-10 07:55:40] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/43 200 [0.33, 127.0.0.1:51578][0m
-[2019-05-10 07:55:40] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/44 200 [0.32, 127.0.0.1:51582][0m
-[2019-05-10 07:55:40] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/45 200 [0.30, 127.0.0.1:51572][0m
-[2019-05-10 07:55:40] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/46 200 [0.24, 127.0.0.1:51574][0m
-[2019-05-10 07:55:40] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/47 200 [0.46, 127.0.0.1:51576][0m
-[2019-05-10 07:55:40] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/topictot/48 200 [0.37, 127.0.0.1:51580][0m
-[2019-05-10 07:55:41] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/coursetot/3 200 [0.74, 127.0.0.1:51578][0m
-[2019-05-10 07:55:41] INFO [django.channels.server.log_action:141] [mHTTP GET /courses/Linux_Proficiency/notes/3/ 200 [0.22, 127.0.0.1:51580][0m
-[2019-05-10 07:55:47] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /courses/Linux_Proficiency/notes/6/
-Traceback (most recent call last):
-  File "/usr/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
-    response = get_response(request)
-  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "/usr/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/home/mololuwa/Desktop/linuxjobber/Django/Linuxjobber/Courses/views.py", line 111, in TopicNote
-    Notes = Note.objects.get(Topic__topic_number=lab_no,Topic__course__course_title = course_name.replace("_", " "))
-  File "/usr/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
-    return getattr(self.get_queryset(), name)(*args, **kwargs)
-  File "/usr/lib/python3.6/site-packages/django/db/models/query.py", line 403, in get
-    self.model._meta.object_name
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\base.py", line 470, in parse
+    compile_func = self.tags[command]
+KeyError: 'endblock'
 
-[2019-05-10 15:09:55] INFO [django.channels.server.log_action:147] HTTP GET /tryfree/premiumPlan/ 302 [0.31, 127.0.0.1:53741]
-[2019-05-10 15:09:55] INFO [django.channels.server.log_action:141] HTTP GET /login/?next=/tryfree/premiumPlan/ 200 [0.07, 127.0.0.1:53741]
-[2019-05-10 15:09:56] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/logo.png 200 [0.09, 127.0.0.1:53742]
-[2019-05-10 15:09:56] WARNING [django.request.get_response:93] Not Found: /favicon.ico
-[2019-05-10 15:10:01] INFO [django.channels.server.log_action:147] HTTP POST /login/?next=/tryfree/premiumPlan/ 302 [1.08, 127.0.0.1:53741]
-[2019-05-10 15:10:01] INFO [django.channels.server.log_action:141] HTTP GET /tryfree/premiumPlan/ 200 [0.25, 127.0.0.1:53741]
-[2019-05-10 15:10:02] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js 200 [0.11, 127.0.0.1:53741]
-[2019-05-10 15:10:02] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/css/main.css 304 [0.03, 127.0.0.1:53741]
-[2019-05-10 15:10:02] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/css/bootstrap.min.css 200 [0.15, 127.0.0.1:53756]
-[2019-05-10 15:10:02] INFO [django.channels.server.log_action:145] HTTP GET /static/Projects/custom/css/projects.css 304 [0.03, 127.0.0.1:53741]
-[2019-05-10 15:10:02] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/style.css 200 [0.17, 127.0.0.1:53757]
-[2019-05-10 15:10:02] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/css/newstylenew.css 304 [0.03, 127.0.0.1:53756]
-[2019-05-10 15:10:02] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css 304 [0.05, 127.0.0.1:53757]
-[2019-05-10 15:10:02] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/css/style.css 200 [0.18, 127.0.0.1:53758]
-[2019-05-10 15:10:02] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js 304 [0.06, 127.0.0.1:53741]
-[2019-05-10 15:10:02] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validate.js 200 [0.27, 127.0.0.1:53755]
-[2019-05-10 15:10:02] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/newstyle2.css 200 [0.24, 127.0.0.1:53759]
-[2019-05-10 15:10:02] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/bootstrap.min.js 200 [0.12, 127.0.0.1:53756]
-[2019-05-10 15:10:02] INFO [django.channels.server.log_action:141] HTTP GET /static/faq/js/main.js 200 [0.12, 127.0.0.1:53755]
-[2019-05-10 15:10:02] INFO [django.channels.server.log_action:141] HTTP GET /static/js/waterbubble.js 200 [0.14, 127.0.0.1:53758]
-[2019-05-10 15:10:02] INFO [django.channels.server.log_action:141] HTTP GET /static/faq/js/jquery.mobile.custom.min.js 200 [0.20, 127.0.0.1:53757]
-[2019-05-10 15:10:02] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/fonts/fontsstylesheet.css 200 [0.09, 127.0.0.1:53759]
-[2019-05-10 15:10:02] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/jobban2.png 304 [0.01, 127.0.0.1:53759]
-[2019-05-10 15:10:05] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/linuxlogo.png 200 [0.06, 127.0.0.1:53756]
-[2019-05-10 15:10:27] INFO [django.channels.server.log_action:141] HTTP POST /tryfree/premiumPlan/ 200 [8.29, 127.0.0.1:53756]
-[2019-05-10 15:10:27] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validate.js 304 [0.09, 127.0.0.1:53758]
-[2019-05-10 15:10:27] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js 200 [0.14, 127.0.0.1:53756]
-[2019-05-10 15:10:27] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/css/bootstrap.min.css 304 [0.09, 127.0.0.1:53757]
-[2019-05-10 15:10:27] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/style.css 304 [0.08, 127.0.0.1:53755]
-[2019-05-10 15:10:27] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/css/style.css 304 [0.09, 127.0.0.1:53741]
-[2019-05-10 15:10:27] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/css/newstyle2.css 304 [0.09, 127.0.0.1:53768]
-[2019-05-10 16:15:31] INFO [django.channels.server.log_action:141] HTTP GET / 200 [33.95, 127.0.0.1:54755]
-[2019-05-10 16:15:32] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/style.css 200 [0.06, 127.0.0.1:54768]
-[2019-05-10 16:15:33] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/css/style.css 200 [0.44, 127.0.0.1:54769]
-[2019-05-10 16:15:33] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/css/bootstrap.min.css 200 [0.65, 127.0.0.1:54764]
-[2019-05-10 16:15:33] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/newstyle2.css 200 [0.51, 127.0.0.1:54770]
-[2019-05-10 16:15:33] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js 200 [0.87, 127.0.0.1:54755]
-[2019-05-10 16:15:33] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validate.js 200 [1.19, 127.0.0.1:54763]
-[2019-05-10 16:15:33] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/main.css 200 [0.48, 127.0.0.1:54768]
-[2019-05-10 16:15:33] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/bootstrap.min.js 200 [0.05, 127.0.0.1:54763]
-[2019-05-10 16:15:33] INFO [django.channels.server.log_action:141] HTTP GET /static/Projects/custom/css/projects.css 200 [0.65, 127.0.0.1:54764]
-[2019-05-10 16:15:33] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css 200 [0.65, 127.0.0.1:54770]
-[2019-05-10 16:15:33] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/newstylenew.css 200 [0.66, 127.0.0.1:54769]
-[2019-05-10 16:15:33] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js 200 [0.27, 127.0.0.1:54755]
-[2019-05-10 16:15:33] INFO [django.channels.server.log_action:141] HTTP GET /static/js/waterbubble.js 200 [0.04, 127.0.0.1:54769]
-[2019-05-10 16:15:33] INFO [django.channels.server.log_action:141] HTTP GET /static/faq/js/main.js 200 [0.09, 127.0.0.1:54763]
-[2019-05-10 16:15:33] INFO [django.channels.server.log_action:141] HTTP GET /static/faq/js/jquery.mobile.custom.min.js 200 [0.25, 127.0.0.1:54768]
-[2019-05-10 16:15:37] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/fonts/fontsstylesheet.css 200 [2.00, 127.0.0.1:54770]
-[2019-05-10 16:15:37] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/logo.png 200 [0.08, 127.0.0.1:54764]
-[2019-05-10 16:15:37] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/get1.png 200 [0.03, 127.0.0.1:54764]
-[2019-05-10 16:15:37] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/get2.png 200 [0.11, 127.0.0.1:54770]
-[2019-05-10 16:15:37] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/get3.png 200 [0.13, 127.0.0.1:54755]
-[2019-05-10 16:15:37] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/homelive.png 200 [0.14, 127.0.0.1:54768]
-[2019-05-10 16:15:37] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/testi.png 200 [0.10, 127.0.0.1:54764]
-[2019-05-10 16:15:37] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/hq2.png 200 [0.09, 127.0.0.1:54755]
-[2019-05-10 16:15:37] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/hq1.png 200 [0.10, 127.0.0.1:54770]
-[2019-05-10 16:15:37] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/LaptopBook.png 200 [0.23, 127.0.0.1:54769]
-[2019-05-10 16:15:37] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/client2.png 200 [0.04, 127.0.0.1:54764]
-[2019-05-10 16:15:37] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/client1.png 200 [0.06, 127.0.0.1:54755]
-[2019-05-10 16:15:37] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/client3.png 200 [0.13, 127.0.0.1:54768]
-[2019-05-10 16:15:37] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/jobphone.png 200 [0.33, 127.0.0.1:54763]
-[2019-05-10 16:15:38] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/jobban2.png 200 [0.09, 127.0.0.1:54769]
-[2019-05-10 16:15:39] INFO [django.channels.server.log_action:141] HTTP GET /static/favicon.ico 200 [0.04, 127.0.0.1:54769]
-[2019-05-10 16:15:41] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/homebanner.png 304 [0.46, 127.0.0.1:54769]
-[2019-05-10 16:15:42] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.04, 127.0.0.1:54769]
-[2019-05-10 16:24:46] INFO [django.channels.server.log_action:141] HTTP GET /login/ 200 [1.40, 127.0.0.1:54831]
-[2019-05-10 16:24:47] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/styles.css 200 [1.57, 127.0.0.1:54831]
-[2019-05-10 16:24:50] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/logo.png 200 [0.45, 127.0.0.1:54832]
-[2019-05-10 16:24:55] WARNING [django.request.get_response:93] Not Found: /favicon.ico
-[2019-05-10 16:25:11] INFO [django.channels.server.log_action:147] HTTP POST /login/ 302 [3.03, 127.0.0.1:54831]
-[2019-05-10 16:25:12] INFO [django.channels.server.log_action:141] HTTP GET /courses/userinterest 200 [0.41, 127.0.0.1:54831]
-[2019-05-10 16:25:12] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/style.css 304 [0.07, 127.0.0.1:54850]
-[2019-05-10 16:25:12] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js 200 [0.25, 127.0.0.1:54831]
-[2019-05-10 16:25:12] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validate.js 304 [0.24, 127.0.0.1:54847]
-[2019-05-10 16:25:12] INFO [django.channels.server.log_action:145] HTTP GET /static/Projects/custom/css/projects.css 304 [0.02, 127.0.0.1:54847]
-[2019-05-10 16:25:12] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/css/bootstrap.min.css 304 [0.22, 127.0.0.1:54849]
-[2019-05-10 16:25:12] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/css/style.css 304 [0.21, 127.0.0.1:54851]
-[2019-05-10 16:25:12] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js 304 [0.02, 127.0.0.1:54849]
-[2019-05-10 16:25:12] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css 304 [0.10, 127.0.0.1:54847]
-[2019-05-10 16:25:12] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/css/newstylenew.css 304 [0.15, 127.0.0.1:54831]
-[2019-05-10 16:25:12] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/css/newstyle2.css 304 [0.25, 127.0.0.1:54852]
-[2019-05-10 16:25:12] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/css/main.css 304 [0.20, 127.0.0.1:54850]
-[2019-05-10 16:25:12] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/lin-logo.png 200 [0.19, 127.0.0.1:54847]
-[2019-05-10 16:25:12] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/amazons.png 200 [0.22, 127.0.0.1:54831]
-[2019-05-10 16:25:12] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/logout1.png 200 [0.25, 127.0.0.1:54849]
-[2019-05-10 16:25:12] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/rchsaa.png 200 [0.06, 127.0.0.1:54831]
-[2019-05-10 16:25:12] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/jjava.png 200 [0.10, 127.0.0.1:54847]
-[2019-05-10 16:25:12] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/ajs.png 200 [0.07, 127.0.0.1:54849]
-[2019-05-10 16:25:12] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/button-left.png 200 [0.33, 127.0.0.1:54852]
-[2019-05-10 16:25:12] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/icon1.png 200 [0.37, 127.0.0.1:54851]
-[2019-05-10 16:25:12] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/biz.png 200 [0.09, 127.0.0.1:54847]
-[2019-05-10 16:25:13] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/dba.png 200 [0.14, 127.0.0.1:54849]
-[2019-05-10 16:25:13] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/ppt.png 200 [0.47, 127.0.0.1:54850]
-[2019-05-10 16:25:13] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/py.png 200 [0.15, 127.0.0.1:54852]
-[2019-05-10 16:25:13] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/csecurity.png 200 [0.22, 127.0.0.1:54831]
-[2019-05-10 16:25:13] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/logo.png 200 [0.03, 127.0.0.1:54847]
-[2019-05-10 16:25:15] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [1.13, 127.0.0.1:54847]
-[2019-05-10 16:25:20] INFO [django.channels.server.log_action:141] HTTP GET /groupCourse/ 200 [0.85, 127.0.0.1:54831]
-[2019-05-10 16:25:20] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/gclass1.png 200 [0.04, 127.0.0.1:54831]
-[2019-05-10 16:25:35] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/confirm_key/3 200 [0.08, 127.0.0.1:54873]
-[2019-05-10 16:25:37] INFO [django.channels.server.log_action:141] HTTP POST /sso_api/confirm_key/3 202 [1.11, 127.0.0.1:54872]
-[2019-05-10 16:25:37] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/group/3 200 [0.02, 127.0.0.1:54872]
-[2019-05-10 16:25:37] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/group/3/detail 200 [0.04, 127.0.0.1:54873]
-[2019-05-10 16:25:37] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/group/3/users 200 [0.08, 127.0.0.1:54879]
-[2019-05-10 16:25:37] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/group/3/users2 200 [0.10, 127.0.0.1:54878]
-[2019-05-10 16:25:41] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3 200 [4.31, 127.0.0.1:54872]
-[2019-05-10 16:25:43] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [5.99, 127.0.0.1:54873]
-[2019-05-10 16:25:43] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [6.03, 127.0.0.1:54878]
-[2019-05-10 16:25:45] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users 200 [7.43, 127.0.0.1:54879]
-[2019-05-10 16:25:54] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/user/ 200 [0.01, 127.0.0.1:54878]
-[2019-05-10 16:25:54] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.31, 127.0.0.1:54878]
-[2019-05-10 16:25:54] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.19, 127.0.0.1:54878]
-[2019-05-10 16:25:59] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/user/5 200 [0.01, 127.0.0.1:54878]
-[2019-05-10 16:25:59] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.12, 127.0.0.1:54873]
-[2019-05-10 16:25:59] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.25, 127.0.0.1:54878]
-[2019-05-10 16:25:59] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.30, 127.0.0.1:54878]
-[2019-05-10 16:25:59] INFO [django.channels.server.log_action:141] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 200 [0.28, 127.0.0.1:54831]
-[2019-05-10 16:33:36] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/groups 200 [0.17, 127.0.0.1:54953]
-[2019-05-10 16:33:37] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.68, 127.0.0.1:54952]
-[2019-05-10 16:34:40] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.11, 127.0.0.1:54972]
-[2019-05-10 16:34:42] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [1.19, 127.0.0.1:54972]
-[2019-05-10 16:34:44] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.26, 127.0.0.1:54976]
-[2019-05-10 16:34:44] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.43, 127.0.0.1:54972]
-[2019-05-10 16:34:44] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.17, 127.0.0.1:54976]
-[2019-05-10 16:34:49] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.28, 127.0.0.1:54972]
-[2019-05-10 16:39:46] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.28, 127.0.0.1:55060]
-[2019-05-10 16:39:47] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.46, 127.0.0.1:55060]
-[2019-05-10 16:39:52] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [1.78, 127.0.0.1:55064]
-[2019-05-10 16:39:52] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [1.87, 127.0.0.1:55060]
-[2019-05-10 16:39:52] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.38, 127.0.0.1:55064]
-[2019-05-10 16:39:55] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.06, 127.0.0.1:55060]
-[2019-05-10 16:39:56] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.06, 127.0.0.1:55060]
-[2019-05-10 16:39:56] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/group/3/userlog 200 [0.01, 127.0.0.1:55064]
-[2019-05-10 16:39:56] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/group/3/userlog/ 200 [0.02, 127.0.0.1:55064]
-[2019-05-10 16:39:57] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/userlog/ 200 [0.26, 127.0.0.1:55064]
-[2019-05-10 16:40:04] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.14, 127.0.0.1:55060]
-[2019-05-10 16:48:55] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.18, 127.0.0.1:55168]
-[2019-05-10 16:48:55] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.14, 127.0.0.1:55168]
-[2019-05-10 16:53:24] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.79, 127.0.0.1:55225]
-[2019-05-10 16:53:25] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.17, 127.0.0.1:55225]
-[2019-05-10 17:00:43] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.57, 127.0.0.1:55269]
-[2019-05-10 17:00:43] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.89, 127.0.0.1:55266]
-[2019-05-10 17:00:44] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.56, 127.0.0.1:55269]
-[2019-05-10 17:00:45] INFO [django.channels.server.log_action:141] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 200 [1.24, 127.0.0.1:55271]
-[2019-05-10 17:01:22] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.86, 127.0.0.1:55269]
-[2019-05-10 17:01:22] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.74, 127.0.0.1:55266]
-[2019-05-10 17:01:22] INFO [django.channels.server.log_action:141] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 200 [0.08, 127.0.0.1:55271]
-[2019-05-10 17:01:23] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.82, 127.0.0.1:55269]
-[2019-05-10 17:03:39] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.65, 127.0.0.1:55314]
-[2019-05-10 17:03:39] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.71, 127.0.0.1:55312]
-[2019-05-10 17:03:40] INFO [django.channels.server.log_action:141] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 200 [0.08, 127.0.0.1:55319]
-[2019-05-10 17:03:40] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.49, 127.0.0.1:55314]
-[2019-05-10 17:04:12] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.39, 127.0.0.1:55314]
-[2019-05-10 17:04:12] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.62, 127.0.0.1:55312]
-[2019-05-10 17:04:12] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.52, 127.0.0.1:55319]
-[2019-05-10 17:04:13] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.45, 127.0.0.1:55314]
-[2019-05-10 17:05:42] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.29, 127.0.0.1:55352]
-[2019-05-10 17:05:42] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.32, 127.0.0.1:55350]
-[2019-05-10 17:05:42] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.06, 127.0.0.1:55356]
-[2019-05-10 17:05:42] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.35, 127.0.0.1:55352]
-[2019-05-10 17:06:06] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.15, 127.0.0.1:55352]
-[2019-05-10 17:06:06] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.20, 127.0.0.1:55350]
-[2019-05-10 17:06:06] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.06, 127.0.0.1:55356]
-[2019-05-10 17:06:06] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.21, 127.0.0.1:55352]
-[2019-05-10 17:08:00] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.33, 127.0.0.1:55385]
-[2019-05-10 17:08:00] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.35, 127.0.0.1:55387]
-[2019-05-10 17:08:00] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.13, 127.0.0.1:55391]
-[2019-05-10 17:08:00] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.36, 127.0.0.1:55385]
-[2019-05-10 17:08:57] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [36.03, 127.0.0.1:55385]
-[2019-05-10 17:08:57] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/user/ 200 [0.18, 127.0.0.1:55416]
-[2019-05-10 17:08:57] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/user/5 200 [0.18, 127.0.0.1:55418]
-[2019-05-10 17:08:58] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.33, 127.0.0.1:55416]
-[2019-05-10 17:08:58] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.34, 127.0.0.1:55418]
-[2019-05-10 17:08:58] INFO [django.channels.server.log_action:141] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 200 [0.14, 127.0.0.1:55391]
-[2019-05-10 17:09:01] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.38, 127.0.0.1:55416]
-[2019-05-10 17:09:32] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.13, 127.0.0.1:55416]
-[2019-05-10 17:09:32] INFO [django.channels.server.log_action:141] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 200 [0.05, 127.0.0.1:55391]
-[2019-05-10 17:09:32] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.18, 127.0.0.1:55418]
-[2019-05-10 17:09:33] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.43, 127.0.0.1:55416]
-[2019-05-10 17:10:03] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.06, 127.0.0.1:55416]
-[2019-05-10 17:10:03] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.11, 127.0.0.1:55418]
-[2019-05-10 17:10:03] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.04, 127.0.0.1:55391]
-[2019-05-10 17:10:04] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.39, 127.0.0.1:55416]
-[2019-05-10 17:10:29] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.23, 127.0.0.1:55418]
-[2019-05-10 17:10:29] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.28, 127.0.0.1:55416]
-[2019-05-10 17:10:29] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.02, 127.0.0.1:55391]
-[2019-05-10 17:10:29] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.08, 127.0.0.1:55416]
-[2019-05-10 17:12:04] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.18, 127.0.0.1:55488]
-[2019-05-10 17:12:04] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.36, 127.0.0.1:55486]
-[2019-05-10 17:12:04] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.07, 127.0.0.1:55491]
-[2019-05-10 17:12:04] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.26, 127.0.0.1:55488]
-[2019-05-10 17:12:27] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.26, 127.0.0.1:55488]
-[2019-05-10 17:12:27] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.24, 127.0.0.1:55486]
-[2019-05-10 17:12:27] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.09, 127.0.0.1:55491]
-[2019-05-10 17:12:27] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.16, 127.0.0.1:55488]
-[2019-05-10 17:13:11] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.18, 127.0.0.1:55486]
-[2019-05-10 17:13:11] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.19, 127.0.0.1:55488]
-[2019-05-10 17:13:12] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.01, 127.0.0.1:55491]
-[2019-05-10 17:13:12] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.26, 127.0.0.1:55488]
-[2019-05-10 17:13:35] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.27, 127.0.0.1:55486]
-[2019-05-10 17:13:35] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.34, 127.0.0.1:55488]
-[2019-05-10 17:13:36] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.03, 127.0.0.1:55491]
-[2019-05-10 17:13:36] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.22, 127.0.0.1:55488]
-[2019-05-10 17:15:17] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.16, 127.0.0.1:55553]
-[2019-05-10 17:15:17] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.15, 127.0.0.1:55555]
-[2019-05-10 17:15:17] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.02, 127.0.0.1:55558]
-[2019-05-10 17:15:17] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.09, 127.0.0.1:55553]
-[2019-05-10 17:15:45] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.09, 127.0.0.1:55553]
-[2019-05-10 17:15:45] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.09, 127.0.0.1:55555]
-[2019-05-10 17:15:45] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.08, 127.0.0.1:55558]
-[2019-05-10 17:15:45] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.19, 127.0.0.1:55553]
-[2019-05-10 17:16:33] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.40, 127.0.0.1:55555]
-[2019-05-10 17:16:33] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.49, 127.0.0.1:55553]
-[2019-05-10 17:16:34] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.02, 127.0.0.1:55558]
-[2019-05-10 17:16:34] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.31, 127.0.0.1:55553]
-[2019-05-10 17:18:01] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.13, 127.0.0.1:55614]
-[2019-05-10 17:18:01] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.22, 127.0.0.1:55612]
-[2019-05-10 17:18:01] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.02, 127.0.0.1:55617]
-[2019-05-10 17:18:01] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.33, 127.0.0.1:55614]
-[2019-05-10 17:19:04] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.16, 127.0.0.1:55637]
-[2019-05-10 17:19:04] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.14, 127.0.0.1:55639]
-[2019-05-10 17:19:04] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.02, 127.0.0.1:55642]
-[2019-05-10 17:19:04] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.16, 127.0.0.1:55637]
-[2019-05-10 17:19:37] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.20, 127.0.0.1:55639]
-[2019-05-10 17:19:37] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.44, 127.0.0.1:55637]
-[2019-05-10 17:19:37] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.01, 127.0.0.1:55642]
-[2019-05-10 17:19:39] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [1.39, 127.0.0.1:55639]
-[2019-05-10 17:20:02] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.07, 127.0.0.1:55637]
-[2019-05-10 17:20:02] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.03, 127.0.0.1:55642]
-[2019-05-10 17:20:02] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.23, 127.0.0.1:55639]
-[2019-05-10 17:20:02] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.30, 127.0.0.1:55637]
-[2019-05-10 17:20:35] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.17, 127.0.0.1:55639]
-[2019-05-10 17:20:35] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.19, 127.0.0.1:55637]
-[2019-05-10 17:20:35] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.01, 127.0.0.1:55642]
-[2019-05-10 17:20:35] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.14, 127.0.0.1:55639]
-[2019-05-10 17:21:16] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.09, 127.0.0.1:55639]
-[2019-05-10 17:21:16] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.23, 127.0.0.1:55637]
-[2019-05-10 17:21:17] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.14, 127.0.0.1:55639]
-[2019-05-10 17:21:17] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.01, 127.0.0.1:55642]
-[2019-05-10 17:22:46] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.27, 127.0.0.1:55742]
-[2019-05-10 17:22:46] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.34, 127.0.0.1:55740]
-[2019-05-10 17:22:46] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.01, 127.0.0.1:55746]
-[2019-05-10 17:22:46] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.49, 127.0.0.1:55742]
-[2019-05-10 17:23:48] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.36, 127.0.0.1:55772]
-[2019-05-10 17:23:48] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.32, 127.0.0.1:55774]
-[2019-05-10 17:23:48] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.01, 127.0.0.1:55777]
-[2019-05-10 17:23:49] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.21, 127.0.0.1:55772]
-[2019-05-10 17:25:44] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.25, 127.0.0.1:55806]
-[2019-05-10 17:25:44] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.35, 127.0.0.1:55808]
-[2019-05-10 17:25:44] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.06, 127.0.0.1:55811]
-[2019-05-10 17:25:44] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.26, 127.0.0.1:55806]
-[2019-05-10 17:26:44] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.46, 127.0.0.1:55806]
-[2019-05-10 17:26:44] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.48, 127.0.0.1:55808]
-[2019-05-10 17:26:44] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.01, 127.0.0.1:55827]
-[2019-05-10 17:26:45] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.25, 127.0.0.1:55806]
-[2019-05-10 17:27:16] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.07, 127.0.0.1:55806]
-[2019-05-10 17:27:16] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.01, 127.0.0.1:55827]
-[2019-05-10 17:27:16] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.21, 127.0.0.1:55808]
-[2019-05-10 17:27:16] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.21, 127.0.0.1:55806]
-[2019-05-10 17:27:52] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.27, 127.0.0.1:55808]
-[2019-05-10 17:27:52] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.32, 127.0.0.1:55806]
-[2019-05-10 17:27:52] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.06, 127.0.0.1:55827]
-[2019-05-10 17:27:53] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.48, 127.0.0.1:55806]
-[2019-05-10 17:28:45] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [1.27, 127.0.0.1:55806]
-[2019-05-10 17:28:45] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [1.26, 127.0.0.1:55808]
-[2019-05-10 17:28:45] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.14, 127.0.0.1:55827]
-[2019-05-10 17:28:47] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [1.71, 127.0.0.1:55806]
-[2019-05-10 17:29:29] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.64, 127.0.0.1:55806]
-[2019-05-10 17:29:29] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.60, 127.0.0.1:55808]
-[2019-05-10 17:29:29] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.07, 127.0.0.1:55827]
-[2019-05-10 17:29:29] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.18, 127.0.0.1:55806]
-[2019-05-10 17:31:05] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.13, 127.0.0.1:55913]
-[2019-05-10 17:31:06] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.36, 127.0.0.1:55915]
-[2019-05-10 17:31:06] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.14, 127.0.0.1:55917]
-[2019-05-10 17:31:06] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.21, 127.0.0.1:55913]
-[2019-05-10 17:31:29] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.15, 127.0.0.1:55913]
-[2019-05-10 17:31:29] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.01, 127.0.0.1:55917]
-[2019-05-10 17:31:29] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.21, 127.0.0.1:55915]
-[2019-05-10 17:31:29] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.18, 127.0.0.1:55913]
-[2019-05-10 17:32:10] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.62, 127.0.0.1:55915]
-[2019-05-10 17:32:10] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.71, 127.0.0.1:55913]
-[2019-05-10 17:32:11] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.01, 127.0.0.1:55917]
-[2019-05-10 17:32:11] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.18, 127.0.0.1:55913]
-[2019-05-10 17:33:31] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.25, 127.0.0.1:55984]
-[2019-05-10 17:33:32] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.31, 127.0.0.1:55986]
-[2019-05-10 17:33:32] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.09, 127.0.0.1:55989]
-[2019-05-10 17:33:32] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.25, 127.0.0.1:55984]
-[2019-05-10 17:34:08] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.21, 127.0.0.1:55984]
-[2019-05-10 17:34:09] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.21, 127.0.0.1:55986]
-[2019-05-10 17:34:09] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.09, 127.0.0.1:55989]
-[2019-05-10 17:34:09] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.29, 127.0.0.1:55984]
-[2019-05-10 17:34:50] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [11.97, 127.0.0.1:55984]
-[2019-05-10 17:34:51] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [11.95, 127.0.0.1:55986]
-[2019-05-10 17:34:51] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.01, 127.0.0.1:55989]
-[2019-05-10 17:34:51] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.15, 127.0.0.1:55984]
-[2019-05-10 17:35:37] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.49, 127.0.0.1:55984]
-[2019-05-10 17:35:37] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.50, 127.0.0.1:55986]
-[2019-05-10 17:35:37] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.04, 127.0.0.1:55989]
-[2019-05-10 17:35:37] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.13, 127.0.0.1:55984]
-[2019-05-10 17:36:41] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.33, 127.0.0.1:56106]
-[2019-05-10 17:36:42] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.26, 127.0.0.1:56108]
-[2019-05-10 17:36:42] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.01, 127.0.0.1:56111]
-[2019-05-10 17:36:42] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.31, 127.0.0.1:56106]
-[2019-05-10 17:37:38] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [1.03, 127.0.0.1:56106]
-[2019-05-10 17:37:38] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.87, 127.0.0.1:56108]
-[2019-05-10 17:37:38] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.02, 127.0.0.1:56111]
-[2019-05-10 17:37:39] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.26, 127.0.0.1:56106]
-[2019-05-10 17:38:53] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.19, 127.0.0.1:56161]
-[2019-05-10 17:38:53] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.21, 127.0.0.1:56163]
-[2019-05-10 17:38:54] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.01, 127.0.0.1:56166]
-[2019-05-10 17:38:54] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.58, 127.0.0.1:56161]
-[2019-05-10 17:39:20] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [1.31, 127.0.0.1:56161]
-[2019-05-10 17:39:20] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.08, 127.0.0.1:56166]
-[2019-05-10 17:39:20] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.13, 127.0.0.1:56161]
-[2019-05-10 17:39:20] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.19, 127.0.0.1:56161]
-[2019-05-10 17:39:53] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.92, 127.0.0.1:56161]
-[2019-05-10 17:39:53] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.03, 127.0.0.1:56166]
-[2019-05-10 17:39:54] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [1.50, 127.0.0.1:56163]
-[2019-05-10 17:39:55] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.89, 127.0.0.1:56161]
-[2019-05-10 17:40:33] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.64, 127.0.0.1:56161]
-[2019-05-10 17:40:33] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.59, 127.0.0.1:56163]
-[2019-05-10 17:40:33] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.03, 127.0.0.1:56166]
-[2019-05-10 17:40:34] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.19, 127.0.0.1:56161]
-[2019-05-10 17:41:20] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.16, 127.0.0.1:56161]
-[2019-05-10 17:41:20] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.18, 127.0.0.1:56163]
-[2019-05-10 17:41:20] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.05, 127.0.0.1:56166]
-[2019-05-10 17:41:21] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.47, 127.0.0.1:56161]
-[2019-05-10 17:42:00] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.16, 127.0.0.1:56163]
-[2019-05-10 17:42:00] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.23, 127.0.0.1:56161]
-[2019-05-10 17:42:00] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.02, 127.0.0.1:56166]
-[2019-05-10 17:42:00] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.23, 127.0.0.1:56161]
-[2019-05-10 17:44:03] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.30, 127.0.0.1:56288]
-[2019-05-10 17:44:03] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.30, 127.0.0.1:56290]
-[2019-05-10 17:44:03] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.01, 127.0.0.1:56293]
-[2019-05-10 17:44:04] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.49, 127.0.0.1:56288]
-[2019-05-10 17:44:43] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.22, 127.0.0.1:56288]
-[2019-05-10 17:44:43] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.06, 127.0.0.1:56293]
-[2019-05-10 17:44:43] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.34, 127.0.0.1:56290]
-[2019-05-10 17:44:43] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.18, 127.0.0.1:56288]
-[2019-05-10 17:45:30] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.26, 127.0.0.1:56288]
-[2019-05-10 17:45:30] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.26, 127.0.0.1:56290]
-[2019-05-10 17:45:30] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.05, 127.0.0.1:56293]
-[2019-05-10 17:45:30] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.31, 127.0.0.1:56288]
-[2019-05-10 17:46:34] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.60, 127.0.0.1:56360]
-[2019-05-10 17:46:34] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.02, 127.0.0.1:56366]
-[2019-05-10 17:46:35] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [1.35, 127.0.0.1:56362]
-[2019-05-10 17:46:35] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.20, 127.0.0.1:56360]
-[2019-05-10 17:47:35] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.55, 127.0.0.1:56360]
-[2019-05-10 17:47:35] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.53, 127.0.0.1:56362]
-[2019-05-10 17:47:35] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.02, 127.0.0.1:56387]
-[2019-05-10 17:47:35] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.21, 127.0.0.1:56360]
-[2019-05-10 17:47:52] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.43, 127.0.0.1:56360]
-[2019-05-10 17:47:52] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.48, 127.0.0.1:56362]
-[2019-05-10 17:47:52] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.02, 127.0.0.1:56387]
-[2019-05-10 17:47:53] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.17, 127.0.0.1:56360]
-[2019-05-10 17:48:24] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.31, 127.0.0.1:56360]
-[2019-05-10 17:48:24] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.31, 127.0.0.1:56362]
-[2019-05-10 17:48:24] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.03, 127.0.0.1:56387]
-[2019-05-10 17:48:24] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.14, 127.0.0.1:56360]
-[2019-05-10 17:48:46] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.39, 127.0.0.1:56360]
-[2019-05-10 17:48:46] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.38, 127.0.0.1:56362]
-[2019-05-10 17:48:46] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.05, 127.0.0.1:56387]
-[2019-05-10 17:48:46] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.22, 127.0.0.1:56360]
-[2019-05-10 17:49:06] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.22, 127.0.0.1:56360]
-[2019-05-10 17:49:06] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.02, 127.0.0.1:56387]
-[2019-05-10 17:49:06] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.25, 127.0.0.1:56362]
-[2019-05-10 17:49:06] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.15, 127.0.0.1:56360]
-[2019-05-10 17:49:32] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.14, 127.0.0.1:56360]
-[2019-05-10 17:49:32] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.15, 127.0.0.1:56362]
-[2019-05-10 17:49:32] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.01, 127.0.0.1:56387]
-[2019-05-10 17:49:32] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.31, 127.0.0.1:56360]
-[2019-05-10 17:50:25] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.18, 127.0.0.1:56362]
-[2019-05-10 17:50:25] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.34, 127.0.0.1:56360]
-[2019-05-10 17:50:25] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.02, 127.0.0.1:56387]
-[2019-05-10 17:50:25] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.23, 127.0.0.1:56362]
-[2019-05-10 17:52:43] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.35, 127.0.0.1:56499]
-[2019-05-10 17:52:43] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.51, 127.0.0.1:56497]
-[2019-05-10 17:52:43] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.03, 127.0.0.1:56503]
-[2019-05-10 17:52:43] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.22, 127.0.0.1:56499]
-[2019-05-10 17:53:46] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [1.71, 127.0.0.1:56517]
-[2019-05-10 17:53:46] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.01, 127.0.0.1:56523]
-[2019-05-10 17:53:47] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [2.87, 127.0.0.1:56519]
-[2019-05-10 17:53:48] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [1.41, 127.0.0.1:56517]
-[2019-05-10 17:58:21] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.17, 127.0.0.1:56552]
-[2019-05-10 17:58:23] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.06, 127.0.0.1:56552]
-[2019-05-10 17:58:24] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.43, 127.0.0.1:56552]
-[2019-05-10 17:58:26] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/userlog/ 200 [0.93, 127.0.0.1:56552]
-[2019-05-10 18:00:49] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.13, 127.0.0.1:56582]
-[2019-05-10 18:03:30] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [1.43, 127.0.0.1:56607]
-[2019-05-10 18:03:44] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [1.51, 127.0.0.1:56607]
-[2019-05-10 18:03:50] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [2.32, 127.0.0.1:56607]
-[2019-05-10 18:04:12] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.90, 127.0.0.1:56607]
-[2019-05-10 18:04:12] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.54, 127.0.0.1:56607]
-[2019-05-10 18:07:37] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.51, 127.0.0.1:56686]
-[2019-05-10 18:07:39] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [1.25, 127.0.0.1:56686]
-[2019-05-10 18:08:22] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.26, 127.0.0.1:56686]
-[2019-05-10 18:08:24] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [1.72, 127.0.0.1:56686]
-[2019-05-10 18:09:19] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [1.28, 127.0.0.1:56686]
-[2019-05-10 19:01:11] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/groups 200 [0.93, 127.0.0.1:49478]
-[2019-05-10 19:01:18] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/user/ 200 [0.01, 127.0.0.1:49478]
-[2019-05-10 19:01:19] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [1.25, 127.0.0.1:49478]
-[2019-05-10 19:01:19] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/group/3/detail 200 [0.04, 127.0.0.1:49478]
-[2019-05-10 19:01:20] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.84, 127.0.0.1:49478]
-[2019-05-10 19:04:13] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.16, 127.0.0.1:49521]
-[2019-05-10 19:04:13] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.36, 127.0.0.1:49522]
-[2019-05-10 19:04:13] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.16, 127.0.0.1:49521]
-[2019-05-10 19:04:27] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/user/5 200 [0.03, 127.0.0.1:49521]
-[2019-05-10 19:04:27] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.11, 127.0.0.1:49521]
-[2019-05-10 19:04:28] INFO [django.channels.server.log_action:141] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 200 [0.17, 127.0.0.1:49535]
-[2019-05-10 19:04:30] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.15, 127.0.0.1:49521]
-[2019-05-10 19:04:30] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.19, 127.0.0.1:49521]
-[2019-05-10 19:04:30] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/group/3/userlog 200 [0.03, 127.0.0.1:49521]
-[2019-05-10 19:04:30] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/group/3/userlog/ 200 [0.01, 127.0.0.1:49521]
-[2019-05-10 19:04:30] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/userlog/ 200 [0.18, 127.0.0.1:49521]
-[2019-05-10 19:04:32] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/group/3/users2 200 [0.01, 127.0.0.1:49521]
-[2019-05-10 19:04:33] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.14, 127.0.0.1:49521]
-[2019-05-10 19:04:34] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.11, 127.0.0.1:49521]
-[2019-05-10 19:04:36] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.29, 127.0.0.1:49521]
-[2019-05-10 19:07:01] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.24, 127.0.0.1:49563]
-[2019-05-10 19:07:01] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.21, 127.0.0.1:49563]
-[2019-05-10 19:07:01] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.66, 127.0.0.1:49562]
-[2019-05-10 19:07:44] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.26, 127.0.0.1:49563]
-[2019-05-10 19:07:44] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.32, 127.0.0.1:49562]
-[2019-05-10 19:07:44] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.08, 127.0.0.1:49562]
-[2019-05-10 19:08:21] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.54, 127.0.0.1:49563]
-[2019-05-10 19:08:21] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.69, 127.0.0.1:49562]
-[2019-05-10 19:08:21] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.35, 127.0.0.1:49563]
-[2019-05-10 19:08:43] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.10, 127.0.0.1:49563]
-[2019-05-10 19:08:43] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.16, 127.0.0.1:49562]
-[2019-05-10 19:08:44] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.51, 127.0.0.1:49562]
-[2019-05-10 19:16:46] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.08, 127.0.0.1:49655]
-[2019-05-10 19:16:46] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.12, 127.0.0.1:49657]
-[2019-05-10 19:16:55] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.09, 127.0.0.1:49655]
-[2019-05-10 19:16:56] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.14, 127.0.0.1:49655]
-[2019-05-10 19:16:56] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/userlog/ 200 [0.13, 127.0.0.1:49655]
-[2019-05-10 19:20:04] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.32, 127.0.0.1:49703]
-[2019-05-10 19:20:14] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.11, 127.0.0.1:49703]
-[2019-05-10 19:20:15] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.25, 127.0.0.1:49712]
-[2019-05-10 19:20:15] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.12, 127.0.0.1:49703]
-[2019-05-10 19:20:45] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/group/3 200 [0.02, 127.0.0.1:49703]
-[2019-05-10 19:20:45] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/group/3/users 200 [0.01, 127.0.0.1:49724]
-[2019-05-10 19:20:45] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.30, 127.0.0.1:49712]
-[2019-05-10 19:20:45] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.25, 127.0.0.1:49720]
-[2019-05-10 19:20:45] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3 200 [0.46, 127.0.0.1:49703]
-[2019-05-10 19:20:45] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users 200 [0.43, 127.0.0.1:49724]
-[2019-05-10 19:20:49] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.07, 127.0.0.1:49712]
-[2019-05-10 19:20:51] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.16, 127.0.0.1:49712]
-[2019-05-10 19:20:51] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.16, 127.0.0.1:49712]
-[2019-05-10 19:20:54] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.08, 127.0.0.1:49720]
-[2019-05-10 19:20:54] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.11, 127.0.0.1:49712]
-[2019-05-10 19:20:54] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.10, 127.0.0.1:49720]
-[2019-05-10 19:22:52] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.13, 127.0.0.1:49757]
-[2019-05-10 19:22:52] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.14, 127.0.0.1:49756]
-[2019-05-10 19:22:52] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.44, 127.0.0.1:49756]
-[2019-05-10 19:23:42] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.09, 127.0.0.1:49756]
-[2019-05-10 19:23:42] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.18, 127.0.0.1:49757]
-[2019-05-10 19:23:42] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.08, 127.0.0.1:49756]
-[2019-05-10 19:24:28] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.25, 127.0.0.1:49756]
-[2019-05-10 19:24:28] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.34, 127.0.0.1:49757]
-[2019-05-10 19:24:28] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.15, 127.0.0.1:49756]
-[2019-05-10 19:27:59] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.80, 127.0.0.1:49848]
-[2019-05-10 19:27:59] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.87, 127.0.0.1:49850]
-[2019-05-10 19:28:00] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.15, 127.0.0.1:49848]
-[2019-05-10 19:28:56] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.13, 127.0.0.1:49850]
-[2019-05-10 19:28:56] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.15, 127.0.0.1:49848]
-[2019-05-10 19:28:57] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.42, 127.0.0.1:49848]
-[2019-05-10 19:30:17] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.39, 127.0.0.1:49878]
-[2019-05-10 19:30:17] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.40, 127.0.0.1:49880]
-[2019-05-10 19:30:17] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3 200 [0.49, 127.0.0.1:49879]
-[2019-05-10 19:30:17] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users 200 [0.42, 127.0.0.1:49882]
-[2019-05-10 19:30:18] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.10, 127.0.0.1:49880]
-[2019-05-10 19:30:22] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.09, 127.0.0.1:49880]
-[2019-05-10 19:30:22] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.10, 127.0.0.1:49880]
-[2019-05-10 19:30:24] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.53, 127.0.0.1:49880]
-[2019-05-10 19:30:24] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.53, 127.0.0.1:49878]
-[2019-05-10 19:30:24] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.10, 127.0.0.1:49880]
-[2019-05-10 19:36:56] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.17, 127.0.0.1:49967]
-[2019-05-10 19:36:56] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.20, 127.0.0.1:49968]
-[2019-05-10 19:36:56] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.11, 127.0.0.1:49967]
-[2019-05-10 19:37:03] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.19, 127.0.0.1:49968]
-[2019-05-10 19:37:03] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users 200 [0.17, 127.0.0.1:49982]
-[2019-05-10 19:37:03] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.23, 127.0.0.1:49978]
-[2019-05-10 19:37:03] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3 200 [0.28, 127.0.0.1:49967]
-[2019-05-10 19:37:08] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.20, 127.0.0.1:49967]
-[2019-05-10 19:37:28] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.13, 127.0.0.1:49967]
-[2019-05-10 19:37:29] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.09, 127.0.0.1:49967]
-[2019-05-10 19:37:31] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.10, 127.0.0.1:49978]
-[2019-05-10 19:37:31] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.24, 127.0.0.1:49967]
-[2019-05-10 19:37:32] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.26, 127.0.0.1:49968]
-[2019-05-10 19:38:24] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.15, 127.0.0.1:49967]
-[2019-05-10 19:38:24] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.22, 127.0.0.1:49968]
-[2019-05-10 19:38:26] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [2.22, 127.0.0.1:49967]
-[2019-05-10 19:39:00] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.16, 127.0.0.1:49968]
-[2019-05-10 19:39:00] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.20, 127.0.0.1:49967]
-[2019-05-10 19:39:00] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.09, 127.0.0.1:49967]
-[2019-05-10 19:39:40] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.24, 127.0.0.1:49968]
-[2019-05-10 19:39:40] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.25, 127.0.0.1:49967]
-[2019-05-10 19:39:40] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.14, 127.0.0.1:49967]
-[2019-05-10 19:40:34] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.16, 127.0.0.1:49968]
-[2019-05-10 19:40:34] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.21, 127.0.0.1:49967]
-[2019-05-10 19:40:34] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.31, 127.0.0.1:49967]
-[2019-05-10 19:41:15] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.39, 127.0.0.1:49968]
-[2019-05-10 19:41:15] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.60, 127.0.0.1:49967]
-[2019-05-10 19:41:16] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.12, 127.0.0.1:49967]
-[2019-05-10 19:41:37] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.14, 127.0.0.1:49968]
-[2019-05-10 19:41:37] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.16, 127.0.0.1:49967]
-[2019-05-10 19:41:38] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.15, 127.0.0.1:49967]
-[2019-05-10 19:42:25] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.25, 127.0.0.1:49967]
-[2019-05-10 19:42:25] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.27, 127.0.0.1:49968]
-[2019-05-10 19:42:25] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.08, 127.0.0.1:49967]
-[2019-05-10 19:46:42] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.19, 127.0.0.1:50148]
-[2019-05-10 19:46:42] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.17, 127.0.0.1:50149]
-[2019-05-10 19:46:42] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.14, 127.0.0.1:50148]
-[2019-05-10 19:47:35] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.23, 127.0.0.1:50148]
-[2019-05-10 19:47:35] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.27, 127.0.0.1:50149]
-[2019-05-10 19:47:35] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.27, 127.0.0.1:50148]
-[2019-05-10 19:48:04] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.04, 127.0.0.1:50149]
-[2019-05-10 19:48:04] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.17, 127.0.0.1:50148]
-[2019-05-10 19:48:04] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.18, 127.0.0.1:50148]
-[2019-05-10 19:49:16] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.27, 127.0.0.1:50195]
-[2019-05-10 19:49:16] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.36, 127.0.0.1:50197]
-[2019-05-10 19:49:17] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.37, 127.0.0.1:50195]
-[2019-05-10 19:49:50] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.15, 127.0.0.1:50197]
-[2019-05-10 19:49:50] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.21, 127.0.0.1:50195]
-[2019-05-10 19:49:50] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.19, 127.0.0.1:50195]
-[2019-05-10 19:50:29] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.10, 127.0.0.1:50195]
-[2019-05-10 19:50:29] INFO [django.channels.server.log_action:141] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 200 [0.11, 127.0.0.1:50223]
-[2019-05-10 19:50:31] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.14, 127.0.0.1:50195]
-[2019-05-10 19:50:32] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.14, 127.0.0.1:50195]
-[2019-05-10 19:50:32] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/userlog/ 200 [0.08, 127.0.0.1:50195]
-[2019-05-10 19:50:34] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.06, 127.0.0.1:50195]
-[2019-05-10 19:54:37] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.08, 127.0.0.1:50251]
-[2019-05-10 19:54:37] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.12, 127.0.0.1:50252]
-[2019-05-10 19:54:38] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.11, 127.0.0.1:50251]
-[2019-05-10 19:55:06] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.06, 127.0.0.1:50251]
-[2019-05-10 19:55:08] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.06, 127.0.0.1:50251]
-[2019-05-10 19:55:08] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/userlog/ 200 [0.15, 127.0.0.1:50251]
-[2019-05-10 19:55:14] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.17, 127.0.0.1:50251]
-[2019-05-10 19:55:15] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.12, 127.0.0.1:50251]
-[2019-05-10 19:55:15] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/group/3/userlog/5 200 [0.06, 127.0.0.1:50251]
-[2019-05-10 19:55:15] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/userlog/5 200 [0.06, 127.0.0.1:50251]
-[2019-05-10 19:55:17] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/user/3 200 [0.02, 127.0.0.1:50251]
-[2019-05-10 19:55:17] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/3 200 [0.04, 127.0.0.1:50251]
-[2019-05-10 19:55:17] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/group/3/userlog/3 200 [0.03, 127.0.0.1:50251]
-[2019-05-10 19:55:17] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/userlog/3 200 [0.04, 127.0.0.1:50251]
-[2019-05-10 19:55:20] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.09, 127.0.0.1:50251]
-[2019-05-10 19:55:20] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/userlog/ 200 [0.05, 127.0.0.1:50251]
-[2019-05-10 19:55:24] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.07, 127.0.0.1:50251]
-[2019-05-10 19:55:24] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.01, 127.0.0.1:50276]
-[2019-05-10 19:55:26] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.16, 127.0.0.1:50251]
-[2019-05-10 19:57:02] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.13, 127.0.0.1:50289]
-[2019-05-10 19:57:02] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.26, 127.0.0.1:50291]
-[2019-05-10 19:57:03] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.27, 127.0.0.1:50289]
-[2019-05-10 19:57:05] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.14, 127.0.0.1:50289]
-[2019-05-10 19:57:08] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.07, 127.0.0.1:50289]
-[2019-05-10 19:57:10] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/3 200 [0.04, 127.0.0.1:50289]
-[2019-05-10 19:57:10] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/userlog/3 200 [0.07, 127.0.0.1:50289]
-[2019-05-10 19:57:13] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.12, 127.0.0.1:50289]
-[2019-05-10 19:57:13] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.05, 127.0.0.1:50305]
-[2019-05-10 19:58:45] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.24, 127.0.0.1:50320]
-[2019-05-10 19:58:45] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.02, 127.0.0.1:50326]
-[2019-05-10 19:58:45] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.28, 127.0.0.1:50322]
-[2019-05-10 19:58:45] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.11, 127.0.0.1:50320]
-[2019-05-10 19:58:52] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.15, 127.0.0.1:50320]
-[2019-05-10 19:59:11] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.05, 127.0.0.1:50320]
-[2019-05-10 19:59:53] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.12, 127.0.0.1:50320]
-[2019-05-10 19:59:53] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.26, 127.0.0.1:50342]
-[2019-05-10 19:59:54] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.10, 127.0.0.1:50320]
-[2019-05-10 20:00:11] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.26, 127.0.0.1:50320]
-[2019-05-10 20:00:11] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.01, 127.0.0.1:50352]
-[2019-05-10 20:00:54] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.27, 127.0.0.1:50342]
-[2019-05-10 20:00:54] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.35, 127.0.0.1:50320]
-[2019-05-10 20:00:54] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.01, 127.0.0.1:50352]
-[2019-05-10 20:00:54] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.10, 127.0.0.1:50320]
-[2019-05-10 20:00:57] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.10, 127.0.0.1:50320]
-[2019-05-10 20:01:21] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.16, 127.0.0.1:50320]
-[2019-05-10 20:01:21] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.20, 127.0.0.1:50342]
-[2019-05-10 20:01:22] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.21, 127.0.0.1:50320]
-[2019-05-11 10:58:32] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/user/ 200 [0.43, 127.0.0.1:49294]
-[2019-05-11 10:58:32] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/group/3/users2 200 [5.24, 127.0.0.1:49293]
-[2019-05-11 10:58:32] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/group/3/detail 200 [0.02, 127.0.0.1:49294]
-[2019-05-11 10:58:38] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [6.17, 127.0.0.1:49293]
-[2019-05-11 10:59:04] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.79, 127.0.0.1:49293]
-[2019-05-11 10:59:04] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.79, 127.0.0.1:49294]
-[2019-05-11 10:59:04] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.25, 127.0.0.1:49293]
-[2019-05-11 11:19:02] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.37, 127.0.0.1:49357]
-[2019-05-11 11:19:02] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.44, 127.0.0.1:49356]
-[2019-05-11 11:19:02] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.28, 127.0.0.1:49356]
-[2019-05-11 11:19:11] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [2.86, 127.0.0.1:49356]
-[2019-05-11 11:19:13] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/groups 200 [0.02, 127.0.0.1:49356]
-[2019-05-11 11:19:14] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.21, 127.0.0.1:49356]
-[2019-05-11 11:19:21] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/user/5 200 [0.01, 127.0.0.1:49356]
-[2019-05-11 11:19:21] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.18, 127.0.0.1:49356]
-[2019-05-11 11:19:22] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.13, 127.0.0.1:49377]
-[2019-05-11 11:19:25] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.12, 127.0.0.1:49356]
-[2019-05-11 11:19:25] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/group/3/userlog 200 [0.02, 127.0.0.1:49356]
-[2019-05-11 11:19:25] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/group/3/userlog/ 200 [0.01, 127.0.0.1:49356]
-[2019-05-11 11:19:25] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/userlog/ 200 [0.26, 127.0.0.1:49356]
-[2019-05-11 11:21:06] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.14, 127.0.0.1:49390]
-[2019-05-11 12:51:15] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/groups 200 [0.64, 127.0.0.1:49322]
-[2019-05-11 12:51:16] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/user/ 200 [0.07, 127.0.0.1:49323]
-[2019-05-11 12:51:16] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/group/3/detail 200 [0.01, 127.0.0.1:49322]
-[2019-05-11 12:51:17] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [1.40, 127.0.0.1:49323]
-[2019-05-11 12:51:31] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/user/5 200 [0.01, 127.0.0.1:49323]
-[2019-05-11 12:51:32] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.15, 127.0.0.1:49323]
-[2019-05-11 12:51:35] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.09, 127.0.0.1:49323]
-[2019-05-11 12:51:37] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.03, 127.0.0.1:49323]
-[2019-05-11 12:51:38] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/group/3/userlog 200 [0.13, 127.0.0.1:49323]
-[2019-05-11 12:51:38] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/group/3/userlog/ 200 [0.04, 127.0.0.1:49323]
-[2019-05-11 12:51:38] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/userlog/ 200 [0.24, 127.0.0.1:49323]
-[2019-05-11 12:51:41] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/group/3/users2 200 [0.01, 127.0.0.1:49323]
-[2019-05-11 12:51:41] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.09, 127.0.0.1:49323]
-[2019-05-11 12:51:43] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.10, 127.0.0.1:49323]
-[2019-05-11 12:54:03] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.22, 127.0.0.1:49386]
-[2019-05-11 12:54:03] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.29, 127.0.0.1:49385]
-[2019-05-11 12:54:04] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.23, 127.0.0.1:49385]
-[2019-05-11 12:56:58] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.11, 127.0.0.1:49417]
-[2019-05-11 12:56:58] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.27, 127.0.0.1:49416]
-[2019-05-11 12:56:58] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.12, 127.0.0.1:49417]
-[2019-05-11 12:57:58] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.08, 127.0.0.1:49417]
-[2019-05-11 12:57:58] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.18, 127.0.0.1:49416]
-[2019-05-11 12:57:58] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.13, 127.0.0.1:49417]
-[2019-05-11 13:04:41] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.09, 127.0.0.1:49481]
-[2019-05-11 13:04:41] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.10, 127.0.0.1:49482]
-[2019-05-11 13:04:41] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.14, 127.0.0.1:49481]
-[2019-05-11 13:04:55] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.45, 127.0.0.1:49482]
-[2019-05-11 13:04:56] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.51, 127.0.0.1:49481]
-[2019-05-11 13:04:56] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.16, 127.0.0.1:49481]
-[2019-05-11 13:07:03] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.09, 127.0.0.1:49533]
-[2019-05-11 13:07:03] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.13, 127.0.0.1:49534]
-[2019-05-11 13:07:03] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.10, 127.0.0.1:49533]
-[2019-05-11 13:07:16] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.10, 127.0.0.1:49558]
-[2019-05-11 13:07:16] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.15, 127.0.0.1:49557]
-[2019-05-11 13:07:16] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.20, 127.0.0.1:49557]
-[2019-05-11 13:07:21] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.19, 127.0.0.1:49557]
-[2019-05-11 13:07:21] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/group/3 200 [0.05, 127.0.0.1:49564]
-[2019-05-11 13:07:21] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.20, 127.0.0.1:49558]
-[2019-05-11 13:07:21] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/group/3/users 200 [0.01, 127.0.0.1:49558]
-[2019-05-11 13:07:21] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3 200 [0.11, 127.0.0.1:49557]
-[2019-05-11 13:07:21] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users 200 [0.15, 127.0.0.1:49558]
-[2019-05-11 13:07:23] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.24, 127.0.0.1:49557]
-[2019-05-11 13:07:25] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.13, 127.0.0.1:49557]
-[2019-05-11 13:07:26] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.07, 127.0.0.1:49557]
-[2019-05-11 13:07:28] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.07, 127.0.0.1:49557]
-[2019-05-11 13:07:28] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.08, 127.0.0.1:49558]
-[2019-05-11 13:07:28] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.07, 127.0.0.1:49557]
-[2019-05-11 13:08:13] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.10, 127.0.0.1:49558]
-[2019-05-11 13:08:13] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.13, 127.0.0.1:49557]
-[2019-05-11 13:08:13] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.06, 127.0.0.1:49557]
-[2019-05-11 13:08:34] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.20, 127.0.0.1:49557]
-[2019-05-11 13:08:34] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.21, 127.0.0.1:49558]
-[2019-05-11 13:08:34] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.08, 127.0.0.1:49557]
-[2019-05-11 13:09:11] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.14, 127.0.0.1:49558]
-[2019-05-11 13:09:11] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.17, 127.0.0.1:49557]
-[2019-05-11 13:09:12] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.20, 127.0.0.1:49557]
-[2019-05-11 13:17:54] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.23, 127.0.0.1:49651]
-[2019-05-11 13:17:55] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.29, 127.0.0.1:49650]
-[2019-05-11 13:17:55] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.18, 127.0.0.1:49650]
-[2019-05-11 13:18:21] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.12, 127.0.0.1:49651]
-[2019-05-11 13:18:21] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.20, 127.0.0.1:49650]
-[2019-05-11 13:18:21] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.16, 127.0.0.1:49650]
-[2019-05-11 13:19:25] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.20, 127.0.0.1:49691]
-[2019-05-11 13:19:25] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.19, 127.0.0.1:49692]
-[2019-05-11 13:19:26] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.21, 127.0.0.1:49691]
-[2019-05-11 13:19:54] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.16, 127.0.0.1:49691]
-[2019-05-11 13:19:54] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.16, 127.0.0.1:49692]
-[2019-05-11 13:19:55] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.20, 127.0.0.1:49691]
-[2019-05-11 13:20:27] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.19, 127.0.0.1:49691]
-[2019-05-11 13:20:27] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.21, 127.0.0.1:49692]
-[2019-05-11 13:20:28] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.13, 127.0.0.1:49691]
-[2019-05-11 13:20:57] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.08, 127.0.0.1:49692]
-[2019-05-11 13:20:57] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.09, 127.0.0.1:49691]
-[2019-05-11 13:20:57] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.07, 127.0.0.1:49691]
-[2019-05-11 13:22:19] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.06, 127.0.0.1:49755]
-[2019-05-11 13:22:19] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.14, 127.0.0.1:49754]
-[2019-05-11 13:22:20] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.23, 127.0.0.1:49754]
-[2019-05-11 13:22:45] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.11, 127.0.0.1:49755]
-[2019-05-11 13:22:45] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.14, 127.0.0.1:49754]
-[2019-05-11 13:22:46] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.09, 127.0.0.1:49754]
-[2019-05-11 13:23:31] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.17, 127.0.0.1:49754]
-[2019-05-11 13:23:31] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.25, 127.0.0.1:49755]
-[2019-05-11 13:23:32] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.09, 127.0.0.1:49754]
-[2019-05-11 13:24:00] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.15, 127.0.0.1:49755]
-[2019-05-11 13:24:00] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.18, 127.0.0.1:49754]
-[2019-05-11 13:24:00] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.21, 127.0.0.1:49754]
-[2019-05-11 13:24:22] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.10, 127.0.0.1:49754]
-[2019-05-11 13:24:23] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.15, 127.0.0.1:49755]
-[2019-05-11 13:24:23] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.18, 127.0.0.1:49754]
-[2019-05-11 13:25:09] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.20, 127.0.0.1:49755]
-[2019-05-11 13:25:09] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.22, 127.0.0.1:49754]
-[2019-05-11 13:25:09] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.11, 127.0.0.1:49754]
-[2019-05-11 13:25:49] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.09, 127.0.0.1:49754]
-[2019-05-11 13:25:49] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.23, 127.0.0.1:49755]
-[2019-05-11 13:25:49] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.09, 127.0.0.1:49754]
-[2019-05-11 13:26:10] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.16, 127.0.0.1:49754]
-[2019-05-11 13:26:10] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.18, 127.0.0.1:49755]
-[2019-05-11 13:26:10] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.18, 127.0.0.1:49754]
-[2019-05-11 13:26:27] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.14, 127.0.0.1:49754]
-[2019-05-11 13:26:27] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.16, 127.0.0.1:49755]
-[2019-05-11 13:26:27] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.09, 127.0.0.1:49754]
-[2019-05-11 13:27:38] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.20, 127.0.0.1:49895]
-[2019-05-11 13:27:38] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.19, 127.0.0.1:49896]
-[2019-05-11 13:27:38] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.35, 127.0.0.1:49895]
-[2019-05-11 13:30:01] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.29, 127.0.0.1:49929]
-[2019-05-11 13:30:01] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.39, 127.0.0.1:49928]
-[2019-05-11 13:30:01] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.16, 127.0.0.1:49928]
-[2019-05-11 13:30:16] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.12, 127.0.0.1:49928]
-[2019-05-11 13:30:16] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.05, 127.0.0.1:49941]
-[2019-05-11 13:30:24] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.08, 127.0.0.1:49928]
-[2019-05-11 13:30:26] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.10, 127.0.0.1:49928]
-[2019-05-11 13:30:30] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.22, 127.0.0.1:49928]
-[2019-05-11 13:30:34] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.08, 127.0.0.1:49928]
-[2019-05-11 13:30:36] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.07, 127.0.0.1:49928]
-[2019-05-11 13:32:36] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users 200 [0.19, 127.0.0.1:49961]
-[2019-05-11 13:32:36] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.32, 127.0.0.1:49960]
-[2019-05-11 13:32:36] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.36, 127.0.0.1:49959]
-[2019-05-11 13:32:36] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3 200 [0.40, 127.0.0.1:49958]
-[2019-05-11 13:32:38] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.10, 127.0.0.1:49960]
-[2019-05-11 13:32:43] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.03, 127.0.0.1:49960]
-[2019-05-11 13:32:44] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.09, 127.0.0.1:49960]
-[2019-05-11 13:33:24] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.20, 127.0.0.1:49959]
-[2019-05-11 13:33:24] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.19, 127.0.0.1:49958]
-[2019-05-11 13:33:24] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users 200 [0.20, 127.0.0.1:49961]
-[2019-05-11 13:33:25] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3 200 [0.24, 127.0.0.1:49960]
-[2019-05-11 13:34:40] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.14, 127.0.0.1:49991]
-[2019-05-11 13:34:40] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users 200 [0.19, 127.0.0.1:49993]
-[2019-05-11 13:34:40] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.22, 127.0.0.1:49992]
-[2019-05-11 13:34:40] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3 200 [0.24, 127.0.0.1:49990]
-[2019-05-11 13:34:43] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.10, 127.0.0.1:49992]
-[2019-05-11 13:34:43] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.07, 127.0.0.1:49992]
-[2019-05-11 13:35:25] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.14, 127.0.0.1:49992]
-[2019-05-11 13:35:25] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.15, 127.0.0.1:49992]
-[2019-05-11 13:35:28] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users 200 [0.11, 127.0.0.1:49993]
-[2019-05-11 13:35:28] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.15, 127.0.0.1:49990]
-[2019-05-11 13:35:28] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.21, 127.0.0.1:49991]
-[2019-05-11 13:35:28] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3 200 [0.28, 127.0.0.1:49992]
-[2019-05-11 13:35:30] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.04, 127.0.0.1:49990]
-[2019-05-11 13:35:30] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.07, 127.0.0.1:49992]
-[2019-05-11 13:36:40] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.86, 127.0.0.1:50061]
-[2019-05-11 13:36:40] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.35, 127.0.0.1:50061]
-[2019-05-11 13:36:42] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3 200 [0.12, 127.0.0.1:50061]
-[2019-05-11 13:36:42] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.17, 127.0.0.1:50067]
-[2019-05-11 13:36:42] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.20, 127.0.0.1:50068]
-[2019-05-11 13:36:42] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users 200 [0.19, 127.0.0.1:50069]
-[2019-05-11 13:36:43] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.11, 127.0.0.1:50068]
-[2019-05-11 13:36:43] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.11, 127.0.0.1:50061]
-[2019-05-11 13:39:50] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.11, 127.0.0.1:50152]
-[2019-05-11 13:39:50] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.08, 127.0.0.1:50152]
-[2019-05-11 13:40:13] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users 200 [0.17, 127.0.0.1:50161]
-[2019-05-11 13:40:13] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.19, 127.0.0.1:50159]
-[2019-05-11 13:40:13] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.19, 127.0.0.1:50160]
-[2019-05-11 13:40:13] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3 200 [0.21, 127.0.0.1:50152]
-[2019-05-11 13:40:14] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.10, 127.0.0.1:50160]
-[2019-05-11 13:40:14] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.07, 127.0.0.1:50152]
-[2019-05-11 13:42:31] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.13, 127.0.0.1:50176]
-[2019-05-11 13:42:31] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.08, 127.0.0.1:50176]
-[2019-05-11 13:42:39] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.12, 127.0.0.1:50182]
-[2019-05-11 13:42:39] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.13, 127.0.0.1:50184]
-[2019-05-11 13:42:39] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3 200 [0.18, 127.0.0.1:50176]
-[2019-05-11 13:42:39] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users 200 [0.15, 127.0.0.1:50186]
-[2019-05-11 13:42:41] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.15, 127.0.0.1:50184]
-[2019-05-11 13:42:41] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.07, 127.0.0.1:50176]
-[2019-05-11 13:43:05] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.06, 127.0.0.1:50176]
-[2019-05-11 13:43:06] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.07, 127.0.0.1:50176]
-[2019-05-11 13:43:20] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users 200 [0.19, 127.0.0.1:50186]
-[2019-05-11 13:43:20] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.23, 127.0.0.1:50182]
-[2019-05-11 13:43:20] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.22, 127.0.0.1:50176]
-[2019-05-11 13:43:20] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3 200 [0.30, 127.0.0.1:50184]
-[2019-05-11 13:43:21] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.03, 127.0.0.1:50176]
-[2019-05-11 13:43:21] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.06, 127.0.0.1:50176]
-[2019-05-11 13:43:36] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.11, 127.0.0.1:50253]
-[2019-05-11 13:43:36] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.10, 127.0.0.1:50253]
-[2019-05-11 13:43:38] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.24, 127.0.0.1:50266]
-[2019-05-11 13:43:38] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users 200 [0.26, 127.0.0.1:50267]
-[2019-05-11 13:43:38] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.30, 127.0.0.1:50265]
-[2019-05-11 13:43:38] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3 200 [0.34, 127.0.0.1:50253]
-[2019-05-11 13:43:39] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.28, 127.0.0.1:50266]
-[2019-05-11 13:43:39] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.10, 127.0.0.1:50253]
-[2019-05-11 13:44:38] INFO [django.channels.server.log_action:141] HTTP GET / 200 [1.27, 127.0.0.1:50282]
-[2019-05-11 13:44:38] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/main.css 200 [0.14, 127.0.0.1:50289]
-[2019-05-11 13:44:38] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/style.css 200 [0.23, 127.0.0.1:50286]
-[2019-05-11 13:44:38] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/newstylenew.css 200 [0.05, 127.0.0.1:50289]
-[2019-05-11 13:44:38] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js 200 [0.33, 127.0.0.1:50282]
-[2019-05-11 13:44:38] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/newstyle2.css 200 [0.26, 127.0.0.1:50288]
-[2019-05-11 13:44:38] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/css/style.css 200 [0.36, 127.0.0.1:50287]
-[2019-05-11 13:44:38] INFO [django.channels.server.log_action:141] HTTP GET /static/Projects/custom/css/projects.css 200 [0.15, 127.0.0.1:50286]
-[2019-05-11 13:44:38] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/css/bootstrap.min.css 200 [0.39, 127.0.0.1:50285]
-[2019-05-11 13:44:38] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css 200 [0.27, 127.0.0.1:50289]
-[2019-05-11 13:44:38] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/bootstrap.min.js 200 [0.29, 127.0.0.1:50282]
-[2019-05-11 13:44:38] INFO [django.channels.server.log_action:141] HTTP GET /static/js/waterbubble.js 200 [0.25, 127.0.0.1:50286]
-[2019-05-11 13:44:39] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/fonts/fontsstylesheet.css 200 [0.27, 127.0.0.1:50285]
-[2019-05-11 13:44:39] INFO [django.channels.server.log_action:141] HTTP GET /static/faq/js/main.js 200 [0.46, 127.0.0.1:50287]
-[2019-05-11 13:44:39] INFO [django.channels.server.log_action:141] HTTP GET /static/faq/js/jquery.mobile.custom.min.js 200 [0.53, 127.0.0.1:50288]
-[2019-05-11 13:44:39] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/logo.png 200 [0.25, 127.0.0.1:50289]
-[2019-05-11 13:44:39] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/get1.png 200 [0.06, 127.0.0.1:50289]
-[2019-05-11 13:44:39] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/LaptopBook.png 200 [0.33, 127.0.0.1:50286]
-[2019-05-11 13:44:39] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/get2.png 200 [0.16, 127.0.0.1:50288]
-[2019-05-11 13:44:39] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/get3.png 200 [0.20, 127.0.0.1:50287]
-[2019-05-11 13:44:39] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/homelive.png 200 [0.35, 127.0.0.1:50285]
-[2019-05-11 13:44:39] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/jobphone.png 200 [0.41, 127.0.0.1:50282]
-[2019-05-11 13:44:39] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/client3.png 200 [0.08, 127.0.0.1:50287]
-[2019-05-11 13:44:39] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/hq1.png 200 [0.10, 127.0.0.1:50286]
-[2019-05-11 13:44:39] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/client1.png 200 [0.03, 127.0.0.1:50282]
-[2019-05-11 13:44:39] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/testi.png 200 [0.15, 127.0.0.1:50289]
-[2019-05-11 13:44:39] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/hq2.png 200 [0.13, 127.0.0.1:50288]
-[2019-05-11 13:44:39] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/client2.png 200 [0.13, 127.0.0.1:50285]
-[2019-05-11 13:44:39] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validate.js 304 [0.01, 127.0.0.1:50286]
-[2019-05-11 13:44:39] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js 304 [0.06, 127.0.0.1:50286]
-[2019-05-11 13:44:40] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/jobban2.png 200 [0.18, 127.0.0.1:50286]
-[2019-05-11 13:44:40] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/homebanner.png 304 [0.08, 127.0.0.1:50286]
-[2019-05-11 13:44:40] INFO [django.channels.server.log_action:141] HTTP GET /static/favicon.ico 200 [0.11, 127.0.0.1:50286]
-[2019-05-11 13:44:42] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.03, 127.0.0.1:50286]
-[2019-05-11 13:44:42] INFO [django.channels.server.log_action:141] HTTP GET /login/ 200 [0.26, 127.0.0.1:50286]
-[2019-05-11 13:44:42] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/styles.css 200 [0.03, 127.0.0.1:50286]
-[2019-05-11 13:44:43] WARNING [django.request.get_response:93] Not Found: /favicon.ico
-[2019-05-11 13:44:48] INFO [django.channels.server.log_action:147] HTTP POST /login/ 302 [1.35, 127.0.0.1:50289]
-[2019-05-11 13:44:48] INFO [django.channels.server.log_action:141] HTTP GET /courses/userinterest 200 [0.17, 127.0.0.1:50289]
-[2019-05-11 13:44:48] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/css/bootstrap.min.css 304 [0.05, 127.0.0.1:50289]
-[2019-05-11 13:44:48] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/css/newstyle2.css 304 [0.06, 127.0.0.1:50287]
-[2019-05-11 13:44:48] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/css/newstylenew.css 304 [0.05, 127.0.0.1:50298]
-[2019-05-11 13:44:48] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/style.css 304 [0.07, 127.0.0.1:50288]
-[2019-05-11 13:44:48] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/css/main.css 304 [0.08, 127.0.0.1:50282]
-[2019-05-11 13:44:48] INFO [django.channels.server.log_action:145] HTTP GET /static/Projects/custom/css/projects.css 304 [0.06, 127.0.0.1:50289]
-[2019-05-11 13:44:48] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css 304 [0.03, 127.0.0.1:50287]
-[2019-05-11 13:44:48] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/css/style.css 304 [0.11, 127.0.0.1:50285]
-[2019-05-11 13:44:49] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/ppt.png 200 [0.41, 127.0.0.1:50285]
-[2019-05-11 13:44:49] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/button-left.png 200 [0.43, 127.0.0.1:50298]
-[2019-05-11 13:44:49] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/icon1.png 200 [0.43, 127.0.0.1:50289]
-[2019-05-11 13:44:49] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/amazons.png 200 [0.45, 127.0.0.1:50282]
-[2019-05-11 13:44:49] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/logout1.png 200 [0.46, 127.0.0.1:50288]
-[2019-05-11 13:44:49] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/lin-logo.png 200 [0.47, 127.0.0.1:50287]
-[2019-05-11 13:44:49] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/csecurity.png 200 [0.07, 127.0.0.1:50282]
-[2019-05-11 13:44:49] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/jjava.png 200 [0.10, 127.0.0.1:50298]
-[2019-05-11 13:44:49] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/biz.png 200 [0.08, 127.0.0.1:50288]
-[2019-05-11 13:44:49] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs//list-bg.png 304 [0.11, 127.0.0.1:50298]
-[2019-05-11 13:44:49] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/dba.png 200 [0.17, 127.0.0.1:50287]
-[2019-05-11 13:44:49] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/py.png 200 [0.13, 127.0.0.1:50288]
-[2019-05-11 13:44:49] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/ajs.png 200 [0.25, 127.0.0.1:50289]
-[2019-05-11 13:44:49] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/rchsaa.png 200 [0.31, 127.0.0.1:50285]
-[2019-05-11 13:44:49] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.37, 127.0.0.1:50287]
-[2019-05-11 13:44:52] INFO [django.channels.server.log_action:141] HTTP GET /groupCourse/ 200 [0.17, 127.0.0.1:50289]
-[2019-05-11 13:44:53] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/groupicon3.png 200 [0.10, 127.0.0.1:50289]
-[2019-05-11 13:44:53] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/groupicon2.png 200 [0.16, 127.0.0.1:50288]
-[2019-05-11 13:44:53] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/groupicon1.png 200 [0.24, 127.0.0.1:50285]
-[2019-05-11 13:44:53] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/groupclass.png 304 [0.04, 127.0.0.1:50288]
-[2019-05-11 13:44:53] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/groupclassbot.png 304 [0.07, 127.0.0.1:50285]
-[2019-05-11 13:44:53] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/gclass1.png 200 [0.14, 127.0.0.1:50289]
-[2019-05-11 13:45:03] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/confirm_key/3 200 [0.02, 127.0.0.1:50306]
-[2019-05-11 13:45:04] INFO [django.channels.server.log_action:141] HTTP POST /sso_api/confirm_key/3 202 [0.41, 127.0.0.1:50307]
-[2019-05-11 13:45:04] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.26, 127.0.0.1:50306]
-[2019-05-11 13:45:04] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3 200 [0.28, 127.0.0.1:50307]
-[2019-05-11 13:45:04] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.27, 127.0.0.1:50312]
-[2019-05-11 13:45:04] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users 200 [0.40, 127.0.0.1:50313]
-[2019-05-11 13:45:08] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.04, 127.0.0.1:50312]
-[2019-05-11 13:45:08] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.23, 127.0.0.1:50312]
-[2019-05-11 13:45:31] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.03, 127.0.0.1:50312]
-[2019-05-11 13:45:31] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.09, 127.0.0.1:50312]
-[2019-05-11 13:45:33] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users 200 [0.19, 127.0.0.1:50313]
-[2019-05-11 13:45:33] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.25, 127.0.0.1:50306]
-[2019-05-11 13:45:33] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.24, 127.0.0.1:50307]
-[2019-05-11 13:45:33] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3 200 [0.30, 127.0.0.1:50312]
-[2019-05-11 13:45:34] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.04, 127.0.0.1:50307]
-[2019-05-11 13:45:34] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.08, 127.0.0.1:50312]
-[2019-05-11 13:45:36] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.23, 127.0.0.1:50312]
-[2019-05-11 13:45:36] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users 200 [0.24, 127.0.0.1:50313]
-[2019-05-11 13:45:36] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.26, 127.0.0.1:50306]
-[2019-05-11 13:45:36] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3 200 [0.30, 127.0.0.1:50307]
-[2019-05-11 13:45:36] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.08, 127.0.0.1:50312]
-[2019-05-11 13:45:36] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.07, 127.0.0.1:50306]
-[2019-05-11 13:46:30] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.64, 127.0.0.1:50307]
-[2019-05-11 13:46:31] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.13, 127.0.0.1:50312]
-[2019-05-11 13:47:03] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users 200 [0.29, 127.0.0.1:50366]
-[2019-05-11 13:47:03] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.32, 127.0.0.1:50365]
-[2019-05-11 13:47:03] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.35, 127.0.0.1:50312]
-[2019-05-11 13:47:03] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3 200 [0.39, 127.0.0.1:50307]
-[2019-05-11 13:47:04] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.08, 127.0.0.1:50365]
-[2019-05-11 13:47:04] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.09, 127.0.0.1:50312]
-[2019-05-11 13:47:06] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.11, 127.0.0.1:50312]
-[2019-05-11 13:47:06] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.14, 127.0.0.1:50365]
-[2019-05-11 13:47:06] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users 200 [0.18, 127.0.0.1:50366]
-[2019-05-11 13:47:06] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3 200 [0.23, 127.0.0.1:50307]
-[2019-05-11 13:47:06] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.07, 127.0.0.1:50312]
-[2019-05-11 13:47:06] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.07, 127.0.0.1:50307]
-[2019-05-11 13:47:07] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3 200 [0.13, 127.0.0.1:50365]
-[2019-05-11 13:47:07] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.13, 127.0.0.1:50365]
-[2019-05-11 13:47:07] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/group/3/detail 200 [0.03, 127.0.0.1:50365]
-[2019-05-11 13:47:07] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.04, 127.0.0.1:50365]
-[2019-05-11 13:47:08] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/group/3/users 200 [0.04, 127.0.0.1:50388]
-[2019-05-11 13:47:08] INFO [django.channels.server.log_action:141] HTTP OPTIONS /sso_api/group/3/users2 200 [0.06, 127.0.0.1:50387]
-[2019-05-11 13:47:08] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3 200 [0.14, 127.0.0.1:50365]
-[2019-05-11 13:47:08] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.21, 127.0.0.1:50386]
-[2019-05-11 13:47:08] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users 200 [0.18, 127.0.0.1:50390]
-[2019-05-11 13:47:08] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.18, 127.0.0.1:50389]
-[2019-05-11 13:47:42] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.29, 127.0.0.1:50365]
-[2019-05-11 13:47:42] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3 200 [0.40, 127.0.0.1:50388]
-[2019-05-11 13:47:42] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.43, 127.0.0.1:50387]
-[2019-05-11 13:47:42] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users 200 [0.51, 127.0.0.1:50389]
-[2019-05-11 13:47:46] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.09, 127.0.0.1:50365]
-[2019-05-11 13:48:31] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.12, 127.0.0.1:50387]
-[2019-05-11 13:49:02] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.23, 127.0.0.1:50387]
-[2019-05-11 13:49:42] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.07, 127.0.0.1:50387]
-[2019-05-11 13:50:41] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.38, 127.0.0.1:50387]
-[2019-05-11 13:50:46] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.06, 127.0.0.1:50515]
-[2019-05-11 13:50:46] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.11, 127.0.0.1:50387]
-[2019-05-11 13:50:46] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.07, 127.0.0.1:50387]
-[2019-05-11 13:51:56] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.06, 127.0.0.1:50526]
-[2019-05-11 13:51:56] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.11, 127.0.0.1:50528]
-[2019-05-11 13:51:56] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3 200 [0.19, 127.0.0.1:50527]
-[2019-05-11 13:51:56] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users 200 [0.18, 127.0.0.1:50528]
-[2019-05-11 13:52:01] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.04, 127.0.0.1:50528]
-[2019-05-11 13:52:01] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.09, 127.0.0.1:50528]
-[2019-05-11 13:54:16] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.12, 127.0.0.1:50545]
-[2019-05-11 13:54:16] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3 200 [0.17, 127.0.0.1:50543]
-[2019-05-11 13:54:17] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.18, 127.0.0.1:50544]
-[2019-05-11 13:54:17] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users 200 [0.18, 127.0.0.1:50546]
-[2019-05-11 13:54:19] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.07, 127.0.0.1:50545]
-[2019-05-11 13:54:23] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.08, 127.0.0.1:50545]
-[2019-05-11 13:54:23] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.08, 127.0.0.1:50544]
-[2019-05-11 13:54:23] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.08, 127.0.0.1:50545]
-[2019-05-11 13:54:24] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.11, 127.0.0.1:50543]
-[2019-05-11 13:54:24] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.14, 127.0.0.1:50544]
-[2019-05-11 13:54:24] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3 200 [0.16, 127.0.0.1:50545]
-[2019-05-11 13:54:24] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users 200 [0.18, 127.0.0.1:50546]
-[2019-05-11 13:54:26] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.03, 127.0.0.1:50545]
-[2019-05-11 13:54:26] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.07, 127.0.0.1:50545]
-[2019-05-11 13:54:27] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.29, 127.0.0.1:50544]
-[2019-05-11 13:54:27] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users 200 [0.30, 127.0.0.1:50546]
-[2019-05-11 13:54:27] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3 200 [0.32, 127.0.0.1:50545]
-[2019-05-11 13:54:27] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.34, 127.0.0.1:50543]
-[2019-05-11 13:55:32] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users 200 [0.27, 127.0.0.1:50589]
-[2019-05-11 13:55:32] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3 200 [0.34, 127.0.0.1:50586]
-[2019-05-11 13:55:32] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.31, 127.0.0.1:50588]
-[2019-05-11 13:55:32] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.32, 127.0.0.1:50587]
-[2019-05-11 13:55:34] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.03, 127.0.0.1:50587]
-[2019-05-11 13:55:34] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.16, 127.0.0.1:50588]
-[2019-05-11 13:55:34] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.11, 127.0.0.1:50587]
-[2019-05-11 13:55:35] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users2 200 [0.16, 127.0.0.1:50586]
-[2019-05-11 13:55:35] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.19, 127.0.0.1:50587]
-[2019-05-11 13:55:35] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/users 200 [0.20, 127.0.0.1:50589]
-[2019-05-11 13:55:35] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3 200 [0.23, 127.0.0.1:50588]
-[2019-05-11 13:55:37] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.06, 127.0.0.1:50588]
-[2019-05-11 13:55:38] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.06, 127.0.0.1:50586]
-[2019-05-11 13:55:38] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.11, 127.0.0.1:50588]
-[2019-05-11 13:55:38] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.15, 127.0.0.1:50586]
-[2019-05-11 13:59:40] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.17, 127.0.0.1:50657]
-[2019-05-11 13:59:40] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.22, 127.0.0.1:50658]
-[2019-05-11 13:59:40] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.16, 127.0.0.1:50657]
-[2019-05-11 13:59:52] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.07, 127.0.0.1:50657]
-[2019-05-11 13:59:52] INFO [django.channels.server.log_action:141] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 200 [0.12, 127.0.0.1:50667]
-[2019-05-11 14:00:26] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/5 200 [0.20, 127.0.0.1:50657]
-[2019-05-11 14:00:26] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.20, 127.0.0.1:50658]
-[2019-05-11 14:00:26] INFO [django.channels.server.log_action:145] HTTP GET /media/chat_uploads/bitmoji-20190214100802_6nOuHNh.png 304 [0.04, 127.0.0.1:50667]
-[2019-05-11 14:00:26] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.30, 127.0.0.1:50657]
-[2019-05-11 14:00:30] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.09, 127.0.0.1:50657]
-[2019-05-11 14:02:52] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.28, 127.0.0.1:50715]
-[2019-05-11 14:02:52] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.29, 127.0.0.1:50714]
-[2019-05-11 14:02:52] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.18, 127.0.0.1:50714]
-[2019-05-11 14:03:05] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/user/ 200 [0.09, 127.0.0.1:50715]
-[2019-05-11 14:03:05] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/groups 200 [0.11, 127.0.0.1:50714]
-[2019-05-11 14:03:06] INFO [django.channels.server.log_action:141] HTTP GET /sso_api/group/3/detail 200 [0.06, 127.0.0.1:50714]
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\josh\Desktop\linuxjobber2\Django\Linuxjobber\home\views.py", line 1102, in contact_us
+    return render(request, 'home/contact_us.html',{'error':error, 'success':success})
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\engine.py", line 144, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\engine.py", line 126, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\loaders\base.py", line 30, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\base.py", line 156, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\base.py", line 194, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\loader_tags.py", line 266, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\loader_tags.py", line 209, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\defaulttags.py", line 951, in do_if
+    nodelist = parser.parse(('elif', 'else', 'endif'))
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\base.py", line 472, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\base.py", line 528, in invalid_block_tag
+    get_text_list(["'%s'" % p for p in parse_until], 'or'),
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 106: 'endblock', expected 'elif', 'else' or 'endif'. Did you forget to register or load this tag?
+[2019-05-10 19:53:41] ERROR [django.channels.server.log_action:154] HTTP POST /companys/contact 500 [25.15, 127.0.0.1:55541]
+[2019-05-10 19:53:49] WARNING [django.request.log_response:228] Not Found: /favicon.ico
+[2019-05-10 19:53:49] WARNING [django.channels.server.log_action:149] HTTP GET /favicon.ico 404 [0.12, 127.0.0.1:55576]
+[2019-05-10 19:58:49] ERROR [django.request.log_response:228] Internal Server Error: /companys/contact
+Traceback (most recent call last):
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\base.py", line 470, in parse
+    compile_func = self.tags[command]
+KeyError: 'endblock'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\josh\Desktop\linuxjobber2\Django\Linuxjobber\home\views.py", line 1102, in contact_us
+    return render(request, 'home/contact_us.html',{'error':error, 'success':success})
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\engine.py", line 144, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\engine.py", line 126, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\loaders\base.py", line 30, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\base.py", line 156, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\base.py", line 194, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\loader_tags.py", line 266, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\loader_tags.py", line 209, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\defaulttags.py", line 951, in do_if
+    nodelist = parser.parse(('elif', 'else', 'endif'))
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\base.py", line 472, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\base.py", line 528, in invalid_block_tag
+    get_text_list(["'%s'" % p for p in parse_until], 'or'),
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 105: 'endblock', expected 'elif', 'else' or 'endif'. Did you forget to register or load this tag?
+[2019-05-10 19:58:49] ERROR [django.channels.server.log_action:154] HTTP POST /companys/contact 500 [10.27, 127.0.0.1:55665]
+[2019-05-10 20:00:16] INFO [django.channels.server.log_action:141] HTTP GET / 200 [1.28, 127.0.0.1:55686]
+[2019-05-10 20:00:17] WARNING [django.request.log_response:228] Not Found: /images/icon5.png
+[2019-05-10 20:00:17] WARNING [django.channels.server.log_action:149] HTTP GET /images/icon5.png 404 [0.31, 127.0.0.1:55686]
+[2019-05-10 20:00:20] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.01, 127.0.0.1:55686]
+[2019-05-10 20:00:25] ERROR [django.request.log_response:228] Internal Server Error: /companys/contact
+Traceback (most recent call last):
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\template\base.py", line 470, in parse
+    compile_func = self.tags[command]
+KeyError: 'endblock'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\josh\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django-2.1.5-py3.6.egg\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+
