@@ -25,14 +25,14 @@
 
 
 
-<div class="ellip">
-  <img [src]="user.profile_img" class="ellipse"  alt="" >
-</div>
+
+
 <div class="setup">
+  <img [src]="user.profile_img" class="ellipse"  alt="" >
 <p class="rite">{{ user.first_name }} {{ user.last_name }}</p>
-<span style="font-size: 13px; margin-left:4px; text-align: center;">{{ user.email }}</span><br>
-<a class="hg" (click)="logout()">LOGOUT</a><br><br><br>
-<a  [routerLink]="['/classroom']">Courses</a><br>
+<p class="rite" style="font-size: 13px;">{{ user.email }}</p>
+<a (click)="logout()">LOGOUT</a><br><br><br>
+<a  [routerLink]="['./list']">Courses</a><br>
 <a [routerLink]="['./profile']" >Profile</a><br>
 <a [routerLink]="['./attendance']">Attendance</a><br>
 <a [routerLink]="['./students']" >Students</a>
@@ -40,6 +40,7 @@
 
 
 <div class="rectangle">
+
 </div>
 
 

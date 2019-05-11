@@ -23,9 +23,9 @@ export class AuthGuard implements CanActivate {
       }
       else {
         const hash = route.queryParamMap.get('hash');
-        if (hash){
+        if(hash){
           const group_id=route.params['group_id'];
-          if( this.dataservice.sessionSet(hash,group_id)){
+          if(this.dataservice.sessionSet(hash,group_id)){
             return true
           }
         }

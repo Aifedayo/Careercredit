@@ -1,5 +1,4 @@
 /* @import "../style.css"; */
-
 img.img-responsive{
   height:50px;
 }
@@ -80,59 +79,60 @@ color: rgba(255, 255, 255, 0.8);
   text-align: center;
 }
 .setup{
-  margin-top: 230px;
   display: inline-block;
   align-items: center;
-  margin-left: 100px;
-  align-content: center;
+  margin-top:75px;
+  margin-left: 75px;
+  /* align-content: center; */
+  width:inherit;
+  height:inherit;
 
  }
- a{
+ .setup a{
  text-decoration: none;
  font-family:'Roboto',sans-serif;
  font-style: normal;
  font-weight: 500;
  font-size: 16px;
+ text-align: left;
  line-height: 16px;
- /* identical to box height */
- /* display: flex; */
- /* align-items: center; */
-
  color: rgba(0, 0, 0, 0.8);
  }
- .hg{
-   font-size: 10px;
-  margin-left: 60px;
+
+
+.setup a:first-of-type
+   {
+     font-size: 10px;
+    margin-left: 40%;
+    text-align: center;
+   padding-bottom: 5px;
+   border-bottom:2px black solid;}
+ 
+ 
+   .rite{
+  font-family:'Roboto',sans-serif;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 21px;
   text-align: center;
-  padding-bottom: 5px;
-   border-bottom:2px black solid;
- }
- .rite{
-font-family:'Roboto',sans-serif;
-font-style: normal;
-font-weight: 500;
-font-size: 18px;
-line-height: 21px;
-text-align: center;
-color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.8);
 }
 .ellipse{
-  position: absolute;
   width: 118px;
   height: 118px;
-  left: 120px;
-  top: 170px;
   border-radius: 118px;
-border: 1px rgb(15, 15, 15) solid;
-background: #FFFFFF;
-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+  align-self: center;
+  margin-left: 10%;
+  margin-bottom: 20px;
+  border: 1px rgb(15, 15, 15) solid;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
   }
 .rectangle{/* position: absolute; */
-  width: 920px;
+  width: inherit;
   height: inherit;
-  margin-left: 320px;
+  margin-left: 22%;
   margin-top:-370px;
-  /* padding: 0px 0px 40px 10px; */
 
   background: transparent;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);

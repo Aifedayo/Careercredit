@@ -1,0 +1,31 @@
+<main class="rectangle"  style="margin-left:-2%;"> 
+<p style="font-family: 'Roboto',san-serif;">Your Courses</p>
+
+  <a class="exit" (click)= "addcourse()"> ADD COURSE</a>
+  
+
+
+		<div class="row" style="" *ngFor="let course of courses$ |async">
+            
+              <div class="col-md col-xl">
+				<div class="panel panel-default" style="height: 150px;">
+					<div class="panel-body">
+						<div class="row">                
+								<h5 style="margin-top: -2px;  color: rgba(0, 0, 0, 0.8);">{{ course.name }}</h5><br>
+                                    <ul class="nav nav-pills">
+                                        <li *ngIf="course.course.topics?.length as l">Course Videos: <b>{{  l}} </b> </li>
+                                        <li style="margin-bottom: -2px;">Course dates: <b>{{ course.start_date }} - {{ course.end_date }}</b></li>
+                            </ul>
+                            <br>
+                                    <a class="classroom" [routerLink]="['/classroom',course.id]" style="color: black">Go to Class</a>
+							</div>
+
+
+
+						</div>
+                   
+                </div>
+            </div>
+          
+        </div>
+</main>

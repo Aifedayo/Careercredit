@@ -7,10 +7,12 @@ import {AdminGuard} from "./admin.guard";
 import {StudentsComponent} from "./students/students.component";
 import {AttendanceComponent} from "./attendance/attendance.component";
 import {SettingsComponent} from "./settings/settings.component";
+import {ListComponent} from "./list/list.component";
 
 const routes: Routes = [
   {path:'dashboard',component:ContentComponent,canActivate:[AuthGuard],
     children:[
+      {path:'list',component:ListComponent},
       {path:'profile',component:ProfileComponent},
       {path:'settings',component:SettingsComponent, canActivate:[AdminGuard]},
       {path:'attendance',component:AttendanceComponent, canActivate:[AdminGuard]},
