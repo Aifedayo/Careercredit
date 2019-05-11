@@ -1,17 +1,16 @@
+
 import { Component, OnInit } from '@angular/core';
 import {ApiService} from "../../share/api.service";
 import {Observable} from "rxjs/index";
 import {ClassModel} from "../../share/class-model";
-
-
 import {DataService} from "../../data.service";
 
 @Component({
-  selector: 'app-course-list',
-  templateUrl: './course-list.component.html',
-  styleUrls: ['./course-list.component.css']
+  selector: 'app-list',
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.css']
 })
-export class CourseListComponent implements OnInit {
+export class ListComponent implements OnInit {
 
   public courses$:Observable<ClassModel[]>;
   public username:any;

@@ -112,7 +112,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': config('DATABASE_NAME', 'linuxjobber'),  # linuxjb
         'USER': config('DATABASE_USER', 'root'),  # linuxjobber
-        'PASSWORD': config('DATABASE_PASSWORD', 'admin'),  # linuxjobber
+        'PASSWORD': config('DATABASE_PASSWORD', ''),  # linuxjobber
         'HOST': config('DATABASE_HOST', 'localhost'),
         'PORT': config('DATABASE_PORT', '3306'),
 
@@ -136,6 +136,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+
 
 LOGGING = {
     'version': 1,
@@ -264,10 +266,12 @@ EMAIL_USE_TLS = True
 
 
 
-
 STRIPE_PUBLIC_KEY = "pk_test_1zBTca83q29gl9iwRw1oIBvD"
 STRIPE_SECRET_KEY = "Something"
 AUTH_USER_MODEL = 'users.CustomUser'
+
+
+
 
 # Channels
 ASGI_APPLICATION = 'Linuxjobber.routing.application'
