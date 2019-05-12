@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, RouterLinkActive } from '@angular/router';
 import {ContentComponent} from "./content/content.component";
 import {ProfileComponent} from "./profile/profile.component";
 import {AuthGuard} from "../auth.guard";
@@ -25,13 +25,13 @@ const routes: Routes = [
 
 
   ]
-
+ 
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule,RouterLinkActive]
 })
 
 export class DashboardRoutingModule { }

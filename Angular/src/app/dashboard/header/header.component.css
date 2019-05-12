@@ -7,6 +7,7 @@ img.img-responsive{
   height: 77px;
   background: #333333;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  font-family:'Roboto',sans-serif;
 }
 
 .lj-text {
@@ -14,6 +15,7 @@ img.img-responsive{
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
+  font-family:'Roboto',sans-serif;
 }
 
 .img-container{
@@ -138,19 +140,22 @@ color: rgba(255, 255, 255, 0.8);
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
   }
+ 
 
-
-
-
-  a:active{
-  color:red;
-  /* user-select:all; */
+/* 
+.setup > a:active{
+  color: aqua;
 }
-/* a:hover{
+.setup > .act-ive{
+  color:blue;
+} */
+.act-ive{
   color:yellow;
+}
 
-} */
-/* .ellip{
-  position: fixed;
 
-} */
+
+
+
+
+

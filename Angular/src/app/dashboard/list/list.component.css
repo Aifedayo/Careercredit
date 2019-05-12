@@ -139,8 +139,7 @@
     text-decoration: none;
     font-style: normal;
     font-size: 12px;
-    color: rgba(0, 0, 0, 0.8);
-    
+    margin-bottom: -1px;
   }
   .nav .row{
     font-family:'Roboto',sans-serif;
