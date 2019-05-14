@@ -148,9 +148,11 @@ color: rgba(255, 255, 255, 0.8);
 
 .fas{
   color:white;
+  margin-right: 3px;
 }
 .fas:active{
   color: black;
+  /* margin-right: 3px; */
 }
 .setup .link{
   margin-bottom: 20px;

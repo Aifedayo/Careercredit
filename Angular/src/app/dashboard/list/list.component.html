@@ -13,8 +13,8 @@
 						<div class="row">                
 								<p style="font-size: 17px; font-weight: bold;  margin-top: -2px;  color: rgba(0, 0, 0, 0.8);">{{ course.name }}</p><br>
                                     <ul class="nav nav-pills" style="margin-top: -7px;">
-                                        <li *ngIf="course.course.topics?.length as l">Course Videos: <b>{{  l}} </b> </li>
-                                        <li style="margin-bottom: -2px;">Course dates: <b>{{ course.start_date }} - {{ course.end_date }}</b></li>
+                                        <li style="color: grey;" *ngIf="course.course.topics?.length as l">Course Videos: <b style="color: black;">{{  l}} </b> </li>
+                                        <li style="margin-bottom: -2px; color: grey;">Course dates: <b style="color: black;">{{ course.start_date }} - {{ course.end_date }}</b></li>
                             </ul>
                                     
                                 
