@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery'
 import {ApiService} from "../../share/api.service";
+import {environment} from "../../../environments/environment";
 import {ClassModel} from "../../share/class-model";
 import {Observable} from "rxjs/index";
 import {UserModel} from "../../share/user-model";
@@ -25,13 +26,13 @@ export class HeaderComponent implements OnInit {
     $('#sclass').click(function(){
       $('.dropdown-trigger').show()
     });
-
-
   }
 
   ngOnInit() {
     this.group$ = this.apiService.getGroupInfo(sessionStorage.getItem('active_group'))
     this.user$ = this.apiService.getUserInfo()
+ 
+
 
   }
 

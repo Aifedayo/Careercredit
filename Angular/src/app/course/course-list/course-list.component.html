@@ -13,7 +13,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav vcenter">
-            <li class="active"><a href="#">Classroom Profile</a></li>
+            <li class="active" style="background: transparent;"><a href="#" style="font-size: 25px;">Course List</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right" style="margin-right: -100px">
             <li><a [routerLink]="['/dashboard/list']" style="margin-right: -100px">{{ username }}</a></li>
@@ -28,15 +28,15 @@
 		<div class="row" style="margin-right: -10%;" *ngFor="let course of courses$ |async">
             <a [routerLink]="['/classroom',course.id]" style="color: black">
               <div class="col-md col-xl">
-				<div class="panel panel-default" style="height: 187px;">
+				<div class="panel panel-default" style="height: 187px; box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);">
 					<div class="panel-body">
 						<div class="row">
                             <div class="col-md-2" style="padding: 0">
-								<img class="img-responsive" style="width: 150px;height: 150px;left: calc(50% - 150px/2 - 472px);" src="http://placehold.it/240x240" alt=""/>
+								<img class="img-responsive" style="width: 150px;height: 150px; border-radius: 5px; left: calc(50% - 150px/2 - 472px);" src="https://images.techhive.com/images/article/2014/07/linux-tux-100360806-large.jpg" alt=""/>
 							</div>
 							<div class="col-md-10">
-
-								<h4>{{ course.name }}</h4>
+              <p style="color: grey; font-weight: 500;"> Course </p>
+								<h4 style="margin-top: -5px;">{{ course.name }}</h4>
                                 <div style="height:55px ">
                             			<p >{{ course.description }} </p>
 
@@ -44,9 +44,9 @@
 
 
                                     <ul class="nav nav-pills ">
-                                        <li *ngIf="course.course.topics?.length as l">Course Videos: <b>{{  l}} </b> </li>
-                                        <li *ngIf="course.users?.length as len">Registered Students: <b>{{ len }}</b></li>
-                                        <li >Course dates: <b>{{ course.start_date }} - {{ course.end_date }}</b></li>
+                                        <li *ngIf="course.course.topics?.length as l" style="color: grey;">Course Videos: <b style="color: black;">{{  l}} </b> </li>
+                                        <li *ngIf="course.users?.length as len" style="color: grey;">Registered Students: <b style="color: black;">{{ len }}</b></li>
+                                        <li style="color: grey;">Course dates: <b style="color: black;">{{ course.start_date }} - {{ course.end_date }}</b></li>
 
                             </ul>
 

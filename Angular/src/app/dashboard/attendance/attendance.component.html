@@ -1,5 +1,5 @@
-<!-- <div class="rectangle"> -->
-<div *ngIf="user$|async as user">
+<div class="rectangle">
+<div style="margin:30px;" *ngIf="user$|async as user">
             <div class="col s6"><img class="responsive-img circle" [src]="user.profile_img" alt="">
             <p class="align-center"> {{ user.first_name }} {{ user.last_name }} </p>
             </div>
@@ -26,4 +26,4 @@
                 </div>
             </div>
 </div>
-<!-- </div> -->
+</div>
