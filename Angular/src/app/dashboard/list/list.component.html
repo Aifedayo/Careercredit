@@ -8,18 +8,20 @@
 		<div class="row" style="" *ngFor="let course of courses$ |async">
             
               <div class="col-md col-xl">
-				<div class="panel panel-default" style="height:   160px;">
+				<div class="panel panel-default" style="height: 135px; border-radius: 8px;">
 					<div class="panel-body">
 						<div class="row">                
-								<h5 style="margin-top: -2px;  color: rgba(0, 0, 0, 0.8);">{{ course.name }}</h5><br>
-                                    <ul class="nav nav-pills">
+								<p style="font-size: 17px; font-weight: bold;  margin-top: -2px;  color: rgba(0, 0, 0, 0.8);">{{ course.name }}</p><br>
+                                    <ul class="nav nav-pills" style="margin-top: -7px;">
                                         <li *ngIf="course.course.topics?.length as l">Course Videos: <b>{{  l}} </b> </li>
                                         <li style="margin-bottom: -2px;">Course dates: <b>{{ course.start_date }} - {{ course.end_date }}</b></li>
                             </ul>
                                     
-                                <br><br>
+                                
+                                <div class="text">
                              <a class="classroom" [routerLink]="['/classroom',course.id]" style="color: black; margin-right: 80px;">Go to Class</a> 
                              <a class="classroom" href='#' style="color: red">Remove Course</a> 
+                             </div>
                          
 							</div>
 

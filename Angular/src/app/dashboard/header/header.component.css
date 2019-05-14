@@ -105,10 +105,10 @@ color: rgba(255, 255, 255, 0.8);
 .setup a:first-of-type
    {
      font-size: 10px;
-    margin-left: 40%;
+    margin-left: 35%;
     text-align: center;
-   padding-bottom: 5px;
-   border-bottom:2px black solid;}
+   padding: 0px 7px 3px 7px;
+   border-bottom: 2px black solid;}
  
  
    .rite{
@@ -139,23 +139,25 @@ color: rgba(255, 255, 255, 0.8);
   background: transparent;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
-  }
- 
+}
 
-/* 
-.setup > a:active{
+/* .setup > .fas:active{
   color: aqua;
-}
-.setup > .act-ive{
-  color:blue;
 } */
-.act-ive{
-  color:yellow;
+  
+
+.fas{
+  color:white;
+}
+.fas:active{
+  color: black;
+}
+.setup .link{
+  margin-bottom: 20px;
 }
 
-
-
-
-
-
-
+/* a .fas:active{
+  display: block;
+} */
+/* i:active{
+  display: block;} */
