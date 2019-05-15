@@ -601,7 +601,7 @@ def devops_pay(request):
                 UserPayment.objects.create(user=request.user, amount=PRICE,
                                             trans_id = charge.id, pay_for = charge.description,)
 
-                send_mail('Linuxjobber AWS Full Training Subscription', 'Hello, you have successfuly subscribed for our DevOps Course package.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [request.user.email])
+                send_mail('Linuxjobber DevOps Course Subscription', 'Hello, you have successfuly subscribed for our DevOps Course package.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [request.user.email])
                 return render(request,'home/devops_pay_success.html')
             except SMTPException as error:
                 print(error)
