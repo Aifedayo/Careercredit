@@ -576,36 +576,50 @@ def devops_class(request):
 
 @login_required
 def devops_pay(request):
-    
-    amount= 1695 
+    PRICE = 1695
+    mode = "One Time Payment"
+    PAY_FOR = "DevOps Course"
+    DISCLMR = "Please note that you will be charged ${} upfront. However, you may cancel at any time within 14 days for a full refund. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ${} One Time".format(PRICE,PRICE)
     stripeset = StripePayment.objects.all()
-    # Stripe uses cent notation for amount 10 USD = 10 * 100
     stripe.api_key = stripeset[0].secretkey
-    context = { "stripe_key": stripeset[0].publickey,
-                   'amount': amount,
-                }
-    if request.method == "POST":
 
+    if request.method == "POST":
         stripe.api_key = stripeset[0].secretkey
         token = request.POST.get("stripeToken")
         try:
             charge = stripe.Charge.create(
-                amount= amount * 100,
+                amount=  PRICE * 100,
+                 # Stripe uses cent notation for amount: 10 USD = 10 * 100 
                 currency='usd',
-                description='DevOps Class Payment',
+                description='DevOps Course Payment',
                 source=token,
             )
-            UserPayment.objects.create(user=request.user, amount=amount,
-                                        trans_id = charge.id, pay_for = charge.description,
-                                        )
-            messages.success(request, 'You have paid for DevOps Class successfully.')
-            
-            return redirect("home:devops_class")
         except stripe.error.CardError as ce:
-            return False, ce
+                    return False, ce
+        else:
+            try:
+                UserPayment.objects.create(user=request.user, amount=PRICE,
+                                            trans_id = charge.id, pay_for = charge.description,)
 
-    
-    return render(request, 'home/devops_pay.html', context)
+                send_mail('Linuxjobber AWS Full Training Subscription', 'Hello, you have successfuly subscribed for our DevOps Course package.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [request.user.email])
+                return render(request,'home/devops_pay_success.html')
+            except SMTPException as error:
+                print(error)
+                return render(request,'home/devops_pay_success.html')
+            except Exception as error:
+                print(error)
+                return redirect("home:index")
+    else:
+        context = { "stripe_key": stripeset[0].publickey,
+                    'price': PRICE,
+                    'amount': str(PRICE)+'00',  
+                    'mode': mode,
+                    'PAY_FOR': PAY_FOR,
+                    'DISCLMR': DISCLMR,
+                    'courses' : get_courses(),
+                    'tools' : get_tools()}
+        return render(request, 'home/devops_pay.html', context)
+
 
 def workexperience(request):
     if request.user.is_authenticated:
@@ -1620,9 +1634,6 @@ def tryfree(request, sub_plan):
             DISCLMR = "Please note that you will be charged ${} upfront. However, you may cancel at any time within 14 days for a full refund. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ${} One Time".format(PRICE,PRICE)
             stripeset = StripePayment.objects.all()
             stripe.api_key = stripeset[0].secretkey
-            endpoint = stripe.WebhookEndpoint.create(
-                                 url='https://3a96fb68.ngrok.io/home/awsFull_pay_success',
-                                enabled_events=['charge.failed', 'charge.succeeded'],)
             if request.method == "POST":
                 token = request.POST.get("stripeToken")
                 try:
@@ -1644,7 +1655,7 @@ def tryfree(request, sub_plan):
                         user = request.user
                         user.role = 3
                         user.save()
-                        send_mail('Linuxjobber AWS Full Training Subscription', 'Hello, you have successfuly subscribed for our Full Training Plan package.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [request.user.email])
+                        send_mail('Linuxjobber AWS Full Training Subscription', 'Hello, you have successfuly subscribed for our AWS Full Training Plan package.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [request.user.email])
                         return render(request,'home/awsFull_pay_success.html')
                     except SMTPException as error:
                         print(error)
