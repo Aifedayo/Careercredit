@@ -29,7 +29,7 @@
 
 <div class="setup">
   <img [src]="user.profile_img" class="ellipse"  alt="" >
-<p class="rite" style="font-weight:900;">{{ user.first_name }} {{ user.last_name }}</p>
+<p class="rite" style="font-weight:bold;">{{ user.first_name }} {{ user.last_name }}</p>
 <p class="rite" style="font-size: 13px;">{{ user.email }}</p>
 <a (click)="logout()">LOGOUT</a><br><br><br>
 <a class="link"   [routerLink]="['./list']"     routerLinkActive="['active']"><i  class="fas fa-caret-right"></i>Courses</a><br>
