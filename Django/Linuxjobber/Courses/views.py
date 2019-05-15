@@ -108,7 +108,10 @@ def TopicNote(request, course_name, lab_no):
     else:
         template = 'courses/visitor.html'
 
-    Notes = Note.objects.get(Topic__topic_number=lab_no,Topic__course__course_title = course_name.replace("_", " "))
+    try:
+        Notes = Note.objects.get(Topic__topic_number=lab_no,Topic__course__course_title = course_name.replace("_", " "))
+    except Note.DoesNotExist:
+        return redirect("/")
     Topics = CourseTopic.objects.filter(course__course_title = course_name.replace("_", " "))
     Random = random.sample(list(Topics), 3)
     try:

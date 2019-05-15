@@ -1,6 +1,9 @@
 {% extends 'home/base.html' %}
 
 {% load staticfiles%}
+{% block title %}
+Contact Us | Linuxjobber
+{% endblock %}
 
 {% block content %}
 
@@ -50,6 +53,12 @@
 					<form method='post'>
 						{% csrf_token %}
 						<div class="row form-group">
+							{% if error != '' %}
+								<p>Your message was not sent please try again! </p>
+							{% endif %}
+							{% if success != '' %}
+								<p>Message sent!</p>
+							{% endif %}
 							<div class="col-md-6">
 								<!-- <label for="fname">First Name</label> -->
 								<input type="text" name='full_name' id="fname" class="form-control" placeholder="Your Full Name" required="">
@@ -86,12 +95,7 @@
 							</div>
 						</div>
 
-						{% if error != '' %}
-							<p>Your message was not sent please try again! </p>
-						{% endif %}
-						{% if success != '' %}
-							<p>Message sent!</p>
-						{% endif %}
+						
 						
 
 					</form>		

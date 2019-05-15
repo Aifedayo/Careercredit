@@ -14,7 +14,7 @@ export class ProfileComponent implements OnInit {
   public attendance$;
   constructor(private apiService:ApiService) {
 
-  }
+  } 
 
   ngOnInit() {
     this.apiService.getUserInfo(sessionStorage.getItem('user_id')).subscribe(data=>{
@@ -25,7 +25,6 @@ export class ProfileComponent implements OnInit {
       this.user.id=data['id']
     });
     this.attendance$=this.apiService.getUserAttendance(sessionStorage.getItem('active_group'))
-
   }
   fileChange(event): void {
         const fileList: FileList = event.target.files;

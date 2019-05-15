@@ -1,4 +1,5 @@
-<div *ngIf="user$|async as user">
+<div class="rectangle">
+<div style="margin:30px;" *ngIf="user$|async as user">
             <div class="col s6"><img class="responsive-img circle" [src]="user.profile_img" alt="">
             <p class="align-center"> {{ user.first_name }} {{ user.last_name }} </p>
             </div>
@@ -13,17 +14,16 @@
               <th>Video</th>
           </tr>
         </thead>
-
-
-                            <tr *ngFor="let item of attendance$|async">
+                      <tr *ngFor="let item of attendance$|async">
                                 <td >{{ item.timestamp }} </td>
                                 <td *ngIf="item.video_url !== null"><a [href]="url + item.video_url" download="_video">View</a> </td>
                                 <td *ngIf="item.video_url ==null"> -  </td>
-                            </tr>
+                        </tr>
 
                         </table>
 
                     </div>
                 </div>
             </div>
+</div>
 </div>

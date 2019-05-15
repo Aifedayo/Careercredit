@@ -2,6 +2,7 @@ import { CourseService } from './course/course.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { Router,RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatVideoModule } from 'mat-video';
@@ -32,17 +33,14 @@ import {DashboardModule} from "./dashboard/dashboard.module";
     BrowserModule,
     HttpClientModule,
     FormsModule,
-
-
-
     BrowserAnimationsModule,
     MatVideoModule,
     MaterializeModule,
     AppRoutingModule,
     CourseModule,
     OrderModule,
-    DashboardModule
-
+    DashboardModule,
+    RouterModule
   ],
   providers: [DataService,Location,ApiService],
   bootstrap: [AppComponent]

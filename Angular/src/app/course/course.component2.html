@@ -20,21 +20,21 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right" style="margin-right: -100px">
-            <li><a [routerLink]="['/dashboard']" class="head-text" style="margin-right: -100px">{{ username }}</a></li>
+            <li><a [routerLink]="['/dashboard/list']"class="head-text" style="margin-right: -100px">{{ username }}</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
 <div class="container-fluid all-field">
-  <div class="row" style="overflow: hidden;max-height:90vmin;height:100vmin;">
+  <div class="row">
     <div
       class="col-md-3 scroll-hide"
-      style="background-color:#353535; min-height: 80vh;"
+      style="background-color:#353535; min-height: 90vh; overflow: auto;"
     >
       <div class="top-head">
         <a [routerLink]="['/classroom']">
-          <i class="material-icons">arrow_back</i>
+          <i class="material-icons play-icon">arrow_back</i>
           <p>Your Courses</p>
         </a>
       </div>
@@ -57,31 +57,28 @@
               class="course_topic_area scroll-hide"
               style="max-height: 80vmin;overflow: auto;"
             >
-              <mat-list  style="padding: 16px 0;" dense>
-                <mat-list-item
+              <ul class="collection-list" style="padding: 16px 0;">
+                <li
                   class="video-list"
                   *ngFor="let topic of (topicsSub | async)"
                 >
-                  <i class="material-icons play-icon" mat-list-avatar  style="color: whitesmoke">play_arrow</i>
-                  <a class="vid" (click)="setTopic(topic.id)" >
-
+                  <a class (click)="setTopic(topic.id)" id="vid">
+                    <i class="material-icons play-icon">play_arrow</i>
                     <p class="vid-title">{{ topic.topic }}</p>
                   </a>
-                  <br style="clear:both" />
-                </mat-list-item>
-
-              </mat-list>
+                </li>
+              </ul>
             </div>
           </div>
           <div id="students" class="tab-pane fade">
-            <div *ngIf="(groupMembers$ | async) as members" class="scroll-hide" style="max-height: 80vmin;overflow: auto;">
+            <div *ngIf="(groupMembers$ | async) as members" class="scroll-hide">
               <ul
                 style="padding: 8px 0;"
                 *ngIf="(members | keyvalue) as m"
                 class="student-list"
               >
                 <li
-
+                  id="students"
                   style="color:darkgrey; font-weight: bolder; font-size: 15px; padding: 8px 0;"
                   *ngFor="let day of (m | orderBy: m.key:false)"
                 >
