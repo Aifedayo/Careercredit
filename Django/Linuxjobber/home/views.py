@@ -464,7 +464,7 @@ def check_permission_expiry(user):
         print(perms)
         for perm in perms: 
             #expired
-            if perm.expiry_date.replace(tzinfo=None) < datetime.datetime.now().replace(tzinfo=None):
+            if perm.expiry_date.replace(tzinfo=None) < datetime.now().replace(tzinfo=None):
                 perm.delete()
                 return True
             else:
