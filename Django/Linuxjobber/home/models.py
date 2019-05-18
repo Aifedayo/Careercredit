@@ -219,9 +219,9 @@ class TryFreeRecord(models.Model):
 
 class UserOrder(models.Model):
     user = models.ForeignKey(CustomUser, on_delete = models.CASCADE)
-    order_id = models.CharField(max_length = 200)
+    order_id = models.CharField(max_length = 50)
     order_amount = models.IntegerField(default=0)
-    subscription = models.CharField(max_length = 100)
+    subscription = models.CharField(max_length = 50)
     status = models.CharField(max_length = 20)
     paid_date = models.DateTimeField(default=timezone.now, null=False)
 
