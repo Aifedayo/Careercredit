@@ -841,9 +841,9 @@ def pay(request):
             UserPayment.objects.create(user=request.user, amount=PRICE,
                                         trans_id = charge.id, pay_for = charge.description,
                                         )
-            _, created = wepeoples.objects.update_or_create(user=request.user,types=None,current_position=None,
-                                                    person_type=None,state=None,income=None,relocation=None,
-                                                    last_verification=None,Paystub=None,graduation_date=None)
+            # wepeoples.objects.update_or_create(user=request.user,types=None,current_position=None,
+            #                                         person_type=None,state=None,income=None,relocation=None,
+            #                                         last_verification=None,Paystub=None,graduation_date=None)
             send_mail('Linuxjobber Work-Experience Program', 'Hello, you have succesfully paid for Linuxjobber work experience program,\n\nIf you havent signed the agreement, visit this link to do so: https://leif.org/commit?product_id=5b30461fe59b74063647c483#/.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe',settings.EMAIL_HOST_USER, [request.user.email])
             return render(request,'home/accepted.html')
         except Exception as error:
