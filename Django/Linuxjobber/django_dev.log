@@ -3422,3 +3422,6 @@ NameError: name 'amount' is not defined
 [2019-05-20 16:30:58] INFO [django.channels.server.log_action:147] HTTP POST /admin/login/?next=/admin/home/wepeoples/ 302 [1.48, 127.0.0.1:51655]
 [2019-05-20 16:30:58] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/ 200 [0.86, 127.0.0.1:51655]
 [2019-05-20 16:30:59] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.26, 127.0.0.1:51655]
+[2019-05-20 16:31:02] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/ 200 [0.47, 127.0.0.1:51655]
+[2019-05-20 16:31:11] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/userpayment/ 200 [0.41, 127.0.0.1:51668]
+[2019-05-20 16:31:11] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.24, 127.0.0.1:51668]
