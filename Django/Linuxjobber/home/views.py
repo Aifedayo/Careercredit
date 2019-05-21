@@ -6,6 +6,7 @@ import random, string
 from datetime import datetime
 import pytz
 import requests
+import datetime
 
 from smtplib import SMTPException
 from urllib.parse import urlparse
@@ -650,8 +651,8 @@ def workexpform(request):
         relocate = request.POST['relocate']
         date = request.POST['date']
 
-        today = datetime.datetime.now().strftime("%Y-%m-%d")
-        month6 = datetime.datetime.now() + timedelta(days=180)
+        today = datetime.now().strftime("%Y-%m-%d")
+        month6 = datetime.now() + timedelta(days=180)
         month6 = month6.strftime("%Y-%m-%d")
         
         if date < today:
@@ -710,7 +711,7 @@ def workexprofile(request):
         if request.POST['type'] == '1':
             last_verify = request.FILES['verify']
             weps.Paystub = last_verify
-            weps.last_verification = datetime.datetime.now()
+            weps.last_verification = datetime.now()
             weps.save(update_fields=["Paystub","last_verification"])
 
             link = settings.ENV_URL+weps.Paystub.url.strip("/")
