@@ -1,8 +1,14 @@
 from django.contrib import admin
 from django.urls import path, include, re_path
 from . import views
+from django.views.decorators.csrf import csrf_exempt
+import stripe
+
 
 app_name = 'home'
+
+webhookview = views.my_webhook_view
+
 
 jp_patterns = [
     path('', views.jobplacements, name='jobplacements'),
@@ -19,10 +25,13 @@ wp_patterns = [
 
 
 urlpatterns = [
+    # path("stripe/", include("djstripe.urls", namespace="djstripe")),
     path('', views.index, name='index'),
     path('admin',admin.site.urls),
+    path('webhooks',  csrf_exempt(webhookview), name='my_webhook_view'),
     path('login/', views.log_in, name = 'login'),
     path('signup', views.signup, name='signup'),
+    path('unsubscribe', views.unsubscribe, name='unsubscribe'),
     path('selfstudy', views.selfstudy, name='selfstudy'),
     path('linux/certification', views.linux_certification, name='linux_certification'),
     path('aws/certification', views.aws_certification, name='aws_certification'),
@@ -33,6 +42,7 @@ urlpatterns = [
     path('linux/full_training', views.linux_full_training, name='linux_full_training'),
     path('aws/full_training', views.aws_full_training, name='aws_full_training'),
     path('faq', views.faq, name='faq'),
+    path('ulocation', views.ulocation, name='ulocation'),
     path('workexperience/', include(wp_patterns)),
     path('gainexperience', views.gainexperience, name='gainexperience'),
     path('internships', views.internships, name='internships'),

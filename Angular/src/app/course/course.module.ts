@@ -18,6 +18,7 @@ import {SharedModule} from "../../shared/shared.module";
 import { VerificationComponent } from './verification/verification.component';
 import {AuthGuard} from "../auth.guard";
 import {VerificationGuard} from "../verification.guard";
+import { CourseListComponent } from './course-list/course-list.component';
 
 @NgModule({
   imports: [
@@ -39,6 +40,7 @@ import {VerificationGuard} from "../verification.guard";
     TopicVideoComponent,
     SafePipe,
     VerificationComponent,
+    CourseListComponent,
 
   ],
   providers: [AuthGuard,VerificationGuard],

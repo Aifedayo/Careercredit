@@ -1,40 +1,48 @@
-  <header class="scroll-hide" *ngIf="user$|async as user">
-      <div class="navbar-fixed">
-        <nav class="navbar white">
-          <div class="nav-wrapper"><a class="brand-logo grey-text text-darken-4">Settings</a>
-            <ul id="nav-mobile" class="right">
-              <li class="hide-on-med-and-down" *ngIf="group$|async as _group">{{ _group.name }} </li>
-              <li class="hide-on-med-and-down"><a class="dropdown-trigger" (click)="openClasses()" data-target="chat-dropdown" id="sclass" ><i class="material-icons">class</i></a></li>
-              <li><a  data-target="chat-dropdown" class="dropdown-trigger waves-effect"><i class="material-icons">settings</i></a></li>
-            </ul>
-          </div>
-        </nav>
-      </div>
-      <ul id="sidenav-left" class="sidenav sidenav-fixed" style="padding-top: 16px">
-        <li><a  class="logo-container"><img  class="responsive-img" src="assets/image/Final-Logo.png"  height="50px" alt=""></a></li>
-        <li class="no-padding">
-          <ul class="collapsible collapsible-accordion">
-            <li class="bold waves-effect"><a  [routerLink]="['./classes']" class="collapsible-header">Classes<i class="material-icons chevron">chevron_left</i></a>
-
-            </li>
-
-            <li class="bold waves-effect"><a [routerLink]="['./profile']" class="collapsible-header">Profile<i class="material-icons chevron">chevron_left</i></a>
-
-            </li>
-            <li class="bold waves-effect"><a [routerLink]="['./students']" class="collapsible-header">Students<i class="material-icons chevron">chevron_left</i></a>
-
-            </li>
-            <li *ngIf="user.role == 2" class="bold waves-effect"><a [routerLink]="['./settings']" class="collapsible-header">Settings<i class="material-icons chevron">chevron_left</i></a>
-
-            </li>
-            <li class="bold waves-effect active"><a (click)="logout()" class="collapsible-header">Logout<i class="material-icons chevron">settings</i></a>
-
-            </li>
-          </ul>
-        </li>
+<header *ngIf="user$|async as user">
+<nav class="navbar">
+  <div class="container" style="margin-top: 10px">
+    <div class="navbar-header" style="">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#" style="margin-left: -130px;margin-top: -10px">
+          <img style="width: 166px;height: 42px;" src="/assets/image/Final-Logo.png" alt="no image" >
+      </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav vcenter">
+        <li class="active" style="background: transparent;"><a href="#" style="color: whitesmoke; font-size: 25px;">Classroom Profile</a></li>
       </ul>
+      <ul class="nav navbar-nav navbar-right" style="margin-right: -100px">
+        <li><a style="margin-right: -100px;color: whitesmoke;" *ngIf="group$|async as _group" [routerLink]="['/classroom',_group.id]">Go to Classroom</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-      <div id="chat-dropdown" class="dropdown-content dropdown-tabbed">
+
+
+
+
+<div class="setup">
+  <img [src]="user.profile_img" class="ellipse"  alt="" >
+<p class="rite" style="font-weight:bold;">{{ user.first_name }} {{ user.last_name }}</p>
+<p class="rite" style="font-size: 13px;">{{ user.email }}</p>
+<a (click)="logout()">LOGOUT</a><br><br><br>
+<a class="link"   [routerLink]="['./list']"     routerLinkActive="['active']"><i  class="fas fa-caret-right"></i>Courses</a><br>
+<a  class="link"  [routerLink]="['./profile']"     routerLinkActive="['active']" ><i class="fas fa-caret-right"></i>Profile</a><br>
+<a class="link"   [routerLink]="['./attendance']"   routerLinkActive="['active']"><i class="fas fa-caret-right"></i>Attendance</a>
+<!--- <a  class="link"  [routerLink]="['./students']"   routerLinkActive="['active']"><i class="fas fa-caret-right"></i>Students</a> -->
+</div>
+<div class="rectangle">
+
+</div>
+
+
+      <!-- <div id="chat-dropdown" class="dropdown-content dropdown-tabbed">
         <ul class="tabs tabs-fixed-width">
           <li class="tab col s3"><a href="#settings">Settings</a></li>
           <li class="tab col s3"><a href="#friends" class="active">Friends</a></li>
@@ -71,5 +79,6 @@
             </li>
           </ul>
         </div>
-      </div>
+      </div> -->
+
     </header>

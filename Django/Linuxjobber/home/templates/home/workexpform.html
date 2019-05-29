@@ -47,13 +47,9 @@
 					</select>
 				</div>
 				<div class="form-group">
-					<label class="space1">Person Type</label>
+					<label class="space1">Graduation Information</label>
 					{%if not student%}
-					<select type="text" name="type" class="form-control" id="id_type" required>
-						<option value="Trainee">Trainee</option>
-						<option value="Graduant">Graduant</option>
-						<option value="Student">Student</option>
-					</select>
+					{{form.date}}
 					{%else%}
 						<input type="text" name="type" class="form-control" id="id_resume" value="Student" readonly required>
 					{%endif%}
@@ -68,4 +64,6 @@
 		</div>
 	</div>
 </div>
+
+  
 {%endblock%}

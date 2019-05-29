@@ -37,8 +37,9 @@ class GradesReportAdmin(admin.ModelAdmin):
 class LabTaskAdmin(admin.ModelAdmin):
 	list_display = ('task', 'lab')
 
-class TopicStatusAdmin(admin.ModelAdmin):
-	list_display = ('user','topic','video','lab')
+class TopicStatAdmin(admin.ModelAdmin):
+	list_display = ('user','topic','last_watched')
+	search_fields = ('user__email',)
 
 admin.site.register(Course)
 admin.site.register(CourseTopic, CourseTopicAdmin)
@@ -48,6 +49,6 @@ admin.site.register(LabTask, LabTaskAdmin)
 admin.site.register(GradesReport, GradesReportAdmin)
 admin.site.register(Note, NoteAdmin)
 admin.site.register(NoteComment)
-admin.site.register(TopicStatus,TopicStatusAdmin)
+admin.site.register(TopicStat,TopicStatAdmin)
 admin.site.register(UserInterest,UserInterestAdmin)
 admin.site.register(UserCourseStat,UserCourseStatAdmin)

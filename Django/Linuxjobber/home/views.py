@@ -3,13 +3,15 @@ import csv, io
 import logging
 import subprocess, json, os
 import random, string
-import datetime
+from datetime import datetime
 import pytz
 import requests
+import datetime
 
 from smtplib import SMTPException
 from urllib.parse import urlparse
 from django.conf import settings
+from django.core.mail import send_mail, BadHeaderError
 from django.shortcuts import render,redirect, reverse, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required, permission_required
@@ -17,16 +19,20 @@ from django.template.response import TemplateResponse
 from django.utils.datastructures import MultiValueDictKeyError
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
-from django.core.mail import send_mail
+#from django.core.mail import send_mail
 from django.http import HttpResponse, HttpResponseRedirect
 from rest_framework.authtoken.models import Token
 from datetime import timedelta
+from django.views.decorators.csrf import csrf_protect
+
 
 from .models import *
+from users.models import *
 from Courses.models import Course, CoursePermission, UserInterest
 from ToolsApp.models import Tool
 from users.models import CustomUser
-from .forms import JobPlacementForm, JobApplicationForm, AWSCredUpload, InternshipForm, ResumeForm, PartimeApplicationForm, WeForm
+from .forms import JobPlacementForm, JobApplicationForm, AWSCredUpload, InternshipForm, ResumeForm, PartimeApplicationForm, WeForm, UnsubscribeForm
+from datetime import datetime
 
 fs = FileSystemStorage(location= settings.MEDIA_ROOT+'/uploads')
 # stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -40,6 +46,33 @@ dbalogger = logging.getLogger('dba')
 utc=pytz.UTC
 
 
+
+
+
+
+
+# Using Django
+def my_webhook_view(request):
+ # Retrieve the request's body and parse it as JSON:
+ # body=request
+ print(request.body)
+
+ event_json = json.loads(request.body.decode())
+
+ # Do something with event_json
+
+ # Return a response to acknowledge receipt of the event
+ return HttpResponse(status=200)
+
+
+
+
+
+
+
+
+
+
 def get_courses():
     return Course.objects.all()
 
@@ -50,6 +83,25 @@ def get_tools():
 #INDEX VIEW
 def index(request):
     return render (request, 'home/index2.html')
+
+
+def unsubscribe(request):
+    form = UnsubscribeForm(request.POST or None)
+
+    if form.is_valid():
+        instance = form.save(commit=False)
+        if CustomUser.objects.filter(email=instance.email).exists():
+            # CustomUser.objects.get_or_create(email=instance.email, is_subscribed = False)
+            Unsubscriber.objects.get_or_create(email=instance.email)
+            success =True
+            return render(request, 'home/registration/unsubscribe.html', {'success':success,'form':form})
+        else:
+            error = True
+            return render(request, 'home/registration/unsubscribe.html', {'error':error,'form':form})
+    else:
+        return render(request,'home/registration/unsubscribe.html', {'form':form} )
+
+
 
 
 def signup(request):
@@ -71,13 +123,60 @@ def signup(request):
                 user.first_name = firstname
                 user.last_name = lastname
                 user.save()
-                send_mail('Account has been Created', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + ' and your email is ' +email + '\n Follow this url to login with your username and password '+settings.ENV_URL+'login \n\n Thanks & Regards \n Admin.', settings.EMAIL_HOST_USER, [email])
+                send_mail('Account has been Created', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + ' and your email is ' +email + '\n Follow this url to login with your username and password '+settings.ENV_URL+'login \n\n Thanks & Regards \n Admin. \n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [email])
+                #ip = get_client_ip(request)
+                #add_location(ip,user)
                 return render(request, "home/registration/success.html", {'user': user})
             else:
                 error = True
                 return render(request, 'home/registration/signup.html', {'error':error})
     else:
-        return render(request, 'home/registration/signup.html')  
+        return render(request, 'home/registration/signup.html') 
+
+@csrf_exempt
+def ulocation(request):
+    if request.user.is_authenticated:
+        if request.method == "POST":            
+            res = request.POST
+            #print(res)
+            try:
+                loc = UserLocation.objects.get(user=request.user)
+                pass
+            except UserLocation.DoesNotExist:
+                locuser = UserLocation.objects.create(user=request.user,ipaddress=res['ip'],country=res['country_name'],region=res['region'],latitude=res['latitude'],longtitude=res['longitude'],)
+                locuser.save()
+            
+        return HttpResponse(status=200)
+    return HttpResponse(status=200)
+
+
+def add_location(ip,user):
+    url = 'https://api.ipgeolocation.io/ipgeo?apiKey=a953f6ff477b431f9a77bfeb4572fd8e&ip='+str(ip)
+    try:
+        r = requests.get(url)
+        details = r.json()
+        if details['country_name'] is not None:
+            try:
+                loc = UserLocation.objects.get(user=user)
+                pass
+            except UserLocation.DoesNotExist:
+                locuser = UserLocation.objects.create(user=user,ipaddress=ip,country=details['country_name'],region=details['city'],latitude=details['latitude'],longtitude=details['longitude'],)
+                locuser.save()
+        else:
+            pass
+    except requests.exceptions.RequestException as e:
+        pass
+
+
+#Get users IP address
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+        ip=True
+    return ip 
 
 def forgot_password(request):
     email = ''
@@ -89,7 +188,7 @@ def forgot_password(request):
             u.pwd_reset_token = ''.join(random.choice(string.ascii_lowercase) for x in range(64))
             u.save()
             password_reset_link = 'reset_password/'+str(u.pwd_reset_token)
-            send_mail('Linuxjobber Account Password Reset', 'Hello, \n' + 'You are receiving this email because we received a request to reset your password,\nignore this message if you did not initiate the request else click the link below to reset your password.\n'+settings.ENV_URL+''+password_reset_link+'\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
+            send_mail('Linuxjobber Account Password Reset', 'Hello, \n' + 'You are receiving this email because we received a request to reset your password,\n ignore this message if you did not initiate the request else click the link below to reset your password.\n'+settings.ENV_URL+''+password_reset_link+'\n\n Thanks & Regards \n Linuxjobber. \n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [email])
 
             return render(request, 'home/registration/forgot_password.html',{'message':'An email with password reset information has been sent to you. Check your email to proceede.'})
         else:
@@ -137,7 +236,7 @@ def internships(request):
             internform = form.save(commit=False)
             internform.save()
             messages.success(request, 'Thanks for applying for the internship which starts on '+ str(internsh.strftime('%b %d, %y')) +'. Please ensure you keep in touch with Linuxjobber latest updates on our various social media platform. Thanks')
-            send_mail('Linuxjobber Internship', 'Hello, you are receiving this email because you applied for an internship at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.POST['email']])
+            send_mail('Linuxjobber Internship', 'Hello, you are receiving this email because you applied for an internship at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber.\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [request.POST['email']])
             return render(request, 'home/internships.html', {'form': form, 'courses' : get_courses(), 'tools' : get_tools()})
     else:
         form = InternshipForm()
@@ -219,7 +318,7 @@ def partime(request):
 
             position = PartTimePostion.objects.get(id=request.POST['position'])
 
-            if request.POST['high_salary'] == 1:
+            if request.POST['high_salary'] == '1':
                 high = 'Yes'
             else:
                 high = 'No'
@@ -236,11 +335,11 @@ def partime(request):
 
             \n\nDo you understand our mission and is this a challenge that you are willing to take on? Are you still interested in this role?
 
-            \n\n If so visit this link to and click the yes button: """+ settings.ENV_URL+"""jobs/challenge/ \n
-            Best Regards,.\n\n Thanks & Regards \n Linuxjobber"""
+            \n\n If so visit this link to login, if you dont have an account, register here: """+ settings.ENV_URL+"""  and click the yes button: """+ settings.ENV_URL+"""jobs/challenge/ \n
+            Best Regards,.\n\n Thanks & Regards \n Linuxjobber. \n\n\n\n\n\n\n\n To Unsubscribe go here \n""" +settings.ENV_URL+"""unsubscribe"""
 
             send_mail('Linuxjobber Newsletter', message, settings.EMAIL_HOST_USER, [request.POST['email']])
-            send_mail('Part-Time Job Application Alert', 'Hello,\n'+request.POST['fullname']+' with email: '+request.POST['email']+ ' just applied for a part time role, '+position.job_title+'.\nCV can be found here: '+cv+'\n Phone number is: '+request.POST['phone']+' and high salary choice is: '+high+'.\nplease kindly review.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
+            send_mail('Part-Time Job Application Alert', 'Hello,\n'+request.POST['fullname']+' with email: '+request.POST['email']+ ' just applied for a part time role, '+position.job_title+'.\nCV can be found here: '+cv+'\n Phone number is: '+request.POST['phone']+' and high salary choice is: '+high+'.\nplease kindly review.\n\n Thanks & Regards \n Linuxjobber. \n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
             return redirect("home:jobfeed")
         else:
             form = PartimeApplicationForm()
@@ -250,6 +349,8 @@ def partime(request):
     form = PartimeApplicationForm()
     return render(request, 'home/partime.html', {'form': form})
 
+
+@login_required
 def jobchallenge(request, respon=None):
     if respon:
         message = """ 
@@ -268,8 +369,8 @@ def jobchallenge(request, respon=None):
 
                 Upload video to google drive and send link to joseph.showunmi@linuxjobber.com .\n
 
-                Best Regards,.\n\n Thanks & Regards \n Linuxjobber
-                        """
+                Best Regards,.\n\n Thanks & Regards \n Linuxjobber.\n\n\n\n\n\n\n\n To Unsubscribe go here \n"""+settings.ENV_URL+"""unsubscribe"""
+                        
         send_mail('Linuxjobber Job Challenge', message, settings.EMAIL_HOST_USER, [request.user.email])
         return redirect("home:index")
     return render(request, 'home/jobchallenge.html')
@@ -300,8 +401,8 @@ def jobapplication(request, job):
             else:
                 cv = request.POST['cv_link']
 
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you applied for a full-time role at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.POST['email']])
-            send_mail('Full-Time Job Application Alert', 'Hello,\n'+request.POST['fullname']+' with email: '+request.POST['email']+ 'just applied for a full time role, '+posts.job_title+'. \nCV can be found here: '+cv+'\n Phone number is:'+request.POST['phone']+'\nplease kindly review.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you applied for a full-time role at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [request.POST['email']])
+            send_mail('Full-Time Job Application Alert', 'Hello,\n'+request.POST['fullname']+' with email: '+request.POST['email']+ 'just applied for a full time role, '+posts.job_title+'. \nCV can be found here: '+cv+'\n Phone number is:'+request.POST['phone']+'\nplease kindly review.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
             return redirect("home:jobfeed")
         else:
             form = JobApplicationForm()
@@ -330,7 +431,8 @@ def log_in(request):
         
         if user is not None:
             login(request, user)
-
+            #ip = get_client_ip(request)
+            #add_location(ip,request.user)
             if user.role == 4:
                 check_permission_expiry(user)
             if next == "":
@@ -363,7 +465,7 @@ def check_permission_expiry(user):
         print(perms)
         for perm in perms: 
             #expired
-            if perm.expiry_date.replace(tzinfo=None) < datetime.datetime.now().replace(tzinfo=None):
+            if perm.expiry_date.replace(tzinfo=None) < datetime.now().replace(tzinfo=None):
                 perm.delete()
                 return True
             else:
@@ -384,7 +486,7 @@ def linux_full_training(request):
         try:
             subscriber = NewsLetterSubscribers(email = email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [email])
             return render (request, 'home/linux_full_training.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
         except Exception as e:
             standard_logger.error('error')
@@ -400,7 +502,7 @@ def aws_full_training(request):
         try:
             subscriber = NewsLetterSubscribers(email = email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [email])
             return render (request, 'home/aws_full_training.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
         except Exception as e:
             standard_logger.error('error')
@@ -416,7 +518,7 @@ def oracledb_full_training(request):
         try:
             subscriber = NewsLetterSubscribers(email = email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [email])
             return render (request, 'home/oracledb_full_training.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
         except Exception as e:
             standard_logger.error('error')
@@ -432,7 +534,7 @@ def linux_certification(request):
         try:
             subscriber = NewsLetterSubscribers(email = email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [email])
             return render (request, 'home/linux_certification.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
         except Exception as e:
             standard_logger.error('error')
@@ -447,7 +549,7 @@ def aws_certification(request):
         try:
             subscriber = NewsLetterSubscribers(email = email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [email])
             return render (request, 'home/aws_certification.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
         except Exception as e:
             standard_logger.error('error')
@@ -462,7 +564,7 @@ def oracledb_certification(request):
         try:
             subscriber = NewsLetterSubscribers(email = email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [email])
             return render (request, 'home/oracledb_certification.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
         except Exception as e:
             standard_logger.error('error')
@@ -475,36 +577,50 @@ def devops_class(request):
 
 @login_required
 def devops_pay(request):
-    
-    amount= 1695 
+    PRICE = 1695
+    mode = "One Time Payment"
+    PAY_FOR = "DevOps Course"
+    DISCLMR = "Please note that you will be charged ${} upfront. However, you may cancel at any time within 14 days for a full refund. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ${} One Time".format(PRICE,PRICE)
     stripeset = StripePayment.objects.all()
-    # Stripe uses cent notation for amount 10 USD = 10 * 100
     stripe.api_key = stripeset[0].secretkey
-    context = { "stripe_key": stripeset[0].publickey,
-                   'amount': amount,
-                }
-    if request.method == "POST":
 
+    if request.method == "POST":
         stripe.api_key = stripeset[0].secretkey
         token = request.POST.get("stripeToken")
         try:
             charge = stripe.Charge.create(
-                amount= amount * 100,
+                amount=  PRICE * 100,
+                 # Stripe uses cent notation for amount: 10 USD = 10 * 100 
                 currency='usd',
-                description='DevOps Class Payment',
+                description='DevOps Course Payment',
                 source=token,
             )
-            UserPayment.objects.create(user=request.user, amount=amount,
-                                        trans_id = charge.id, pay_for = charge.description,
-                                        )
-            messages.success(request, 'You have paid for DevOps Class successfully.')
-            
-            return redirect("home:devops_class")
         except stripe.error.CardError as ce:
-            return False, ce
+                    return False, ce
+        else:
+            try:
+                UserPayment.objects.create(user=request.user, amount=PRICE,
+                                            trans_id = charge.id, pay_for = charge.description,)
 
-    
-    return render(request, 'home/devops_pay.html', context)
+                send_mail('Linuxjobber DevOps Course Subscription', 'Hello, you have successfuly subscribed for our DevOps Course package.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [request.user.email])
+                return render(request,'home/devops_pay_success.html')
+            except SMTPException as error:
+                print(error)
+                return render(request,'home/devops_pay_success.html')
+            except Exception as error:
+                print(error)
+                return redirect("home:index")
+    else:
+        context = { "stripe_key": stripeset[0].publickey,
+                    'price': PRICE,
+                    'amount': str(PRICE)+'00',  
+                    'mode': mode,
+                    'PAY_FOR': PAY_FOR,
+                    'DISCLMR': DISCLMR,
+                    'courses' : get_courses(),
+                    'tools' : get_tools()}
+        return render(request, 'home/devops_pay.html', context)
+
 
 def workexperience(request):
     if request.user.is_authenticated:
@@ -528,19 +644,30 @@ def workexpform(request):
 
     if request.method == 'POST':
         trainee = request.POST['types']
+        trainee = wetype.objects.get(id=trainee)
         current = request.POST['current_position']
         state = request.POST['state']
         income = request.POST['income']
         relocate = request.POST['relocate']
-        person = request.POST['type']
+        date = request.POST['date']
 
-        trainee = wetype.objects.get(id=trainee)
+        today = datetime.now().strftime("%Y-%m-%d")
+        month6 = datetime.now() + timedelta(days=180)
+        month6 = month6.strftime("%Y-%m-%d")
+        
+        if date < today:
+            person = werole.objects.get(roles='Trainee')
+        else:
+            if today < date < month6:
+                person = werole.objects.get(roles='Graduant')
+            else:
+                person = werole.objects.get(roles='Student')
         
         try:
             weps = wepeoples.objects.get(user=request.user)
             weps.types = trainee
             weps.current_position = current
-            weps.person_type = person
+            weps.person = person
             weps.state = state
             weps.income = income
             weps.relocation = relocate
@@ -552,7 +679,7 @@ def workexpform(request):
             weps.save()
         except wepeoples.DoesNotExist:
             weps = wepeoples.objects.create(user=request.user,types=trainee,
-                current_position=current,person_type=person,state=state,income=income,
+                current_position=current,person=person,state=state,income=income,
                 relocation=relocate,last_verification=None,Paystub=None,graduation_date=None,start_date=None)
             weps.save()
         return redirect("home:workexprofile")
@@ -561,7 +688,7 @@ def workexpform(request):
 
 @login_required
 def workexprofile(request):
-    
+    group = []
     try:
         weps = wepeoples.objects.get(user=request.user)
 
@@ -572,15 +699,25 @@ def workexprofile(request):
 
     status = wework.objects.filter(we_people__user=request.user)
 
+    for sta in status:
+        group.append(sta.task.id)
+
+    listask = wetask.objects.filter(types=weps.types)
+    
+
 
 
     if request.method == "POST":
-        print(request.POST['type'])
         if request.POST['type'] == '1':
             last_verify = request.FILES['verify']
             weps.Paystub = last_verify
-            weps.save(update_fields=["Paystub"])
-            messages.success(request, 'Paystub uploaded successfully, Last verification would be updated as soon as Paystub is verified')
+            weps.last_verification = datetime.now()
+            weps.save(update_fields=["Paystub","last_verification"])
+
+            link = settings.ENV_URL+weps.Paystub.url.strip("/")
+            
+            send_mail('Pay Stub verification needed', 'Hello,\n '+request.user.email+' just uploaded is pay stub at: '+link+'.\nPlease review and confirm last verification\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
+            messages.success(request, 'Paystub uploaded successfully, Last verification would be confirmed as soon as Paystub is verified')
             return redirect("home:workexprofile")
         elif request.POST['type'] == '2':
             income = request.POST['income']
@@ -609,7 +746,7 @@ def workexprofile(request):
             messages.error(request, 'Sorry, an error occured. please contact admin@linuxjobber.com')
             return redirect("home:workexprofile")
 
-    return render(request, 'home/workexprofile.html',{'weps': weps, 'status':status})
+    return render(request, 'home/workexprofile.html',{'weps': weps, 'status':status, 'group':group, 'listask':listask})
 
 def jobplacements(request):
     return render(request, 'home/jobplacements.html',{'courses' : get_courses(), 'tools' : get_tools()})
@@ -665,7 +802,7 @@ def apply(request,level):
                         'level':level,
                         }
                     return render(request,'home/failed_application.html',context)
-                send_mail('Linuxjobber Jobplacement Program', 'Hello, you have succesfully signed up for Linuxjobber Jobplacement program,\n\nIf you havent signed the agreement, visit this link to do so: https://leif.org/commit?product_id=5b304639e59b74063647c484#/.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.user.email])
+                send_mail('Linuxjobber Jobplacement Program', 'Hello, you have succesfully signed up for Linuxjobber Jobplacement program,\n\nIf you havent signed the agreement, visit this link to do so: https://leif.org/commit?product_id=5b304639e59b74063647c484#/.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [request.user.email])
                 return render(request,'home/jobaccepted.html')
             except Exception as error:
                 print(error)
@@ -702,13 +839,11 @@ def pay(request):
             return False, ce
         
         try:
-            UserPayment.objects.create(user=request.user, amount=PRICE,
-                                        trans_id = charge.id, pay_for = charge.description,
-                                        )
-            _, created = wepeoples.objects.update_or_create(user=request.user,types=None,current_position=None,
-                                                    person_type=None,state=None,income=None,relocation=None,
+            UserPayment.objects.create(user=request.user, amount=PRICE,trans_id = charge.id, pay_for = charge.description)
+            wepeoples.objects.update_or_create(user=request.user,types=None,current_position=None,
+                                                    person=None,state=None,income=None,relocation=None,
                                                     last_verification=None,Paystub=None,graduation_date=None)
-            send_mail('Linuxjobber Work-Experience Program', 'Hello, you have succesfully paid for Linuxjobber work experience program,\n\nIf you havent signed the agreement, visit this link to do so: https://leif.org/commit?product_id=5b30461fe59b74063647c483#/.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.user.email])
+            send_mail('Linuxjobber Work-Experience Program', 'Hello, you have succesfully paid for Linuxjobber work experience program,\n\nIf you havent signed the agreement, visit this link to do so: https://leif.org/commit?product_id=5b30461fe59b74063647c483#/.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe',settings.EMAIL_HOST_USER, [request.user.email])
             return render(request,'home/accepted.html')
         except Exception as error:
             messages.error(request, 'An error occurred while trying to pay please try again')
@@ -730,63 +865,58 @@ def accepted(request):
 def check_subscription_status(request):
 
     data = """ PASTE COPIED JSON REQUEST HERE """
+
     
 
     if request.method == "POST":
-        event_json = json.loads(request.body)
+        event_json = json.loads(request.body.decode())
         jsonObject = event_json
 
-        output = open("check_subscription.html", "w")
-        output.write(jsonObject)
-        output.close()
-
-        subscription_id = jsonObject['data']['object']['subscription']
-        customer_id = jsonObject['data']['object']['customer']
-        amount = jsonObject['data']['object']['amount_paid'] / 100
+        subscription_id = jsonObject['data']['object']
+        customer_id= jsonObject['data']['object']
+        amount_paid = jsonObject['data']['object']
         types = jsonObject['type']
+ 
+        customersubscription = UserOrder.objects.all()
 
-
-        customersubscription = UserOrder.objects.get(order_id=customer_id, subscription= subscription_id)
-
+        for e in customersubscription:
+            sud_id = e.subscription
+            name = e.user
+        
         if types == 'customer.subscription.deleted' and customer_id:
             if customersubscription:
-                customersubscription.status = "inactive/deleted"
-                customersubscription.save()
 
-                billing = BillingHistory(user=customersubscription.user, amount=amount, subscription_id=subscription_id, status="inactive/deleted")
-                billing.save()
-
-                user = CustomUser.objects.get(email=customersubscription.user.email)
+                BillingHistory.objects.create(user= CustomUser.objects.get(email=customersubscription.get(user=name)), amount=29, subscription_id=sud_id, status="inactive/deleted")
+                customersubscription.update(status="inactive/deleted")
+        
+                user = CustomUser.objects.get(email=customersubscription.get(user=name))
                 user.role = 6
-                user.save()
+                user.save() 
                 
-        elif types == 'invoice.payment_failed' and customer_id:
+        if types == 'invoice.payment_failed' and customer_id:
             if customersubscription:
-                customersubscription.status = "failed"
-                customersubscription.save()
 
-                billing = BillingHistory(user=customersubscription.user, amount=amount, subscription_id=subscription_id, status="Failed")
-                billing.save()
-
-                user = CustomUser.objects.get(email=customersubscription.user.email)
+                BillingHistory.objects.create(user= CustomUser.objects.get(email=customersubscription.get(user=name)), amount=29, subscription_id=sud_id, status="failed")
+                customersubscription.update(status="failed")
+        
+                user = CustomUser.objects.get(email=customersubscription.get(user=name))
                 user.role = 6
                 user.save()
 
-        elif types == 'invoice.payment_succeeded' and customer_id:
+        if types == 'invoice.payment_succeeded' and customer_id:
             if customersubscription:
-                customersubscription.status = "success"
-                customersubscription.save()
-
-                billing = BillingHistory(user=customersubscription.user, amount=amount, subscription_id=subscription_id, status="success")
-                billing.save()
-
-                user = CustomUser.objects.get(email=customersubscription.user.email)
+                
+                BillingHistory.objects.create(user= CustomUser.objects.get(email=customersubscription.get(user=name)), amount=29, subscription_id=sud_id, status="success")
+                customersubscription.update(status="success")
+        
+                user = CustomUser.objects.get(email=customersubscription.get(user=name))
                 user.role = 3
                 user.save()
 
-        #Record time of response from webhook
+        # Record time of response from webhook
+
         try:
-            tryf = TryFreeRecord.objects.get(user=user)
+            tryf = TryFreeRecord.objects.get(user=CustomUser.objects.get(email=customersubscription.get(user=name)))
             tryf.webhook_response = datetime.now()
             tryf.save(update_fields=['webhook_response'])
         except TryFreeRecord.DoesNotExist:
@@ -833,17 +963,17 @@ def monthly_subscription(request):
                 plan = plan_id,
             )
 
-            order = UserOrder(
+            UserOrder.objects.create(
                 user = request.user,
                 order_id = customer.id,
                 subscription = subscription.id,
                 status="pending",
-                order_amount = int(amount)/100,
+                order_amount = int(amount)/100
             )
-
-            order.save()
+            
 
             TryFreeRecord.objects.create(user=request.user,webhook_response=None)
+            # return HttpResponse(status=200)
 
             messages.success(request, 'Thanks for your sucbscription! Please allow 10-20 seconds for your account to be updated as we have to wait for confirmation from the credit card processor.')
             if nexturl:
@@ -863,7 +993,6 @@ def group(request,pk):
     group_item = get_object_or_404(Groupclass,pk=pk)
     user = None
     if request.user.is_authenticated:
-        print('user authenticated')
         user=CustomUser.objects.get(email=request.user)
     # try:
     #     user = CustomUser.objects.get(email=request.user)
@@ -876,7 +1005,6 @@ def group(request,pk):
 
         # type_of_class = request.POST['name']
         # amount = request.POST['price']
-
         # request.session['email'] = email
         # request.session['amount'] = amount
         # request.session['class'] = type_of_class
@@ -885,7 +1013,6 @@ def group(request,pk):
             user = CustomUser.objects.get(email=email)
             the_user = authenticate(email=email,password=password)
 
-            
             if the_user:
                 login(request,the_user)
             else:
@@ -904,7 +1031,7 @@ def group(request,pk):
                 user.first_name = firstname
                 user.last_name = lastname
                 user.save()
-                # send_mail('Linuxjobber Free Account Creation', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + '\n Follow this link http://35.167.153.1:8001/login to login to you account\n\n Thanks & Regards \n Linuxjobber', 'settings.EMAIL_HOST_USER', [email])
+                #  ('Linuxjobber Free Account Creation', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + '\n Follow this link http://35.167.153.1:8001/login to login to you account\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', 'settings.EMAIL_HOST_USER', [email])
 
                 groupreg = GroupClassRegister.objects.create(user= user, is_paid=0, amount=29, type_of_class = group_item.type_of_class)
                 groupreg.save()
@@ -949,7 +1076,6 @@ def group_pay(request,pk):
                 }
     if request.method == "POST":
 
-       # stripe.api_key = "sk_test_FInuRlOzwpM1b3RIw5fwirtv"
         stripe.api_key = stripeset[0].secretkey
         token = request.POST.get("stripeToken")
         try:
@@ -987,19 +1113,20 @@ def group_pay(request,pk):
         return redirect("home:group")
     return render(request, 'home/group_pay.html', context)
 
-
 def contact_us(request):
     error = ''
     success = ''
     if request.method == "POST":
         fname = request.POST['full_name']
         phone = request.POST['phonenumber']
-        email = request.POST['email']
-        subj = request.POST['subject']
+        #email = request.POST['email']
+        from_email = request.POST['email']
+        subject = request.POST['subject']
         message = request.POST['message']
         try:
-            contact_message = ContactMessages(full_name=fname, phone_no=phone, email=email, message_subject=subj, message=message)
-            contact_message.save()
+            send_mail(message, subject, from_email, ['elena.edwards@linuxjobber.com'])
+            #contact_message = ContactMessages(full_name=fname, phone_no=phone, email=email, message_subject=subj, message=message)
+            #contact_message.save()
         except Exception as e:
             error = 'yes'
         else:
@@ -1007,6 +1134,8 @@ def contact_us(request):
         return render(request, 'home/contact_us.html',{'error':error, 'success':success})
     else:
         return render(request, 'home/contact_us.html',{'error':error, 'success':success,'courses' : get_courses(), 'tools' : get_tools()})
+
+
 
 
 def location(request):
@@ -1361,7 +1490,7 @@ def students_packages(request):
         try:
             subscriber = NewsLetterSubscribers(email = email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [email])
             return render (request, 'home/students_packages.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
         except Exception as e:
             standard_logger.error('error')
@@ -1379,7 +1508,7 @@ def server_service(request):
         try:
             subscriber = NewsLetterSubscribers(email = email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [email])
+            send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [email])
             return render (request, 'home/server_service.html', {'news_letter_message': 'You have successfully subscribed to our news letter!', 'courses' : get_courses(), 'tools' : get_tools()})
         except Exception as e:
             standard_logger.error('error')
@@ -1391,6 +1520,9 @@ def server_service(request):
 
 def live_help(request):
     return render(request, 'home/live_help.html', {'courses' : get_courses(), 'tools' : get_tools()} )
+
+
+
 
 @login_required
 def pay_live_help(request):
@@ -1416,7 +1548,9 @@ def pay_live_help(request):
                 UserPayment.objects.create(user=request.user, amount=PRICE,
                                             trans_id = charge.id, pay_for = charge.description,
                                             )
-                send_mail('Linuxjobber Live Help Subscription', 'Hello, you have successfuly subscribed for Live Help on Linuxjobber.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.user.email])
+
+                
+                send_mail('Linuxjobber Live Help Subscription', 'Hello, you have successfuly subscribed for Live Help on Linuxjobber.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [request.user.email])
                 return render(request,'home/live_help_pay_success.html')
             except SMTPException as error:
                 print(error)
@@ -1437,6 +1571,8 @@ def pay_live_help(request):
 def in_person_training(request):
     return render(request, 'home/in_person_training.html', {'courses' : get_courses(), 'tools' : get_tools()})
 
+
+
 @login_required
 def tryfree(request, sub_plan):
 
@@ -1445,6 +1581,106 @@ def tryfree(request, sub_plan):
         mode = "Monthly Subscription"
         PAY_FOR = "14 days free trial"
         DISCLMR = "Please note that you will be charged ${} upfront. However, you may cancel at any time within 14 days for a full refund. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ${}/Monthly".format(PRICE,PRICE)
+        stripeset = StripePayment.objects.all()
+        stripe.api_key = stripeset[0].secretkey
+
+       
+        if request.method == "POST":
+            token = request.POST.get("stripeToken")
+            try:
+                charge = stripe.Charge.create(
+                    amount = PRICE *100,
+                    currency = "usd",
+                    source = token,
+                    description = sub_plan.lower()
+                )
+            except stripe.error.CardError as ce:
+                return False, ce
+            else:
+                try:
+                    UserPayment.objects.create(user=request.user, amount=PRICE,
+                                                trans_id = charge.id, pay_for = charge.description,
+                                                )
+
+
+                    user = request.user
+                    user.role = 3
+                    user.save()
+                    send_mail('Linuxjobber Standard Plan Subscription', 'Hello, you have successfuly subscribed for our Standard Plan package.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [request.user.email])
+                    return render(request,'home/standardPlan_pay_success.html')
+                except SMTPException as error:
+                    print(error)
+                    return render(request,'home/standardPlan_pay_success.html')
+                except Exception as error:
+                    print(error)
+                    return redirect("home:index")
+        else:
+            context = { "stripe_key": stripeset[0].publickey,
+                       'price': PRICE,
+                       'amount': str(PRICE)+'00',
+                       'mode': mode,
+                       'PAY_FOR': PAY_FOR,
+                       'DISCLMR': DISCLMR,
+                       'courses' : get_courses(),
+                       'tools' : get_tools()}
+            return render(request, 'home/standard_plan_pay.html', context)
+        # return HttpResponse(status=200)
+
+    if sub_plan == 'awsPlan':
+            PRICE = 1695
+            mode = "One Time Payment"
+            PAY_FOR = "AWS Full Training"
+            DISCLMR = "Please note that you will be charged ${} upfront. However, you may cancel at any time within 14 days for a full refund. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ${} One Time".format(PRICE,PRICE)
+            stripeset = StripePayment.objects.all()
+            stripe.api_key = stripeset[0].secretkey
+            if request.method == "POST":
+                token = request.POST.get("stripeToken")
+                try:
+                    charge = stripe.Charge.create(
+                        amount = PRICE *100,
+                        currency = "usd",
+                        source = token,
+                        description = sub_plan.lower()
+                    )
+
+                    
+                except stripe.error.CardError as ce:
+                    return False, ce
+                else:
+                    try:
+                        UserPayment.objects.create(user=request.user, amount=PRICE,
+                                                    trans_id = charge.id, pay_for = charge.description,
+                                                    )
+                        user = request.user
+                        user.role = 3
+                        user.save()
+                        send_mail('Linuxjobber AWS Full Training Subscription', 'Hello, you have successfuly subscribed for our AWS Full Training Plan package.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [request.user.email])
+                        return render(request,'home/awsFull_pay_success.html')
+                    except SMTPException as error:
+                        print(error)
+                        return render(request,'home/awsFull_pay_success.html')
+                    except Exception as error:
+                        print(error)
+                        return redirect("home:index")
+            else:
+                context = { "stripe_key": stripeset[0].publickey,
+                       'price': PRICE,
+                       'amount': str(PRICE)+'00',  
+                       'mode': mode,
+                       'PAY_FOR': PAY_FOR,
+                       'DISCLMR': DISCLMR,
+                       'courses' : get_courses(),
+                       'tools' : get_tools()}
+                return render(request, 'home/awsFull_plan_pay.html', context)
+            # return HttpResponse(status=200)
+
+
+
+    else:
+        PRICE = 2495
+        mode = "One Time Payment"
+        PAY_FOR = "PREMIUM PLAN"
+        DISCLMR = "Please note that you will be charged ${} upfront. However, you may cancel at any time within 14 days for a full refund. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ONE TIME ${}".format(PRICE,PRICE)
         stripeset = StripePayment.objects.all()
         stripe.api_key = stripeset[0].secretkey
         if request.method == "POST":
@@ -1464,53 +1700,9 @@ def tryfree(request, sub_plan):
                                                 trans_id = charge.id, pay_for = charge.description,
                                                 )
                     user = request.user
-                    user.role = 3
-                    user.save()
-                    send_mail('Linuxjobber Standard Plan Subscription', 'Hello, you have successfuly subscribed for our Standard Plan package.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.user.email])
-                    return render(request,'home/standardPlan_pay_success.html')
-                except SMTPException as error:
-                    print(error)
-                    return render(request,'home/standardPlan_pay_success.html')
-                except Exception as error:
-                    print(error)
-                    return redirect("home:index")
-        else:
-            context = { "stripe_key": stripeset[0].publickey,
-                       'price': PRICE,
-                       'amount': str(PRICE)+'00',
-                       'mode': mode,
-                       'PAY_FOR': PAY_FOR,
-                       'DISCLMR': DISCLMR,
-                       'courses' : get_courses(),
-                       'tools' : get_tools()}
-            return render(request, 'home/standard_plan_pay.html', context)
-    else:
-        PRICE = 2499
-        mode = "One Time Payment"
-        PAY_FOR = "PREMIUM PLAN"
-        DISCLMR = "Please note that you will be charged ${} upfront. However, you may cancel at any time within 14 days for a full refund. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ONE TIME ${}".format(PRICE,PRICE)
-        stripeset = StripePayment.objects.all()
-        stripe.api_key = stripeset[0].secretkey
-        if request.method == "POST":
-            token = request.POST.get("stripeToken")
-            try:
-                charge = stripe.Charge.create(
-                    amount = PRICE,
-                    currency = "usd",
-                    source = token,
-                    description = sub_plan.lower()
-                )
-            except stripe.error.CardError as ce:
-                return False, ce
-            else:
-                try:
-                    UserPayment.objects.create(user=request.user, amount=PRICE,
-                                                trans_id = charge.id, pay_for = charge.description,
-                                                )
-                    user = request.user
                     user.role = 4
                     user.save()
-                    send_mail('Linuxjobber Premium Plan Subscription', 'Hello, you have successfuly subscribed for our Premium Plan package.\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [request.user.email])
+                    send_mail('Linuxjobber Premium Plan Subscription', 'Hello, you have successfuly subscribed for our Premium Plan package.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe',settings.EMAIL_HOST_USER, [request.user.email])
                     return render(request,'home/premiumPlan_pay_success.html')
                 except SMTPException as error:
                     print(error)
@@ -1528,6 +1720,7 @@ def tryfree(request, sub_plan):
                        'courses' : get_courses(),
                        'tools' : get_tools()}
             return render(request, 'home/premium_plan_pay.html', context)
+   
 
 
 
@@ -1612,7 +1805,7 @@ def group_list(request):
                 user.first_name = firstname
                 user.last_name = lastname
                 user.save()
-                #send_mail('Account has been Created', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + ' and your email is ' +email + '\n Follow this url to login with your username and password '+settings.ENV_URL+'login \n\n Thanks & Regards \n Admin.', settings.EMAIL_HOST_USER, [email])
+                #send_mail('Account has been Created', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + ' and your email is ' +email + '\n Follow this url to login with your username and password '+settings.ENV_URL+'login \n\n Thanks & Regards \n Admin.\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [email])
 
                 groupreg = GroupClassRegister.objects.create(user= user, is_paid=0, amount=29, type_of_class = group_item.type_of_class)
                 groupreg.save()
@@ -1652,4 +1845,5 @@ def group_list(request):
         user_token,_=Token.objects.get_or_create(user=request.user)
 
     return TemplateResponse(request,'home/group_class.html',{'groups': Groupclass.objects.all(), 'GROUP_URL':settings.GROUP_CLASS_URL, 'token':user_token})
+
 

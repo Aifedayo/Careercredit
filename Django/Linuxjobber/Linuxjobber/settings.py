@@ -110,14 +110,14 @@ WSGI_APPLICATION = 'Linuxjobber.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': config('DATABASE_NAME', 'linuxjobber'),  # linuxjobber
-        'USER': config('DATABASE_USER', 'linuxjobber'),  # linuxjobber
-        'PASSWORD': config('DATABASE_PASSWORD', 'linuxjobber'),  # linuxjobber
+        'NAME': config('DATABASE_NAME', 'linuxjobber'),  # linuxjb
+        'USER': config('DATABASE_USER', 'root'),  # linuxjobber
+        'PASSWORD': config('DATABASE_PASSWORD', ''),  # linuxjobber
         'HOST': config('DATABASE_HOST', 'localhost'),
-        'PORT': config('DATABASE_PORT', ''),
+        'PORT': config('DATABASE_PORT', '3306'),
 
     }
-}
+} 
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -136,6 +136,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+
 
 LOGGING = {
     'version': 1,
@@ -254,6 +256,7 @@ LOGIN_REDIRECT_URL = '/home'
 # EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
 ENV_URL = "http://127.0.0.1:8000/"
 
+
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = config('EMAIL_HOST', 'smtp.linuxjobber.com')
 EMAIL_PORT = config('EMAIL_PORT', '587')
@@ -261,9 +264,14 @@ EMAIL_HOST_USER = config('EMAIL_HOST_USER', 'admin@linuxjobber.com')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', 'm4k3Aw!y')
 EMAIL_USE_TLS = True
 
+
+
 STRIPE_PUBLIC_KEY = "pk_test_1zBTca83q29gl9iwRw1oIBvD"
 STRIPE_SECRET_KEY = "Something"
 AUTH_USER_MODEL = 'users.CustomUser'
+
+
+
 
 # Channels
 ASGI_APPLICATION = 'Linuxjobber.routing.application'
@@ -283,7 +291,7 @@ SERVER_USER = config('SERVER_USER', "sysadmin")
 SERVER_PASSWORD = config('SERVER_PASSWORD', "8iu7*IU&")
 GROUP_CLASS_URL = config('GROUP_CLASS_URL', 'http://localhost:4200/classroom/')
 
-# Session Expiration set to 30 mins
-SESSION_COOKIE_AGE = 30 * 60
+# Session Expiration set to 10 mins
+SESSION_COOKIE_AGE = 60 * 60
 
 

@@ -64,23 +64,35 @@
 jQuery(function(){
  $('.aftervideo').hide();
  $('.lab').hide();
-
+end(0);
+ 
  $('#myVideo').bind("ended", function(){
  	$('.videoname').hide();
  	$('.aftervideo').show();
  	$('.lab').show();
- 	end();
+ 	end(1);
  });
 
-function end(){
-	$.ajax({
+function end(stat){
+	if (stat == 1){
+		$.ajax({
 		type: 'POST',
 		data:'', 
-		url: '{% url "Courses:videostat" topic.id %}',
+		url: '{% url "Courses:videostat" topic.id 1 %}',
 		success: function (result) {
 			setTimeout(function(){ updatesession(); },1000);
 		}
 	});
+	}else{
+		$.ajax({
+		type: 'POST',
+		data:'', 
+		url: '{% url "Courses:videostat" topic.id 0 %}',
+		success: function (result) {
+			setTimeout(function(){ updatesession(); },1000);
+		}
+	});
+	}
 }
  
 });

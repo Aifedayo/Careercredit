@@ -40,7 +40,6 @@ class CoursePermission(models.Model):
         return self.user.email
 
 
-
 class CourseTopic(models.Model):
     course = models.ForeignKey(Course, on_delete = models.CASCADE, related_name='topics',related_query_name='topic')
     topic_number = models.PositiveSmallIntegerField(default=0)
@@ -62,11 +61,12 @@ class CourseTopic(models.Model):
     def get_status(self):
         return self.topicstatus_set.filter()
 
-class TopicStatus(models.Model):
+class TopicStat(models.Model):
     topic = models.ForeignKey(CourseTopic, on_delete = models.CASCADE)
     user = models.ForeignKey(CustomUser, on_delete = models.CASCADE)
-    video = models.IntegerField(default=0, validators=[MaxValueValidator(50)])
-    lab = models.IntegerField(default=0, validators=[MaxValueValidator(50)])
+    video = models.IntegerField(default=0, validators=[MaxValueValidator(25)])
+    status = models.CharField(default='start_video',max_length = 200)
+    last_watched = models.DateTimeField(default=timezone.now, null=False)
 
     def __str__(self):
         return self.user.email    
@@ -126,6 +126,7 @@ class LabTask(models.Model):
 class UserInterest(models.Model):
     user = models.ForeignKey(CustomUser, on_delete = models.CASCADE)
     course = models.ForeignKey(Course, on_delete = models.CASCADE)
+    date_created = models.DateTimeField(default=timezone.now, null=False)
 
     class Meta:
         ordering = ('user', 'course')
@@ -137,6 +138,7 @@ class UserCourseStat(models.Model):
     user = models.ForeignKey(CustomUser, on_delete = models.CASCADE)
     course = models.ForeignKey(Course, on_delete = models.CASCADE)
     visit = models.IntegerField()
+    date_created = models.DateTimeField(default=timezone.now, null=False)
 
     class Meta:
         ordering = ('user', 'course')

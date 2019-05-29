@@ -24,8 +24,8 @@ from classroom.models import AttendanceLog
 
 from Linuxjobber import settings
 from .serializers import GroupClassSerializer, UserSerializer, CourseSerializer, CourseTopicSerializer, \
-    AttendanceSerializer
-from Courses.models import Course,CourseTopic
+    AttendanceSerializer, TopicLabSerializer, NoteSerializer
+from Courses.models import Course,CourseTopic,LabTask,Note
 
 from datetime import datetime
 
@@ -323,4 +323,32 @@ class GroupDetail(APIView):
         g.save()
         return Response(GroupClassSerializer(g).data,status.HTTP_200_OK)
 
+
+class CourseInfo(APIView):
+    authentication_classes = (authentication.TokenAuthentication,)
+    serializer_class = CourseSerializer
+
+    def get(self,id=None,topic_id=None,the_type=None):
+        print(id,topic_id,the_type)
+        print(type(topic_id))
+        if type(id) == int:
+            try:
+                c= Course.objects.get(pk=id)
+                return Response(CourseSerializer(c).data,status=status.HTTP_200_OK)
+
+            except:
+                return Response(status=status.HTTP_400_BAD_REQUEST)
+        if topic_id:
+
+            if the_type == 'note':
+                try:
+                    n=Note.objects.get(Topic__pk=topic_id)
+                    return Response(NoteSerializer(n).data, status=status.HTTP_200_OK)
+                except Note.DoesNotExist:
+                    return Response("Not found",status=status.HTTP_404_NOT_FOUND)
+
+            if the_type== "labs":
+                l = LabTask.objects.filter(lab=topic_id).order_by('task_number')
+                c=CourseTopic.objects.get(pk=topic_id)
+                return Response({'labs': TopicLabSerializer(l,many=True).data,'topic':c.topic}, status=status.HTTP_200_OK)
 

@@ -1,0 +1,149 @@
+*{
+    font-family: 'Roboto',sans-serif;
+}
+.navbar{
+    height: 77px;
+    background: #333333;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    font-family: 'Roboto',sans-serif;
+  }
+  
+  .lj-text {
+    color: rgba(255, 255, 255, 0.8);
+    font-family:'Roboto',sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+  }
+  
+  .img-container{
+    position: absolute;
+  width: 166px;
+  height: 42px;
+  left: calc(50% - 166px/2 - 587px);
+  top: 18px;
+  
+  }
+  
+  .text-course{
+    position: absolute;
+  width: 141px;
+  height: 29px;
+  left: 649px;
+  top: 24px;
+  
+  font-family:'Roboto',sans-serif;
+  font-style: normal; 
+  font-weight: 500;
+  font-size: 24px;
+  line-height: normal;
+  
+  color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .panel{
+      margin-right: 0;
+      font-family: 'Roboto',sans-serif;
+  }
+  
+  .panel-body > .foot{
+   position: absolute;
+          bottom: 0;
+          font-family:'Roboto',sans-serif;
+  }
+  .panel-default{
+    font-family:'Roboto',sans-serif;
+  }
+
+  #foot > .col-md-3{
+    padding: 0;
+  }
+  
+  
+  .bottom {
+      display: table;
+  }
+  
+  .bottom > div {
+      float: none;
+      display: table-cell;
+  }
+  
+  .nav  > li{
+    padding-right: 30px;
+    font-size: 12px;
+    font-family: 'Roboto',sans-serif;
+  
+  }
+  
+  .navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+    vertical-align: top;
+    font-family:'Roboto',sans-serif;
+  }
+  
+  .navbar .navbar-collapse {
+    text-align: center;
+    font-family:'Roboto',sans-serif;
+  }
+  
+  
+  .container{
+    position: absolute;
+    top: 200px;
+    left: 310px;
+    font-family: 'Roboto',sans-serif;
+  }    
+
+  .rectangle{position: absolute;
+    top: 150px;
+    width: 920px;
+    height: inherit;
+    /* margin-top:-370px; */
+    padding: 30px 30px 30px 30px;
+  
+    background: transparent;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    }
+
+
+
+
+.exit{
+    position: relative;
+    margin-top: -30px;
+    margin-bottom: 10px;
+    left: 720px;
+    width: 106px;
+    height: 32px;
+    padding-left: 20px;
+    font-family: 'Roboto',sans-serif;
+    text-decoration: none;
+    font-style: normal;
+    font-weight:500;
+    font-size: 11px;
+    line-height: 13px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.8);
+    
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    border-radius: 28px;
+  }
+  .classroom{
+    font-family:'Roboto',sans-serif;
+    text-decoration: none;
+    font-style: normal;
+    font-size: 12px;
+    margin-bottom: -1px;
+  }
+  .nav .row{
+    font-family:'Roboto',sans-serif;
+  }
+  .text{
+    margin-top: 22px;
+  }

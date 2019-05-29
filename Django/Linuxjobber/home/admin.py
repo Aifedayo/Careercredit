@@ -3,7 +3,7 @@ from django import forms
 from . import models
 from django.core.mail import send_mail
 from django.conf import settings
-from .models import FAQ, Job, RHCSAOrder, Message, Unsubscriber, Internship, InternshipDetail, Location, NewsLetterSubscribers, UserOrder, Document, MainModel, AwsCredential, Jobplacement, Groupclass, BillingHistory, GroupClassRegister, StripePayment, UserPayment, wepeoples, wetask, wework, wetype, PartTimeJob, TryFreeRecord, FullTimePostion, PartTimePostion, Resume
+from .models import FAQ, Job, RHCSAOrder, Message, Unsubscriber, Internship, InternshipDetail, MessageGroup, UserLocation, NewsLetterSubscribers, UserOrder, Document, MainModel, AwsCredential, Jobplacement, Groupclass, BillingHistory, GroupClassRegister, StripePayment, UserPayment, wepeoples, wetask, werole, wework, wetype, PartTimeJob, TryFreeRecord, FullTimePostion, PartTimePostion, Resume
 from datetime import timedelta
 import datetime
 
@@ -43,6 +43,10 @@ class wetaskAdmin(admin.ModelAdmin):
 	list_display = ['task','weight', 'is_active', 'types','group']
 	list_filter = ('types__types','is_active',)
 
+class MessageAdmin(admin.ModelAdmin):
+	search_fields = ['group']
+	list_display = ['title','slug','group']
+	list_filter = ('group',)
 
 admin.site.register(FAQ)
 admin.site.register(Job)
@@ -57,18 +61,20 @@ admin.site.register(BillingHistory)
 admin.site.register(RHCSAOrder)
 admin.site.register(NewsLetterSubscribers)
 admin.site.register(StripePayment)
-admin.site.register(Location)
+admin.site.register(UserLocation)
 admin.site.register(Internship)
 admin.site.register(InternshipDetail)
 admin.site.register(UserPayment)
 admin.site.register(Unsubscriber)
 admin.site.register(wepeoples)
-admin.site.register(Message)
+admin.site.register(Message,MessageAdmin)
+admin.site.register(MessageGroup)
 admin.site.register(PartTimeJob)
 admin.site.register(FullTimePostion)
 admin.site.register(PartTimePostion)
 admin.site.register(wetask,wetaskAdmin)
 admin.site.register(wework,weworkAdmin)
 admin.site.register(wetype)
+admin.site.register(werole)
 admin.site.register(Resume)
 admin.site.register(TryFreeRecord)

@@ -111,6 +111,7 @@ class Groupclass(models.Model):
     date = models.DateTimeField(default=timezone.now, null=False)
     video_required = models.BooleanField(default=False)
     users=models.ManyToManyField(CustomUser,blank=True,null=True)
+    description=models.TextField(null=True)
     course=models.ForeignKey(Course,on_delete=models.CASCADE,null=True)
 
     def __str__(self):
@@ -218,9 +219,9 @@ class TryFreeRecord(models.Model):
 
 class UserOrder(models.Model):
     user = models.ForeignKey(CustomUser, on_delete = models.CASCADE)
-    order_id = models.CharField(max_length = 20)
+    order_id = models.CharField(max_length = 50)
     order_amount = models.IntegerField(default=0)
-    subscription = models.CharField(max_length = 100)
+    subscription = models.CharField(max_length = 50)
     status = models.CharField(max_length = 20)
     paid_date = models.DateTimeField(default=timezone.now, null=False)
 
@@ -245,10 +246,18 @@ class RHCSAOrder(models.Model):
     def __str__(self):
         return self.transaction_id
 
+
+class MessageGroup(models.Model):
+    group = models.CharField(max_length = 250)
+
+    def __str__(self):
+        return self.group
+
 class Message(models.Model):
-    title = models.CharField(max_length = 50)
+    title = models.CharField(max_length = 250)
     message = models.TextField()
     slug = models.SlugField(max_length=40)
+    group = models.ForeignKey(MessageGroup, default=1, on_delete = models.CASCADE)
     
     def __str__(self):
         return self.title
@@ -262,8 +271,8 @@ class Unsubscriber(models.Model):
     def __str__(self):
         return self.email
 
-class Location(models.Model):
-    user = models.ForeignKey(CustomUser, on_delete = models.CASCADE)
+class UserLocation(models.Model):
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     ipaddress = models.CharField(max_length = 50)
     country = models.CharField(max_length= 100,blank=True)
     region = models.CharField(max_length= 100,blank=True)
@@ -281,10 +290,16 @@ class wetype(models.Model):
     def __str__(self):
         return self.types
 
+class werole(models.Model):
+    roles = models.CharField(max_length = 50,null=True)
+
+    def __str__(self):
+        return self.roles
+
 class wepeoples(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     profile_picture = models.ImageField(upload_to = 'resume', null=True) 
-    person_type = models.CharField(max_length = 20, null=True)
+    person = models.ForeignKey(werole, on_delete = models.CASCADE, null=True)
     current_position = models.CharField(max_length = 20, null=True)
     state = models.CharField(max_length = 20, null=True)
     income = models.CharField(max_length = 20, null=True)
@@ -294,6 +309,7 @@ class wepeoples(models.Model):
     start_date = models.DateTimeField(default=timezone.now, null=True)
     graduation_date = models.DateTimeField(default=timezone.now, null=True)
     types = models.ForeignKey(wetype, on_delete = models.CASCADE, null=True)
+
 
     def __str__(self):
         return self.user.email
@@ -339,7 +355,14 @@ class GroupClassLog(models.Model):
 
     def get_log(group_id):
         data={}
-        list=GroupClassLog.objects.filter(group=group_id).order_by('-last_login')
+        from datetime import datetime,timedelta
+        current_day= datetime.now().strftime('%A')
+        range = None
+        if current_day == "Monday":
+            range = datetime.now() - timedelta(days=5)
+        else:
+            range = datetime.now() - timedelta(days=3)
+        list=GroupClassLog.objects.filter(group=group_id,last_login__gte=range).order_by('-last_login')
         for i in list:
             data.setdefault(i.last_login.strftime('%D'),[])
             data[i.last_login.strftime('%D')].append({'username':i.user.username,'id':i.user.id})
