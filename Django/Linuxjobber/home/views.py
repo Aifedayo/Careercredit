@@ -942,7 +942,8 @@ def monthly_subscription(request):
     group_item = None
 
     email = request.user.email
-    
+    customersubscription = UserOrder.objects.all()
+   
     stripeset = StripePayment.objects.all()
     stripe.api_key = stripeset[0].secretkey
     plan_id = stripeset[0].planid
@@ -976,6 +977,10 @@ def monthly_subscription(request):
             # return HttpResponse(status=200)
 
             messages.success(request, 'Thanks for your sucbscription! Please allow 10-20 seconds for your account to be updated as we have to wait for confirmation from the credit card processor.')
+            user = CustomUser.objects.get(email=customersubscription.get(user=request.user))
+            user.role = 3
+            user.save()
+
             if nexturl:
                 if nexturl == 'group':
                     group_item = Groupclass.objects.get(id=g_id)
