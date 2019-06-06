@@ -5638,3 +5638,120 @@ home.models.DoesNotExist: UserOrder matching query does not exist.
 [2019-06-05 17:55:50] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/search.svg 304 [0.01, 127.0.0.1:49441]
 [2019-06-05 17:55:50] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/tooltag-add.svg 304 [0.01, 127.0.0.1:49441]
 [2019-06-05 17:55:50] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/sorting-icons.svg 304 [0.01, 127.0.0.1:49441]
+[2019-06-05 18:02:06] INFO [django.channels.server.log_action:141] HTTP GET /admin/users/customuser/ 200 [0.71, 127.0.0.1:49502]
+[2019-06-05 18:02:06] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/base.css 304 [0.06, 127.0.0.1:49501]
+[2019-06-05 18:02:06] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/changelists.css 304 [0.06, 127.0.0.1:49502]
+[2019-06-05 18:02:06] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.05, 127.0.0.1:49506]
+[2019-06-05 18:02:06] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/core.js 304 [0.08, 127.0.0.1:49508]
+[2019-06-05 18:02:06] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.11, 127.0.0.1:49505]
+[2019-06-05 18:02:06] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.07, 127.0.0.1:49501]
+[2019-06-05 18:02:06] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/jquery.init.js 304 [0.10, 127.0.0.1:49507]
+[2019-06-05 18:02:06] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/actions.js 304 [0.08, 127.0.0.1:49502]
+[2019-06-05 18:02:06] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/prepopulate.js 304 [0.03, 127.0.0.1:49505]
+[2019-06-05 18:02:06] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/urlify.js 304 [0.06, 127.0.0.1:49506]
+[2019-06-05 18:02:06] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/responsive.css 304 [0.02, 127.0.0.1:49507]
+[2019-06-05 18:02:06] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.05, 127.0.0.1:49508]
+[2019-06-05 18:02:06] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/fonts.css 304 [0.07, 127.0.0.1:49501]
+[2019-06-05 18:02:06] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/search.svg 304 [0.01, 127.0.0.1:49505]
+[2019-06-05 18:02:06] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/tooltag-add.svg 304 [0.01, 127.0.0.1:49506]
+[2019-06-05 18:02:06] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/sorting-icons.svg 304 [0.01, 127.0.0.1:49505]
+[2019-06-05 18:02:20] INFO [django.channels.server.log_action:141] HTTP GET /admin/ 200 [0.15, 127.0.0.1:49502]
+[2019-06-05 18:02:25] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/billinghistory/ 200 [0.28, 127.0.0.1:49502]
+[2019-06-05 18:02:26] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.11, 127.0.0.1:49505]
+[2019-06-05 18:02:29] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/billinghistory/29/change/ 200 [0.47, 127.0.0.1:49502]
+[2019-06-05 18:02:29] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:49505]
+[2019-06-05 18:02:29] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/forms.css 200 [0.04, 127.0.0.1:49507]
+[2019-06-05 18:02:29] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/responsive.css 200 [0.03, 127.0.0.1:49508]
+[2019-06-05 18:02:29] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/fonts.css 200 [0.03, 127.0.0.1:49502]
+[2019-06-05 18:02:29] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/prepopulate_init.js 200 [0.06, 127.0.0.1:49506]
+[2019-06-05 18:02:29] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/change_form.js 200 [0.07, 127.0.0.1:49501]
+[2019-06-05 18:02:29] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/widgets.css 200 [0.06, 127.0.0.1:49508]
+[2019-06-05 18:02:29] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-06-05 18:02:29] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/icon-calendar.svg 200 [0.07, 127.0.0.1:49507]
+[2019-06-05 18:02:29] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/icon-clock.svg 200 [0.07, 127.0.0.1:49505]
+[2019-06-05 18:02:31] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/billinghistory/ 200 [0.32, 127.0.0.1:49502]
+[2019-06-05 18:02:34] INFO [django.channels.server.log_action:141] HTTP GET /admin/ 200 [0.15, 127.0.0.1:49502]
+[2019-06-05 18:02:39] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/tryfreerecord/ 200 [0.29, 127.0.0.1:49502]
+[2019-06-05 18:02:40] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.14, 127.0.0.1:49501]
+[2019-06-05 18:02:41] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/tryfreerecord/93/change/ 200 [0.20, 127.0.0.1:49502]
+[2019-06-05 18:02:41] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.12, 127.0.0.1:49501]
+[2019-06-05 18:02:49] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/tryfreerecord/ 200 [0.20, 127.0.0.1:49501]
+[2019-06-05 18:02:52] INFO [django.channels.server.log_action:141] HTTP GET /admin/ 200 [0.28, 127.0.0.1:49501]
+[2019-06-05 18:02:54] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/userorder/ 200 [0.27, 127.0.0.1:49501]
+[2019-06-05 18:02:54] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.10, 127.0.0.1:49501]
+[2019-06-05 18:02:56] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/userorder/239/change/ 200 [0.19, 127.0.0.1:49501]
+[2019-06-05 18:02:56] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.12, 127.0.0.1:49533]
+[2019-06-05 18:03:01] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/userorder/ 200 [0.20, 127.0.0.1:49533]
+[2019-06-05 18:19:08] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /access_course
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\ADMIN\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\ADMIN\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\ADMIN\AppData\Local\Programs\Python\Python35\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\ADMIN\Desktop\REALONE\linuxjobber2\Django\Linuxjobber\home\views.py", line 959, in monthly_subscription
+    email = request.user.email,
+  File "C:\Users\ADMIN\AppData\Local\Programs\Python\Python35\lib\site-packages\stripe\api_resources\abstract\createable_api_resource.py", line 22, in create
+    response, api_key = requestor.request("post", url, params, headers)
+  File "C:\Users\ADMIN\AppData\Local\Programs\Python\Python35\lib\site-packages\stripe\api_requestor.py", line 121, in request
+    resp = self.interpret_response(rbody, rcode, rheaders)
+  File "C:\Users\ADMIN\AppData\Local\Programs\Python\Python35\lib\site-packages\stripe\api_requestor.py", line 372, in interpret_response
+    self.handle_error_response(rbody, rcode, resp.data, rheaders)
+  File "C:\Users\ADMIN\AppData\Local\Programs\Python\Python35\lib\site-packages\stripe\api_requestor.py", line 151, in handle_error_response
+    raise err
+stripe.error.InvalidRequestError: Request req_QiF0byHPtO5gjl: You cannot use a Stripe token more than once: tok_1Ei2OTDpoD1E0YYKJ2C10zqs.
+[2019-06-05 18:19:08] ERROR [django.channels.server.log_action:154] HTTP POST /access_course 500 [3.16, 127.0.0.1:49637]
+[2019-06-05 18:19:15] INFO [django.channels.server.log_action:141] HTTP GET /access_course 200 [0.07, 127.0.0.1:49637]
+[2019-06-05 18:19:28] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/linuxlogo.png 200 [0.01, 127.0.0.1:49647]
+[2019-06-05 18:19:28] INFO [django.channels.server.log_action:141] HTTP GET /static/favicon.ico 200 [0.01, 127.0.0.1:49637]
+[2019-06-05 18:20:00] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /access_course
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\ADMIN\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\ADMIN\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\ADMIN\AppData\Local\Programs\Python\Python35\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\ADMIN\Desktop\REALONE\linuxjobber2\Django\Linuxjobber\home\views.py", line 980, in monthly_subscription
+    user = CustomUser.objects.get(email=customersubscription.get(user=request.user))
+  File "C:\Users\ADMIN\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\query.py", line 407, in get
+    (self.model._meta.object_name, num)
+home.models.MultipleObjectsReturned: get() returned more than one UserOrder -- it returned 2!
+[2019-06-05 18:20:00] ERROR [django.channels.server.log_action:154] HTTP POST /access_course 500 [5.67, 127.0.0.1:49637]
+[2019-06-05 18:20:00] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /subscriptionstatus
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\ADMIN\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\ADMIN\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\ADMIN\AppData\Local\Programs\Python\Python35\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\ADMIN\Desktop\REALONE\linuxjobber2\Django\Linuxjobber\home\views.py", line 909, in check_subscription_status
+    BillingHistory.objects.create(user= CustomUser.objects.get(email=customersubscription.get(user=name)), amount=29, subscription_id=sud_id, status="success")
+  File "C:\Users\ADMIN\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\query.py", line 407, in get
+    (self.model._meta.object_name, num)
+home.models.MultipleObjectsReturned: get() returned more than one UserOrder -- it returned 2!
+[2019-06-05 18:20:00] ERROR [django.channels.server.log_action:154] HTTP POST /subscriptionstatus 500 [0.22, 127.0.0.1:49653]
+[2019-06-05 18:20:18] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /subscriptionstatus
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\ADMIN\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\ADMIN\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\ADMIN\AppData\Local\Programs\Python\Python35\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\ADMIN\Desktop\REALONE\linuxjobber2\Django\Linuxjobber\home\views.py", line 909, in check_subscription_status
+    BillingHistory.objects.create(user= CustomUser.objects.get(email=customersubscription.get(user=name)), amount=29, subscription_id=sud_id, status="success")
+  File "C:\Users\ADMIN\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\query.py", line 407, in get
+    (self.model._meta.object_name, num)
+home.models.MultipleObjectsReturned: get() returned more than one UserOrder -- it returned 2!
+[2019-06-05 18:20:18] ERROR [django.channels.server.log_action:154] HTTP POST /subscriptionstatus 500 [0.18, 127.0.0.1:49657]
