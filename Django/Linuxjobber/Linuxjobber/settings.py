@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     'ToolsApp.apps.ToolsappConfig',
     'classroom.apps.ClassroomConfig',
     'rest_framework.authtoken',
-    'sso_api'
+    'sso_api',
+    'storages'
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -237,21 +238,39 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+ROOT_DIR = os.path.dirname(os.path.dirname(__file__))
+def location(f):
+    return os.path.join(ROOT_DIR, f)
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'asset'),
-)
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'asset')
-
-# CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor"
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT=location('media/')
 MEDIA_URL = '/media/'
-LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/home'
+
+TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
+
+#Amazon s3 config
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID',None)
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY',None)
+AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME',None)
+AWS_S3_CUSTOM_DOMAIN = config('AWS_S3_CUSTOM_DOMAIN',None)
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+AWS_LOCATION = os.environ.get('AWS_LOCATION',None)
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+if AWS_STORAGE_BUCKET_NAME:
+    STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+else:
+    STATIC_URL='/static/'
+if AWS_STORAGE_BUCKET_NAME:
+    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+if AWS_STORAGE_BUCKET_NAME:
+    DEFAULT_FILE_STORAGE = 'home.storage_backend.MediaStorage'
+
 
 # EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 # EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
