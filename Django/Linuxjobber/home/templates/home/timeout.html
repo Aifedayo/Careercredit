@@ -1,0 +1,39 @@
+{% extends 'home/base.html' %}
+{% block title %}
+Session Timeout | Linuxjobber
+{% endblock %}
+{% block content %}
+
+<br>
+<div class="container">
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8 modal-content">
+		<br>
+		<h3>Oops! Sorry you have been inactive for a while,Please enter your password to continue</h3>
+		<hr>
+		<div class="sldbtnd">
+            <form method="post">
+                {% csrf_token %}
+
+                {% if error_message %}
+                    <div class="alert alert-danger">
+                    {{ error_message }}
+                    </div>
+                {% endif %}
+                <label for="password">
+                    <input class="form-control" name="password">
+                </label>
+            <button type="submit" class="btn btn-primary">Validate</button>
+            </form>
+		<a href="{% url 'home:logout' %}" class="btn btn-primary get"> Logout </a>
+		</div>
+		<br>
+
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+</div>
+<br>
+
+{% endblock %}

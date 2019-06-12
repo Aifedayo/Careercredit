@@ -1,0 +1,39 @@
+{% extends 'home/base.html' %}
+{% block title %}
+Not Found | Linuxjobber
+{% endblock %}
+{% block content %}
+
+
+<div class="req" role="listbox">
+    <div class=" text-center projs" >
+
+    </div>
+</div>
+<br>
+<div class="container">
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8 modal-content">
+		<br>
+		<h2>Oops! We were unable to find the content you were looking for</h2>
+		<hr>
+            <img src="">
+		<!--<p class="req-p space1">Please Note</p>
+		<ul>
+			<li>- To verify authorization to work in the United States, the agreement requires Social Security Number.</li>
+			<li>- To verify registrant identity, the agreement requires Bank Information.</li>
+		</ul>
+		<br>-->
+		<div class="sldbtnd">
+		<a href="{% url 'home:index' %}" class="btn btn-primary get">Return to home</a>
+		</div>
+		<br><br>
+
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+</div>
+<br><br>
+
+{% endblock %}

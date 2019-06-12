@@ -1,0 +1,26 @@
+{% extends 'home/base.html' %}
+{% block title %}
+Error | Linuxjobber
+{% endblock %}
+{% block content %}
+
+<br>
+<div class="container">
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8 modal-content">
+		<br>
+		<h2>Oops! Sorry it is not you, it is us. We are looking into it</h2>
+		<hr>
+		<div class="sldbtnd">
+		<a href="{% url 'home:index' %}" class="btn btn-primary get"> Return to home </a>
+		</div>
+		<br>
+
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+</div>
+<br>
+
+{% endblock %}
