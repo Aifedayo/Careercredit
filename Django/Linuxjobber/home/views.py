@@ -1872,3 +1872,6 @@ def timeout_handler(request):
     else:
         return TemplateResponse(request,'home/timeout.html')
 
+
+def to_monthly(request):
+    return redirect("home:monthly_subscription")

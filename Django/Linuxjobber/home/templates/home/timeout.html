@@ -22,10 +22,15 @@ Session Timeout | Linuxjobber
                     </div>
                 {% endif %}
                 <label for="password">
-                    <input class="form-control" name="password">
+                    <input class="form-control" type="password" name="password">
                 </label>
-            <button type="submit" class="btn btn-primary">Validate</button>
+                <label for="">
+                    <button type="submit" class="btn btn-primary">Validate</button>
+                </label>
+   ==
+
             </form>
+            <hr>
 		<a href="{% url 'home:logout' %}" class="btn btn-primary get"> Logout </a>
 		</div>
 		<br>

@@ -54,6 +54,7 @@ urlpatterns = [
     path('groupCourse/<int:pk>',views.group,name='group'),
     path('groupCourse/<int:pk>/pay/', views.group_pay, name='group_pay'),
     path('access_course', views.monthly_subscription, name='monthly_subscription'),
+    path('accesscourse', views.to_monthly, name='to_monthly_subscription'),
     path('logout', views.log_out, name="logout"),
     path('forgot/password', views.forgot_password, name='forgot_password'),
     path('reset_password/<str:reset_token>/', views.reset_password, name='reset_password'),

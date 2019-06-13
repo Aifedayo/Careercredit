@@ -345,6 +345,6 @@ GROUP_CLASS_URL = config('GROUP_CLASS_URL', 'http://localhost:4200/classroom/')
 # # Session Expiration set to 10 mins
 # SESSION_COOKIE_AGE = 10
 # SESSION_SAVE_EVERY_REQUEST = True
-# SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 
