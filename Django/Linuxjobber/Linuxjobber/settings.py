@@ -238,49 +238,69 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 
-ROOT_DIR = os.path.dirname(os.path.dirname(__file__))
-def location(f):
-    return os.path.join(ROOT_DIR, f)
+# ROOT_DIR = os.path.dirname(os.path.dirname(__file__))
+# def location(f):
+#     return os.path.join(ROOT_DIR, f)
+#
+#
+# MEDIA_ROOT=location('media/')
+# MEDIA_URL = '/media/'
+#
+# STATIC_URL = '/static/'
+#
+# CKEDITOR_UPLOAD_PATH = "ckeditor"
+# CKEDITOR_BASEPATH = "ck"
+# AWS_QUERYSTRING_AUTH = False
+# STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+#
+# TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
+# STATICFILES_FINDERS = [
+#     'django.contrib.staticfiles.finders.FileSystemFinder',
+#     'django.contrib.staticfiles.finders.AppDirectoriesFinder']
+# #Amazon s3 config
+# AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID',None)
+# AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY',None)
+# AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME',None)
+# AWS_S3_CUSTOM_DOMAIN = config('AWS_S3_CUSTOM_DOMAIN',None)
+# AWS_S3_OBJECT_PARAMETERS = {
+#     'CacheControl': 'max-age=86400',
+# }
+# AWS_LOCATION = os.environ.get('AWS_LOCATION',None)
+#
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'asset'),
+#     os.path.join(BASE_DIR, 'static'),
+#     os.path.join(BASE_DIR, 'ck'),
+# ]
+# AWS_DEFAULT_ACL = 'public-read'
+# DEFAULT_FILE_STORAGE = 'home.storage_backends.MediaStorage'
+# if AWS_STORAGE_BUCKET_NAME:
+#     STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+# else:
+#     STATIC_URL='/static/'
+# if AWS_STORAGE_BUCKET_NAME:
+#     STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+#     DEFAULT_FILE_STORAGE = 'home.storage_backend.MediaStorage'
+# \
 
-
-MEDIA_ROOT=location('media/')
-MEDIA_URL = '/media/'
-
-STATIC_URL = '/static/'
-
-CKEDITOR_UPLOAD_PATH = "ckeditor"
-CKEDITOR_BASEPATH = "ck"
-AWS_QUERYSTRING_AUTH = False
-STATIC_ROOT = os.path.join(BASE_DIR, "static/")
-
-TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
-STATICFILES_FINDERS = [
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder']
-#Amazon s3 config
-AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID',None)
-AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY',None)
-AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME',None)
-AWS_S3_CUSTOM_DOMAIN = config('AWS_S3_CUSTOM_DOMAIN',None)
-AWS_S3_OBJECT_PARAMETERS = {
-    'CacheControl': 'max-age=86400',
-}
-AWS_LOCATION = os.environ.get('AWS_LOCATION',None)
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'asset'),
-    os.path.join(BASE_DIR, 'static'),
-    os.path.join(BASE_DIR, 'ck'),
-]
-AWS_DEFAULT_ACL = 'public-read'
-DEFAULT_FILE_STORAGE = 'home.storage_backends.MediaStorage'
-if AWS_STORAGE_BUCKET_NAME:
-    STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-else:
-    STATIC_URL='/static/'
-if AWS_STORAGE_BUCKET_NAME:
-    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-    DEFAULT_FILE_STORAGE = 'home.storage_backend.MediaStorage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID', '')
+S3DIRECT_REGION = 'us-west-2'
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY', '')
+AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME', '')
+AWS_QUERYSTRING_AUTH = False #This will make sure that the file URL does not have unnecessary parameters like your access key.
+AWS_S3_CUSTOM_DOMAIN = AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com'
+#static media settings
+STATIC_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
+MEDIA_URL = STATIC_URL + 'media/'
+STATICFILES_DIRS = ( os.path.join(BASE_DIR, 'static'), )
+STATIC_ROOT = 'staticfiles'
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+STATICFILES_FINDERS = (
+'django.contrib.staticfiles.finders.FileSystemFinder',
+'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
 
 
 # EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"

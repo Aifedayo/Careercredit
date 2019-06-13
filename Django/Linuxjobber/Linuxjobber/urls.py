@@ -29,7 +29,8 @@ urlpatterns = [
     path('classroom/', include("classroom.urls")),
     path('accounts/', include('django.contrib.auth.urls')),
     path('sso_api/', include('sso_api.urls')),
-(r'^ckeditor/', include('ckeditor.urls')),
+
+
 ]
 
 urlpatterns += staticfiles_urlpatterns()
