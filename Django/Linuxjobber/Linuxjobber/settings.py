@@ -34,7 +34,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'channels',
-    'ckeditor',
+    # 'ckeditor',
     'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -246,8 +246,17 @@ def location(f):
 MEDIA_ROOT=location('media/')
 MEDIA_URL = '/media/'
 
-TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
+STATIC_URL = '/static/'
 
+CKEDITOR_UPLOAD_PATH = "ckeditor"
+CKEDITOR_BASEPATH = "ck"
+AWS_QUERYSTRING_AUTH = False
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+
+TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder']
 #Amazon s3 config
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID',None)
 AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY',None)
@@ -259,16 +268,18 @@ AWS_S3_OBJECT_PARAMETERS = {
 AWS_LOCATION = os.environ.get('AWS_LOCATION',None)
 
 STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'asset'),
     os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'ck'),
 ]
-
+AWS_DEFAULT_ACL = 'public-read'
+DEFAULT_FILE_STORAGE = 'home.storage_backends.MediaStorage'
 if AWS_STORAGE_BUCKET_NAME:
     STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 else:
     STATIC_URL='/static/'
 if AWS_STORAGE_BUCKET_NAME:
     STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-if AWS_STORAGE_BUCKET_NAME:
     DEFAULT_FILE_STORAGE = 'home.storage_backend.MediaStorage'
 
 
