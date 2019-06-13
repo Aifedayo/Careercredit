@@ -11,6 +11,7 @@ import datetime
 from smtplib import SMTPException
 from urllib.parse import urlparse
 from django.conf import settings
+from django.contrib.auth.hashers import check_password
 from django.core.mail import send_mail, BadHeaderError
 from django.shortcuts import render,redirect, reverse, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
@@ -1852,3 +1853,25 @@ def group_list(request):
     return TemplateResponse(request,'home/group_class.html',{'groups': Groupclass.objects.all(), 'GROUP_URL':settings.GROUP_CLASS_URL, 'token':user_token})
 
 
+def handler_404(request):
+    return render(request,'home/404.html',status=404)
+def handler_401(request):
+    return render(request,'home/404.html',status=401)
+def handler_500(request):
+    return render(request,'home/500.html',status=500)
+
+def timeout_handler(request):
+
+    if request.method == "POST":
+        user = CustomUser.objects.get(username=request.user.username)
+        success = user.check_password(request.POST.get('password',None))
+        if success:
+            request.session['has_timeout']=False
+            return redirect(request.session['from_timeout_next'])
+        return TemplateResponse(request,'home/timeout.html',{"error_message":" Invalid password, try again"})
+    else:
+        return TemplateResponse(request,'home/timeout.html')
+
+
+def to_monthly(request):
+    return redirect("home:monthly_subscription")

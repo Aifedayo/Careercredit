@@ -29,9 +29,17 @@ urlpatterns = [
     path('classroom/', include("classroom.urls")),
     path('accounts/', include('django.contrib.auth.urls')),
     path('sso_api/', include('sso_api.urls')),
+
+
 ]
 
 urlpatterns += staticfiles_urlpatterns()
+
+from home.views import handler_404, handler_500, handler_401
+handler404 = handler_404
+handler500 = handler_500
+handler401 = handler_401
+
 
 
 if settings.DEBUG:
