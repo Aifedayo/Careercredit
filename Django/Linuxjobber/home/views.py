@@ -923,7 +923,7 @@ def check_subscription_status(request):
             pass
 
         return HttpResponse(status=200)
-    return HttpResponse(status=200)
+    return HttpResponse(status=200)  
 
 @login_required
 def monthly_subscription(request):
