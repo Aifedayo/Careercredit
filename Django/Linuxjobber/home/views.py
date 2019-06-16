@@ -11,6 +11,7 @@ import datetime
 from smtplib import SMTPException
 from urllib.parse import urlparse
 from django.conf import settings
+from django.contrib.auth.hashers import check_password
 from django.core.mail import send_mail, BadHeaderError
 from django.shortcuts import render,redirect, reverse, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
@@ -1852,3 +1853,83 @@ def group_list(request):
     return TemplateResponse(request,'home/group_class.html',{'groups': Groupclass.objects.all(), 'GROUP_URL':settings.GROUP_CLASS_URL, 'token':user_token})
 
 
+def handler_404(request):
+    return TemplateResponse(request,'home/404.html',status=404)
+def handler_401(request):
+    return TemplateResponse(request,'home/404.html',status=401)
+def handler_500(request):
+    return render(request,'home/404.html',status=404)
+
+def timeout_handler(request):
+
+    if request.method == "POST":
+        user = CustomUser.objects.get(username=request.user.username)
+        success = user.check_password(request.POST.get('password',None))
+        if success:
+            request.session['has_timeout']=False
+            return redirect(request.session['from_timeout_next'])
+        return TemplateResponse(request,'home/timeout.html',{"error_message":" Invalid password, try again"})
+    else:
+        return TemplateResponse(request,'home/timeout.html')
+
+
+def to_monthly(request):
+    return redirect("home:monthly_subscription")
+
+
+def combined_class_pay(request):
+
+    course = request.GET.get('course_picked',1)
+    request.session['combined_class'] = course
+    PRICE = 399
+    mode = "One Time Payment"
+    PAY_FOR = "Combined Class"
+    DISCLMR = "Please note that you will be charged ${} upfront. However, you may cancel at any time within 14 days for a full refund. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ${} One Time".format(
+        PRICE, PRICE)
+    stripeset = StripePayment.objects.all()
+    stripe.api_key = stripeset[0].secretkey
+    context = {"stripe_key": stripeset[0].publickey,
+               'price': PRICE,
+               'amount': str(PRICE) + '00',
+               'mode': mode,
+               'PAY_FOR': PAY_FOR,
+               'DISCLMR': DISCLMR
+               }
+
+    if request.method == "POST":
+        token = request.POST.get("stripeToken")
+        try:
+            charge = stripe.Charge.create(
+                amount=PRICE * 100,
+                currency="usd",
+                source=token,
+                description=PAY_FOR.lower()
+            )
+
+        except stripe.error.CardError as ce:
+            return False, ce
+        else:
+            try:
+                UserPayment.objects.create(user=request.user, amount=PRICE,
+                                           trans_id=charge.id, pay_for=charge.description,
+                                           )
+                user = request.user
+                user.role = 4
+                user.save()
+                send_mail('Linuxjobber Combined Class Payment',
+                          'Hello, you have successfuly beem enrolled in our Combined Class which gives you access to full technical training with Work Experience package included \n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
+                          settings.EMAIL_HOST_USER, [request.user.email])
+                return render(request, 'home/combined_class_pay_success.html')
+            except SMTPException as error:
+                print(error)
+                return render(request, 'home/combined_class_pay_success.html')
+            except Exception as error:
+                print(error)
+                return redirect("home:combined_class")
+    else:
+
+        return TemplateResponse(request, 'home/combined_class_pay.html', context)
+
+
+def combined_class(request):
+    return TemplateResponse(request,'home/combined_class.html')

@@ -54,6 +54,7 @@ urlpatterns = [
     path('groupCourse/<int:pk>',views.group,name='group'),
     path('groupCourse/<int:pk>/pay/', views.group_pay, name='group_pay'),
     path('access_course', views.monthly_subscription, name='monthly_subscription'),
+    path('accesscourse', views.to_monthly, name='to_monthly_subscription'),
     path('logout', views.log_out, name="logout"),
     path('forgot/password', views.forgot_password, name='forgot_password'),
     path('reset_password/<str:reset_token>/', views.reset_password, name='reset_password'),
@@ -87,4 +88,7 @@ urlpatterns = [
     path('user/RHCSA/order_details', views.rhcsa_order, name='rhcsa_order'),
     path('tutorials/userinterest', views.user_interest, name='user_interest'),
     path('profile_picture/update',views.upload_profile_pic,name='profile_img_upload'),
+    path('timeout',views.timeout_handler,name='timeout'),
+    path('combined_class/',views.combined_class,name='combined_class'),
+    path('combined_class/pay',views.combined_class_pay,name='combined_class_pay'),
 ]
