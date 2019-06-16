@@ -6,7 +6,7 @@ from django.shortcuts import redirect
 from django.template.response import TemplateResponse
 from django.utils.deprecation import MiddlewareMixin
 
-from Django.Linuxjobber.Linuxjobber import settings
+from django.conf import settings
 
 
 class SessionMiddleWare(MiddlewareMixin):
