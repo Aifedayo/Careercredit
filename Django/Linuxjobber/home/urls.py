@@ -89,4 +89,6 @@ urlpatterns = [
     path('tutorials/userinterest', views.user_interest, name='user_interest'),
     path('profile_picture/update',views.upload_profile_pic,name='profile_img_upload'),
     path('timeout',views.timeout_handler,name='timeout'),
+    path('combined_class/',views.combined_class,name='combined_class'),
+    path('combined_class/pay',views.combined_class_pay,name='combined_class_pay'),
 ]

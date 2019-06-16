@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'y@my*7-t9p1rzf&2ryw*m+@1w-*-e5d=)5l_9)5ibtw7v7#2z_')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.environ.get('DJANGO_DEBUG', False))
+DEBUG = config('DJANGO_DEBUG', False,cast=bool)
 
 ALLOWED_HOSTS = ['*']
 
@@ -267,11 +267,6 @@ USE_TZ = True
 # }
 # AWS_LOCATION = os.environ.get('AWS_LOCATION',None)
 #
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'asset'),
-#     os.path.join(BASE_DIR, 'static'),
-#     os.path.join(BASE_DIR, 'ck'),
-# ]
 # AWS_DEFAULT_ACL = 'public-read'
 # DEFAULT_FILE_STORAGE = 'home.storage_backends.MediaStorage'
 # if AWS_STORAGE_BUCKET_NAME:
@@ -283,8 +278,7 @@ USE_TZ = True
 #     DEFAULT_FILE_STORAGE = 'home.storage_backend.MediaStorage'
 # \
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_DEFAULT_ACL = None
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID', '')
 S3DIRECT_REGION = 'us-west-2'
 AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY', '')
@@ -292,11 +286,18 @@ AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME', '')
 AWS_QUERYSTRING_AUTH = False #This will make sure that the file URL does not have unnecessary parameters like your access key.
 AWS_S3_CUSTOM_DOMAIN = AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com'
 #static media settings
-STATIC_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
-MEDIA_URL = STATIC_URL + 'media/'
-STATICFILES_DIRS = ( os.path.join(BASE_DIR, 'static'), )
-STATIC_ROOT = 'staticfiles'
-ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+AWS_LOCATION = config('AWS_LOCATION','static')
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'asset'),
+    os.path.join(BASE_DIR, 'static'),
+]
+if not DEBUG:
+    STATIC_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/{}/'.format(AWS_LOCATION)
+    ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    DEFAULT_FILE_STORAGE = 'home.storage_backend.MediaStorage'
 STATICFILES_FINDERS = (
 'django.contrib.staticfiles.finders.FileSystemFinder',
 'django.contrib.staticfiles.finders.AppDirectoriesFinder',
