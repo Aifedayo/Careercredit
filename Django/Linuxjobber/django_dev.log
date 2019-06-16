@@ -7788,3 +7788,70 @@ stripe.error.InvalidRequestError: Request req_gJpmLG2l82SghM: You cannot use a S
 [2019-06-16 04:38:41] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
 [2019-06-16 04:38:46] INFO [django.server.log_message:124] "GET /login/ HTTP/1.1" 200 3408
 [2019-06-16 04:38:48] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 21259
+[2019-06-16 22:41:40] INFO [django.server.log_message:124] "GET /access_course HTTP/1.1" 302 0
+[2019-06-16 22:41:40] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 158, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 156, in _get_response
+    response = response.render()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\response.py", line 106, in render
+    self.content = self.rendered_content
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\response.py", line 81, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\response.py", line 63, in resolve_template
+    return select_template(template, using=self.using)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(', '.join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: registration/login.html
+[2019-06-16 22:41:40] ERROR [django.server.log_message:124] "GET /accounts/login/?next=/access_course HTTP/1.1" 500 95701
+[2019-06-16 22:42:01] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 21259
+[2019-06-16 22:42:05] INFO [django.server.log_message:124] "GET /login/ HTTP/1.1" 200 3408
+[2019-06-16 22:42:34] INFO [django.server.log_message:124] "POST /login/ HTTP/1.1" 302 0
+[2019-06-16 22:42:34] INFO [django.server.log_message:124] "GET /courses/userinterest HTTP/1.1" 200 19711
+[2019-06-16 22:42:42] INFO [django.server.log_message:124] "GET /access_course HTTP/1.1" 200 16300
+[2019-06-16 22:43:07] INFO [django.server.log_message:124] "GET /logout HTTP/1.1" 200 7997
+[2019-06-16 22:43:09] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 21259
+[2019-06-16 22:43:18] INFO [django.server.log_message:124] "GET /access_course HTTP/1.1" 302 0
+[2019-06-16 22:43:19] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 158, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 156, in _get_response
+    response = response.render()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\response.py", line 106, in render
+    self.content = self.rendered_content
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\response.py", line 81, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\response.py", line 63, in resolve_template
+    return select_template(template, using=self.using)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(', '.join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: registration/login.html
+[2019-06-16 22:43:19] ERROR [django.server.log_message:124] "GET /accounts/login/?next=/access_course HTTP/1.1" 500 95700
+[2019-06-16 22:51:23] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 158, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 156, in _get_response
+    response = response.render()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\response.py", line 106, in render
+    self.content = self.rendered_content
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\response.py", line 81, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\response.py", line 63, in resolve_template
+    return select_template(template, using=self.using)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(', '.join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: registration/login.html
+[2019-06-16 22:51:23] ERROR [django.server.log_message:124] "GET /accounts/login/?next=/access_course HTTP/1.1" 500 95836
+[2019-06-16 22:51:33] INFO [django.server.log_message:124] "GET /login/ HTTP/1.1" 200 3408
+[2019-06-16 22:53:02] INFO [django.server.log_message:124] "GET /accesscourse HTTP/1.1" 302 0
+[2019-06-16 22:53:02] INFO [django.server.log_message:124] "GET /access_course HTTP/1.1" 302 0
+[2019-06-16 22:53:02] INFO [django.server.log_message:124] "GET /accounts/login/?next=/access_course HTTP/1.1" 200 3443

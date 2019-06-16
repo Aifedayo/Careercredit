@@ -23,7 +23,7 @@ class SessionMiddleWare(MiddlewareMixin):
             last_activity = request.session.get('last_activity',None)
             now = datetime.now()
             if last_activity:
-                if (now -  datetime.strptime(last_activity,"%Y,%m,%d,%H,%M,%S")).total_seconds() > config("SESSION_TIMEOUT_IN_SECOND", 20,cast=int):
+                if (now -  datetime.strptime(last_activity,"%Y,%m,%d,%H,%M,%S")).total_seconds() > config("SESSION_TIMEOUT_IN_SECOND", 1800,cast=int):
                     request.session['from_timeout_next'] = request.path
                     request.session['has_timeout'] = True
                     request.session['last_activity'] = now.strftime("%Y,%m,%d,%H,%M,%S")
