@@ -7881,3 +7881,5 @@ django.template.exceptions.TemplateDoesNotExist: registration/login.html
 [2019-06-17 01:08:45] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
 [2019-06-17 01:08:48] INFO [django.server.log_message:124] "GET /combined_class_terms/?course_picked=2 HTTP/1.1" 200 21885
 [2019-06-17 01:08:56] INFO [django.server.log_message:124] "GET /combined_class/pay HTTP/1.1" 200 17195
+[2019-06-17 01:19:02] INFO [django.server.log_message:124] "GET /combined_class_terms/?course_picked=2 HTTP/1.1" 200 21673
+[2019-06-17 01:19:04] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
