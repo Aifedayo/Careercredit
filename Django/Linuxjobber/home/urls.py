@@ -90,5 +90,6 @@ urlpatterns = [
     path('profile_picture/update',views.upload_profile_pic,name='profile_img_upload'),
     path('timeout',views.timeout_handler,name='timeout'),
     path('combined_class/',views.combined_class,name='combined_class'),
+    path('combined_class_terms/',views.combined_class_terms,name='combined_class_terms'),
     path('combined_class/pay',views.combined_class_pay,name='combined_class_pay'),
 ]
