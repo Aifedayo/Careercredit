@@ -641,8 +641,6 @@ def workterm(request):
 def workexpform(request):
 
     form = WeForm()
-
-
     if request.method == 'POST':
         trainee = request.POST['types']
         trainee = wetype.objects.get(id=trainee)
@@ -1888,6 +1886,13 @@ def combined_class_pay(request):
         PRICE, PRICE)
     stripeset = StripePayment.objects.all()
     stripe.api_key = stripeset[0].secretkey
+
+    try:
+        workexp = wepeoples.objects.get(user=request.user)
+        return redirect("home:workexprofile")
+    except wepeoples.DoesNotExist:
+        pass
+
     context = {"stripe_key": stripeset[0].publickey,
                'price': PRICE,
                'amount': str(PRICE) + '00',
@@ -1916,6 +1921,9 @@ def combined_class_pay(request):
                 user = request.user
                 user.role = 4
                 user.save()
+                wepeoples.objects.update_or_create(user=request.user, types=None, current_position=None,
+                                                   person=None, state=None, income=None, relocation=None,
+                                                   last_verification=None, Paystub=None, graduation_date=None)
                 send_mail('Linuxjobber Combined Class Payment',
                           'Hello, you have successfuly beem enrolled in our Combined Class which gives you access to full technical training with Work Experience package included \n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
                           settings.EMAIL_HOST_USER, [request.user.email])
@@ -1932,6 +1940,11 @@ def combined_class_pay(request):
 
 
 def combined_class(request):
+    try:
+        workexp = wepeoples.objects.get(user=request.user)
+        return redirect("home:workexprofile")
+    except wepeoples.DoesNotExist:
+        pass
     return TemplateResponse(request,'home/combined_class.html')
 
 @login_required()
