@@ -1876,7 +1876,7 @@ def timeout_handler(request):
 def to_monthly(request):
     return redirect("home:monthly_subscription")
 
-
+@login_required()
 def combined_class_pay(request):
 
     course = request.GET.get('course_picked',1)
@@ -1933,3 +1933,7 @@ def combined_class_pay(request):
 
 def combined_class(request):
     return TemplateResponse(request,'home/combined_class.html')
+
+@login_required()
+def combined_class_terms(request):
+    return TemplateResponse(request,'home/combined_class_terms.html')
