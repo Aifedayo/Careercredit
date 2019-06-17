@@ -7788,3 +7788,246 @@ stripe.error.InvalidRequestError: Request req_gJpmLG2l82SghM: You cannot use a S
 [2019-06-16 04:38:41] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
 [2019-06-16 04:38:46] INFO [django.server.log_message:124] "GET /login/ HTTP/1.1" 200 3408
 [2019-06-16 04:38:48] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 21259
+[2019-06-16 22:41:40] INFO [django.server.log_message:124] "GET /access_course HTTP/1.1" 302 0
+[2019-06-16 22:41:40] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 158, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 156, in _get_response
+    response = response.render()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\response.py", line 106, in render
+    self.content = self.rendered_content
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\response.py", line 81, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\response.py", line 63, in resolve_template
+    return select_template(template, using=self.using)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(', '.join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: registration/login.html
+[2019-06-16 22:41:40] ERROR [django.server.log_message:124] "GET /accounts/login/?next=/access_course HTTP/1.1" 500 95701
+[2019-06-16 22:42:01] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 21259
+[2019-06-16 22:42:05] INFO [django.server.log_message:124] "GET /login/ HTTP/1.1" 200 3408
+[2019-06-16 22:42:34] INFO [django.server.log_message:124] "POST /login/ HTTP/1.1" 302 0
+[2019-06-16 22:42:34] INFO [django.server.log_message:124] "GET /courses/userinterest HTTP/1.1" 200 19711
+[2019-06-16 22:42:42] INFO [django.server.log_message:124] "GET /access_course HTTP/1.1" 200 16300
+[2019-06-16 22:43:07] INFO [django.server.log_message:124] "GET /logout HTTP/1.1" 200 7997
+[2019-06-16 22:43:09] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 21259
+[2019-06-16 22:43:18] INFO [django.server.log_message:124] "GET /access_course HTTP/1.1" 302 0
+[2019-06-16 22:43:19] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 158, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 156, in _get_response
+    response = response.render()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\response.py", line 106, in render
+    self.content = self.rendered_content
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\response.py", line 81, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\response.py", line 63, in resolve_template
+    return select_template(template, using=self.using)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(', '.join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: registration/login.html
+[2019-06-16 22:43:19] ERROR [django.server.log_message:124] "GET /accounts/login/?next=/access_course HTTP/1.1" 500 95700
+[2019-06-16 22:51:23] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 158, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 156, in _get_response
+    response = response.render()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\response.py", line 106, in render
+    self.content = self.rendered_content
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\response.py", line 81, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\response.py", line 63, in resolve_template
+    return select_template(template, using=self.using)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(', '.join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: registration/login.html
+[2019-06-16 22:51:23] ERROR [django.server.log_message:124] "GET /accounts/login/?next=/access_course HTTP/1.1" 500 95836
+[2019-06-16 22:51:33] INFO [django.server.log_message:124] "GET /login/ HTTP/1.1" 200 3408
+[2019-06-16 22:53:02] INFO [django.server.log_message:124] "GET /accesscourse HTTP/1.1" 302 0
+[2019-06-16 22:53:02] INFO [django.server.log_message:124] "GET /access_course HTTP/1.1" 302 0
+[2019-06-16 22:53:02] INFO [django.server.log_message:124] "GET /accounts/login/?next=/access_course HTTP/1.1" 200 3443
+[2019-06-16 23:30:09] INFO [django.server.log_message:124] "GET /combined_class/ HTTP/1.1" 200 17213
+[2019-06-16 23:30:09] INFO [django.server.log_message:124] "GET /static/home/css/cm.css HTTP/1.1" 200 3918
+[2019-06-16 23:30:09] INFO [django.server.log_message:124] "GET /static/home/images/Group37.png HTTP/1.1" 200 66869
+[2019-06-16 23:30:10] INFO [django.server.log_message:124] "GET /static/home/images/Group.png HTTP/1.1" 200 11553
+[2019-06-16 23:30:10] INFO [django.server.log_message:124] "GET /static/home/images/combined_header.png HTTP/1.1" 200 1264204
+[2019-06-17 00:43:01] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 21259
+[2019-06-17 00:43:06] INFO [django.server.log_message:124] "GET /login/ HTTP/1.1" 200 3408
+[2019-06-17 00:48:15] INFO [django.server.log_message:124] "GET /workexperience/ HTTP/1.1" 200 19979
+[2019-06-17 00:48:23] INFO [django.server.log_message:124] "GET /workexperience/terms/ HTTP/1.1" 200 20634
+[2019-06-17 01:05:53] INFO [django.server.log_message:124] "GET /combined_class/ HTTP/1.1" 200 17213
+[2019-06-17 01:05:53] INFO [django.server.log_message:124] "GET /static/home/css/cm.css HTTP/1.1" 304 0
+[2019-06-17 01:05:54] INFO [django.server.log_message:124] "GET /static/home/images/Group37.png HTTP/1.1" 304 0
+[2019-06-17 01:05:54] INFO [django.server.log_message:124] "GET /static/home/images/Group.png HTTP/1.1" 304 0
+[2019-06-17 01:05:54] INFO [django.server.log_message:124] "GET /static/home/images/combined_header.png HTTP/1.1" 304 0
+[2019-06-17 01:06:07] INFO [django.server.log_message:124] "GET /login/ HTTP/1.1" 200 3408
+[2019-06-17 01:06:13] INFO [django.server.log_message:124] "POST /login/ HTTP/1.1" 302 0
+[2019-06-17 01:06:13] INFO [django.server.log_message:124] "GET /courses/userinterest HTTP/1.1" 200 19711
+[2019-06-17 01:07:43] INFO [django.server.log_message:124] "GET /combined_class/ HTTP/1.1" 200 21879
+[2019-06-17 01:07:51] INFO [django.server.log_message:124] "GET /combined_class/pay?course_picked=2 HTTP/1.1" 200 17195
+[2019-06-17 01:08:35] INFO [django.server.log_message:124] "GET /combined_class/pay?course_picked=2 HTTP/1.1" 200 17195
+[2019-06-17 01:08:40] INFO [django.server.log_message:124] "GET /combined_class/ HTTP/1.1" 200 21882
+[2019-06-17 01:08:40] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-06-17 01:08:44] INFO [django.server.log_message:124] "GET /combined_class/ HTTP/1.1" 200 21882
+[2019-06-17 01:08:45] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-06-17 01:08:48] INFO [django.server.log_message:124] "GET /combined_class_terms/?course_picked=2 HTTP/1.1" 200 21885
+[2019-06-17 01:08:56] INFO [django.server.log_message:124] "GET /combined_class/pay HTTP/1.1" 200 17195
+[2019-06-17 01:19:02] INFO [django.server.log_message:124] "GET /combined_class_terms/?course_picked=2 HTTP/1.1" 200 21673
+[2019-06-17 01:19:04] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-06-17 13:25:17] INFO [django.server.log_message:124] "GET /combined_class/pay HTTP/1.1" 302 0
+[2019-06-17 13:25:18] INFO [django.server.log_message:124] "GET /timeout HTTP/1.1" 200 14315
+[2019-06-17 13:25:26] INFO [django.server.log_message:124] "POST /timeout HTTP/1.1" 200 14461
+[2019-06-17 13:25:31] INFO [django.server.log_message:124] "POST /timeout HTTP/1.1" 302 0
+[2019-06-17 13:25:31] INFO [django.server.log_message:124] "GET /combined_class/pay HTTP/1.1" 200 17195
+[2019-06-17 15:01:12] INFO [django.server.log_message:124] "GET /combined_class/ HTTP/1.1" 302 0
+[2019-06-17 15:01:12] INFO [django.server.log_message:124] "GET /timeout HTTP/1.1" 200 14315
+[2019-06-17 15:01:17] INFO [django.server.log_message:124] "POST /timeout HTTP/1.1" 302 0
+[2019-06-17 15:01:17] INFO [django.server.log_message:124] "GET /combined_class/ HTTP/1.1" 200 21882
+[2019-06-17 15:01:18] INFO [django.server.log_message:124] "GET /static/home/css/cm.css HTTP/1.1" 304 0
+[2019-06-17 15:01:18] INFO [django.server.log_message:124] "GET /static/home/images/Group.png HTTP/1.1" 304 0
+[2019-06-17 15:01:18] INFO [django.server.log_message:124] "GET /static/home/images/Group37.png HTTP/1.1" 304 0
+[2019-06-17 15:01:18] INFO [django.server.log_message:124] "GET /static/home/images/combined_header.png HTTP/1.1" 304 0
+[2019-06-17 15:04:37] INFO [django.server.log_message:124] "GET /combined_class_terms/?course_picked=2 HTTP/1.1" 200 21673
+[2019-06-17 15:04:39] INFO [django.server.log_message:124] "GET /combined_class/pay HTTP/1.1" 200 17195
+[2019-06-17 15:04:43] INFO [django.server.log_message:124] "GET /static/home/images/linuxlogo.png HTTP/1.1" 304 0
+[2019-06-17 15:05:09] INFO [django.server.log_message:124] "POST /combined_class/pay HTTP/1.1" 200 14308
+[2019-06-17 15:09:31] INFO [django.server.log_message:124] "GET /combined_class/ HTTP/1.1" 200 21882
+[2019-06-17 15:10:01] INFO [django.server.log_message:124] "GET /combined_class_terms/?course_picked=2 HTTP/1.1" 200 21673
+[2019-06-17 15:10:03] INFO [django.server.log_message:124] "GET /combined_class/pay HTTP/1.1" 200 17195
+[2019-06-17 15:10:27] INFO [django.server.log_message:124] "POST /combined_class/pay HTTP/1.1" 200 14489
+[2019-06-17 15:11:03] INFO [django.server.log_message:124] "GET /workexperience/apply/ HTTP/1.1" 200 15447
+[2019-06-17 15:11:23] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 22515
+[2019-06-17 15:11:28] INFO [django.server.log_message:124] "GET /combined_class/ HTTP/1.1" 200 21882
+[2019-06-17 15:18:36] INFO [django.server.log_message:124] "GET /combined_class_terms/?course_picked=2 HTTP/1.1" 200 21673
+[2019-06-17 15:18:38] INFO [django.server.log_message:124] "GET /combined_class/pay HTTP/1.1" 200 17195
+[2019-06-17 15:19:26] INFO [django.server.log_message:124] "POST /combined_class/pay HTTP/1.1" 200 14762
+[2019-06-17 15:19:41] INFO [django.server.log_message:124] "GET /workexperience/apply/ HTTP/1.1" 200 15722
+[2019-06-17 15:19:50] INFO [django.server.log_message:124] "GET /combined_class/ HTTP/1.1" 302 0
+[2019-06-17 15:19:50] INFO [django.server.log_message:124] "GET /workexperience/profile/ HTTP/1.1" 302 0
+[2019-06-17 15:19:50] INFO [django.server.log_message:124] "GET /workexperience/apply/ HTTP/1.1" 200 15722
+[2019-06-17 15:21:31] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 22790
+[2019-06-17 15:21:36] INFO [django.server.log_message:124] "GET /combined_class/ HTTP/1.1" 302 0
+[2019-06-17 15:21:36] INFO [django.server.log_message:124] "GET /workexperience/profile/ HTTP/1.1" 302 0
+[2019-06-17 15:21:37] INFO [django.server.log_message:124] "GET /workexperience/apply/ HTTP/1.1" 200 15722
+[2019-06-17 15:25:16] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 22790
+[2019-06-17 15:25:20] INFO [django.server.log_message:124] "GET /workexperience/ HTTP/1.1" 302 0
+[2019-06-17 15:25:20] INFO [django.server.log_message:124] "GET /workexperience/profile/ HTTP/1.1" 302 0
+[2019-06-17 15:25:20] INFO [django.server.log_message:124] "GET /workexperience/apply/ HTTP/1.1" 200 15722
+[2019-06-17 15:25:25] INFO [django.server.log_message:124] "GET /logout HTTP/1.1" 200 7997
+[2019-06-17 15:25:29] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 21259
+[2019-06-17 15:25:33] INFO [django.server.log_message:124] "GET /workexperience/ HTTP/1.1" 200 19979
+[2019-06-17 15:25:39] INFO [django.server.log_message:124] "GET /workexperience/terms/ HTTP/1.1" 200 20634
+[2019-06-17 15:25:41] INFO [django.server.log_message:124] "GET /workexperience/pay/ HTTP/1.1" 302 0
+[2019-06-17 15:25:42] INFO [django.server.log_message:124] "GET /accounts/login/?next=/workexperience/pay/ HTTP/1.1" 200 3455
+[2019-06-17 15:25:54] INFO [django.server.log_message:124] "POST /login/?next=/workexperience/pay/ HTTP/1.1" 200 3519
+[2019-06-17 15:26:15] INFO [django.server.log_message:124] "GET /signup HTTP/1.1" 200 3383
+[2019-06-17 15:26:27] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /signup
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\views.py", line 117, in signup
+    userd = CustomUser.objects.get(email=email)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 403, in get
+    self.model._meta.object_name
+users.models.DoesNotExist: CustomUser matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\views.py", line 127, in signup
+    send_mail('Account has been Created', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + ' and your email is ' +email + '\n Follow this url to login with your username and password '+settings.ENV_URL+'login \n\n Thanks & Regards \n Admin. \n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [email])
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\mail\__init__.py", line 60, in send_mail
+    return mail.send()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\mail\message.py", line 294, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\mail\backends\smtp.py", line 103, in send_messages
+    new_conn_created = self.open()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\mail\backends\smtp.py", line 70, in open
+    self.connection.login(self.username, self.password)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\smtplib.py", line 729, in login
+    raise last_exception
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\smtplib.py", line 720, in login
+    initial_response_ok=initial_response_ok)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\smtplib.py", line 641, in auth
+    raise SMTPAuthenticationError(code, resp)
+smtplib.SMTPAuthenticationError: (535, b'5.7.8 Username and Password not accepted. Learn more at\n5.7.8  https://support.google.com/mail/?p=BadCredentials l12sm9945177wmj.22 - gsmtp')
+[2019-06-17 15:26:28] ERROR [django.server.log_message:124] "POST /signup HTTP/1.1" 500 131026
+[2019-06-17 15:26:56] INFO [django.server.log_message:124] "GET /login/ HTTP/1.1" 200 3408
+[2019-06-17 15:27:01] INFO [django.server.log_message:124] "POST /login/ HTTP/1.1" 302 0
+[2019-06-17 15:27:01] INFO [django.server.log_message:124] "GET /courses/userinterest HTTP/1.1" 200 19710
+[2019-06-17 15:28:04] INFO [django.server.log_message:124] "GET /workexperience/ HTTP/1.1" 200 21423
+[2019-06-17 15:28:08] INFO [django.server.log_message:124] "GET /workexperience/terms/ HTTP/1.1" 200 21889
+[2019-06-17 15:28:11] INFO [django.server.log_message:124] "GET /workexperience/pay/ HTTP/1.1" 200 16728
+[2019-06-17 15:28:44] INFO [django.server.log_message:124] "POST /workexperience/pay/ HTTP/1.1" 302 0
+[2019-06-17 15:28:44] INFO [django.server.log_message:124] "GET /workexperience/pay/ HTTP/1.1" 302 0
+[2019-06-17 15:28:44] INFO [django.server.log_message:124] "GET /workexperience/profile/ HTTP/1.1" 302 0
+[2019-06-17 15:28:45] INFO [django.server.log_message:124] "GET /workexperience/apply/ HTTP/1.1" 200 15721
+[2019-06-17 15:38:35] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 22789
+[2019-06-17 15:38:43] INFO [django.server.log_message:124] "GET /workexperience/ HTTP/1.1" 302 0
+[2019-06-17 15:38:44] INFO [django.server.log_message:124] "GET /workexperience/profile/ HTTP/1.1" 302 0
+[2019-06-17 15:38:44] INFO [django.server.log_message:124] "GET /workexperience/apply/ HTTP/1.1" 200 15721
+[2019-06-17 15:38:52] INFO [django.server.log_message:124] "GET /logout HTTP/1.1" 200 7997
+[2019-06-17 15:38:55] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 21259
+[2019-06-17 15:38:57] INFO [django.server.log_message:124] "GET /signup HTTP/1.1" 200 3383
+[2019-06-17 15:39:13] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /signup
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\views.py", line 117, in signup
+    userd = CustomUser.objects.get(email=email)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 403, in get
+    self.model._meta.object_name
+users.models.DoesNotExist: CustomUser matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\views.py", line 127, in signup
+    send_mail('Account has been Created', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + ' and your email is ' +email + '\n Follow this url to login with your username and password '+settings.ENV_URL+'login \n\n Thanks & Regards \n Admin. \n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [email])
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\mail\__init__.py", line 60, in send_mail
+    return mail.send()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\mail\message.py", line 294, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\mail\backends\smtp.py", line 103, in send_messages
+    new_conn_created = self.open()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\mail\backends\smtp.py", line 70, in open
+    self.connection.login(self.username, self.password)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\smtplib.py", line 729, in login
+    raise last_exception
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\smtplib.py", line 720, in login
+    initial_response_ok=initial_response_ok)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\smtplib.py", line 641, in auth
+    raise SMTPAuthenticationError(code, resp)
+smtplib.SMTPAuthenticationError: (535, b'5.7.8 Username and Password not accepted. Learn more at\n5.7.8  https://support.google.com/mail/?p=BadCredentials c24sm10004250wmb.21 - gsmtp')
+[2019-06-17 15:39:13] ERROR [django.server.log_message:124] "POST /signup HTTP/1.1" 500 131490
+[2019-06-17 15:39:17] INFO [django.server.log_message:124] "GET /login/ HTTP/1.1" 200 3408
+[2019-06-17 15:39:24] INFO [django.server.log_message:124] "POST /login/ HTTP/1.1" 302 0
+[2019-06-17 15:39:24] INFO [django.server.log_message:124] "GET /courses/userinterest HTTP/1.1" 200 19704
+[2019-06-17 15:39:32] INFO [django.server.log_message:124] "GET /workexperience/ HTTP/1.1" 200 21417
+[2019-06-17 15:39:37] INFO [django.server.log_message:124] "GET /workexperience/terms/ HTTP/1.1" 200 21883
+[2019-06-17 15:39:40] INFO [django.server.log_message:124] "GET /workexperience/pay/ HTTP/1.1" 200 16942
+[2019-06-17 15:40:04] INFO [django.server.log_message:124] "POST /workexperience/pay/ HTTP/1.1" 302 0
+[2019-06-17 15:40:04] INFO [django.server.log_message:124] "GET /workexperience/pay/ HTTP/1.1" 302 0
+[2019-06-17 15:40:04] INFO [django.server.log_message:124] "GET /workexperience/profile/ HTTP/1.1" 302 0
+[2019-06-17 15:40:04] INFO [django.server.log_message:124] "GET /workexperience/apply/ HTTP/1.1" 200 15715
