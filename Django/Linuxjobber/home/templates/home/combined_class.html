@@ -1,0 +1,255 @@
+{% extends 'home/base.html' %}
+
+{% block title %}
+Combined Class | Linuxjobber
+{% endblock %}
+
+{% load staticfiles %}
+{% block external_header %}
+    <link rel="stylesheet" href="{% static 'home/css/cm.css' %}">
+{% endblock %}
+
+{% load staticfiles %}
+{% block content %}
+<div class="groupblueban">
+</div>
+    <section class="bgimage">
+        <div class="overlay-color">
+        <div class="container-fluid">
+                <div class="col-md-8 col-md-offset-2">
+                    <h1>Combined training</h1>
+                    <p>Pay once for "Technical Training" and <br> "Work experience"</p>
+                       <div style="text-align: center; padding-top: 20px">
+                           {% if request.user.is_authenticated %}
+                           <a id="bgbtn" class="bgbtn">Let's begin </a>
+                           {% else %}
+                           <a class="bgbtn" href="{% url 'home:login' %}">Let's begin </a>
+
+                           {% endif %}
+                          <i style="color: white; padding-left: 10px; width: 2px;height: 2px" class="fa fa-circle "></i>
+                           <a class="lmbtn">Learn more</a>
+                        </div>
+                    </div>
+             </div>
+        </div>
+      </section>
+
+      <div class="container text-2" id="info">
+        <h1>Combined training</h1>
+         <p>offers both Technical Training and work experience</p>
+      </div>
+
+
+
+          <div class="slanteda">
+                <div class="row">
+                      <div class="col-md-6">
+                          <div class="c-img">
+                              <img class="c-img" src="{% static 'home/images/Group37.png' %}">
+                          </div>
+
+                </div>
+                                    <div class="v2 hidden-sm hidden-xs"></div>
+
+                <div class="col-md-6">
+                      <div class="icon2">
+                          <h1>Technical training</h1>
+                          <span> <b>Choose between Linux, Aws and DevOps to learn</b>  </span>
+                          <h5 class="courses"><strong>These courses cover everything from</strong></h5>
+                          <ul class="">
+                                <li>Command-line</li>
+                                <li>Shell scripting to setting up basic servers/li>
+                                <li>Touches the core areas of Linux Administration</li>
+                                <li>Amazon services such as computing, storage, networking, database,
+                                     analytics, application services, deployment, management, mobile, d
+                                     eveloper tools and tools for Internet of Things.</li>
+                          </ul>
+                      </div>
+          </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row line2">
+
+            <div class="col-md-6">
+                  <div class="icon2">
+                      <h1>Get Work Experience</h1>
+                      <p>The Work experience programme which is a 3 month program. You will engage with our team as if they work
+                          for our company and by so doing, understand the development process and work culture.  </p>
+                      <br>
+                          <p>
+                                The programme is 100% online and our meetings are Mondays - Fridays, 20 minutes each day.</p>
+                  </div>
+      </div>
+                <div class="v2 hidden-sm hidden-xs"></div>
+                  <div class="col-md-6">
+                      <div class="c-img">
+                          <img src="{% static 'home/images/Group.png' %}">
+                      </div>
+
+            </div>
+
+
+        </div><br>
+        <div class="clearfix"></div>
+
+              {% if request.user.is_authenticated %}
+             <div class="row jar" id="payment">
+            <h3 class="text-center"><strong>CHOOSE A COURSE</strong></h3>
+            <div class="col-md-10 col-md-offset-1 col-xs-offset-3">
+            <div class="com col-md-4 col-sm-8 col-xs-6">
+                <div class="card" id="type1">
+                        <h4> Linux</h4>
+                        <p class="large"><span class="sup">$</span>399</p>
+                        <p class="lead">+ 14% of 2 years salary when you get a tech job</p>
+
+                        <hr>
+           <table class="cmb-table">
+
+                           <tr height="40">
+                             <td style="text-align: left" width="95%">Technical training </td>
+                           <td> <span style="color: green" class=" fa fa-check"></span> </td>
+                           </tr>
+                           <tr>
+                             <td style="text-align: left;">Work Experience</td>
+                             <td> <span style="color: green" class=" fa fa-check"></span> </td>
+                           </tr>
+                         </table>
+                </div>
+            </div>
+            <div class="com col-md-4 col-sm-8 col-xs-6">
+                <div class="card" id="type2">
+                        <h4> AWS</h4>
+                        <p class="large"><span class="sup">$</span>399</p>
+                        <p class="lead">+ 14% of 2 years salary when you get a tech job</p>
+
+                        <hr>
+                             <table class="cmb-table">
+
+                           <tr height="40">
+                             <td style="text-align: left" width="95%">Technical training </td>
+                             <td> <span style="color: green" class=" fa fa-check"></span> </td>
+                           </tr>
+                           <tr>
+                             <td style="text-align: left;">Work Experience</td>
+                             <td> <span style="color: green" class=" fa fa-check"></span> </td>
+                           </tr>
+                         </table>
+                </div>
+            </div>
+            <div class="com col-md-4 col-sm-8 col-xs-6">
+                <div class="card" id="type3">
+                   <h4> DevOps</h4>
+                   <p class="large"><span class="sup">$</span>399</p>
+                   <p class="lead">+ 14% of 2 years salary when you get a tech job</p>
+
+                   <hr>
+                             <table class="cmb-table">
+
+                           <tr height="40">
+                             <td style="text-align: left" width="95%">Technical training </td>
+<td> <span style="color: green" class=" fa fa-check"></span> </td>                           </tr>
+                           <tr>
+                             <td style="text-align: left;">Work Experience</td>
+                             <td> <span style="color: green" class=" fa fa-check"></span> </td>
+                           </tr>
+                         </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 last">
+            <form action="{% url 'home:combined_class_terms' %}">
+                <input hidden name="course_picked" id="course_picked">
+                <button id="proceedbtn" type="submit" class="bnbtn btn btn-md text-center">Apply now </button>
+            </form>
+
+        </div>
+        </div>
+                   {% endif %}
+
+
+            </div>
+
+
+
+    <script>
+
+
+  $('#proceedbtn').hide();
+            $(".lmbtn").click(function() {
+    $('html,body').animate({
+        scrollTop: $("#info").offset().top},
+        'slow');
+});
+            $("#bgbtn").click(function() {
+    $('html,body').animate({
+        scrollTop: $("#payment").offset().top},
+        'slow');
+});
+
+
+              /**Subscription picked**/
+  $('#type1').click(function(){
+    $('#type1').css({
+      'background': '#4975B1',
+      'transition-delay': '0.1s',
+      '-webkit-transition-delay': '0.1s',
+      'transition-duration': '0.5s'
+    });
+
+    $('#course_picked').val('1');
+    $('#proceedbtn').show();
+
+    $('#type2').css({
+      'background': '#FFFFFF',
+      'color': 'black'
+    });
+        $('#type3').css({
+      'background': '#FFFFFF',
+      'color': 'black'
+    });
+  });
+  $('#type2').click(function(){
+    $('#type2').css({
+      'background': '#4975B1',
+      'transition-delay': '0.1s',
+      '-webkit-transition-delay': '0.1s',
+      'transition-duration': '0.5s'
+    });
+
+    $('#course_picked').val('2');
+    $('#proceedbtn').show();
+
+    $('#type1').css({
+      'background': '#FFFFFF',
+      'color': 'black'
+    });
+        $('#type3').css({
+      'background': '#FFFFFF',
+      'color': 'black'
+    });
+  });
+  $('#type3').click(function(){
+    $('#type3').css({
+      'background': '#4975B1',
+      'transition-delay': '0.1s',
+      '-webkit-transition-delay': '0.1s',
+      'transition-duration': '0.5s'
+    });
+
+    $('#course_picked').val('3');
+    $('#proceedbtn').show();
+
+
+    $('#type2').css({
+      'background': '#FFFFFF',
+      'color': 'black'
+    });
+        $('#type1').css({
+      'background': '#FFFFFF',
+      'color': 'black'
+    });
+  });
+
+    </script>
+
+{% endblock %}

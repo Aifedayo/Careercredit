@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'y@my*7-t9p1rzf&2ryw*m+@1w-*-e5d=)5l_9)5ibtw7v7#2z_')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
+DEBUG = config('DJANGO_DEBUG', False,cast=bool)
 
 ALLOWED_HOSTS = ['*']
 
@@ -34,7 +34,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'channels',
-    'ckeditor',
+    # 'ckeditor',
     'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     'ToolsApp.apps.ToolsappConfig',
     'classroom.apps.ClassroomConfig',
     'rest_framework.authtoken',
-    'sso_api'
+    'sso_api',
+    'storages'
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -77,6 +78,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'home.middleware.SessionMiddle.SessionMiddleWare',
 ]
 
 ROOT_URLCONF = 'Linuxjobber.urls'
@@ -236,21 +238,71 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+# ROOT_DIR = os.path.dirname(os.path.dirname(__file__))
+# def location(f):
+#     return os.path.join(ROOT_DIR, f)
+#
+#
+# MEDIA_ROOT=location('media/')
+# MEDIA_URL = '/media/'
+#
+# STATIC_URL = '/static/'
+#
+# CKEDITOR_UPLOAD_PATH = "ckeditor"
+# CKEDITOR_BASEPATH = "ck"
+# AWS_QUERYSTRING_AUTH = False
+# STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+#
+# TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
+# STATICFILES_FINDERS = [
+#     'django.contrib.staticfiles.finders.FileSystemFinder',
+#     'django.contrib.staticfiles.finders.AppDirectoriesFinder']
+# #Amazon s3 config
+# AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID',None)
+# AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY',None)
+# AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME',None)
+# AWS_S3_CUSTOM_DOMAIN = config('AWS_S3_CUSTOM_DOMAIN',None)
+# AWS_S3_OBJECT_PARAMETERS = {
+#     'CacheControl': 'max-age=86400',
+# }
+# AWS_LOCATION = os.environ.get('AWS_LOCATION',None)
+#
+# AWS_DEFAULT_ACL = 'public-read'
+# DEFAULT_FILE_STORAGE = 'home.storage_backends.MediaStorage'
+# if AWS_STORAGE_BUCKET_NAME:
+#     STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+# else:
+#     STATIC_URL='/static/'
+# if AWS_STORAGE_BUCKET_NAME:
+#     STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+#     DEFAULT_FILE_STORAGE = 'home.storage_backend.MediaStorage'
+# \
 
-STATICFILES_DIRS = (
+AWS_DEFAULT_ACL = None
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID', '')
+S3DIRECT_REGION = 'us-west-2'
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY', '')
+AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME', '')
+AWS_QUERYSTRING_AUTH = False #This will make sure that the file URL does not have unnecessary parameters like your access key.
+AWS_S3_CUSTOM_DOMAIN = AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com'
+#static media settings
+AWS_LOCATION = config('AWS_LOCATION','static')
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'asset'),
+    os.path.join(BASE_DIR, 'static'),
+]
+if not DEBUG:
+    STATIC_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/{}/'.format(AWS_LOCATION)
+    ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    DEFAULT_FILE_STORAGE = 'home.storage_backend.MediaStorage'
+STATICFILES_FINDERS = (
+'django.contrib.staticfiles.finders.FileSystemFinder',
+'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'asset')
-
-# CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor"
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
-LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/home'
 
 # EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 # EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
@@ -291,7 +343,9 @@ SERVER_USER = config('SERVER_USER', "sysadmin")
 SERVER_PASSWORD = config('SERVER_PASSWORD', "8iu7*IU&")
 GROUP_CLASS_URL = config('GROUP_CLASS_URL', 'http://localhost:4200/classroom/')
 
-# Session Expiration set to 10 mins
-SESSION_COOKIE_AGE = 60 * 60
+# # Session Expiration set to 10 mins
+# SESSION_COOKIE_AGE = 10
+# SESSION_SAVE_EVERY_REQUEST = True
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 
