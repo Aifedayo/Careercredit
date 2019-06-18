@@ -216,7 +216,7 @@ def coursetot(request,lab_no):
         totstat = 0
     else:
         totstat = stat / len(topics)
-    totstat ={'totstat': totstat}
+    totstat ={'totstat': round(totstat)}
     return JsonResponse(totstat)
 
 def topictot(request,lab_no):
