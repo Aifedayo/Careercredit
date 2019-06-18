@@ -216,7 +216,7 @@ def coursetot(request,lab_no):
         totstat = 0
     else:
         totstat = stat / len(topics)
-    totstat ={'totstat': totstat}
+    totstat ={'totstat': round(totstat)}
     return JsonResponse(totstat)
 
 def topictot(request,lab_no):
@@ -622,7 +622,7 @@ def store_lab_result(request):
         expected = len(reports)
         total = (scored / expected) * 100
 
-        status = TopicStat.objects.get(user__id =user_ID,topic__id=topic_id)
+        status = TopicStat.objects.get_or_create(user__id =user_ID,topic__id=topic_id)
         if total >= 70:
             status.lab = 50
             status.save(update_fields=['lab'])
