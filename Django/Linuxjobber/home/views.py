@@ -1876,7 +1876,11 @@ def to_monthly(request):
 
 @login_required()
 def combined_class_pay(request):
-
+    try:
+        workexp = wepeoples.objects.get(user=request.user)
+        return redirect("home:workexprofile")
+    except wepeoples.DoesNotExist:
+        pass
     course = request.GET.get('course_picked',1)
     request.session['combined_class'] = course
     PRICE = 399
@@ -1940,11 +1944,12 @@ def combined_class_pay(request):
 
 
 def combined_class(request):
-    try:
-        workexp = wepeoples.objects.get(user=request.user)
-        return redirect("home:workexprofile")
-    except wepeoples.DoesNotExist:
-        pass
+    if request.user.is_authenticated:
+        try:
+            workexp = wepeoples.objects.get(user=request.user)
+            return redirect("home:workexprofile")
+        except wepeoples.DoesNotExist:
+            pass
     return TemplateResponse(request,'home/combined_class.html')
 
 @login_required()

@@ -74,3 +74,45 @@ smtplib.SMTPAuthenticationError: (535, b'5.7.8 Username and Password not accepte
 [2019-06-17 16:03:45] INFO [django.server.log_message:124] "GET /workexperience/ HTTP/1.1" 302 0
 [2019-06-17 16:03:45] INFO [django.server.log_message:124] "GET /workexperience/profile/ HTTP/1.1" 302 0
 [2019-06-17 16:03:45] INFO [django.server.log_message:124] "GET /workexperience/apply/ HTTP/1.1" 200 15712
+[2019-06-18 02:10:46] INFO [django.server.log_message:124] "GET /combined_class/ HTTP/1.1" 302 0
+[2019-06-18 02:10:46] INFO [django.server.log_message:124] "GET /timeout HTTP/1.1" 200 14580
+[2019-06-18 02:10:51] INFO [django.server.log_message:124] "GET /logout HTTP/1.1" 200 7997
+[2019-06-18 02:10:52] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-06-18 02:10:52] WARNING [django.server.log_message:124] "GET /favicon.ico HTTP/1.1" 404 14693
+[2019-06-18 02:10:56] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /combined_class/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\views.py", line 1944, in combined_class
+    workexp = wepeoples.objects.get(user=request.user)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 394, in get
+    clone = self.filter(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 836, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 854, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\query.py", line 1253, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\query.py", line 1277, in _add_q
+    split_subq=split_subq,
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\query.py", line 1187, in build_filter
+    self.check_related_objects(join_info.final_field, value, join_info.opts)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\query.py", line 1052, in check_related_objects
+    for v in value:
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\functional.py", line 216, in inner
+    return func(self._wrapped, *args)
+TypeError: 'AnonymousUser' object is not iterable
+[2019-06-18 02:10:57] ERROR [django.server.log_message:124] "GET /combined_class/ HTTP/1.1" 500 122914
+[2019-06-18 02:11:36] INFO [django.server.log_message:124] "GET /workexperience/apply/ HTTP/1.1" 302 0
+[2019-06-18 02:11:36] INFO [django.server.log_message:124] "GET /accounts/login/?next=/workexperience/apply/ HTTP/1.1" 200 3459
+[2019-06-18 02:15:09] INFO [django.server.log_message:124] "GET /combined_class/ HTTP/1.1" 200 17175
+[2019-06-18 02:15:09] INFO [django.server.log_message:124] "GET /static/home/css/cm.css HTTP/1.1" 304 0
+[2019-06-18 02:15:10] INFO [django.server.log_message:124] "GET /static/home/images/Group37.png HTTP/1.1" 304 0
+[2019-06-18 02:15:10] INFO [django.server.log_message:124] "GET /static/home/images/Group.png HTTP/1.1" 304 0
+[2019-06-18 02:15:10] INFO [django.server.log_message:124] "GET /static/home/images/combined_header.png HTTP/1.1" 304 0
