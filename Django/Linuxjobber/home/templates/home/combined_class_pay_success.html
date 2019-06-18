@@ -21,10 +21,13 @@ Success | Linuxjobber
 		<div class="alert alert-success">
 			<span>Congratulations, you have successfully subscribed to our combined class package.</span>
             <hr>
-            <span>One more step,
-            <a class="text-danger" href="https://leif.org/commit?product_id=5cd87d84d21acb0cd12e270b"> Proceed to agreement </a> </span>
-
-		</div>
+                      <span>Two more steps,
+           <ul>
+               <li><a target="_blank" class="text-danger" href="https://leif.org/commit?product_id=5cd87d84d21acb0cd12e270b">1. Proceed to agreement </a> </li>
+               <li><a class="text-danger" href="{% url 'home:workexpform' %}">2. Complete the program's form here </a> </li>
+           </ul>
+            </span>
+        </div>
 			<!--<p class="req-p space1">Please Note</p>
 		<ul>
 			<li>- To verify authorization to work in the United States, the agreement requires Social Security Number.</li>
