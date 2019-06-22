@@ -1,5 +1,6 @@
-from storages.backends.s3boto3 import S3Boto3Storage
+from django.core.files.storage import FileSystemStorage
 
-class MediaStorage(S3Boto3Storage):
-    location = 'media'
+
+class MediaStorage(FileSystemStorage):
+    location = '/mnt/media'
     file_overwrite = False
