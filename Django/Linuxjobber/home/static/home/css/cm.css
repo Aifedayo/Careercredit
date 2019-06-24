@@ -181,7 +181,9 @@ color: rgba(27, 83, 158, 0.5);
 font-size: 72px;
 line-height: 84px;
  }
- .sup{vertical-align: super;
+ .sup{
+     padding-top: 0;
+     vertical-align: super;
     font-size:20px;
     font-weight: 100;
  }
