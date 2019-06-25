@@ -47,6 +47,8 @@ class JobPlacementForm(forms.Form):
 	can_relocate = forms.CharField(max_length = 50)
 	awareness1 = forms.CharField(max_length= 200)
 
+
+
 class InternshipForm(forms.ModelForm):
 	firstname = forms.CharField(label='First Name', widget = forms.TextInput(attrs = {'placeholder': 'First name', 'id' :'JobFname', 'class':'form-control'}) )
 	lastname = forms.CharField(label='Last Name', widget = forms.TextInput(attrs = {'placeholder': 'Last name', 'id' :'JobFname', 'class':'form-control'}) )
@@ -57,10 +59,12 @@ class InternshipForm(forms.ModelForm):
 	country = forms.CharField(label='country', widget = forms.TextInput(attrs = {'placeholder': 'Country/State', 'id' :'JobFname', 'class':'form-control'}) )
 	experience = forms.CharField(label='experience', widget = forms.TextInput(attrs = {'placeholder': 'Experience', 'id' :'JobFname', 'class':'form-control'}) )
 	course = forms.CharField(label='course', widget = forms.TextInput(attrs = {'placeholder': 'Course of study/Deparment ', 'id' :'JobFname', 'class':'form-control'}) )
-	
+	resume = forms.FileField(required = True, widget = forms.FileInput(attrs = {'accept':".pdf,.doc,.docx"}))
+
 	class Meta:
 		model = Internship
 		fields = '__all__'
+		exclude = ('date',)
 
 class ResumeForm(forms.ModelForm):
 	class Meta:
