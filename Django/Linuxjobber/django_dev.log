@@ -577,3 +577,744 @@ TypeError: 'AnonymousUser' object is not iterable
 [2019-06-22 14:44:23] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
 [2019-06-22 14:45:18] INFO [django.server.log_message:124] "GET /combined_class/ HTTP/1.1" 200 23222
 [2019-06-22 14:45:19] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-06-23 23:58:09] INFO [django.server.log_message:124] "GET / HTTP/1.1" 302 0
+[2019-06-23 23:58:09] INFO [django.server.log_message:124] "GET /timeout HTTP/1.1" 200 14655
+[2019-06-23 23:58:15] INFO [django.server.log_message:124] "POST /timeout HTTP/1.1" 200 14801
+[2019-06-23 23:58:22] INFO [django.server.log_message:124] "POST /timeout HTTP/1.1" 302 0
+[2019-06-23 23:58:22] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 22855
+[2019-06-23 23:58:27] INFO [django.server.log_message:124] "GET /admin HTTP/1.1" 200 31371
+[2019-06-23 23:58:28] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-06-23 23:58:28] WARNING [django.server.log_message:124] "GET /favicon.ico HTTP/1.1" 404 14948
+[2019-06-23 23:58:34] INFO [django.server.log_message:124] "GET /admin/Projects/project/ HTTP/1.1" 200 4402
+[2019-06-23 23:58:34] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-06-23 23:58:36] INFO [django.server.log_message:124] "GET /admin/Projects/project/1/change/ HTTP/1.1" 200 6612
+[2019-06-23 23:58:36] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-06-23 23:58:47] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /admin/Projects/project/1/change/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 575, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1557, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1451, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1491, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1027, in save_model
+    obj.save()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 729, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 759, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 820, in _save_table
+    for f in non_pks]
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 820, in <listcomp>
+    for f in non_pks]
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\files.py", line 287, in pre_save
+    file.save(file.name, file.file, save=False)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\files.py", line 87, in save
+    self.name = self.storage.save(name, content, max_length=self.field.max_length)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\files\storage.py", line 49, in save
+    return self._save(name, content)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\storage_backend.py", line 9, in _save
+    print(super()._save())
+TypeError: _save() missing 2 required positional arguments: 'name' and 'content'
+[2019-06-23 23:58:47] ERROR [django.server.log_message:124] "POST /admin/Projects/project/1/change/ HTTP/1.1" 500 167976
+[2019-06-23 23:59:42] INFO [django.server.log_message:124] "POST /admin/Projects/project/1/change/ HTTP/1.1" 302 0
+[2019-06-23 23:59:42] INFO [django.server.log_message:124] "GET /admin/Projects/project/ HTTP/1.1" 200 4594
+[2019-06-23 23:59:43] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-06-23 23:59:45] INFO [django.server.log_message:124] "GET /admin/Projects/project/1/change/ HTTP/1.1" 200 6444
+[2019-06-23 23:59:46] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-06-24 00:10:33] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /admin/Projects/project/1/change/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 575, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1557, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1451, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1491, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1027, in save_model
+    obj.save()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 729, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 759, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 820, in _save_table
+    for f in non_pks]
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 820, in <listcomp>
+    for f in non_pks]
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\files.py", line 287, in pre_save
+    file.save(file.name, file.file, save=False)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\files.py", line 87, in save
+    self.name = self.storage.save(name, content, max_length=self.field.max_length)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\files\storage.py", line 49, in save
+    return self._save(name, content)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\storage_backend.py", line 11, in _save
+    subprocess.call(['/sync_media_linuxjobber.sh'])
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 557, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 947, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 1224, in _execute_child
+    startupinfo)
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+[2019-06-24 00:10:33] ERROR [django.server.log_message:124] "POST /admin/Projects/project/1/change/ HTTP/1.1" 500 187261
+[2019-06-24 00:11:20] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /admin/Projects/project/1/change/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 575, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1557, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1451, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1491, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1027, in save_model
+    obj.save()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 729, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 759, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 820, in _save_table
+    for f in non_pks]
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 820, in <listcomp>
+    for f in non_pks]
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\files.py", line 287, in pre_save
+    file.save(file.name, file.file, save=False)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\files.py", line 87, in save
+    self.name = self.storage.save(name, content, max_length=self.field.max_length)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\files\storage.py", line 49, in save
+    return self._save(name, content)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\storage_backend.py", line 11, in _save
+    subprocess.call(['sync_media_linuxjobber.sh'])
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 557, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 947, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 1224, in _execute_child
+    startupinfo)
+OSError: [WinError 193] %1 is not a valid Win32 application
+[2019-06-24 00:11:20] ERROR [django.server.log_message:124] "POST /admin/Projects/project/1/change/ HTTP/1.1" 500 187179
+[2019-06-24 00:12:38] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /admin/Projects/project/1/change/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 575, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1557, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1451, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1491, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1027, in save_model
+    obj.save()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 729, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 759, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 820, in _save_table
+    for f in non_pks]
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 820, in <listcomp>
+    for f in non_pks]
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\files.py", line 287, in pre_save
+    file.save(file.name, file.file, save=False)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\files.py", line 87, in save
+    self.name = self.storage.save(name, content, max_length=self.field.max_length)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\files\storage.py", line 49, in save
+    return self._save(name, content)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\storage_backend.py", line 11, in _save
+    subprocess.call(['sync_media_linuxjobber.bat'])
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 557, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 947, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 1224, in _execute_child
+    startupinfo)
+OSError: [WinError 193] %1 is not a valid Win32 application
+[2019-06-24 00:12:38] ERROR [django.server.log_message:124] "POST /admin/Projects/project/1/change/ HTTP/1.1" 500 187184
+[2019-06-24 14:23:23] INFO [django.server.log_message:124] "GET /admin HTTP/1.1" 302 0
+[2019-06-24 14:23:23] INFO [django.server.log_message:124] "GET /timeout HTTP/1.1" 200 14655
+[2019-06-24 14:23:28] INFO [django.server.log_message:124] "POST /timeout HTTP/1.1" 200 14801
+[2019-06-24 14:23:34] INFO [django.server.log_message:124] "POST /timeout HTTP/1.1" 200 14801
+[2019-06-24 14:23:39] INFO [django.server.log_message:124] "POST /timeout HTTP/1.1" 302 0
+[2019-06-24 14:23:40] INFO [django.server.log_message:124] "GET /admin HTTP/1.1" 200 31355
+[2019-06-24 14:23:47] INFO [django.server.log_message:124] "GET /admin/Projects/project/ HTTP/1.1" 200 4402
+[2019-06-24 14:23:48] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-06-24 14:23:50] INFO [django.server.log_message:124] "GET /admin/Projects/project/1/change/ HTTP/1.1" 200 6444
+[2019-06-24 14:23:51] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-06-24 14:24:01] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /admin/Projects/project/1/change/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 575, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1557, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1451, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1491, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1027, in save_model
+    obj.save()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 729, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 759, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 820, in _save_table
+    for f in non_pks]
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 820, in <listcomp>
+    for f in non_pks]
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\files.py", line 287, in pre_save
+    file.save(file.name, file.file, save=False)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\files.py", line 87, in save
+    self.name = self.storage.save(name, content, max_length=self.field.max_length)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\files\storage.py", line 49, in save
+    return self._save(name, content)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\storage_backend.py", line 11, in _save
+    subprocess.call(['sync_media_files_linuxjobber.sh'])
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 557, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 947, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 1224, in _execute_child
+    startupinfo)
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+[2019-06-24 14:24:01] ERROR [django.server.log_message:124] "POST /admin/Projects/project/1/change/ HTTP/1.1" 500 187596
+[2019-06-24 14:25:10] INFO [django.server.log_message:124] "GET /admin/Projects/project/1/change/ HTTP/1.1" 200 6444
+[2019-06-24 14:25:17] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /admin/Projects/project/1/change/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 575, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1557, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1451, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1491, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1027, in save_model
+    obj.save()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 729, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 759, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 820, in _save_table
+    for f in non_pks]
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 820, in <listcomp>
+    for f in non_pks]
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\files.py", line 287, in pre_save
+    file.save(file.name, file.file, save=False)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\files.py", line 87, in save
+    self.name = self.storage.save(name, content, max_length=self.field.max_length)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\files\storage.py", line 49, in save
+    return self._save(name, content)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\storage_backend.py", line 11, in _save
+    subprocess.call(['sync_media_files_linuxjobber.sh'])
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 557, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 947, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 1224, in _execute_child
+    startupinfo)
+OSError: [WinError 193] %1 is not a valid Win32 application
+[2019-06-24 14:25:17] ERROR [django.server.log_message:124] "POST /admin/Projects/project/1/change/ HTTP/1.1" 500 187542
+[2019-06-24 14:26:05] INFO [django.server.log_message:124] "GET /admin/Projects/project/1/change/ HTTP/1.1" 200 6444
+[2019-06-24 14:26:14] INFO [django.server.log_message:124] "POST /admin/Projects/project/1/change/ HTTP/1.1" 302 0
+[2019-06-24 14:26:14] INFO [django.server.log_message:124] "GET /admin/Projects/project/ HTTP/1.1" 200 4594
+[2019-06-24 14:26:14] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-06-24 14:26:16] INFO [django.server.log_message:124] "GET /admin/Projects/project/1/change/ HTTP/1.1" 200 6552
+[2019-06-24 14:26:17] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-06-24 14:27:44] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /admin/Projects/project/1/change/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 575, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1557, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1451, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1491, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1027, in save_model
+    obj.save()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 729, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 759, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 820, in _save_table
+    for f in non_pks]
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 820, in <listcomp>
+    for f in non_pks]
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\files.py", line 287, in pre_save
+    file.save(file.name, file.file, save=False)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\files.py", line 87, in save
+    self.name = self.storage.save(name, content, max_length=self.field.max_length)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\files\storage.py", line 49, in save
+    return self._save(name, content)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\storage_backend.py", line 11, in _save
+    subprocess.call(['sync_media_linuxjobber.bat'])
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 557, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 947, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 1224, in _execute_child
+    startupinfo)
+OSError: [WinError 193] %1 is not a valid Win32 application
+[2019-06-24 14:27:44] ERROR [django.server.log_message:124] "POST /admin/Projects/project/1/change/ HTTP/1.1" 500 187936
+[2019-06-24 14:29:24] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /admin/Projects/project/1/change/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 575, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1557, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1451, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1491, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1027, in save_model
+    obj.save()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 729, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 759, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 820, in _save_table
+    for f in non_pks]
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 820, in <listcomp>
+    for f in non_pks]
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\files.py", line 287, in pre_save
+    file.save(file.name, file.file, save=False)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\files.py", line 87, in save
+    self.name = self.storage.save(name, content, max_length=self.field.max_length)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\files\storage.py", line 49, in save
+    return self._save(name, content)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\storage_backend.py", line 14, in _save
+    subprocess.call(['sync_media_files_linuxjobber.sh'])
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 557, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 947, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 1224, in _execute_child
+    startupinfo)
+OSError: [WinError 193] %1 is not a valid Win32 application
+[2019-06-24 14:29:24] ERROR [django.server.log_message:124] "POST /admin/Projects/project/1/change/ HTTP/1.1" 500 188248
+[2019-06-24 14:29:42] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /admin/Projects/project/1/change/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 575, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1557, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1451, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1491, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1027, in save_model
+    obj.save()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 729, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 759, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 820, in _save_table
+    for f in non_pks]
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 820, in <listcomp>
+    for f in non_pks]
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\files.py", line 287, in pre_save
+    file.save(file.name, file.file, save=False)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\files.py", line 87, in save
+    self.name = self.storage.save(name, content, max_length=self.field.max_length)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\files\storage.py", line 49, in save
+    return self._save(name, content)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\storage_backend.py", line 15, in _save
+    subprocess.call(['sync_media_files_linuxjobber.sh'])
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 557, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 947, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 1224, in _execute_child
+    startupinfo)
+OSError: [WinError 193] %1 is not a valid Win32 application
+[2019-06-24 14:29:42] ERROR [django.server.log_message:124] "POST /admin/Projects/project/1/change/ HTTP/1.1" 500 188270
+[2019-06-24 14:30:38] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /admin/Projects/project/1/change/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 575, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1557, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1451, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1491, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1027, in save_model
+    obj.save()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 729, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 759, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 820, in _save_table
+    for f in non_pks]
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 820, in <listcomp>
+    for f in non_pks]
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\files.py", line 287, in pre_save
+    file.save(file.name, file.file, save=False)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\files.py", line 87, in save
+    self.name = self.storage.save(name, content, max_length=self.field.max_length)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\files\storage.py", line 49, in save
+    return self._save(name, content)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\storage_backend.py", line 15, in _save
+    subprocess.call(['sync_media_files_linuxjobber.sh'])
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 557, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 947, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 1224, in _execute_child
+    startupinfo)
+OSError: [WinError 193] %1 is not a valid Win32 application
+[2019-06-24 14:30:38] ERROR [django.server.log_message:124] "POST /admin/Projects/project/1/change/ HTTP/1.1" 500 188214
+[2019-06-24 14:34:55] INFO [django.server.log_message:124] "POST /admin/Projects/project/1/change/ HTTP/1.1" 302 0
+[2019-06-24 14:34:55] INFO [django.server.log_message:124] "GET /admin/Projects/project/ HTTP/1.1" 200 4594
+[2019-06-24 14:34:55] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-06-24 14:36:16] INFO [django.server.log_message:124] "GET /admin/Projects/project/1/change/ HTTP/1.1" 200 6648
+[2019-06-24 14:36:16] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-06-24 14:36:26] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /admin/Projects/project/1/change/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 575, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1557, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1451, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1491, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1027, in save_model
+    obj.save()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 729, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 759, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 820, in _save_table
+    for f in non_pks]
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 820, in <listcomp>
+    for f in non_pks]
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\files.py", line 287, in pre_save
+    file.save(file.name, file.file, save=False)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\files.py", line 87, in save
+    self.name = self.storage.save(name, content, max_length=self.field.max_length)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\files\storage.py", line 49, in save
+    return self._save(name, content)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\storage_backend.py", line 17, in _save
+    subprocess.call(['aws','s3','sync'])
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 557, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 947, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 1224, in _execute_child
+    startupinfo)
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+[2019-06-24 14:36:26] ERROR [django.server.log_message:124] "POST /admin/Projects/project/1/change/ HTTP/1.1" 500 188160
+[2019-06-24 14:49:54] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /admin/Projects/project/1/change/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 575, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1557, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1451, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1491, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1027, in save_model
+    obj.save()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 729, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 759, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 820, in _save_table
+    for f in non_pks]
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 820, in <listcomp>
+    for f in non_pks]
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\files.py", line 287, in pre_save
+    file.save(file.name, file.file, save=False)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\files.py", line 87, in save
+    self.name = self.storage.save(name, content, max_length=self.field.max_length)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\files\storage.py", line 49, in save
+    return self._save(name, content)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\storage_backend.py", line 17, in _save
+    subprocess.call(['aws','s3','sync'])
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 557, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 947, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 1224, in _execute_child
+    startupinfo)
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+[2019-06-24 14:49:54] ERROR [django.server.log_message:124] "POST /admin/Projects/project/1/change/ HTTP/1.1" 500 188184
+[2019-06-24 14:53:37] INFO [django.server.log_message:124] "GET /admin/Projects/project/1/change/ HTTP/1.1" 302 0
+[2019-06-24 14:53:37] INFO [django.server.log_message:124] "GET /timeout HTTP/1.1" 200 14655
+[2019-06-24 14:53:43] INFO [django.server.log_message:124] "POST /timeout HTTP/1.1" 200 14801
+[2019-06-24 14:53:51] INFO [django.server.log_message:124] "POST /timeout HTTP/1.1" 302 0
+[2019-06-24 14:53:52] INFO [django.server.log_message:124] "GET /admin/Projects/project/1/change/ HTTP/1.1" 200 6648
+[2019-06-24 14:53:52] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-06-24 14:54:01] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /admin/Projects/project/1/change/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 575, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1557, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1451, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1491, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1027, in save_model
+    obj.save()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 729, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 759, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 820, in _save_table
+    for f in non_pks]
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 820, in <listcomp>
+    for f in non_pks]
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\files.py", line 287, in pre_save
+    file.save(file.name, file.file, save=False)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\files.py", line 87, in save
+    self.name = self.storage.save(name, content, max_length=self.field.max_length)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\files\storage.py", line 49, in save
+    return self._save(name, content)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\storage_backend.py", line 17, in _save
+    subprocess.call(['aws','s3','ls'])
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 557, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 947, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\subprocess.py", line 1224, in _execute_child
+    startupinfo)
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+[2019-06-24 14:54:01] ERROR [django.server.log_message:124] "POST /admin/Projects/project/1/change/ HTTP/1.1" 500 188384
