@@ -228,6 +228,7 @@ def faq(request):
 def gainexperience(request):
     return render(request, 'home/gainexperience.html', {'courses' : get_courses(), 'tools' : get_tools()})
 
+
 def internships(request):
     MAX_UPLOAD_SIZE = "2621440"
     internsh = InternshipDetail.objects.all()[0].date
