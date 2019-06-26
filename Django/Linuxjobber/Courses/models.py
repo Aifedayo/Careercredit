@@ -20,6 +20,7 @@ class Course(models.Model):
     lab_submission_type = models.PositiveSmallIntegerField(default=1, choices=LAB_SUBMISSION)
     aws_credential_required = models.IntegerField(default=0 ,choices=((0, 'No'), (1, 'Yes')))
     icon = models.CharField(max_length = 200, null=True)
+    has_certification =  models.IntegerField(default=0 ,choices=((0, 'No'), (1, 'Yes')))
     weight = models.IntegerField(unique=True, null=True)
 
     

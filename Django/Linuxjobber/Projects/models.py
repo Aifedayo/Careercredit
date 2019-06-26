@@ -17,6 +17,7 @@ class Project(models.Model):
     project_description = models.CharField(max_length=500)
     project_image = models.ImageField(upload_to = 'project', null=True)
     project_contents = models.CharField(max_length=500)
+    show_on_navigation = models.IntegerField(default=1 ,choices=((0, 'No'), (1, 'Yes')))
 
     class Meta:
         verbose_name_plural = 'Projects'
