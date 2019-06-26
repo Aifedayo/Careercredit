@@ -242,7 +242,7 @@ def internships(request):
             internform = form.save(commit=False)
             internform.save()
             messages.success(request, 'Thanks for applying for the internship which starts on '+ str(internsh.strftime('%b %d, %y')) +'. Please ensure you keep in touch with Linuxjobber latest updates on our various social media platform')
-            #send_mail('Linuxjobber Internship', 'Hello, you are receiving this email because you applied for an internship at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber.\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [request.POST['email']])
+            send_mail('Linuxjobber Internship', 'Hello, you are receiving this email because you applied for an internship at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber.\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [request.POST['email']])
             return render(request, 'home/internships.html', {'form': form, 'courses' : get_courses(), 'tools' : get_tools()})
     else:
         form = InternshipForm()
