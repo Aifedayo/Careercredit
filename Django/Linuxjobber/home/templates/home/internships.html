@@ -27,6 +27,21 @@ Internships | Linuxjobber
 <br>
 <section class="video-study">
 	<div class="container">
+  {% if messages %}
+          {% for message in messages %}
+            {% if message.tags == "success" %}
+            <br><br>
+            <div class="alert alert-success" role="alert">
+            <p style="color:#155724">{{message}}</p>
+            </div>
+            {%else%}
+            <br><br>
+            <div class="alert alert-danger" role="alert">
+            <p style="color:#721c24">{{message}}</p>
+            </div>
+            {%endif%}
+          {% endfor %}
+        {% endif %}
 	 <div class="row video-howto">
 	   <div class="col-xs-12 col-sm-12 col-lg-6">
       <img src="{% static '/home/css/newhomepage/imgs/macc.png' %}" width="550px" height="400px">
@@ -112,9 +127,10 @@ Internships | Linuxjobber
           </div> 
           <div class="col-md-6">
           <span class="pull-left text-black">Resume </span><div class="input file col-xs-10 col-sm-5">{{ form.resume }}</div> </div>
+          
           <div class="col-md-6"></div>
         </div>
-         
+         <p style="color:#721c24" class="dangerfile">Maximum file size allowed is 2MB</p>
           <div class="text-center">
           <input  class="btn reg-submit" id="add_ser_prd_btn" value="Submit" type="submit"/>  
           </div>
@@ -123,4 +139,22 @@ Internships | Linuxjobber
     </div>
   </div>
 </section>
+
+<script type="text/javascript">
+	jQuery(function(){
+    $('.dangerfile').hide();
+		$('#id_resume').bind('change', function() {
+    var MAX_UPLOAD_SIZE = "2621440"
+  if (this.files[0].size >  MAX_UPLOAD_SIZE){
+    $('.dangerfile').show();
+    $('form input[type="submit"]').prop("disabled", true);
+  }
+  else{
+    $('.dangerfile').hide();
+    $('form input[type="submit"]').prop("disabled", false);
+  }
+
+});
+	});
+</script>
 {%endblock%}

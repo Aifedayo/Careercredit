@@ -183,7 +183,7 @@ bottom: 200px;
 									<li class="has-dropdown sub-menu tool"><a class="b-n"
 									href="javascript:void(0);">Projects</a>
 
-									<div class="dropdowns transparent-style" id="tool">
+									<div class="dropdowns transparent-style multi-level" id="tool">
 										<div class="container text-1">
 											{% if tools %} {% for tool in tools %} {% with count_min_one=forloop.counter|add:"-1"|divisibleby:4 %} {% if forloop.counter == 1 or count_min_one %}
 
@@ -191,9 +191,16 @@ bottom: 200px;
 											<div class="col-md-4 col-sm-4">
 												<ul>
 													{% endif %}
-
-
-													<li><a href="{% url 'Projects:courses' tool.id %}"><span class="link-icon"><i class="fa fa-cog fa-2x"></i></span>{{tool}}</a></li>
+													
+													<li class="tool-sub-menu{{tool.id}}" ><a href="javascript:void(0);"><span class="link-icon"><i class="fa fa-cog fa-2x"></i></span>{{tool}}</a>
+													{%for pj in procourse %}
+													{%if pj.course_project.id == tool.id%}	
+														<ul class="transparent-child tool-son{{tool.id}}">
+															<li><a href="{% url 'Projects:course_topics' pj.id 1 %}">{{pj.course_title}}</a></li>
+														</ul>
+													{%endif%}
+													{%endfor%}
+													</li>
 													{% if forloop.counter|divisibleby:4 %}
 												</ul>
 											</div>
@@ -211,7 +218,7 @@ bottom: 200px;
 											<div class="col-md-3 col-sm-4 col-xs-12">
 												<ul>
 											{% endif %}
-													<li><a href="{% url 'Courses:topics' course.course_title.split|join:'_' %}"><span class="link-icon"><i class="fa {{course.icon}} fa-2x"></i></span>{{course.course_title}}</a></li>
+													<li><a href="{% url 'Courses:topics' course.course_title.split|join:'_' %}"><span class="link-icon"><i class="fa {{course.icon}} fa-2x"></i> {%if course.has_certification == 1%} <i style="font-size:25px;" class="fa fa-certificate fa-2x"></i>{%endif%}</span>{{course.course_title}}</a></li>
 													{% if forloop.counter|divisibleby:4 %}
 												</ul>
 											</div>
@@ -428,6 +435,8 @@ bottom: 200px;
 	<script type="text/javascript">
 		$(document).ready(function() {
 			var flag = 0;
+
+			$(".transparent-child").hide();
 			$(".sub-menu").hover(function() {
 				$(".transparent-style").hide();
 				$("#header").removeClass("result_hover");
@@ -442,11 +451,24 @@ bottom: 200px;
 				$("#header").toggleClass("result_hover");
 				$("#course").toggle();
 			});
+			
 			$(".tool").click(function() {
 
 				$("#header").toggleClass("result_hover");
 				$("#tool").toggle();
 			});
+
+			{% if tools %} 
+				{% for tool in tools %}
+					$(".tool-sub-menu"+"{{tool.id}}").click(function(){
+						$("#header").toggleClass("result_hover");
+						$(".transparent-style").hide();
+						//$("#tool-son").hide();
+						$(".tool-son"+"{{tool.id}}").toggle();
+					})
+				{%endfor%}
+			{%endif%}
+			
 
 			$(".company").click(function() {
 

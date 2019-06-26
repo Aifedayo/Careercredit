@@ -229,14 +229,20 @@ def faq(request):
 def gainexperience(request):
     return render(request, 'home/gainexperience.html', {'courses' : get_courses(), 'tools' : get_tools()})
 
+
 def internships(request):
+    MAX_UPLOAD_SIZE = "2621440"
     internsh = InternshipDetail.objects.all()[0].date
     if request.method == "POST":
         form = InternshipForm(request.POST, request.FILES)
         if form.is_valid():
+            for filename, file in request.FILES.iteritems():
+                if request.FILES['file'].size > MAX_UPLOAD_SIZE:
+                    request.FILES.pop(filename, None)
+                    messages.error(request, 'Maximum file size upload for your resume is 2MB, please make corrections')
             internform = form.save(commit=False)
             internform.save()
-            messages.success(request, 'Thanks for applying for the internship which starts on '+ str(internsh.strftime('%b %d, %y')) +'. Please ensure you keep in touch with Linuxjobber latest updates on our various social media platform. Thanks')
+            messages.success(request, 'Thanks for applying for the internship which starts on '+ str(internsh.strftime('%b %d, %y')) +'. Please ensure you keep in touch with Linuxjobber latest updates on our various social media platform')
             send_mail('Linuxjobber Internship', 'Hello, you are receiving this email because you applied for an internship at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber.\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [request.POST['email']])
             return render(request, 'home/internships.html', {'form': form, 'courses' : get_courses(), 'tools' : get_tools()})
     else:

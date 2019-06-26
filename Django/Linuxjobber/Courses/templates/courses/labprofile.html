@@ -35,21 +35,69 @@
 	<br><br>
 	<div class="lab-details labprof">
 		<div class ='row topic-bg'>
-            <div class="col-md-6 text-center col-xs-6 topic-class"><h4>Course</h4></div>
-            <div class="col-md-6 text-center col-xs-6 topic-class"><h4>Labs</h4></div>
+            <div class="col-md-3 text-center col-xs-3 topic-class"><h4>Course</h4></div>
+            <div class="col-md-3 text-center col-xs-3 topic-class"><h4>Labs</h4></div>
+			<div class="col-md-3 text-center col-xs-3 topic-class"><h4>Status</h4></div>
+			<div class="col-md-3 text-center col-xs-3 topic-class"><h4>Certification</h4></div>
         </div> 
 	</div>
 	<div id="myList">
 	    {% for course in coursed %}
 	    <div class="row line-ht">
-	        <div class="col-md-6 text-center">
-	        	<p>{{course}}</p>
+	        <div class="col-md-3 text-center" id="cor{{course.id}}">
+	        	<p id="cor{{course.id}}">{{course}}</p>
 	        </div>
-	        <div class="col-md-6 text-center">
-	        	<a href="{% url 'Courses:labprofiledetail' course.course_title.split|join:'_' course.id %}">View</a>
+	        <div class="col-md-3 text-center" id="corview{{course.id}}">
+	        	<a href="{% url 'Courses:labprofiledetail' course.course_title.split|join:'_' course.id %}" id="cor{{course.id}}">View</a>
 	        </div>
+			<div class="col-md-3 text-center">
+				<div class="prgbarin"  id="corer{{course.id}}" >
+					<div class="row">
+						<div class="col-md-4">
+						<div class="progress" style="width:60px;">
+						<div class="progress-bar progress-bar-primary" id="prode{{course.id}}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
+						</div>
+			
+						</div>
+						<div class="col-md-8" id="comp{{course.id}}">% Complete </div>
+						
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 text-center" id="compcert{{course.id}}">
+				<p id="comcert{{course.id}}">---</p>
+			</div>
 	    </div>
 	    {% endfor %}
 	</div>
 </div>
+
+<script type="text/javascript">
+	jQuery(function(){
+		{%for course in coursed%}
+			$.ajax({
+            type: 'GET',
+            data:'', 
+            url: '{% url "Courses:coursetot" course.id %}',
+            success: function (data) {
+                $.each(data, function(index, value){
+                    if (value <= 0){
+						$('#'+'cor'+'{{course.id}}').hide();
+						$('#'+'corview'+'{{course.id}}').hide();
+						$('#'+'corer'+'{{course.id}}').hide();
+						$('#'+'compcert'+'{{course.id}}').hide();
+					}
+					else{
+						if(value == 100){
+							$('#'+'comcert'+'{{course.id}}').replaceWith(function(){return"<i style='font-size:40px; color: #1472C8;' class='fa fa-certificate' aria-hidden='true'></i>"});
+						}
+						$('#'+'prode'+'{{course.id}}').replaceWith(function() { return"<div class='progress-bar progress-bar-primary' role='progressbar' aria-valuenow='0' aria-valuemin='0' aria-valuemax='100' id='prode{{topic.id}}' style='width:"+value+"%'></div>"});
+						$('#'+'comp'+'{{course.id}}').replaceWith(function() { return"<div class='col-md-8' id='comp{{topic.id}}'>"+value+"% Complete </div>"});
+					}
+                });
+            }
+        });
+		{%endfor%}
+	});
+</script>
 {%endblock%}
