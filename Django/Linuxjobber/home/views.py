@@ -978,7 +978,7 @@ def monthly_subscription(request):
             # return HttpResponse(status=200)
 
             messages.success(request, 'Thanks for your sucbscription! Please allow 10-20 seconds for your account to be updated as we have to wait for confirmation from the credit card processor.')
-            user = CustomUser.objects.get(email=customersubscription.get(user=request.user))
+            user = CustomUser.objects.get(email=request.user.email)
             user.role = 3
             user.save()
 
