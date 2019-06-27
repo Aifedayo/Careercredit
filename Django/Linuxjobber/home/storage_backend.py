@@ -11,6 +11,7 @@ class MediaStorage(FileSystemStorage):
         filename = super()._save(name, content)
         if not settings.DEBUG:
             import subprocess
+
             import platform
             if platform.system().lower() != 'windows':
                 try:
