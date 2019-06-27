@@ -372,7 +372,7 @@ def labprofiledetail(request, course_name, lab_no):
     course_name = course_name.replace("_", " ")
     return render(request, 'courses/labprofiledetail.html',{'topics':topics, 'course_name':course_name})
 
-"""
+""" 
     View for presenting the labtasks, with a provision for submiting the labs.
     Accepts the course name and lab_number, and uses these two parameters to obtain the labID. Using the labID obtained, it queries the list of tasks.
 """

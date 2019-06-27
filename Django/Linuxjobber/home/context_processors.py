@@ -1,7 +1,7 @@
 from Courses.models import Course
 from ToolsApp.models import Tool
 from home.models import wepeoples
-from Projects.models import Project
+from Projects.models import Project, ProjectCourse
 
 def courses(request):
     return {
@@ -10,8 +10,10 @@ def courses(request):
 
 def tools(request):
 	return{
-		'tools': Project.objects.all()
+		'tools': Project.objects.filter(show_on_navigation=1),
+		'procourse': ProjectCourse.objects.all()
 	}
+
 
 def workexperience(request):
 	if request.user.is_authenticated:

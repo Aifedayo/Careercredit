@@ -45,9 +45,12 @@
 	        <div class="col-md-6 col-xs-6">
 	        	<p>{{topic}}</p>
 	        </div>
-	        <div class="col-md-5 col-xs-5">
-	        	<a id="relink{{topic.id}}" href="{% url 'Courses:linux_result' topic.course.course_title.split|join:'_' topic.topic_number%}">View</a>
+	        <div class="col-md-3 col-xs-3">
+	        	<p id="result{{topic.id}}">---</p>
 	        </div>
+			<div class="col-md-2 col-xs-2">
+				<a id="relink{{topic.id}}" href="{% url 'Courses:linux_result' topic.course.course_title.split|join:'_' topic.topic_number%}">View</a>
+			</div>
 	    </div>
 	    {%endif%}
 	    {% endfor %}
@@ -68,9 +71,16 @@
 							color =  'grey';
 							$('#'+'relink'+'{{topic.id}}').replaceWith(function() { return"Not Attempted"});
             			}
+						else if(value == "Passed"){
+							$('#'+'result'+'{{topic.id}}').replaceWith(function() { return"Passed"});
+						}
+						else if(value == "Failed"){
+							$('#'+'result'+'{{topic.id}}').replaceWith(function() { return"Failed"});
+						}
 					});
 				}
 			});
+			
 		{%endif%}
 		{%endfor%}
 	});
