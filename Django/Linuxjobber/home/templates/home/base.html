@@ -50,6 +50,39 @@
 <script src="{% static 'home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js' %}"></script>
 <style>
 
+.tool-sub{
+	position: relative;
+}
+
+.tool-sub .tool-sond{
+	top: 10;
+	left: 70%;
+	margin-top: -1px;
+	width: 100%;
+	padding-top: 20px;
+}
+
+.tool-sond
+{
+    position: absolute;
+    top: 0;
+    right: -150px;
+    width: 150px;
+    padding: 0;
+    margin: 10;
+    display: none;
+}
+
+.tool-sond > li
+{
+    height: 50px;
+	padding-bottom: 25px;
+}
+
+.tool-sond > li:hover{
+	background-color: #468ac6;
+}
+
 
 	     .progress{
                 margin-top:5px;
@@ -180,7 +213,7 @@ bottom: 200px;
 											</div>
 										</div>
 									</div></li>
-									<li class="has-dropdown sub-menu tool"><a class="b-n"
+								<li class="has-dropdown sub-menu tool"><a class="b-n"
 									href="javascript:void(0);">Projects</a>
 
 									<div class="dropdowns transparent-style multi-level" id="tool">
@@ -192,14 +225,15 @@ bottom: 200px;
 												<ul>
 													{% endif %}
 													
-													<li class="tool-sub-menu{{tool.id}}" ><a href="javascript:void(0);"><span class="link-icon"><i class="fa fa-cog fa-2x"></i></span>{{tool}}</a>
-													{%for pj in procourse %}
-													{%if pj.course_project.id == tool.id%}	
-														<ul class="transparent-child tool-son{{tool.id}}">
-															<li><a href="{% url 'Projects:course_topics' pj.id 1 %}">{{pj.course_title}}</a></li>
+													<li class="tool-sub-menu{{tool.id}} tool-sub"><a tabindex="-1" href="javascript:void(0);"><span class="link-icon"><i class="fa fa-cog fa-2x"></i></span>{{tool}}</a>
+													
+														<ul class="transparent-child tool-sond">
+														{%for pj in procourse %}
+														{%if pj.course_project.id == tool.id%}	
+															<li  class="tool-son tool-son{{tool.id}}"><a tabindex="-1" href="{% url 'Projects:course_topics' pj.id 1 %}">{{pj.course_title}}</a></li>
+														{%endif%}
+														{%endfor%}
 														</ul>
-													{%endif%}
-													{%endfor%}
 													</li>
 													{% if forloop.counter|divisibleby:4 %}
 												</ul>
@@ -464,7 +498,9 @@ bottom: 200px;
 						$("#header").toggleClass("result_hover");
 						$(".transparent-style").hide();
 						//$("#tool-son").hide();
-						$(".tool-son"+"{{tool.id}}").toggle();
+						$(".tool-sond").toggle();
+						$(".tool-son").hide();
+						$(".tool-son"+"{{tool.id}}").show();
 					})
 				{%endfor%}
 			{%endif%}
