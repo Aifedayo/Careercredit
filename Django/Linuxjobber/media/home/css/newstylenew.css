@@ -1,0 +1,308 @@
+
+/* work experience */
+.wkex{
+    height: 100vh;
+    width: 100%;
+    background: url(../imgs//wok.png)no-repeat top center ;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+
+}
+
+.content{
+    margin-top: 50px;
+    margin-bottom: 200px;
+  }
+  
+  
+  .headernew{
+    padding-top: 150px;
+    
+  }
+
+  .jobs{
+    padding-top:50px;
+  }
+
+
+  .headernew h1{
+    font-size: 35px;
+    font-weight:bold;
+    text-align: left;
+    padding-bottom: 5px;
+    padding-left: 100px;
+    color: rgb(53, 56, 119);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+  }
+
+  .headernew h3{
+    font-size: 40px;
+    font-weight:bold;
+    text-align: left;
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+    padding-left: 100px;
+    color: #1F5FB4;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+  }
+  
+  .headernew p{
+    font-size: 24px;
+    color: #4F4F4F;
+    text-align: left;
+    padding-left: 100px;
+    margin-top: 10px;
+  }
+
+  .headbtn{
+      float: left;
+      margin-left: 100px;
+  }
+  
+  .wk-ex{
+    padding-top:80px;
+    padding-bottom:50px;
+  }
+
+  .wk-content1 {
+    background: url(../imgs//aboutrec.png) 100% 100%/ cover;
+	height: 60vh;
+}
+
+.aboutimg {
+	padding: 0px 30px;
+}
+
+.aboutimg img {
+	width: 100%;
+    -webkit-filter: grayscale(50%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(50%);
+    height: 300px;
+}
+
+.abouttext {
+    margin-top: 70px;
+}
+
+.abouttext h2 {
+    font-weight: medium;
+    color: #fff;
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.abouttext2 h2 {
+    font-weight: medium;
+    color: #1F5FB4;
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.abouttext3 h2 {
+    font-weight: medium;
+    color: #1f5fb4;
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.abouttext3 p {
+    font-size: 18px;
+    color: #585454;
+}
+
+.abouttext4 h2 {
+    font-weight: medium;
+    color: #1F5FB4;
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.abouttext4 p{
+    font-size: 18px;
+    color: #585454;
+}
+
+.abouttext p {
+    font-size: 18px;
+    color: #fff;
+}
+
+.buttoons{
+    margin-top: 5px;
+}
+
+#marg{
+    margin-top: 50px;
+    margin-bottom: 0px;
+}
+
+.benefits h2{
+    font-size: 30px;
+    padding-bottom: 20px;
+}
+
+.benefits li{
+    font-size: 14px;
+    padding-bottom: 10px;
+}
+
+.benefits {
+    background:  linear-gradient(60deg, #1472C8, rgba(86, 204, 242, 0.4)), url(../imgs//womann.jpg) 100% 25%/ cover;
+    margin-bottom: 100px;
+  margin-top: 100px;
+}
+
+.benefits-text {
+    margin: 100px 50px;
+    color: #fff;
+}
+
+.benefits-text h4 {
+    margin-bottom: 30px;
+}
+.benefits ul {
+    list-style: none;
+}
+
+
+
+  .l-d li {
+      list-style-image: url(../imgs//radio1.png);
+      padding: 0px 0px 0px 10px;
+      font-size: 18px;
+  }
+  
+  .h h2 {
+      margin-top: 30px;
+  }
+  
+  .hiw {
+      padding: 50px 30px 10px 30px;
+  }
+  
+  .hiw p {
+    padding: 30px 0px;
+    font-size: 20px;
+  }
+  
+  .wk-content {
+      margin: 150px 50px 100px 50px;
+  }
+  
+  .-content {
+      background:  linear-gradient(180deg, #3183CF, rgba(86, 204, 242, 1));
+      color: #fff;
+  }
+  
+
+  
+  .wk-ex{
+    padding-top:80px;
+    padding-bottom:50px;
+}
+
+
+.purchase_se{
+    margin-bottom: 100px;
+}
+
+@media (min-width: 375px) and (max-width: 780px) {
+    .wkex{
+        height: 60vh;
+        width: 100%;
+        background: url(../imgs//wok.png)no-repeat top center ;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    
+    
+    }
+
+
+    .headernew{
+        padding-top: 50px;
+        
+      }
+
+    .headernew h1{
+        font-size: 25px;
+        font-weight:bold;
+        text-align: left;
+        padding-bottom: 5px;
+        padding-left: 10px;
+        color: #1F5FB4;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+      }
+      
+      .headernew p{
+        font-size: 18px;
+        color: #4F4F4F;
+        text-align: left;
+        padding-left: 10px;
+        margin-top: 20px;
+      }
+
+      .headbtn{
+        float: left;
+        margin-left: 0px;
+    }
+    
+      .wk-content1 {
+        background: url(../imgs//aboutrec.png) 50% 50%/ cover;
+        height: 50vh;
+    }
+
+    .abouttext {
+        margin-top: 40px;
+    }
+
+    .abouttext h2{
+        font-size: 25px;
+    }
+
+    .abouttext2 h2 {
+        font-weight: medium;
+        color: #1F5FB4;
+        font-size: 30px;
+        margin-bottom: 10px;
+        margin-top: 20px;
+    }
+
+    .abouttext3 h2 {
+        font-weight: medium;
+        color: #1F5FB4;
+        font-size: 30px;
+        margin-bottom: 10px;
+        margin-top: 20px;
+    }
+
+    .abouttext4 h2 {
+        font-weight: medium;
+        color: #1F5FB4;
+        font-size: 30px;
+        margin-bottom: 10px;
+        margin-top: 20px;
+    }
+
+    .abouttext4 p{
+        margin-bottom: 10px;
+    }
+
+    .aboutim img {
+        width: 100vh;
+    }
+
+    #grad{
+        margin-top: 10px;
+    }
+
+    .wk-content {
+        margin: 50px 20px 40px 20px;
+    }
+
+
+
+  
+
