@@ -1,2 +1,2 @@
-#!/bin/bash
-aws s3 sync /mnt/static s3://linuxjobbber-assets-$1/static --acl public-read
+#!/bin/bash			
+cd /mnt/assets && aws s3 sync . s3://$1/assets --acl public-read
