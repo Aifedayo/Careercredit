@@ -19,7 +19,7 @@ class MediaStorage(FileSystemStorage):
                         ["sshpass", "-p", config('SSH_PASSWORD', ''), "ssh", "-o StrictHostKeyChecking=no",
                          "-o LogLevel=ERROR",
                          "-o UserKnownHostsFile=/dev/null", config('SSH_USER', '') + "@" + settings.SERVER_IP,
-                         " [ -f /opt/scripts/s3_sync_media_files.sh ] && echo $?"], stdin=subprocess.PIPE,
+                         " [ -f /opt/scripts/s3_sync_media_files.sh "+config('AWS_STORAGE_BUCKET_NAME','test')+"] && echo $?"], stdin=subprocess.PIPE,
                         stdout=subprocess.PIPE,
                         stderr=subprocess.PIPE).communicate()
                 except:
