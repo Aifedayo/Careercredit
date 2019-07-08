@@ -127,7 +127,7 @@ def signup(request):
                 send_mail('Account has been Created', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + ' and your email is ' +email + '\n Follow this url to login with your username and password '+settings.ENV_URL+'login \n\n Thanks & Regards \n Admin. \n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [email])
                 #ip = get_client_ip(request)
                 #add_location(ip,user)
-                return render(request, "home/registration/success.html", {'user': user})
+                return render(request, "home/registration/signupfeedback.html", {'user': user})
             else:
                 error = True
                 return render(request, 'home/registration/signup.html', {'error':error})
