@@ -263,6 +263,24 @@ class Message(models.Model):
     def __str__(self):
         return self.title
 
+
+TARGETS= (
+        (0, 'all role 6'),
+        (1, 'all role 4'),
+        (2, 'Nigerian Interns'),
+        (3, 'Parttime Fresh Graduate'),
+        (4, 'Marketing Internship'),
+    )
+
+class Campaign(models.Model):
+    message = models.ForeignKey(Message,default=1, on_delete = models.CASCADE)
+    Target =  models.PositiveSmallIntegerField(default=1, choices=TARGETS)
+    send_message = models.IntegerField(default=0 ,choices=((0, 'No'), (1, 'Yes')))
+    date = models.DateTimeField(default=timezone.now, null=False)
+
+    def __str__(self):
+        return self.message.title
+
 class NewsLetterSubscribers(models.Model):
     email = models.EmailField(max_length = 200)
 
