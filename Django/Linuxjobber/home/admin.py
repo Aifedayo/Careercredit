@@ -54,10 +54,12 @@ class campaignAdmin(admin.ModelAdmin):
 			outps = subprocess.Popen(["sshpass","-p", 'dead123linux', "ssh", "-o StrictHostKeyChecking=no", "-o LogLevel=ERROR", "-o UserKnownHostsFile=/dev/null", "sysadmin3@52.41.75.77", "python /oldtools/campaign/composeMail.py", '1', Role, str(obj.message.slug)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
 			outs = subprocess.Popen(["sshpass","-p", 'dead123linux', "ssh", "-o StrictHostKeyChecking=no", "-o LogLevel=ERROR", "-o UserKnownHostsFile=/dev/null", "sysadmin3@52.41.75.77", "python /tools/campaign/composeMail.py", '1', Role, str(obj.message.slug)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
             
-		
+
 		print(obj.message.slug)
 		print(obj.send_message)
-		print(obj.Target)		
+		print(obj.Target)
+
+		super().save_model(request, obj, form, change)		
 	
 
 class wetaskAdmin(admin.ModelAdmin):

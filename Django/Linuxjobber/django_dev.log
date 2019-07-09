@@ -984,3 +984,6 @@
 [2019-07-08 13:12:20] INFO [django.utils.autoreload.run_with_reloader:584] Watching for file changes with StatReloader
 [2019-07-08 13:21:58] INFO [django.channels.server.log_action:141] HTTP GET /signup 200 [0.56, 127.0.0.1:5025]
 [2019-07-08 13:21:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/styles.css 200 [0.01, 127.0.0.1:5025]
+[2019-07-09 13:35:38] INFO [django.utils.autoreload.run_with_reloader:584] Watching for file changes with StatReloader
+[2019-07-09 13:45:33] INFO [django.utils.autoreload.trigger_reload:211] E:\Documents\Web\Linuxjobber\Django\Linuxjobber\home\admin.py changed, reloading.
+[2019-07-09 13:45:34] INFO [django.utils.autoreload.run_with_reloader:584] Watching for file changes with StatReloader
