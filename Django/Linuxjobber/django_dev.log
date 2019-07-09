@@ -987,3 +987,109 @@
 [2019-07-09 13:35:38] INFO [django.utils.autoreload.run_with_reloader:584] Watching for file changes with StatReloader
 [2019-07-09 13:45:33] INFO [django.utils.autoreload.trigger_reload:211] E:\Documents\Web\Linuxjobber\Django\Linuxjobber\home\admin.py changed, reloading.
 [2019-07-09 13:45:34] INFO [django.utils.autoreload.run_with_reloader:584] Watching for file changes with StatReloader
+[2019-07-09 21:57:15] INFO [django.utils.autoreload.run_with_reloader:584] Watching for file changes with StatReloader
+[2019-07-09 21:57:45] INFO [django.utils.autoreload.trigger_reload:211] E:\Documents\Web\Linuxjobber\Django\Linuxjobber\home\admin.py changed, reloading.
+[2019-07-09 21:57:47] INFO [django.utils.autoreload.run_with_reloader:584] Watching for file changes with StatReloader
+[2019-07-09 21:57:59] INFO [django.channels.server.log_action:141] HTTP GET / 200 [0.27, 127.0.0.1:3452]
+[2019-07-09 21:57:59] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js 200 [0.04, 127.0.0.1:3452]
+[2019-07-09 21:57:59] WARNING [django.request.log_response:228] Not Found: /robots.txt
+[2019-07-09 21:57:59] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validate.js 200 [0.04, 127.0.0.1:3453]
+[2019-07-09 21:57:59] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/css/bootstrap.min.css 200 [0.04, 127.0.0.1:3455]
+[2019-07-09 21:57:59] WARNING [django.channels.server.log_action:149] HTTP GET /robots.txt 404 [0.04, 127.0.0.1:3456]
+[2019-07-09 21:57:59] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/style.css 200 [0.05, 127.0.0.1:3457]
+[2019-07-09 21:57:59] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/css/style.css 200 [0.05, 127.0.0.1:3458]
+[2019-07-09 21:57:59] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/main.css 200 [0.04, 127.0.0.1:3453]
+[2019-07-09 21:57:59] INFO [django.channels.server.log_action:141] HTTP GET /static/Projects/custom/css/projects.css 200 [0.03, 127.0.0.1:3456]
+[2019-07-09 21:57:59] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js 200 [0.02, 127.0.0.1:3458]
+[2019-07-09 21:57:59] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/newstylenew.css 200 [0.05, 127.0.0.1:3455]
+[2019-07-09 21:57:59] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css 200 [0.04, 127.0.0.1:3457]
+[2019-07-09 21:57:59] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/LaptopBook.png 200 [0.03, 127.0.0.1:3456]
+[2019-07-09 21:57:59] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/logo.png 200 [0.04, 127.0.0.1:3453]
+[2019-07-09 21:57:59] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/newstyle2.css 200 [0.09, 127.0.0.1:3452]
+[2019-07-09 21:57:59] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/homelive.png 200 [0.04, 127.0.0.1:3455]
+[2019-07-09 21:58:00] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/get1.png 200 [0.03, 127.0.0.1:3453]
+[2019-07-09 21:58:00] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/get2.png 200 [0.03, 127.0.0.1:3456]
+[2019-07-09 21:58:00] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/get3.png 200 [0.04, 127.0.0.1:3457]
+[2019-07-09 21:58:00] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/testi.png 200 [0.03, 127.0.0.1:3452]
+[2019-07-09 21:58:00] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/hq1.png 200 [0.03, 127.0.0.1:3455]
+[2019-07-09 21:58:00] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/jobphone.png 200 [0.07, 127.0.0.1:3458]
+[2019-07-09 21:58:00] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/hq2.png 200 [0.03, 127.0.0.1:3457]
+[2019-07-09 21:58:00] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/client3.png 200 [0.03, 127.0.0.1:3453]
+[2019-07-09 21:58:00] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/client2.png 200 [0.04, 127.0.0.1:3456]
+[2019-07-09 21:58:00] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/client1.png 200 [0.02, 127.0.0.1:3452]
+[2019-07-09 21:58:00] INFO [django.channels.server.log_action:141] HTTP GET /static/faq/js/jquery.mobile.custom.min.js 200 [0.03, 127.0.0.1:3458]
+[2019-07-09 21:58:00] INFO [django.channels.server.log_action:141] HTTP GET /static/faq/js/main.js 200 [0.02, 127.0.0.1:3453]
+[2019-07-09 21:58:00] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/bootstrap.min.js 200 [0.04, 127.0.0.1:3455]
+[2019-07-09 21:58:00] INFO [django.channels.server.log_action:141] HTTP GET /static/js/waterbubble.js 200 [0.04, 127.0.0.1:3457]
+[2019-07-09 21:58:01] INFO [django.channels.server.log_action:147] HTTP GET /admin 302 [0.09, 127.0.0.1:3457]
+[2019-07-09 21:58:01] INFO [django.channels.server.log_action:141] HTTP GET /admin/login/?next=/admin 200 [0.04, 127.0.0.1:3457]
+[2019-07-09 21:58:01] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/base.css 200 [0.06, 127.0.0.1:3457]
+[2019-07-09 21:58:01] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/login.css 200 [0.06, 127.0.0.1:3455]
+[2019-07-09 21:58:01] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/responsive.css 200 [0.06, 127.0.0.1:3453]
+[2019-07-09 21:58:01] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/fonts.css 200 [0.01, 127.0.0.1:3455]
+[2019-07-09 21:58:01] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/fonts/Roboto-Light-webfont.woff 200 [0.02, 127.0.0.1:3455]
+[2019-07-09 21:58:01] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/fonts/Roboto-Regular-webfont.woff 200 [0.02, 127.0.0.1:3453]
+[2019-07-09 21:58:01] WARNING [django.request.log_response:228] Not Found: /favicon.ico
+[2019-07-09 21:58:01] WARNING [django.channels.server.log_action:149] HTTP GET /favicon.ico 404 [0.02, 127.0.0.1:3453]
+[2019-07-09 21:58:10] INFO [django.channels.server.log_action:147] HTTP POST /admin/login/?next=/admin 302 [0.34, 127.0.0.1:3453]
+[2019-07-09 21:58:10] INFO [django.channels.server.log_action:141] HTTP GET /admin 200 [0.09, 127.0.0.1:3453]
+[2019-07-09 21:58:10] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/dashboard.css 200 [0.01, 127.0.0.1:3453]
+[2019-07-09 21:58:10] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/icon-addlink.svg 200 [0.01, 127.0.0.1:3453]
+[2019-07-09 21:58:10] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/icon-changelink.svg 200 [0.01, 127.0.0.1:3455]
+[2019-07-09 21:58:10] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/fonts/Roboto-Bold-webfont.woff 200 [0.06, 127.0.0.1:3457]
+[2019-07-09 21:58:13] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/campaign/ 200 [0.11, 127.0.0.1:3457]
+[2019-07-09 21:58:13] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/changelists.css 200 [0.03, 127.0.0.1:3457]
+[2019-07-09 21:58:13] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/jquery.init.js 200 [0.03, 127.0.0.1:3458]
+[2019-07-09 21:58:13] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:3455]
+[2019-07-09 21:58:13] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 200 [0.05, 127.0.0.1:3456]
+[2019-07-09 21:58:13] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/urlify.js 200 [0.03, 127.0.0.1:3458]
+[2019-07-09 21:58:13] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/core.js 200 [0.06, 127.0.0.1:3452]
+[2019-07-09 21:58:13] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/vendor/jquery/jquery.js 200 [0.07, 127.0.0.1:3453]
+[2019-07-09 21:58:13] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/actions.js 200 [0.04, 127.0.0.1:3457]
+[2019-07-09 21:58:13] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/prepopulate.js 200 [0.03, 127.0.0.1:3455]
+[2019-07-09 21:58:13] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 200 [0.02, 127.0.0.1:3457]
+[2019-07-09 21:58:13] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/tooltag-add.svg 200 [0.01, 127.0.0.1:3457]
+[2019-07-09 21:58:15] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/campaign/1/change/ 200 [0.11, 127.0.0.1:3457]
+[2019-07-09 21:58:15] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/calendar.js 200 [0.03, 127.0.0.1:3453]
+[2019-07-09 21:58:15] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/forms.css 200 [0.04, 127.0.0.1:3457]
+[2019-07-09 21:58:15] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.04, 127.0.0.1:3455]
+[2019-07-09 21:58:15] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/change_form.js 200 [0.02, 127.0.0.1:3457]
+[2019-07-09 21:58:15] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/prepopulate_init.js 200 [0.01, 127.0.0.1:3453]
+[2019-07-09 21:58:15] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/widgets.css 200 [0.02, 127.0.0.1:3452]
+[2019-07-09 21:58:15] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/admin/DateTimeShortcuts.js 200 [0.07, 127.0.0.1:3456]
+[2019-07-09 21:58:15] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/icon-calendar.svg 200 [0.02, 127.0.0.1:3456]
+[2019-07-09 21:58:15] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/icon-clock.svg 200 [0.02, 127.0.0.1:3452]
+[2019-07-09 21:58:17] ERROR [django.request.log_response:228] Internal Server Error: /admin/home/campaign/1/change/
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 606, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1637, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 45, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1522, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1561, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "E:\Documents\Web\Linuxjobber\Django\Linuxjobber\home\admin.py", line 57, in save_model
+    outps = subprocess.Popen(["sshpass","-p", 'dead123linux', "ssh", "-o StrictHostKeyChecking=no", "-o LogLevel=ERROR", "-o UserKnownHostsFile=/dev/null", "sysadmin3@52.41.75.77", "python /oldtools/campaigns/composeMail.py", '1', Role, str(obj.message.slug)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\subprocess.py", line 775, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\subprocess.py", line 1178, in _execute_child
+    startupinfo)
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+[2019-07-09 21:58:17] ERROR [django.channels.server.log_action:154] HTTP POST /admin/home/campaign/1/change/ 500 [0.10, 127.0.0.1:3452]
