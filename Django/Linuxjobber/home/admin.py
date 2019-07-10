@@ -40,6 +40,9 @@ class campaignAdmin(admin.ModelAdmin):
 	def save_model(self, request, obj, form, change):
 
 		if obj.send_message == 1:
+			outps = None
+			outs = None
+			print('okay passed')
 			if obj.Target == 0:
 				Role = "all_role6"
 			elif obj.Target == 1:
@@ -51,12 +54,16 @@ class campaignAdmin(admin.ModelAdmin):
 			elif obj.Target == 4:
 				Role = "marketing_internship"
 			
-			outps = subprocess.Popen(["sshpass","-p", settings.SERVER_PASSWORD, "ssh", "-o StrictHostKeyChecking=no", "-o LogLevel=ERROR", "-o UserKnownHostsFile=/dev/null", settings.SERVER_USER+"@"+settings.SERVER_IP, "python /opt/oldtools/tools/campaign/composeMail.py", '1', Role, str(obj.message.slug)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
-            
-		
+			outps = subprocess.Popen(["sshpass","-p", 'dead123linux', "ssh", "-o StrictHostKeyChecking=no", "-o LogLevel=ERROR", "-o UserKnownHostsFile=/dev/null", "sysadmin3@52.41.75.77", "python /oldtools/campaigns/composeMail.py", '1', Role, str(obj.message.slug)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+			outs = subprocess.Popen(["sshpass","-p", 'dead123linux', "ssh", "-o StrictHostKeyChecking=no", "-o LogLevel=ERROR", "-o UserKnownHostsFile=/dev/null", "sysadmin3@52.41.75.77", "python /tools/campaigns/composeMail.py", '1', Role, str(obj.message.slug)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+			print(outps)
+			print(outs)
+
 		print(obj.message.slug)
 		print(obj.send_message)
-		print(obj.Target)		
+		print(obj.Target)
+
+		super().save_model(request, obj, form, change)		
 	
 
 class wetaskAdmin(admin.ModelAdmin):
