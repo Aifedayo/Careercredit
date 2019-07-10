@@ -9,19 +9,20 @@ class MediaStorage(FileSystemStorage):
 
     def _save(self, name, content):
         filename = super()._save(name, content)
-        if not settings.DEBUG:
+        if True:
+            print("here")
             import subprocess
 
             import platform
             if platform.system().lower() != 'windows':
-                try:
-                    outs = subprocess.Popen(
-                        ["sshpass", "-p", config('SSH_PASSWORD', ''), "ssh", "-o StrictHostKeyChecking=no",
-                         "-o LogLevel=ERROR",
-                         "-o UserKnownHostsFile=/dev/null", config('SSH_USER', '') + "@" + settings.SERVER_IP,
-                         " [ -f /opt/scripts/s3_sync_media_files.sh "+config('AWS_STORAGE_BUCKET_NAME','test')+"] && echo $?"], stdin=subprocess.PIPE,
-                        stdout=subprocess.PIPE,
-                        stderr=subprocess.PIPE).communicate()
-                except:
-                    pass
+
+                outs = subprocess.Popen(
+                    ["sshpass", "-p", config('SSH_PASSWORD', ''), "ssh", "-o StrictHostKeyChecking=no",
+                     "-o LogLevel=ERROR",
+                     "-o UserKnownHostsFile=/dev/null", config('SSH_USER', '') + "@" + settings.SERVER_IP,
+                     " [ -f /opt/scripts/echo.sh "+config('AWS_STORAGE_BUCKET_NAME','test')+"] && echo $?"], stdin=subprocess.PIPE,
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.PIPE).communicate()
+                print(outs)
+
         return filename
