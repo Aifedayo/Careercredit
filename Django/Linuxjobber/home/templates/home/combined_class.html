@@ -4,12 +4,6 @@
 Combined Class | Linuxjobber
 {% endblock %}
 
-
-
-
-
-
-
 {% load staticfiles %}
 {% block external_header %}
     <link rel="stylesheet" href="{% static 'home/css/cm.css' %}">
@@ -19,6 +13,19 @@ Combined Class | Linuxjobber
 {% block content %}
     <style>
 
+    .combinedblueban {
+        background-color: #1B539E;
+        height: 72px;
+    }
+
+    .cir-white {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 5px;
+        background: #ffffff;
+
+    }
     .cir {
         display: inline-block;
         width: 8px;
@@ -30,15 +37,39 @@ Combined Class | Linuxjobber
 
     ul > li{
         font-size: 14px;
-        padding-top: 3px;
+        padding-bottom: 3px;
+        font-weight: 200;
+        color: rgba(0, 0, 0, 0.8);
 
     }
+    .dark{
+font-size: 14px;
+        font-weight: 600;
+    }
 
+    .btn-black {
+        margin-top: 40px;
+        width: 140px;
+        height: 38px;
+        font-weight: 600;
+        font-size: 17px;
+        background: #242525;
+        box-shadow: 0 0 7px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        color: #fff;
+    }
+
+
+    .courses {
+        margin-top: 25px;
+        padding-bottom: 5px;
+        font-size: 14px;
+        font-weight: revert;
+    }
     </style>
 
 
-<div class="groupblueban">
-</div>
+<div class="combinedblueban"></div>
     <section class="bgimage">
         <div class="overlay-color">
         <div class="container-fluid">
@@ -51,8 +82,8 @@ Combined Class | Linuxjobber
                            {% else %}
                            <a class="bgbtn" href="{% url 'home:login' %}">Let's begin </a>
 
-                           {% endif %}
-                          <i style="color: white; padding-left: 10px; width: 2px;height: 2px" class="fa fa-circle "></i>
+                           {% endif %}&nbsp;&nbsp;
+                           <span class="cir-white"></span>&nbsp;&nbsp;
                            <a class="lmbtn">Learn more</a>
                         </div>
                     </div>
@@ -79,15 +110,25 @@ Combined Class | Linuxjobber
 
                 <div class="col-md-6">
                       <div class="icon2">
-                          <h1>Technical training</h1>
-                          <span> <strong>Choose between Linux, AWS and DevOps to learn</strong>  </span>
-                          <h5 class="courses"><strong>These courses cover everything from</strong></h5>
+                          <h1>Technical Training</h1>
+                         <b><span class="dark"> Choose between Linux, AWS and DevOps to learn </span> </b>
+                          <p class="courses"><strong>These courses cover everything from</strong></p>
                           <ul>
-                                   <li> <span class="cir"></span> Command-line</li>
+                                   <li > <span class="cir"></span> Command-line</li>
                                    <li> <span class="cir"></span> Shell scripting to setting up basic servers</li>
                                    <li> <span class="cir"></span> Touches the core areas of Linux Administration</li>
                                    <li> <span class="cir"></span> Amazon services such as computing, storage, networking, database,
                                      analytics, application services, deployment, management, mobile, developer tools and tools for Internet of Things.</li>
+                          </ul>
+                           {% if request.user.is_authenticated %}
+                           <li><a class="btn btn-black apbtn">Apply Now</a></li>
+                           {% else %}
+                           <li><a class="btn btn-black" href="{% url 'home:login' %}">Apply Now</a></li>
+
+                           {% endif %}
+
+                          <ul>
+
                           </ul>
                       </div>
           </div>
@@ -111,6 +152,15 @@ Combined Class | Linuxjobber
   <li> <span class="cir"></span> Duration of the Linux training is 3 months</li>
   <li> <span class="cir"></span> You are automatically enrolled in the Work Experience program</li>
                       </ul>
+                                                <ul>
+                           {% if request.user.is_authenticated %}
+                           <li><a class="btn btn-black apbtn">Apply Now</a></li>
+                           {% else %}
+                           <li><a class="btn btn-black" href="{% url 'home:login' %}">Apply Now</a></li>
+
+                           {% endif %}
+
+                          </ul>
 
                   </div>
       </div>
@@ -193,7 +243,7 @@ Combined Class | Linuxjobber
         <div class="col-md-12 last">
             <form action="{% url 'home:combined_class_terms' %}">
                 <input hidden name="course_picked" id="course_picked">
-                <button id="proceedbtn" type="submit" class="bnbtn btn btn-md text-center">Apply now </button>
+                <button id="proceedbtn" type="submit" class="bnbtn text-center">Apply now </button>
             </form>
 
         </div>
@@ -215,6 +265,11 @@ Combined Class | Linuxjobber
         'slow');
 });
             $("#bgbtn").click(function() {
+    $('html,body').animate({
+        scrollTop: $("#payment").offset().top},
+        'slow');
+});
+            $(".apbtn").click(function() {
     $('html,body').animate({
         scrollTop: $("#payment").offset().top},
         'slow');
