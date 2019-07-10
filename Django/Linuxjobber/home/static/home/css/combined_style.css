@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+.top-section{
+    /* background-image: url('../imgs/header.png');
+    background-size: cover; */
+    margin-bottom: 100px;
+    margin-top: 50px;
+    position: relative;
+}
+.top-section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(27, 83, 158, 0.65);;
+    opacity: 0.7;
+    z-index: 1;
+
+}
+
+.overlay {
+    z-index: 12 !important;
+    position: relative;
+}
+
+.all{
+    background: linear-gradient(180deg, rgba(27, 83, 158, 0.1) 0%, rgba(27, 83, 158, 0.05) 100%);
+    -webkit-clip-path: polygon(0 0, 100% 6%, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 6%, 100% 100%, 0% 100%);
+    padding: 10px;
+}
+.mid{
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    display: block;
+    margin-bottom: 100px;
+    color: #4975B1;
+}
+.mid2{
+    padding-top: 100px;
+    margin-bottom: 100px; 
+    
+}
+.mid3{
+    margin-bottom: 100px; 
+}
+.mid4{
+    margin-top: 100px;
+    margin-bottom: 100px; 
+}
+.tile{
+    border: 1px solid;
+    border-radius: 25px;
+    width: 300px;
+    height: 400px;
+    text-align: center;
+    padding: 5px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    background-color: #fff;
+}
+.mb-6 {
+    margin-bottom: 100px;
+}
+
+.pd-6 {
+    /* margin-top: 70px; */
+    padding-top: 100px;
+    color: #fff;
+    z-index: 10;
+}
+.pd-7 {
+    padding: 10px 0;
+    color: #fff;
+    margin-top: 30px;
+    z-index: 10;
+}
+
+.bd-right{
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 30px;
+}
+.bd-left{
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 30px;
+}
+.okc{
+    color: #1B539E;
+    background-color: #fff;
+}
+.rockets{
+    color: #fff;
+    background-color: black;
+}
+.pelicans{
+    color: rgba(0, 0, 0, 0.8);
+}
+.atl{
+    color:rgba(0, 0, 0, 0.8);
+}
+.gsw{
+    color: #1B539E;
+}
+h4{
+    color: rgba(27, 83, 158, 0.5);
+}
+p{
+    color:rgba(0, 0, 0, 0.8);
+}
+ul{
+    color:rgba(0, 0, 0, 0.8);
+}
+.ml-3{
+    margin-left: 50px;
+}

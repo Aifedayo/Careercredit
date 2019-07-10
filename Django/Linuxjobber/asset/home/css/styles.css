@@ -184,6 +184,84 @@
 	margin: 5px 10px;
 }
 
+.newsignupfeedbg{
+    background:  url(../images/signupbg.png) 0% 90%/ cover;
+	height: 600px;
+	width: auto;
+}
+
+.tryfreead1{
+	color: #1B539E;
+	font-size: 64px;
+	font-weight: bold;
+	margin-bottom: 30px;
+}
+
+.tryfreead2{
+	color: #1B539E;
+	font-size: 36px;
+	text-align: left;
+}
+
+.tryfreead3{
+	color:#000000;
+	font-size: 24px;
+	text-align: left;
+}
+
+.try-freemain{
+	background-color: #bdbdbd;
+}
+
+.try-free{
+	padding-top:30px;
+	margin-top: -300px;
+	background-color: #fff;
+	min-height: 500px;
+	border-radius: 25px;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.tryfreehr{
+	padding-left:100px;
+	padding-right: 100px;
+}
+
+.tryfreelink1{
+	font-size: 24px;
+	color: #000000;
+	text-decoration: none; !important;
+}
+
+.tryfreelink2{
+	background: #1B539E;
+	border-radius: 50px;
+	color: #fff;
+	font-size: 24px;
+}
+
+.tryfreefoot{
+	margin-top: 50px;
+	margin-bottom: 50px;
+	color: #000000;
+	font-size: 24px;
+}
+
+.messageres{
+	margin-top: 50px;
+	color: #fff;
+}
+
+.messres1{
+	color: #fff;
+	font-size: 36px;
+}
+
+.messres2{
+	color: #fff;
+	font-size: 24px;
+}
+
 
 #introduction {
 	background: linear-gradient(60deg, #C94B4B, rgba(75,19,79, 0.56));
@@ -290,7 +368,6 @@
 .btn-custom2 {
 	background-color: #31D676;
 }
-
 
 
 #welcome-note {

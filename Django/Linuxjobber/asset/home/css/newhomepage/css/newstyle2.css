@@ -6981,6 +6981,10 @@ h6 {
     font-size: 18px;
 }
 
+.jobthanks{
+    font-size: 30px;
+}
+
 .jobdot{
     height: 8px;
     width: 8px;
@@ -7144,6 +7148,36 @@ h6 {
     opacity: 1;
     -webkit-transform: scale(1);
     transform: scale(1);
+}
+
+.signupjob{
+    background-color: #1B539E;
+    min-height: 600px;
+    margin-top: -20px;
+    color: #FFFFFF;
+    padding-top: 50px;
+}
+
+.signupjobp{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.signupjobtext{
+    font-size: 18px;
+}
+
+.signupjobbut{
+    color: #1472C8;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    font-size: 14px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 30px;
 }
 
 /**JOb type page**/

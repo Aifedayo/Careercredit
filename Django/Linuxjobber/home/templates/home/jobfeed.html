@@ -5,19 +5,7 @@ Jobs | Linuxjobber
 {% endblock %}
 {% block content %}
 
-<div class="jobbaner2">
-	<div class="text-center jobbantext2">
-		<h1>FEEDBACK</h1>
-		<div class="row">
-		<div class="col-md-2"></div>
-		<div class="col-md-8">
-			<span>
-				Application Submitted
-			</span>
-		</div>
-		<div class="col-md-2"></div>
-	</div>
-	</div>
+<div class="groupblueban">
 </div>
 
 <div class="container">
@@ -26,21 +14,61 @@ Jobs | Linuxjobber
 		<div class="col-md-10">
 			<div class="text-center">
 				<div class="jobtype">
-				<span>
-				Thanks for your interest in LinuxJobber. Someone from our technical team will be in touch with you soon.
-				<br>While you wait....
-				</span>
-				<br><br>
-				<p class="jobtypeh"><b>JOIN OUR WORK EXPERIENCE PROGRAM</b></p>
-				<span>Get Work Experience in this field in just 3 Months</span><br><br>
-				<a href="{% url 'home:workexperience' %}" class="jobbut btn"> LEARN MORE </a><br>
+				
+				<p class="jobthanks">Thank You!</p>
+				<br><p class="signupjobtext">Your application is received, we will contact you soon</p>
+				<br><br><img src="{% static '/home/css/newhomepage/imgs/drop.png' %}"><br><br>
 				</div>
 			</div>
-			<br><br>
 		</div>
 		<div class="col-md-1"></div>
 	</div>
 </div>
+<div class="signupjob">
+	<div class="container">
+		<div class="text-center">
+			{% if not request.user.is_authenticated %}
+				<h1 >Create Free Account</h1>
+			{%else%}
+				<h1 >Free Trial for 14 Days</h1>
+			{%endif%}
+			<br><br><br>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="text-center">
+					<img src="{% static '/home/css/newhomepage/imgs/book.png' %}"><br><br>
+					<p class="signupjobp">Access Competitive Courses</p><br>
+					<p class="signupjobtext">gain the right skills needed to advance your career or to get that job you have been applying for, by accessing any course of your choice.</p>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="text-center">
+					<img src="{% static '/home/css/newhomepage/imgs/play.png' %}"><br><br>
+					<p class="signupjobp"> Watch Exceptional Videos</p><br>
+					<p class="signupjobtext">get access to any videos from the best tutors around, with instruction notes made available to you at anytime, to help make learning easy and fun.</p>
+				</div>
+				</div>
+			<div class="col-md-4">
+				<div class="text-center">
+					<img src="{% static '/home/css/newhomepage/imgs/labwhite.png' %}"><br><br>
+					<p class="signupjobp">Perform Hands-On Labs</p><br>
+					<p class="signupjobtext">Get your hands dirty and test your knowledge by accessing any hands on lab.
+							It helps to improve your skills</p>
+				</div>
+			</div>
+		</div>
+		<div class="text-center">
+			<br><br>
+			{% if not request.user.is_authenticated %}
+				<a class="btn signupjobbut" href="{% url 'home:signup' %}">GET STARTED</a>
+			{%else%}
+				<a class="btn signupjobbut" href="{% url 'home:monthly_subscription' %}">GET STARTED</a>
+			{%endif%}
+		</div>
+	</div>
+</div>
+
 <div class="workexpban">
 	<div class="row">
 		<div class="col-md-9"></div>

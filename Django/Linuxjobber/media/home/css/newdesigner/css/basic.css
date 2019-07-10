@@ -1,0 +1,121 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing:border-box;
+	}
+
+ h1, h2, h3, h4, h5, h6, span{
+	 text-decoration:none;
+	 font-weight:normal;
+	 line-height:normal;
+	 	background:none !important;
+margin:0;
+}
+
+a
+{
+	 text-decoration:none;
+}
+
+h1
+{
+	font-size: 58px;
+
+}
+
+h2
+{
+	font-size: 40px;
+}
+h3
+{
+	font-size: 33px;
+	
+}
+h4
+{
+	font-size: 30px;
+	
+}
+h5{
+	font-size: 25px;
+}
+h6{
+	font-size: 22px;
+}
+
+
+
+p
+{
+	font-size:14px;
+	font-family: 'HelveticaLTStdRoman';
+}
+span{
+	font-size: 14px;
+}
+
+
+img
+{
+	border: none;
+	max-width:100%;
+}
+
+ul, li {
+    margin: 0 ;
+}
+
+.container
+{
+	width:1020px;
+	margin: 0 auto;
+	padding:0px 10px;
+}
+
+.container:before, .container:after
+{ 
+   content:'';
+   display:table;
+}
+.container:after,{
+	  clear:both;
+	}
+	
+
+
+body {
+	font-size:14px;
+	color:#333;
+}
+
+.row
+ {
+	 width: 100%;
+	 clear:both;
+	 position:relative;
+}
+
+form div {
+    clear: none;
+    margin-bottom: 0;
+    padding:0;
+    vertical-align: text-top;
+}
+
+
+input, textarea, select{
+	font-family: 'HelveticaLTStdRoman';
+	font-weight:normal;
+}
+
+/* spaces */
+
+.space12{
+	margin:40px 0;
+}

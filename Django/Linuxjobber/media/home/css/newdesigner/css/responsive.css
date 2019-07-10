@@ -1,0 +1,335 @@
+@media(max-width:1020px){
+	.container{
+		width:100%;
+	}
+	.top-header h3{
+		width: 50%;
+	}
+	.main h1{
+		font-size: 3.4em; 
+	}
+	.banner .banner-text{
+		 width:50%;
+	}
+	 
+ 
+	.strip h4{
+		font-size: 22px; 
+	}
+	.main .view-tutorials, .view-tutorials i{
+	 font-size:1em !important;
+	}
+	 
+	.next-class h5{
+		font-size: 22px;
+	}
+	.next-class h2{
+		font-size: 32px;
+	}
+	.register-now a{
+		font-size: 20px;
+	}
+	.studentmain h3, .instructormain h3, .lectureprogram h3, .bootcampprogram h3, .mentorshipprogram h3, .labinstructor h3, .individualcontributor h3, .mentor h3, .studentmain p, .lectureprogram p, .bootcampprogram p, .mentorshipprogram p, .instructormain p, .labinstructor p, .individualcontributor p, .mentortextarea, .mentortextarea p, .mentortextarea span, .rightimgarea, .bootimgarea, .mentorimgarea, .recruitermain, .locationmain, .fundamentalmain h3, .exambootcampmain h3, .proficiencymain h3, .fundamentalmain p, .exambootcampmain p, .proficiencymain p{
+		text-align: center;
+	}
+	.lectureprogram .rightimgarea img, .bootcampprogram .bootimgarea img, .mentorimgarea img, .mentorshipprogram .mentorimgarea img, .recruiterimgarea img, .fundamentalimgarea img, .exambootcampimgarea img, .proficiencyimgarea img, .nextbtn a{
+		float: none;
+	}
+	.bootcampprogram span, .fundamentalimgarea, .exambootcampimgarea, .proficiencyimgarea, .nextbtn{
+		margin-top: 20px;
+		text-align: center;
+	}
+	.mentorimgarea{
+		margin-top: 15px;
+	}
+	.locationmaparea{
+		margin-top: 25px;
+	}
+	.proficiencyimgarea a{
+		margin-top: 80px;
+	}
+	
+	/* online training */
+	
+	.cs-list.list_v3 .cs-peragraph p{
+		text-align:left;
+	}
+	
+	
+	
+}
+
+
+@media(max-width:800px){
+	.top-header h3{
+		font-size: 25px;
+	}
+	 .main h1{
+		font-size: 2.4em; 
+	}
+	 
+	.main .circles{
+		text-align: center;
+		margin-top: 20px;
+	}
+	
+	.view-tutorials{
+		margin-top:5% !important;
+	}
+	
+ 
+	
+	.blue-strip .pangwin-img{
+		display: none;
+	}
+	 
+	.register-now a{
+		font-size: 16px;
+	}
+	
+	.classbegaintext{
+		float:left;
+		text-align:left;
+	}
+	
+	.main .blue-strip{
+		padding:20px;
+	}
+	
+	.blue-strip .next-class{
+		width:360px;
+	}
+	.toggleMenu {display: block !important; float:left;width:14%;}
+     nav{width:100%;}
+	 
+	 nav:after, nav:before{
+		 content:'';
+		 display:table;
+	 }
+	 
+	 nav:after{
+		 clear:both;
+	 }
+	nav ul { display:none ; background:#ffffff;width:100%; position: absolute;
+z-index: 99; top:56px; }
+	.bottom-header nav ul li { width:100%; text-align:center; border:none; margin:0px;   border-bottom: 1px solid #000000;  }
+	.bottom-header nav ul li a {width:100%;border:none !important; margin:0px !important;padding: 8px 0px; color:#222; }
+	
+	.bottom-header nav ul li.active-class a, .bottom-header nav ul li:hover a{
+		color:#fff;
+	}
+	
+		.bottom-header nav ul li ul{
+		width:100%; position: relative; top: 5px;
+	}
+	.bottom-header nav ul li:hover > ul{
+	display: inline-block;
+	}
+	.main .blue-strip{
+		margin-top: 25px;
+	}
+	.fundamentalimgarea a, .exambootcampimgarea a, .proficiencyimgarea a{
+		float: none;
+		margin-top: 25px;
+	}
+	/*------------26-11-2014----------------*/
+	.sname{
+	text-align: center;
+	}
+	
+	.banner .banner-text h1{
+		font-size:24px;
+		line-height:24px;
+	}
+	.banner .banner-text {
+		width: 40%;
+	}
+	
+	.banner .banner-text p {
+		font-size: 16px;
+		line-height: 22px;
+	}
+	
+	.banner .banner-text .register-now a{
+		padding:5px 7px;
+		font-size:14px;
+	}
+	
+	/* online training */
+	.cs-list.list_v3 figure {
+		float:none;
+		margin:0 auto;
+		display: block;
+ 		clear: both;
+	}
+	
+	.cs-list.list_v3 figure img{
+		float:none;
+	}
+	
+	.cs-list.list_v3 figure ~ .text-section{
+		margin:10px 0 0 !important;
+		width:100%;
+		text-align:center !important;
+	}
+	
+	.cs-list.list_v3 .cs-peragraph p{
+		text-align:center;
+	}
+	
+	.cs-list.list_v3 .cs-cat-list, .cs-list.list_v4 .cs-cat-list{
+		text-align:left;
+	}
+	                                                             
+}
+
+
+@media(max-width:640px){
+	.top-header .logo{
+		width: 100%;
+		text-align: center;
+		padding: 10px;
+		margin:0 0 0 !important;
+	}
+	.top-header h3{
+		width: 100%;
+		text-align: center;
+		padding:  0px;
+		margin:10px 0 !important;
+	}
+ 
+	 
+	.banner h1{
+		font-size: 1.4em;
+	}
+	 
+	
+	
+	.text-area .about-us{
+		width: 100% !important;
+		margin-top: 20px;
+	}
+	.text-area .testimonial{
+		width: 100%;
+		margin-top: 20px;
+	}
+	
+	.main .blue-strip{
+		padding:10px 10px;
+	}
+	.lectureprogram .rightimgarea{
+		margin-top: 25px;
+	}
+	table tr td{
+		padding: 10px;
+	}
+	.blue-strip .next-class{
+		width:100%;
+	}
+	.popupform button[type="submit"], button[type="reset"]{
+		padding: 15px 40px;
+		font-size: 16px;
+	}
+	.popupform button[type="reset"]{
+		margin-left: 10px;
+	}
+	
+	.banner .banner-text p {
+	font-size: 12px;
+	line-height: normal;
+	color: #fff;
+	}
+	
+	.banner .banner-text h1 {
+		font-size: 16px;
+		line-height: 24px;
+		color: #fff;
+	}
+	
+	.banner .banner-text {
+		width: 100%;
+		position: relative;
+		top: 0;
+		bottom: 0;
+		padding: 5px 7px;
+		background: rgba(66, 78, 79, 0.76);
+		color: #fff !important;
+	}
+	
+	.cs-list.list_v3 .cs-cat-list, .cs-list.list_v4 .cs-cat-list{
+		width:100%;
+		margin-bottom:7px;
+	}
+	
+	.custom-btn{
+		float:none !important;
+	}
+}
+
+
+@media(max-width:380px){
+	.top-header h3{
+		font-size: 22px;
+	}
+	.main .view-tutorials{
+		padding:10px;
+		 
+	}
+	
+	.view-tutorials{
+		margin-top:0% !important;
+	}
+	.lectureprogram h3, .bootcampprogram h3, .mentorshipprogram h3, .recruitermain h3, .individualcontributor h3, .mentor h3, .labinstructor h3, .instructormain h3, .locationmain h3, .fundamentalmain h3, .exambootcampmain h3, .proficiencymain h3{
+		font-size: 26px;
+	}
+	.lectureprogram span, .bootcampprogram span, .mentorshipprogram span, .recruitermain span, .mentortextarea span, .fundamentalmain span, .proficiencymain span, .popupform h6, .exambootcampmain span{
+		font-size: 18px;
+	}
+	.boxes .box1{
+		width:100%;
+	}
+	.boxes .box h5{
+		font-size: 18px;
+	}
+	table tr td{
+		font-size: 12px;
+	}
+	.enrollmentmain a{
+		width:100%;
+		font-size: 16px;
+		padding: 15px;
+	}
+	.enrollmentmain .ortext{
+		margin-top: 25px;
+	}
+	.enrollmentmain .ortext .line{
+		display: none;
+	}
+	.locationmain span{
+		font-size: 16px;
+	}
+	.next-class h6{
+		font-size: 18px;
+	}
+	.blue-strip .next-class h3{
+		font-size: 26px;
+	}
+	.register-now{
+		width:100%;
+	}
+	.popupform button[type="submit"], button[type="reset"]{
+		width:100%;
+	}
+	.popupform button[type="reset"]{
+		margin-top: 20px;
+		margin-left: 0px;
+	}
+	
+	.banner .banner-text .register-now a{
+		width:auto;
+		display: inline-block;
+	}
+	
+	
+	 
+}

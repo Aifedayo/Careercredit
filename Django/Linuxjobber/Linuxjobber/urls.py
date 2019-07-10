@@ -36,9 +36,9 @@ urlpatterns = [
 urlpatterns += staticfiles_urlpatterns()
 
 from home.views import handler_404, handler_500, handler_401
-handler404 = handler_404
-handler500 = handler_500
-handler401 = handler_401
+#handler404 = handler_404
+#handler500 = handler_500
+#handler401 = handler_401
 
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

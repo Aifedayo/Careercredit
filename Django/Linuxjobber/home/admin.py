@@ -3,9 +3,10 @@ from django import forms
 from . import models
 from django.core.mail import send_mail
 from django.conf import settings
-from .models import FAQ, Job, RHCSAOrder, Message, Unsubscriber, Internship, InternshipDetail, MessageGroup, UserLocation, NewsLetterSubscribers, UserOrder, Document, MainModel, AwsCredential, Jobplacement, Groupclass, BillingHistory, GroupClassRegister, StripePayment, UserPayment, wepeoples, wetask, werole, wework, wetype, PartTimeJob, TryFreeRecord, FullTimePostion, PartTimePostion, Resume
+from .models import FAQ, Job, RHCSAOrder, Campaign, Message, Unsubscriber, Internship, InternshipDetail, MessageGroup, UserLocation, NewsLetterSubscribers, UserOrder, Document, MainModel, AwsCredential, Jobplacement, Groupclass, BillingHistory, GroupClassRegister, StripePayment, UserPayment, wepeoples, wetask, werole, wework, wetype, PartTimeJob, TryFreeRecord, FullTimePostion, PartTimePostion, Resume
 from datetime import timedelta
 import datetime
+import subprocess, os
 
 class weworkAdmin(admin.ModelAdmin):
 	search_fields = ['we_people__user__email']
@@ -35,7 +36,34 @@ class weworkAdmin(admin.ModelAdmin):
 
 		super().save_model(request, obj, form, change)
 
-				
+class campaignAdmin(admin.ModelAdmin):
+	def save_model(self, request, obj, form, change):
+
+		if obj.send_message == 1:
+			outps = None
+			outs = None
+			print('okay passed')
+			if obj.Target == 0:
+				Role = "all_role6"
+			elif obj.Target == 1:
+				Role = "all_role4"
+			elif obj.Target == 2:
+				Role = "nigerian_internship"
+			elif obj.Target == 3:
+				Role = "part_time_fresh_grads"
+			elif obj.Target == 4:
+				Role = "marketing_internship"
+			
+			outps = subprocess.Popen(["sshpass","-p", 'dead123linux', "ssh", "-o StrictHostKeyChecking=no", "-o LogLevel=ERROR", "-o UserKnownHostsFile=/dev/null", "sysadmin3@52.41.75.77", "python /oldtools/campaigns/composeMail.py", '1', Role, str(obj.message.slug)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+			outs = subprocess.Popen(["sshpass","-p", 'dead123linux', "ssh", "-o StrictHostKeyChecking=no", "-o LogLevel=ERROR", "-o UserKnownHostsFile=/dev/null", "sysadmin3@52.41.75.77", "python /tools/campaigns/composeMail.py", '1', Role, str(obj.message.slug)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+			print(outps)
+			print(outs)
+
+		print(obj.message.slug)
+		print(obj.send_message)
+		print(obj.Target)
+
+		super().save_model(request, obj, form, change)		
 	
 
 class wetaskAdmin(admin.ModelAdmin):
@@ -59,6 +87,7 @@ admin.site.register(Groupclass)
 admin.site.register(GroupClassRegister)
 admin.site.register(BillingHistory)
 admin.site.register(RHCSAOrder)
+admin.site.register(Campaign,campaignAdmin)
 admin.site.register(NewsLetterSubscribers)
 admin.site.register(StripePayment)
 admin.site.register(UserLocation)
