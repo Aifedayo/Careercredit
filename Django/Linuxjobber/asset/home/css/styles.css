@@ -200,6 +200,7 @@
 .tryfreead2{
 	color: #1B539E;
 	font-size: 36px;
+	text-align: left;
 }
 
 .tryfreead3{
@@ -213,8 +214,6 @@
 }
 
 .try-free{
-	padding-left: 10px;
-	padding-right: 10px;
 	padding-top:30px;
 	margin-top: -300px;
 	background-color: #fff;
