@@ -1,8 +1,9 @@
 {% extends 'home/base.html' %}
 {% load staticfiles%}
+
+
 {% block content %}
 <style type="text/css">
-  
 .groupschedh{
   font-size: 500px;
   display: flex;
@@ -80,6 +81,7 @@ sup{
       <div class="row">
         {%for group in groups%}
         <div class="col-md-4">
+
           {% if request.user not in group.users.all %}
           <div class="groupcard1 groupcard nothover{{group.id}}">
           {%else%}
@@ -99,7 +101,7 @@ sup{
           </div>
           <div class="groupcard1 groupcard hov hover{{group.id}}">
             <br><b><span>{{group.name}}</span></b><br>Description of course and some other info
-            <div class="text-muted">{{group.start_date}}<br>{{group.duration}}<br>{{group.class_meet}}<br>{{group.type_of_class}}</div> 
+            <div class="text-muted">{{group.start_date}}<br>{{group.duration}}<br>{{group.class_meet}}<br>{{group.type_of_class}}</div>
             <div class="pull-right"><button type="button" class="btn butg groupclabut2 but{{group.id}}">Enroll Now</button></div>
             <br>
           </div>
@@ -141,7 +143,7 @@ sup{
         <div class="grouppaycard" id="g2">
           <div class="text-center">
             <span>One-Time</span><br>
-            <span class="groupamount"><sup>$</sup>29</span><br><br>
+            <span class="groupamount"><sup>$</sup> <span id="amount"> </span> </span><br><br>
             <div class="text-muted">Billed once</div><br>
             <hr><br>
             Access this course videos <span class="glyphicon glyphicon-ok corr"></span><br>
@@ -159,10 +161,12 @@ sup{
         <input type="text" name="choice" id="subtype" hidden>
         <input type="text" name="grouptype" id="grouptype" hidden>
         {% if not request.user.is_authenticated %}
+
          <input type="text"  class="form-control groupinput" placeholder="Fullname" name="fullname" id="fullname" required><br>
          <input type="email" class="form-control groupinput"  placeholder="E-mail" name="email" id="email" required><br>
          <input type="password" class="form-control groupinput"  placeholder="password" name="password" id="password" required><br>
         {%else%}
+
           <input type="text"  class="form-control groupinput" placeholder="Fullname" name="fullname" id="fullname" value="{{request.user.get_full_name}}" readonly="readonly"><br>
           <input type="email" class="form-control groupinput"  placeholder="E-mail" name="email" id="email" value="{{request.user.email}}" readonly="readonly"><br>
         {%endif%}
@@ -170,7 +174,7 @@ sup{
          <div class="alert-danger grouppay"><br>Please choose payment plan above.<br><br></div>
           </div>
         </div>
-        <div class="col-md-4"></div>
+                                <div class="col-md-4"></div>
       </div>
   </div>
 </form>
@@ -303,6 +307,7 @@ sup{
   });
 
   {%for group in groups%}
+
   $('.nothover{{group.id}}').hover(
       function() {
         var $this = $(this); // caching $(this)
@@ -311,25 +316,36 @@ sup{
         $('.but{{group.id}}').click(function(){
           $('.butg').text('Enroll Now');
           $('.but{{group.id}}').text('Selected');
+
+
+          var item  = $('#amount');
+            item.text({{ group.price }});
+            item.css({
+                'font-size':72
+            })
+
+
           $('.groupcard').css({
-            'color': '#fff',
+            'color': '#fff'
           });
           $('.nothover{{group.id}}').css({
-            'color': 'green',
+            'color': 'green'
           });
           $('#grouptype').val('{{group.id}}');
+
           $('.grouppaytype').show();
         })
         },
       function() {
         var $this = $(this); // caching $(this)
         $this.html($this.data('initialText'));
-      },
+      }
    );
 
   {%endfor%}
 
   /**Subscription picked**/
+
   $('#g1').click(function(){
     $('#g1').css({
       'background': '#4975B1',
