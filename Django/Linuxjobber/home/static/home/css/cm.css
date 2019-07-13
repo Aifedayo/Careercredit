@@ -207,3 +207,59 @@ line-height: 84px;
      width: 560px;
 height: 560px;
  }
+
+
+    .combinedblueban {
+        background-color: #1B539E;
+        height: 72px;
+    }
+
+    .cir-white {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 5px;
+        background: #ffffff;
+    }
+    .cir {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 5px;
+        background: rgba(0, 0, 0, 0.6);
+        margin-right: 3px;
+    }
+
+    .icon2 ul > li{
+
+
+        font-size: 14px;
+        padding-bottom: 3px;
+        font-weight: 200;
+        color: rgba(0, 0, 0, 0.8);
+    }
+
+    .dark{
+font-size: 14px;
+        font-weight: 600;
+    }
+
+    .btn-black {
+        margin-top: 40px;
+        width: 140px;
+        height: 38px;
+        font-weight: 600;
+        font-size: 17px;
+        background: #242525;
+        box-shadow: 0 0 7px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        color: #fff;
+    }
+
+
+    .courses {
+        margin-top: 25px;
+        padding-bottom: 5px;
+        font-size: 14px;
+        font-weight: revert;
+    }

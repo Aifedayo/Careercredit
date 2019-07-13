@@ -11,69 +11,15 @@ Combined Class | Linuxjobber
 
 {% load staticfiles %}
 {% block content %}
-    <style>
 
-    .combinedblueban {
-        background-color: #1B539E;
-        height: 72px;
-    }
-
-    .cir-white {
-        display: inline-block;
-        width: 8px;
-        height: 8px;
-        border-radius: 5px;
-        background: #ffffff;
-    }
-    .cir {
-        display: inline-block;
-        width: 8px;
-        height: 8px;
-        border-radius: 5px;
-        background: rgba(0, 0, 0, 0.6);
-        margin-right: 3px;
-    }
-
-    ul > li{
-        font-size: 14px;
-        padding-bottom: 3px;
-        font-weight: 200;
-        color: rgba(0, 0, 0, 0.8);
-    }
-    .dark{
-font-size: 14px;
-        font-weight: 600;
-    }
-
-    .btn-black {
-        margin-top: 40px;
-        width: 140px;
-        height: 38px;
-        font-weight: 600;
-        font-size: 17px;
-        background: #242525;
-        box-shadow: 0 0 7px rgba(0, 0, 0, 0.25);
-        border-radius: 10px;
-        color: #fff;
-    }
-
-
-    .courses {
-        margin-top: 25px;
-        padding-bottom: 5px;
-        font-size: 14px;
-        font-weight: revert;
-    }
-    </style>
 
 
 <div class="combinedblueban"></div>
-    <section class="bgimage">
+    <div class="bgimage">
         <div class="overlay-color">
-        <div class="container-fluid">
                 <div class="col-md-8 col-md-offset-2">
                     <h1>Combined Training</h1>
-                    <p>Pay once for "Technical Training" and <br> "Work experience"</p>
+                    <p>Pay once for "Technical Training" and <br> "Work Experience"</p>
                        <div style="text-align: center; padding-top: 20px">
                            {% if request.user.is_authenticated %}
                            <a id="bgbtn" class="bgbtn">Let's begin </a>
@@ -85,9 +31,9 @@ font-size: 14px;
                            <a class="lmbtn">Learn more</a>
                         </div>
                     </div>
-             </div>
+
         </div>
-      </section>
+      </div>
 
       <div class="container text-2" id="info">
         <h1>Combined Training</h1>
@@ -113,7 +59,8 @@ font-size: 14px;
                                    <li> <span class="cir"></span> Shell scripting to setting up basic servers</li>
                                    <li> <span class="cir"></span> Touches the core areas of Linux Administration</li>
                                    <li> <span class="cir"></span> Amazon services such as computing, storage, networking, database,
-                                     analytics, application services, deployment, management, mobile, developer tools and tools for Internet of Things.</li>
+                                       analytics, application
+                                       <br> <span style="background: none" class="cir"></span>  services, deployment, management, mobile, developer tools and tools for Internet of Things.</li>
                           </ul>
                            {% if request.user.is_authenticated %}
                            <li><a class="btn btn-black apbtn">Apply Now</a></li>
