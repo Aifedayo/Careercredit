@@ -12,7 +12,7 @@ class MediaStorage(FileSystemStorage):
         if True:
             import subprocess
             import platform
-            if platform.system().lower() != 'linux':
+            if platform.system().lower() != 'windows':
 
                 # outs = subprocess.Popen(
                 #     ["sshpass", "-p", config('SSH_PASSWORD', ''), "ssh", "-o StrictHostKeyChecking=no",
