@@ -4,69 +4,44 @@
 Combined Class | Linuxjobber
 {% endblock %}
 
-
-
-
-
-
-
 {% load staticfiles %}
 {% block external_header %}
-    <link rel="stylesheet" href="{% static 'home/css/cm.css' %}">
+    <link rel="stylesheet " href="{% static 'home/css/cm.css' %}">
 {% endblock %}
 
 {% load staticfiles %}
 {% block content %}
     <style>
 
-    .cir {
-        display: inline-block;
-        width: 8px;
-        height: 8px;
-        border-radius: 5px;
-        background: rgba(0, 0, 0, 0.6);
-        margin-right: 3px;
-    }
-
-    ul > li{
-        font-size: 14px;
-        padding-top: 3px;
-
-    }
 
     </style>
 
 
-<div class="groupblueban">
-</div>
-    <section class="bgimage">
+<div class="combinedblueban"></div>
+    <div class="bgimage">
         <div class="overlay-color">
-        <div class="container-fluid">
                 <div class="col-md-8 col-md-offset-2">
                     <h1>Combined Training</h1>
-                    <p>Pay once for "Technical Training" and <br> "Work experience"</p>
+                    <p>Pay once for "Technical Training" and <br> "Work Experience"</p>
                        <div style="text-align: center; padding-top: 20px">
                            {% if request.user.is_authenticated %}
                            <a id="bgbtn" class="bgbtn">Let's begin </a>
                            {% else %}
                            <a class="bgbtn" href="{% url 'home:login' %}">Let's begin </a>
 
-                           {% endif %}
-                          <i style="color: white; padding-left: 10px; width: 2px;height: 2px" class="fa fa-circle "></i>
+                           {% endif %}&nbsp;&nbsp;
+                           <span class="cir-white"></span>&nbsp;&nbsp;
                            <a class="lmbtn">Learn more</a>
                         </div>
                     </div>
-             </div>
+
         </div>
-      </section>
+      </div>
 
       <div class="container text-2" id="info">
         <h1>Combined Training</h1>
          <p>offers both Technical Training and Work Experience</p>
       </div>
-
-
-
           <div class="slanteda">
                 <div class="row">
                       <div class="col-md-6">
@@ -79,15 +54,25 @@ Combined Class | Linuxjobber
 
                 <div class="col-md-6">
                       <div class="icon2">
-                          <h1>Technical training</h1>
-                          <span> <strong>Choose between Linux, AWS and DevOps to learn</strong>  </span>
-                          <h5 class="courses"><strong>These courses cover everything from</strong></h5>
+                          <h1>Technical Training</h1>
+                         <b><span class="dark"> Choose between Linux, AWS and DevOps to learn </span> </b>
+                          <p class="courses"><strong>These courses cover everything from</strong></p>
+                          <ul style="padding-left: 0">
+                                   <li >  Command-line</li>
+                                   <li>  Shell scripting to setting up basic servers</li>
+                                   <li>  Touches the core areas of Linux Administration</li>
+                                   <li>  Amazon services such as computing, storage, networking, database,
+                                       analytics,application services, deployment, management, mobile, developer tools and tools for Internet of Things.</li>
+                          </ul>
+                           {% if request.user.is_authenticated %}
+                           <li><a class="btn btn-black apbtn">Apply Now</a></li>
+                           {% else %}
+                           <li><a class="btn btn-black" href="{% url 'home:login' %}">Apply Now</a></li>
+
+                           {% endif %}
+
                           <ul>
-                                   <li> <span class="cir"></span> Command-line</li>
-                                   <li> <span class="cir"></span> Shell scripting to setting up basic servers</li>
-                                   <li> <span class="cir"></span> Touches the core areas of Linux Administration</li>
-                                   <li> <span class="cir"></span> Amazon services such as computing, storage, networking, database,
-                                     analytics, application services, deployment, management, mobile, developer tools and tools for Internet of Things.</li>
+
                           </ul>
                       </div>
           </div>
@@ -98,19 +83,28 @@ Combined Class | Linuxjobber
             <div class="col-md-6">
                   <div class="icon2">
                       <h1>Get Work Experience</h1>
-                      <p>The Work experience programme which is a 3 month program. You will engage with our team as if they work
+                      <p>The Work Experience programme which is a 3 month program. You will engage with our team as if they work
                           for our company and by so doing, understand the development process and work culture.  </p>
                       <br>
 
                       <ul style="font-size: 14px;">
-                             <li> <span class="cir"></span> The programme is 100% online and our meetings are Mondays - Fridays, 20 minutes each day.</li>
-                             <li> <span class="cir"></span>You will be assigned a live instructor</li>
-  <li> <span class="cir"></span> You will meet with your instructor 3 times per week </li>
-  <li> <span class="cir"></span> Each session is 1 hr long</li>
-  <li> <span class="cir"></span> You have 24/7 access to labs and hands-on practice materials</li>
-  <li> <span class="cir"></span> Duration of the Linux training is 3 months</li>
-  <li> <span class="cir"></span> You are automatically enrolled in the Work Experience program</li>
+                             <li>  The programme is 100% online and our meetings are Mondays - Fridays, 20 minutes each day.</li>
+                             <li> You will be assigned a live instructor</li>
+  <li>  You will meet with your instructor 3 times per week</li>
+  <li>  Each session is 1 hr long</li>
+  <li>  You have 24/7 access to labs and hands-on practice materials</li>
+  <li>  Duration of the Linux training is 3 months</li>
+  <li>  You are automatically enrolled in the Work Experience program</li>
                       </ul>
+                                                <ul>
+                           {% if request.user.is_authenticated %}
+                           <p><a class="btn btn-black apbtn">Apply Now</a></p>
+                           {% else %}
+                           <p><a class="btn btn-black" href="{% url 'home:login' %}">Apply Now</a></p>
+
+                           {% endif %}
+
+                          </ul>
 
                   </div>
       </div>
@@ -193,7 +187,7 @@ Combined Class | Linuxjobber
         <div class="col-md-12 last">
             <form action="{% url 'home:combined_class_terms' %}">
                 <input hidden name="course_picked" id="course_picked">
-                <button id="proceedbtn" type="submit" class="bnbtn btn btn-md text-center">Apply now </button>
+                <button id="proceedbtn" type="submit" class="bnbtn text-center">Apply now </button>
             </form>
 
         </div>
@@ -215,6 +209,11 @@ Combined Class | Linuxjobber
         'slow');
 });
             $("#bgbtn").click(function() {
+    $('html,body').animate({
+        scrollTop: $("#payment").offset().top},
+        'slow');
+});
+            $(".apbtn").click(function() {
     $('html,body').animate({
         scrollTop: $("#payment").offset().top},
         'slow');
@@ -242,7 +241,9 @@ Combined Class | Linuxjobber
       'color': 'black'
     });
   });
-  $('#type2').click(function(){
+
+  var type2 =  $('#type2');
+  type2.click(function(){
     $('#type2').css({
       'background': '#4975B1',
       'transition-delay': '0.1s',
@@ -262,7 +263,11 @@ Combined Class | Linuxjobber
       'color': 'black'
     });
   });
-  $('#type3').click(function(){
+
+
+
+  var type3= $('#type3');
+  type3.click(function(){
     $('#type3').css({
       'background': '#4975B1',
       'transition-delay': '0.1s',
@@ -283,6 +288,8 @@ Combined Class | Linuxjobber
       'color': 'black'
     });
   });
+
+
 
     </script>
 

@@ -6,26 +6,24 @@
 
 .bgimage {
     max-width:100%;
-    height:500px;
-    background: url('../images/combined_header.png');
+    min-height:530px;
+    background: url('../images/cbheader.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size:cover;
     background-color: rgba(27, 83, 158, 0.65);
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
 }  
 
-.bgimage a:hover{text-decoration:none;
+.bgimage a:hover{
+    text-decoration:none;
                 color:rgb(5, 16, 53);
              }
     
-    .overlay-color{
-       padding: 150px 50px;
+.overlay-color{
+    padding: 150px 50px;
       background:rgba(27, 83, 158, 0.65);
       width:100%;
-      height:100%;
+      height:530px;
       background-size:cover;
       background-position: center;
   }
@@ -60,8 +58,8 @@ line-height: 28px;
 .bgbtn{
     background: white;
     font-size: 18px;
-    font-weight: bold;
-    color: #4975B1;
+    font-weight: 600;
+    color: #1B539E;
     padding: 5px 15px 5px 15px;
     border: 1px solid white;
     border-radius: 8px;
@@ -71,14 +69,17 @@ line-height: 28px;
     font-size: 18px;
     font-weight: bold;
     color: white;
-    padding: 5px 15px 5px 15px;
+    padding: 5px 15px 5px 0px;
 
 }
 
   .bnbtn{
       background: #333333;
+      height: 38px;
       color: white;
+      border-radius: 11px;
       font-weight: bold;
+      font-size: 18px;
       padding:5px 100px;
   }
   .lnmr{color:white;
@@ -110,10 +111,10 @@ line-height: 28px;
 } 
 .text-2 h1{
     font-size: 40px;
-    color:rgb(133, 163, 203);
+    color:#4975B1;
     font-weight: bold;
     text-align: center;
-    margin-bottom:0px;      
+    margin-bottom:0;
 }
 .icon1{
          width: 560px;
@@ -182,10 +183,9 @@ font-size: 72px;
 line-height: 84px;
  }
  .sup{
-     padding-top: 0;
      vertical-align: super;
-    font-size:20px;
-    font-weight: 100;
+    font-size:18px;
+    font-weight: normal;
  }
  .jar h3{
     color:rgb(133, 163, 203);
@@ -207,3 +207,72 @@ line-height: 84px;
      width: 560px;
 height: 560px;
  }
+
+
+    .combinedblueban {
+        background-color: #1B539E;
+        height: 72px;
+    }
+
+    .cir-white {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 5px;
+        background: #ffffff;
+    }
+    .cir {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 5px;
+        background: rgba(0, 0, 0, 0.6);
+        margin-right: 3px;
+    }
+
+    .icon2 ul > li{
+        font-size: 14px;
+        padding-bottom: 3px;
+        font-weight: 200;
+        color: rgba(0, 0, 0, 0.8);
+    }
+    .icon2 ul > li:before {
+
+   content: '';
+        border-radius: 5px;
+   display: inline-block;
+        margin-right: 1px;
+   height: 8px;
+   width: 8px;
+ background: rgba(0, 0, 0, 0.6);
+
+    }
+
+    .dark{
+font-size: 14px;
+        font-weight: 600;
+    }
+
+    .btn-black {
+        margin-top: 40px;
+        width: 140px;
+        height: 38px;
+        font-weight: 600;
+        font-size: 17px;
+        background: #242525;
+        box-shadow: 0 0 7px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        color: #fff;
+    }
+
+
+    .courses {
+        margin-top: 25px;
+        padding-bottom: 5px;
+        font-size: 14px;
+        font-weight: revert;
+    }
+
+    .card {
+        cursor: pointer;
+    }

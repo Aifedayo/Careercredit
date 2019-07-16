@@ -260,16 +260,8 @@ STATICFILES_DIRS = [
 ]
 
 if not DEBUG:
-    MEDIA_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/media/'
-    STATIC_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/{}/'.format(AWS_LOCATION)
-
-
-# if not DEBUG:
-#     STATIC_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/{}/'.format(AWS_LOCATION)
-#     ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
-#     STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-#     DEFAULT_FILE_STORAGE = 'home.storage_backend.MediaStorage'
-
+    MEDIA_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/media/'
+    STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/{}/'.format(AWS_LOCATION)
 
 STATICFILES_FINDERS = (
 'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -316,9 +308,6 @@ SERVER_USER = config('SERVER_USER', "sysadmin")
 SERVER_PASSWORD = config('SERVER_PASSWORD', "8iu7*IU&")
 GROUP_CLASS_URL = config('GROUP_CLASS_URL', 'http://localhost:4200/classroom/')
 
-# # Session Expiration set to 10 mins
-# SESSION_COOKIE_AGE = 10
-# SESSION_SAVE_EVERY_REQUEST = True
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 
