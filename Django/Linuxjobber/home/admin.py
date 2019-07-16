@@ -3,7 +3,7 @@ from django import forms
 from . import models
 from django.core.mail import send_mail
 from django.conf import settings
-from .models import FAQ, Job, RHCSAOrder, Campaign, Message, Unsubscriber, Internship, InternshipDetail, MessageGroup, UserLocation, NewsLetterSubscribers, UserOrder, Document, MainModel, AwsCredential, Jobplacement, Groupclass, BillingHistory, GroupClassRegister, StripePayment, UserPayment, wepeoples, wetask, werole, wework, wetype, PartTimeJob, TryFreeRecord, FullTimePostion, PartTimePostion, Resume
+from .models import FAQ, Job, RHCSAOrder,FreeAccountClick,  Campaign, Message, Unsubscriber, Internship, InternshipDetail, MessageGroup, UserLocation, NewsLetterSubscribers, UserOrder, Document, MainModel, AwsCredential, Jobplacement, Groupclass, BillingHistory, GroupClassRegister, StripePayment, UserPayment, wepeoples, wetask, werole, wework, wetype, PartTimeJob, TryFreeRecord, FullTimePostion, PartTimePostion, Resume
 from datetime import timedelta
 import datetime
 import subprocess, os
@@ -104,6 +104,7 @@ admin.site.register(PartTimePostion)
 admin.site.register(wetask,wetaskAdmin)
 admin.site.register(wework,weworkAdmin)
 admin.site.register(wetype)
+admin.site.register(FreeAccountClick)
 admin.site.register(werole)
 admin.site.register(Resume)
 admin.site.register(TryFreeRecord)

@@ -125,6 +125,16 @@ def signup(request):
                 user.last_name = lastname
                 user.save()
                 send_mail('Account has been Created', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + ' and your email is ' +email + '\n Follow this url to login with your username and password '+settings.ENV_URL+'login \n\n Thanks & Regards \n Admin. \n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [email])
+                if 'job_email' in request.session:
+                    try:
+                        free = FreeAccountClick.objects.get(email= request.session['job_email'])
+                        free.registered = 1
+                        free.email = email
+                        free.save(update_fields=["registered","email"])
+                        request.session["job_email"] = email
+                    except FreeAccountClick.DoesNotExist:
+                        pass
+                     
                 #ip = get_client_ip(request)
                 #add_location(ip,user)
                 return render(request, "home/registration/signupfeedback.html", {'user': user})
@@ -132,6 +142,9 @@ def signup(request):
                 error = True
                 return render(request, 'home/registration/signup.html', {'error':error})
     else:
+        if 'job_email' in request.session:
+            freeclick = FreeAccountClick(fullname=request.session['job_fullname'],email=request.session['job_email'],from_what_page=request.session['page'],registered=0,visited_tryfree=0,paid=0)
+            freeclick.save()
         return render(request, 'home/registration/signup.html') 
 
 @csrf_exempt
@@ -314,6 +327,10 @@ def partime(request):
         if form.is_valid():
             newform = form.save(commit=False)
             newform.save()
+            request.session['job_email'] = request.POST['email']
+            request.session['job_fullname'] = request.POST['fullname']
+            request.session['page'] = 'Job Feedback'
+
             if not request.POST['cv_link']:
                 cv = settings.ENV_URL+newform.cv.url.strip("/")
             else:
@@ -398,6 +415,10 @@ def jobapplication(request, job):
             jobform = form.save(commit=False)
             jobform.position = posts
             jobform.save()
+
+            request.session['job_email'] = request.POST['email']
+            request.session['job_fullname'] = request.POST['fullname']
+            request.session['page'] = 'Job Feedback'
 
             if not request.POST['cv_link']:
                 cv = settings.ENV_URL+jobform.resume.url.strip("/")
@@ -949,6 +970,16 @@ def monthly_subscription(request):
     stripe.api_key = stripeset[0].secretkey
     plan_id = stripeset[0].planid
 
+    if 'job_email' in request.session:
+        try:
+            free = FreeAccountClick.objects.get(email= request.session['job_email'])
+            free.visited_tryfree = 1
+            free.save(update_fields=["visited_tryfree"])
+        except FreeAccountClick.DoesNotExist:
+            freeclick = FreeAccountClick(fullname=request.user.get_full_name(),email=request.user.email,from_what_page='Not from Jobs',registered=1,visited_tryfree=1,paid=0)
+            freeclick.save()
+            request.session['job_email'] = request.user.email
+
     if request.method == "POST":
         token = request.POST.get("stripeToken")
         plan = stripe.Plan.retrieve(plan_id)
@@ -981,6 +1012,14 @@ def monthly_subscription(request):
             user = CustomUser.objects.get(email=request.user.email)
             user.role = 3
             user.save()
+
+            try:
+                free = FreeAccountClick.objects.get(email= request.session['email'])
+                free.paid = 1
+                free.save(update_fields=["paid"])
+            except FreeAccountClick.DoesNotExist:
+                freeclick = FreeAccountClick(fullname=request.user.get_full_name(),email=request.user.email,from_what_page='Not from Jobs',registered=1,visited_tryfree=1,paid=1)
+                freeclick.save()
 
             if nexturl:
                 if nexturl == 'group':
