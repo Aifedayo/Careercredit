@@ -231,12 +231,21 @@ height: 560px;
     }
 
     .icon2 ul > li{
-
-
         font-size: 14px;
         padding-bottom: 3px;
         font-weight: 200;
         color: rgba(0, 0, 0, 0.8);
+    }
+    .icon2 ul > li:before {
+
+   content: '';
+        border-radius: 5px;
+   display: inline-block;
+        margin-right: 1px;
+   height: 8px;
+   width: 8px;
+ background: rgba(0, 0, 0, 0.6);
+
     }
 
     .dark{
@@ -262,4 +271,8 @@ font-size: 14px;
         padding-bottom: 5px;
         font-size: 14px;
         font-weight: revert;
+    }
+
+    .card {
+        cursor: pointer;
     }
