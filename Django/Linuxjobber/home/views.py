@@ -1014,7 +1014,7 @@ def monthly_subscription(request):
             user.save()
 
             try:
-                free = FreeAccountClick.objects.get(email= request.session['email'])
+                free = FreeAccountClick.objects.get(email= request.session['job_email'])
                 free.paid = 1
                 free.save(update_fields=["paid"])
             except FreeAccountClick.DoesNotExist:
