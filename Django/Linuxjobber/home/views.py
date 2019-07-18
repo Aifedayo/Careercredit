@@ -1013,13 +1013,14 @@ def monthly_subscription(request):
             user.role = 3
             user.save()
 
-            try:
-                free = FreeAccountClick.objects.get(email= request.session['job_email'])
-                free.paid = 1
-                free.save(update_fields=["paid"])
-            except FreeAccountClick.DoesNotExist:
-                freeclick = FreeAccountClick(fullname=request.user.get_full_name(),email=request.user.email,from_what_page='Not from Jobs',registered=1,visited_tryfree=1,paid=1)
-                freeclick.save()
+            if 'job_email' in request.session:
+                try:
+                    free = FreeAccountClick.objects.get(email= request.session['job_email'])
+                    free.paid = 1
+                    free.save(update_fields=["paid"])
+                except FreeAccountClick.DoesNotExist:
+                    freeclick = FreeAccountClick(fullname=request.user.get_full_name(),email=request.user.email,from_what_page='Not from Jobs',registered=1,visited_tryfree=1,paid=1)
+                    freeclick.save()
 
             if nexturl:
                 if nexturl == 'group':
