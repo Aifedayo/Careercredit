@@ -1022,7 +1022,6 @@ def monthly_subscription(request):
                     freeclick = FreeAccountClick(fullname=request.user.get_full_name(),email=request.user.email,from_what_page='Not from Jobs',registered=1,visited_tryfree=1,paid=1)
                     freeclick.save()
 
-
             if nexturl:
                 if nexturl == 'group':
                     group_item = Groupclass.objects.get(id=g_id)
