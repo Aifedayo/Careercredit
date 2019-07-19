@@ -1,0 +1,14 @@
+[2019-07-17 17:11:10] INFO [django.utils.autoreload.run_with_reloader:584] Watching for file changes with StatReloader
+[2019-07-17 17:11:31] INFO [django.utils.autoreload.run_with_reloader:584] Watching for file changes with StatReloader
+[2019-07-17 23:38:13] INFO [django.channels.server.log_action:147] HTTP GET /admin/users/customuser/ 302 [0.52, 127.0.0.1:13307]
+[2019-07-17 23:38:13] INFO [django.channels.server.log_action:141] HTTP GET /admin/login/?next=/admin/users/customuser/ 200 [0.08, 127.0.0.1:13307]
+[2019-07-17 23:38:13] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/base.css 200 [0.04, 127.0.0.1:13307]
+[2019-07-17 23:38:13] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/responsive.css 200 [0.03, 127.0.0.1:13310]
+[2019-07-17 23:38:13] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/login.css 200 [0.04, 127.0.0.1:13308]
+[2019-07-17 23:38:13] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/fonts.css 200 [0.01, 127.0.0.1:13308]
+[2019-07-17 23:38:13] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/fonts/Roboto-Light-webfont.woff 200 [0.02, 127.0.0.1:13308]
+[2019-07-17 23:38:13] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/fonts/Roboto-Regular-webfont.woff 200 [0.03, 127.0.0.1:13310]
+[2019-07-17 23:38:13] WARNING [django.request.log_response:228] Not Found: /favicon.ico
+[2019-07-17 23:38:13] WARNING [django.channels.server.log_action:149] HTTP GET /favicon.ico 404 [0.02, 127.0.0.1:13310]
+[2019-07-17 23:39:19] INFO [django.utils.autoreload.trigger_reload:211] E:\Documents\Web\Linuxjobber\Django\Linuxjobber\home\views.py changed, reloading.
+[2019-07-17 23:39:30] INFO [django.utils.autoreload.run_with_reloader:584] Watching for file changes with StatReloader

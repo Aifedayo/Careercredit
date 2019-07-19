@@ -125,6 +125,16 @@ def signup(request):
                 user.last_name = lastname
                 user.save()
                 send_mail('Account has been Created', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + ' and your email is ' +email + '\n Follow this url to login with your username and password '+settings.ENV_URL+'login \n\n Thanks & Regards \n Admin. \n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [email])
+                if 'job_email' in request.session:
+                    try:
+                        free = FreeAccountClick.objects.get(email= request.session['job_email'])
+                        free.registered = 1
+                        free.email = email
+                        free.save(update_fields=["registered","email"])
+                        request.session["job_email"] = email
+                    except FreeAccountClick.DoesNotExist:
+                        pass
+                     
                 #ip = get_client_ip(request)
                 #add_location(ip,user)
                 return render(request, "home/registration/signupfeedback.html", {'user': user})
@@ -132,6 +142,9 @@ def signup(request):
                 error = True
                 return render(request, 'home/registration/signup.html', {'error':error})
     else:
+        if 'job_email' in request.session:
+            freeclick = FreeAccountClick(fullname=request.session['job_fullname'],email=request.session['job_email'],from_what_page=request.session['page'],registered=0,visited_tryfree=0,paid=0)
+            freeclick.save()
         return render(request, 'home/registration/signup.html') 
 
 @csrf_exempt
@@ -314,6 +327,10 @@ def partime(request):
         if form.is_valid():
             newform = form.save(commit=False)
             newform.save()
+            request.session['job_email'] = request.POST['email']
+            request.session['job_fullname'] = request.POST['fullname']
+            request.session['page'] = 'Job Feedback'
+
             if not request.POST['cv_link']:
                 cv = settings.ENV_URL+newform.cv.url.strip("/")
             else:
@@ -398,6 +415,10 @@ def jobapplication(request, job):
             jobform = form.save(commit=False)
             jobform.position = posts
             jobform.save()
+
+            request.session['job_email'] = request.POST['email']
+            request.session['job_fullname'] = request.POST['fullname']
+            request.session['page'] = 'Job Feedback'
 
             if not request.POST['cv_link']:
                 cv = settings.ENV_URL+jobform.resume.url.strip("/")
@@ -949,6 +970,16 @@ def monthly_subscription(request):
     stripe.api_key = stripeset[0].secretkey
     plan_id = stripeset[0].planid
 
+    if 'job_email' in request.session:
+        try:
+            free = FreeAccountClick.objects.get(email= request.session['job_email'])
+            free.visited_tryfree = 1
+            free.save(update_fields=["visited_tryfree"])
+        except FreeAccountClick.DoesNotExist:
+            freeclick = FreeAccountClick(fullname=request.user.get_full_name(),email=request.user.email,from_what_page='Not from Jobs',registered=1,visited_tryfree=1,paid=0)
+            freeclick.save()
+            request.session['job_email'] = request.user.email
+
     if request.method == "POST":
         token = request.POST.get("stripeToken")
         plan = stripe.Plan.retrieve(plan_id)
@@ -982,6 +1013,15 @@ def monthly_subscription(request):
             user.role = 3
             user.save()
 
+            if 'job_email' in request.session:
+                try:
+                    free = FreeAccountClick.objects.get(email= request.session['job_email'])
+                    free.paid = 1
+                    free.save(update_fields=["paid"])
+                except FreeAccountClick.DoesNotExist:
+                    freeclick = FreeAccountClick(fullname=request.user.get_full_name(),email=request.user.email,from_what_page='Not from Jobs',registered=1,visited_tryfree=1,paid=1)
+                    freeclick.save()
+
             if nexturl:
                 if nexturl == 'group':
                     group_item = Groupclass.objects.get(id=g_id)
@@ -1000,11 +1040,6 @@ def group(request,pk):
     user = None
     if request.user.is_authenticated:
         user=CustomUser.objects.get(email=request.user)
-    # try:
-    #     user = CustomUser.objects.get(email=request.user)
-    # except CustomUser.DoesNotExist:
-    #     pass
-    # finally:
     if request.method == "POST":
         email = request.POST['email']
         choice = request.POST['choice']
@@ -1039,18 +1074,14 @@ def group(request,pk):
                 user.save()
                 #  ('Linuxjobber Free Account Creation', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + '\n Follow this link http://35.167.153.1:8001/login to login to you account\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', 'settings.EMAIL_HOST_USER', [email])
 
-                groupreg = GroupClassRegister.objects.create(user= user, is_paid=0, amount=29, type_of_class = group_item.type_of_class)
+                groupreg = GroupClassRegister.objects.create(user= user, is_paid=0, amount=group_item.price, type_of_class = group_item.type_of_class)
                 groupreg.save()
 
                 new_user = authenticate(username=username,
                                     password=password,
                                     )
                 login(request, new_user)
-
-                if int(choice) == 1:
-                    return redirect("home:monthly_subscription")
-
-                return redirect("home:group_pay",pk=group_item.pk)
+                user = new_user
 
         if user:
             groupreg = GroupClassRegister.objects.create(user= user, is_paid = 0, amount=29, type_of_class = group_item.type_of_class)
@@ -1066,12 +1097,21 @@ def group(request,pk):
 
 @login_required
 def group_pay(request,pk):
-    # email = request.session['email']
-    # amount = request.session['amount']
-    # amount = int(amount) * 100
-    # type_class = request.session['class']
     group_item=get_object_or_404(Groupclass,pk=pk)
     amount=group_item.price * 100
+
+    # Implementation for free internship - Azeem Animashaun (Updated 21 January)
+    if amount == 0:
+        messages.success(request, 'You are registered in ' + group_item.name + ' group class successfully..')
+        _, created = GroupClassRegister.objects.update_or_create(
+            user=request.user,
+            is_paid=1,
+            amount=amount,
+            type_of_class=group_item.type_of_class,
+        )
+        user = get_object_or_404(CustomUser, email=request.user.email)
+        group_item.users.add(user)
+        return redirect("home:group")
     stripeset = StripePayment.objects.all()
     # Stripe uses cent notation for amount 10 USD = 10 * 100
     stripe.api_key = stripeset[0].secretkey
@@ -1105,18 +1145,6 @@ def group_pay(request,pk):
         except stripe.error.CardError as ce:
             return False, ce
 
-    # Implementation for free internship - Azeem Animashaun (Updated 21 January)
-    if amount == 0:
-        messages.success(request, 'You are registered in '+group_item.name+' group class successfully..')
-        _, created = GroupClassRegister.objects.update_or_create(
-            user=request.user,
-            is_paid=1,
-            amount=amount,
-            type_of_class=group_item.type_of_class,
-        )
-        user = get_object_or_404(CustomUser, email=request.user.email)
-        group_item.users.add(user)
-        return redirect("home:group")
     return render(request, 'home/group_pay.html', context)
 
 def contact_us(request):
