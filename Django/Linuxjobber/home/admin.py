@@ -76,6 +76,9 @@ class MessageAdmin(admin.ModelAdmin):
 	list_display = ['title','slug','group']
 	list_filter = ('group',)
 
+class FreeAccountClickAdmin(admin.ModelAdmin):
+	list_display = ['email','filled_jobs','freeaccountclick','registered','visited_tryfree','paid','date_created']
+
 admin.site.register(FAQ)
 admin.site.register(Job)
 admin.site.register(UserOrder)
@@ -104,7 +107,7 @@ admin.site.register(PartTimePostion)
 admin.site.register(wetask,wetaskAdmin)
 admin.site.register(wework,weworkAdmin)
 admin.site.register(wetype)
-admin.site.register(FreeAccountClick)
+admin.site.register(FreeAccountClick,FreeAccountClickAdmin)
 admin.site.register(werole)
 admin.site.register(Resume)
 admin.site.register(TryFreeRecord)
