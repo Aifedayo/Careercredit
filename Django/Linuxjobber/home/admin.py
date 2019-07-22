@@ -59,6 +59,7 @@ class campaignAdmin(admin.ModelAdmin):
 			print(outps)
 			print(outs)
 
+
 		print(obj.message.slug)
 		print(obj.send_message)
 		print(obj.Target)
