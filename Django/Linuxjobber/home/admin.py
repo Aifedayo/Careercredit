@@ -54,8 +54,8 @@ class campaignAdmin(admin.ModelAdmin):
 			elif obj.Target == 4:
 				Role = "marketing_internship"
 			
-			outps = subprocess.Popen(["sshpass","-p", 'dead123linux', "ssh", "-o StrictHostKeyChecking=no", "-o LogLevel=ERROR", "-o UserKnownHostsFile=/dev/null", "sysadmin3@52.41.75.77", "python /oldtools/campaigns/composeMail.py", '1', Role, str(obj.message.slug)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
-			outs = subprocess.Popen(["sshpass","-p", 'dead123linux', "ssh", "-o StrictHostKeyChecking=no", "-o LogLevel=ERROR", "-o UserKnownHostsFile=/dev/null", "sysadmin3@52.41.75.77", "python /tools/campaigns/composeMail.py", '1', Role, str(obj.message.slug)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+			outps = subprocess.Popen(["sshpass","-p", '8iu7*IU&', "ssh", "-o StrictHostKeyChecking=no", "-o LogLevel=ERROR", "-o UserKnownHostsFile=/dev/null", "samuel@stage.linuxjobber.com", "python /oldtools/campaigns/composeMail.py", '1', Role, str(obj.message.slug)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+			outs = subprocess.Popen(["sshpass","-p", '8iu7*IU&', "ssh", "-o StrictHostKeyChecking=no", "-o LogLevel=ERROR", "-o UserKnownHostsFile=/dev/null", "samuel@stage.linuxjobber.com", "python /tools/campaigns/composeMail.py", '1', Role, str(obj.message.slug)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
 			print(outps)
 			print(outs)
 
