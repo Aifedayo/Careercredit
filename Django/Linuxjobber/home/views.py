@@ -330,14 +330,24 @@ def partime(request):
     if request.method == "POST":
         form = PartimeApplicationForm(request.POST, request.FILES)
         if form.is_valid():
+            try:
+                PartTimeJob.objects.get(email=request.POST['email'],position=request.POST['position'])
+                messages.success(request, "Sorry We could not submit your application as you have applied for that role before.")
+                return redirect("home:partime")
+            except Job.DoesNotExist:
+                pass
+
             newform = form.save(commit=False)
             newform.save()
             request.session['job_email'] = request.POST['email']
             request.session['job_fullname'] = request.POST['fullname']
             request.session['page'] = 'Job Feedback'
 
-            freeclick = FreeAccountClick(fullname=request.session['job_fullname'],email=request.session['job_email'],filled_jobs=1,freeaccountclick=0,from_what_page=request.session['page'],registered=0,visited_tryfree=0,paid=0)
-            freeclick.save()
+            try:
+                freeexist = FreeAccountClick.objects.get(email=request.session['job_email'])
+            except FreeAccountClick.DoesNotExist:
+                freeclick = FreeAccountClick(fullname=request.session['job_fullname'],email=request.session['job_email'],filled_jobs=1,freeaccountclick=0,from_what_page=request.session['page'],registered=0,visited_tryfree=0,paid=0)
+                freeclick.save()
 
             if not request.POST['cv_link']:
                 cv = settings.ENV_URL+newform.cv.url.strip("/")
@@ -421,6 +431,12 @@ def jobapplication(request, job):
         form = JobApplicationForm(request.POST, request.FILES)
         if form.is_valid():
             jobform = form.save(commit=False)
+            try:
+                Job.objects.get(email=request.POST['email'],position=posts)
+                messages.success(request, "Sorry We could not submit your application as you have applied for this role before.")
+                return redirect("home:jobapplication", job=job)
+            except Job.DoesNotExist:
+                pass
             jobform.position = posts
             jobform.save()
 
@@ -428,8 +444,11 @@ def jobapplication(request, job):
             request.session['job_fullname'] = request.POST['fullname']
             request.session['page'] = 'Job Feedback'
 
-            freeclick = FreeAccountClick(fullname=request.session['job_fullname'],email=request.session['job_email'],filled_jobs=1,freeaccountclick=0,from_what_page=request.session['page'],registered=0,visited_tryfree=0,paid=0)
-            freeclick.save()
+            try:
+                freeexist = FreeAccountClick.objects.get(email=request.session['job_email'])
+            except FreeAccountClick.DoesNotExist:
+                freeclick = FreeAccountClick(fullname=request.session['job_fullname'],email=request.session['job_email'],filled_jobs=1,freeaccountclick=0,from_what_page=request.session['page'],registered=0,visited_tryfree=0,paid=0)
+                freeclick.save()
 
             if not request.POST['cv_link']:
                 cv = settings.ENV_URL+jobform.resume.url.strip("/")
