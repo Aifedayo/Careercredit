@@ -13,7 +13,7 @@
         {% for section,topics in topic_list %}
 {#            Note : Created a proxy model for topic, original data is gotten via .data #}
 
-            <span class="is-light-dark"> {{ section }}</span>
+            <span class="is-light-dark"> {% if section %} {{ section }} {% endif %} </span>
             {% for topic in topics %}
             <a class="{% if topic.data.free %}free {% else %}nonfree{% endif %}" href="{% url 'Courses:topic_details' course_slug topic.data.topic_number %}">
                 <div class="box is-paddingless">
