@@ -447,6 +447,7 @@ def jobapplication(request, job):
             request.session['job_fullname'] = request.POST['fullname']
             request.session['page'] = 'Job Feedback'
 
+
             try:
                 freeexist = FreeAccountClick.objects.get(email=request.session['job_email'])
             except FreeAccountClick.DoesNotExist:
