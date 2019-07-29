@@ -248,20 +248,21 @@ bottom: 200px;
 									href="javascript:void(0);">LEARN</a>
 									<div class="dropdowns transparent-style" id="course">
 										<div class="container text-1">
-											{% if courses %} {% for course in courses %} {% with count_min_one=forloop.counter|add:"-1"|divisibleby:4 %} {% if forloop.counter == 1 or count_min_one %}
-											<div class="col-md-3 col-sm-4 col-xs-12">
-												<ul>
-											{% endif %}
-													<li><a href="{% url 'Courses:topics' course.course_title.split|join:'_' %}"><span class="link-icon"><i class="fa {{course.icon}} fa-2x"></i> {%if course.has_certification == 1%} <i style="font-size:25px;" class="fa fa-certificate fa-2x"></i>{%endif%}</span>{{course.course_title}}</a></li>
-													{% if forloop.counter|divisibleby:4 %}
-												</ul>
-											</div>
-											{% endif %} {% endwith %} {% endfor %} {% else %}
-											
-											
-
-
-
+											{% if courses %}
+                                                {% for course in courses %}
+                                                    {% with count_min_one=forloop.counter|add:"-1"|divisibleby:4 %}
+                                                        {% if forloop.counter == 1 or count_min_one %}
+                                                            <div class="col-md-3 col-sm-4 col-xs-12">
+                                                                <ul>
+                                                        {% endif %}
+													        <li><a href="{% url 'Courses:topics' course.course_title.split|join:'_' %}"><span class="link-icon"><i class="fa {{course.icon}} fa-2x"></i> {%if course.has_certification == 1%} <i style="font-size:25px;" class="fa fa-certificate fa-2x"></i>{%endif%}</span>{{course.course_title}}</a></li>
+													    {% if forloop.counter|divisibleby:4 %}
+												                                                                                                                                                        </ul>
+											                </div>
+											            {% endif %}
+                                                    {% endwith %}
+                                                {% endfor %}
+                                            {% else %}
 											<div class="col-md-3 col-sm-4">
 												<ul class="">
 													<li><a href="#"><span class="link-icon"><img

@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseBadRequest
 from django.shortcuts import render, redirect, get_object_or_404
 from django import template as temp#, forms
+from django.template.response import TemplateResponse
 from django.views import generic
 from django.conf import settings
 from django.core.mail import send_mail
@@ -10,7 +11,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
 from django.http import JsonResponse
 from django.core import serializers
-from django.db.models import Q
+from django.db.models import Q, Count
 
 #################################################
 #    IMPORTS FROM WITHIN Linuxjobber APPLICATION  #
@@ -227,7 +228,7 @@ def topictot(request,lab_no):
     topics = CourseTopic.objects.get(id=lab_no)
 
     grades = GradesReport.objects.filter(user=request.user,course_topic=topics),
-    
+
 
     try:
         start = TopicStat.objects.filter(topic=topics, user=request.user, status='start_video').last()
@@ -238,7 +239,7 @@ def topictot(request,lab_no):
                 stat = stat + 0
             else:
                 stat = stat + start.video
-            
+
             if stop is None:
                 stat = stat + 0
             else:
@@ -248,7 +249,7 @@ def topictot(request,lab_no):
                 stat = stat + 0
             else:
                 stat = stat + start.video
-            
+
             if stop is None:
                 stat = stat + 0
             else:
@@ -256,14 +257,14 @@ def topictot(request,lab_no):
 
             for grade in grades:
                 for gra in grade:
-                    leng = leng+1 
+                    leng = leng+1
                     if gra.grade == "passed":
                         score = score + 1
             if leng == 0:
                 percent = 0
             else:
                 percent = (score/ leng) * 100
-                
+
                 if percent > 70:
                     stat = stat + 50
                 else:
@@ -730,3 +731,156 @@ def get_client_ip(request):
     else:
         ip = request.META.get('REMOTE_ADDR')
     return ip
+
+
+# NEW design
+
+class SuperTopic():
+    def __init__(self, user, topic):
+        self.user = user
+        import copy
+        self.data = copy.copy(topic)
+        self.completion = self.calculate_completion(topic.topic_number)
+
+    def calculate_completion(self, topic_id):
+        stat = 0
+        leng = 0
+        totscore = 0
+        score = 0
+        topics = CourseTopic.objects.get(id=topic_id)
+
+        grades = GradesReport.objects.filter(user=self.user, course_topic=topics),
+
+        try:
+            start = TopicStat.objects.filter(topic=topics, user=self.user, status='start_video').last()
+            stop = TopicStat.objects.filter(topic=topics, user=self.user, status='stop_video').last()
+            # does not have lab
+            if topics.has_labs == 0:
+                if start is None:
+                    stat = stat + 0
+                else:
+                    stat = stat + start.video
+
+                if stop is None:
+                    stat = stat + 0
+                else:
+                    stat = stat + stop.video
+            else:
+                if start is None:
+                    stat = stat + 0
+                else:
+                    stat = stat + start.video
+
+                if stop is None:
+                    stat = stat + 0
+                else:
+                    stat = stat + stop.video
+
+                for grade in grades:
+                    for gra in grade:
+                        leng = leng + 1
+                        if gra.grade == "passed":
+                            score = score + 1
+                if leng == 0:
+                    percent = 0
+                else:
+                    percent = (score / leng) * 100
+
+                    if percent > 70:
+                        stat = stat + 50
+                    else:
+                        pass
+        except TopicStat.DoesNotExist:
+            stat = 0
+        return round(stat)
+
+class SuperCourse():
+    def __init__(self, user, course):
+        import copy
+        self.user = user
+        self.data = copy.copy(course)
+        self.completion = self.calculate_completion(user, course.pk)
+
+    def calculate_completion(self, user, course_id):
+        course = Course.objects.get(id=course_id)
+        topics = CourseTopic.objects.filter(course=course)
+        stat = 0
+        totscore = 0
+        totstat = 0
+        count = 0
+        for topic in topics:
+            leng = 0
+            score = 0
+            count = count + 1
+            grades = GradesReport.objects.filter(user=user, course_topic=topic),
+
+            try:
+                start = TopicStat.objects.filter(topic=topic, user=user, status='start_video').last()
+                stop = TopicStat.objects.filter(topic=topic, user=user, status='stop_video').last()
+                # does not have lab
+                if topic.has_labs == 0:
+                    if start is None:
+                        stat = stat + 0
+                    else:
+                        stat = stat + start.video
+
+                    if stop is None:
+                        stat = stat + 0
+                    else:
+                        stat = stat + stop.video
+                else:
+                    if start is None:
+                        stat = stat + 0
+                    else:
+                        stat = stat + start.video
+
+                    if stop is None:
+                        stat = stat + 0
+                    else:
+                        stat = stat + stop.video
+
+                    for grade in grades:
+                        for gra in grade:
+                            leng = leng + 1
+                            if gra.grade == "passed":
+                                score = score + 1
+                    if leng == 0:
+                        stat = stat + 0
+                    else:
+                        percent = (score / leng) * 100
+                        if percent > 70:
+                            stat = stat + 50
+                        else:
+                            pass
+
+            except TopicStat.DoesNotExist:
+                stat = 0
+        if len(topics) == 0:
+            totstat = 0
+        else:
+            totstat = stat / len(topics)
+
+        return round(totstat)
+
+
+@login_required()
+def self_topic_index(request,**kwargs):
+    context = {}
+    context['topics'] = CourseTopic.objects.filter(course__course_title=kwargs.get('course_name').replace("_", " "))
+    topics = []
+    for i in context['topics']:
+        topics.append(SuperTopic(request.user, i))
+    context['topics'] = topics
+    context['course'] = SuperCourse(request.user,Course.objects.get(course_title=kwargs.get('course_name',None).replace("_", " ")))
+    context['course_slug'] = kwargs.get('course_name',None).replace(" " , "_")
+    context['aws'] = check_aws(request.user)
+
+    print(context['aws'])
+    if request.user.role == 4:
+        try:
+            context['permission'] = CoursePermission.objects.get(user=request.user, course=context['course'])
+        except CoursePermission.DoesNotExist:
+            context['permission'] = 0
+    return TemplateResponse(request,"courses/self_topic_index.html",context)
+
+
