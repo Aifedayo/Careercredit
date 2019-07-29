@@ -327,14 +327,17 @@ def partime(request):
     position = None
     high = None
     message = None
+    pos = None
     if request.method == "POST":
         form = PartimeApplicationForm(request.POST, request.FILES)
         if form.is_valid():
+            print(request.POST['email'])
+            pos = PartTimePostion.objects.get(id=request.POST['position'])
             try:
-                PartTimeJob.objects.get(email=request.POST['email'],position=request.POST['position'])
+                PartTimeJob.objects.get(email=request.POST['email'],position=pos)
                 messages.success(request, "Sorry We could not submit your application as you have applied for that role before.")
                 return redirect("home:partime")
-            except Job.DoesNotExist:
+            except PartTimeJob.DoesNotExist:
                 pass
 
             newform = form.save(commit=False)
