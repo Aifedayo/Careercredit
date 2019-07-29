@@ -1373,3 +1373,142 @@ home.models.PartTimeJob.MultipleObjectsReturned: get() returned more than one Pa
 [2019-07-25 20:56:52] INFO [django.channels.server.log_action:141] HTTP GET / 200 [0.07, 127.0.0.1:1057]
 [2019-07-25 20:56:52] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.02, 127.0.0.1:1057]
 [2019-07-25 20:56:54] INFO [django.channels.server.log_action:141] HTTP GET /static/favicon.ico 200 [0.07, 127.0.0.1:1057]
+[2019-07-25 21:27:24] INFO [django.utils.autoreload.run_with_reloader:584] Watching for file changes with StatReloader
+[2019-07-25 21:27:28] INFO [django.channels.server.log_action:147] HTTP GET / 302 [0.18, 127.0.0.1:1622]
+[2019-07-25 21:27:28] INFO [django.channels.server.log_action:141] HTTP GET /timeout 200 [0.07, 127.0.0.1:1622]
+[2019-07-25 21:27:29] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/proj-list.png 200 [0.06, 127.0.0.1:1622]
+[2019-07-29 11:29:01] INFO [django.utils.autoreload.run_with_reloader:584] Watching for file changes with StatReloader
+[2019-07-29 11:32:29] INFO [django.channels.server.log_action:141] HTTP GET / 200 [0.61, 127.0.0.1:2354]
+[2019-07-29 11:32:29] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js 200 [0.04, 127.0.0.1:2354]
+[2019-07-29 11:32:29] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validate.js 200 [0.04, 127.0.0.1:2355]
+[2019-07-29 11:32:29] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/css/bootstrap.min.css 200 [0.05, 127.0.0.1:2363]
+[2019-07-29 11:32:29] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/style.css 200 [0.05, 127.0.0.1:2364]
+[2019-07-29 11:32:29] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/css/style.css 200 [0.06, 127.0.0.1:2365]
+[2019-07-29 11:32:29] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/main.css 200 [0.05, 127.0.0.1:2354]
+[2019-07-29 11:32:29] INFO [django.channels.server.log_action:141] HTTP GET /static/Projects/custom/css/projects.css 200 [0.04, 127.0.0.1:2363]
+[2019-07-29 11:32:29] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css 200 [0.03, 127.0.0.1:2364]
+[2019-07-29 11:32:29] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/newstylenew.css 200 [0.07, 127.0.0.1:2355]
+[2019-07-29 11:32:29] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/newstyle2.css 200 [0.09, 127.0.0.1:2366]
+[2019-07-29 11:32:29] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/logo.png 200 [0.03, 127.0.0.1:2354]
+[2019-07-29 11:32:29] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/get3.png 200 [0.01, 127.0.0.1:2366]
+[2019-07-29 11:32:29] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/LaptopBook.png 200 [0.04, 127.0.0.1:2363]
+[2019-07-29 11:32:29] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/homelive.png 200 [0.03, 127.0.0.1:2355]
+[2019-07-29 11:32:29] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/get2.png 200 [0.03, 127.0.0.1:2354]
+[2019-07-29 11:32:29] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js 200 [0.07, 127.0.0.1:2365]
+[2019-07-29 11:32:29] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/jobphone.png 200 [0.06, 127.0.0.1:2364]
+[2019-07-29 11:32:29] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/get1.png 200 [0.04, 127.0.0.1:2366]
+[2019-07-29 11:32:29] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/hq1.png 200 [0.04, 127.0.0.1:2355]
+[2019-07-29 11:32:29] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/testi.png 200 [0.06, 127.0.0.1:2363]
+[2019-07-29 11:32:29] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/hq2.png 200 [0.05, 127.0.0.1:2354]
+[2019-07-29 11:32:29] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/client3.png 200 [0.05, 127.0.0.1:2365]
+[2019-07-29 11:32:29] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/client2.png 200 [0.10, 127.0.0.1:2364]
+[2019-07-29 11:32:29] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/client1.png 200 [0.09, 127.0.0.1:2366]
+[2019-07-29 11:32:29] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/bootstrap.min.js 200 [0.08, 127.0.0.1:2355]
+[2019-07-29 11:32:29] INFO [django.channels.server.log_action:141] HTTP GET /static/faq/js/jquery.mobile.custom.min.js 200 [0.08, 127.0.0.1:2363]
+[2019-07-29 11:32:29] INFO [django.channels.server.log_action:141] HTTP GET /static/faq/js/main.js 200 [0.08, 127.0.0.1:2354]
+[2019-07-29 11:32:29] INFO [django.channels.server.log_action:141] HTTP GET /static/js/waterbubble.js 200 [0.03, 127.0.0.1:2365]
+[2019-07-29 11:32:29] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/fonts/fontsstylesheet.css 200 [0.03, 127.0.0.1:2364]
+[2019-07-29 11:32:30] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/jobban2.png 200 [0.01, 127.0.0.1:2364]
+[2019-07-29 11:32:30] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/homebanner.png 200 [0.03, 127.0.0.1:2365]
+[2019-07-29 11:32:32] INFO [django.channels.server.log_action:141] HTTP GET /jobs/parttime/apply 200 [0.14, 127.0.0.1:2365]
+[2019-07-29 11:32:38] INFO [django.channels.server.log_action:141] HTTP GET /static/favicon.ico 200 [0.01, 127.0.0.1:2365]
+[2019-07-29 11:32:48] ERROR [django.request.log_response:228] Internal Server Error: /jobs/parttime/apply
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Documents\Web\Linuxjobber\Django\Linuxjobber\home\views.py", line 334, in partime
+    PartTimeJob.objects.get(email=request.POST['email'],position=request.POST['position'])
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\db\models\query.py", line 412, in get
+    (self.model._meta.object_name, num)
+home.models.PartTimeJob.MultipleObjectsReturned: get() returned more than one PartTimeJob -- it returned 5!
+[2019-07-29 11:32:48] ERROR [django.channels.server.log_action:154] HTTP POST /jobs/parttime/apply 500 [0.06, 127.0.0.1:2365]
+[2019-07-29 11:32:49] WARNING [django.request.log_response:228] Not Found: /favicon.ico
+[2019-07-29 11:32:49] WARNING [django.channels.server.log_action:149] HTTP GET /favicon.ico 404 [0.02, 127.0.0.1:2365]
+[2019-07-29 11:33:00] ERROR [django.request.log_response:228] Internal Server Error: /jobs/parttime/apply
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Documents\Web\Linuxjobber\Django\Linuxjobber\home\views.py", line 334, in partime
+    PartTimeJob.objects.get(email=request.POST['email'],position=request.POST['position'])
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\db\models\query.py", line 408, in get
+    self.model._meta.object_name
+home.models.PartTimeJob.DoesNotExist: PartTimeJob matching query does not exist.
+[2019-07-29 11:33:00] ERROR [django.channels.server.log_action:154] HTTP POST /jobs/parttime/apply 500 [0.05, 127.0.0.1:2365]
+[2019-07-29 11:35:23] INFO [django.utils.autoreload.trigger_reload:211] E:\Documents\Web\Linuxjobber\Django\Linuxjobber\home\views.py changed, reloading.
+[2019-07-29 11:35:24] INFO [django.utils.autoreload.run_with_reloader:584] Watching for file changes with StatReloader
+[2019-07-29 11:35:30] INFO [django.utils.autoreload.trigger_reload:211] E:\Documents\Web\Linuxjobber\Django\Linuxjobber\home\views.py changed, reloading.
+[2019-07-29 11:35:32] INFO [django.utils.autoreload.run_with_reloader:584] Watching for file changes with StatReloader
+[2019-07-29 11:42:12] ERROR [django.request.log_response:228] Internal Server Error: /jobs/parttime/apply
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Documents\Web\Linuxjobber\Django\Linuxjobber\home\views.py", line 336, in partime
+    PartTimeJob.objects.get(email=request.POST['email'],position=pos)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\db\models\query.py", line 408, in get
+    self.model._meta.object_name
+home.models.PartTimeJob.DoesNotExist: PartTimeJob matching query does not exist.
+[2019-07-29 11:42:12] ERROR [django.channels.server.log_action:154] HTTP POST /jobs/parttime/apply 500 [0.08, 127.0.0.1:2786]
+[2019-07-29 15:26:51] INFO [django.utils.autoreload.trigger_reload:211] E:\Documents\Web\Linuxjobber\Django\Linuxjobber\home\views.py changed, reloading.
+[2019-07-29 15:26:53] INFO [django.utils.autoreload.run_with_reloader:584] Watching for file changes with StatReloader
+[2019-07-29 15:26:59] ERROR [django.request.log_response:228] Internal Server Error: /jobs/parttime/apply
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Documents\Web\Linuxjobber\Django\Linuxjobber\home\views.py", line 337, in partime
+    PartTimeJob.objects.get(email=request.POST['email'],position=pos)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\db\models\query.py", line 408, in get
+    self.model._meta.object_name
+home.models.PartTimeJob.DoesNotExist: PartTimeJob matching query does not exist.
+[2019-07-29 15:26:59] ERROR [django.channels.server.log_action:154] HTTP POST /jobs/parttime/apply 500 [0.08, 127.0.0.1:1752]
+[2019-07-29 15:27:27] INFO [django.utils.autoreload.trigger_reload:211] E:\Documents\Web\Linuxjobber\Django\Linuxjobber\home\views.py changed, reloading.
+[2019-07-29 15:27:29] INFO [django.utils.autoreload.run_with_reloader:584] Watching for file changes with StatReloader
+[2019-07-29 15:27:30] ERROR [django.request.log_response:228] Internal Server Error: /jobs/parttime/apply
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Documents\Web\Linuxjobber\Django\Linuxjobber\home\views.py", line 337, in partime
+    PartTimeJob.objects.get(email=request.POST['email'],position=pos)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\db\models\query.py", line 408, in get
+    self.model._meta.object_name
+home.models.PartTimeJob.DoesNotExist: PartTimeJob matching query does not exist.
+[2019-07-29 15:27:30] ERROR [django.channels.server.log_action:154] HTTP POST /jobs/parttime/apply 500 [0.07, 127.0.0.1:1786]
+[2019-07-29 15:28:29] INFO [django.utils.autoreload.trigger_reload:211] E:\Documents\Web\Linuxjobber\Django\Linuxjobber\home\views.py changed, reloading.
+[2019-07-29 15:28:31] INFO [django.utils.autoreload.run_with_reloader:584] Watching for file changes with StatReloader
+[2019-07-29 15:28:47] INFO [django.channels.server.log_action:147] HTTP POST /jobs/parttime/apply 302 [11.54, 127.0.0.1:1804]
+[2019-07-29 15:28:47] INFO [django.channels.server.log_action:141] HTTP GET /jobs/feedback 200 [0.14, 127.0.0.1:1804]
+[2019-07-29 15:28:47] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/book.png 200 [0.07, 127.0.0.1:1815]
+[2019-07-29 15:28:47] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/drop.png 200 [0.08, 127.0.0.1:1804]
+[2019-07-29 15:28:47] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/play.png 200 [0.08, 127.0.0.1:1816]
+[2019-07-29 15:28:47] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/gotoicon.png 200 [0.01, 127.0.0.1:1804]
+[2019-07-29 15:28:47] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/labwhite.png 200 [0.03, 127.0.0.1:1815]
+[2019-07-29 15:28:47] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/workexpban.png 200 [0.02, 127.0.0.1:1804]
