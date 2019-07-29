@@ -7,12 +7,14 @@
 {% load staticfiles %}
 {% block content %}
 
+    {% regroup topics by section as topic_list %}
     <section class="column is-three-quarters-tablet">
 
-        {% for topic in topics %}
+        {% for section,topics in topic_list %}
 {#            Note : Created a proxy model for topic, original data is gotten via .data #}
 
-            <span class="is-light-dark"> {{ topic.data.section }}</span>
+            <span class="is-light-dark"> {{ section }}</span>
+            {% for topic in topics %}
             <a class="{% if topic.data.free %}free {% else %}nonfree{% endif %}" href="{% url 'Courses:topic_details' course_slug topic.data.topic_number %}">
                 <div class="box is-paddingless">
                     <div class="container is-widescreen height-14">
@@ -98,7 +100,7 @@
         </div>
             </a>
 
-
+        {% endfor %}
 
 
         {% endfor %}

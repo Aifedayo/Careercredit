@@ -740,6 +740,7 @@ class SuperTopic():
         self.user = user
         import copy
         self.data = copy.copy(topic)
+        self.section = topic.section
         self.completion = self.calculate_completion(topic.topic_number)
 
     def calculate_completion(self, topic_id):
@@ -799,6 +800,7 @@ class SuperCourse():
         import copy
         self.user = user
         self.data = copy.copy(course)
+
         self.completion = self.calculate_completion(user, course.pk)
 
     def calculate_completion(self, user, course_id):
