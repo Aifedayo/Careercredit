@@ -75,7 +75,7 @@
                 <div id="myList">
                 {% if request.user.role >= 1 and request.user.role <= 3 %} 
                 {%if course.aws_credential_required == 1 and aws%} 
-                {% for topic in object_list %}         
+                    {% for topic in object_list %}
                 <div class ="row line-ht">
 
                     <div class="col-md-1 col-xs-1">
@@ -104,7 +104,6 @@
                     
                 </div>
                 {%endfor%}
-
                 <!--Admin and role 3 havent uploaded their credentials, takes them to aws -->
                 {%elif course.aws_credential_required == 1 and not aws%}
                     {% for topic in object_list %} 
@@ -202,7 +201,7 @@
                 {%endif%}
                 <!--for role 4 users -->
                 {%elif request.user.role == 4%}
-                {% for topic in object_list %}  
+                     {% for topic in object_list %}
                 <!--if given course permission, he is allowed to acess everything in that course -->
                 {%if permission.permission == 1%}
                     <!--if given course permission and and check if course requires aws credentials uploads-->

@@ -41,6 +41,9 @@ class TopicStatAdmin(admin.ModelAdmin):
 	list_display = ('user','topic','last_watched')
 	search_fields = ('user__email',)
 
+class CourseSectionAdmin(admin.ModelAdmin):
+	list_display = ('course', 'name')
+
 admin.site.register(Course)
 admin.site.register(CourseTopic, CourseTopicAdmin)
 admin.site.register(CourseDescription)
@@ -52,3 +55,4 @@ admin.site.register(NoteComment)
 admin.site.register(TopicStat,TopicStatAdmin)
 admin.site.register(UserInterest,UserInterestAdmin)
 admin.site.register(UserCourseStat,UserCourseStatAdmin)
+admin.site.register(CourseSection,CourseSectionAdmin)

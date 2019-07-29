@@ -421,7 +421,7 @@ def jobapplication(request, job):
             request.session['page'] = 'Job Feedback'
 
             if not request.POST['cv_link']:
-                cv = settings.ENV_URL+jobform.resume.url.strip("/")
+                cv = jobform.resume.url.strip("/")
             else:
                 cv = request.POST['cv_link']
 
@@ -449,6 +449,7 @@ def log_in(request):
     if request.method == "POST":
         user_name = request.POST['username']
         password = request.POST['password']
+        next = request.POST['next']
         if "@" in user_name:
             user_name = user_name.split('@')[0]
         user = authenticate(request, username = user_name, password = password)
@@ -470,7 +471,10 @@ def log_in(request):
                     pass
 
                 stats = UserInterest.objects.filter(user=request.user)
-                if stats:
+
+                if next:
+                    return redirect(next)
+                elif stats:
                     return redirect("home:index")
                 else:
                     return redirect("Courses:userinterest")
