@@ -13,11 +13,11 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='groupclass',
             name='end_date',
-            field=models.DateField(auto_now=True),
+            field=models.CharField(max_length=55),
         ),
         migrations.AlterField(
             model_name='groupclass',
             name='start_date',
-            field=models.DateField(auto_now=True),
+            field=models.CharField(max_length=55),
         ),
     ]

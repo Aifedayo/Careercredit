@@ -3198,3 +3198,6 @@ django.urls.exceptions.NoReverseMatch: Reverse for 'topic_details' with argument
 [2019-07-29 03:53:29] INFO [django.server.log_message:124] "GET /admin/Courses/coursetopic/ HTTP/1.1" 200 6622
 [2019-07-29 03:53:29] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
 [2019-07-29 03:53:42] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18169
+[2019-07-29 03:58:06] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18169
+[2019-07-29 03:58:06] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5114
+[2019-07-29 03:58:06] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 200 259
