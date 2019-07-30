@@ -741,7 +741,7 @@ class SuperTopic():
         import copy
         self.data = copy.copy(topic)
         self.section = topic.section
-        self.completion = self.calculate_completion(topic.topic_number)
+        self.completion = self.calculate_completion(topic.pk)
 
     def calculate_completion(self, topic_id):
         stat = 0
@@ -796,6 +796,12 @@ class SuperTopic():
         return round(stat)
 
 class SuperCourse():
+
+    """
+        
+
+    """
+
     def __init__(self, user, course):
         import copy
         self.user = user
