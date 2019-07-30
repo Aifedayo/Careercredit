@@ -306,6 +306,9 @@ class UserLocation(models.Model):
 class FreeAccountClick(models.Model):
     fullname = models.CharField(max_length=200)
     email = models.EmailField(max_length = 200)
+    filled_jobs = models.IntegerField(default=0 ,choices=((0, 'No'), (1, 'Yes')))
+    tryfreeclick = models.IntegerField(default=0 ,choices=((0, 'No'), (1, 'Yes')))
+    freeaccountclick = models.IntegerField(default=0 ,choices=((0, 'No'), (1, 'Yes')))
     from_what_page = models.CharField(max_length= 100,blank=True)
     registered = models.IntegerField(default=0 ,choices=((0, 'No'), (1, 'Yes')))
     visited_tryfree = models.IntegerField(default=0 ,choices=((0, 'No'), (1, 'Yes')))

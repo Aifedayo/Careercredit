@@ -62,9 +62,9 @@
 	padding-top: 20px;
 }
 
+
 .tool-sond
 {
-    position: absolute;
     top: 0;
     right: -150px;
     width: 150px;
@@ -75,6 +75,7 @@
 
 .tool-sond > li
 {
+	position: relative;
     height: 50px;
 	padding-bottom: 25px;
 }
@@ -217,16 +218,17 @@ bottom: 200px;
 									href="javascript:void(0);">Projects</a>
 
 									<div class="dropdowns transparent-style multi-level" id="tool">
+										  
 										<div class="container text-1">
-											{% if tools %} {% for tool in tools %} {% with count_min_one=forloop.counter|add:"-1"|divisibleby:4 %} {% if forloop.counter == 1 or count_min_one %}
+											{% if tools %} {% for tool in tools %} {% with count_min_one=forloop.counter|add:"-1"|divisibleby:1 %} {% if forloop.counter == 1 or count_min_one %}
 
-
-											<div class="col-md-4 col-sm-4">
+											
+											<div class="col-md-3 col-sm-3 ">
 												<ul>
 													{% endif %}
 													
 													<li class="tool-sub-menu{{tool.id}} tool-sub"><a tabindex="-1" href="javascript:void(0);"><span class="link-icon"><i class="fa fa-cog fa-2x"></i></span>{{tool}}</a>
-													
+														<div>
 														<ul class="transparent-child tool-sond">
 														{%for pj in procourse %}
 														{%if pj.course_project.id == tool.id%}	
@@ -234,8 +236,9 @@ bottom: 200px;
 														{%endif%}
 														{%endfor%}
 														</ul>
+														</div>
 													</li>
-													{% if forloop.counter|divisibleby:4 %}
+													{% if forloop.counter|divisibleby:1 %}
 												</ul>
 											</div>
 											{% endif %} {% endwith %} {% endfor %} {% else %}
@@ -248,21 +251,17 @@ bottom: 200px;
 									href="javascript:void(0);">LEARN</a>
 									<div class="dropdowns transparent-style" id="course">
 										<div class="container text-1">
-											{% if courses %}
-                                                {% for course in courses %}
-                                                    {% with count_min_one=forloop.counter|add:"-1"|divisibleby:4 %}
-                                                        {% if forloop.counter == 1 or count_min_one %}
-                                                            <div class="col-md-3 col-sm-4 col-xs-12">
-                                                                <ul>
-                                                        {% endif %}
-													        <li><a href="{% url 'Courses:topics' course.course_title.split|join:'_' %}"><span class="link-icon"><i class="fa {{course.icon}} fa-2x"></i> {%if course.has_certification == 1%} <i style="font-size:25px;" class="fa fa-certificate fa-2x"></i>{%endif%}</span>{{course.course_title}}</a></li>
-													    {% if forloop.counter|divisibleby:4 %}
-												                                                                                                                                                        </ul>
-											                </div>
-											            {% endif %}
-                                                    {% endwith %}
-                                                {% endfor %}
-                                            {% else %}
+											{% if courses %} {% for course in courses %} {% with count_min_one=forloop.counter|add:"-1"|divisibleby:4 %} {% if forloop.counter == 1 or count_min_one %}
+											<div class="col-md-3 col-sm-4 col-xs-12">
+												<ul>
+											{% endif %}
+													<li><a href="{% url 'Courses:topics' course.course_title.split|join:'_' %}"><span class="link-icon"><i class="fa {{course.icon}} fa-2x"></i> {%if course.has_certification == 1%} <i style="font-size:25px;" class="fa fa-certificate fa-2x"></i>{%endif%}</span>{{course.course_title}}</a></li>
+													{% if forloop.counter|divisibleby:4 %}
+												</ul>
+											</div>
+											{% endif %} {% endwith %} {% endfor %} {% else %}
+									
+
 											<div class="col-md-3 col-sm-4">
 												<ul class="">
 													<li><a href="#"><span class="link-icon"><img
@@ -417,8 +416,8 @@ bottom: 200px;
 								Experience</a></li>
 						<li><a href="{% url 'home:jobplacements' %}">Job
 								Placement Program</a></li>
-						<li><a href="{% url 'home:aws_full_training' %}"> AWS Complete Class</li>
-						<li><a href="{% url 'home:devops_class' %}"> DevOps Complete Class</li>
+                        <li><a href="{% url 'home:aws_full_training' %}"> AWS Complete Class</a></li>
+                        <li><a href="{% url 'home:devops_class' %}"> DevOps Complete Class </a></li>
 						
 					</ul>
 				</div>

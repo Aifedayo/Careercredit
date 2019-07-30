@@ -143,8 +143,13 @@ def signup(request):
                 return render(request, 'home/registration/signup.html', {'error':error})
     else:
         if 'job_email' in request.session:
-            freeclick = FreeAccountClick(fullname=request.session['job_fullname'],email=request.session['job_email'],from_what_page=request.session['page'],registered=0,visited_tryfree=0,paid=0)
-            freeclick.save()
+            try:
+                free = FreeAccountClick.objects.get(email= request.session['job_email'])
+                free.freeaccountclick = 1
+                free.save(update_fields=["freeaccountclick"])
+            except FreeAccountClick.DoesNotExist:
+                pass
+
         return render(request, 'home/registration/signup.html') 
 
 @csrf_exempt
@@ -322,14 +327,30 @@ def partime(request):
     position = None
     high = None
     message = None
+    pos = None
     if request.method == "POST":
         form = PartimeApplicationForm(request.POST, request.FILES)
         if form.is_valid():
+            print(request.POST['email'])
+            pos = PartTimePostion.objects.get(id=request.POST['position'])
+            try:
+                PartTimeJob.objects.get(email=request.POST['email'],position=pos)
+                messages.success(request, "Sorry We could not submit your application as you have applied for that role before.")
+                return redirect("home:partime")
+            except PartTimeJob.DoesNotExist:
+                pass
+
             newform = form.save(commit=False)
             newform.save()
             request.session['job_email'] = request.POST['email']
             request.session['job_fullname'] = request.POST['fullname']
             request.session['page'] = 'Job Feedback'
+
+            try:
+                freeexist = FreeAccountClick.objects.get(email=request.session['job_email'])
+            except FreeAccountClick.DoesNotExist:
+                freeclick = FreeAccountClick(fullname=request.session['job_fullname'],email=request.session['job_email'],filled_jobs=1,freeaccountclick=0,from_what_page=request.session['page'],registered=0,visited_tryfree=0,paid=0)
+                freeclick.save()
 
             if not request.POST['cv_link']:
                 cv = settings.ENV_URL+newform.cv.url.strip("/")
@@ -413,12 +434,25 @@ def jobapplication(request, job):
         form = JobApplicationForm(request.POST, request.FILES)
         if form.is_valid():
             jobform = form.save(commit=False)
+            try:
+                Job.objects.get(email=request.POST['email'],position=posts)
+                messages.success(request, "Sorry We could not submit your application as you have applied for this role before.")
+                return redirect("home:jobapplication", job=job)
+            except Job.DoesNotExist:
+                pass
             jobform.position = posts
             jobform.save()
 
             request.session['job_email'] = request.POST['email']
             request.session['job_fullname'] = request.POST['fullname']
             request.session['page'] = 'Job Feedback'
+
+
+            try:
+                freeexist = FreeAccountClick.objects.get(email=request.session['job_email'])
+            except FreeAccountClick.DoesNotExist:
+                freeclick = FreeAccountClick(fullname=request.session['job_fullname'],email=request.session['job_email'],filled_jobs=1,freeaccountclick=0,from_what_page=request.session['page'],registered=0,visited_tryfree=0,paid=0)
+                freeclick.save()
 
             if not request.POST['cv_link']:
                 cv = jobform.resume.url.strip("/")
@@ -980,7 +1014,7 @@ def monthly_subscription(request):
             free.visited_tryfree = 1
             free.save(update_fields=["visited_tryfree"])
         except FreeAccountClick.DoesNotExist:
-            freeclick = FreeAccountClick(fullname=request.user.get_full_name(),email=request.user.email,from_what_page='Not from Jobs',registered=1,visited_tryfree=1,paid=0)
+            freeclick = FreeAccountClick(fullname=request.user.get_full_name(),email=request.user.email,filled_jobs=0,freeaccountclick=1,from_what_page='Not from Jobs',registered=1,visited_tryfree=1,paid=0)
             freeclick.save()
             request.session['job_email'] = request.user.email
 
@@ -1017,13 +1051,14 @@ def monthly_subscription(request):
             user.role = 3
             user.save()
 
-            try:
-                free = FreeAccountClick.objects.get(email= request.session['job_email'])
-                free.paid = 1
-                free.save(update_fields=["paid"])
-            except FreeAccountClick.DoesNotExist:
-                freeclick = FreeAccountClick(fullname=request.user.get_full_name(),email=request.user.email,from_what_page='Not from Jobs',registered=1,visited_tryfree=1,paid=1)
-                freeclick.save()
+            if 'job_email' in request.session:
+                try:
+                    free = FreeAccountClick.objects.get(email= request.session['job_email'])
+                    free.paid = 1
+                    free.save(update_fields=["paid"])
+                except FreeAccountClick.DoesNotExist:
+                    freeclick = FreeAccountClick(fullname=request.user.get_full_name(),email=request.user.email,filled_jobs=0,freeaccountclick=1,from_what_page='Not from Jobs',registered=1,visited_tryfree=1,paid=0)
+                    freeclick.save()
 
             if nexturl:
                 if nexturl == 'group':

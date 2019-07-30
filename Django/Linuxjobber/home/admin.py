@@ -7,6 +7,7 @@ from .models import FAQ, Job, RHCSAOrder,FreeAccountClick,  Campaign, Message, U
 from datetime import timedelta
 import datetime
 import subprocess, os
+from django.conf import settings
 
 class weworkAdmin(admin.ModelAdmin):
 	search_fields = ['we_people__user__email']
@@ -54,10 +55,11 @@ class campaignAdmin(admin.ModelAdmin):
 			elif obj.Target == 4:
 				Role = "marketing_internship"
 			
-			outps = subprocess.Popen(["sshpass","-p", 'dead123linux', "ssh", "-o StrictHostKeyChecking=no", "-o LogLevel=ERROR", "-o UserKnownHostsFile=/dev/null", "sysadmin3@52.41.75.77", "python /oldtools/campaigns/composeMail.py", '1', Role, str(obj.message.slug)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
-			outs = subprocess.Popen(["sshpass","-p", 'dead123linux', "ssh", "-o StrictHostKeyChecking=no", "-o LogLevel=ERROR", "-o UserKnownHostsFile=/dev/null", "sysadmin3@52.41.75.77", "python /tools/campaigns/composeMail.py", '1', Role, str(obj.message.slug)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+			outps = subprocess.Popen(["sshpass","-p", settings.TOOLS_PASSWORD, "ssh", "-o StrictHostKeyChecking=no", "-o LogLevel=ERROR", "-o UserKnownHostsFile=/dev/null", settings.TOOLS_USER+"@"+settings.SERVER_IP, "cd "+ settings.OLD_TOOLS_PATH +" && sudo bash scheduler.sh"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+			outs = subprocess.Popen(["sshpass","-p", settings.TOOLS_PASSWORD, "ssh", "-o StrictHostKeyChecking=no", "-o LogLevel=ERROR", "-o UserKnownHostsFile=/dev/null", settings.TOOLS_USER+"@"+settings.SERVER_IP, "cd "+ settings.NEW_TOOLS_PATH +" && sudo python composeMail.py", '1', Role, str(obj.message.slug)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
 			print(outps)
 			print(outs)
+
 
 		print(obj.message.slug)
 		print(obj.send_message)
@@ -76,8 +78,19 @@ class MessageAdmin(admin.ModelAdmin):
 	list_display = ['title','slug','group']
 	list_filter = ('group',)
 
+class FreeAccountClickAdmin(admin.ModelAdmin):
+	list_display = ['email','filled_jobs','freeaccountclick','registered','visited_tryfree','paid','date_created']
+
+class JobAdmin(admin.ModelAdmin):
+	search_fields = ['email','position__job_title']
+	list_display = ['email','position']
+
+class PartimeAdmin(admin.ModelAdmin):
+	search_fields = ['email','position__job_title']
+	list_display = ['email','position']
+
 admin.site.register(FAQ)
-admin.site.register(Job)
+admin.site.register(Job,JobAdmin)
 admin.site.register(UserOrder)
 admin.site.register(Document)
 admin.site.register(MainModel)
@@ -98,13 +111,13 @@ admin.site.register(Unsubscriber)
 admin.site.register(wepeoples)
 admin.site.register(Message,MessageAdmin)
 admin.site.register(MessageGroup)
-admin.site.register(PartTimeJob)
+admin.site.register(PartTimeJob,PartimeAdmin)
 admin.site.register(FullTimePostion)
 admin.site.register(PartTimePostion)
 admin.site.register(wetask,wetaskAdmin)
 admin.site.register(wework,weworkAdmin)
 admin.site.register(wetype)
-admin.site.register(FreeAccountClick)
+admin.site.register(FreeAccountClick,FreeAccountClickAdmin)
 admin.site.register(werole)
 admin.site.register(Resume)
 admin.site.register(TryFreeRecord)
