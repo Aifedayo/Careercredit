@@ -3201,3 +3201,1636 @@ django.urls.exceptions.NoReverseMatch: Reverse for 'topic_details' with argument
 [2019-07-29 03:58:06] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18169
 [2019-07-29 03:58:06] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5114
 [2019-07-29 03:58:06] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 200 259
+[2019-07-30 17:34:13] INFO [django.server.log_message:124] "GET /combined_class HTTP/1.1" 301 0
+[2019-07-30 17:34:14] INFO [django.server.log_message:124] "GET /combined_class/ HTTP/1.1" 302 0
+[2019-07-30 17:34:14] INFO [django.server.log_message:124] "GET /timeout HTTP/1.1" 200 16465
+[2019-07-30 17:34:14] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2019-07-30 17:34:14] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2019-07-30 17:34:14] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 200 7720
+[2019-07-30 17:34:14] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 200 7448
+[2019-07-30 17:34:14] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 39923
+[2019-07-30 17:34:14] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 143625
+[2019-07-30 17:34:15] INFO [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 200 8372
+[2019-07-30 17:34:15] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 200 1163
+[2019-07-30 17:34:15] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css HTTP/1.1" 200 29279
+[2019-07-30 17:34:15] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 200 7177
+[2019-07-30 17:34:15] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 200 3979
+[2019-07-30 17:34:15] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js HTTP/1.1" 200 240434
+[2019-07-30 17:34:15] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 200 3066
+[2019-07-30 17:34:15] INFO [django.server.log_message:124] "GET /static/home/images/icon1.png HTTP/1.1" 200 2133
+[2019-07-30 17:34:15] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 200 29115
+[2019-07-30 17:34:15] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 200 9198
+[2019-07-30 17:34:16] INFO [django.server.log_message:124] "GET /static/home/images/logout1.png HTTP/1.1" 200 1899
+[2019-07-30 17:34:16] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/proj-list.png HTTP/1.1" 200 208259
+[2019-07-30 17:34:16] INFO [django.server.log_message:124] "GET /static/js/waterbubble.js HTTP/1.1" 200 6268
+[2019-07-30 17:34:16] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 200 4488
+[2019-07-30 17:34:20] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 302 0
+[2019-07-30 17:34:20] INFO [django.server.log_message:124] "GET /timeout HTTP/1.1" 200 16465
+[2019-07-30 17:34:25] INFO [django.server.log_message:124] "POST /timeout HTTP/1.1" 200 16611
+[2019-07-30 17:34:30] INFO [django.server.log_message:124] "POST /timeout HTTP/1.1" 302 0
+[2019-07-30 17:34:30] INFO [django.server.log_message:124] "GET /combined_class/ HTTP/1.1" 200 25006
+[2019-07-30 17:34:30] INFO [django.server.log_message:124] "GET /static/home/css/cm.css HTTP/1.1" 200 5252
+[2019-07-30 17:34:30] INFO [django.server.log_message:124] "GET /static/home/images/Group.png HTTP/1.1" 200 11553
+[2019-07-30 17:34:30] INFO [django.server.log_message:124] "GET /static/home/images/Group37.png HTTP/1.1" 200 66869
+[2019-07-30 17:34:30] INFO [django.server.log_message:124] "GET /static/home/images/cbheader.png HTTP/1.1" 200 286113
+[2019-07-30 17:34:37] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18127
+[2019-07-30 17:34:37] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 200 259
+[2019-07-30 17:34:37] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5114
+[2019-07-30 17:34:37] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 200 190593
+[2019-07-30 17:34:37] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 200 12722
+[2019-07-30 17:34:37] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 200 97168
+[2019-07-30 17:34:38] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 200 175
+[2019-07-30 17:34:38] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 200 148
+[2019-07-30 17:34:38] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 200 464
+[2019-07-30 17:34:38] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 200 24578
+[2019-07-30 17:34:38] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 200 482
+[2019-07-30 17:34:38] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 200 706
+[2019-07-30 17:34:38] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 200 401
+[2019-07-30 17:34:38] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 200 4617
+[2019-07-30 17:34:38] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 200 10551
+[2019-07-30 17:34:38] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 200 27911
+[2019-07-30 17:34:38] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 200 15815
+[2019-07-30 17:34:38] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 200 21119
+[2019-07-30 17:34:38] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-07-30 17:34:38] WARNING [django.server.log_message:124] "GET /favicon.ico HTTP/1.1" 404 14948
+[2019-07-30 17:35:04] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18113
+[2019-07-30 17:35:30] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18127
+[2019-07-30 17:37:00] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18126
+[2019-07-30 17:39:23] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18179
+[2019-07-30 17:40:23] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18271
+[2019-07-30 17:40:23] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 17:40:23] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 17:40:32] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18271
+[2019-07-30 17:40:32] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 17:40:32] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 17:40:54] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18271
+[2019-07-30 17:40:54] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 17:40:54] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 17:40:59] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 17:40:59] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 17:41:37] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18271
+[2019-07-30 17:41:38] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 17:41:38] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 17:41:41] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 17:41:41] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 17:42:40] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18271
+[2019-07-30 17:42:41] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 17:42:41] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 17:42:41] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 200 190593
+[2019-07-30 17:42:41] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5151
+[2019-07-30 17:42:41] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 200 259
+[2019-07-30 17:42:41] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 200 464
+[2019-07-30 17:42:41] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 200 97168
+[2019-07-30 17:42:41] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 200 12722
+[2019-07-30 17:42:41] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 200 175
+[2019-07-30 17:42:41] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 200 706
+[2019-07-30 17:42:41] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 200 24578
+[2019-07-30 17:42:41] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 200 4617
+[2019-07-30 17:42:41] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 200 401
+[2019-07-30 17:42:41] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 200 148
+[2019-07-30 17:42:41] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 200 482
+[2019-07-30 17:42:41] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 200 10551
+[2019-07-30 17:42:41] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 200 15815
+[2019-07-30 17:42:41] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 200 27911
+[2019-07-30 17:42:41] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 200 21119
+[2019-07-30 17:43:21] INFO [django.server.log_message:124] "GET /courses/EC2/topics/ HTTP/1.1" 200 12513
+[2019-07-30 17:43:21] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 17:43:21] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 17:43:21] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 304 0
+[2019-07-30 17:45:23] INFO [django.server.log_message:124] "GET /courses/EC2/topics/ HTTP/1.1" 302 0
+[2019-07-30 17:45:23] INFO [django.server.log_message:124] "GET /accounts/login/?next=/courses/EC2/topics/ HTTP/1.1" 200 3455
+[2019-07-30 17:45:24] INFO [django.server.log_message:124] "GET /static/home/css/styles.css HTTP/1.1" 304 0
+[2019-07-30 17:45:24] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 304 0
+[2019-07-30 17:45:24] INFO [django.server.log_message:124] "GET /static/home/images/imgback.jpg HTTP/1.1" 304 0
+[2019-07-30 17:45:24] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-07-30 17:45:24] WARNING [django.server.log_message:124] "GET /favicon.ico HTTP/1.1" 404 14948
+[2019-07-30 17:45:24] ERROR [django.server.log_message:124] "GET /favicon.ico HTTP/1.1" 500 59
+[2019-07-30 17:45:27] INFO [django.server.log_message:124] "POST /login/?next=/courses/EC2/topics/ HTTP/1.1" 302 0
+[2019-07-30 17:45:27] INFO [django.server.log_message:124] "GET /courses/EC2/topics/ HTTP/1.1" 200 12630
+[2019-07-30 17:45:27] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 200 97168
+[2019-07-30 17:45:27] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5151
+[2019-07-30 17:45:27] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 17:45:27] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 17:45:27] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 200 190593
+[2019-07-30 17:45:28] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 200 259
+[2019-07-30 17:45:28] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 200 464
+[2019-07-30 17:45:28] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 200 482
+[2019-07-30 17:45:28] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 200 706
+[2019-07-30 17:45:28] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 200 401
+[2019-07-30 17:45:28] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 200 4617
+[2019-07-30 17:45:28] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 200 10551
+[2019-07-30 17:45:28] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 200 15815
+[2019-07-30 17:45:28] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 200 175
+[2019-07-30 17:45:28] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 200 12722
+[2019-07-30 17:45:28] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 200 24578
+[2019-07-30 17:45:28] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 200 21119
+[2019-07-30 17:45:28] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 200 27911
+[2019-07-30 17:45:28] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 200 148
+[2019-07-30 17:48:17] INFO [django.server.log_message:124] "GET /logout HTTP/1.1" 200 7997
+[2019-07-30 17:48:17] INFO [django.server.log_message:124] "GET /static/home/images/slide1.png HTTP/1.1" 200 287894
+[2019-07-30 17:51:49] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 23511
+[2019-07-30 17:51:49] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/LaptopBook.png HTTP/1.1" 200 199346
+[2019-07-30 17:51:50] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/jobphone.png HTTP/1.1" 200 81490
+[2019-07-30 17:51:50] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/homelive.png HTTP/1.1" 200 126445
+[2019-07-30 17:51:50] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/get2.png HTTP/1.1" 200 3347
+[2019-07-30 17:51:50] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/get3.png HTTP/1.1" 200 3867
+[2019-07-30 17:51:50] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/jobban2.png HTTP/1.1" 200 143991
+[2019-07-30 17:51:50] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/get1.png HTTP/1.1" 200 3968
+[2019-07-30 17:51:50] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/homebanner.png HTTP/1.1" 200 916024
+[2019-07-30 17:51:50] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/testi.png HTTP/1.1" 200 158800
+[2019-07-30 17:51:50] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/hq1.png HTTP/1.1" 200 3291
+[2019-07-30 17:51:50] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/hq2.png HTTP/1.1" 200 3242
+[2019-07-30 17:51:50] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/client3.png HTTP/1.1" 200 6337
+[2019-07-30 17:51:50] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/client2.png HTTP/1.1" 200 22913
+[2019-07-30 17:51:50] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/client1.png HTTP/1.1" 200 7837
+[2019-07-30 17:51:51] INFO [django.server.log_message:124] "GET /login/ HTTP/1.1" 200 3408
+[2019-07-30 17:51:52] INFO [django.server.log_message:124] "GET /static/home/css/styles.css HTTP/1.1" 200 8800
+[2019-07-30 17:51:52] INFO [django.server.log_message:124] "GET /static/home/images/imgback.jpg HTTP/1.1" 200 1032219
+[2019-07-30 17:52:00] INFO [django.server.log_message:124] "POST /login/ HTTP/1.1" 200 3519
+[2019-07-30 17:52:08] INFO [django.server.log_message:124] "POST /login/ HTTP/1.1" 200 3519
+[2019-07-30 17:52:13] INFO [django.server.log_message:124] "POST /login/ HTTP/1.1" 200 3519
+[2019-07-30 17:52:25] INFO [django.server.log_message:124] "POST /login/ HTTP/1.1" 200 3519
+[2019-07-30 17:52:32] INFO [django.server.log_message:124] "POST /login/ HTTP/1.1" 302 0
+[2019-07-30 17:52:32] INFO [django.server.log_message:124] "GET /workexperience/apply/ HTTP/1.1" 200 17974
+[2019-07-30 17:52:41] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /courses/Linux_administration/topics/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\Courses\views.py", line 889, in self_topic_index
+    context['permission'] = CoursePermission.objects.get(user=request.user, course=context['course'])
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 394, in get
+    clone = self.filter(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 836, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 854, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\query.py", line 1253, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\query.py", line 1277, in _add_q
+    split_subq=split_subq,
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\query.py", line 1215, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\query.py", line 1085, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\lookups.py", line 18, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\related_lookups.py", line 115, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\__init__.py", line 947, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'SuperCourse'
+[2019-07-30 17:52:42] ERROR [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 500 140579
+[2019-07-30 17:53:42] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 25042
+[2019-07-30 17:53:45] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /courses/Web_Programming/topics/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\Courses\views.py", line 889, in self_topic_index
+    context['permission'] = CoursePermission.objects.get(user=request.user, course=context['course'])
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 394, in get
+    clone = self.filter(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 836, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 854, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\query.py", line 1253, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\query.py", line 1277, in _add_q
+    split_subq=split_subq,
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\query.py", line 1215, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\query.py", line 1085, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\lookups.py", line 18, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\related_lookups.py", line 115, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\__init__.py", line 947, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'SuperCourse'
+[2019-07-30 17:53:45] ERROR [django.server.log_message:124] "GET /courses/Web_Programming/topics/ HTTP/1.1" 500 140482
+[2019-07-30 17:54:03] INFO [django.server.log_message:124] "GET /logout HTTP/1.1" 200 7997
+[2019-07-30 17:54:05] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 23511
+[2019-07-30 17:54:11] INFO [django.server.log_message:124] "GET /login/ HTTP/1.1" 200 3408
+[2019-07-30 17:54:12] INFO [django.server.log_message:124] "GET /login/ HTTP/1.1" 200 3408
+[2019-07-30 17:54:17] INFO [django.server.log_message:124] "POST /login/ HTTP/1.1" 200 3519
+[2019-07-30 17:54:23] INFO [django.server.log_message:124] "POST /login/ HTTP/1.1" 302 0
+[2019-07-30 17:54:24] INFO [django.server.log_message:124] "GET /courses/userinterest HTTP/1.1" 200 21865
+[2019-07-30 17:54:24] INFO [django.server.log_message:124] "GET /static/home/images/lin-logo.png HTTP/1.1" 200 9301
+[2019-07-30 17:54:25] INFO [django.server.log_message:124] "GET /static/home/images/button-left.png HTTP/1.1" 200 2071
+[2019-07-30 17:54:25] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs//list-bg.png HTTP/1.1" 200 279917
+[2019-07-30 17:54:25] INFO [django.server.log_message:124] "GET /static/home/images/ppt.png HTTP/1.1" 200 964
+[2019-07-30 17:54:25] INFO [django.server.log_message:124] "GET /static/home/images/amazons.png HTTP/1.1" 200 10409
+[2019-07-30 17:54:25] INFO [django.server.log_message:124] "GET /static/home/images/jjava.png HTTP/1.1" 200 10506
+[2019-07-30 17:54:25] INFO [django.server.log_message:124] "GET /static/home/images/rchsaa.png HTTP/1.1" 200 6733
+[2019-07-30 17:54:25] INFO [django.server.log_message:124] "GET /static/home/images/ajs.png HTTP/1.1" 200 6757
+[2019-07-30 17:54:25] INFO [django.server.log_message:124] "GET /static/home/images/csecurity.png HTTP/1.1" 200 5664
+[2019-07-30 17:54:25] INFO [django.server.log_message:124] "GET /static/home/images/biz.png HTTP/1.1" 200 7859
+[2019-07-30 17:54:25] INFO [django.server.log_message:124] "GET /static/home/images/dba.png HTTP/1.1" 200 5461
+[2019-07-30 17:54:25] INFO [django.server.log_message:124] "GET /static/home/images/py.png HTTP/1.1" 200 5447
+[2019-07-30 17:54:30] INFO [django.server.log_message:124] "GET /courses/EC2/topics/ HTTP/1.1" 200 12513
+[2019-07-30 17:54:30] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 17:54:30] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 17:54:31] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5145
+[2019-07-30 17:55:43] INFO [django.server.log_message:124] "GET /courses/EC2/topics/ HTTP/1.1" 200 12513
+[2019-07-30 17:55:43] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 17:55:43] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 17:55:43] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5145
+[2019-07-30 17:58:24] INFO [django.server.log_message:124] "GET /courses/EC2/topics/ HTTP/1.1" 200 12630
+[2019-07-30 17:58:24] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-07-30 17:58:24] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-30 17:58:24] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5136
+[2019-07-30 17:58:24] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 17:58:24] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 17:58:24] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-30 17:58:24] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-07-30 17:58:24] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-30 17:58:24] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-07-30 17:58:24] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-30 17:58:24] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-07-30 17:58:24] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-07-30 17:58:24] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-07-30 17:58:24] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-07-30 17:58:24] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-07-30 17:58:24] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-07-30 17:58:24] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-07-30 17:58:24] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-07-30 17:58:24] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-07-30 18:00:06] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18354
+[2019-07-30 18:00:07] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 304 0
+[2019-07-30 18:00:07] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 18:00:07] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 18:02:39] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18362
+[2019-07-30 18:02:39] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-07-30 18:02:39] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 304 0
+[2019-07-30 18:02:39] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-30 18:02:39] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 18:02:39] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 18:02:39] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-30 18:02:39] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-30 18:02:39] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-07-30 18:02:40] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-07-30 18:02:40] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-07-30 18:02:40] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-30 18:02:40] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-07-30 18:02:40] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-07-30 18:02:40] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-07-30 18:02:40] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-07-30 18:02:40] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-07-30 18:02:40] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-07-30 18:02:40] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-07-30 18:02:40] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-07-30 18:12:35] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18362
+[2019-07-30 18:12:35] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-07-30 18:12:35] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5268
+[2019-07-30 18:12:35] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-30 18:12:35] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 18:12:35] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 18:12:36] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-30 18:12:36] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-30 18:12:36] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-07-30 18:12:36] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-07-30 18:12:36] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-30 18:12:36] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-07-30 18:12:36] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-07-30 18:12:36] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-07-30 18:12:36] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-07-30 18:12:36] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-07-30 18:12:36] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-07-30 18:12:36] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-07-30 18:12:36] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-07-30 18:12:36] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-07-30 18:13:21] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18362
+[2019-07-30 18:13:21] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-07-30 18:13:21] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5256
+[2019-07-30 18:13:21] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-30 18:13:21] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 18:13:21] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 18:13:21] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-30 18:13:21] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-30 18:13:21] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-07-30 18:13:21] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-07-30 18:13:21] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-30 18:13:21] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-07-30 18:13:21] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-07-30 18:13:21] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-07-30 18:13:21] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-07-30 18:13:21] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-07-30 18:13:21] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-07-30 18:13:21] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-07-30 18:13:21] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-07-30 18:13:21] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-07-30 18:14:25] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18362
+[2019-07-30 18:14:25] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-07-30 18:14:25] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5253
+[2019-07-30 18:14:25] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-30 18:14:25] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 18:14:25] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 18:14:25] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-30 18:14:25] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-30 18:14:25] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-07-30 18:14:25] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-30 18:14:25] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-07-30 18:14:25] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-07-30 18:14:25] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-07-30 18:14:25] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-07-30 18:14:25] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-07-30 18:14:25] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-07-30 18:14:25] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-07-30 18:14:25] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-07-30 18:14:25] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-07-30 18:14:25] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-07-30 18:17:52] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18362
+[2019-07-30 18:17:52] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-07-30 18:17:52] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5257
+[2019-07-30 18:17:52] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 18:17:52] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 18:17:52] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-30 18:17:52] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-30 18:17:52] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-30 18:17:52] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-07-30 18:17:52] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-07-30 18:17:53] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-30 18:17:53] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-07-30 18:17:53] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-07-30 18:17:53] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-07-30 18:17:53] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-07-30 18:17:53] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-07-30 18:17:53] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-07-30 18:17:53] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-07-30 18:17:53] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-07-30 18:17:53] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-07-30 18:18:41] INFO [django.server.log_message:124] "GET /login/ HTTP/1.1" 200 3408
+[2019-07-30 18:19:02] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18362
+[2019-07-30 18:19:02] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-07-30 18:19:02] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5308
+[2019-07-30 18:19:02] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-30 18:19:02] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 18:19:02] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 18:19:02] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-30 18:19:02] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-30 18:19:02] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-07-30 18:19:02] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-30 18:19:02] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-07-30 18:19:02] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-07-30 18:19:02] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-07-30 18:19:02] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-07-30 18:19:02] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-07-30 18:19:02] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-07-30 18:19:02] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-07-30 18:19:02] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-07-30 18:19:02] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-07-30 18:19:02] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-07-30 18:21:07] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18362
+[2019-07-30 18:21:07] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-07-30 18:21:07] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-30 18:21:07] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5308
+[2019-07-30 18:21:07] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 18:21:07] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 18:21:07] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-30 18:21:07] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-30 18:21:07] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-07-30 18:21:07] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-30 18:21:07] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-07-30 18:21:07] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-07-30 18:21:07] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-07-30 18:21:07] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-07-30 18:21:07] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-07-30 18:21:07] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-07-30 18:21:07] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-07-30 18:21:07] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-07-30 18:21:07] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-07-30 18:21:07] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-07-30 18:21:31] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18362
+[2019-07-30 18:21:31] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-07-30 18:21:32] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-30 18:21:32] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5308
+[2019-07-30 18:21:32] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 18:21:32] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 18:21:32] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-30 18:21:32] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-30 18:21:32] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-07-30 18:21:32] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-07-30 18:21:32] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-30 18:21:32] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-07-30 18:21:32] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-07-30 18:21:32] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-07-30 18:21:32] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-07-30 18:21:32] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-07-30 18:21:32] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-07-30 18:21:32] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-07-30 18:21:32] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-07-30 18:21:32] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-07-30 18:24:34] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18378
+[2019-07-30 18:24:34] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-07-30 18:24:34] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-30 18:24:34] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5348
+[2019-07-30 18:24:34] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 18:24:34] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 18:24:34] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-30 18:24:34] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-30 18:24:34] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-07-30 18:24:34] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-07-30 18:24:34] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-30 18:24:34] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-07-30 18:24:34] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-07-30 18:24:34] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-07-30 18:24:34] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-07-30 18:24:34] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-07-30 18:24:34] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-07-30 18:24:34] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-07-30 18:24:34] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-07-30 18:24:35] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-07-30 18:26:57] INFO [django.server.log_message:124] "GET /logout HTTP/1.1" 200 7997
+[2019-07-30 18:26:57] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 304 0
+[2019-07-30 18:26:57] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 304 0
+[2019-07-30 18:26:57] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 304 0
+[2019-07-30 18:26:57] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2019-07-30 18:26:57] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 39923
+[2019-07-30 18:26:57] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 143625
+[2019-07-30 18:26:57] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 200 7720
+[2019-07-30 18:26:57] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 200 7448
+[2019-07-30 18:26:57] INFO [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 200 8372
+[2019-07-30 18:26:58] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 200 3066
+[2019-07-30 18:26:58] INFO [django.server.log_message:124] "GET /static/home/images/slide1.png HTTP/1.1" 200 287894
+[2019-07-30 18:26:59] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 23511
+[2019-07-30 18:27:00] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 304 0
+[2019-07-30 18:27:00] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 304 0
+[2019-07-30 18:27:00] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 304 0
+[2019-07-30 18:27:00] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 304 0
+[2019-07-30 18:27:00] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 304 0
+[2019-07-30 18:27:00] INFO [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 304 0
+[2019-07-30 18:27:00] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css HTTP/1.1" 304 0
+[2019-07-30 18:27:00] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js HTTP/1.1" 304 0
+[2019-07-30 18:27:00] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/LaptopBook.png HTTP/1.1" 304 0
+[2019-07-30 18:27:00] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/jobphone.png HTTP/1.1" 200 81490
+[2019-07-30 18:27:00] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/get3.png HTTP/1.1" 200 3867
+[2019-07-30 18:27:00] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/homelive.png HTTP/1.1" 200 126445
+[2019-07-30 18:27:00] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/get2.png HTTP/1.1" 200 3347
+[2019-07-30 18:27:00] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/get1.png HTTP/1.1" 200 3968
+[2019-07-30 18:27:00] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/testi.png HTTP/1.1" 200 158800
+[2019-07-30 18:27:00] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/hq2.png HTTP/1.1" 200 3242
+[2019-07-30 18:27:00] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/client1.png HTTP/1.1" 200 7837
+[2019-07-30 18:27:00] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 304 0
+[2019-07-30 18:27:00] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/hq1.png HTTP/1.1" 200 3291
+[2019-07-30 18:27:00] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 304 0
+[2019-07-30 18:27:00] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 304 0
+[2019-07-30 18:27:00] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/client3.png HTTP/1.1" 200 6337
+[2019-07-30 18:27:00] INFO [django.server.log_message:124] "GET /static/js/waterbubble.js HTTP/1.1" 304 0
+[2019-07-30 18:27:00] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/client2.png HTTP/1.1" 200 22913
+[2019-07-30 18:27:00] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/jobban2.png HTTP/1.1" 200 143991
+[2019-07-30 18:27:00] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/homebanner.png HTTP/1.1" 304 0
+[2019-07-30 18:27:01] INFO [django.server.log_message:124] "POST /ulocation HTTP/1.1" 200 0
+[2019-07-30 18:27:01] INFO [django.server.log_message:124] "GET /login/ HTTP/1.1" 200 3408
+[2019-07-30 18:27:34] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 302 0
+[2019-07-30 18:27:35] INFO [django.server.log_message:124] "GET /timeout HTTP/1.1" 200 16465
+[2019-07-30 18:27:36] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-07-30 18:27:39] INFO [django.server.log_message:124] "GET /logout HTTP/1.1" 200 7997
+[2019-07-30 18:27:41] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 23511
+[2019-07-30 18:27:43] INFO [django.server.log_message:124] "GET /login/ HTTP/1.1" 200 3408
+[2019-07-30 18:27:59] INFO [django.server.log_message:124] "POST /login/ HTTP/1.1" 302 0
+[2019-07-30 18:27:59] INFO [django.server.log_message:124] "GET /courses/userinterest HTTP/1.1" 200 21956
+[2019-07-30 18:28:04] INFO [django.server.log_message:124] "GET /courses/Web_Programming/topics/ HTTP/1.1" 200 15523
+[2019-07-30 18:28:04] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 18:28:04] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 18:28:04] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5348
+[2019-07-30 18:29:41] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 304 0
+[2019-07-30 18:29:41] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 18:29:41] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 18:34:58] INFO [django.server.log_message:124] "GET /courses/Web_Programming/topics/ HTTP/1.1" 200 15544
+[2019-07-30 18:34:58] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 18:34:58] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 18:34:58] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5348
+[2019-07-30 18:34:58] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 200 97168
+[2019-07-30 18:34:58] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 200 190593
+[2019-07-30 18:34:58] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 200 259
+[2019-07-30 18:34:58] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 200 24578
+[2019-07-30 18:34:58] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 200 12722
+[2019-07-30 18:34:58] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 200 175
+[2019-07-30 18:34:58] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 200 464
+[2019-07-30 18:34:58] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 200 482
+[2019-07-30 18:34:58] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 200 706
+[2019-07-30 18:34:59] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 200 401
+[2019-07-30 18:34:59] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 200 4617
+[2019-07-30 18:34:59] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 200 148
+[2019-07-30 18:34:59] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 200 27911
+[2019-07-30 18:34:59] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 200 15815
+[2019-07-30 18:34:59] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 200 10551
+[2019-07-30 18:34:59] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 200 21119
+[2019-07-30 18:35:20] INFO [django.server.log_message:124] "GET /courses/Web_Programming/topics/ HTTP/1.1" 200 15544
+[2019-07-30 18:35:20] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 18:35:20] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 18:35:21] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 200 190593
+[2019-07-30 18:35:21] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5348
+[2019-07-30 18:35:21] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 200 259
+[2019-07-30 18:35:21] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 200 464
+[2019-07-30 18:35:21] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 200 97168
+[2019-07-30 18:35:21] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 200 175
+[2019-07-30 18:35:21] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 200 12722
+[2019-07-30 18:35:21] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 200 482
+[2019-07-30 18:35:21] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 200 24578
+[2019-07-30 18:35:21] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 200 706
+[2019-07-30 18:35:21] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 200 401
+[2019-07-30 18:35:21] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 200 4617
+[2019-07-30 18:35:21] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 200 148
+[2019-07-30 18:35:21] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 200 10551
+[2019-07-30 18:35:21] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 200 27911
+[2019-07-30 18:35:21] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 200 15815
+[2019-07-30 18:35:21] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 200 21119
+[2019-07-30 18:35:25] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18420
+[2019-07-30 18:35:25] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 18:35:25] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 18:35:26] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 200 259
+[2019-07-30 18:35:26] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5348
+[2019-07-30 18:35:26] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 200 464
+[2019-07-30 18:35:26] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 200 190593
+[2019-07-30 18:35:26] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 200 24578
+[2019-07-30 18:35:26] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 200 12722
+[2019-07-30 18:35:26] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 200 175
+[2019-07-30 18:35:26] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 200 97168
+[2019-07-30 18:35:26] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 200 482
+[2019-07-30 18:35:26] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 200 706
+[2019-07-30 18:35:26] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 200 401
+[2019-07-30 18:35:26] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 200 4617
+[2019-07-30 18:35:26] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 200 148
+[2019-07-30 18:35:26] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 200 10551
+[2019-07-30 18:35:26] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 200 27911
+[2019-07-30 18:35:26] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 200 15815
+[2019-07-30 18:35:27] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 200 21119
+[2019-07-30 18:36:14] INFO [django.server.log_message:124] "GET /admin HTTP/1.1" 302 0
+[2019-07-30 18:36:14] INFO [django.server.log_message:124] "GET /admin/login/?next=/admin HTTP/1.1" 200 2005
+[2019-07-30 18:36:15] INFO [django.server.log_message:124] "GET /static/admin/css/login.css HTTP/1.1" 200 1281
+[2019-07-30 18:36:15] INFO [django.server.log_message:124] "GET /static/admin/css/base.css HTTP/1.1" 200 17084
+[2019-07-30 18:36:15] INFO [django.server.log_message:124] "GET /static/admin/css/responsive.css HTTP/1.1" 200 18884
+[2019-07-30 18:36:15] INFO [django.server.log_message:124] "GET /static/admin/css/fonts.css HTTP/1.1" 200 443
+[2019-07-30 18:36:15] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+[2019-07-30 18:36:15] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+[2019-07-30 18:36:15] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 82564
+[2019-07-30 18:36:21] INFO [django.server.log_message:124] "POST /admin/login/?next=/admin HTTP/1.1" 302 0
+[2019-07-30 18:36:21] INFO [django.server.log_message:124] "GET /admin HTTP/1.1" 200 32749
+[2019-07-30 18:36:21] INFO [django.server.log_message:124] "GET /static/admin/css/base.css HTTP/1.1" 200 17084
+[2019-07-30 18:36:21] INFO [django.server.log_message:124] "GET /static/admin/css/responsive.css HTTP/1.1" 200 18884
+[2019-07-30 18:36:21] INFO [django.server.log_message:124] "GET /static/admin/css/dashboard.css HTTP/1.1" 200 439
+[2019-07-30 18:36:22] INFO [django.server.log_message:124] "GET /static/admin/css/fonts.css HTTP/1.1" 200 443
+[2019-07-30 18:36:22] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+[2019-07-30 18:36:22] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 82564
+[2019-07-30 18:36:22] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+[2019-07-30 18:36:22] INFO [django.server.log_message:124] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 383
+[2019-07-30 18:36:22] INFO [django.server.log_message:124] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 334
+[2019-07-30 18:36:25] INFO [django.server.log_message:124] "GET /admin/Courses/coursetopic/ HTTP/1.1" 200 6414
+[2019-07-30 18:36:25] INFO [django.server.log_message:124] "GET /static/admin/css/base.css HTTP/1.1" 200 17084
+[2019-07-30 18:36:25] INFO [django.server.log_message:124] "GET /static/admin/css/responsive.css HTTP/1.1" 200 18884
+[2019-07-30 18:36:25] INFO [django.server.log_message:124] "GET /static/admin/css/changelists.css HTTP/1.1" 200 6514
+[2019-07-30 18:36:25] INFO [django.server.log_message:124] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 371
+[2019-07-30 18:36:25] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-07-30 18:36:25] INFO [django.server.log_message:124] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 268490
+[2019-07-30 18:36:25] INFO [django.server.log_message:124] "GET /static/admin/js/actions.js HTTP/1.1" 200 6655
+[2019-07-30 18:36:25] INFO [django.server.log_message:124] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 7078
+[2019-07-30 18:36:25] INFO [django.server.log_message:124] "GET /static/admin/css/fonts.css HTTP/1.1" 200 443
+[2019-07-30 18:36:25] INFO [django.server.log_message:124] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1580
+[2019-07-30 18:36:25] INFO [django.server.log_message:124] "GET /static/admin/js/urlify.js HTTP/1.1" 200 8918
+[2019-07-30 18:36:26] INFO [django.server.log_message:124] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 131128
+[2019-07-30 18:36:26] INFO [django.server.log_message:124] "GET /static/admin/img/search.svg HTTP/1.1" 200 461
+[2019-07-30 18:36:26] INFO [django.server.log_message:124] "GET /static/admin/js/core.js HTTP/1.1" 200 7346
+[2019-07-30 18:36:26] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+[2019-07-30 18:36:26] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+[2019-07-30 18:36:26] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 82564
+[2019-07-30 18:36:26] INFO [django.server.log_message:124] "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 334
+[2019-07-30 18:36:32] INFO [django.server.log_message:124] "GET /admin/Courses/coursetopic/2/change/ HTTP/1.1" 200 11220
+[2019-07-30 18:36:33] INFO [django.server.log_message:124] "GET /static/admin/css/base.css HTTP/1.1" 200 17084
+[2019-07-30 18:36:33] INFO [django.server.log_message:124] "GET /static/admin/css/responsive.css HTTP/1.1" 200 18884
+[2019-07-30 18:36:33] INFO [django.server.log_message:124] "GET /static/admin/css/forms.css HTTP/1.1" 200 8688
+[2019-07-30 18:36:33] INFO [django.server.log_message:124] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 268490
+[2019-07-30 18:36:33] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-07-30 18:36:33] INFO [django.server.log_message:124] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 371
+[2019-07-30 18:36:33] INFO [django.server.log_message:124] "GET /static/admin/css/fonts.css HTTP/1.1" 200 443
+[2019-07-30 18:36:33] INFO [django.server.log_message:124] "GET /static/admin/css/widgets.css HTTP/1.1" 200 10905
+[2019-07-30 18:36:33] INFO [django.server.log_message:124] "GET /static/admin/js/core.js HTTP/1.1" 200 7346
+[2019-07-30 18:36:33] INFO [django.server.log_message:124] "GET /static/admin/js/actions.js HTTP/1.1" 200 6655
+[2019-07-30 18:36:33] INFO [django.server.log_message:124] "GET /static/admin/js/urlify.js HTTP/1.1" 200 8918
+[2019-07-30 18:36:33] INFO [django.server.log_message:124] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 7078
+[2019-07-30 18:36:33] INFO [django.server.log_message:124] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1580
+[2019-07-30 18:36:34] INFO [django.server.log_message:124] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 131128
+[2019-07-30 18:36:34] INFO [django.server.log_message:124] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 334
+[2019-07-30 18:36:34] INFO [django.server.log_message:124] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 383
+[2019-07-30 18:36:34] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+[2019-07-30 18:36:34] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 82564
+[2019-07-30 18:36:34] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+[2019-07-30 18:36:34] INFO [django.server.log_message:124] "GET /static/admin/js/change_form.js HTTP/1.1" 200 732
+[2019-07-30 18:36:34] INFO [django.server.log_message:124] "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 395
+[2019-07-30 18:36:34] INFO [django.server.log_message:124] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 505
+[2019-07-30 18:36:41] INFO [django.server.log_message:124] "POST /admin/Courses/coursetopic/2/change/ HTTP/1.1" 302 0
+[2019-07-30 18:36:42] INFO [django.server.log_message:124] "GET /admin/Courses/coursetopic/ HTTP/1.1" 200 6622
+[2019-07-30 18:36:42] INFO [django.server.log_message:124] "GET /static/admin/css/base.css HTTP/1.1" 200 17084
+[2019-07-30 18:36:42] INFO [django.server.log_message:124] "GET /static/admin/css/changelists.css HTTP/1.1" 200 6514
+[2019-07-30 18:36:42] INFO [django.server.log_message:124] "GET /static/admin/css/responsive.css HTTP/1.1" 200 18884
+[2019-07-30 18:36:42] INFO [django.server.log_message:124] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 371
+[2019-07-30 18:36:42] INFO [django.server.log_message:124] "GET /static/admin/js/core.js HTTP/1.1" 200 7346
+[2019-07-30 18:36:42] INFO [django.server.log_message:124] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 268490
+[2019-07-30 18:36:42] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-07-30 18:36:43] INFO [django.server.log_message:124] "GET /static/admin/css/fonts.css HTTP/1.1" 200 443
+[2019-07-30 18:36:43] INFO [django.server.log_message:124] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 7078
+[2019-07-30 18:36:43] INFO [django.server.log_message:124] "GET /static/admin/js/urlify.js HTTP/1.1" 200 8918
+[2019-07-30 18:36:43] INFO [django.server.log_message:124] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1580
+[2019-07-30 18:36:43] INFO [django.server.log_message:124] "GET /static/admin/js/actions.js HTTP/1.1" 200 6655
+[2019-07-30 18:36:43] INFO [django.server.log_message:124] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 131128
+[2019-07-30 18:36:43] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+[2019-07-30 18:36:43] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+[2019-07-30 18:36:43] INFO [django.server.log_message:124] "GET /static/admin/img/search.svg HTTP/1.1" 200 461
+[2019-07-30 18:36:43] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 82564
+[2019-07-30 18:36:43] INFO [django.server.log_message:124] "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 334
+[2019-07-30 18:36:43] INFO [django.server.log_message:124] "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 439
+[2019-07-30 18:36:48] INFO [django.server.log_message:124] "GET /admin/Courses/ HTTP/1.1" 200 7148
+[2019-07-30 18:36:48] INFO [django.server.log_message:124] "GET /static/admin/css/base.css HTTP/1.1" 200 17084
+[2019-07-30 18:36:48] INFO [django.server.log_message:124] "GET /static/admin/css/dashboard.css HTTP/1.1" 200 439
+[2019-07-30 18:36:48] INFO [django.server.log_message:124] "GET /static/admin/css/responsive.css HTTP/1.1" 200 18884
+[2019-07-30 18:36:48] INFO [django.server.log_message:124] "GET /static/admin/css/fonts.css HTTP/1.1" 200 443
+[2019-07-30 18:36:49] INFO [django.server.log_message:124] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 383
+[2019-07-30 18:36:49] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+[2019-07-30 18:36:49] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+[2019-07-30 18:36:49] INFO [django.server.log_message:124] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 334
+[2019-07-30 18:36:49] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 82564
+[2019-07-30 18:36:50] INFO [django.server.log_message:124] "GET /admin/Courses/course/ HTTP/1.1" 200 4846
+[2019-07-30 18:36:51] INFO [django.server.log_message:124] "GET /static/admin/css/changelists.css HTTP/1.1" 200 6514
+[2019-07-30 18:36:51] INFO [django.server.log_message:124] "GET /static/admin/css/base.css HTTP/1.1" 200 17084
+[2019-07-30 18:36:51] INFO [django.server.log_message:124] "GET /static/admin/css/responsive.css HTTP/1.1" 200 18884
+[2019-07-30 18:36:51] INFO [django.server.log_message:124] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 268490
+[2019-07-30 18:36:51] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-07-30 18:36:51] INFO [django.server.log_message:124] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 371
+[2019-07-30 18:36:51] INFO [django.server.log_message:124] "GET /static/admin/css/fonts.css HTTP/1.1" 200 443
+[2019-07-30 18:36:51] INFO [django.server.log_message:124] "GET /static/admin/js/core.js HTTP/1.1" 200 7346
+[2019-07-30 18:36:51] INFO [django.server.log_message:124] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 7078
+[2019-07-30 18:36:51] INFO [django.server.log_message:124] "GET /static/admin/js/actions.js HTTP/1.1" 200 6655
+[2019-07-30 18:36:51] INFO [django.server.log_message:124] "GET /static/admin/js/urlify.js HTTP/1.1" 200 8918
+[2019-07-30 18:36:51] INFO [django.server.log_message:124] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1580
+[2019-07-30 18:36:51] INFO [django.server.log_message:124] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 131128
+[2019-07-30 18:36:52] INFO [django.server.log_message:124] "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 334
+[2019-07-30 18:36:52] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+[2019-07-30 18:36:52] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+[2019-07-30 18:36:52] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 82564
+[2019-07-30 18:36:54] INFO [django.server.log_message:124] "GET /admin/Courses/course/1/change/ HTTP/1.1" 200 7177
+[2019-07-30 18:36:54] INFO [django.server.log_message:124] "GET /static/admin/css/base.css HTTP/1.1" 200 17084
+[2019-07-30 18:36:54] INFO [django.server.log_message:124] "GET /static/admin/css/forms.css HTTP/1.1" 200 8688
+[2019-07-30 18:36:54] INFO [django.server.log_message:124] "GET /static/admin/css/responsive.css HTTP/1.1" 200 18884
+[2019-07-30 18:36:54] INFO [django.server.log_message:124] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 371
+[2019-07-30 18:36:54] INFO [django.server.log_message:124] "GET /static/admin/js/core.js HTTP/1.1" 200 7346
+[2019-07-30 18:36:54] INFO [django.server.log_message:124] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 268490
+[2019-07-30 18:36:54] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-07-30 18:36:54] INFO [django.server.log_message:124] "GET /static/admin/css/fonts.css HTTP/1.1" 200 443
+[2019-07-30 18:36:54] INFO [django.server.log_message:124] "GET /static/admin/css/widgets.css HTTP/1.1" 200 10905
+[2019-07-30 18:36:54] INFO [django.server.log_message:124] "GET /static/admin/js/urlify.js HTTP/1.1" 200 8918
+[2019-07-30 18:36:54] INFO [django.server.log_message:124] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1580
+[2019-07-30 18:36:55] INFO [django.server.log_message:124] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 131128
+[2019-07-30 18:36:55] INFO [django.server.log_message:124] "GET /static/admin/js/change_form.js HTTP/1.1" 200 732
+[2019-07-30 18:36:55] INFO [django.server.log_message:124] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 505
+[2019-07-30 18:36:55] INFO [django.server.log_message:124] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 7078
+[2019-07-30 18:36:55] INFO [django.server.log_message:124] "GET /static/admin/js/actions.js HTTP/1.1" 200 6655
+[2019-07-30 18:36:55] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+[2019-07-30 18:36:55] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+[2019-07-30 18:36:55] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 82564
+[2019-07-30 18:37:00] INFO [django.server.log_message:124] "POST /admin/Courses/course/1/change/ HTTP/1.1" 302 0
+[2019-07-30 18:37:00] INFO [django.server.log_message:124] "GET /admin/Courses/course/ HTTP/1.1" 200 5043
+[2019-07-30 18:37:00] INFO [django.server.log_message:124] "GET /static/admin/css/base.css HTTP/1.1" 200 17084
+[2019-07-30 18:37:01] INFO [django.server.log_message:124] "GET /static/admin/css/responsive.css HTTP/1.1" 200 18884
+[2019-07-30 18:37:01] INFO [django.server.log_message:124] "GET /static/admin/css/changelists.css HTTP/1.1" 200 6514
+[2019-07-30 18:37:01] INFO [django.server.log_message:124] "GET /static/admin/css/fonts.css HTTP/1.1" 200 443
+[2019-07-30 18:37:01] INFO [django.server.log_message:124] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 268490
+[2019-07-30 18:37:01] INFO [django.server.log_message:124] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 371
+[2019-07-30 18:37:01] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-07-30 18:37:01] INFO [django.server.log_message:124] "GET /static/admin/js/core.js HTTP/1.1" 200 7346
+[2019-07-30 18:37:01] INFO [django.server.log_message:124] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 7078
+[2019-07-30 18:37:01] INFO [django.server.log_message:124] "GET /static/admin/js/actions.js HTTP/1.1" 200 6655
+[2019-07-30 18:37:01] INFO [django.server.log_message:124] "GET /static/admin/js/urlify.js HTTP/1.1" 200 8918
+[2019-07-30 18:37:01] INFO [django.server.log_message:124] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1580
+[2019-07-30 18:37:01] INFO [django.server.log_message:124] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 131128
+[2019-07-30 18:37:01] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+[2019-07-30 18:37:02] INFO [django.server.log_message:124] "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 439
+[2019-07-30 18:37:02] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 82564
+[2019-07-30 18:37:02] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+[2019-07-30 18:37:02] INFO [django.server.log_message:124] "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 334
+[2019-07-30 18:37:11] INFO [django.server.log_message:124] "GET /admin/logout/ HTTP/1.1" 200 1215
+[2019-07-30 18:37:11] INFO [django.server.log_message:124] "GET /static/admin/css/base.css HTTP/1.1" 200 17084
+[2019-07-30 18:37:11] INFO [django.server.log_message:124] "GET /static/admin/css/responsive.css HTTP/1.1" 200 18884
+[2019-07-30 18:37:11] INFO [django.server.log_message:124] "GET /static/admin/css/fonts.css HTTP/1.1" 200 443
+[2019-07-30 18:37:12] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+[2019-07-30 18:37:12] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+[2019-07-30 18:37:16] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 302 0
+[2019-07-30 18:37:17] INFO [django.server.log_message:124] "GET /accounts/login/?next=/courses/Linux_administration/topics/ HTTP/1.1" 200 3489
+[2019-07-30 18:37:17] INFO [django.server.log_message:124] "GET /static/home/css/styles.css HTTP/1.1" 200 8800
+[2019-07-30 18:37:17] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 200 7177
+[2019-07-30 18:37:17] INFO [django.server.log_message:124] "GET /static/home/images/imgback.jpg HTTP/1.1" 200 1032219
+[2019-07-30 18:37:26] INFO [django.server.log_message:124] "POST /login/?next=/courses/Linux_administration/topics/ HTTP/1.1" 302 0
+[2019-07-30 18:37:26] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18352
+[2019-07-30 18:37:26] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5348
+[2019-07-30 18:37:26] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 200 464
+[2019-07-30 18:37:26] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 200 259
+[2019-07-30 18:37:26] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 200 190593
+[2019-07-30 18:37:26] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 18:37:26] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 18:37:27] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 200 97168
+[2019-07-30 18:37:27] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 200 12722
+[2019-07-30 18:37:27] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 200 175
+[2019-07-30 18:37:27] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 200 24578
+[2019-07-30 18:37:27] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 200 482
+[2019-07-30 18:37:27] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 200 706
+[2019-07-30 18:37:27] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 200 401
+[2019-07-30 18:37:27] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 200 4617
+[2019-07-30 18:37:27] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 200 148
+[2019-07-30 18:37:27] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 200 10551
+[2019-07-30 18:37:27] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 200 27911
+[2019-07-30 18:37:27] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 200 21119
+[2019-07-30 18:37:27] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 200 15815
+[2019-07-30 18:37:54] INFO [django.server.log_message:124] "GET /admin HTTP/1.1" 302 0
+[2019-07-30 18:37:54] INFO [django.server.log_message:124] "GET /admin/login/?next=/admin HTTP/1.1" 200 2005
+[2019-07-30 18:38:00] INFO [django.server.log_message:124] "POST /admin/login/?next=/admin HTTP/1.1" 200 2170
+[2019-07-30 18:38:08] INFO [django.server.log_message:124] "POST /admin/login/?next=/admin HTTP/1.1" 200 2170
+[2019-07-30 18:38:13] INFO [django.server.log_message:124] "POST /admin/login/?next=/admin HTTP/1.1" 302 0
+[2019-07-30 18:38:14] INFO [django.server.log_message:124] "GET /admin HTTP/1.1" 200 32747
+[2019-07-30 18:38:16] INFO [django.server.log_message:124] "GET /admin/classroom/course/ HTTP/1.1" 200 3257
+[2019-07-30 18:38:16] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-07-30 18:38:19] INFO [django.server.log_message:124] "GET /admin/classroom/ HTTP/1.1" 200 4170
+[2019-07-30 18:38:20] INFO [django.server.log_message:124] "GET /admin/ HTTP/1.1" 200 32747
+[2019-07-30 18:38:22] INFO [django.server.log_message:124] "GET /admin/Courses/course/ HTTP/1.1" 200 4846
+[2019-07-30 18:38:23] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-07-30 18:38:26] INFO [django.server.log_message:124] "GET /admin/Courses/ HTTP/1.1" 200 7148
+[2019-07-30 18:38:29] INFO [django.server.log_message:124] "GET /admin/Courses/coursetopic/ HTTP/1.1" 200 6414
+[2019-07-30 18:38:29] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-07-30 18:38:31] INFO [django.server.log_message:124] "GET /admin/Courses/coursetopic/2/change/ HTTP/1.1" 200 11220
+[2019-07-30 18:38:32] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-07-30 18:38:39] INFO [django.server.log_message:124] "POST /admin/Courses/coursetopic/2/change/ HTTP/1.1" 302 0
+[2019-07-30 18:38:39] INFO [django.server.log_message:124] "GET /admin/Courses/coursetopic/ HTTP/1.1" 200 6622
+[2019-07-30 18:38:39] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-07-30 18:38:44] INFO [django.server.log_message:124] "GET /admin/logout/ HTTP/1.1" 200 1215
+[2019-07-30 18:38:51] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 302 0
+[2019-07-30 18:38:52] INFO [django.server.log_message:124] "GET /accounts/login/?next=/courses/Linux_administration/topics/ HTTP/1.1" 200 3489
+[2019-07-30 18:39:00] INFO [django.server.log_message:124] "POST /login/?next=/courses/Linux_administration/topics/ HTTP/1.1" 302 0
+[2019-07-30 18:39:00] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18347
+[2019-07-30 18:39:00] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 18:39:00] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 18:39:00] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 304 0
+[2019-07-30 18:41:29] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 304 0
+[2019-07-30 18:41:29] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 18:41:29] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 18:42:54] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18342
+[2019-07-30 18:42:54] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 18:42:54] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 18:42:54] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5348
+[2019-07-30 18:42:54] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 200 97168
+[2019-07-30 18:42:54] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 200 190593
+[2019-07-30 18:42:54] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 200 259
+[2019-07-30 18:42:54] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 200 12722
+[2019-07-30 18:42:54] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 200 24578
+[2019-07-30 18:42:54] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 200 175
+[2019-07-30 18:42:54] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 200 464
+[2019-07-30 18:42:54] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 200 482
+[2019-07-30 18:42:54] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 200 706
+[2019-07-30 18:42:55] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 200 401
+[2019-07-30 18:42:55] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 200 4617
+[2019-07-30 18:42:55] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 200 148
+[2019-07-30 18:42:55] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 200 10551
+[2019-07-30 18:42:55] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 200 27911
+[2019-07-30 18:42:55] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 200 15815
+[2019-07-30 18:42:55] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 200 21119
+[2019-07-30 18:44:21] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18341
+[2019-07-30 18:44:21] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 18:44:21] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 18:44:22] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5629
+[2019-07-30 18:44:22] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 200 259
+[2019-07-30 18:44:22] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 200 464
+[2019-07-30 18:44:22] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 200 190593
+[2019-07-30 18:44:22] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 200 175
+[2019-07-30 18:44:22] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 200 482
+[2019-07-30 18:44:22] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 200 12722
+[2019-07-30 18:44:22] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 200 706
+[2019-07-30 18:44:22] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 200 24578
+[2019-07-30 18:44:22] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 200 97168
+[2019-07-30 18:44:22] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 200 401
+[2019-07-30 18:44:22] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 200 148
+[2019-07-30 18:44:22] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 200 4617
+[2019-07-30 18:44:22] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 200 10551
+[2019-07-30 18:44:22] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 200 27911
+[2019-07-30 18:44:22] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 200 15815
+[2019-07-30 18:44:23] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 200 21119
+[2019-07-30 18:45:29] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18341
+[2019-07-30 18:45:29] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 18:45:29] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 18:45:29] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5656
+[2019-07-30 18:45:44] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18341
+[2019-07-30 18:45:44] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 18:45:44] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 18:45:44] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5656
+[2019-07-30 18:45:49] INFO [django.server.log_message:124] "GET /courses/Linux_administration/labs/2/ HTTP/1.1" 200 16262
+[2019-07-30 18:45:56] INFO [django.server.log_message:124] "GET /courses/Linux_administration/notes/2/ HTTP/1.1" 302 0
+[2019-07-30 18:45:57] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 24760
+[2019-07-30 18:46:04] INFO [django.server.log_message:124] "GET /courses/Linux_administration/notes/2/ HTTP/1.1" 302 0
+[2019-07-30 18:46:04] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 24760
+[2019-07-30 18:46:47] INFO [django.server.log_message:124] "GET /courses/Linux_administration/labs/2/ HTTP/1.1" 200 16262
+[2019-07-30 18:47:19] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18341
+[2019-07-30 18:47:19] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 18:47:19] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 18:47:19] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 304 0
+[2019-07-30 18:47:21] INFO [django.server.log_message:124] "GET /courses/Web_Programming/topics/ HTTP/1.1" 200 15538
+[2019-07-30 18:47:21] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 18:47:21] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 18:47:25] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /courses/Web_Programming/labs/1/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\generic\base.py", line 89, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\generic\detail.py", line 105, in get
+    self.object = self.get_object()
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\Courses\views.py", line 384, in get_object
+    return get_object_or_404(CourseTopic, course__course_title = self.kwargs.get('course_name').replace("_", " "),topic_number = self.kwargs.get('lab_no'))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\shortcuts.py", line 87, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 407, in get
+    (self.model._meta.object_name, num)
+Courses.models.MultipleObjectsReturned: get() returned more than one CourseTopic -- it returned 2!
+[2019-07-30 18:47:25] ERROR [django.server.log_message:124] "GET /courses/Web_Programming/labs/1/ HTTP/1.1" 500 109162
+[2019-07-30 18:47:30] INFO [django.server.log_message:124] "GET /courses/Web_Programming/notes/1/ HTTP/1.1" 302 0
+[2019-07-30 18:47:30] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 24760
+[2019-07-30 18:48:25] INFO [django.server.log_message:124] "GET /courses/Web_Programming/topics/ HTTP/1.1" 200 15538
+[2019-07-30 18:48:25] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 18:48:25] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 18:48:25] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5702
+[2019-07-30 23:27:17] INFO [django.server.log_message:124] "POST /login/ HTTP/1.1" 302 0
+[2019-07-30 23:27:17] INFO [django.server.log_message:124] "GET /courses/userinterest HTTP/1.1" 200 21956
+[2019-07-30 23:27:17] INFO [django.server.log_message:124] "GET /static/home/images/logout1.png HTTP/1.1" 200 1899
+[2019-07-30 23:27:17] INFO [django.server.log_message:124] "GET /static/home/images/icon1.png HTTP/1.1" 200 2133
+[2019-07-30 23:27:17] INFO [django.server.log_message:124] "GET /static/home/images/lin-logo.png HTTP/1.1" 200 9301
+[2019-07-30 23:27:17] INFO [django.server.log_message:124] "GET /static/home/images/button-left.png HTTP/1.1" 200 2071
+[2019-07-30 23:27:17] INFO [django.server.log_message:124] "GET /static/home/images/amazons.png HTTP/1.1" 200 10409
+[2019-07-30 23:27:17] INFO [django.server.log_message:124] "GET /static/home/images/jjava.png HTTP/1.1" 200 10506
+[2019-07-30 23:27:17] INFO [django.server.log_message:124] "GET /static/home/images/ppt.png HTTP/1.1" 200 964
+[2019-07-30 23:27:17] INFO [django.server.log_message:124] "GET /static/home/images/csecurity.png HTTP/1.1" 304 0
+[2019-07-30 23:27:17] INFO [django.server.log_message:124] "GET /static/home/images/biz.png HTTP/1.1" 304 0
+[2019-07-30 23:27:17] INFO [django.server.log_message:124] "GET /static/home/images/ajs.png HTTP/1.1" 200 6757
+[2019-07-30 23:27:17] INFO [django.server.log_message:124] "GET /static/home/images/rchsaa.png HTTP/1.1" 200 6733
+[2019-07-30 23:27:17] INFO [django.server.log_message:124] "GET /static/home/images/dba.png HTTP/1.1" 304 0
+[2019-07-30 23:27:17] INFO [django.server.log_message:124] "GET /static/home/images/py.png HTTP/1.1" 304 0
+[2019-07-30 23:27:17] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs//list-bg.png HTTP/1.1" 304 0
+[2019-07-30 23:27:18] INFO [django.server.log_message:124] "POST /ulocation HTTP/1.1" 200 0
+[2019-07-30 23:27:21] INFO [django.server.log_message:124] "GET /courses/Web_Programming/topics/ HTTP/1.1" 200 15556
+[2019-07-30 23:27:21] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-07-30 23:27:21] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5702
+[2019-07-30 23:27:21] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-30 23:27:21] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 23:27:21] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 23:27:21] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 200 148
+[2019-07-30 23:27:21] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 200 10551
+[2019-07-30 23:27:21] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 200 27911
+[2019-07-30 23:27:21] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 200 15815
+[2019-07-30 23:27:21] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 200 21119
+[2019-07-30 23:27:21] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-30 23:27:21] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 200 175
+[2019-07-30 23:27:21] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 200 706
+[2019-07-30 23:27:21] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 200 12722
+[2019-07-30 23:27:21] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-30 23:27:21] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 200 4617
+[2019-07-30 23:27:21] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-30 23:27:21] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 200 24578
+[2019-07-30 23:27:21] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 200 482
+[2019-07-30 23:35:46] INFO [django.server.log_message:124] "GET /courses/Web_Programming/topics/ HTTP/1.1" 200 15556
+[2019-07-30 23:35:46] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5748
+[2019-07-30 23:35:46] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-07-30 23:35:46] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-30 23:35:46] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 23:35:46] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 23:35:47] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-30 23:35:47] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-30 23:35:47] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-30 23:35:47] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-07-30 23:35:47] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-07-30 23:35:47] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-07-30 23:35:47] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-07-30 23:35:47] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-07-30 23:35:47] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-07-30 23:35:47] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-07-30 23:35:47] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-07-30 23:35:47] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-07-30 23:35:47] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-07-30 23:35:47] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-07-30 23:36:50] INFO [django.server.log_message:124] "GET /courses/Web_Programming/topics/ HTTP/1.1" 200 15556
+[2019-07-30 23:36:50] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-07-30 23:36:50] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-30 23:36:50] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5774
+[2019-07-30 23:36:50] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 23:36:50] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 23:36:50] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-30 23:36:50] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-30 23:36:50] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-07-30 23:36:50] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-07-30 23:36:50] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-07-30 23:36:50] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-30 23:36:50] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-07-30 23:36:50] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-07-30 23:36:50] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-07-30 23:36:50] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-07-30 23:36:50] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-07-30 23:36:50] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-07-30 23:36:50] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-07-30 23:36:50] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-07-30 23:37:28] INFO [django.server.log_message:124] "GET /courses/Web_Programming/topics/ HTTP/1.1" 200 15556
+[2019-07-30 23:37:28] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-07-30 23:37:28] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5776
+[2019-07-30 23:37:28] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-30 23:37:28] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 23:37:28] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 23:37:28] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-30 23:37:28] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-30 23:37:28] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-07-30 23:37:28] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-07-30 23:37:28] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-30 23:37:28] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-07-30 23:37:28] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-07-30 23:37:28] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-07-30 23:37:28] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-07-30 23:37:28] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-07-30 23:37:28] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-07-30 23:37:28] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-07-30 23:37:28] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-07-30 23:37:28] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-07-30 23:38:06] INFO [django.server.log_message:124] "GET /courses/Web_Programming/notes/1/ HTTP/1.1" 302 0
+[2019-07-30 23:38:06] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 24760
+[2019-07-30 23:38:06] INFO [django.server.log_message:124] "GET /static/home/images/icon1.png HTTP/1.1" 304 0
+[2019-07-30 23:38:06] INFO [django.server.log_message:124] "GET /static/home/images/logout1.png HTTP/1.1" 304 0
+[2019-07-30 23:38:06] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/jobphone.png HTTP/1.1" 304 0
+[2019-07-30 23:38:06] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/homelive.png HTTP/1.1" 304 0
+[2019-07-30 23:38:06] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/get3.png HTTP/1.1" 304 0
+[2019-07-30 23:38:06] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/get2.png HTTP/1.1" 304 0
+[2019-07-30 23:38:06] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/testi.png HTTP/1.1" 304 0
+[2019-07-30 23:38:06] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/get1.png HTTP/1.1" 304 0
+[2019-07-30 23:38:06] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/hq1.png HTTP/1.1" 304 0
+[2019-07-30 23:38:06] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/hq2.png HTTP/1.1" 304 0
+[2019-07-30 23:38:06] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/client2.png HTTP/1.1" 304 0
+[2019-07-30 23:38:06] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/client3.png HTTP/1.1" 304 0
+[2019-07-30 23:38:06] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/client1.png HTTP/1.1" 304 0
+[2019-07-30 23:38:07] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/jobban2.png HTTP/1.1" 304 0
+[2019-07-30 23:38:07] INFO [django.server.log_message:124] "POST /ulocation HTTP/1.1" 200 0
+[2019-07-30 23:40:37] INFO [django.server.log_message:124] "GET /courses/Web_Programming/topics/ HTTP/1.1" 200 15556
+[2019-07-30 23:40:37] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-07-30 23:40:37] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-30 23:40:37] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 304 0
+[2019-07-30 23:40:37] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 23:40:37] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 23:40:37] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-30 23:40:37] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-30 23:40:37] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-07-30 23:40:37] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-07-30 23:40:37] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-07-30 23:40:37] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-30 23:40:37] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-07-30 23:40:37] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-07-30 23:40:37] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-07-30 23:40:37] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-07-30 23:40:37] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-07-30 23:40:37] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-07-30 23:40:37] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-07-30 23:40:37] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-07-30 23:43:55] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /courses/Web_Programming/topics/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\smartif.py", line 175, in translate_token
+    op = OPERATORS[token]
+KeyError: 'topic.data.has_labs)'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 158, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 156, in _get_response
+    response = response.render()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\response.py", line 106, in render
+    self.content = self.rendered_content
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\response.py", line 81, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\response.py", line 65, in resolve_template
+    return get_template(template, using=self.using)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\engine.py", line 144, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\engine.py", line 126, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\loaders\base.py", line 30, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 160, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 198, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 483, in parse
+    raise self.error(token, e)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 481, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\loader_tags.py", line 290, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 483, in parse
+    raise self.error(token, e)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 481, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\loader_tags.py", line 233, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 483, in parse
+    raise self.error(token, e)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 481, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\defaulttags.py", line 815, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 483, in parse
+    raise self.error(token, e)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 481, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\defaulttags.py", line 815, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 483, in parse
+    raise self.error(token, e)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 481, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\defaulttags.py", line 955, in do_if
+    condition = TemplateIfParser(parser, bits).parse()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\defaulttags.py", line 888, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\smartif.py", line 166, in __init__
+    mapped_tokens.append(self.translate_token(token))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\smartif.py", line 177, in translate_token
+    return self.create_var(token)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\defaulttags.py", line 891, in create_var
+    return TemplateLiteral(self.template_parser.compile_filter(value), value)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 568, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 668, in __init__
+    "from '%s'" % (token[upto:], token))
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: ')' from 'topic.data.has_labs)'
+[2019-07-30 23:43:56] ERROR [django.server.log_message:124] "GET /courses/Web_Programming/topics/ HTTP/1.1" 500 248524
+[2019-07-30 23:44:11] INFO [django.server.log_message:124] "GET /courses/Web_Programming/topics/ HTTP/1.1" 200 15524
+[2019-07-30 23:44:11] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-07-30 23:44:11] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 304 0
+[2019-07-30 23:44:11] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-30 23:44:11] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 23:44:11] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 23:44:11] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-30 23:44:11] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-30 23:44:11] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-07-30 23:44:11] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-07-30 23:44:11] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-07-30 23:44:11] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-07-30 23:44:11] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-30 23:44:11] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-07-30 23:44:11] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-07-30 23:44:11] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-07-30 23:44:11] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-07-30 23:44:11] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-07-30 23:44:11] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-07-30 23:44:11] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-07-30 23:46:33] INFO [django.server.log_message:124] "GET /courses/Web_Programming/topics/ HTTP/1.1" 200 15524
+[2019-07-30 23:46:33] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-07-30 23:46:33] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5773
+[2019-07-30 23:46:33] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-30 23:46:33] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 23:46:33] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 23:46:33] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-30 23:46:33] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-30 23:46:33] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-07-30 23:46:33] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-07-30 23:46:33] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-30 23:46:33] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-07-30 23:46:33] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-07-30 23:46:33] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-07-30 23:46:33] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-07-30 23:46:33] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-07-30 23:46:33] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-07-30 23:46:33] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-07-30 23:46:33] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-07-30 23:46:33] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-07-30 23:50:09] INFO [django.server.log_message:124] "GET /courses/Web_Programming/topics/ HTTP/1.1" 200 15526
+[2019-07-30 23:50:09] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-07-30 23:50:09] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 304 0
+[2019-07-30 23:50:09] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-30 23:50:10] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 23:50:10] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 23:50:10] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-30 23:50:10] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-30 23:50:10] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-07-30 23:50:10] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-07-30 23:50:10] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-30 23:50:10] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-07-30 23:50:10] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-07-30 23:50:10] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-07-30 23:50:10] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-07-30 23:50:10] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-07-30 23:50:10] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-07-30 23:50:10] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-07-30 23:50:10] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-07-30 23:50:10] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-07-30 23:50:31] INFO [django.server.log_message:124] "GET /courses/Web_Programming/topics/ HTTP/1.1" 200 15528
+[2019-07-30 23:50:31] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-07-30 23:50:31] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-30 23:50:31] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 304 0
+[2019-07-30 23:50:31] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 23:50:31] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 23:50:31] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-30 23:50:31] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-30 23:50:31] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-07-30 23:50:31] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-30 23:50:31] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-07-30 23:50:31] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-07-30 23:50:31] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-07-30 23:50:31] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-07-30 23:50:31] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-07-30 23:50:31] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-07-30 23:50:31] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-07-30 23:50:31] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-07-30 23:50:31] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-07-30 23:50:31] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-07-30 23:50:47] WARNING [django.security.csrf._reject:153] Forbidden (CSRF token missing or incorrect.): /login/
+[2019-07-30 23:50:47] WARNING [django.server.log_message:124] "POST /login/ HTTP/1.1" 403 2513
+[2019-07-30 23:50:56] WARNING [django.security.csrf._reject:153] Forbidden (CSRF token missing or incorrect.): /login/
+[2019-07-30 23:50:56] WARNING [django.server.log_message:124] "POST /login/ HTTP/1.1" 403 2513
+[2019-07-30 23:50:57] INFO [django.server.log_message:124] "GET /login/ HTTP/1.1" 200 3408
+[2019-07-30 23:51:05] INFO [django.server.log_message:124] "POST /login/ HTTP/1.1" 302 0
+[2019-07-30 23:51:06] INFO [django.server.log_message:124] "GET /courses/userinterest HTTP/1.1" 200 21865
+[2019-07-30 23:51:14] INFO [django.server.log_message:124] "GET /courses/Web_programming/topics/ HTTP/1.1" 200 15411
+[2019-07-30 23:51:14] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 23:51:14] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 23:51:14] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-07-30 23:51:14] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-30 23:51:14] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5773
+[2019-07-30 23:51:14] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-07-30 23:51:14] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-07-30 23:51:14] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-07-30 23:51:14] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-07-30 23:51:14] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-30 23:51:14] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-30 23:51:15] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-07-30 23:51:15] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-07-30 23:51:15] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-30 23:51:15] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-07-30 23:51:15] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-07-30 23:51:15] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-07-30 23:51:15] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-07-30 23:51:15] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-07-30 23:52:20] INFO [django.server.log_message:124] "GET /courses/Web_programming/topics/ HTTP/1.1" 200 15389
+[2019-07-30 23:52:20] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 23:52:20] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 23:52:20] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 304 0
+[2019-07-30 23:52:32] INFO [django.server.log_message:124] "GET /courses/Web_Programming/topics/ HTTP/1.1" 200 15506
+[2019-07-30 23:52:33] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-07-30 23:52:33] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 304 0
+[2019-07-30 23:52:33] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-30 23:52:33] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 23:52:33] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 23:52:33] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-30 23:52:33] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-30 23:52:33] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-07-30 23:52:33] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-07-30 23:52:33] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-07-30 23:52:33] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-30 23:52:33] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-07-30 23:52:33] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-07-30 23:52:33] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-07-30 23:52:33] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-07-30 23:52:33] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-07-30 23:52:33] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-07-30 23:52:33] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-07-30 23:52:33] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-07-30 23:53:12] INFO [django.server.log_message:124] "GET /courses/Web_Programming/topics/ HTTP/1.1" 200 15506
+[2019-07-30 23:53:12] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-07-30 23:53:12] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-30 23:53:12] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5775
+[2019-07-30 23:53:12] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 23:53:12] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 23:53:12] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-30 23:53:12] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-30 23:53:12] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-07-30 23:53:12] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-07-30 23:53:12] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-30 23:53:12] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-07-30 23:53:12] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-07-30 23:53:12] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-07-30 23:53:12] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-07-30 23:53:12] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-07-30 23:53:12] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-07-30 23:53:12] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-07-30 23:53:12] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-07-30 23:53:12] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-07-30 23:53:34] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5775
+[2019-07-30 23:53:34] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 23:53:34] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 23:54:08] INFO [django.server.log_message:124] "GET /courses/Web_programming/topics/ HTTP/1.1" 200 15389
+[2019-07-30 23:54:08] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 23:54:08] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 23:54:09] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5786
+[2019-07-30 23:54:09] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 200 190593
+[2019-07-30 23:54:09] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 200 97168
+[2019-07-30 23:54:09] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 200 148
+[2019-07-30 23:54:09] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 200 4617
+[2019-07-30 23:54:09] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 200 12722
+[2019-07-30 23:54:09] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 200 175
+[2019-07-30 23:54:09] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 200 24578
+[2019-07-30 23:54:09] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 200 259
+[2019-07-30 23:54:09] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 200 464
+[2019-07-30 23:54:09] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 200 482
+[2019-07-30 23:54:09] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 200 706
+[2019-07-30 23:54:09] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 200 401
+[2019-07-30 23:54:09] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 200 10551
+[2019-07-30 23:54:09] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 200 27911
+[2019-07-30 23:54:10] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 200 15815
+[2019-07-30 23:54:10] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 200 21119
+[2019-07-30 23:55:15] INFO [django.server.log_message:124] "GET /courses/Web_programming/topics/ HTTP/1.1" 200 15399
+[2019-07-30 23:55:15] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 23:55:15] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 23:55:15] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 200 190593
+[2019-07-30 23:55:15] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5842
+[2019-07-30 23:55:15] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 200 97168
+[2019-07-30 23:55:15] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 200 4617
+[2019-07-30 23:55:15] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 200 148
+[2019-07-30 23:55:15] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 200 175
+[2019-07-30 23:55:15] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 200 12722
+[2019-07-30 23:55:15] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 200 24578
+[2019-07-30 23:55:15] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 200 259
+[2019-07-30 23:55:16] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 200 464
+[2019-07-30 23:55:16] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 200 482
+[2019-07-30 23:55:16] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 200 706
+[2019-07-30 23:55:16] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 200 401
+[2019-07-30 23:55:16] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 200 10551
+[2019-07-30 23:55:16] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 200 27911
+[2019-07-30 23:55:16] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 200 15815
+[2019-07-30 23:55:16] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 200 21119
+[2019-07-30 23:55:57] INFO [django.server.log_message:124] "GET /courses/Web_programming/topics/ HTTP/1.1" 200 15399
+[2019-07-30 23:55:57] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 23:55:57] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 23:55:57] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5840
+[2019-07-30 23:56:02] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 304 0
+[2019-07-30 23:56:02] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 23:56:02] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 23:56:23] INFO [django.server.log_message:124] "GET /courses/Web_programming/topics/ HTTP/1.1" 200 15399
+[2019-07-30 23:56:23] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 23:56:23] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 23:56:23] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5840
+[2019-07-30 23:56:23] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 200 190593
+[2019-07-30 23:56:23] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 200 259
+[2019-07-30 23:56:24] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 200 12722
+[2019-07-30 23:56:24] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 200 24578
+[2019-07-30 23:56:24] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 200 175
+[2019-07-30 23:56:24] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 200 148
+[2019-07-30 23:56:24] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 200 97168
+[2019-07-30 23:56:24] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 200 464
+[2019-07-30 23:56:24] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 200 482
+[2019-07-30 23:56:24] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 200 706
+[2019-07-30 23:56:24] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 200 401
+[2019-07-30 23:56:24] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 200 4617
+[2019-07-30 23:56:24] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 200 10551
+[2019-07-30 23:56:24] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 200 27911
+[2019-07-30 23:56:24] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 200 15815
+[2019-07-30 23:56:24] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 200 21119
+[2019-07-30 23:56:34] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18213
+[2019-07-30 23:56:34] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 23:56:34] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 23:56:34] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5840
+[2019-07-30 23:56:34] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 200 259
+[2019-07-30 23:56:34] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 200 464
+[2019-07-30 23:56:34] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 200 190593
+[2019-07-30 23:56:34] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 200 97168
+[2019-07-30 23:56:35] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 200 175
+[2019-07-30 23:56:35] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 200 24578
+[2019-07-30 23:56:35] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 200 12722
+[2019-07-30 23:56:35] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 200 482
+[2019-07-30 23:56:35] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 200 706
+[2019-07-30 23:56:35] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 200 401
+[2019-07-30 23:56:35] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 200 148
+[2019-07-30 23:56:35] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 200 4617
+[2019-07-30 23:56:35] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 200 10551
+[2019-07-30 23:56:35] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 200 27911
+[2019-07-30 23:56:35] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 200 15815
+[2019-07-30 23:56:35] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 200 21119
+[2019-07-30 23:57:10] INFO [django.server.log_message:124] "GET /courses/Web_Programming/topics/ HTTP/1.1" 200 15516
+[2019-07-30 23:57:10] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-07-30 23:57:10] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-30 23:57:10] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5838
+[2019-07-30 23:57:10] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 23:57:10] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 23:57:11] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-30 23:57:11] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-30 23:57:11] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-07-30 23:57:11] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-07-30 23:57:11] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-30 23:57:11] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-07-30 23:57:11] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-07-30 23:57:11] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-07-30 23:57:11] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-07-30 23:57:11] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-07-30 23:57:11] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-07-30 23:57:11] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-07-30 23:57:11] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-07-30 23:57:11] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-07-30 23:57:15] INFO [django.server.log_message:124] "GET /courses/Web_Programming/topics/ HTTP/1.1" 200 15516
+[2019-07-30 23:57:15] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-07-30 23:57:15] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 304 0
+[2019-07-30 23:57:15] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-30 23:57:15] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 23:57:15] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-30 23:57:15] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-30 23:57:15] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-07-30 23:57:15] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-07-30 23:57:15] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-30 23:57:15] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-30 23:57:15] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-07-30 23:57:15] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-07-30 23:57:15] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-07-30 23:57:15] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-07-30 23:57:15] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-07-30 23:57:15] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-07-30 23:57:15] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-07-30 23:57:15] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-07-30 23:57:15] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-07-30 23:57:39] INFO [django.server.log_message:124] "GET /courses/EC2/topics/ HTTP/1.1" 200 12653
+[2019-07-30 23:57:39] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 304 0
+[2019-07-30 23:57:39] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-30 23:57:39] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-31 00:01:54] INFO [django.server.log_message:124] "GET /courses/Web_Programming/topics/ HTTP/1.1" 200 15437
+[2019-07-31 00:01:54] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-31 00:01:54] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-31 00:01:54] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5842
+[2019-07-31 00:01:54] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-31 00:01:54] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-31 00:01:54] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-31 00:01:54] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-07-31 00:01:54] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-07-31 00:01:54] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-07-31 00:01:54] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-07-31 00:01:54] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-07-31 00:01:54] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-07-31 00:01:55] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-07-31 00:01:55] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-31 00:01:55] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-07-31 00:01:55] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-07-31 00:01:55] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-07-31 00:01:55] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-07-31 00:02:00] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18237
+[2019-07-31 00:02:00] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-31 00:02:00] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-31 00:02:00] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 304 0
+[2019-07-31 00:02:22] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18207
+[2019-07-31 00:02:22] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-31 00:02:22] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-31 00:02:22] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 304 0
+[2019-07-31 00:02:44] INFO [django.server.log_message:124] "GET /courses/EC2/topics/ HTTP/1.1" 200 12662
+[2019-07-31 00:02:44] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5842
+[2019-07-31 00:02:44] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-07-31 00:02:44] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-31 00:02:44] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-31 00:02:44] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-31 00:02:44] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-31 00:02:44] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-31 00:02:44] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-31 00:02:44] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-07-31 00:02:44] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-07-31 00:02:44] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-07-31 00:02:44] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-07-31 00:02:44] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-07-31 00:02:44] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-07-31 00:02:44] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-07-31 00:02:44] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-07-31 00:02:44] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-07-31 00:02:44] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-07-31 00:02:44] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-07-31 00:03:00] INFO [django.server.log_message:124] "GET /courses/EC2/topics/ HTTP/1.1" 200 12662
+[2019-07-31 00:03:00] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-07-31 00:03:00] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5790
+[2019-07-31 00:03:00] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-31 00:03:00] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-31 00:03:00] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-31 00:03:00] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-31 00:03:00] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-31 00:03:00] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-07-31 00:03:00] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-07-31 00:03:00] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-31 00:03:00] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-07-31 00:03:00] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-07-31 00:03:00] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-07-31 00:03:00] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-07-31 00:03:00] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-07-31 00:03:00] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-07-31 00:03:00] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-07-31 00:03:00] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-07-31 00:03:00] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-07-31 00:03:16] INFO [django.server.log_message:124] "GET /courses/EC2/topics/ HTTP/1.1" 200 12662
+[2019-07-31 00:03:16] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-07-31 00:03:16] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-31 00:03:16] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5760
+[2019-07-31 00:03:16] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-31 00:03:16] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-31 00:03:16] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-31 00:03:16] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-31 00:03:16] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-07-31 00:03:16] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-07-31 00:03:16] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-31 00:03:16] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-07-31 00:03:16] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-07-31 00:03:16] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-07-31 00:03:16] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-07-31 00:03:16] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-07-31 00:03:16] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-07-31 00:03:16] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-07-31 00:03:16] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-07-31 00:03:16] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-07-31 00:04:36] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18207
+[2019-07-31 00:04:37] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-31 00:04:37] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-31 00:04:37] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5844
+[2019-07-31 00:04:42] INFO [django.server.log_message:124] "GET /courses/EC2/topics/ HTTP/1.1" 200 12662
+[2019-07-31 00:04:42] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-07-31 00:04:42] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-31 00:04:42] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5844
+[2019-07-31 00:04:42] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-31 00:04:42] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-31 00:04:42] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-31 00:04:42] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-31 00:04:42] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-07-31 00:04:42] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-07-31 00:04:42] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-31 00:04:42] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-07-31 00:04:42] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-07-31 00:04:42] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-07-31 00:04:42] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-07-31 00:04:42] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-07-31 00:04:42] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-07-31 00:04:42] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-07-31 00:04:42] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-07-31 00:04:42] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-07-31 00:08:35] INFO [django.server.log_message:124] "GET /courses/EC2/topics/ HTTP/1.1" 200 12683
+[2019-07-31 00:08:35] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-07-31 00:08:35] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5813
+[2019-07-31 00:08:35] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-31 00:08:35] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-31 00:08:35] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-31 00:08:35] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-31 00:08:35] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-31 00:08:35] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-07-31 00:08:36] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-07-31 00:08:36] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-31 00:08:36] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-07-31 00:08:36] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-07-31 00:08:36] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-07-31 00:08:36] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-07-31 00:08:36] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-07-31 00:08:36] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-07-31 00:08:36] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-07-31 00:08:36] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-07-31 00:08:36] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-07-31 00:09:02] INFO [django.server.log_message:124] "GET /courses/EC2/topics/ HTTP/1.1" 200 12693
+[2019-07-31 00:09:02] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-07-31 00:09:02] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-31 00:09:02] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 304 0
+[2019-07-31 00:09:02] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-31 00:09:02] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-31 00:09:02] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-31 00:09:02] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-31 00:09:02] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-07-31 00:09:02] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-31 00:09:02] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-07-31 00:09:02] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-07-31 00:09:02] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-07-31 00:09:02] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-07-31 00:09:02] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-07-31 00:09:02] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-07-31 00:09:02] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-07-31 00:09:02] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-07-31 00:09:02] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-07-31 00:09:02] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-07-31 00:09:11] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 18339
+[2019-07-31 00:09:12] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-31 00:09:12] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-31 00:09:12] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5813
+[2019-07-31 00:09:18] INFO [django.server.log_message:124] "GET /courses/Web_Programming/topics/ HTTP/1.1" 200 15479
+[2019-07-31 00:09:19] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-31 00:09:19] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-31 00:10:06] INFO [django.server.log_message:124] "GET /courses/EC2/topics/ HTTP/1.1" 200 12693
+[2019-07-31 00:10:06] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-07-31 00:10:06] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5814
+[2019-07-31 00:10:06] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-31 00:10:06] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-31 00:10:06] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-31 00:10:07] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-31 00:10:07] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-07-31 00:10:07] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-31 00:10:07] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-07-31 00:10:07] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-31 00:10:07] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-07-31 00:10:07] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-07-31 00:10:07] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-07-31 00:10:07] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-07-31 00:10:07] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-07-31 00:10:07] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-07-31 00:10:07] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-07-31 00:10:07] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-07-31 00:10:07] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-07-31 00:10:24] INFO [django.server.log_message:124] "GET /courses/EC2/topics/ HTTP/1.1" 200 12693
+[2019-07-31 00:10:24] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-07-31 00:10:24] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 5813
+[2019-07-31 00:10:24] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-31 00:10:24] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-31 00:10:24] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-31 00:10:24] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-31 00:10:24] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-07-31 00:10:24] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-07-31 00:10:24] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-07-31 00:10:24] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-31 00:10:24] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-07-31 00:10:24] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-07-31 00:10:24] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-07-31 00:10:24] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-07-31 00:10:24] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-07-31 00:10:24] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-07-31 00:10:24] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-31 00:10:24] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-07-31 00:10:24] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-07-31 00:12:47] INFO [django.server.log_message:124] "GET /courses/EC2/topics/ HTTP/1.1" 200 12731
+[2019-07-31 00:12:47] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-07-31 00:12:47] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-31 00:12:47] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 304 0
+[2019-07-31 00:12:47] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-31 00:12:47] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-31 00:12:47] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-31 00:12:47] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-31 00:12:47] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-31 00:12:47] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-07-31 00:12:47] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-07-31 00:12:47] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-07-31 00:12:48] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-07-31 00:12:48] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-07-31 00:12:48] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-07-31 00:12:48] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-07-31 00:12:48] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-07-31 00:12:48] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-07-31 00:12:48] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-07-31 00:12:48] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-07-31 00:13:22] INFO [django.server.log_message:124] "GET /courses/EC2/topics/ HTTP/1.1" 200 12747
+[2019-07-31 00:13:22] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-07-31 00:13:22] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 304 0
+[2019-07-31 00:13:22] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-31 00:13:22] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-31 00:13:22] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-31 00:13:22] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-31 00:13:22] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-31 00:13:22] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-07-31 00:13:22] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-07-31 00:13:22] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-31 00:13:22] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-07-31 00:13:22] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-07-31 00:13:22] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-07-31 00:13:22] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-07-31 00:13:22] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-07-31 00:13:22] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-07-31 00:13:22] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-07-31 00:13:22] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-07-31 00:13:22] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-07-31 00:15:33] INFO [django.server.log_message:124] "GET /courses/EC2/topics/ HTTP/1.1" 200 12810
+[2019-07-31 00:15:33] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-07-31 00:15:33] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 304 0
+[2019-07-31 00:15:33] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-07-31 00:15:33] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-07-31 00:15:33] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18824
+[2019-07-31 00:15:33] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-07-31 00:15:33] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-07-31 00:15:33] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-07-31 00:15:33] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-07-31 00:15:33] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-07-31 00:15:33] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-07-31 00:15:33] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-07-31 00:15:33] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-07-31 00:15:33] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-07-31 00:15:33] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-07-31 00:15:33] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-07-31 00:15:33] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-07-31 00:15:33] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-07-31 00:15:33] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0

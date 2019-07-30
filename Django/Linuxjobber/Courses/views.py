@@ -796,6 +796,12 @@ class SuperTopic():
         return round(stat)
 
 class SuperCourse():
+
+    """
+        
+
+    """
+
     def __init__(self, user, course):
         import copy
         self.user = user
