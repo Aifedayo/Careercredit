@@ -43,6 +43,7 @@ class CoursePermission(models.Model):
 
 class CourseTopic(models.Model):
     course = models.ForeignKey(Course, on_delete = models.CASCADE, related_name='topics',related_query_name='topic')
+    section = models.ForeignKey("CourseSection", on_delete = models.DO_NOTHING, null= True)
     topic_number = models.PositiveSmallIntegerField(default=0)
     topic =  models.CharField(max_length = 200)
     lab_name = models.CharField(max_length = 50)
@@ -190,4 +191,18 @@ class Document(models.Model):
 class MainModel(models.Model):
     title = models.CharField(max_length = 42)
     document = models.ForeignKey(Document, on_delete = models.CASCADE)
+
+
+class CourseSection(models.Model):
+    """
+        Course Section
+        A course can be split into sections.
+        E.g Linux Proficiency can have File Management Section, Monitoring Services Section, etc.
+
+    """
+    course = models.ForeignKey(Course,on_delete=models.DO_NOTHING)
+    name = models.CharField(max_length=500)
+
+    def __str__(self):
+        return self.name
 
