@@ -111,7 +111,9 @@ def signup(request):
         lastname = request.POST['fullname'].split()[1] if len(request.POST['fullname'].split()) > 1 else request.POST['fullname'].split()[0]
         email = request.POST['email']
         password = request.POST['password']
-        username = email.split('@')[0]
+        username = email
+        custom_username = email.split('@')[0]
+
 
         try:
             userd = CustomUser.objects.get(email=email)
@@ -123,8 +125,9 @@ def signup(request):
                 user.set_password(password)
                 user.first_name = firstname
                 user.last_name = lastname
+                user.custom_username = custom_username
                 user.save()
-                send_mail('Account has been Created', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + ' and your email is ' +email + '\n Follow this url to login with your username and password '+settings.ENV_URL+'login \n\n Thanks & Regards \n Admin. \n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [email])
+                send_mail('Account has been Created', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + custom_username + ' and your email is ' +email + '\n Follow this url to login with your username and password '+settings.ENV_URL+'login \n\n Thanks & Regards \n Admin. \n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [email])
                 if 'job_email' in request.session:
                     try:
                         free = FreeAccountClick.objects.get(email= request.session['job_email'])
@@ -483,9 +486,11 @@ def log_in(request):
     if request.method == "POST":
         user_name = request.POST['username']
         password = request.POST['password']
+
+        '''if "@" in user_name:
+            user_name = user_name.split('@')[0]'''
+
         next = request.POST['next']
-        if "@" in user_name:
-            user_name = user_name.split('@')[0]
         user = authenticate(request, username = user_name, password = password)
         
         if user is not None:
