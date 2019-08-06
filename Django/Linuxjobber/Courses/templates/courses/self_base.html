@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="../../static/Courses/css/selfstudy.css"/>
+    <link
+href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
+rel="stylesheet">
+<link
+href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800"
+rel="stylesheet">
+<link
+href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700"
+rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'Courses/css/bulma.min.css' %} ">
+    <link rel="stylesheet" href="{% static 'Courses/css/selfstudy.css' %} ">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> {% block title %}
+    
+    {% endblock %} |
+ Linuxjobber
+    </title>
+
+</head>
+<body>
+
+<header>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+      <div id="profilebtn2" class="navbar-item">
+          <a id="dropbtn2" class="navbar-item">
+            <span class="icon">
+              <img src="{% static 'Courses/images/dots.png' %} " alt="">
+            </span>
+          </a>
+          <div class="dropcontent">
+              <div id="profilenav2" class="container is-widescreen">
+                <span class="size-10" style="color: white;padding-left: 10.5%;font-size: 10px">All Courses</span>
+                {% if courses %}
+    {% for course in courses %}
+        {% with is_section_begin=forloop.counter0|divisibleby:6 %}
+            {% if forloop.counter0.first or is_section_begin %}
+          <div class="navbar">
+              <div class="navbar-menu">
+                <span class="width-27"></span>
+            {% endif %}
+              <a href="{% url 'Courses:topics' course.course_title.split|join:'_' %}" class="navbar-item is-pulled-left">
+
+                  <div class="nav-container">
+                      <span class="nav-image"><i class="fa {{course.icon}} fa-2x"></i> {%if course.has_certification == 1%} <i style="font-size:25px;" class="fa fa-certificate"></i>{%endif%}</span>
+                        &nbsp;
+                      <span class="nav-text">{{course.course_title}} </span>
+                  </div>
+                </a>
+            {% if forloop.counter|divisibleby:6 or forloop.last %}
+                <div class="navbar-end"></div>
+            </div>
+
+          </div>
+ {% endif %}
+            {% endwith %}
+        {% endfor %}
+              {% endif %}
+
+
+          <span class="size-10" style="color: white;padding-left: 10.5%;font-size: 10px">Other Links</span>
+          <div class="navbar">
+            <div class="navbar-menu">
+                                <span class="width-27"></span>
+
+              <a href="{% url 'home:index' %}" class="navbar-item is-pulled-left">
+                  <div class="nav-container">
+                      <img class="nav-image" src="{% static 'Courses/images/home.png' %}" alt="">
+                        &nbsp;
+                      <span class="nav-text"> Home</span>
+                  </div>
+                </a>
+
+              <a href="{% url 'home:workexperience' %}" class="navbar-item is-pulled-left">
+                  <div class="nav-container">
+                      <img class="nav-image" src="{% static 'Courses/images/work.png' %}" alt="">
+                        &nbsp;
+                      <span class="nav-text"> Work</span>
+                  </div>
+                </a>
+
+              <a href="{% url 'Projects:index' %}" class="navbar-item is-pulled-left">
+                  <div class="nav-container">
+                      <img class="nav-image" src="{% static 'Courses/images/projects.png' %}" alt="">
+                        &nbsp;
+                      <span class="nav-text"> Projects</span>
+                  </div>
+                </a>
+
+              <a href="{% url 'home:partime' %}" class="navbar-item is-pulled-left">
+                  <div class="nav-container">
+                      <img class="nav-image" src="{% static 'Courses/images/careers.png' %}" alt="">
+                        &nbsp;
+                      <span class="nav-text"> Careers</span>
+                  </div>
+
+                </a>
+                <div class="navbar-end">
+                </div>
+          </div>
+          </div>
+
+
+          </div>
+
+        </div>
+    </div>
+
+        <div class="pad-10">
+            <img width="160px" height="40px" src="{% static 'Courses/images/clogo.png' %} ">
+        </div>
+
+
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start"></div>
+      <a href="" class="navbar-item is-pulled-left size-12" style="padding-right: 0">
+          {% block topic_head %}{% endblock %}
+      </a>
+
+    <a class="navbar-item is-pulled-left">
+    <span class="size-18">   {{ course.data }} </span>
+    </a>
+
+
+    <div class="navbar-end">
+        <div id="profilebtn" class="navbar-item">
+            <a id="dropbtn" class="navbar-item">
+              {{ request.user.username|upper }} &nbsp;
+              <span class="icon">
+                <img src="{% static 'Courses/images/down.svg' %}" alt="">
+              </span>
+            </a>
+            <div class="dropcontent">
+                <div id="profilenav" class="container is-widescreen">
+                <div class="columns is-pulled-left">
+
+            <div class="navbar">
+              <div class="navbar-menu">
+
+                <div class="navbar-start"></div>
+                  <a href="" class="navbar-item"></a>
+                <a href="" class="navbar-item">
+                  <div class="nav-container">
+                      <img class="nav-image" src="{% static 'Courses/images/lab_profile.svg' %}" alt="">
+                        &nbsp;
+                      <span class="nav-text"> Lab Profile</span>
+                  </div>
+                  </a>
+
+                <a href="{% url 'home:account_settings' %}" class="navbar-item ">
+                  <div class="nav-container">
+                      <img class="nav-image" src="{% static 'Courses/images/acct_settings.svg' %}" alt="">
+                        &nbsp;
+                      <span class="nav-text"> Account Settings</span>
+                  </div>
+                  </a>
+
+                <a href="{% url 'home:orderlist' %}" class="navbar-item ">
+                  <div class="nav-container">
+                      <img class="nav-image" src="{% static 'Courses/images/ordelist.svg' %}" alt="">
+                        &nbsp;
+                      <span class="nav-text"> Order List</span>
+                  </div>
+                  </a>
+
+                <a href="{% url 'home:logout' %}" class="navbar-item ">
+                  <div class="nav-container">
+                      <img class="nav-image" src="{% static 'Courses/images/logout.svg' %}" alt="">
+                        &nbsp;
+                      <span class="nav-text"> Logout</span>
+                  </div>
+                  </a>
+                  <div class="navbar-end">
+
+                  </div>
+
+
+
+
+            </div>
+            </div>
+
+            </div>
+            </div>
+
+          </div>
+      </div>
+    </div>
+  </div>
+</nav>
+</header>
+
+
+<main class="section">
+  <section class="container">
+    <div class="columns">
+
+        {% block content %}
+
+        {% endblock %}
+    </div>
+  </section>
+</main>
+
+
+<script src="{% static 'Courses/js/jquery.min.js' %}"></script>
+
+
+    {% block extra_scripts %}
+
+    {% endblock %}
+
+
+
+</body>
+</html>

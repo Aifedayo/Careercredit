@@ -308,6 +308,12 @@ SERVER_USER = config('SERVER_USER', "sysadmin")
 SERVER_PASSWORD = config('SERVER_PASSWORD', "8iu7*IU&")
 GROUP_CLASS_URL = config('GROUP_CLASS_URL', 'http://localhost:4200/classroom/')
 
+TOOLS_USER = config('TOOLS_USER', "samuel")
+TOOLS_PASSWORD = config('TOOLS_PASSWORD', "8iu7*IU&")
+OLD_TOOLS_PATH = config('OLD_TOOLS_PATH', "/oldtools/campaigns/")
+NEW_TOOLS_PATH = config('NEW_TOOLS_PATH', "/tools/campaigns/")
+
+
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 

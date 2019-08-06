@@ -330,17 +330,30 @@ def partime(request):
     position = None
     high = None
     message = None
+    pos = None
     if request.method == "POST":
         form = PartimeApplicationForm(request.POST, request.FILES)
         if form.is_valid():
+            print(request.POST['email'])
+            pos = PartTimePostion.objects.get(id=request.POST['position'])
+            try:
+                PartTimeJob.objects.get(email=request.POST['email'],position=pos)
+                messages.success(request, "Sorry We could not submit your application as you have applied for that role before.")
+                return redirect("home:partime")
+            except PartTimeJob.DoesNotExist:
+                pass
+
             newform = form.save(commit=False)
             newform.save()
             request.session['job_email'] = request.POST['email']
             request.session['job_fullname'] = request.POST['fullname']
             request.session['page'] = 'Job Feedback'
 
-            freeclick = FreeAccountClick(fullname=request.session['job_fullname'],email=request.session['job_email'],filled_jobs=1,freeaccountclick=0,from_what_page=request.session['page'],registered=0,visited_tryfree=0,paid=0)
-            freeclick.save()
+            try:
+                freeexist = FreeAccountClick.objects.get(email=request.session['job_email'])
+            except FreeAccountClick.DoesNotExist:
+                freeclick = FreeAccountClick(fullname=request.session['job_fullname'],email=request.session['job_email'],filled_jobs=1,freeaccountclick=0,from_what_page=request.session['page'],registered=0,visited_tryfree=0,paid=0)
+                freeclick.save()
 
             if not request.POST['cv_link']:
                 cv = settings.ENV_URL+newform.cv.url.strip("/")
@@ -424,6 +437,12 @@ def jobapplication(request, job):
         form = JobApplicationForm(request.POST, request.FILES)
         if form.is_valid():
             jobform = form.save(commit=False)
+            try:
+                Job.objects.get(email=request.POST['email'],position=posts)
+                messages.success(request, "Sorry We could not submit your application as you have applied for this role before.")
+                return redirect("home:jobapplication", job=job)
+            except Job.DoesNotExist:
+                pass
             jobform.position = posts
             jobform.save()
 
@@ -431,11 +450,15 @@ def jobapplication(request, job):
             request.session['job_fullname'] = request.POST['fullname']
             request.session['page'] = 'Job Feedback'
 
-            freeclick = FreeAccountClick(fullname=request.session['job_fullname'],email=request.session['job_email'],filled_jobs=1,freeaccountclick=0,from_what_page=request.session['page'],registered=0,visited_tryfree=0,paid=0)
-            freeclick.save()
+
+            try:
+                freeexist = FreeAccountClick.objects.get(email=request.session['job_email'])
+            except FreeAccountClick.DoesNotExist:
+                freeclick = FreeAccountClick(fullname=request.session['job_fullname'],email=request.session['job_email'],filled_jobs=1,freeaccountclick=0,from_what_page=request.session['page'],registered=0,visited_tryfree=0,paid=0)
+                freeclick.save()
 
             if not request.POST['cv_link']:
-                cv = settings.ENV_URL+jobform.resume.url.strip("/")
+                cv = jobform.resume.url.strip("/")
             else:
                 cv = request.POST['cv_link']
 
@@ -463,8 +486,11 @@ def log_in(request):
     if request.method == "POST":
         user_name = request.POST['username']
         password = request.POST['password']
+
         '''if "@" in user_name:
             user_name = user_name.split('@')[0]'''
+
+        next = request.POST['next']
         user = authenticate(request, username = user_name, password = password)
         
         if user is not None:
@@ -484,7 +510,10 @@ def log_in(request):
                     pass
 
                 stats = UserInterest.objects.filter(user=request.user)
-                if stats:
+
+                if next:
+                    return redirect(next)
+                elif stats:
                     return redirect("home:index")
                 else:
                     return redirect("Courses:userinterest")

@@ -1,0 +1,211 @@
+{% extends 'courses/self_base.html' %}
+
+{% block title %}
+ {{ course.data }}
+{% endblock %}
+
+{% load staticfiles %}
+{% block content %}
+
+    {% regroup topics by section as topic_list %}
+    <section class="column is-three-quarters-tablet">
+
+        {% for section,topics in topic_list %}
+{#            Note : Created a proxy model for topic, original data is gotten via .data #}
+
+            <span class="is-light-dark"> {% if section %} {{ section }} {% else %} Topics {% endif %} </span>
+            {% for topic in topics %}
+            <a class="{% if topic.data.free %}free {% else %}nonfree{% endif %}" href="{% url 'Courses:topic_details' course_slug topic.data.topic_number %}">
+                <div class="box is-paddingless">
+                    <div class="container is-widescreen height-14">
+                <div class="level" style="width: 100%" >
+                  <div class="level-left"></div>
+                  <div class="level-right">
+{#                  Give access to Admin Instructor (Role 1 - Role 3) , Subscribers (Role 6), Single Access (Role 4 with permission)#}
+{#                    Or Topic is free #}
+                      {% if permission.permission == 1 or request.user.role >= 1 and request.user.role <= 3 or topic.data.free %}
+                        <sup id="text-green" class="has-padding size-10">Access&nbsp; <span class="ellipse"></span> &nbsp;</sup>
+                      {% else %}
+                          <sup class="has-padding size-10 red-text">No Access&nbsp; <span class="no-access"></span> &nbsp;</sup>
+                      {% endif %}
+
+                  </div>
+                </div>
+              </div>
+          <div class="media">
+            <div class="media-left">
+              <div class="number-box">{{ topic.data.topic_number }}.</div>
+            </div>
+            <div class="media-content">
+              {{ topic.data.topic }}
+            </div>
+          </div>
+
+          <div class="media media-down">
+            <div class="media-left">
+
+            </div>
+
+            <div class="media-content">
+                <div class="level">
+              <div class="level-item">
+                  <a href="{% url 'Courses:topic_details' course.data.course_title.split|join:'_' topic.data.topic_number %}" class="button{% if topic.data.free %}free {% else %} nonfree{% endif %}">
+                    &nbsp;
+                      <span class="icon">
+                          <img src="{% static 'Courses/images/play.svg' %}" alt="">
+                        </span>
+                        <span> Start Video</span>
+                   </a>
+              </div>
+              <div class="level-item">
+                  <a style="background-color: rgba(0, 0, 0, 0.05);border: inherit;" href="{% url 'Courses:Note' course.data.course_title.split|join:'_' topic.data.topic_number %}" class="button{% if topic.data.free %}free {% else %} nonfree{% endif %}" {% if not topic.data.has_notes %} disabled {% endif %} >
+                      <span class="icon">
+                         <img src="{% static 'Courses/images/glasses.svg' %}" alt="">
+                        </span>
+                        <span>Read Notes</span>
+
+                  </a>
+              </div>
+              <div class="level-item">
+
+                  <a style="background-color: rgba(0, 0, 0, 0.05);border: inherit;" href="{% if topic.data.has_labs %}{% url 'Courses:labs' course.data.course_title.split|join:'_' topic.data.topic_number %}{% endif %}" class="button{% if topic.data.free %}free {% else %} nonfree{% endif %}" {% if not topic.data.has_labs %} disabled {% endif %}>
+                      <span class="icon">
+                         <img src="{% static 'Courses/images/contract.svg' %}" alt="">
+                        </span>
+                        <span> Practice labs</span>
+                   </a>
+              </div>
+            </div>
+            </div>
+
+
+          </div>
+
+          <div class="container is-widescreen">
+            <div class="level" style="width: 100%" >
+              <div class="level-left"></div>
+              <div class="level-right">
+                <sup class="has-padding">{{ topic.completion }}% Complete &nbsp;</sup>
+              </div>
+            </div>
+          </div>
+
+          <div class="container is-widescreen color-it">
+                {% if topic.completion > 0 %}
+              <progress class="progress is-success" value="{{ topic.completion }}" max="100">{% if topic.completion > 1 %} {{ topic.completion }}% {% else %} Indeterminate {% endif %}</progress>
+                {% else %}
+              <progress class="progress" value="0" max="100">Indeterminate</progress>
+                {% endif %}
+
+          </div>
+
+
+
+        </div>
+            </a>
+
+        {% endfor %}
+
+
+        {% endfor %}
+
+
+
+
+
+    </section>
+    <section class="column">
+         <span class="is-light-dark"> Total Progress</span>
+
+            <div class="column is-full zero-top">
+                <div class="container is-widescreen is-paddingless ">
+                    <canvas class="is-pulled-right" id="canvas" width="300" height="300"></canvas>
+                </div>
+            </div>
+
+              <p class="has-text-centered">
+                <a class="size-18">See all labs result</a>
+              </p>
+      </section>
+
+{% endblock %}
+
+
+{% block extra_scripts %}
+
+{#    Chart Rendering is done here#}
+    <script>
+
+var canvas=document.getElementById("canvas");
+var ctx=canvas.getContext("2d");
+
+var colors=['rgba(0, 0, 0, 0.8)','rgba(0, 0, 0, 0.1)'];
+var values=[{{ course.completion }}, 100 - {{ course.completion }}];
+var labels=['Completed'];
+
+dmbChart(150,150,125,25,values,colors,labels,0);
+
+function dmbChart(cx,cy,radius,arcwidth,values,colors,labels,selectedValue){
+    var tot=0;
+    var accum=0;
+    var PI=Math.PI;
+    var PI2=PI*2;
+    var offset=-PI/2;
+    ctx.lineWidth=arcwidth;
+    for(var i=0;i<values.length;i++){tot+=values[i];}
+    for(var i=0;i<values.length;i++){
+        ctx.beginPath();
+        ctx.arc(cx,cy,radius,
+            offset+PI2*(accum/tot),
+            offset+PI2*((accum+values[i])/tot)
+        );
+        ctx.strokeStyle=colors[i];
+        ctx.stroke();
+        accum+=values[i];
+    }
+    var innerRadius=radius-arcwidth-3;
+    ctx.beginPath();
+    ctx.arc(cx,cy,innerRadius,0,PI2);
+    ctx.fillStyle=colors[selectedValue];
+
+    ctx.textAlign='center';
+    ctx.textBaseline='bottom';
+    ctx.fillStyle='blac';
+    ctx.font='18px verdana';
+    ctx.fillText(labels[selectedValue],cx,cy+innerRadius*.3);
+    ctx.font='40px verdana';
+    ctx.fillText(values[selectedValue] + '%',cx,cy-innerRadius*.01);
+}
+
+    </script>
+
+{# Permissions would be set here #}
+    <script>
+     var nonFreeTopic = $('a.nonfree');
+     var freeTopic = $('a.free');
+      var allLinks = $('.box.is-paddingless a.button');
+
+        $(document).ready(function(){
+     {# if individual has access defined above #}
+     {# if aws_required and it isn't uploaded , Redirect to account upload page#}
+     {% if permission.permission == 1 or request.user.role >= 1 and request.user.role <= 3 %}
+     {%if course.data.aws_credential_required and not aws%}
+            allLinks.attr('href', "{% url 'home:account_settings' %}" );
+            freetopic.attr('href', "{% url 'home:account_settings' %}" );
+     {% endif %}
+     {% else %}
+     {# User has no access, Role 6 - Send them to monthly subscription #}
+        allLinks.attr('href', "{% url 'home:monthly_subscription' %}");
+        nonFreeTopic.attr('href',"{% url 'home:monthly_subscription' %}");
+         {# Checks if it is free #}
+         {% if course.data.aws_credential_required and not aws%}
+            freeTopic.attr('href', "{% url 'home:account_settings' %}" );
+         {% endif %}
+     {% endif %}
+
+
+     });
+
+    </script>
+
+{% endblock %}

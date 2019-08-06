@@ -8,7 +8,7 @@ app_name = "Courses"
 
 urlpatterns = [
     path('', views.courses,name='courses'),
-    path('<slug:course_name>/topics/', login_required(views.CourseTopicsView.as_view()), name='topics'),
+    # path('<slug:course_name>/topics/', login_required(views.CourseTopicsView.as_view()), name='topics'),
     path('<slug:course_name>/topic/<int:lab_no>/', views.topicdetails, name='topic_details'),
     path('<slug:course_name>/notes/<int:lab_no>/', views.TopicNote, name='Note'),
     path('<slug:course_name>/labs/<int:lab_no>/', login_required(views.LabDetailsView.as_view()), name='labs'),
@@ -25,5 +25,7 @@ urlpatterns = [
     path('topic_stat/<int:lab_no>', views.topic_stat, name='topic_stat'),
     path('task_update/<int:lab_no>/<int:task_no>/', views.task_update, name='task_update'),
     path('labprofile', views.labprofile, name='labprofile'),
-    path('<slug:course_name>/labprofiledetail/<int:lab_no>', views.labprofiledetail, name='labprofiledetail')
+    path('<slug:course_name>/labprofiledetail/<int:lab_no>', views.labprofiledetail, name='labprofiledetail'),
+    path('<slug:course_name>/topics/', views.self_topic_index, name='topics'),
+
     ]
