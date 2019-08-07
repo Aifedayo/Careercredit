@@ -4,10 +4,17 @@
  {{ course.data }}
 {% endblock %}
 
+{% block beadcrumb_right %}
+    <div class="navbar-item">
+     {{ course.data }}
+    </div>
+
+{% endblock %}
+
 {% load staticfiles %}
 {% block content %}
 
-    {% regroup topics by section as topic_list %}
+    {% regroup topics|dictsort:'data.topic_number' by section as topic_list %}
     <section class="column is-three-quarters-tablet">
 
         {% for section,topics in topic_list %}

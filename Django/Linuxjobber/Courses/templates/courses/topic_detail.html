@@ -34,10 +34,10 @@
 			<span class="videoname">{{topic}}</span>
 			<span class="aftervideo">Completed Video </span>
 			{%if topic.has_labs == 1 %}
-			<a href="{% url 'Courses:labs' topic.course.course_title.split|join:'_' topic.topic_number %}" class="btn btn-primary lab" style="float :right;">Proceed To Labs</a>	
+			<a href="{% url 'Courses:labs' topic.course.course_title.split|join:'_' topic.topic_number %}" class="btn btn-primary lab" style="float :right;">Proceed To Labs</a>
 			{%endif%}
 			{%if topic.has_notes == 1 %}
-						<a href="{% url 'Courses:Note' topic.course.course_title.split|join:'_' topic.topic_number %}" class="btn btn-primary" style="float :right;">Proceed To Notes</a>						</center>	
+						<a href="{% url 'Courses:Note' topic.course.course_title.split|join:'_' topic.topic_number %}" class="btn btn-primary" style="float :right;">Proceed To Notes</a>						</center>
 			{%endif%}
 
 			</h6>

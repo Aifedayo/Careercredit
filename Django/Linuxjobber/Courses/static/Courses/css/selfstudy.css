@@ -148,9 +148,6 @@ a.navbar-item:hover {
     height: 5px;
     background-color: rgba(0, 0, 0, 0.1);
 }
-.is-success{
-    background-color: #008800;
-}
 
 progress{
     position: absolute;

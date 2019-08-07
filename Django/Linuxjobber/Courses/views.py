@@ -1,6 +1,6 @@
 import subprocess, json, os, requests, random, datetime
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse, HttpResponseBadRequest
+from django.http import HttpResponse, HttpResponseBadRequest, Http404
 from django.shortcuts import render, redirect, get_object_or_404
 from django import template as temp#, forms
 from django.template.response import TemplateResponse
@@ -874,16 +874,13 @@ class SuperCourse():
 @login_required()
 def self_topic_index(request,**kwargs):
     context = {}
-    context['topics'] = CourseTopic.objects.filter(course__course_title=kwargs.get('course_name').replace("_", " "))
     topics = []
-    for i in context['topics']:
+    for i in CourseTopic.objects.filter(course__course_title=kwargs.get('course_name').replace("_", " ")):
         topics.append(SuperTopic(request.user, i))
     context['topics'] = topics
     context['course'] = SuperCourse(request.user,Course.objects.get(course_title=kwargs.get('course_name',None).replace("_", " ")))
     context['course_slug'] = kwargs.get('course_name',None).replace(" " , "_")
     context['aws'] = check_aws(request.user)
-
-    print(context['aws'])
     if request.user.role == 4:
         try:
             context['permission'] = CoursePermission.objects.get(user=request.user, course=context['course'])
@@ -892,3 +889,21 @@ def self_topic_index(request,**kwargs):
     return TemplateResponse(request,"courses/self_topic_index.html",context)
 
 
+@login_required()
+def self_topic_details(request, course_name, lab_no):
+
+    context = {}
+    topics = []
+    for i in CourseTopic.objects.filter(course__course_title=course_name.replace("_", " ")):
+        topics.append(SuperTopic(request.user, i))
+    context['topics'] = topics
+    context['course'] = SuperCourse(request.user,Course.objects.get(course_title=course_name.replace("_", " ")))
+    context['course_slug'] = course_name.replace(" " , "_") if course_name else None
+    try:
+        context['active_topic'] = SuperTopic(request.user,
+                                             CourseTopic.objects.get(pk=lab_no))
+    except CourseTopic.DoesNotExist:
+        raise Http404('Sorry, topic requested is not found')
+    if context['course'].data.aws_credential_required and not check_aws(request.user):
+        return redirect('home:account_settings')
+    return TemplateResponse(request,'courses/self_topic_detail.html',context)
