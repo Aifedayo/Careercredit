@@ -13,7 +13,7 @@
         {% for section,topics in topic_list %}
 {#            Note : Created a proxy model for topic, original data is gotten via .data #}
 
-            <span class="is-light-dark"> {% if section %} {{ section }} {% else %} Topics {% endif %} </span>
+            <span class="is-light-dark"> {{ section }}</span>
             {% for topic in topics %}
             <a class="{% if topic.data.free %}free {% else %}nonfree{% endif %}" href="{% url 'Courses:topic_details' course_slug topic.data.topic_number %}">
                 <div class="box is-paddingless">
@@ -24,7 +24,7 @@
 {#                  Give access to Admin Instructor (Role 1 - Role 3) , Subscribers (Role 6), Single Access (Role 4 with permission)#}
 {#                    Or Topic is free #}
                       {% if permission.permission == 1 or request.user.role >= 1 and request.user.role <= 3 or topic.data.free %}
-                        <sup id="text-green" class="has-padding size-10">Access&nbsp; <span class="ellipse"></span> &nbsp;</sup>
+                        <sup class="has-padding size-10">Access&nbsp; <span class="ellipse"></span> &nbsp;</sup>
                       {% else %}
                           <sup class="has-padding size-10 red-text">No Access&nbsp; <span class="no-access"></span> &nbsp;</sup>
                       {% endif %}
@@ -49,7 +49,7 @@
             <div class="media-content">
                 <div class="level">
               <div class="level-item">
-                  <a href="{% url 'Courses:topic_details' course.data.course_title.split|join:'_' topic.data.topic_number %}" class="button{% if topic.data.free %}free {% else %} nonfree{% endif %}">
+                  <a href="{% url 'Courses:topic_details' course.data.course_title.split|join:'_' topic.data.topic_number %}" class="button {% if topic.data.free %} free {% endif %}">
                     &nbsp;
                       <span class="icon">
                           <img src="{% static 'Courses/images/play.svg' %}" alt="">
@@ -58,7 +58,7 @@
                    </a>
               </div>
               <div class="level-item">
-                  <a style="background-color: rgba(0, 0, 0, 0.05);border: inherit;" href="{% url 'Courses:Note' course.data.course_title.split|join:'_' topic.data.topic_number %}" class="button{% if topic.data.free %}free {% else %} nonfree{% endif %}" {% if not topic.data.has_notes %} disabled {% endif %} >
+                  <a href="{% url 'Courses:Note' course.data.course_title.split|join:'_' topic.data.topic_number %}" class="button {% if topic.data.free %} free {% endif %}" {% if not topic.data.has_notes %} disabled {% endif %} >
                       <span class="icon">
                          <img src="{% static 'Courses/images/glasses.svg' %}" alt="">
                         </span>
@@ -68,7 +68,7 @@
               </div>
               <div class="level-item">
 
-                  <a style="background-color: rgba(0, 0, 0, 0.05);border: inherit;" href="{% if topic.data.has_labs %}{% url 'Courses:labs' course.data.course_title.split|join:'_' topic.data.topic_number %}{% endif %}" class="button{% if topic.data.free %}free {% else %} nonfree{% endif %}" {% if not topic.data.has_labs %} disabled {% endif %}>
+                  <a href="{% url 'Courses:labs' course.data.course_title.split|join:'_' topic.data.topic_number %}" class="button {% if topic.data.free %} free {% endif %}" {% if not topic.data.has_labs %} disabled {% endif %}>
                       <span class="icon">
                          <img src="{% static 'Courses/images/contract.svg' %}" alt="">
                         </span>
@@ -91,12 +91,8 @@
           </div>
 
           <div class="container is-widescreen color-it">
-                {% if topic.completion > 0 %}
-              <progress class="progress is-success" value="{{ topic.completion }}" max="100">{% if topic.completion > 1 %} {{ topic.completion }}% {% else %} Indeterminate {% endif %}</progress>
-                {% else %}
-              <progress class="progress" value="0" max="100">Indeterminate</progress>
-                {% endif %}
 
+              <progress class="progress is-success" value="{{ topic.completion }}" max="100"></progress>
           </div>
 
 

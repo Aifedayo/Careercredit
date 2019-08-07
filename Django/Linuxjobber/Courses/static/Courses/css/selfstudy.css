@@ -53,48 +53,19 @@ max-width: 102px;
 height: 25px;
 }
 
-.buttonfree{
-    border: 1px solid rgba(0, 0, 0, 0.8);
-box-sizing: border-box;
-border-radius: 4px;
-width: 100%;
-font-size: 10px;
-max-width: 102px;
-height: 25px;
-    padding-right: 5px;
-}
-
 .button[disabled]{
     /*background-color: red;*/
     background-color: rgba(0, 0, 0, 0.05);
-    pointer-events: none;
-    border: none;
 
 }
-
-.buttonfree[disabled]{
-    /*background-color: red;*/
-    background-color: rgba(0, 0, 0, 0.05);
-
-    pointer-events:none;
-    border: none;
-    cursor: not-allowed;
-}
-
-
-
 
 .ellipse{
     
     width: 5px;
 height: 5px;
 display: inline-block;
-background: #008800;
-box-shadow: 0px 0px 4px rgba(36, 247, 64, 0.91);
-}
-sup > ellipse{
-    background: #008800;
-
+background: #C4C4C4;
+box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
 }
 
 .no-access{
@@ -159,15 +130,9 @@ progress{
     margin-left: 0px;
     height: 5px;
     border-radius: 0px 0px 5px 5px;
-
+    color: #008800;
 }
-
-:indeterminate::-moz-progress-bar {
-  width: 0;
-}
-
 .progress{
-
     height: 5px;
    
 }
@@ -178,14 +143,10 @@ progress{
     text-align: center;
 
 }
-
-#text-green{
-    color: #008800;
-}
 .media.media-down{
     display: block;
     height: auto;
-    margin-top:7px;
+    margin-top:0px;
     margin-bottom: 0;
     margin-left: 66px;
     padding: 0px 40px 0px 0;
@@ -195,9 +156,7 @@ progress{
     text-align: center;
     
     border-radius: 1px 5px 6px 1px;
-    -webkit-box-shadow: 5px 0px 0 5px rgba(0,0,0,0.03);
-    -moz-box-shadow: 5px 0px 0 5px rgba(0,0,0,0.03);
-    box-shadow: 5px 0px 0 5px rgba(0,0,0,0.03);
+    box-shadow:5px 5px 5px 5px solid rgb(247, 247, 247);
     width: 40px;
     height: 40px;
     padding: 6px;
@@ -377,8 +336,4 @@ progress{
     display: block;
     visibility: visible;
     overflow: hidden;
-}
-
-.pad-10 {
-    margin-top: 15px;
 }
