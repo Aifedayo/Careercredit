@@ -1,0 +1,270 @@
+[2019-08-08 18:48:20] INFO [django.server.log_message:124] "GET /access_course HTTP/1.1" 200 18693
+[2019-08-08 18:48:20] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 304 0
+[2019-08-08 18:48:20] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 304 0
+[2019-08-08 18:48:20] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 304 0
+[2019-08-08 18:48:20] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 304 0
+[2019-08-08 18:48:20] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 304 0
+[2019-08-08 18:48:20] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 304 0
+[2019-08-08 18:48:20] INFO [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 304 0
+[2019-08-08 18:48:20] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css HTTP/1.1" 304 0
+[2019-08-08 18:48:20] INFO [django.server.log_message:124] "GET /static/js/waterbubble.js HTTP/1.1" 304 0
+[2019-08-08 18:48:20] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 304 0
+[2019-08-08 18:48:20] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 304 0
+[2019-08-08 18:48:20] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js HTTP/1.1" 304 0
+[2019-08-08 18:48:20] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 304 0
+[2019-08-08 18:48:20] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 304 0
+[2019-08-08 18:48:20] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 304 0
+[2019-08-08 18:48:20] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 304 0
+[2019-08-08 18:48:20] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 304 0
+[2019-08-08 18:48:20] INFO [django.server.log_message:124] "GET /static/home/images/icon1.png HTTP/1.1" 304 0
+[2019-08-08 18:48:20] INFO [django.server.log_message:124] "GET /static/home/images/logout1.png HTTP/1.1" 304 0
+[2019-08-08 18:48:20] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/jobban2.png HTTP/1.1" 304 0
+[2019-08-08 18:48:21] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 304 0
+[2019-08-08 18:48:24] INFO [django.server.log_message:124] "GET /logout HTTP/1.1" 200 7997
+[2019-08-08 18:48:26] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 23666
+[2019-08-08 18:48:27] INFO [django.server.log_message:124] "POST /ulocation HTTP/1.1" 200 0
+[2019-08-08 18:48:27] INFO [django.server.log_message:124] "GET /login/ HTTP/1.1" 200 3408
+[2019-08-08 18:48:37] INFO [django.server.log_message:124] "POST /login/ HTTP/1.1" 200 3495
+[2019-08-08 18:48:47] INFO [django.server.log_message:124] "POST /login/ HTTP/1.1" 302 0
+[2019-08-08 18:48:47] INFO [django.server.log_message:124] "GET /courses/userinterest HTTP/1.1" 200 22108
+[2019-08-08 18:48:47] INFO [django.server.log_message:124] "GET /static/home/images/amazons.png HTTP/1.1" 200 10409
+[2019-08-08 18:48:47] INFO [django.server.log_message:124] "GET /static/home/images/jjava.png HTTP/1.1" 200 10506
+[2019-08-08 18:48:47] INFO [django.server.log_message:124] "GET /static/home/images/button-left.png HTTP/1.1" 200 2071
+[2019-08-08 18:48:47] INFO [django.server.log_message:124] "GET /static/home/images/ppt.png HTTP/1.1" 200 964
+[2019-08-08 18:48:47] INFO [django.server.log_message:124] "GET /static/home/images/rchsaa.png HTTP/1.1" 200 6733
+[2019-08-08 18:48:47] INFO [django.server.log_message:124] "GET /static/home/images/ajs.png HTTP/1.1" 200 6757
+[2019-08-08 18:48:47] INFO [django.server.log_message:124] "GET /static/home/images/csecurity.png HTTP/1.1" 200 5664
+[2019-08-08 18:48:47] INFO [django.server.log_message:124] "GET /static/home/images/py.png HTTP/1.1" 200 5447
+[2019-08-08 18:48:47] INFO [django.server.log_message:124] "GET /static/home/images/dba.png HTTP/1.1" 200 5461
+[2019-08-08 18:48:47] INFO [django.server.log_message:124] "GET /static/home/images/biz.png HTTP/1.1" 200 7859
+[2019-08-08 18:48:47] ERROR [django.server.log_message:124] "GET /static/home/images/dba.png HTTP/1.1" 500 59
+[2019-08-08 18:48:47] ERROR [django.server.log_message:124] "GET /static/home/images/biz.png HTTP/1.1" 500 59
+[2019-08-08 18:48:47] INFO [django.server.log_message:124] "GET /static/home/images/lin-logo.png HTTP/1.1" 200 8192
+[2019-08-08 18:48:47] ERROR [django.server.log_message:124] "GET /static/home/images/lin-logo.png HTTP/1.1" 500 59
+[2019-08-08 18:48:48] INFO [django.server.log_message:124] "POST /ulocation HTTP/1.1" 200 0
+[2019-08-08 18:48:55] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /courses/Linux_administration/topics/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\Courses\views.py", line 873, in self_topic_index
+    topics.append(SuperTopic(request.user, i))
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\Courses\views.py", line 744, in __init__
+    self.completion = self.calculate_completion(topic.topic_number)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\Courses\views.py", line 751, in calculate_completion
+    topics = CourseTopic.objects.get(id=topic_id)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 403, in get
+    self.model._meta.object_name
+Courses.models.DoesNotExist: CourseTopic matching query does not exist.
+[2019-08-08 18:48:55] ERROR [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 500 104341
+[2019-08-08 18:49:05] INFO [django.server.log_message:124] "GET /courses/55/topics/ HTTP/1.1" 200 11743
+[2019-08-08 18:49:05] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 10574
+[2019-08-08 18:49:17] INFO [django.server.log_message:124] "GET /courses/33333/topics/ HTTP/1.1" 200 11749
+[2019-08-08 18:49:17] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 304 0
+[2019-08-08 18:49:26] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 24912
+[2019-08-08 18:49:27] INFO [django.server.log_message:124] "POST /ulocation HTTP/1.1" 200 0
+[2019-08-08 18:49:30] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /courses/Linux_administration/topics/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\Courses\views.py", line 873, in self_topic_index
+    topics.append(SuperTopic(request.user, i))
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\Courses\views.py", line 744, in __init__
+    self.completion = self.calculate_completion(topic.topic_number)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\Courses\views.py", line 751, in calculate_completion
+    topics = CourseTopic.objects.get(id=topic_id)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 403, in get
+    self.model._meta.object_name
+Courses.models.DoesNotExist: CourseTopic matching query does not exist.
+[2019-08-08 18:49:30] ERROR [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 500 104321
+[2019-08-08 18:50:06] INFO [django.server.log_message:124] "GET /logout HTTP/1.1" 200 7997
+[2019-08-08 18:50:07] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 23666
+[2019-08-08 18:50:08] INFO [django.server.log_message:124] "POST /ulocation HTTP/1.1" 200 0
+[2019-08-08 18:50:09] INFO [django.server.log_message:124] "GET /login/ HTTP/1.1" 200 3408
+[2019-08-08 18:50:20] INFO [django.server.log_message:124] "POST /login/ HTTP/1.1" 302 0
+[2019-08-08 18:50:20] INFO [django.server.log_message:124] "GET /courses/userinterest HTTP/1.1" 200 22013
+[2019-08-08 18:50:20] INFO [django.server.log_message:124] "GET /static/home/images/button-left.png HTTP/1.1" 200 2071
+[2019-08-08 18:50:20] INFO [django.server.log_message:124] "GET /static/home/images/lin-logo.png HTTP/1.1" 200 9301
+[2019-08-08 18:50:20] INFO [django.server.log_message:124] "GET /static/home/images/amazons.png HTTP/1.1" 200 8192
+[2019-08-08 18:50:20] INFO [django.server.log_message:124] "GET /static/home/images/ppt.png HTTP/1.1" 200 964
+[2019-08-08 18:50:20] ERROR [django.server.log_message:124] "GET /static/home/images/amazons.png HTTP/1.1" 500 59
+[2019-08-08 18:50:20] INFO [django.server.log_message:124] "GET /static/home/images/csecurity.png HTTP/1.1" 200 5664
+[2019-08-08 18:50:20] INFO [django.server.log_message:124] "GET /static/home/images/jjava.png HTTP/1.1" 200 8192
+[2019-08-08 18:50:20] INFO [django.server.log_message:124] "GET /static/home/images/ajs.png HTTP/1.1" 200 6757
+[2019-08-08 18:50:20] INFO [django.server.log_message:124] "GET /static/home/images/py.png HTTP/1.1" 200 5447
+[2019-08-08 18:50:20] ERROR [django.server.log_message:124] "GET /static/home/images/csecurity.png HTTP/1.1" 500 59
+[2019-08-08 18:50:20] ERROR [django.server.log_message:124] "GET /static/home/images/ppt.png HTTP/1.1" 500 59
+[2019-08-08 18:50:20] INFO [django.server.log_message:124] "GET /static/home/images/rchsaa.png HTTP/1.1" 200 6733
+[2019-08-08 18:50:20] ERROR [django.server.log_message:124] "GET /static/home/images/jjava.png HTTP/1.1" 500 59
+[2019-08-08 18:50:20] ERROR [django.server.log_message:124] "GET /static/home/images/ajs.png HTTP/1.1" 500 59
+[2019-08-08 18:50:20] ERROR [django.server.log_message:124] "GET /static/home/images/py.png HTTP/1.1" 500 59
+[2019-08-08 18:50:20] ERROR [django.server.log_message:124] "GET /static/home/images/rchsaa.png HTTP/1.1" 500 59
+[2019-08-08 18:50:20] INFO [django.server.log_message:124] "POST /ulocation HTTP/1.1" 200 0
+[2019-08-08 18:50:25] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /courses/Linux_administration/topics/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\Courses\views.py", line 873, in self_topic_index
+    topics.append(SuperTopic(request.user, i))
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\Courses\views.py", line 744, in __init__
+    self.completion = self.calculate_completion(topic.topic_number)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\Courses\views.py", line 751, in calculate_completion
+    topics = CourseTopic.objects.get(id=topic_id)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 403, in get
+    self.model._meta.object_name
+Courses.models.DoesNotExist: CourseTopic matching query does not exist.
+[2019-08-08 18:50:25] ERROR [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 500 104335
+[2019-08-08 18:50:35] WARNING [django.request.get_response:93] Not Found: /courses/Linux_administration/topics/2
+[2019-08-08 18:50:35] WARNING [django.server.log_message:124] "GET /courses/Linux_administration/topics/2 HTTP/1.1" 404 18815
+[2019-08-08 18:50:47] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 302 0
+[2019-08-08 18:50:47] INFO [django.server.log_message:124] "GET /timeout HTTP/1.1" 200 16613
+[2019-08-08 18:50:54] INFO [django.server.log_message:124] "POST /timeout HTTP/1.1" 302 0
+[2019-08-08 18:50:54] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /courses/Linux_administration/topics/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\Courses\views.py", line 873, in self_topic_index
+    topics.append(SuperTopic(request.user, i))
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\Courses\views.py", line 744, in __init__
+    self.completion = self.calculate_completion(topic.topic_number)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\Courses\views.py", line 751, in calculate_completion
+    topics = CourseTopic.objects.get(id=topic_id)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 403, in get
+    self.model._meta.object_name
+Courses.models.DoesNotExist: CourseTopic matching query does not exist.
+[2019-08-08 18:50:54] ERROR [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 500 104733
+[2019-08-08 18:51:18] INFO [django.server.log_message:124] "GET /admin HTTP/1.1" 200 32718
+[2019-08-08 18:51:20] INFO [django.server.log_message:124] "GET /admin/classroom/course/ HTTP/1.1" 200 3257
+[2019-08-08 18:51:21] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-08-08 18:51:24] INFO [django.server.log_message:124] "GET /admin/ HTTP/1.1" 200 32718
+[2019-08-08 18:51:29] INFO [django.server.log_message:124] "GET /admin/Courses/coursetopic/ HTTP/1.1" 200 6441
+[2019-08-08 18:51:29] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-08-08 18:51:32] INFO [django.server.log_message:124] "GET /admin/Courses/coursetopic/2/change/ HTTP/1.1" 200 11359
+[2019-08-08 18:51:33] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-08-08 18:51:44] INFO [django.server.log_message:124] "POST /admin/Courses/coursetopic/2/change/ HTTP/1.1" 302 0
+[2019-08-08 18:51:44] INFO [django.server.log_message:124] "GET /admin/Courses/coursetopic/ HTTP/1.1" 200 6632
+[2019-08-08 18:51:45] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-08-08 18:51:53] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /courses/Linux_administration/topics/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\Courses\views.py", line 873, in self_topic_index
+    topics.append(SuperTopic(request.user, i))
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\Courses\views.py", line 744, in __init__
+    self.completion = self.calculate_completion(topic.topic_number)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\Courses\views.py", line 751, in calculate_completion
+    topics = CourseTopic.objects.get(id=topic_id)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 403, in get
+    self.model._meta.object_name
+Courses.models.DoesNotExist: CourseTopic matching query does not exist.
+[2019-08-08 18:51:53] ERROR [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 500 104442
+[2019-08-08 18:51:57] INFO [django.server.log_message:124] "GET /admin/Courses/coursetopic/ HTTP/1.1" 200 6424
+[2019-08-08 18:52:00] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 24817
+[2019-08-08 18:52:05] INFO [django.server.log_message:124] "GET /courses/EC2/topics/ HTTP/1.1" 200 14380
+[2019-08-08 18:52:05] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 10574
+[2019-08-08 18:52:05] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-08-08 18:52:05] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-08-08 18:52:05] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-08-08 18:52:05] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-08-08 18:52:05] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-08-08 18:52:06] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-08-08 18:52:06] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-08-08 18:52:06] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-08-08 18:52:06] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-08-08 18:52:06] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-08-08 18:52:06] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-08-08 18:52:06] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-08-08 18:52:06] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-08-08 18:52:06] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-08-08 18:52:06] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-08-08 18:52:06] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-08-08 18:52:13] INFO [django.server.log_message:124] "GET /courses/EC2/topic/2/ HTTP/1.1" 200 13945
+[2019-08-08 18:52:13] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses-white.png HTTP/1.1" 200 302
+[2019-08-08 18:52:13] INFO [django.server.log_message:124] "GET /static/Courses/images/navarrow.png HTTP/1.1" 200 190
+[2019-08-08 18:52:13] INFO [django.server.log_message:124] "GET /static/Courses/images/contract-white.png HTTP/1.1" 200 316
+[2019-08-08 18:52:13] INFO [django.server.log_message:124] "POST /courses/videostat/2/stat/0 HTTP/1.1" 200 11
+[2019-08-08 18:52:13] WARNING [django.request.get_response:93] Not Found: /courses/EC2/topic/2/hybsdbdsbudsdsbudsbu
+[2019-08-08 18:52:13] WARNING [django.server.log_message:124] "GET /courses/EC2/topic/2/hybsdbdsbudsdsbudsbu HTTP/1.1" 404 18824
+[2019-08-08 18:52:32] INFO [django.server.log_message:124] "GET /logout HTTP/1.1" 200 7997
+[2019-08-08 18:52:32] INFO [django.server.log_message:124] "GET /static/home/images/slide1.png HTTP/1.1" 200 287894
+[2019-08-08 18:52:45] WARNING [django.request.get_response:93] Not Found: /courses/Linux_administration/topics/2
+[2019-08-08 18:52:45] WARNING [django.server.log_message:124] "GET /courses/Linux_administration/topics/2 HTTP/1.1" 404 18815
+[2019-08-08 18:52:48] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /courses/Linux_administration/topics/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\Courses\views.py", line 873, in self_topic_index
+    topics.append(SuperTopic(request.user, i))
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\Courses\views.py", line 744, in __init__
+    self.completion = self.calculate_completion(topic.topic_number)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\Courses\views.py", line 751, in calculate_completion
+    topics = CourseTopic.objects.get(id=topic_id)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 403, in get
+    self.model._meta.object_name
+Courses.models.DoesNotExist: CourseTopic matching query does not exist.
+[2019-08-08 18:52:49] ERROR [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 500 103990
+[2019-08-08 18:57:01] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 25396
+[2019-08-08 18:57:01] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-08-08 18:57:01] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-08-08 18:57:01] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 10574
+[2019-08-08 18:57:01] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-08-08 18:57:01] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-08-08 18:57:01] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-08-08 18:57:01] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-08-08 18:57:01] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-08-08 18:57:01] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-08-08 18:57:01] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-08-08 18:57:01] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-08-08 18:57:01] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 200 175
+[2019-08-08 18:57:01] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 200 24578
+[2019-08-08 18:57:01] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-08-08 18:57:01] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-08-08 18:57:01] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-08-08 18:57:01] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 200 12722
