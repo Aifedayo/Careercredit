@@ -73,8 +73,8 @@
 							</div>
 							<br>
 							<div>
-								{% if error_message == "yes" %}
-								<p style="color: red;">Invalid Login credentials. Please try again with valid credentials</p>
+								{% if error_message %}
+								<p style="color: red;">{{ error_message }}</p>
 								{% endif %}
 							</div>
 							<div>
