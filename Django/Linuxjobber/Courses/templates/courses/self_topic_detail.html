@@ -48,7 +48,11 @@
                 <span> Previous</span>
             </a>
         </div>
-        <div class="level-item"> <span class="size-18"><strong>{{ active_topic.data }}</strong> </span> </div>
+        <div id="mid-content" class="level-item">
+            <div class="cont">
+                <span class="size-18"><strong>{{ active_topic.data }}</strong> </span> </div>
+            </div>
+
         <div class="level-right">
             <a href="{% if next_topic %}
             {% url 'Courses:topic_details' course_slug next_topic %}
@@ -110,7 +114,7 @@
     <div class="mid">
         <p class="size-12 text-alt">
             Course &bullet;
-            <span class="size-11"> {{ active_topic.data.pk }}/{{ topics|length }} </span>
+            <span class="size-11"> {{ active_topic.data.topic_number }}/{{ topics|length }} </span>
         </p>
         <p class="size-14 margin-top-10">{{ active_topic.data }}</p>
         <p class="actions">
@@ -130,11 +134,15 @@
                     {#                  Give access to Admin Instructor (Role 1 - Role 3) , Subscribers (Role 6), Single Access (Role 4 with permission)#}
 {#                    Or Topic is free #}
                       {% if permission.permission == 1 or request.user.role >= 1 and request.user.role <= 3 or topic.data.free %}
-                <li class="{% if topic.completion > 0 and topic.completion < 100 %}played{% else %}completed{% endif %} ">
+                <li class="{% if topic.completion %}
+                {% if topic.completion > 0 and topic.completion < 100 %}played{% else %}completed{% endif %}
+                {% endif %}  ">
                     <a href="{% url 'Courses:topic_details' course_slug topic.data.topic_number %}">{{ topic.data }}</a>
                 </li>
                           {% else %}
-                          <li class="{% if topic.completion > 0 and topic.completion < 100 %}played{% else %}completed{% endif %} ">
+                          <li class="{% if topic.completion %}
+                          {% if topic.completion > 0 and topic.completion < 100 %}played{% else %}completed{% endif %}
+                          {% endif %}   ">
                     <a >{{ topic.data }} <span style="float: right;"><img src="{% static 'Courses/images/no-access.png' %}" alt=""></span></a>
                 </li>
 

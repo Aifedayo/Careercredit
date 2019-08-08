@@ -899,7 +899,7 @@ def self_topic_details(request, course_name, lab_no):
     context['course_slug'] = course_name.replace(" " , "_") if course_name else None
     try:
         context['active_topic'] = SuperTopic(request.user,
-                                             CourseTopic.objects.get(pk=lab_no))
+                                             CourseTopic.objects.get(course__course_title = course_name.replace("_"," "),topic_number = lab_no))
         # Navigation Code
         active_topic_number = context['active_topic'].data.topic_number
         active_topic_number_index = topic_numbers.index(active_topic_number)
