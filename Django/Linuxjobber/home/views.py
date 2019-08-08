@@ -13,6 +13,7 @@ from urllib.parse import urlparse
 from django.conf import settings
 from django.contrib.auth.hashers import check_password
 from django.core.mail import send_mail, BadHeaderError
+from django.db import IntegrityError
 from django.shortcuts import render,redirect, reverse, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required, permission_required
@@ -103,6 +104,35 @@ def unsubscribe(request):
         return render(request,'home/registration/unsubscribe.html', {'form':form} )
 
 
+def generate_username(fullname):
+
+    name = fullname.lower().split(' ')
+    lastname = name[- 1]
+    firstname = name[0]
+
+    # try initials of first names and full-last name
+    username = ' % s% s ' % (firstname[0], lastname)
+    if CustomUser.objects.filter(username=username).count() > 0:
+        # If that doesn't fit, try first full name plus initials of last names
+        username = "{}{}".format(firstname, lastname[0])
+        if CustomUser.objects.filter(username=username).count() > 0:
+            # If it doesm't fit put first name and number
+            users = CustomUser.objects.filter(username__startswith = firstname).order_by('-username').values(
+                'username')
+            print(users)
+            number = 1
+            if len(users) > 0:
+                last_number_used = users[0]['username'][-1]
+                try:
+                    if isinstance(eval(last_number_used),int):
+                        number = last_number_used + 1
+                except Exception:
+                    number = int(last_number_used) + 1
+                username = '%s%s' % (firstname, number)
+            else:
+                username = '%s%s' % (firstname, 1)
+
+    return username
 
 
 def signup(request):
@@ -111,39 +141,51 @@ def signup(request):
         lastname = request.POST['fullname'].split()[1] if len(request.POST['fullname'].split()) > 1 else request.POST['fullname'].split()[0]
         email = request.POST['email']
         password = request.POST['password']
-        username = email
-        custom_username = email.split('@')[0]
-
-
+        username = email.split('@')[0]
         try:
             userd = CustomUser.objects.get(email=email)
             exists = True
             return render(request, 'home/registration/signup.html', {'exists':exists})
         except CustomUser.DoesNotExist:
-            if (firstname):
-                user = CustomUser(username=username, email=email)
-                user.set_password(password)
-                user.first_name = firstname
-                user.last_name = lastname
-                user.custom_username = custom_username
-                user.save()
-                send_mail('Account has been Created', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + custom_username + ' and your email is ' +email + '\n Follow this url to login with your username and password '+settings.ENV_URL+'login \n\n Thanks & Regards \n Admin. \n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [email])
-                if 'job_email' in request.session:
+            try:
+                test = CustomUser.objects.get(username = username)
+                username = generate_username(fullname= firstname + " " + lastname)
+            except CustomUser.DoesNotExist:
+                pass
+            finally:
+                if (firstname):
+                    user = CustomUser(username=username, email=email)
+                    user.set_password(password)
+                    user.first_name = firstname
+                    user.last_name = lastname
+
                     try:
-                        free = FreeAccountClick.objects.get(email= request.session['job_email'])
-                        free.registered = 1
-                        free.email = email
-                        free.save(update_fields=["registered","email"])
-                        request.session["job_email"] = email
-                    except FreeAccountClick.DoesNotExist:
-                        pass
-                     
-                #ip = get_client_ip(request)
-                #add_location(ip,user)
-                return render(request, "home/registration/signupfeedback.html", {'user': user})
-            else:
-                error = True
-                return render(request, 'home/registration/signup.html', {'error':error})
+                        user.save()
+                    except IntegrityError:
+                        username = generate_username(fullname=firstname + " " + lastname)
+                        user.username=username
+                        user.save()
+
+                    send_mail('Account has been Created',
+                              'Hello ' + firstname + ' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + ' and your email is ' + email + '\n Follow this url to login with your username and password ' + settings.ENV_URL + 'login \n\n Thanks & Regards \n Admin. \n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
+                              settings.EMAIL_HOST_USER, [email])
+                    login(request,user)
+                    if 'job_email' in request.session:
+                        try:
+                            free = FreeAccountClick.objects.get(email=request.session['job_email'])
+                            free.registered = 1
+                            free.email = email
+                            free.save(update_fields=["registered", "email"])
+                            request.session["job_email"] = email
+                        except FreeAccountClick.DoesNotExist:
+                            pass
+
+                    # ip = get_client_ip(request)
+                    # add_location(ip,user)
+                    return render(request, "home/registration/signupfeedback.html", {'user': user})
+                else:
+                    error = True
+                    return render(request, 'home/registration/signup.html', {'error': error})
     else:
         if 'job_email' in request.session:
             try:
@@ -480,27 +522,38 @@ def resume(request):
 
 def log_in(request):
     next = ''
-    if request.GET:  
+    if request.GET:
         next = request.GET['next']
+    error_message = ''
 
     if request.method == "POST":
         user_name = request.POST['username']
         password = request.POST['password']
+        key = 'email' if '@' in user_name else 'username'
+        try:
+            if key == 'email':
+                user = CustomUser.objects.get(email=user_name)
+            else:
+                user = CustomUser.objects.get(username=user_name)
+                print(user)
+            if not user.is_active:
+                error_message="Sorry, account disabled, contact the administrator"
+            if not error_message:
+                if check_password(password, user.password):
+                    a=authenticate(username=user_name,password=password)
+                    login(request,user)
+                else:
+                    error_message = "Invalid Password"
+        except CustomUser.DoesNotExist:
+            error_message = "Sorry, No account exists with the username"
 
-        '''if "@" in user_name:
-            user_name = user_name.split('@')[0]'''
+        finally:
+            if error_message:
+                return TemplateResponse(request, "home/registration/login.html", {"error_message": error_message})
 
-        next = request.POST['next']
-        user = authenticate(request, username = user_name, password = password)
-        
-        if user is not None:
-            login(request, user)
-            #ip = get_client_ip(request)
-            #add_location(ip,request.user)
             if user.role == 4:
                 check_permission_expiry(user)
             if next == "":
-
                 #check if user paid for work experience and has not filled the form
                 try:
                     weps = wepeoples.objects.get(user=request.user)
@@ -519,11 +572,8 @@ def log_in(request):
                     return redirect("Courses:userinterest")
             else:
                 return HttpResponseRedirect(next)
-        else:
-            error_message = "yes"
-            return render(request, "home/registration/login.html", {'error_message' : error_message})
-    else:
-        return render(request, "home/registration/login.html", {'next':next})
+    return TemplateResponse(request, 'home/registration/login.html' , {'error_message':error_message})
+
 
 def check_permission_expiry(user):
     perms = ""

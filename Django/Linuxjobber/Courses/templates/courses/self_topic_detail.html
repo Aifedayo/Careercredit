@@ -1,0 +1,216 @@
+{% extends 'courses/self_base.html' %}
+
+{% block topic_head %}
+    <span class="small">
+    {{ active_topic.data }}
+    </span>
+     /
+    {{ course.data }}
+{% endblock %}
+
+{% block beadcrumb_left %}
+    {% if course %}
+    <a style="color: rgba(255, 255, 255, 0.5);" href="{% url 'Courses:topics' course.data.course_title.split|join:'_' %}" class="navbar-item no-pad-right no-margin-right text-alt-2">
+        <span class="small"> {{ course.data|capfirst }} / </span>
+    </a>
+    {% endif %}
+
+{% endblock %}
+
+{% block beadcrumb_right %}
+
+    <a class="navbar-item no-pad-left no-margin-left" >
+        <span class="size-18"> &nbsp;{{ active_topic.data }}</span>
+    </a>
+{% endblock %}
+
+
+{% block title %}
+    {{ active_topic.data }}: {{ course.data }}
+{% endblock %}
+
+{% load staticfiles %}
+{% block content %}
+
+<div class="topic-content">
+
+    <div class="topic-container">
+<div class="container">
+    <div id="nav-button" class="level is-mobile" style="width: 100%;">
+        <div class="level-left" >
+            <a href="{% if previous_topic %}
+            {% url 'Courses:topic_details' course_slug previous_topic %}
+            {% endif %}"
+               class="button" {% if not previous_topic %}
+                disabled=""
+            {% endif %} >
+                <span class="icon"><img src="{% static 'Courses/images/navarrow.png' %}"/></span>
+                <span> Previous</span>
+            </a>
+        </div>
+        <div id="mid-content" class="level-item">
+            <div class="cont">
+                <span class="size-18"><strong>{{ active_topic.data }}</strong> </span> </div>
+            </div>
+
+        <div class="level-right">
+            <a href="{% if next_topic %}
+            {% url 'Courses:topic_details' course_slug next_topic %}
+            {% endif %}"
+               class="button right" {% if not next_topic %}
+                disabled=""
+            {% endif %} >
+                <span> Next </span>
+                <span class="icon"><img style="transform: rotate(180deg)" src="{% static 'Courses/images/navarrow.png' %}"/></span>
+            </a>
+
+        </div>
+    </div>
+</div>
+        <div id="video">
+            <div class="video-container">
+                <video src="{{ active_topic.data.video }}" controls width="100%" height='100%' id="myVideo"></video>
+        </div>
+        <div class="video-description">
+            <p class="size-14">Description</p>
+            <p class="size-18"> {{ active_topic.data.description }} </p>
+        </div>
+        </div>
+
+        <div id="notes">
+            <div class="note-container">
+
+                <p class="size-18">
+                    <strong>
+                        {{ active_topic.data }}
+                    </strong>
+
+                </p>
+
+                <div class="note-content">
+                    {{ active_topic.data.note.Detail|safe }}
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+
+<div class="side-bar">
+    <div class="top">
+        <p class="size-12"> Total Course Progress &nbsp; &nbsp; <span class="text-alt size-11">{{ course.completion }}%</span> </p>
+        <p class="padding-top-10">
+
+            <progress class="progress {% if course.completion > 0 %} is-success {% endif %}" value="{{ course.completion }}" max="100">
+                {% if course.completion > 0 %}{{ course.completion }}%
+                {% else %} Indeterminate {% endif %}
+            </progress>
+        </p>
+    </div>
+    <div class="mid">
+        <p class="size-12 text-alt">
+            Course &bullet;
+            <span class="size-11"> {{ active_topic.data.topic_number }}/{{ topics|length }} </span>
+        </p>
+        <p class="size-14 margin-top-10">{{ active_topic.data }}</p>
+        <p class="actions">
+            <a id="toggleNote" {% if not active_topic.data.has_notes %} disabled {% endif %}  class="button"><span class="icon"><img src="{% static 'Courses/images/glasses-white.png' %}" alt=""></span> &nbsp; <span> Read Notes</span> </a>
+            <a href="{% url 'Courses:labs' course.data.course_title.split|join:'_' active_topic.data.topic_number %}" {% if not active_topic.data.has_labs %} disabled {% endif %}  class="button"><span class="icon"><img src="{% static 'Courses/images/contract-white.png' %}" alt=""></span>&nbsp; <span>Practice Labs</span>  </a>
+        </p>
+
+    </div>
+
+    <div class="course-outline">
+        {% regroup topics by section as topic_list %}
+        <div class="topic-container text-alt size-12" id="topic-container">
+            {% for section, topics in topic_list %}
+            <span class="span-section">{% if section %} {{ section }} {% else %} Topics {% endif %} </span>
+                <ul>
+                {% for topic in topics %}
+                    {#                  Give access to Admin Instructor (Role 1 - Role 3) , Subscribers (Role 6), Single Access (Role 4 with permission)#}
+{#                    Or Topic is free #}
+                      {% if permission.permission == 1 or request.user.role >= 1 and request.user.role <= 3 or topic.data.free %}
+                <li class="{% if topic.completion %}
+                {% if topic.completion > 0 and topic.completion < 100 %}played{% else %}completed{% endif %}
+                {% endif %}  ">
+                    <a href="{% url 'Courses:topic_details' course_slug topic.data.topic_number %}">{{ topic.data }}</a>
+                </li>
+                          {% else %}
+                          <li class="{% if topic.completion %}
+                          {% if topic.completion > 0 and topic.completion < 100 %}played{% else %}completed{% endif %}
+                          {% endif %}   ">
+                    <a >{{ topic.data }} <span style="float: right;"><img src="{% static 'Courses/images/no-access.png' %}" alt=""></span></a>
+                </li>
+
+                  {% endif %}
+                {% endfor %}
+                </ul>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</div>
+
+
+
+{% endblock %}
+
+
+
+{% block extra_scripts %}
+    <script>
+    var note_trigger = $('#toggleNote');
+    var video_container = $('#video');
+    var notes_container = $('#notes');
+
+          $(document).ready(function(){
+              notes_container.hide();
+              note_trigger.click(function () {
+                  video_container.hide();
+                  notes_container.show()
+              });
+
+
+               end(0);
+
+ $('#myVideo').bind("ended", function(){
+ 	$('.videoname').hide();
+ 	$('.aftervideo').show();
+ 	$('.lab').show();
+ 	end(1);
+ });
+
+function end(stat){
+	if (stat == 1){
+		$.ajax({
+		type: 'POST',
+		data:'',
+		url: '{% url "Courses:videostat" active_topic.data.id 1 %}',
+		success: function (result) {
+			setTimeout(function(){  },1000);
+		}
+	});
+	}else{
+		$.ajax({
+		type: 'POST',
+		data:'',
+		url: '{% url "Courses:videostat" active_topic.data.id 0 %}',
+		success: function (result) {
+			setTimeout(function(){  },1000);
+		}
+	});
+	}
+}
+
+          });
+    {#Trigger Video play status #}
+
+
+
+    </script>
+{% endblock %}

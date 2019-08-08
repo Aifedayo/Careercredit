@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 {% load staticfiles %}
-<html lang="en">
+<html lang="en" >
 <head>
-<link
+    <link rel="stylesheet" type="text/css" href="../../static/Courses/css/selfstudy.css"/>
+    <link
 href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
 rel="stylesheet">
 <link
@@ -17,16 +18,16 @@ rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> {% block title %}
-    
+
     {% endblock %} |
  Linuxjobber
     </title>
 
 </head>
-<body>
+<body class="has-navbar-fixed-top">
 
 <header>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
       <div id="profilebtn2" class="navbar-item">
           <a id="dropbtn2" class="navbar-item">
@@ -62,8 +63,6 @@ rel="stylesheet">
             {% endwith %}
         {% endfor %}
               {% endif %}
-
-
           <span class="size-10" style="color: white;padding-left: 10.5%;font-size: 10px">Other Links</span>
           <div class="navbar">
             <div class="navbar-menu">
@@ -112,9 +111,11 @@ rel="stylesheet">
         </div>
     </div>
 
-    <a class="navbar-item" href="">
-      <img width="120px" height="100%" src="{% static 'Courses/images/clogo.png' %} ">
-    </a>
+        <div class="pad-10">
+            <img width="160px" height="40px" src="{% static 'Courses/images/clogo.png' %} ">
+        </div>
+
+
 
     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
@@ -125,13 +126,10 @@ rel="stylesheet">
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start"></div>
-      <a href="" class="navbar-item is-pulled-left size-12" style="padding-right: 0">
-          {% block topic_head %}{% endblock %}
-      </a>
 
-    <a class="navbar-item is-pulled-left">
-    <span class="size-18">   {{ course.data }} </span>
-    </a>
+
+          {% block beadcrumb_left %}{% endblock %}
+      {% block beadcrumb_right %}{% endblock %}
 
 
     <div class="navbar-end">
