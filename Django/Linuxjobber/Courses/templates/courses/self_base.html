@@ -135,7 +135,7 @@ rel="stylesheet">
     <div class="navbar-end">
         <div id="profilebtn" class="navbar-item">
             <a id="dropbtn" class="navbar-item">
-              {{ request.user.username|upper }} &nbsp;
+              {{ request.user.first_name|upper }} &nbsp;
               <span class="icon">
                 <img src="{% static 'Courses/images/down.svg' %}" alt="">
               </span>

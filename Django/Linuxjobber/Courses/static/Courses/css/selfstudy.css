@@ -690,3 +690,24 @@ strong {
     font-weight: 500;
 }
 
+@media only screen and (max-width: 640px) {
+
+    .side-bar {
+    display:none;
+    }
+
+    .topic-content {
+        margin:0;
+        padding: 10px;
+    }
+
+    .level.is-mobile {
+        display: block;
+    }
+    #mid-content {
+        display: block;
+        margin: 0;
+        width: 100%;
+    }
+
+}
