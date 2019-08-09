@@ -1,0 +1,368 @@
+[2019-08-09 09:06:26] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topic/6/ HTTP/1.1" 302 0
+[2019-08-09 09:06:26] INFO [django.server.log_message:124] "GET /timeout HTTP/1.1" 200 16613
+[2019-08-09 09:06:26] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 200 1163
+[2019-08-09 09:06:26] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2019-08-09 09:06:26] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 200 3979
+[2019-08-09 09:06:26] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2019-08-09 09:06:26] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 39923
+[2019-08-09 09:06:26] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 143625
+[2019-08-09 09:06:26] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 200 7448
+[2019-08-09 09:06:27] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 200 4488
+[2019-08-09 09:06:27] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 200 9198
+[2019-08-09 09:06:27] INFO [django.server.log_message:124] "GET /static/js/waterbubble.js HTTP/1.1" 200 6268
+[2019-08-09 09:06:27] INFO [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 200 8372
+[2019-08-09 09:06:27] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 200 3066
+[2019-08-09 09:06:27] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css HTTP/1.1" 200 29279
+[2019-08-09 09:06:27] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 200 7720
+[2019-08-09 09:06:27] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 200 29115
+[2019-08-09 09:06:27] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js HTTP/1.1" 200 240434
+[2019-08-09 09:06:27] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 200 7177
+[2019-08-09 09:06:27] INFO [django.server.log_message:124] "GET /static/home/images/icon1.png HTTP/1.1" 200 2133
+[2019-08-09 09:06:27] INFO [django.server.log_message:124] "GET /static/home/images/logout1.png HTTP/1.1" 200 1899
+[2019-08-09 09:06:28] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/proj-list.png HTTP/1.1" 200 208259
+[2019-08-09 09:06:28] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-08-09 09:06:28] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 143625
+[2019-08-09 09:06:29] INFO [django.server.log_message:124] "POST /timeout HTTP/1.1" 200 16759
+[2019-08-09 09:06:29] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 200 1163
+[2019-08-09 09:06:29] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 200 3979
+[2019-08-09 09:06:29] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2019-08-09 09:06:29] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2019-08-09 09:06:29] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 39923
+[2019-08-09 09:06:29] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css HTTP/1.1" 200 29279
+[2019-08-09 09:06:29] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 200 7448
+[2019-08-09 09:06:29] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 200 29115
+[2019-08-09 09:06:29] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 143625
+[2019-08-09 09:06:29] INFO [django.server.log_message:124] "GET /static/js/waterbubble.js HTTP/1.1" 200 6268
+[2019-08-09 09:06:29] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 200 7720
+[2019-08-09 09:06:29] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 200 9198
+[2019-08-09 09:06:29] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 200 4488
+[2019-08-09 09:06:29] INFO [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 200 8372
+[2019-08-09 09:06:29] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js HTTP/1.1" 200 240434
+[2019-08-09 09:06:30] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 200 3066
+[2019-08-09 09:06:30] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 200 7177
+[2019-08-09 09:06:30] INFO [django.server.log_message:124] "GET /static/home/images/icon1.png HTTP/1.1" 200 2133
+[2019-08-09 09:06:30] INFO [django.server.log_message:124] "GET /static/home/images/logout1.png HTTP/1.1" 200 1899
+[2019-08-09 09:06:30] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/proj-list.png HTTP/1.1" 200 208259
+[2019-08-09 09:06:31] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-08-09 09:06:31] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 143625
+[2019-08-09 09:06:36] INFO [django.server.log_message:124] "POST /timeout HTTP/1.1" 302 0
+[2019-08-09 09:06:36] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topic/6/ HTTP/1.1" 200 16194
+[2019-08-09 09:06:37] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 11162
+[2019-08-09 09:06:37] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 200 190593
+[2019-08-09 09:06:37] WARNING [django.request.get_response:93] Not Found: /courses/Linux_administration/static/Courses/css/selfstudy.css
+[2019-08-09 09:06:37] WARNING [django.server.log_message:124] "GET /courses/Linux_administration/static/Courses/css/selfstudy.css HTTP/1.1" 404 18887
+[2019-08-09 09:06:37] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 200 482
+[2019-08-09 09:06:37] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 200 464
+[2019-08-09 09:06:37] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 200 706
+[2019-08-09 09:06:37] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 200 401
+[2019-08-09 09:06:37] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 200 148
+[2019-08-09 09:06:37] WARNING [django.request.get_response:93] Not Found: /courses/Linux_administration/topic/6/asdfgghf
+[2019-08-09 09:06:37] WARNING [django.server.log_message:124] "GET /courses/Linux_administration/topic/6/asdfgghf HTTP/1.1" 404 18839
+[2019-08-09 09:06:37] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 200 97168
+[2019-08-09 09:06:37] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 200 27911
+[2019-08-09 09:06:37] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses-white.png HTTP/1.1" 200 302
+[2019-08-09 09:06:37] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 200 259
+[2019-08-09 09:06:37] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 200 21119
+[2019-08-09 09:06:37] INFO [django.server.log_message:124] "GET /static/Courses/images/navarrow.png HTTP/1.1" 200 190
+[2019-08-09 09:06:37] INFO [django.server.log_message:124] "GET /static/Courses/images/contract-white.png HTTP/1.1" 200 316
+[2019-08-09 09:06:37] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 200 4617
+[2019-08-09 09:06:37] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 200 10551
+[2019-08-09 09:06:37] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 200 15815
+[2019-08-09 09:06:38] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-08-09 09:06:38] WARNING [django.server.log_message:124] "GET /favicon.ico HTTP/1.1" 404 14948
+[2019-08-09 09:06:38] INFO [django.server.log_message:124] "POST /courses/videostat/5/stat/0 HTTP/1.1" 200 11
+[2019-08-09 09:06:38] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 200 190593
+[2019-08-09 09:06:58] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topic/6/ HTTP/1.1" 200 16194
+[2019-08-09 09:06:58] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 11162
+[2019-08-09 09:06:58] WARNING [django.request.get_response:93] Not Found: /courses/Linux_administration/static/Courses/css/selfstudy.css
+[2019-08-09 09:06:58] WARNING [django.server.log_message:124] "GET /courses/Linux_administration/static/Courses/css/selfstudy.css HTTP/1.1" 404 18887
+[2019-08-09 09:06:58] INFO [django.server.log_message:124] "GET /static/Courses/images/navarrow.png HTTP/1.1" 304 0
+[2019-08-09 09:06:58] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses-white.png HTTP/1.1" 200 302
+[2019-08-09 09:06:58] INFO [django.server.log_message:124] "GET /static/Courses/images/contract-white.png HTTP/1.1" 200 316
+[2019-08-09 09:06:58] WARNING [django.request.get_response:93] Not Found: /courses/Linux_administration/topic/6/asdfgghf
+[2019-08-09 09:06:58] WARNING [django.server.log_message:124] "GET /courses/Linux_administration/topic/6/asdfgghf HTTP/1.1" 404 18839
+[2019-08-09 09:06:58] INFO [django.server.log_message:124] "POST /courses/videostat/5/stat/0 HTTP/1.1" 200 11
+[2019-08-09 09:10:29] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topic/6/ HTTP/1.1" 200 16311
+[2019-08-09 09:10:29] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 11162
+[2019-08-09 09:10:29] WARNING [django.request.get_response:93] Not Found: /courses/Linux_administration/static/Courses/css/selfstudy.css
+[2019-08-09 09:10:29] WARNING [django.server.log_message:124] "GET /courses/Linux_administration/static/Courses/css/selfstudy.css HTTP/1.1" 404 18887
+[2019-08-09 09:10:29] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 200 190593
+[2019-08-09 09:10:29] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 200 259
+[2019-08-09 09:10:29] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 200 464
+[2019-08-09 09:10:29] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 200 482
+[2019-08-09 09:10:29] WARNING [django.request.get_response:93] Not Found: /courses/Linux_administration/topic/6/asdfgghf
+[2019-08-09 09:10:29] WARNING [django.server.log_message:124] "GET /courses/Linux_administration/topic/6/asdfgghf HTTP/1.1" 404 18839
+[2019-08-09 09:10:29] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 200 706
+[2019-08-09 09:10:29] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 200 148
+[2019-08-09 09:10:29] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 200 4617
+[2019-08-09 09:10:29] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses-white.png HTTP/1.1" 200 302
+[2019-08-09 09:10:29] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 200 401
+[2019-08-09 09:10:29] INFO [django.server.log_message:124] "GET /static/Courses/images/contract-white.png HTTP/1.1" 200 316
+[2019-08-09 09:10:29] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 200 10551
+[2019-08-09 09:10:29] INFO [django.server.log_message:124] "GET /static/Courses/images/navarrow.png HTTP/1.1" 200 190
+[2019-08-09 09:10:30] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 200 27911
+[2019-08-09 09:10:30] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 200 21119
+[2019-08-09 09:10:30] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 200 15815
+[2019-08-09 09:10:30] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 200 97168
+[2019-08-09 09:10:30] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-08-09 09:10:30] WARNING [django.server.log_message:124] "GET /favicon.ico HTTP/1.1" 404 14948
+[2019-08-09 09:10:34] INFO [django.server.log_message:124] "POST /courses/videostat/5/stat/0 HTTP/1.1" 200 11
+[2019-08-09 09:10:34] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 200 190593
+[2019-08-09 09:12:06] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topic/6/ HTTP/1.1" 200 16349
+[2019-08-09 09:12:07] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 200 190593
+[2019-08-09 09:12:07] WARNING [django.request.get_response:93] Not Found: /courses/Linux_administration/static/Courses/css/selfstudy.css
+[2019-08-09 09:12:07] WARNING [django.server.log_message:124] "GET /courses/Linux_administration/static/Courses/css/selfstudy.css HTTP/1.1" 404 18887
+[2019-08-09 09:12:07] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 11162
+[2019-08-09 09:12:07] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 200 97168
+[2019-08-09 09:12:07] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 200 259
+[2019-08-09 09:12:07] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 200 482
+[2019-08-09 09:12:07] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 200 464
+[2019-08-09 09:12:07] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 200 401
+[2019-08-09 09:12:07] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 200 706
+[2019-08-09 09:12:07] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 200 148
+[2019-08-09 09:12:07] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses-white.png HTTP/1.1" 200 302
+[2019-08-09 09:12:07] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 200 4617
+[2019-08-09 09:12:07] WARNING [django.request.get_response:93] Not Found: /courses/Linux_administration/topic/6/asdfgghf
+[2019-08-09 09:12:07] WARNING [django.server.log_message:124] "GET /courses/Linux_administration/topic/6/asdfgghf HTTP/1.1" 404 18839
+[2019-08-09 09:12:07] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 200 27911
+[2019-08-09 09:12:07] INFO [django.server.log_message:124] "GET /static/Courses/images/navarrow.png HTTP/1.1" 200 190
+[2019-08-09 09:12:07] INFO [django.server.log_message:124] "GET /static/Courses/images/contract-white.png HTTP/1.1" 200 316
+[2019-08-09 09:12:07] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 200 21119
+[2019-08-09 09:12:07] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 200 10551
+[2019-08-09 09:12:07] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 200 15815
+[2019-08-09 09:12:07] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-08-09 09:12:07] WARNING [django.server.log_message:124] "GET /favicon.ico HTTP/1.1" 404 14948
+[2019-08-09 09:12:07] INFO [django.server.log_message:124] "POST /courses/videostat/5/stat/0 HTTP/1.1" 200 11
+[2019-08-09 09:12:08] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 200 190593
+[2019-08-09 09:12:12] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topic/6/ HTTP/1.1" 200 16349
+[2019-08-09 09:12:12] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 11162
+[2019-08-09 09:12:12] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 200 97168
+[2019-08-09 09:12:12] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 200 190593
+[2019-08-09 09:12:13] WARNING [django.request.get_response:93] Not Found: /courses/Linux_administration/static/Courses/css/selfstudy.css
+[2019-08-09 09:12:13] WARNING [django.server.log_message:124] "GET /courses/Linux_administration/static/Courses/css/selfstudy.css HTTP/1.1" 404 18887
+[2019-08-09 09:12:13] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 200 401
+[2019-08-09 09:12:13] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 200 464
+[2019-08-09 09:12:13] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 200 706
+[2019-08-09 09:12:13] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 200 482
+[2019-08-09 09:12:14] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 200 4617
+[2019-08-09 09:12:14] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 200 148
+[2019-08-09 09:12:14] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses-white.png HTTP/1.1" 200 302
+[2019-08-09 09:12:14] INFO [django.server.log_message:124] "GET /static/Courses/images/navarrow.png HTTP/1.1" 200 190
+[2019-08-09 09:12:14] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 200 259
+[2019-08-09 09:12:14] INFO [django.server.log_message:124] "GET /static/Courses/images/contract-white.png HTTP/1.1" 200 316
+[2019-08-09 09:12:14] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 200 10551
+[2019-08-09 09:12:14] WARNING [django.request.get_response:93] Not Found: /courses/Linux_administration/topic/6/asdfgghf
+[2019-08-09 09:12:14] WARNING [django.server.log_message:124] "GET /courses/Linux_administration/topic/6/asdfgghf HTTP/1.1" 404 18839
+[2019-08-09 09:12:14] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 200 21119
+[2019-08-09 09:12:14] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 200 15815
+[2019-08-09 09:12:14] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 200 27911
+[2019-08-09 09:12:14] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-08-09 09:12:14] WARNING [django.server.log_message:124] "GET /favicon.ico HTTP/1.1" 404 14948
+[2019-08-09 09:12:14] INFO [django.server.log_message:124] "POST /courses/videostat/5/stat/0 HTTP/1.1" 200 11
+[2019-08-09 09:12:14] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 200 190593
+[2019-08-09 09:13:23] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topic/6/ HTTP/1.1" 200 16381
+[2019-08-09 09:13:23] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 200 11162
+[2019-08-09 09:13:23] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 200 97168
+[2019-08-09 09:13:23] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 200 190593
+[2019-08-09 09:13:23] WARNING [django.request.get_response:93] Not Found: /courses/Linux_administration/static/Courses/css/selfstudy.css
+[2019-08-09 09:13:23] WARNING [django.server.log_message:124] "GET /courses/Linux_administration/static/Courses/css/selfstudy.css HTTP/1.1" 404 18887
+[2019-08-09 09:13:24] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 200 464
+[2019-08-09 09:13:24] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 200 482
+[2019-08-09 09:13:24] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 200 401
+[2019-08-09 09:13:24] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 200 259
+[2019-08-09 09:13:24] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 200 706
+[2019-08-09 09:13:24] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 200 148
+[2019-08-09 09:13:24] INFO [django.server.log_message:124] "GET /static/Courses/images/navarrow.png HTTP/1.1" 200 190
+[2019-08-09 09:13:24] WARNING [django.request.get_response:93] Not Found: /courses/Linux_administration/topic/6/asdfgghf
+[2019-08-09 09:13:24] WARNING [django.server.log_message:124] "GET /courses/Linux_administration/topic/6/asdfgghf HTTP/1.1" 404 18839
+[2019-08-09 09:13:24] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 200 4617
+[2019-08-09 09:13:24] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses-white.png HTTP/1.1" 200 302
+[2019-08-09 09:13:24] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 200 10551
+[2019-08-09 09:13:24] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 200 27911
+[2019-08-09 09:13:24] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 200 15815
+[2019-08-09 09:13:24] INFO [django.server.log_message:124] "GET /static/Courses/images/contract-white.png HTTP/1.1" 200 316
+[2019-08-09 09:13:24] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 200 21119
+[2019-08-09 09:13:24] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-08-09 09:13:24] WARNING [django.server.log_message:124] "GET /favicon.ico HTTP/1.1" 404 14948
+[2019-08-09 09:13:24] INFO [django.server.log_message:124] "POST /courses/videostat/5/stat/0 HTTP/1.1" 200 11
+[2019-08-09 09:13:24] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 200 190593
+[2019-08-09 09:15:00] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topic/6/ HTTP/1.1" 200 16403
+[2019-08-09 09:15:00] WARNING [django.request.get_response:93] Not Found: /courses/Linux_administration/static/Courses/css/selfstudy.css
+[2019-08-09 09:15:00] WARNING [django.server.log_message:124] "GET /courses/Linux_administration/static/Courses/css/selfstudy.css HTTP/1.1" 404 18887
+[2019-08-09 09:15:00] WARNING [django.request.get_response:93] Not Found: /courses/Linux_administration/topic/6/asdfgghf
+[2019-08-09 09:15:00] WARNING [django.server.log_message:124] "GET /courses/Linux_administration/topic/6/asdfgghf HTTP/1.1" 404 18839
+[2019-08-09 09:15:00] INFO [django.server.log_message:124] "POST /courses/videostat/5/stat/0 HTTP/1.1" 200 11
+[2019-08-09 09:15:06] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topic/6/ HTTP/1.1" 200 16403
+[2019-08-09 09:15:07] WARNING [django.request.get_response:93] Not Found: /courses/Linux_administration/static/Courses/css/selfstudy.css
+[2019-08-09 09:15:07] WARNING [django.server.log_message:124] "GET /courses/Linux_administration/static/Courses/css/selfstudy.css HTTP/1.1" 404 18887
+[2019-08-09 09:15:07] WARNING [django.request.get_response:93] Not Found: /courses/Linux_administration/topic/6/asdfgghf
+[2019-08-09 09:15:07] WARNING [django.server.log_message:124] "GET /courses/Linux_administration/topic/6/asdfgghf HTTP/1.1" 404 18839
+[2019-08-09 09:15:07] INFO [django.server.log_message:124] "POST /courses/videostat/5/stat/0 HTTP/1.1" 200 11
+[2019-08-09 09:18:05] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 26513
+[2019-08-09 09:18:05] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-08-09 09:18:05] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18830
+[2019-08-09 09:18:07] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topic/3/%23notes HTTP/1.1" 200 16109
+[2019-08-09 09:18:07] WARNING [django.request.get_response:93] Not Found: /courses/Linux_administration/static/Courses/css/selfstudy.css
+[2019-08-09 09:18:07] WARNING [django.server.log_message:124] "GET /courses/Linux_administration/static/Courses/css/selfstudy.css HTTP/1.1" 404 18893
+[2019-08-09 09:18:07] INFO [django.server.log_message:124] "POST /courses/videostat/3/stat/0 HTTP/1.1" 200 11
+[2019-08-09 09:19:41] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topic/5/%23notes HTTP/1.1" 200 16033
+[2019-08-09 09:19:41] WARNING [django.request.get_response:93] Not Found: /courses/Linux_administration/static/Courses/css/selfstudy.css
+[2019-08-09 09:19:41] WARNING [django.server.log_message:124] "GET /courses/Linux_administration/static/Courses/css/selfstudy.css HTTP/1.1" 404 18893
+[2019-08-09 09:19:41] WARNING [django.request.get_response:93] Not Found: /courses/Linux_administration/topic/5/hybdsnunidsnds
+[2019-08-09 09:19:41] WARNING [django.server.log_message:124] "GET /courses/Linux_administration/topic/5/hybdsnunidsnds HTTP/1.1" 404 18863
+[2019-08-09 09:19:41] INFO [django.server.log_message:124] "POST /courses/videostat/4/stat/0 HTTP/1.1" 200 11
+[2019-08-09 09:21:02] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /courses/Linux_administration/topics/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 158, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 156, in _get_response
+    response = response.render()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\response.py", line 106, in render
+    self.content = self.rendered_content
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    content = template.render(context, self._request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\loader_tags.py", line 155, in render
+    return compiled_parent._render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\loader_tags.py", line 67, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\defaulttags.py", line 447, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\urls\base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\urls\resolvers.py", line 603, in _reverse_with_prefix
+    if re.search('^%s%s' % (re.escape(_prefix), pattern), candidate_pat % text_candidate_subs):
+TypeError: not enough arguments for format string
+[2019-08-09 09:21:02] ERROR [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 500 218357
+[2019-08-09 09:21:16] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /courses/Linux_administration/topics/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 158, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 156, in _get_response
+    response = response.render()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\response.py", line 106, in render
+    self.content = self.rendered_content
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    content = template.render(context, self._request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\loader_tags.py", line 155, in render
+    return compiled_parent._render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\loader_tags.py", line 67, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\defaulttags.py", line 447, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\urls\base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\urls\resolvers.py", line 603, in _reverse_with_prefix
+    if re.search('^%s%s' % (re.escape(_prefix), pattern), candidate_pat % text_candidate_subs):
+TypeError: not enough arguments for format string
+[2019-08-09 09:21:16] ERROR [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 500 218492
+[2019-08-09 09:22:24] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 26513
+[2019-08-09 09:22:24] INFO [django.server.log_message:124] "GET /static/Courses/css/bulma.min.css HTTP/1.1" 304 0
+[2019-08-09 09:22:24] INFO [django.server.log_message:124] "GET /static/Courses/css/selfstudy.css HTTP/1.1" 304 0
+[2019-08-09 09:22:24] INFO [django.server.log_message:124] "GET /static/Courses/js/jquery.min.js HTTP/1.1" 304 0
+[2019-08-09 09:22:24] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-08-09 09:22:24] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18830
+[2019-08-09 09:22:24] INFO [django.server.log_message:124] "GET /static/Courses/images/dots.png HTTP/1.1" 304 0
+[2019-08-09 09:22:24] INFO [django.server.log_message:124] "GET /static/Courses/images/careers.png HTTP/1.1" 304 0
+[2019-08-09 09:22:24] INFO [django.server.log_message:124] "GET /static/Courses/images/work.png HTTP/1.1" 304 0
+[2019-08-09 09:22:24] INFO [django.server.log_message:124] "GET /static/Courses/images/projects.png HTTP/1.1" 304 0
+[2019-08-09 09:22:24] INFO [django.server.log_message:124] "GET /static/Courses/images/clogo.png HTTP/1.1" 304 0
+[2019-08-09 09:22:24] INFO [django.server.log_message:124] "GET /static/Courses/images/lab_profile.svg HTTP/1.1" 304 0
+[2019-08-09 09:22:24] INFO [django.server.log_message:124] "GET /static/Courses/images/logout.svg HTTP/1.1" 304 0
+[2019-08-09 09:22:24] INFO [django.server.log_message:124] "GET /static/Courses/images/acct_settings.svg HTTP/1.1" 304 0
+[2019-08-09 09:22:24] INFO [django.server.log_message:124] "GET /static/Courses/images/glasses.svg HTTP/1.1" 304 0
+[2019-08-09 09:22:24] INFO [django.server.log_message:124] "GET /static/Courses/images/contract.svg HTTP/1.1" 304 0
+[2019-08-09 09:22:24] INFO [django.server.log_message:124] "GET /static/Courses/images/ordelist.svg HTTP/1.1" 304 0
+[2019-08-09 09:22:24] INFO [django.server.log_message:124] "GET /static/Courses/images/down.svg HTTP/1.1" 304 0
+[2019-08-09 09:22:24] INFO [django.server.log_message:124] "GET /static/Courses/images/play.svg HTTP/1.1" 304 0
+[2019-08-09 09:22:24] INFO [django.server.log_message:124] "GET /static/Courses/images/home.png HTTP/1.1" 304 0
+[2019-08-09 09:22:34] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topic/6/%23notes HTTP/1.1" 200 16403
+[2019-08-09 09:22:34] WARNING [django.request.get_response:93] Not Found: /courses/Linux_administration/static/Courses/css/selfstudy.css
+[2019-08-09 09:22:34] WARNING [django.server.log_message:124] "GET /courses/Linux_administration/static/Courses/css/selfstudy.css HTTP/1.1" 404 18893
+[2019-08-09 09:22:34] WARNING [django.request.get_response:93] Not Found: /courses/Linux_administration/topic/6/asdfgghf
+[2019-08-09 09:22:34] WARNING [django.server.log_message:124] "GET /courses/Linux_administration/topic/6/asdfgghf HTTP/1.1" 404 18845
+[2019-08-09 09:22:34] INFO [django.server.log_message:124] "POST /courses/videostat/5/stat/0 HTTP/1.1" 200 11
+[2019-08-09 09:23:34] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topic/6/%23notes HTTP/1.1" 200 16452
+[2019-08-09 09:23:34] WARNING [django.request.get_response:93] Not Found: /courses/Linux_administration/static/Courses/css/selfstudy.css
+[2019-08-09 09:23:34] WARNING [django.server.log_message:124] "GET /courses/Linux_administration/static/Courses/css/selfstudy.css HTTP/1.1" 404 18893
+[2019-08-09 09:23:34] WARNING [django.request.get_response:93] Not Found: /courses/Linux_administration/topic/6/asdfgghf
+[2019-08-09 09:23:34] WARNING [django.server.log_message:124] "GET /courses/Linux_administration/topic/6/asdfgghf HTTP/1.1" 404 18845
+[2019-08-09 09:23:34] INFO [django.server.log_message:124] "POST /courses/videostat/5/stat/0 HTTP/1.1" 200 11
+[2019-08-09 09:24:53] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topics/ HTTP/1.1" 200 26498
+[2019-08-09 09:24:53] WARNING [django.request.get_response:93] Not Found: /courses/static/Courses/css/selfstudy.css
+[2019-08-09 09:24:53] WARNING [django.server.log_message:124] "GET /courses/static/Courses/css/selfstudy.css HTTP/1.1" 404 18829
+[2019-08-09 09:24:55] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topic/5/notes HTTP/1.1" 200 16079
+[2019-08-09 09:24:55] WARNING [django.request.get_response:93] Not Found: /courses/Linux_administration/static/Courses/css/selfstudy.css
+[2019-08-09 09:24:55] WARNING [django.server.log_message:124] "GET /courses/Linux_administration/static/Courses/css/selfstudy.css HTTP/1.1" 404 18892
+[2019-08-09 09:24:55] WARNING [django.request.get_response:93] Not Found: /courses/Linux_administration/topic/5/hybdsnunidsnds
+[2019-08-09 09:24:55] WARNING [django.server.log_message:124] "GET /courses/Linux_administration/topic/5/hybdsnunidsnds HTTP/1.1" 404 18862
+[2019-08-09 09:24:55] INFO [django.server.log_message:124] "POST /courses/videostat/4/stat/0 HTTP/1.1" 200 11
+[2019-08-09 09:25:00] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topic/5/notes HTTP/1.1" 200 16079
+[2019-08-09 09:25:00] WARNING [django.request.get_response:93] Not Found: /courses/Linux_administration/static/Courses/css/selfstudy.css
+[2019-08-09 09:25:00] WARNING [django.server.log_message:124] "GET /courses/Linux_administration/static/Courses/css/selfstudy.css HTTP/1.1" 404 18892
+[2019-08-09 09:25:00] WARNING [django.request.get_response:93] Not Found: /courses/Linux_administration/topic/5/hybdsnunidsnds
+[2019-08-09 09:25:00] WARNING [django.server.log_message:124] "GET /courses/Linux_administration/topic/5/hybdsnunidsnds HTTP/1.1" 404 18862
+[2019-08-09 09:25:00] INFO [django.server.log_message:124] "POST /courses/videostat/4/stat/0 HTTP/1.1" 200 11
+[2019-08-09 09:25:03] INFO [django.server.log_message:124] "GET /courses/Linux_administration/topic/3/ HTTP/1.1" 200 16155
+[2019-08-09 09:25:03] WARNING [django.request.get_response:93] Not Found: /courses/Linux_administration/static/Courses/css/selfstudy.css
+[2019-08-09 09:25:03] WARNING [django.server.log_message:124] "GET /courses/Linux_administration/static/Courses/css/selfstudy.css HTTP/1.1" 404 18892
+[2019-08-09 09:25:03] INFO [django.server.log_message:124] "POST /courses/videostat/3/stat/0 HTTP/1.1" 200 11
