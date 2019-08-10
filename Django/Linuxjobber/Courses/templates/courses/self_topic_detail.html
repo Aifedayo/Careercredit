@@ -158,7 +158,11 @@
                           <li class="{% if topic.completion %}
                           {% if topic.completion > 0 and topic.completion < 100 %}played{% else %}completed{% endif %}
                           {% endif %}">
-                    <a href="{% url 'home:monthly_subscription' %}">{{ topic.data }} <span style="float: right;"><img src="{% static 'Courses/images/no-access.png' %}" alt=""></span></a>
+                    <a href="{% url 'home:monthly_subscription' %}">
+
+                        {{ topic.data }}
+                        <span style="float: right;"><img src="{% static 'Courses/images/no-access.png' %}" alt=""></span>
+                    </a>
                 </li>
 
                   {% endif %}
