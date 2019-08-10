@@ -803,6 +803,7 @@ class SuperCourse():
 
         self.completion = self.calculate_completion(user, course.pk)
 
+
     def calculate_completion(self, user, course_id):
         course = Course.objects.get(id=course_id)
         topics = CourseTopic.objects.filter(course=course)
@@ -877,7 +878,7 @@ def self_topic_index(request,**kwargs):
     context['aws'] = check_aws(request.user)
     if request.user.role == 4:
         try:
-            context['permission'] = CoursePermission.objects.get(user=request.user, course=context['course'])
+            context['permission'] = CoursePermission.objects.get(user=request.user, course=context['course'].data)
         except CoursePermission.DoesNotExist:
             context['permission'] = 0
     return TemplateResponse(request,"courses/self_topic_index.html",context)
@@ -913,6 +914,12 @@ def self_topic_details(request, course_name, lab_no):
             context['previous_topic'] = topic_numbers[active_topic_number_index - 1]
     except CourseTopic.DoesNotExist:
         raise Http404('Sorry, topic requested is not found')
+
     if context['course'].data.aws_credential_required and not check_aws(request.user):
         return redirect('home:account_settings')
+    if request.user.role == 4:
+        try:
+            context['permission'] = CoursePermission.objects.get(user=request.user, course=context['course'].data)
+        except CoursePermission.DoesNotExist or Exception:
+            context['permission'] = 0
     return TemplateResponse(request,'courses/self_topic_detail.html',context)
