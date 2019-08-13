@@ -10,20 +10,21 @@ from django.conf import settings
 
 
 class SessionMiddleWare(MiddlewareMixin):
-    def process_request(self,request):
+    def process_request(self, request):
         if 'timeout' in request.path or 'login' in request.path or 'logout' in request.path:
             if "logout" in request.path:
-                request.session['has_timeout']=False
+                request.session['has_timeout'] = False
             return
 
         if request.user.is_authenticated:
-            if request.session.get('has_timeout',None) == True:
-                return redirect('home:timeout')
 
-            last_activity = request.session.get('last_activity',None)
+            if request.session.get('has_timeout', None):
+                return redirect('home:timeout')
+            last_activity = request.session.get('last_activity', None)
             now = datetime.now()
             if last_activity:
-                if (now -  datetime.strptime(last_activity,"%Y,%m,%d,%H,%M,%S")).total_seconds() > config("SESSION_TIMEOUT_IN_SECOND", 1800,cast=int):
+                if (now - datetime.strptime(last_activity, "%Y,%m,%d,%H,%M,%S")).total_seconds() > config(
+                        "SESSION_TIMEOUT_IN_SECOND", 1800, cast=int):
                     request.session['from_timeout_next'] = request.path
                     request.session['has_timeout'] = True
                     request.session['last_activity'] = now.strftime("%Y,%m,%d,%H,%M,%S")
