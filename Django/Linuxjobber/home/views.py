@@ -398,7 +398,7 @@ def partime(request):
                 freeclick.save()
 
             if not request.POST['cv_link']:
-                cv = settings.ENV_URL+newform.cv.url.strip("/")
+                cv = newform.cv.url
             else:
                 cv = request.POST['cv_link']
 
@@ -500,7 +500,7 @@ def jobapplication(request, job):
                 freeclick.save()
 
             if not request.POST['cv_link']:
-                cv = jobform.resume.url.strip("/")
+                cv = jobform.resume.url
             else:
                 cv = request.POST['cv_link']
 
@@ -829,9 +829,9 @@ def workexprofile(request):
             weps.last_verification = datetime.now()
             weps.save(update_fields=["Paystub","last_verification"])
 
-            link = settings.ENV_URL+weps.Paystub.url.strip("/")
+            link = weps.Paystub.url
             
-            send_mail('Pay Stub verification needed', 'Hello,\n '+request.user.email+' just uploaded is pay stub at: '+link+'.\nPlease review and confirm last verification\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
+            send_mail('Pay Stub verification needed', 'Hello,\n '+request.user.email+' just uploaded is pay stub at: '+link+'.\nPlease review and confirm last verification\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, ['azeemmayowa@gmail.com'])
             messages.success(request, 'Paystub uploaded successfully, Last verification would be confirmed as soon as Paystub is verified')
             return redirect("home:workexprofile")
         elif request.POST['type'] == '2':
