@@ -33,17 +33,24 @@ class weworkAdmin(admin.ModelAdmin):
 		#send task to user
 		if obj.send_task == 1:
 			task = wetask.objects.get(pk=form.cleaned_data['task'].id)
-			send_mail('Linuxjobber WE Task: '+task.task, 'Hello '+obj.we_people.user.first_name+ ', \n\nTask: '+task.task +'\n\n objective: '+task.objective+'\n\n Description: '+task.description+' .\n\n Thanks & Regards \n Linuxjobber', settings.EMAIL_HOST_USER, [obj.we_people.user.email])
+			send_mail(
+				'Linuxjobber WE Task: '+task.task
+				, 'Hello '+ obj.we_people.user.first_name +
+				  ', \n\nTask: '+ task.task +
+				  '\n\n objective: '+
+				  task.objective+'\n\n Description: '+
+				  task.description+
+				  ' .\n\n Thanks & Regards \n Linuxjobber',
+				settings.EMAIL_HOST_USER, [obj.we_people.user.email])
 
 		super().save_model(request, obj, form, change)
 
 class campaignAdmin(admin.ModelAdmin):
 	def save_model(self, request, obj, form, change):
-
 		if obj.send_message == 1:
 			outps = None
 			outs = None
-			print('okay passed')
+			Role = ""
 			if obj.Target == 0:
 				Role = "all_role6"
 			elif obj.Target == 1:
@@ -55,8 +62,23 @@ class campaignAdmin(admin.ModelAdmin):
 			elif obj.Target == 4:
 				Role = "marketing_internship"
 			
-			outps = subprocess.Popen(["sshpass","-p", settings.TOOLS_PASSWORD, "ssh", "-o StrictHostKeyChecking=no", "-o LogLevel=ERROR", "-o UserKnownHostsFile=/dev/null", settings.TOOLS_USER+"@"+settings.SERVER_IP, "cd "+ settings.OLD_TOOLS_PATH +" && sudo bash scheduler.sh"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
-			outs = subprocess.Popen(["sshpass","-p", settings.TOOLS_PASSWORD, "ssh", "-o StrictHostKeyChecking=no", "-o LogLevel=ERROR", "-o UserKnownHostsFile=/dev/null", settings.TOOLS_USER+"@"+settings.SERVER_IP, "cd "+ settings.NEW_TOOLS_PATH +" && sudo python composeMail.py", '1', Role, str(obj.message.slug)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+			outps = subprocess.Popen(
+				["sshpass","-p", settings.TOOLS_PASSWORD,
+				 "ssh", "-o StrictHostKeyChecking=no",
+				 "-o LogLevel=ERROR", "-o UserKnownHostsFile=/dev/null",
+				 settings.TOOLS_USER+"@"+settings.SERVER_IP,
+				 "cd "+ settings.OLD_TOOLS_PATH +" && sudo bash scheduler.sh"],
+				stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+				stderr=subprocess.PIPE).communicate()
+			outs = subprocess.Popen(
+				["sshpass","-p", settings.TOOLS_PASSWORD,
+				 "ssh", "-o StrictHostKeyChecking=no",
+				 "-o LogLevel=ERROR",
+				 "-o UserKnownHostsFile=/dev/null",
+				 settings.TOOLS_USER+"@"+settings.SERVER_IP,
+				 "cd "+ settings.NEW_TOOLS_PATH + " && sudo python composeMail.py", '1', Role,
+				 str(obj.message.slug)],
+				stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
 			print(outps)
 			print(outs)
 
