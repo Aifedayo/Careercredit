@@ -1,7 +1,7 @@
 {% extends 'home/base.html' %}
 {% load staticfiles%}
 {% block title %}
-Jobs- Apply | Linuxjobber
+Career Switch | Linuxjobber
 {% endblock %}
 {% block content %}
 
@@ -41,12 +41,9 @@ Jobs- Apply | Linuxjobber
             {%endif%}
           {% endfor %}
         {% endif %}
-				{% csrf_token %}
-				<div class="jobtype">
-					<p class="jobtypeh">Kindly fill the form below</p>
 
-				</div>
-				<div class="jobtype">
+
+				<div class="jobtype"><p class="jobtypeh">Kindly fill the form below</p>
 					<span class="jobtypeh"><b>PERSONAL INFORMATION</b></span><br>
 					<span class="jobinfoh">Tell us something about yourself</span>
 					<br><br>
@@ -58,20 +55,21 @@ Jobs- Apply | Linuxjobber
 					<br>
 					<span class="jobfinputp">Phone  <span style="color:red">*</span></span><br><br>
 					{{form.phone}}
+                    <br>
 
 					<span class="jobfinputp">Previous Career  <span style="color:red">*</span></span><br><br>
-					{{form.previous_career}}
+					{{form.old_career}}
+                    <br>
 
 
 					<span class="jobfinputp">New Career <span style="color:red">*</span></span><br><br>
 					{{form.new_career}}
-
                     <div id="description">
 
                     </div>
 
 				</div>
-				<div class="jobtype">
+				<div class="">
 					<span class="jobtypeh"><b>CV/RESUME</b></span><br>
 					<span class="jobtypeh">UPLOAD YOUR CV/RESUME FILE</span>
 					<br><br>
@@ -103,25 +101,27 @@ Jobs- Apply | Linuxjobber
 </div>
 <script>
 
-    function create_post() {
-    console.log("create post is working!") ;// sanity check
+    var careerSelector = $("#id_new_career");
+
+    function get_postion_details() {
     $.ajax({
-        url : "jobs", // the endpoint
+        url : "", // the endpoint
         type : "POST", // http method
-        data : { get_position_details : $("input[name=new_career]").val() }, // data sent with the post request
+        data : { get_position_detail : careerSelector.val() }, // data sent with the post request
 
         // handle a successful response
         success : function(data) {
             console.log(data);
             {# Display job description #}
             $('#description').html(
-                "<div class='jobtype'>" +
-                "<p class='jobtypeh'>"+ data.title +"</p>" +
+                "<div class=''>" +
+                "<p class='jobtypeh'>"+ data.job_title +"</p>" +
                 "<span>"+ data.requirement +"</span><br><br>" +
                 "<span><b>JOB RESPONSIBILITIES</b></span><br><br>" +
-                "<p class='jobinfop'>"+ data.responsibilities +"</p>\n" +
+                "<p class='jobinfop'>"+ data.responsibility +"</p>\n" +
                 "</div>"
             );
+
             
             console.log("success"); // another sanity check
         },
@@ -146,6 +146,16 @@ Jobs- Apply | Linuxjobber
 		}
 	});
 
+	careerSelector.change(
+	    function () {
+	        $("#description").html('<span>Loading details ...</span>');
+	        var data = $('#id_new_career option:selected').val()
+            console.log(data)
+            if(data)
+            get_postion_details()
+            
+        }
+    );
 
 
 

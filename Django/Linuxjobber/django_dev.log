@@ -714,3 +714,925 @@ home.models.DoesNotExist: werole matching query does not exist.
 [2019-08-13 22:43:36] INFO [django.server.log_message:124] "POST /ulocation HTTP/1.1" 200 0
 [2019-08-13 22:48:51] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 24911
 [2019-08-13 22:48:53] INFO [django.server.log_message:124] "POST /ulocation HTTP/1.1" 200 0
+[2019-09-01 02:43:20] INFO [django.server.log_message:124] "GET /career_switch HTTP/1.1" 301 0
+[2019-09-01 02:43:21] INFO [django.server.log_message:124] "GET /career_switch/ HTTP/1.1" 200 19526
+[2019-09-01 02:43:21] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 200 1163
+[2019-09-01 02:43:21] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2019-09-01 02:43:21] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 39923
+[2019-09-01 02:43:21] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2019-09-01 02:43:21] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 200 7720
+[2019-09-01 02:43:21] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 143625
+[2019-09-01 02:43:21] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 200 7448
+[2019-09-01 02:43:22] INFO [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 200 8372
+[2019-09-01 02:43:22] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css HTTP/1.1" 200 29279
+[2019-09-01 02:43:22] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 200 7177
+[2019-09-01 02:43:22] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 200 3979
+[2019-09-01 02:43:22] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 200 29115
+[2019-09-01 02:43:22] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js HTTP/1.1" 200 240434
+[2019-09-01 02:43:22] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 200 3066
+[2019-09-01 02:43:22] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 200 4488
+[2019-09-01 02:43:22] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 200 9198
+[2019-09-01 02:43:22] INFO [django.server.log_message:124] "GET /static/js/waterbubble.js HTTP/1.1" 200 6268
+[2019-09-01 02:43:22] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/jobban2.png HTTP/1.1" 200 143991
+[2019-09-01 02:43:23] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-09-01 02:45:05] INFO [django.server.log_message:124] "GET /career_switch/ HTTP/1.1" 200 19531
+[2019-09-01 02:45:05] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 200 1163
+[2019-09-01 02:45:06] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2019-09-01 02:45:06] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2019-09-01 02:45:06] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 39923
+[2019-09-01 02:45:06] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 143625
+[2019-09-01 02:45:06] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 200 7720
+[2019-09-01 02:45:06] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 200 7448
+[2019-09-01 02:45:06] INFO [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 200 8372
+[2019-09-01 02:45:06] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css HTTP/1.1" 200 29279
+[2019-09-01 02:45:06] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 200 3979
+[2019-09-01 02:45:06] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js HTTP/1.1" 200 240434
+[2019-09-01 02:45:06] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 200 29115
+[2019-09-01 02:45:06] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 200 7177
+[2019-09-01 02:45:06] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 200 3066
+[2019-09-01 02:45:07] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 200 9198
+[2019-09-01 02:45:07] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 200 4488
+[2019-09-01 02:45:07] INFO [django.server.log_message:124] "GET /static/js/waterbubble.js HTTP/1.1" 200 6268
+[2019-09-01 02:45:07] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/jobban2.png HTTP/1.1" 200 143991
+[2019-09-01 02:45:08] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-09-01 02:45:30] INFO [django.server.log_message:124] "GET /admin HTTP/1.1" 302 0
+[2019-09-01 02:45:30] INFO [django.server.log_message:124] "GET /admin/login/?next=/admin HTTP/1.1" 200 1853
+[2019-09-01 02:45:30] INFO [django.server.log_message:124] "GET /static/admin/css/base.css HTTP/1.1" 304 0
+[2019-09-01 02:45:30] INFO [django.server.log_message:124] "GET /static/admin/css/login.css HTTP/1.1" 304 0
+[2019-09-01 02:45:30] INFO [django.server.log_message:124] "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+[2019-09-01 02:45:30] INFO [django.server.log_message:124] "GET /static/admin/css/fonts.css HTTP/1.1" 304 0
+[2019-09-01 02:45:30] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 304 0
+[2019-09-01 02:45:30] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 304 0
+[2019-09-01 02:45:32] INFO [django.server.log_message:124] "POST /admin/login/?next=/admin HTTP/1.1" 200 2024
+[2019-09-01 02:45:33] INFO [django.server.log_message:124] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 304 0
+[2019-09-01 02:45:42] INFO [django.server.log_message:124] "POST /admin/login/?next=/admin HTTP/1.1" 200 2018
+[2019-09-01 02:45:48] INFO [django.server.log_message:124] "POST /admin/login/?next=/admin HTTP/1.1" 302 0
+[2019-09-01 02:45:48] INFO [django.server.log_message:124] "GET /admin HTTP/1.1" 200 32716
+[2019-09-01 02:45:49] INFO [django.server.log_message:124] "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+[2019-09-01 02:45:49] INFO [django.server.log_message:124] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+[2019-09-01 02:45:49] INFO [django.server.log_message:124] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+[2019-09-01 02:45:55] INFO [django.server.log_message:124] "GET /admin/home/job/ HTTP/1.1" 200 3542
+[2019-09-01 02:45:55] INFO [django.server.log_message:124] "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+[2019-09-01 02:45:55] INFO [django.server.log_message:124] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+[2019-09-01 02:45:55] INFO [django.server.log_message:124] "GET /static/admin/js/core.js HTTP/1.1" 304 0
+[2019-09-01 02:45:55] INFO [django.server.log_message:124] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+[2019-09-01 02:45:55] INFO [django.server.log_message:124] "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+[2019-09-01 02:45:55] INFO [django.server.log_message:124] "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+[2019-09-01 02:45:55] INFO [django.server.log_message:124] "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+[2019-09-01 02:45:55] INFO [django.server.log_message:124] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 371
+[2019-09-01 02:45:55] INFO [django.server.log_message:124] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+[2019-09-01 02:45:55] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-01 02:45:55] INFO [django.server.log_message:124] "GET /static/admin/img/search.svg HTTP/1.1" 200 461
+[2019-09-01 02:45:55] INFO [django.server.log_message:124] "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 334
+[2019-09-01 02:45:57] INFO [django.server.log_message:124] "GET /admin/home/job/add/ HTTP/1.1" 200 7040
+[2019-09-01 02:45:57] INFO [django.server.log_message:124] "GET /static/admin/css/forms.css HTTP/1.1" 200 8688
+[2019-09-01 02:45:57] INFO [django.server.log_message:124] "GET /static/admin/js/change_form.js HTTP/1.1" 200 732
+[2019-09-01 02:45:57] INFO [django.server.log_message:124] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 505
+[2019-09-01 02:45:57] INFO [django.server.log_message:124] "GET /static/admin/css/widgets.css HTTP/1.1" 200 10905
+[2019-09-01 02:45:57] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-01 02:46:01] INFO [django.server.log_message:124] "GET /admin/home/job/ HTTP/1.1" 200 3542
+[2019-09-01 02:46:06] INFO [django.server.log_message:124] "GET /admin HTTP/1.1" 200 32716
+[2019-09-01 02:46:26] INFO [django.server.log_message:124] "GET /admin/home/fulltimepostion/ HTTP/1.1" 200 3310
+[2019-09-01 02:46:26] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-01 02:46:29] INFO [django.server.log_message:124] "GET /admin/home/fulltimepostion/add/ HTTP/1.1" 200 5635
+[2019-09-01 02:46:29] INFO [django.server.log_message:124] "GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+[2019-09-01 02:46:29] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-01 02:48:03] INFO [django.server.log_message:124] "POST /admin/home/fulltimepostion/add/ HTTP/1.1" 302 0
+[2019-09-01 02:48:03] INFO [django.server.log_message:124] "GET /admin/home/fulltimepostion/ HTTP/1.1" 200 4702
+[2019-09-01 02:48:03] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-01 02:48:03] INFO [django.server.log_message:124] "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 334
+[2019-09-01 02:48:03] INFO [django.server.log_message:124] "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 439
+[2019-09-01 02:48:12] INFO [django.server.log_message:124] "GET /career_switch/ HTTP/1.1" 200 19531
+[2019-09-01 02:48:12] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2019-09-01 02:48:12] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2019-09-01 02:48:12] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 200 7720
+[2019-09-01 02:48:12] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 39923
+[2019-09-01 02:48:12] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 143625
+[2019-09-01 02:48:12] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 200 7448
+[2019-09-01 02:48:12] INFO [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 200 8372
+[2019-09-01 02:48:12] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css HTTP/1.1" 200 29279
+[2019-09-01 02:48:12] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 200 1163
+[2019-09-01 02:48:12] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 200 3979
+[2019-09-01 02:48:12] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js HTTP/1.1" 200 240434
+[2019-09-01 02:48:12] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 200 29115
+[2019-09-01 02:48:12] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 200 7177
+[2019-09-01 02:48:13] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 200 3066
+[2019-09-01 02:48:13] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 200 9198
+[2019-09-01 02:48:13] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 200 4488
+[2019-09-01 02:48:13] INFO [django.server.log_message:124] "GET /static/js/waterbubble.js HTTP/1.1" 200 6268
+[2019-09-01 02:48:13] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/jobban2.png HTTP/1.1" 200 143991
+[2019-09-01 02:48:14] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-09-01 02:50:25] INFO [django.server.log_message:124] "GET /career_switch/ HTTP/1.1" 200 19498
+[2019-09-01 02:50:25] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 200 1163
+[2019-09-01 02:50:25] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2019-09-01 02:50:25] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2019-09-01 02:50:25] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 39923
+[2019-09-01 02:50:25] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 200 7720
+[2019-09-01 02:50:25] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 143625
+[2019-09-01 02:50:25] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 200 7448
+[2019-09-01 02:50:26] INFO [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 200 8372
+[2019-09-01 02:50:26] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 200 3979
+[2019-09-01 02:50:26] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css HTTP/1.1" 200 29279
+[2019-09-01 02:50:26] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js HTTP/1.1" 200 240434
+[2019-09-01 02:50:26] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 200 29115
+[2019-09-01 02:50:26] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 200 7177
+[2019-09-01 02:50:26] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 200 3066
+[2019-09-01 02:50:26] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 200 9198
+[2019-09-01 02:50:26] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 200 4488
+[2019-09-01 02:50:26] INFO [django.server.log_message:124] "GET /static/js/waterbubble.js HTTP/1.1" 200 6268
+[2019-09-01 02:50:26] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/jobban2.png HTTP/1.1" 200 143991
+[2019-09-01 02:50:27] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-09-01 02:50:48] INFO [django.server.log_message:124] "GET /career_switch/ HTTP/1.1" 200 19621
+[2019-09-01 02:50:48] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 200 1163
+[2019-09-01 02:50:48] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2019-09-01 02:50:48] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2019-09-01 02:50:48] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 39923
+[2019-09-01 02:50:48] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 200 7720
+[2019-09-01 02:50:48] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 143625
+[2019-09-01 02:50:48] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 200 7448
+[2019-09-01 02:50:48] INFO [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 200 8372
+[2019-09-01 02:50:48] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css HTTP/1.1" 200 29279
+[2019-09-01 02:50:48] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 200 3979
+[2019-09-01 02:50:48] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js HTTP/1.1" 200 240434
+[2019-09-01 02:50:48] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 200 29115
+[2019-09-01 02:50:49] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 200 7177
+[2019-09-01 02:50:49] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 200 3066
+[2019-09-01 02:50:49] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 200 9198
+[2019-09-01 02:50:49] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 200 4488
+[2019-09-01 02:50:49] INFO [django.server.log_message:124] "GET /static/js/waterbubble.js HTTP/1.1" 200 6268
+[2019-09-01 02:50:49] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/jobban2.png HTTP/1.1" 200 143991
+[2019-09-01 02:50:50] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-09-01 02:59:25] INFO [django.server.log_message:124] "GET /career_switch/ HTTP/1.1" 200 19850
+[2019-09-01 02:59:25] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 200 1163
+[2019-09-01 02:59:25] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2019-09-01 02:59:25] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2019-09-01 02:59:25] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 39923
+[2019-09-01 02:59:25] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 143625
+[2019-09-01 02:59:25] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 200 7720
+[2019-09-01 02:59:25] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 200 7448
+[2019-09-01 02:59:26] INFO [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 200 8372
+[2019-09-01 02:59:26] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css HTTP/1.1" 200 29279
+[2019-09-01 02:59:26] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 200 3979
+[2019-09-01 02:59:26] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js HTTP/1.1" 200 240434
+[2019-09-01 02:59:26] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 200 29115
+[2019-09-01 02:59:26] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 200 7177
+[2019-09-01 02:59:26] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 200 3066
+[2019-09-01 02:59:26] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 200 9198
+[2019-09-01 02:59:26] INFO [django.server.log_message:124] "GET /static/js/waterbubble.js HTTP/1.1" 200 6268
+[2019-09-01 02:59:26] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 200 4488
+[2019-09-01 02:59:26] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/jobban2.png HTTP/1.1" 200 143991
+[2019-09-01 02:59:27] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-09-01 03:05:46] INFO [django.server.log_message:124] "GET /career_switch/ HTTP/1.1" 200 19923
+[2019-09-01 03:05:46] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 200 1163
+[2019-09-01 03:05:47] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2019-09-01 03:05:47] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 39923
+[2019-09-01 03:05:47] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2019-09-01 03:05:47] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 200 7720
+[2019-09-01 03:05:47] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 143625
+[2019-09-01 03:05:47] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 200 7448
+[2019-09-01 03:05:47] INFO [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 200 8372
+[2019-09-01 03:05:47] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css HTTP/1.1" 200 29279
+[2019-09-01 03:05:47] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 200 3979
+[2019-09-01 03:05:47] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js HTTP/1.1" 200 240434
+[2019-09-01 03:05:47] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 200 3066
+[2019-09-01 03:05:47] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 200 29115
+[2019-09-01 03:05:47] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 200 7177
+[2019-09-01 03:05:48] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 200 4488
+[2019-09-01 03:05:48] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 200 9198
+[2019-09-01 03:05:48] INFO [django.server.log_message:124] "GET /static/js/waterbubble.js HTTP/1.1" 200 6268
+[2019-09-01 03:05:48] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/jobban2.png HTTP/1.1" 200 143991
+[2019-09-01 03:05:48] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-09-01 03:06:37] INFO [django.server.log_message:124] "GET /admin/home/fulltimepostion/add/ HTTP/1.1" 200 5635
+[2019-09-01 03:06:37] INFO [django.server.log_message:124] "GET /static/admin/js/change_form.js HTTP/1.1" 200 732
+[2019-09-01 03:06:37] INFO [django.server.log_message:124] "GET /static/admin/css/widgets.css HTTP/1.1" 200 8192
+[2019-09-01 03:06:37] INFO [django.server.log_message:124] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 505
+[2019-09-01 03:06:37] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-01 03:06:37] ERROR [django.server.log_message:124] "GET /static/admin/css/widgets.css HTTP/1.1" 500 59
+[2019-09-01 03:06:37] ERROR [django.server.log_message:124] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 500 59
+[2019-09-01 03:06:51] INFO [django.server.log_message:124] "POST /admin/home/fulltimepostion/add/ HTTP/1.1" 200 5861
+[2019-09-01 03:06:51] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-01 03:07:00] INFO [django.server.log_message:124] "POST /admin/home/fulltimepostion/add/ HTTP/1.1" 302 0
+[2019-09-01 03:07:00] INFO [django.server.log_message:124] "GET /admin/home/fulltimepostion/ HTTP/1.1" 200 4926
+[2019-09-01 03:07:00] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-01 03:07:00] INFO [django.server.log_message:124] "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 334
+[2019-09-01 03:07:00] ERROR [django.server.log_message:124] "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 500 59
+[2019-09-01 03:07:14] INFO [django.server.log_message:124] "POST /admin/home/fulltimepostion/ HTTP/1.1" 200 3426
+[2019-09-01 03:07:14] INFO [django.server.log_message:124] "GET /static/admin/js/cancel.js HTTP/1.1" 200 213
+[2019-09-01 03:07:16] INFO [django.server.log_message:124] "POST /admin/home/fulltimepostion/ HTTP/1.1" 302 0
+[2019-09-01 03:07:16] INFO [django.server.log_message:124] "GET /admin/home/fulltimepostion/ HTTP/1.1" 200 4609
+[2019-09-01 03:07:16] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-01 03:07:23] INFO [django.server.log_message:124] "GET /career_switch/ HTTP/1.1" 200 19912
+[2019-09-01 03:07:23] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 200 1163
+[2019-09-01 03:07:23] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2019-09-01 03:07:23] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 39923
+[2019-09-01 03:07:23] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 200 7720
+[2019-09-01 03:07:23] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2019-09-01 03:07:23] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 143625
+[2019-09-01 03:07:23] INFO [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 200 8372
+[2019-09-01 03:07:24] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 200 7448
+[2019-09-01 03:07:24] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 200 3979
+[2019-09-01 03:07:24] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css HTTP/1.1" 200 29279
+[2019-09-01 03:07:24] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js HTTP/1.1" 200 240434
+[2019-09-01 03:07:24] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 200 29115
+[2019-09-01 03:07:24] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 200 7177
+[2019-09-01 03:07:24] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 200 3066
+[2019-09-01 03:07:24] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 200 9198
+[2019-09-01 03:07:24] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 200 4488
+[2019-09-01 03:07:24] INFO [django.server.log_message:124] "GET /static/js/waterbubble.js HTTP/1.1" 200 6268
+[2019-09-01 03:07:29] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/jobban2.png HTTP/1.1" 200 143991
+[2019-09-01 03:07:31] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-09-01 03:07:59] INFO [django.server.log_message:124] "GET /admin/home/fulltimepostion/2/change/ HTTP/1.1" 200 5912
+[2019-09-01 03:07:59] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-01 03:09:11] INFO [django.server.log_message:124] "POST /admin/home/fulltimepostion/2/change/ HTTP/1.1" 302 0
+[2019-09-01 03:09:12] INFO [django.server.log_message:124] "GET /admin/home/fulltimepostion/ HTTP/1.1" 200 4704
+[2019-09-01 03:09:12] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-01 03:09:12] INFO [django.server.log_message:124] "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 439
+[2019-09-01 03:09:12] ERROR [django.server.log_message:124] "GET /static/admin/img/icon-yes.svg HTTP/1.1" 500 59
+[2019-09-01 03:12:46] INFO [django.server.log_message:124] "GET /career_switch/ HTTP/1.1" 200 20014
+[2019-09-01 03:12:47] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-09-01 03:12:50] WARNING [django.request.get_response:93] Not Found: /career_switch/career_switch/
+[2019-09-01 03:12:50] WARNING [django.server.log_message:124] "POST /career_switch/career_switch/ HTTP/1.1" 404 15183
+[2019-09-01 03:13:41] INFO [django.server.log_message:124] "GET /career_switch/ HTTP/1.1" 200 20007
+[2019-09-01 03:13:41] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-09-01 03:13:44] WARNING [django.security.csrf._reject:153] Forbidden (CSRF token missing or incorrect.): /
+[2019-09-01 03:13:44] WARNING [django.server.log_message:124] "POST / HTTP/1.1" 403 2513
+[2019-09-01 03:14:48] INFO [django.server.log_message:124] "GET /career_switch/ HTTP/1.1" 200 20006
+[2019-09-01 03:14:49] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-09-01 03:14:51] WARNING [django.security.csrf._reject:153] Forbidden (CSRF token missing or incorrect.): /career_switch/
+[2019-09-01 03:14:51] WARNING [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 403 2513
+[2019-09-01 03:15:30] INFO [django.server.log_message:124] "GET /career_switch/ HTTP/1.1" 200 20006
+[2019-09-01 03:15:30] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-09-01 03:15:33] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /career_switch/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\views.py", line 2097, in career_switch
+    return HttpResponse(FullTimePostion.objects.get(job_title=request.POST.get('get_postion_details')))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 403, in get
+    self.model._meta.object_name
+home.models.DoesNotExist: FullTimePostion matching query does not exist.
+[2019-09-01 03:15:33] ERROR [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 500 23596
+[2019-09-01 03:17:42] INFO [django.server.log_message:124] "GET /career_switch/ HTTP/1.1" 200 20006
+[2019-09-01 03:17:43] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-09-01 03:17:49] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /career_switch/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\views.py", line 2092, in career_switch
+    return HttpResponse(FullTimePostion.objects.get(job_title=request.POST.get('get_postion_details')))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 403, in get
+    self.model._meta.object_name
+home.models.DoesNotExist: FullTimePostion matching query does not exist.
+[2019-09-01 03:17:49] ERROR [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 500 23593
+[2019-09-01 03:18:21] INFO [django.server.log_message:124] "GET /career_switch/ HTTP/1.1" 200 20006
+[2019-09-01 03:18:22] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-09-01 03:18:25] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /career_switch/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\views.py", line 2092, in career_switch
+    return HttpResponse(FullTimePostion.objects.get(job_title=request.POST.get('get_postion_details')))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 403, in get
+    self.model._meta.object_name
+home.models.DoesNotExist: FullTimePostion matching query does not exist.
+[2019-09-01 03:18:25] ERROR [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 500 23592
+[2019-09-01 03:18:52] INFO [django.server.log_message:124] "GET /career_switch/ HTTP/1.1" 200 20006
+[2019-09-01 03:18:53] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-09-01 03:20:47] INFO [django.server.log_message:124] "GET /career_switch/ HTTP/1.1" 200 20006
+[2019-09-01 03:20:49] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-09-01 03:20:50] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /career_switch/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\views.py", line 2092, in career_switch
+    return HttpResponse(FullTimePostion.objects.get(id=request.POST.get('get_postion_details')))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 403, in get
+    self.model._meta.object_name
+home.models.DoesNotExist: FullTimePostion matching query does not exist.
+[2019-09-01 03:20:50] ERROR [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 500 23586
+[2019-09-01 03:21:13] INFO [django.server.log_message:124] "GET /career_switch/ HTTP/1.1" 200 20006
+[2019-09-01 03:21:14] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-09-01 03:21:16] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /career_switch/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\views.py", line 2092, in career_switch
+    return HttpResponse(Job.objects.get(id=request.POST.get('get_postion_details')))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 403, in get
+    self.model._meta.object_name
+home.models.DoesNotExist: FullTimePostion matching query does not exist.
+[2019-09-01 03:21:16] ERROR [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 500 23574
+[2019-09-01 03:21:38] INFO [django.server.log_message:124] "GET /career_switch/ HTTP/1.1" 200 20006
+[2019-09-01 03:21:39] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-09-01 03:21:41] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /career_switch/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\views.py", line 2092, in career_switch
+    return HttpResponse(Job.objects.get(id=request.POST.get('get_postion_details')))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 403, in get
+    self.model._meta.object_name
+home.models.DoesNotExist: Job matching query does not exist.
+[2019-09-01 03:21:41] ERROR [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 500 23549
+[2019-09-01 03:21:52] INFO [django.server.log_message:124] "GET /admin/home/fulltimepostion/2/change/ HTTP/1.1" 200 6463
+[2019-09-01 03:21:52] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-01 03:21:57] INFO [django.server.log_message:124] "GET /admin/home/fulltimepostion/ HTTP/1.1" 200 4487
+[2019-09-01 03:22:44] INFO [django.server.log_message:124] "GET /career_switch/ HTTP/1.1" 200 20006
+[2019-09-01 03:22:44] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-09-01 03:22:47] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /career_switch/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\views.py", line 2092, in career_switch
+    return HttpResponse(FullTimePostion.objects.get(id=int(request.POST.get('get_postion_details'))))
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'NoneType'
+[2019-09-01 03:22:47] ERROR [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 500 23293
+[2019-09-01 03:23:28] INFO [django.server.log_message:124] "GET /career_switch/ HTTP/1.1" 200 20006
+[2019-09-01 03:23:29] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-09-01 03:23:32] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /career_switch/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\views.py", line 2093, in career_switch
+    return HttpResponse(FullTimePostion.objects.get(id=request.POST.get('get_postion_details')))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 403, in get
+    self.model._meta.object_name
+home.models.DoesNotExist: FullTimePostion matching query does not exist.
+[2019-09-01 03:23:32] ERROR [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 500 23586
+[2019-09-01 03:25:16] INFO [django.server.log_message:124] "GET /career_switch/ HTTP/1.1" 200 20005
+[2019-09-01 03:25:17] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-09-01 03:25:19] INFO [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 200 23
+[2019-09-01 03:32:23] INFO [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 200 19945
+[2019-09-01 03:32:28] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /career_switch/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\views.py", line 2093, in career_switch
+    response_data['requirement'] = item.requirement
+NameError: name 'response_data' is not defined
+[2019-09-01 03:32:28] ERROR [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 500 23229
+[2019-09-01 03:33:34] INFO [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 200 19945
+[2019-09-01 03:33:35] INFO [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 200 640
+[2019-09-01 03:33:47] INFO [django.server.log_message:124] "GET /career_switch/ HTTP/1.1" 200 19945
+[2019-09-01 03:33:48] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-09-01 03:33:50] INFO [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 200 640
+[2019-09-01 03:35:10] INFO [django.server.log_message:124] "GET /career_switch/ HTTP/1.1" 200 19998
+[2019-09-01 03:35:10] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2019-09-01 03:35:10] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2019-09-01 03:35:10] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 39923
+[2019-09-01 03:35:10] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 200 7720
+[2019-09-01 03:35:10] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 143625
+[2019-09-01 03:35:10] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 200 7448
+[2019-09-01 03:35:10] INFO [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 200 8372
+[2019-09-01 03:35:10] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 200 3979
+[2019-09-01 03:35:10] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 200 1163
+[2019-09-01 03:35:10] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css HTTP/1.1" 200 29279
+[2019-09-01 03:35:10] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js HTTP/1.1" 200 240434
+[2019-09-01 03:35:10] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 200 7177
+[2019-09-01 03:35:10] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 200 29115
+[2019-09-01 03:35:11] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 200 3066
+[2019-09-01 03:35:11] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 200 4488
+[2019-09-01 03:35:11] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 200 9198
+[2019-09-01 03:35:11] INFO [django.server.log_message:124] "GET /static/js/waterbubble.js HTTP/1.1" 200 6268
+[2019-09-01 03:35:11] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/jobban2.png HTTP/1.1" 200 143991
+[2019-09-01 03:35:12] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-09-01 03:35:18] INFO [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 200 640
+[2019-09-01 03:35:52] INFO [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 200 640
+[2019-09-01 03:38:19] INFO [django.server.log_message:124] "GET /admin/home/fulltimepostion/2/change/ HTTP/1.1" 200 6463
+[2019-09-01 03:38:19] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-01 03:38:43] INFO [django.server.log_message:124] "POST /admin/home/fulltimepostion/2/change/ HTTP/1.1" 302 0
+[2019-09-01 03:38:43] INFO [django.server.log_message:124] "GET /admin/home/fulltimepostion/ HTTP/1.1" 200 4704
+[2019-09-01 03:38:43] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-01 03:38:43] INFO [django.server.log_message:124] "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 439
+[2019-09-01 03:38:43] ERROR [django.server.log_message:124] "GET /static/admin/img/icon-yes.svg HTTP/1.1" 500 59
+[2019-09-01 03:38:53] INFO [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 200 636
+[2019-09-01 03:40:54] INFO [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 200 636
+[2019-09-01 03:48:24] INFO [django.server.log_message:124] "GET /career_switch/ HTTP/1.1" 200 20000
+[2019-09-01 03:48:24] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 200 1163
+[2019-09-01 03:48:24] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2019-09-01 03:48:24] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2019-09-01 03:48:24] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 39923
+[2019-09-01 03:48:24] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 200 7720
+[2019-09-01 03:48:24] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 143625
+[2019-09-01 03:48:24] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 200 7448
+[2019-09-01 03:48:25] INFO [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 200 8372
+[2019-09-01 03:48:25] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css HTTP/1.1" 200 29279
+[2019-09-01 03:48:25] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 200 3979
+[2019-09-01 03:48:25] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 200 29115
+[2019-09-01 03:48:25] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js HTTP/1.1" 200 240434
+[2019-09-01 03:48:25] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 200 7177
+[2019-09-01 03:48:25] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 200 3066
+[2019-09-01 03:48:25] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 200 9198
+[2019-09-01 03:48:25] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 200 4488
+[2019-09-01 03:48:25] INFO [django.server.log_message:124] "GET /static/js/waterbubble.js HTTP/1.1" 200 6268
+[2019-09-01 03:48:26] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/jobban2.png HTTP/1.1" 200 143991
+[2019-09-01 03:48:26] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-09-01 03:48:28] INFO [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 200 650
+[2019-09-01 03:50:35] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /career_switch/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\views.py", line 2111, in career_switch
+    CareerSwitchApplication.objects.get(email=request.POST['email'],new_career=jobform.new_career)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\related_descriptors.py", line 175, in __get__
+    "%s has no %s." % (self.field.model.__name__, self.field.name)
+django.db.models.fields.related_descriptors.RelatedObjectDoesNotExist: CareerSwitchApplication has no new_career.
+[2019-09-01 03:50:36] ERROR [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 500 92193
+[2019-09-01 03:50:37] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-09-01 03:50:37] WARNING [django.server.log_message:124] "GET /favicon.ico HTTP/1.1" 404 15131
+[2019-09-01 03:53:13] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /career_switch/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\views.py", line 2111, in career_switch
+    CareerSwitchApplication.objects.get(email=request.POST['email'],new_career=jobform.new_career)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\fields\related_descriptors.py", line 175, in __get__
+    "%s has no %s." % (self.field.model.__name__, self.field.name)
+django.db.models.fields.related_descriptors.RelatedObjectDoesNotExist: CareerSwitchApplication has no new_career.
+[2019-09-01 03:53:13] ERROR [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 500 92148
+[2019-09-01 04:08:03] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /career_switch/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
+    res = self._query(query)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
+    db.query(q)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+_mysql_exceptions.OperationalError: (1048, "Column 'new_career_id' cannot be null")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\views.py", line 2117, in career_switch
+    jobform.save()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 729, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 759, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 842, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 880, in _do_insert
+    using=using, raw=raw)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 1125, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\compiler.py", line 1285, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\mysql\base.py", line 76, in execute
+    raise utils.IntegrityError(*tuple(e.args))
+django.db.utils.IntegrityError: (1048, "Column 'new_career_id' cannot be null")
+[2019-09-01 04:08:04] ERROR [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 500 183105
+[2019-09-01 04:09:06] INFO [django.server.log_message:124] "GET /career_switch/ HTTP/1.1" 200 19877
+[2019-09-01 04:09:11] INFO [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 200 650
+[2019-09-01 04:10:20] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /career_switch/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
+    res = self._query(query)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
+    db.query(q)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\MySQLdb\connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+_mysql_exceptions.OperationalError: (1048, "Column 'new_career_id' cannot be null")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\views.py", line 2117, in career_switch
+    jobform.save()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 729, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 759, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 842, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\base.py", line 880, in _do_insert
+    using=using, raw=raw)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 1125, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\compiler.py", line 1285, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\backends\mysql\base.py", line 76, in execute
+    raise utils.IntegrityError(*tuple(e.args))
+django.db.utils.IntegrityError: (1048, "Column 'new_career_id' cannot be null")
+[2019-09-01 04:10:20] ERROR [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 500 182655
+[2019-09-01 04:12:32] INFO [django.server.log_message:124] "GET /career_switch/ HTTP/1.1" 200 19873
+[2019-09-01 04:12:43] INFO [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 200 650
+[2019-09-01 04:13:08] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /career_switch/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\views.py", line 2161, in career_switch
+    [request.POST['email']])
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\mail\__init__.py", line 60, in send_mail
+    return mail.send()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\mail\message.py", line 294, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\mail\backends\smtp.py", line 103, in send_messages
+    new_conn_created = self.open()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\mail\backends\smtp.py", line 68, in open
+    self.connection.starttls(keyfile=self.ssl_keyfile, certfile=self.ssl_certfile)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\smtplib.py", line 751, in starttls
+    "STARTTLS extension not supported by server.")
+smtplib.SMTPNotSupportedError: STARTTLS extension not supported by server.
+[2019-09-01 04:13:08] ERROR [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 500 112978
+[2019-09-01 04:17:38] INFO [django.server.log_message:124] "GET /career_switch/ HTTP/1.1" 200 19873
+[2019-09-01 04:17:52] INFO [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 302 0
+[2019-09-01 04:17:53] INFO [django.server.log_message:124] "GET /career_switch/ HTTP/1.1" 200 20131
+[2019-09-01 04:18:49] INFO [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 200 650
+[2019-09-01 04:19:05] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /career_switch/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\views.py", line 2161, in career_switch
+    [request.POST['email']])
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\mail\__init__.py", line 60, in send_mail
+    return mail.send()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\mail\message.py", line 294, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\mail\backends\smtp.py", line 103, in send_messages
+    new_conn_created = self.open()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\mail\backends\smtp.py", line 68, in open
+    self.connection.starttls(keyfile=self.ssl_keyfile, certfile=self.ssl_certfile)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\smtplib.py", line 751, in starttls
+    "STARTTLS extension not supported by server.")
+smtplib.SMTPNotSupportedError: STARTTLS extension not supported by server.
+[2019-09-01 04:19:05] ERROR [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 500 112973
+[2019-09-01 04:19:28] INFO [django.server.log_message:124] "GET /admin/home/ HTTP/1.1" 302 0
+[2019-09-01 04:19:28] INFO [django.server.log_message:124] "GET /timeout HTTP/1.1" 200 16613
+[2019-09-01 04:19:28] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2019-09-01 04:19:28] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2019-09-01 04:19:28] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 39923
+[2019-09-01 04:19:28] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 304 0
+[2019-09-01 04:19:28] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 200 7720
+[2019-09-01 04:19:28] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 143625
+[2019-09-01 04:19:28] INFO [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 200 8372
+[2019-09-01 04:19:28] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 304 0
+[2019-09-01 04:19:28] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 304 0
+[2019-09-01 04:19:28] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 200 7448
+[2019-09-01 04:19:28] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css HTTP/1.1" 200 29279
+[2019-09-01 04:19:28] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 304 0
+[2019-09-01 04:19:28] INFO [django.server.log_message:124] "GET /static/js/waterbubble.js HTTP/1.1" 304 0
+[2019-09-01 04:19:28] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 304 0
+[2019-09-01 04:19:28] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js HTTP/1.1" 304 0
+[2019-09-01 04:19:28] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 200 3066
+[2019-09-01 04:19:28] INFO [django.server.log_message:124] "GET /static/home/images/icon1.png HTTP/1.1" 200 2133
+[2019-09-01 04:19:28] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 200 7177
+[2019-09-01 04:19:28] INFO [django.server.log_message:124] "GET /static/home/images/logout1.png HTTP/1.1" 200 1899
+[2019-09-01 04:19:28] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/proj-list.png HTTP/1.1" 304 0
+[2019-09-01 04:19:31] INFO [django.server.log_message:124] "POST /timeout HTTP/1.1" 200 16759
+[2019-09-01 04:19:31] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 304 0
+[2019-09-01 04:19:31] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 304 0
+[2019-09-01 04:19:31] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 8192
+[2019-09-01 04:19:31] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 200 7720
+[2019-09-01 04:19:31] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 39923
+[2019-09-01 04:19:31] ERROR [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 500 59
+[2019-09-01 04:19:31] ERROR [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 500 59
+[2019-09-01 04:19:31] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 200 7448
+[2019-09-01 04:19:31] INFO [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 200 8192
+[2019-09-01 04:19:31] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css HTTP/1.1" 200 8192
+[2019-09-01 04:19:31] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 200 3066
+[2019-09-01 04:19:31] ERROR [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 500 59
+[2019-09-01 04:19:31] ERROR [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 500 59
+[2019-09-01 04:19:31] ERROR [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css HTTP/1.1" 500 59
+[2019-09-01 04:19:31] ERROR [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 500 59
+[2019-09-01 04:19:31] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-09-01 04:19:31] ERROR [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 500 59
+[2019-09-01 04:19:38] INFO [django.server.log_message:124] "POST /timeout HTTP/1.1" 302 0
+[2019-09-01 04:19:39] INFO [django.server.log_message:124] "GET /admin/home/ HTTP/1.1" 200 15321
+[2019-09-01 04:19:39] INFO [django.server.log_message:124] "GET /static/admin/css/dashboard.css HTTP/1.1" 200 439
+[2019-09-01 04:19:39] ERROR [django.server.log_message:124] "GET /static/admin/css/dashboard.css HTTP/1.1" 500 59
+[2019-09-01 04:22:07] INFO [django.server.log_message:124] "GET /admin/home/ HTTP/1.1" 200 15800
+[2019-09-01 04:22:07] INFO [django.server.log_message:124] "GET /static/admin/css/base.css HTTP/1.1" 304 0
+[2019-09-01 04:22:07] INFO [django.server.log_message:124] "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+[2019-09-01 04:22:07] INFO [django.server.log_message:124] "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+[2019-09-01 04:22:07] INFO [django.server.log_message:124] "GET /static/admin/css/fonts.css HTTP/1.1" 304 0
+[2019-09-01 04:22:07] INFO [django.server.log_message:124] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+[2019-09-01 04:22:07] INFO [django.server.log_message:124] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+[2019-09-01 04:22:12] INFO [django.server.log_message:124] "GET /admin/home/careerswitchapplication/ HTTP/1.1" 200 5351
+[2019-09-01 04:22:12] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-01 04:22:22] INFO [django.server.log_message:124] "GET /admin/home/careerswitchapplication/1/change/ HTTP/1.1" 200 8240
+[2019-09-01 04:22:23] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-01 04:22:31] INFO [django.server.log_message:124] "GET /admin/home/careerswitchapplication/ HTTP/1.1" 200 5351
+[2019-09-01 04:25:25] INFO [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 302 0
+[2019-09-01 04:25:25] INFO [django.server.log_message:124] "GET /career_switch/ HTTP/1.1" 200 20131
+[2019-09-01 04:25:49] INFO [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 200 650
+[2019-09-01 04:26:17] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /career_switch/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\views.py", line 2161, in career_switch
+    [request.POST['email']])
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\mail\__init__.py", line 60, in send_mail
+    return mail.send()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\mail\message.py", line 294, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\mail\backends\smtp.py", line 103, in send_messages
+    new_conn_created = self.open()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\mail\backends\smtp.py", line 68, in open
+    self.connection.starttls(keyfile=self.ssl_keyfile, certfile=self.ssl_certfile)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\smtplib.py", line 751, in starttls
+    "STARTTLS extension not supported by server.")
+smtplib.SMTPNotSupportedError: STARTTLS extension not supported by server.
+[2019-09-01 04:26:17] ERROR [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 500 110774
+[2019-09-01 04:28:10] INFO [django.server.log_message:124] "GET /career_switch/ HTTP/1.1" 200 19873
+[2019-09-01 04:28:26] INFO [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 200 650
+[2019-09-01 04:28:54] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /career_switch/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\views.py", line 2179, in career_switch
+    cv_url = form.cv_link,
+AttributeError: 'CareerSwitchApplicationForm' object has no attribute 'cv_link'
+[2019-09-01 04:28:54] ERROR [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 500 88482
+[2019-09-01 04:31:53] INFO [django.server.log_message:124] "GET /career_switch/ HTTP/1.1" 200 19873
+[2019-09-01 04:34:09] INFO [django.server.log_message:124] "POST /admin/home/careerswitchapplication/ HTTP/1.1" 200 3657
+[2019-09-01 04:34:09] INFO [django.server.log_message:124] "GET /static/admin/js/cancel.js HTTP/1.1" 200 213
+[2019-09-01 04:34:11] INFO [django.server.log_message:124] "POST /admin/home/careerswitchapplication/ HTTP/1.1" 302 0
+[2019-09-01 04:34:11] INFO [django.server.log_message:124] "GET /admin/home/careerswitchapplication/ HTTP/1.1" 200 5477
+[2019-09-01 04:34:11] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-01 04:34:11] INFO [django.server.log_message:124] "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 439
+[2019-09-01 04:34:11] ERROR [django.server.log_message:124] "GET /static/admin/img/icon-yes.svg HTTP/1.1" 500 59
+[2019-09-01 04:34:15] INFO [django.server.log_message:124] "POST /admin/home/careerswitchapplication/ HTTP/1.1" 302 0
+[2019-09-01 04:34:15] INFO [django.server.log_message:124] "GET /admin/home/careerswitchapplication/ HTTP/1.1" 200 5446
+[2019-09-01 04:34:15] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-01 04:34:15] INFO [django.server.log_message:124] "GET /static/admin/img/icon-alert.svg HTTP/1.1" 200 507
+[2019-09-01 04:34:17] INFO [django.server.log_message:124] "POST /admin/home/careerswitchapplication/ HTTP/1.1" 302 0
+[2019-09-01 04:34:18] INFO [django.server.log_message:124] "GET /admin/home/careerswitchapplication/ HTTP/1.1" 200 5514
+[2019-09-01 04:34:18] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-01 04:34:24] INFO [django.server.log_message:124] "POST /admin/home/careerswitchapplication/ HTTP/1.1" 200 3657
+[2019-09-01 04:34:26] INFO [django.server.log_message:124] "POST /admin/home/careerswitchapplication/ HTTP/1.1" 302 0
+[2019-09-01 04:34:26] INFO [django.server.log_message:124] "GET /admin/home/careerswitchapplication/ HTTP/1.1" 200 3508
+[2019-09-01 04:34:26] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-01 04:36:40] INFO [django.server.log_message:124] "GET /career_switch/ HTTP/1.1" 200 19879
+[2019-09-01 04:36:40] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-09-01 04:36:55] INFO [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 200 650
+[2019-09-01 04:37:51] INFO [django.server.log_message:124] "GET /career_switch/ HTTP/1.1" 200 19865
+[2019-09-01 04:37:51] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2019-09-01 04:37:51] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 200 7720
+[2019-09-01 04:37:51] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 200 7448
+[2019-09-01 04:37:51] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 39923
+[2019-09-01 04:37:51] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 143625
+[2019-09-01 04:37:51] INFO [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 200 8372
+[2019-09-01 04:37:51] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css HTTP/1.1" 200 29279
+[2019-09-01 04:37:51] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2019-09-01 04:37:51] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 200 1163
+[2019-09-01 04:37:51] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 200 3979
+[2019-09-01 04:37:51] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js HTTP/1.1" 200 240434
+[2019-09-01 04:37:52] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 200 3066
+[2019-09-01 04:37:53] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 200 7177
+[2019-09-01 04:37:53] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 200 29115
+[2019-09-01 04:37:53] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 200 9198
+[2019-09-01 04:37:53] INFO [django.server.log_message:124] "GET /static/js/waterbubble.js HTTP/1.1" 200 6268
+[2019-09-01 04:37:53] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 200 4488
+[2019-09-01 04:37:53] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/jobban2.png HTTP/1.1" 200 143991
+[2019-09-01 04:37:54] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-09-01 04:38:12] INFO [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 200 650
+[2019-09-01 04:38:43] INFO [django.server.log_message:124] "POST /career_switch/ HTTP/1.1" 302 0
+[2019-09-01 04:38:44] INFO [django.server.log_message:124] "GET /jobs/feedback HTTP/1.1" 200 17008
+[2019-09-01 04:38:44] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/drop.png HTTP/1.1" 200 2548
+[2019-09-01 04:38:44] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/book.png HTTP/1.1" 200 3628
+[2019-09-01 04:38:45] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/play.png HTTP/1.1" 200 2231
+[2019-09-01 04:38:45] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/labwhite.png HTTP/1.1" 200 2738
+[2019-09-01 04:38:45] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/gotoicon.png HTTP/1.1" 200 472
+[2019-09-01 04:38:45] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/workexpban.png HTTP/1.1" 200 357344
+[2019-09-01 04:39:59] INFO [django.server.log_message:124] "GET /unsubscribe HTTP/1.1" 200 2801
+[2019-09-01 04:39:59] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 200 7177
+[2019-09-01 04:39:59] INFO [django.server.log_message:124] "GET /static/home/css/styles.css HTTP/1.1" 200 8800
+[2019-09-01 04:39:59] INFO [django.server.log_message:124] "GET /static/home/images/imgback.jpg HTTP/1.1" 200 1032219
+[2019-09-01 04:40:00] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-09-01 04:40:00] WARNING [django.server.log_message:124] "GET /favicon.ico HTTP/1.1" 404 15131
+[2019-09-01 04:41:37] INFO [django.server.log_message:124] "GET /admin/home/ HTTP/1.1" 200 15800
+[2019-09-01 04:41:45] INFO [django.server.log_message:124] "GET /admin/home/werole/ HTTP/1.1" 200 4367
+[2019-09-01 04:41:45] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-01 04:41:47] INFO [django.server.log_message:124] "GET /admin/home/ HTTP/1.1" 200 15800
+[2019-09-01 04:41:49] INFO [django.server.log_message:124] "GET /admin/home/wetask/ HTTP/1.1" 200 4096
+[2019-09-01 04:41:49] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-01 04:41:53] INFO [django.server.log_message:124] "GET /admin/home/wetask/add/ HTTP/1.1" 200 8619
+[2019-09-01 04:41:53] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-01 04:41:53] INFO [django.server.log_message:124] "GET /static/admin/js/calendar.js HTTP/1.1" 200 7985
+[2019-09-01 04:41:53] INFO [django.server.log_message:124] "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 20709
+[2019-09-01 04:41:53] INFO [django.server.log_message:124] "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1095
+[2019-09-01 04:41:53] INFO [django.server.log_message:124] "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 686
+[2019-09-01 04:43:29] INFO [django.server.log_message:124] "POST /admin/home/wetask/add/ HTTP/1.1" 302 0
+[2019-09-01 04:43:29] INFO [django.server.log_message:124] "GET /admin/home/wetask/ HTTP/1.1" 200 6841
+[2019-09-01 04:43:29] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-01 04:43:29] INFO [django.server.log_message:124] "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1116
+[2019-09-01 04:43:31] INFO [django.server.log_message:124] "GET /admin/home/wetask/add/ HTTP/1.1" 200 8619
+[2019-09-01 04:43:34] INFO [django.server.log_message:124] "GET /admin/home/wetask/ HTTP/1.1" 200 6633
+[2019-09-01 04:43:37] INFO [django.server.log_message:124] "GET /admin/home/ HTTP/1.1" 200 15800
+[2019-09-01 04:43:42] INFO [django.server.log_message:124] "GET /admin/home/wework/ HTTP/1.1" 200 3922
+[2019-09-01 04:43:42] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-01 04:43:45] INFO [django.server.log_message:124] "GET /admin/home/wework/add/ HTTP/1.1" 200 8840
+[2019-09-01 04:43:45] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-01 04:43:45] INFO [django.server.log_message:124] "GET /static/admin/img/icon-clock.svg HTTP/1.1" 304 0
+[2019-09-01 04:44:27] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /admin/home/wework/add/
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 575, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1554, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1451, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\admin\options.py", line 1491, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\admin.py", line 63, in save_model
+    objective = task.objectives,
+AttributeError: 'wetask' object has no attribute 'objectives'
+[2019-09-01 04:44:27] ERROR [django.server.log_message:124] "POST /admin/home/wework/add/ HTTP/1.1" 500 132426
+[2019-09-01 04:45:05] INFO [django.server.log_message:124] "POST /admin/home/wework/add/ HTTP/1.1" 302 0
+[2019-09-01 04:45:05] INFO [django.server.log_message:124] "GET /admin/home/wework/ HTTP/1.1" 200 6886
+[2019-09-01 04:45:05] INFO [django.server.log_message:124] "GET /static/admin/css/base.css HTTP/1.1" 304 0
+[2019-09-01 04:45:05] INFO [django.server.log_message:124] "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+[2019-09-01 04:45:05] INFO [django.server.log_message:124] "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+[2019-09-01 04:45:05] INFO [django.server.log_message:124] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+[2019-09-01 04:45:05] INFO [django.server.log_message:124] "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+[2019-09-01 04:45:05] INFO [django.server.log_message:124] "GET /static/admin/js/core.js HTTP/1.1" 304 0
+[2019-09-01 04:45:05] INFO [django.server.log_message:124] "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+[2019-09-01 04:45:05] INFO [django.server.log_message:124] "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+[2019-09-01 04:45:05] INFO [django.server.log_message:124] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+[2019-09-01 04:45:05] INFO [django.server.log_message:124] "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+[2019-09-01 04:45:05] INFO [django.server.log_message:124] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+[2019-09-01 04:45:05] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-01 04:45:05] INFO [django.server.log_message:124] "GET /static/admin/css/fonts.css HTTP/1.1" 304 0
+[2019-09-01 04:45:05] INFO [django.server.log_message:124] "GET /static/admin/img/search.svg HTTP/1.1" 304 0
+[2019-09-01 04:45:05] INFO [django.server.log_message:124] "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+[2019-09-01 04:45:05] INFO [django.server.log_message:124] "GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+[2019-09-01 04:45:05] INFO [django.server.log_message:124] "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 304 0
+[2019-09-01 04:45:10] INFO [django.server.log_message:124] "GET /admin/home/wework/1/change/ HTTP/1.1" 200 9199
+[2019-09-01 04:45:10] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-01 04:45:18] INFO [django.server.log_message:124] "GET /admin/home/wetask/1/change/ HTTP/1.1" 200 9181
+[2019-09-01 04:45:18] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-01 04:45:22] INFO [django.server.log_message:124] "GET /admin/home/wework/1/change/ HTTP/1.1" 200 9199

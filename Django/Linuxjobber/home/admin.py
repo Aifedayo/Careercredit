@@ -6,7 +6,7 @@ from django.conf import settings
 from .models import FAQ, Job, RHCSAOrder, FreeAccountClick, Campaign, Message, Unsubscriber, Internship, \
     InternshipDetail, MessageGroup, UserLocation, NewsLetterSubscribers, UserOrder, Document, MainModel, AwsCredential, \
     Jobplacement, Groupclass, BillingHistory, GroupClassRegister, StripePayment, UserPayment, wepeoples, wetask, werole, \
-    wework, wetype, PartTimeJob, TryFreeRecord, FullTimePostion, PartTimePostion, Resume
+    wework, wetype, PartTimeJob, TryFreeRecord, FullTimePostion, PartTimePostion, Resume, CareerSwitchApplication
 from datetime import timedelta
 import datetime
 import subprocess, os
@@ -38,29 +38,29 @@ class weworkAdmin(admin.ModelAdmin):
         if obj.send_task == 1:
             task = wetask.objects.get(pk=form.cleaned_data['task'].id)
             template = """
-            Hello {firstname}
-            
-            You have been assigned a task for the {program} program. 
-            
-            Task assigned: {task}
-            
-            {objective}
-            
-            Further Description:
-                {description}
-            
-            
-            Do ensure you accomplish this task as it is a requirement to finish the work experience program.
-            Always ensure you reach out to your tech lead when you are stuck.
-            
-            
-            Warm Regards,
-            Linuxjobber
+Hello {firstname}
+
+You have been assigned a task for the {program} program. 
+
+Task assigned: {task}
+
+{objective}
+
+Further Description:
+{description}
+
+
+Do ensure you accomplish this task as it is a requirement to finish the work experience program.
+Always ensure you reach out to your tech lead when you are stuck.
+
+
+Warm Regards,
+Linuxjobber
 
             """.format(
                 firstname=obj.we_people.user.first_name,
                 program = task.types,
-                objective = task.objectives,
+                objective = task.objective,
                 task = task.task,
                 description = task.description
             )
@@ -139,7 +139,7 @@ class PartimeAdmin(admin.ModelAdmin):
     list_display = ['email', 'position']
 
 class CareerSwitchApplicationAdmin(admin.ModelAdmin):
-    list_display = ['email','old_career','new_career__jobtitle']
+    list_display = ['email','old_career','new_career']
 
 
 admin.site.register(FAQ)
@@ -174,4 +174,4 @@ admin.site.register(FreeAccountClick, FreeAccountClickAdmin)
 admin.site.register(werole)
 admin.site.register(Resume)
 admin.site.register(TryFreeRecord)
-admin.site.register(CareerSwitchApplicationAdmin,CareerSwitchApplicationAdmin)
+admin.site.register(CareerSwitchApplication, CareerSwitchApplicationAdmin)

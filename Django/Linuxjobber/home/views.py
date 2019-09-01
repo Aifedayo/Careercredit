@@ -2086,15 +2086,22 @@ def combined_class_terms(request):
     return TemplateResponse(request,'home/combined_class_terms.html')
 
 
-
-def career_switch(request):
+@csrf_exempt
+def career_switch(request, position_id = None):
+    response_data = {}
+    if request.POST.get('get_position_detail', None):
+        # This method handles AJAX request for job details
+        item = FullTimePostion.objects.get(id=request.POST.get('get_position_detail'))
+        response_data['requirement'] = item.requirement
+        response_data['responsibility'] = r"{}".format(item.responsibility.replace('\n','<br>'))
+        response_data['job_title'] = item.job_title
+        return HttpResponse(json.dumps(response_data),
+            content_type="application/json")
 
     form = CareerSwitchApplicationForm()
     if request.method == "POST":
 
-        # This method handles AJAX request for job details
-        if request.POST.get('get_position_details',None):
-            return HttpResponse(FullTimePostion.objects.get(job_title=request.POST.get('get_postion_details')))
+
 
         form = CareerSwitchApplicationForm(request.POST, request.FILES)
         cv = None
@@ -2105,7 +2112,7 @@ def career_switch(request):
                 messages.success(request,
                                  "Sorry We could not submit your application as you have applied for this role before.")
                 return redirect("home:career_switch")
-            except Job.DoesNotExist:
+            except CareerSwitchApplication.DoesNotExist:
                 pass
             jobform.save()
             request.session['job_email'] = request.POST['email']
@@ -2131,16 +2138,16 @@ def career_switch(request):
                 cv = request.POST['cv_link']
 
             applicant_template = """
-            Hi {fullname},
-            
-            We are happy you are interested to switch to a {new_career} role.
-            
-            This mail is to confirm we have received your details, and would be reviewing it accordingly.
-            
-            In addition, you would also be informed occasionally on open roles, you can unsubscribe from these notifications here {unsubscribe_url}
-            
-            Warm Regards,
-            Linuxjobber
+Hi {fullname},
+
+We are happy you are interested to switch to a {new_career} role.
+
+This mail is to confirm we have received your details, and would be reviewing it accordingly.
+
+In addition, you would also be informed occasionally on open roles, you can unsubscribe from these notifications here {unsubscribe_url}
+
+Warm Regards,
+Linuxjobber
             
             
             """.format(
@@ -2154,26 +2161,25 @@ def career_switch(request):
                       [request.POST['email']])
 
             admin_email_template = """
-            
-            Hello,
-            
-            {fullname} with {email} just submitted a career switch application for the {new_career}.
+Hello,
 
-            Old career : {old_career}
-            Phone : {phone}          
-            CV can be found here : {cv_url} 
-            
-            Kindly review.   
+{fullname} with {email} just submitted a career switch application for the {new_career}.
+
+Old career : {old_career}
+Phone : {phone}          
+CV can be found here : {cv_url} 
+
+Kindly review.   
             """.format(
                 fullname = jobform.fullname,
                 new_career = jobform.new_career,
                 old_career = jobform.old_career,
                 phone = jobform.phone,
-                cv_url = form.cv_link,
+                cv_url = cv,
                 email = jobform.email
             )
             send_mail('Career Switch Application Received', admin_email_template
-                      ,settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
+                      ,settings.EMAIL_HOST_USER, ['c.showunmi@linuxjobber.com','azmayowa@gmail.com'])
             return redirect("home:jobfeed")
         else:
             return render(request, 'home/career_switch.html', {'form': form})
