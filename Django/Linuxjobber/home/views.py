@@ -33,7 +33,8 @@ from users.models import *
 from Courses.models import Course, CoursePermission, UserInterest
 from ToolsApp.models import Tool
 from users.models import CustomUser
-from .forms import JobPlacementForm, JobApplicationForm, AWSCredUpload, InternshipForm, ResumeForm, PartimeApplicationForm, WeForm, UnsubscribeForm
+from .forms import JobPlacementForm, JobApplicationForm, AWSCredUpload, InternshipForm,\
+    ResumeForm, PartimeApplicationForm, WeForm, UnsubscribeForm,CareerSwitchApplicationForm
 from datetime import datetime
 
 fs = FileSystemStorage(location= settings.MEDIA_ROOT+'/uploads')
@@ -1960,7 +1961,8 @@ def group_list(request):
                 group_item.users.add(user)
                 messages.success(request, 'You registered in '+group_item.name+' group class successfully..')
                 return redirect("home:group")
-            groupreg = GroupClassRegister.objects.create(user= user, is_paid = 0, amount=29, type_of_class = group_item.type_of_class)
+            groupreg = GroupClassRegister.objects.create(user= user, is_paid = 0,
+                                                         amount=29, type_of_class = group_item.type_of_class)
             groupreg.save()
             if int(choice) == 1:
                 request.session['gclass'] = int(gclass)
@@ -1971,7 +1973,8 @@ def group_list(request):
     if request.user.is_authenticated:
         user_token,_=Token.objects.get_or_create(user=request.user)
 
-    return TemplateResponse(request,'home/group_class.html',{'groups': Groupclass.objects.all(), 'GROUP_URL':settings.GROUP_CLASS_URL, 'token':user_token})
+    return TemplateResponse(request,'home/group_class.html',{'groups': Groupclass.objects.all(),
+                                                             'GROUP_URL':settings.GROUP_CLASS_URL, 'token':user_token})
 
 
 def handler_404(request):
@@ -2052,7 +2055,10 @@ def combined_class_pay(request):
                                                    person=None, state=None, income=None, relocation=None,
                                                    last_verification=None, Paystub=None, graduation_date=None)
                 send_mail('Linuxjobber Combined Class Payment',
-                          'Hello, you have successfuly beem enrolled in our Combined Class which gives you access to full technical training with Work Experience package included \n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
+                          'Hello, you have successfuly beem enrolled in our Combined Class '
+                          'which gives you access to full technical training with Work Experience package included \n\n'
+                          'Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL
+                          + 'unsubscribe',
                           settings.EMAIL_HOST_USER, [request.user.email])
                 return render(request, 'home/combined_class_pay_success.html')
             except SMTPException as error:
@@ -2078,3 +2084,103 @@ def combined_class(request):
 @login_required()
 def combined_class_terms(request):
     return TemplateResponse(request,'home/combined_class_terms.html')
+
+
+@csrf_exempt
+def career_switch(request, position_id = None):
+    response_data = {}
+    if request.POST.get('get_position_detail', None):
+        # This method handles AJAX request for job details
+        item = FullTimePostion.objects.get(id=request.POST.get('get_position_detail'))
+        response_data['requirement'] = item.requirement
+        response_data['responsibility'] = r"{}".format(item.responsibility.replace('\n','<br>'))
+        response_data['job_title'] = item.job_title
+        return HttpResponse(json.dumps(response_data),
+            content_type="application/json")
+
+    form = CareerSwitchApplicationForm()
+    if request.method == "POST":
+
+
+
+        form = CareerSwitchApplicationForm(request.POST, request.FILES)
+        cv = None
+        if form.is_valid():
+            jobform = form.save(commit=False)
+            try:
+                CareerSwitchApplication.objects.get(email=request.POST['email'],new_career=jobform.new_career)
+                messages.success(request,
+                                 "Sorry We could not submit your application as you have applied for this role before.")
+                return redirect("home:career_switch")
+            except CareerSwitchApplication.DoesNotExist:
+                pass
+            jobform.save()
+            request.session['job_email'] = request.POST['email']
+            request.session['job_fullname'] = request.POST['fullname']
+            request.session['page'] = 'Switch Career Feedback'
+
+            try:
+                freeexist = FreeAccountClick.objects.get(email=request.session['job_email'])
+            except FreeAccountClick.DoesNotExist:
+                freeclick = FreeAccountClick(fullname=request.session['job_fullname'],
+                                             email=request.session['job_email'],
+                                             filled_jobs=1,
+                                             freeaccountclick=0,
+                                             from_what_page=request.session['page'],
+                                             registered=0,
+                                             visited_tryfree=0,
+                                             paid=0)
+                freeclick.save()
+
+            if not request.POST['cv_link']:
+                cv = jobform.resume.url
+            else:
+                cv = request.POST['cv_link']
+
+            applicant_template = """
+Hi {fullname},
+
+We are happy you are interested to switch to a {new_career} role.
+
+This mail is to confirm we have received your details, and would be reviewing it accordingly.
+
+In addition, you would also be informed occasionally on open roles, you can unsubscribe from these notifications here {unsubscribe_url}
+
+Warm Regards,
+Linuxjobber
+            
+            
+            """.format(
+                fullname = jobform.fullname,
+                new_career = jobform.new_career,
+                unsubscribe_url = settings.ENV_URL + '/unsubscribe'
+            )
+
+            send_mail('Your Career Switch application has been received - Linuxjobber',
+                      applicant_template, settings.EMAIL_HOST_USER,
+                      [request.POST['email']])
+
+            admin_email_template = """
+Hello,
+
+{fullname} with {email} just submitted a career switch application for the {new_career}.
+
+Old career : {old_career}
+Phone : {phone}          
+CV can be found here : {cv_url} 
+
+Kindly review.   
+            """.format(
+                fullname = jobform.fullname,
+                new_career = jobform.new_career,
+                old_career = jobform.old_career,
+                phone = jobform.phone,
+                cv_url = cv,
+                email = jobform.email
+            )
+            send_mail('Career Switch Application Received', admin_email_template
+                      ,settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com',])
+            return redirect("home:jobfeed")
+        else:
+            return render(request, 'home/career_switch.html', {'form': form})
+    return render(request, 'home/career_switch.html', {'form': form})
