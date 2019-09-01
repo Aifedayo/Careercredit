@@ -2117,7 +2117,7 @@ def career_switch(request, position_id = None):
             jobform.save()
             request.session['job_email'] = request.POST['email']
             request.session['job_fullname'] = request.POST['fullname']
-            request.session['page'] = 'Job Feedback'
+            request.session['page'] = 'Switch Career Feedback'
 
             try:
                 freeexist = FreeAccountClick.objects.get(email=request.session['job_email'])
@@ -2179,7 +2179,7 @@ Kindly review.
                 email = jobform.email
             )
             send_mail('Career Switch Application Received', admin_email_template
-                      ,settings.EMAIL_HOST_USER, ['c.showunmi@linuxjobber.com','azmayowa@gmail.com'])
+                      ,settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com',])
             return redirect("home:jobfeed")
         else:
             return render(request, 'home/career_switch.html', {'form': form})
