@@ -43,7 +43,6 @@ Hello {firstname}
 You have been assigned a task for the {program} program. 
 
 Task assigned: {task}
-
 {objective}
 
 Further Description:
@@ -64,7 +63,7 @@ Linuxjobber
                 task = task.task,
                 description = task.description
             )
-            send_mail('Linuxjobber Work Experience Task', template, settings.EMAIL_HOST_USER, [obj.we_people.user.email])
+            send_mail('New Work Experience Task Assigned - Linuxjobber', template, settings.EMAIL_HOST_USER, [obj.we_people.user.email])
 
         super().save_model(request, obj, form, change)
 
