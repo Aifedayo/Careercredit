@@ -92,4 +92,5 @@ urlpatterns = [
     path('combined_class/',views.combined_class,name='combined_class'),
     path('combined_class_terms/',views.combined_class_terms,name='combined_class_terms'),
     path('combined_class/pay',views.combined_class_pay,name='combined_class_pay'),
+    path('career_switch/',views.career_switch,name='career_switch'),
 ]

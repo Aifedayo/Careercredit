@@ -138,6 +138,9 @@ class PartimeAdmin(admin.ModelAdmin):
     search_fields = ['email', 'position__job_title']
     list_display = ['email', 'position']
 
+class CareerSwitchApplicationAdmin(admin.ModelAdmin):
+    list_display = ['email','old_career','new_career__jobtitle']
+
 
 admin.site.register(FAQ)
 admin.site.register(Job, JobAdmin)
@@ -171,3 +174,4 @@ admin.site.register(FreeAccountClick, FreeAccountClickAdmin)
 admin.site.register(werole)
 admin.site.register(Resume)
 admin.site.register(TryFreeRecord)
+admin.site.register(CareerSwitchApplicationAdmin,CareerSwitchApplicationAdmin)
