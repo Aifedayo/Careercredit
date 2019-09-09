@@ -3,11 +3,14 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.core.files.storage import FileSystemStorage
+from datetime import datetime,timedelta,date
 
 from users.models import CustomUser
 
 from Courses.models import Course
 
+def due_time():
+    return timezone.now() + timezone.timedelta(days=6)
 
 class FAQ(models.Model):
     question = models.CharField(max_length = 200)
@@ -370,11 +373,10 @@ class wework(models.Model):
     we_people = models.ForeignKey(wepeoples, on_delete = models.CASCADE)
     task = models.ForeignKey(wetask, on_delete = models.CASCADE)
     status = models.IntegerField(default=0 ,choices=((0, 'Pending'), (1, 'Done')))
-    created = models.DateTimeField(default=timezone.now, null=False)
+    created = models.DateTimeField(default=timezone.now, null=True)
     send_task = models.IntegerField(default=0 ,choices=((0, 'No'), (1, 'Yes')))
-    due = models.DateTimeField(default=timezone.now, null=True)
-
-
+    due = models.DateTimeField(default=due_time)
+    
     class Meta:
         unique_together = (('we_people','weight'),)
         ordering = (('we_people','weight'))

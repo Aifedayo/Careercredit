@@ -714,3 +714,37 @@ home.models.DoesNotExist: werole matching query does not exist.
 [2019-08-13 22:43:36] INFO [django.server.log_message:124] "POST /ulocation HTTP/1.1" 200 0
 [2019-08-13 22:48:51] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 24911
 [2019-08-13 22:48:53] INFO [django.server.log_message:124] "POST /ulocation HTTP/1.1" 200 0
+[2019-09-09 13:43:26] INFO [django.channels.server.log_action:147] [32mHTTP GET /admin/ 302 [0.86, 127.0.0.1:42074][0m
+[2019-09-09 13:43:26] INFO [django.channels.server.log_action:141] [mHTTP GET /admin/login/?next=/admin/ 200 [0.35, 127.0.0.1:42074][0m
+[2019-09-09 13:43:26] INFO [django.channels.server.log_action:141] [mHTTP GET /static/admin/css/login.css 200 [0.03, 127.0.0.1:42074][0m
+[2019-09-09 13:43:26] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-09-09 13:43:26] WARNING [django.channels.server.log_action:149] [33mHTTP GET /favicon.ico 404 [0.10, 127.0.0.1:42074][0m
+[2019-09-09 13:43:42] INFO [django.channels.server.log_action:147] [32mHTTP POST /admin/login/?next=/admin/ 302 [0.78, 127.0.0.1:42074][0m
+[2019-09-09 13:43:42] INFO [django.channels.server.log_action:141] [mHTTP GET /admin/ 200 [0.49, 127.0.0.1:42074][0m
+[2019-09-09 13:43:42] INFO [django.channels.server.log_action:141] [mHTTP GET /static/admin/css/dashboard.css 200 [0.03, 127.0.0.1:42074][0m
+[2019-09-09 13:43:42] INFO [django.channels.server.log_action:141] [mHTTP GET /static/admin/img/icon-changelink.svg 200 [0.04, 127.0.0.1:42078][0m
+[2019-09-09 13:43:43] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-09-09 13:43:43] WARNING [django.channels.server.log_action:149] [33mHTTP GET /favicon.ico 404 [0.24, 127.0.0.1:42074][0m
+[2019-09-09 13:44:01] INFO [django.channels.server.log_action:141] [mHTTP GET /admin/home/wework/ 200 [0.40, 127.0.0.1:42074][0m
+[2019-09-09 13:44:02] INFO [django.channels.server.log_action:141] [mHTTP GET /static/admin/css/changelists.css 200 [0.04, 127.0.0.1:42078][0m
+[2019-09-09 13:44:02] INFO [django.channels.server.log_action:141] [mHTTP GET /admin/jsi18n/ 200 [0.11, 127.0.0.1:42074][0m
+[2019-09-09 13:44:02] INFO [django.channels.server.log_action:141] [mHTTP GET /static/admin/js/urlify.js 200 [0.03, 127.0.0.1:42074][0m
+[2019-09-09 13:44:02] INFO [django.channels.server.log_action:141] [mHTTP GET /static/admin/js/jquery.init.js 200 [0.19, 127.0.0.1:42078][0m
+[2019-09-09 13:44:02] INFO [django.channels.server.log_action:141] [mHTTP GET /static/admin/js/vendor/jquery/jquery.js 200 [0.22, 127.0.0.1:42082][0m
+[2019-09-09 13:44:02] INFO [django.channels.server.log_action:141] [mHTTP GET /static/admin/js/core.js 200 [0.17, 127.0.0.1:42084][0m
+[2019-09-09 13:44:02] INFO [django.channels.server.log_action:141] [mHTTP GET /static/admin/js/admin/RelatedObjectLookups.js 200 [0.18, 127.0.0.1:42086][0m
+[2019-09-09 13:44:02] INFO [django.channels.server.log_action:141] [mHTTP GET /static/admin/js/actions.js 200 [0.16, 127.0.0.1:42088][0m
+[2019-09-09 13:44:02] INFO [django.channels.server.log_action:141] [mHTTP GET /static/admin/js/prepopulate.js 200 [0.13, 127.0.0.1:42074][0m
+[2019-09-09 13:44:02] INFO [django.channels.server.log_action:141] [mHTTP GET /static/admin/js/vendor/xregexp/xregexp.js 200 [0.05, 127.0.0.1:42078][0m
+[2019-09-09 13:44:02] INFO [django.channels.server.log_action:141] [mHTTP GET /static/admin/img/search.svg 200 [0.03, 127.0.0.1:42082][0m
+[2019-09-09 13:44:02] INFO [django.channels.server.log_action:141] [mHTTP GET /static/admin/img/tooltag-add.svg 200 [0.02, 127.0.0.1:42082][0m
+[2019-09-09 13:44:05] INFO [django.channels.server.log_action:141] [mHTTP GET /admin/home/wework/add/ 200 [0.46, 127.0.0.1:42082][0m
+[2019-09-09 13:44:05] INFO [django.channels.server.log_action:141] [mHTTP GET /static/admin/js/prepopulate_init.js 200 [0.07, 127.0.0.1:42074][0m
+[2019-09-09 13:44:05] INFO [django.channels.server.log_action:141] [mHTTP GET /static/admin/css/forms.css 200 [0.13, 127.0.0.1:42078][0m
+[2019-09-09 13:44:05] INFO [django.channels.server.log_action:141] [mHTTP GET /admin/jsi18n/ 200 [0.16, 127.0.0.1:42082][0m
+[2019-09-09 13:44:05] INFO [django.channels.server.log_action:141] [mHTTP GET /static/admin/js/calendar.js 200 [0.16, 127.0.0.1:42084][0m
+[2019-09-09 13:44:05] INFO [django.channels.server.log_action:141] [mHTTP GET /static/admin/js/change_form.js 200 [0.14, 127.0.0.1:42088][0m
+[2019-09-09 13:44:05] INFO [django.channels.server.log_action:141] [mHTTP GET /static/admin/js/admin/DateTimeShortcuts.js 200 [0.16, 127.0.0.1:42086][0m
+[2019-09-09 13:44:05] INFO [django.channels.server.log_action:141] [mHTTP GET /static/admin/css/widgets.css 200 [0.05, 127.0.0.1:42082][0m
+[2019-09-09 13:44:06] INFO [django.channels.server.log_action:141] [mHTTP GET /static/admin/img/icon-calendar.svg 200 [0.03, 127.0.0.1:42082][0m
+[2019-09-09 13:44:06] INFO [django.channels.server.log_action:141] [mHTTP GET /static/admin/img/icon-clock.svg 200 [0.02, 127.0.0.1:42078][0m
