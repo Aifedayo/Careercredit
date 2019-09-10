@@ -112,13 +112,15 @@ WSGI_APPLICATION = 'Linuxjobber.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': config('DATABASE_NAME', 'linuxjb'),  # linuxjb
-        'USER': config('DATABASE_USER', 'linuxjobber'),  # linuxjobber
-        'PASSWORD': config('DATABASE_PASSWORD', 'linuxjobber'),  # linuxjobber
+        'NAME': config('DATABASE_NAME', 'linuxjobber'),  # linuxjb
+        'USER': config('DATABASE_USER', 'root'),  # linuxjobber
+        'PASSWORD': config('DATABASE_PASSWORD', 'jehovah205'),  # linuxjobber
         'HOST': config('DATABASE_HOST', 'localhost'),
-        'PORT': config('DATABASE_PORT', '3306'),
+        'PORT': config('DATABASE_PORT', ''),
 
     }
+
+
 } 
 
 # Password validation
