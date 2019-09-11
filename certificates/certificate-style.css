@@ -1,0 +1,110 @@
+/* global */
+* {
+    margin: 0;
+    padding:0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+/*html{
+    font-family: "Montserrat";
+}*/
+
+html{
+    font-family: 'Open Sans', arial;
+}
+
+header{
+    background-image: url(images/linux-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 1080px;
+    
+    
+}
+
+
+.linuxjobberlogo img{
+    width: 250px;
+    position: absolute;
+    left: 41%;
+    top: 25%;
+}
+
+.certificate{
+    width: 50%;
+    position: relative;
+    left: 25%;
+    top: 22%;
+}
+
+.userimage{
+    text-align: center;
+    position: relative;
+    top: 15%;
+    margin: 90px 0 0 0;
+    
+}
+
+.cert-text{
+    text-align: center;
+    position: relative;
+    top: 15%;
+    margin-top: 10px;
+}
+
+.cert-trainer{
+    text-align: center;
+    position: relative;
+    top: 35%;
+    margin-top: 10px;
+}
+
+.cert-text h2{
+    font-weight: 600;
+    font-size: 40px;
+}
+
+.cert-text h4, .cert-trainer h4{
+    font-weight: 500;
+}
+
+.cert-trainer h2{
+    position: relative;
+    font-size: 21px;
+    top: 150%;
+
+}
+
+.signature img{
+    width: 200px;
+    position: absolute;
+    left: 44%;
+    top: 112%;
+}
+
+.cert-technology img{
+    width: 180px;
+    float: right;
+    position: absolute;
+    top: 112%;
+    right: 10%;
+}
+
+.cert-info h4{
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.cert-info {
+    position: absolute;
+    top: 130%;
+    left: 8%;
+
+}
+
+
+
