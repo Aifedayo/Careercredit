@@ -367,7 +367,7 @@ class wepeoples(models.Model):
 
 class wetask(models.Model):
     weight = models.IntegerField(null=True)
-    task = models.CharField(max_length=50, null=True)
+    task = models.CharField(max_length=500, null=True)
     objective = models.TextField()
     description = models.TextField()
     created = models.DateTimeField(default=timezone.now, null=False)

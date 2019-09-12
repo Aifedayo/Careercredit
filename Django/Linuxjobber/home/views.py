@@ -832,7 +832,7 @@ def workexprofile(request):
 
             link = weps.Paystub.url
             
-            send_mail('Pay Stub verification needed', 'Hello,\n '+request.user.email+' just uploaded is pay stub at: '+link+'.\nPlease review and confirm last verification\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, ['azeemmayowa@gmail.com'])
+            send_mail('Pay Stub verification needed', 'Hello,\n '+request.user.email+' just uploaded is pay stub at: '+link+'.\nPlease review and confirm last verification\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
             messages.success(request, 'Paystub uploaded successfully, Last verification would be confirmed as soon as Paystub is verified')
             return redirect("home:workexprofile")
         elif request.POST['type'] == '2':
@@ -2117,7 +2117,7 @@ def career_switch(request, position_id = None):
             jobform.save()
             request.session['job_email'] = request.POST['email']
             request.session['job_fullname'] = request.POST['fullname']
-            request.session['page'] = 'Switch Career Feedback'
+            request.session['page'] = 'Switch Career'
 
             try:
                 freeexist = FreeAccountClick.objects.get(email=request.session['job_email'])
@@ -2131,6 +2131,9 @@ def career_switch(request, position_id = None):
                                              visited_tryfree=0,
                                              paid=0)
                 freeclick.save()
+            except Exception:
+                pass
+
 
             if not request.POST['cv_link']:
                 cv = jobform.resume.url
@@ -2178,7 +2181,7 @@ Kindly review.
                 cv_url = cv,
                 email = jobform.email
             )
-            send_mail('Career Switch Application Received', admin_email_template
+            send_mail('Career Switch Application Received ', admin_email_template
                       ,settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com',])
             return redirect("home:jobfeed")
         else:
