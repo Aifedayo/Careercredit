@@ -2181,7 +2181,7 @@ Kindly review.
                 cv_url = cv,
                 email = jobform.email
             )
-            send_mail('Career Switch Application Received', admin_email_template
+            send_mail('Career Switch Application Received ', admin_email_template
                       ,settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com',])
             return redirect("home:jobfeed")
         else:
