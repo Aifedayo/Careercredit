@@ -93,3 +93,17 @@ class UnsubscribeForm(forms.ModelForm):
 		class Meta:
 			model = Unsubscriber
 			fields = ['email']
+
+
+class CareerSwitchApplicationForm(forms.ModelForm):
+	fullname = forms.CharField(label='First Name', widget = forms.TextInput(attrs = {'placeholder': 'Your full name', 'id' :'JobFname', 'class':'form-control jobfinput'}) )
+	email = forms.CharField(label='Email', widget = forms.TextInput(attrs = {'placeholder': 'Your email address', 'id' :'JobFname', 'class':'form-control jobfinput'}) )
+	new_career = forms.ModelChoiceField(queryset=FullTimePostion.objects.all(), empty_label="Select",widget = forms.Select(attrs = { 'class':'form-control jobfinput'}) )
+	old_career = forms.CharField(label='Old Career', widget = forms.TextInput(attrs = {'placeholder': 'Old Career', 'class':'form-control jobfinput'}) )
+	phone = forms.CharField(label='Phone', widget = forms.TextInput(attrs = {'placeholder': 'Your phone number', 'id' :'JobFname', 'class':'form-control jobfinput'}) )
+	cv_link = forms.CharField(label='cv link',required = False, widget = forms.TextInput(attrs = {'placeholder': 'Link to CV or LinkedIn', 'id' :'cv_link', 'class':'form-control jobfinput', }) )
+	resume = forms.FileField(label='cv',required = False, widget = forms.FileInput(attrs = {'id':'file-upload','accept':".pdf,.doc,.docx"}))
+
+	class Meta:
+		model = models.CareerSwitchApplication
+		exclude = []

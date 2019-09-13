@@ -112,13 +112,15 @@ WSGI_APPLICATION = 'Linuxjobber.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': config('DATABASE_NAME', 'linuxjb'),  # linuxjb
-        'USER': config('DATABASE_USER', 'linuxjobber'),  # linuxjobber
-        'PASSWORD': config('DATABASE_PASSWORD', 'linuxjobber'),  # linuxjobber
+        'NAME': config('DATABASE_NAME', 'linuxjobber'),  # linuxjb
+        'USER': config('DATABASE_USER', 'root'),  # linuxjobber
+        'PASSWORD': config('DATABASE_PASSWORD', 'jehovah205'),  # linuxjobber
         'HOST': config('DATABASE_HOST', 'localhost'),
-        'PORT': config('DATABASE_PORT', '3306'),
+        'PORT': config('DATABASE_PORT', ''),
 
     }
+
+
 } 
 
 # Password validation
@@ -279,7 +281,7 @@ EMAIL_HOST = config('EMAIL_HOST', 'smtp.linuxjobber.com')
 EMAIL_PORT = config('EMAIL_PORT', '587')
 EMAIL_HOST_USER = config('EMAIL_HOST_USER', 'admin@linuxjobber.com')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', 'm4k3Aw!y')
-EMAIL_USE_TLS = True
+#EMAIL_USE_TLS = True
 
 
 
