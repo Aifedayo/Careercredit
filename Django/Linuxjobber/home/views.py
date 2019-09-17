@@ -366,7 +366,7 @@ def policies(request):
 
 def jobs(request):
     posts = FullTimePostion.objects.all()
-    return render(request, 'home/job.html', {'posts':posts})
+    return render(request, 'home/job_index.html', {'posts':posts})
 
 def partime(request):
     cv = None
@@ -510,11 +510,11 @@ def jobapplication(request, job):
             return redirect("home:jobfeed")
         else:
             form = JobApplicationForm()
-            return render(request, 'home/jobapplication.html', {'form': form, 'posts' : posts})
+            return render(request, 'home/job_application.html', {'form': form, 'posts' : posts})
     else:
         form = JobApplicationForm()
     form = JobApplicationForm()
-    return render(request, 'home/jobapplication.html', {'form': form, 'posts' : posts})
+    return render(request, 'home/job_application.html', {'form': form, 'posts' : posts})
 
 
 def resume(request):

@@ -1,0 +1,98 @@
+    html body{
+        background-color: #63636300;
+    }
+
+    .header-color{
+        height: 70px;
+        background-color: #1B539E;
+    }
+
+    .job-banner{
+
+        background: url("../images/job-lady-banner.png");
+         /*linear-gradient(90deg, #1B539E 38.54%, rgba(0, 0, 0, 0.2) 100%);*/
+
+	min-height: 555px;
+	background-size: cover;
+    background-repeat: no-repeat;
+
+    }
+    .job-text{
+        min-height: 500px;
+        margin-left: 80px;
+        background-image: url("../images/join-team-min.png");
+        background-repeat: no-repeat;
+    }
+
+    .job-outline{
+        padding: 50px 37px 50px 37px;
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.5);
+    }
+    .category-tab{
+        margin-top: 45px;
+    }
+
+    .job-card{
+        background-color: white;
+        border-radius: 10px;
+        padding: 50px;
+        min-height: 400px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .job-title{
+        font-size: 24px;
+        color: rgba(0, 0, 0, 0.8);
+        font-weight: 500;
+
+    }
+    .job-description{
+        font-size: 18px;
+        color: rgba(0, 0, 0, 0.8);
+        margin-bottom: 50px;
+        margin-top: 10px;
+    }
+    .job-responsibilites{
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 24px;
+        color: rgba(0, 0, 0, 0.8);
+        margin-bottom: 10px;
+
+
+    }
+    .apply{
+        margin-top: 50px;
+    }
+
+
+
+.nav-container {
+    overflow: auto;
+    padding-left: 1px;
+    vertical-align: center;
+}
+
+.nav-image {
+    float: left;
+}
+
+.nav-text {
+    line-height: 14px;
+    padding-left: 10px;
+    font-size: 14px;
+}
+.item-list{
+    font-size: 14px;
+    line-height: 28px;
+}
+    .type{
+        font-size: 18px;
+        color: rgba(0, 0, 0, 0.8);
+        margin-bottom: 25px;
+
+    }
+
+

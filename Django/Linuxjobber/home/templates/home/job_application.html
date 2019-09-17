@@ -1,0 +1,94 @@
+{% extends 'home/base.html' %}
+{% load staticfiles%}
+{% block title %}
+Job Application| Linuxjobber
+{% endblock %}
+
+{% load staticfiles %}
+{% block external_header %}
+    <link rel="stylesheet" href="{% static 'home/css/jobs_new.css' %}">
+{% endblock %}
+
+{% load staticfiles %}
+{% block content %}
+    <style>
+
+        html body{
+        background-color: #6363631c;
+    }
+
+    .header-color{
+        height: 70px;
+        background-color: #1B539E;
+    }
+
+        .job-application-banner{
+
+        background: url("{% static 'home/images/job-application-banner.png' %}") ;
+
+	height: 181px;
+	background-size: cover;
+    background-repeat: no-repeat;
+
+    }
+
+    .application{
+        padding: 100px 90px 100px 90px;
+    }
+
+    .job-application-text{
+        margin-left: 90px;
+        padding-top: 14px;
+        font-size: 64px;
+        color: white;
+        font-family: "Brush Script MT";
+    }
+    </style>
+    <section class="header-color"></section>
+
+<section class="job-application-banner">
+
+<div class="job-application-text">
+Full-Time Application
+</div>
+</section>
+
+    <section class="application">
+
+    <div class="row">
+        			{% if messages %}
+          {% for message in messages %}
+            {% if message.tags == "success" %}
+            <div class="alert alert-success" role="alert">
+            <p style="color:#155724">{{message}}</p>
+        	</div>
+            {%else%}
+            <div class="alert alert-danger" role="alert">
+            <p style="color:#721c24">{{message}}</p>
+            </div>
+            {%endif%}
+    {% endfor %}
+    {% endif %}
+    </div>
+
+    <div class="row">
+
+
+                    <div class="job-title">{{ posts.job_title }}</div>
+                    <div class="job-description">{{ posts.requirement }}</div>
+                    <div class="job-responsibilites">Responsibilities:</div>
+                    <div class="item-list">
+                        <p>
+                            {{posts.responsibility |linebreaksbr|linebreaksbr}}
+                        </p>
+                    </div>
+
+
+    </div>
+
+    <div style="min-height: 100px">&nbsp;</div>
+        <hr>
+
+    </section>
+
+{% endblock %}

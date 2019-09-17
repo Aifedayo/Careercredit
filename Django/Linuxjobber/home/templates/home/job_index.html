@@ -1,0 +1,74 @@
+{% extends 'home/base.html' %}
+{% load staticfiles%}
+{% block title %}
+Jobs | Linuxjobber
+{% endblock %}
+
+{% load staticfiles %}
+{% block external_header %}
+    <link rel="stylesheet" href="{% static 'home/css/jobs_new.css' %}">
+{% endblock %}
+
+{% load staticfiles %}
+{% block content %}
+
+    <section class="header-color"></section>
+
+<section class="job-banner">
+
+<div class="job-text">
+</div>
+</section>
+<section class="job-outline">
+
+    <div class="row">
+        <div class="col col-md-2">
+            <div class="category-tab">
+                <p class="type">Type</p>
+                <label class="nav-container">
+                    <input class="nav-image" type="radio"> <span class="nav-text">Full-Time Application</span>
+                </label>
+                <div style="min-height: 8px"></div>
+                <label class="nav-container">
+                    <input class="nav-image" type="radio"> <span class="nav-text">Part-Time Application</span>
+                </label>
+
+            </div>
+        </div>
+
+        <div class="col col-md-10">
+            {% if posts %}
+                {% for post in posts %}
+            <div class="row">
+                <div class="job-card">
+
+                    <div class="job-title">{{ post.job_title }}</div>
+                    <div class="job-description">{{ post.requirement }}</div>
+                    <div class="job-responsibilites">Responsibilities:</div>
+                    <div class="item-list">
+                        <p>
+                            {{post.responsibility |linebreaksbr|linebreaksbr}}
+                        </p>
+                    </div>
+                    <div class="apply">
+                        <a href="{% url 'home:jobapplication' post.id %}" class="btn homebanbut">APPLY NOW</a>
+                    </div>
+
+
+                </div>
+            </div>
+                {% endfor %}
+
+                {% else %}
+                <div class="text-center">
+                Sorry no available position open at the moment
+                </div>
+            {% endif %}
+
+        </div>
+    </div>
+    </section>
+
+
+
+{% endblock %}
