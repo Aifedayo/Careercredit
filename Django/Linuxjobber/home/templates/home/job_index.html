@@ -19,19 +19,24 @@ Jobs | Linuxjobber
 <div class="job-text">
 </div>
 </section>
+
+    {% if posts %}
 <section class="job-outline">
 
     <div class="row">
         <div class="col col-md-2">
             <div class="category-tab">
                 <p class="type">Type</p>
-                <label class="nav-container">
-                    <input class="nav-image" type="radio"> <span class="nav-text">Full-Time Application</span>
+                <div>
+                    <label class="nav-container">
+                    <input id="fulltime" class="nav-image" type="radio"> <span class="nav-text">Full-Time Application</span>
                 </label>
                 <div style="min-height: 8px"></div>
                 <label class="nav-container">
-                    <input class="nav-image" type="radio"> <span class="nav-text">Part-Time Application</span>
+                    <input id="partime" class="nav-image" type="radio"> <span class="nav-text">Part-Time Application</span>
                 </label>
+                </div>
+
 
             </div>
         </div>
@@ -69,6 +74,12 @@ Jobs | Linuxjobber
     </div>
     </section>
 
+{% else %}
+    <section class="none">
+      <h3 class="">Sorry, Full-Time Positions not available right now.</h3><br>
+       <p><a class="btn homebanbut" href="{% url 'home:jobs' %}">Check Part-Time Positions</a></p>
 
+</section>
+    {% endif %}
 
 {% endblock %}

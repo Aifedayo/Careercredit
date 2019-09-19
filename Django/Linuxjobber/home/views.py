@@ -368,6 +368,23 @@ def jobs(request):
     posts = FullTimePostion.objects.all()
     return render(request, 'home/job_index.html', {'posts':posts})
 
+@csrf_exempt
+def position_detail(request):
+    response_data = {}
+    if request.POST.get('get_position_detail', None):
+        print(request.POST.get('get_position_detail'))
+        # This method handles AJAX request for job details
+        item = FullTimePostion.objects.get(id=request.POST.get('get_position_detail'))
+        response_data['requirement'] = item.requirement
+        response_data['responsibility'] = r"{}".format(item.responsibility.replace('\n','<br>'))
+        response_data['job_title'] = item.job_title
+        return HttpResponse(json.dumps(response_data),
+            content_type="application/json")
+    return HttpResponse(json.dumps({}),
+                        content_type="application/json")
+
+
+
 def partime(request):
     cv = None
     position = None
@@ -377,7 +394,6 @@ def partime(request):
     if request.method == "POST":
         form = PartimeApplicationForm(request.POST, request.FILES)
         if form.is_valid():
-            print(request.POST['email'])
             pos = PartTimePostion.objects.get(id=request.POST['position'])
             try:
                 PartTimeJob.objects.get(email=request.POST['email'],position=pos)
@@ -430,11 +446,12 @@ def partime(request):
             return redirect("home:jobfeed")
         else:
             form = PartimeApplicationForm()
-            return render(request, 'home/partime.html', {'form': form})
+            return render(request, 'home/job_application_parttime.html', {'form': form})
     else:
         form = PartimeApplicationForm()
     form = PartimeApplicationForm()
-    return render(request, 'home/partime.html', {'form': form})
+    return render(request, 'home/job_application_parttime.html', {'form': form,
+                                                                  'position':PartTimePostion.objects.all()})
 
 
 @login_required
@@ -2187,3 +2204,8 @@ Kindly review.
         else:
             return render(request, 'home/career_switch.html', {'form': form})
     return render(request, 'home/career_switch.html', {'form': form})
+
+
+def job_submitted(request,type="fulltime"):
+
+    return TemplateResponse(request,'home/job_application_submitted.html')

@@ -93,4 +93,6 @@ urlpatterns = [
     path('combined_class_terms/',views.combined_class_terms,name='combined_class_terms'),
     path('combined_class/pay',views.combined_class_pay,name='combined_class_pay'),
     path('career_switch/',views.career_switch,name='career_switch'),
+    path('obtain_position/',views.position_detail),
+    path('jobs/submitted',views.job_submitted),
 ]
