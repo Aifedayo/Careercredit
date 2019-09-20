@@ -7,11 +7,11 @@ from .models import FAQ, Job, RHCSAOrder, FreeAccountClick, Campaign, Message, U
     InternshipDetail, MessageGroup, UserLocation, NewsLetterSubscribers, UserOrder, Document, MainModel, AwsCredential, \
     Jobplacement, Groupclass, BillingHistory, GroupClassRegister, StripePayment, UserPayment, wepeoples, wetask, werole, \
     wework, wetype, PartTimeJob, TryFreeRecord, FullTimePostion, PartTimePostion, Resume, CareerSwitchApplication
+
 from datetime import timedelta
 import datetime
 import subprocess, os
 from django.conf import settings
-
 
 class weworkAdmin(admin.ModelAdmin):
     search_fields = ['we_people__user__email']
@@ -141,6 +141,15 @@ class CareerSwitchApplicationAdmin(admin.ModelAdmin):
     list_display = ['email','old_career','new_career']
 
 
+# class CustomAdminFullTimeForm(forms.ModelForm):
+#     class Meta:
+#         model = FullTimePostion
+#         exclude = []
+#
+# class FullTimeAdmin(admin.ModelAdmin):
+#     search_fields = ['interested','not_interested','skilled']
+#     form = CustomAdminFullTimeForm
+
 admin.site.register(FAQ)
 admin.site.register(Job, JobAdmin)
 admin.site.register(UserOrder)
@@ -174,3 +183,4 @@ admin.site.register(werole)
 admin.site.register(Resume)
 admin.site.register(TryFreeRecord)
 admin.site.register(CareerSwitchApplication, CareerSwitchApplicationAdmin)
+

@@ -5,7 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 import stripe
 
 
-app_name = 'home'
+app_name='home'
 
 webhookview = views.my_webhook_view
 
@@ -27,7 +27,6 @@ wp_patterns = [
 urlpatterns = [
     # path("stripe/", include("djstripe.urls", namespace="djstripe")),
     path('', views.index, name='index'),
-    path('admin',admin.site.urls),
     path('webhooks',  csrf_exempt(webhookview), name='my_webhook_view'),
     path('login/', views.log_in, name = 'login'),
     path('signup', views.signup, name='signup'),
@@ -96,3 +95,5 @@ urlpatterns = [
     path('obtain_position/',views.position_detail),
     path('jobs/submitted',views.job_submitted),
 ]
+
+

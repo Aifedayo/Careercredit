@@ -1,6 +1,6 @@
 from django import forms
-from . import models
-from .models import Document, Internship, Resume, PartTimePostion, FullTimePostion, wepeoples, wetype, Unsubscriber
+
+from .models import *
 
 class WeForm(forms.Form):
 	types = forms.ModelChoiceField(queryset=wetype.objects.all(), empty_label="Select",widget = forms.Select(attrs = {'class':'form-control'}) )
@@ -14,7 +14,7 @@ class JobApplicationForm(forms.ModelForm):
 	resume = forms.FileField(label='cv',required = False, widget = forms.FileInput(attrs = {'id':'file-upload','accept':".pdf,.doc,.docx"}))
 
 	class Meta:
-		model = models.Job
+		model = Job
 		fields = ['resume','email','fullname','cv_link','phone']
 
 class PartimeApplicationForm(forms.ModelForm):
@@ -33,7 +33,7 @@ class PartimeApplicationForm(forms.ModelForm):
 	high_salary = forms.ChoiceField(choices=High,widget = forms.RadioSelect(attrs = {'class':'jobcheckbox'}))
 
 	class Meta:
-		model = models.PartTimeJob
+		model = PartTimeJob
 		fields = '__all__'
 
 
@@ -77,7 +77,7 @@ class ResumeForm(forms.ModelForm):
 class ContactUsForm(forms.ModelForm):
 	
 	class Meta:
-		model = models.ContactMessages
+		model = ContactMessages
 		fields = ['full_name','email','phone_no','message_subject','message',]
 		
 
@@ -105,5 +105,5 @@ class CareerSwitchApplicationForm(forms.ModelForm):
 	resume = forms.FileField(label='cv',required = False, widget = forms.FileInput(attrs = {'id':'file-upload','accept':".pdf,.doc,.docx"}))
 
 	class Meta:
-		model = models.CareerSwitchApplication
+		model = CareerSwitchApplication
 		exclude = []

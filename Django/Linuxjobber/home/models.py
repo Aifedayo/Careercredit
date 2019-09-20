@@ -1,16 +1,26 @@
 import os
+
+
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
-from django.core.files.storage import FileSystemStorage
-from datetime import datetime,timedelta,date
 
 from users.models import CustomUser
 
 from Courses.models import Course
 
+
+
+
 def due_time():
     return timezone.now() + timezone.timedelta(days=6)
+
+def get_urls():
+    urls = ['---']
+    import pickle
+    with open('urls_tmp', 'rb') as file:
+        urls = pickle.load(file)
+    return ((choice,choice) for choice in urls)
 
 class FAQ(models.Model):
     question = models.CharField(max_length=200)
@@ -22,16 +32,18 @@ class FAQ(models.Model):
     def __str__(self):
         return self.question
 
-
 class FullTimePostion(models.Model):
+    items =[("Done","Don")]
     job_title = models.CharField(max_length=200)
-    requirement = models.CharField(max_length=200)
+    requirement = models.CharField(max_length=500)
     responsibility = models.TextField()
     weight = models.IntegerField(unique=True, null=True)
+    interested_page = models.CharField(max_length=500,default="home:userinterest",choices=get_urls())
+    not_interested_page = models.CharField(max_length=500,default="home:jobfeed",choices=get_urls())
+    skilled_page = models.CharField(max_length=500,default="home:workexperience",choices=get_urls())
 
     def __str__(self):
         return '%s' % self.job_title
-
 
 class PartTimePostion(models.Model):
     job_title = models.CharField(max_length=200)
@@ -443,3 +455,7 @@ class CareerSwitchApplication(models.Model):
 
     def __str__(self):
         return self.fullname
+
+
+
+

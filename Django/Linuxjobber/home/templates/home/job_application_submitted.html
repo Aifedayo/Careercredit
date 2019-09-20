@@ -18,17 +18,80 @@ Application Submitted | Linuxjobber
         padding-top: 50px;
         padding-left: 70px;
     }
-
+@media only screen and (max-width: 640px) {
+    .application{
+        padding: 10px;
+    }
+}
     .proficiency-card{
-        width: 390px;
-height: 246px;
+        margin: 5px 0;
+        padding: 40px 0 40px 0;
+        display: inline-block;
+        width:100%;
+        background-color: white;
+min-height: 256px;
 border: 2px solid #E5E5E5;
 box-sizing: border-box;
 border-radius: 10px;
     }
-    .bg-red{
-        background-color: red;
+    .rating{
+        text-align: center;
+        max-width: 134px;
+        font-size: 28px;
+        align-content: center;
+        padding-top: 15px;
+        line-height: 28px;
+        height: 60px;
+        background: #E5E5E5;
+        border-radius: 0px 30px 30px 0px;
     }
+    .rating.one{
+        width: 68px;
+    }
+    .rating.two{
+        width: 101px;
+    }
+    .row.adjusted{
+        left: -15px;
+    }
+
+    .rating.selected{
+        color: #FAC917;;
+        background-color: #303030;
+    }
+    .proficiency-card:hover{
+        border: 3px solid #aaaaaa;
+        cursor: pointer;
+    }
+    .proficiency-card.selected{
+        border: 5px solid #303030;
+        cursor: pointer;
+    }
+    .homebanbut{
+        width: 250px;
+    }
+    .con-header{
+        display: flex;
+        text-align: center;
+        margin-top: 20px;
+        font-size: 24px;
+  align-items: center;
+  justify-content: center;
+        color:rgba(0, 0, 0, 0.8);
+    }
+    .con-subtitle{
+        display: flex;
+        font-size: 14px;
+        text-align: center;
+        color:rgba(0, 0, 0, 0.8);
+          align-items: center;
+          justify-content: center;
+    }
+    .con-subtitle .data{
+                width: 224px;
+
+    }
+
 </style>
     <section class="header-color"></section>
 
@@ -38,89 +101,157 @@ border-radius: 10px;
 Application Submitted
 </div>
 </section>
+    {% if is_full_time %}
 
-       <section class="application">
+    <section class="application">
 
     <div class="row">
-        <div class="col-md-10">
+        <div class="">
 
-					<span class="jobtypeh"><b>Select one option below!</b></span><br>
-					<span class="jobinfoh">Before you go, choose which option that best describes you below.</span>
+				<div class="col-md-12">
+                    <span class="jobtypeh"><b>Select one option below!</b></span><br>
+                </div>
+					<div class="col-md-12">
+                        <span class="jobinfoh"> Before you go, choose which option that best describes you below.</span></div>
 					<br><br>
-            <div class="row">
-                <div class="proficiency-card">Hekkio</div>
-                <div class="col-md-3"><div class="proficiency-card bg-red">Hekkio</div></div>
-                <div class="col-md-3"><div class="proficiency-card">Hekkio</div></div>
+            <br>
+            <br>
+            <div class="row ">
+                <div class="col-md-4">
+                    <div class="proficiency-card" id="not_interested">
+                        <div class="rating one">
+                           &starf;
+                        </div>
+                                                <div class="container-fluid">
+                            <div class="con-header">I do not wish to learn Linux</div>
+                            <div class="con-subtitle">
+                                <div class="data">
+                                    If you want to join us but have no knowledge or experience in linux
+                                    <br>
+                                </div>
+
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="proficiency-card" id='interested'>
+                        <div class="rating two">
+                           &starf;
+                           &starf;
+                        </div>
+                        <div class="container-fluid">
+                            <div class="con-header">I am interested in learning linux</div>
+                            <div class="con-subtitle">
+                                <div class="data">
+                                    If you want to join us and you have no knowledge of linux but you are intrested in
+                                    learning it on the Job
+                                </div>
+
+                        </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="proficiency-card" id="skilled">
+                        <div class="rating">
+                           &starf;
+                           &starf;
+                           &starf;
+                        </div>
+                                                <div class="container-fluid">
+                            <div class="con-header">I have already learned Linux</div>
+                            <div class="con-subtitle">
+                                <div class="data">
+                                    If you want to join us and you already have knowledge or know linux
+
+                                </div>
+
+                        </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+                            <div style="min-height: 50px">
+
+                </div>
+                <div class="text-center">
+                   <form action="" method="post">
+                    {% csrf_token %}
+                    <input name="interest" hidden id="interest">
+
+                    <button id="continue" class="btn homebanbut">Continue</button>
+
+                </form>
+                </div>
         </div>
     </div>
 
 
  </section>
+        {% else %}
+        <div class="" style="padding: 60px">
+                		<div class="container-fluid" style="margin-top: 30px">
+                    <span class="jobtypeh"><b>Thanks, your application has been received and we would get back to you</b></span><br>
+                </div>
+        </div>
 
+        {% include 'home/job_feed_template.html' %}
+    {% endif %}
 
 <script>
-	$('.cverr').hide();
 
-	    var jobSelector = $("#JobFname");
+var interested =  $('#interested');
+var not_interested =  $('#not_interested');
+var skilled =  $('#skilled');
+var interestField =  $('#interest');
+var continueButton =  $('#continue');
+continueButton.hide();
 
-    function get_postion_details() {
-    $.ajax({
-        url : "/obtain_position/", // the endpoint
-        type : "POST", // http method
-        data : { get_position_detail : jobSelector.val() }, // data sent with the post request
+interestField.change(function () {
+    if(interestField.val() !=null){
 
-        // handle a successful response
-        success : function(data) {
-            console.log(data);
-            {# Display job description #}
-            $('#description').html(
-                '<div class="job-title"></div>' +
-                '<div class="job-title">'+data.job_title+ '</div>' +
-                '<div class="job-description">'+data.requirement+'</div>\n' +
-                '<div class="job-responsibilites">Responsibilities:</div>\n' +
-                '<div class="item-list">' +
-                '<p>' + data.responsibility+
-                '                        </p>\n' +
-                '                    </div>'
-            );
+    }
+    else
+        continueButton.show();
+});
 
-
-            console.log("success"); // another sanity check
-        },
-
-        // handle a non-successful response
-        error : function(xhr,errmsg,err) {
-            $('#results').html("" +
-                "<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: "+errmsg+
-                " <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
-            console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
-        }
-    });
+function setDefault(item){
+    item.removeClass('selected');
+    item.children('.rating').removeClass('selected');
+    continueButton.show();
 }
 
-    	jobSelector.change(
-	    function () {
-	        $("#description").html('<span>Loading details... </span>');
-	        var data = $('#JobFname option:selected').val()
-            if(data)
-            get_postion_details()
+interested.click(
+    function () {
+        interestField.attr('value','interested');
+        $(this).children('.rating').addClass('selected');
+        $(this).addClass('selected');
+        setDefault(not_interested);
+        setDefault(skilled);
 
-        }
-    );
-	$('#formd').submit(function() {
-		if ($('#cv_link').val() === "" && document.getElementById("file-upload").files.length == 0){
-			$('.cverr').show();
-			return false;
-		}
-	});
+    }
+);
+not_interested.click(
+    function () {
+        interestField.attr('value','not_interested');
+        $(this).children('.rating').addClass('selected');
+        $(this).addClass('selected');
+        setDefault(interested);
+        setDefault(skilled);
+    }
+);
+skilled.click(
+    function () {
+        interestField.attr('value','skilled');
+        $(this).children('.rating').addClass('selected');
+        $(this).addClass('selected');
+        setDefault(interested);
+        setDefault(not_interested);
+    }
+);
 
-	$('#file-upload').on('change',function(){
-                //get the file name
-                var fileName = $(this).val().split('\\').pop().split('/').pop();
-                //replace the "Choose a file" label
-                $('.filename').html(fileName);
-            });
 </script>
 
 {% endblock %}

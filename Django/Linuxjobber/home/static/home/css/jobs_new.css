@@ -144,9 +144,7 @@ border-radius: 30px;
         height: 39px;
         border: none;
     }
-    .homebanbut{
-        width: 250px;
-    }
+
     .margin-70{
         margin-top: 70px;
     }
@@ -163,5 +161,23 @@ border-radius: 30px;
         padding: 50px;
     }
 
+    .star{
+        color:red;font-size: 16px;
+    }
 
+@media only screen and (max-width: 760px) {
+
+    .application{
+        padding: 30px 30px 30px 30px;
+    }
+
+    .job-application-text{
+        margin: 0;
+        padding: 0 20px;
+    }
+    .job-application-banner{
+        height: 200px;
+    }
+
+}
 

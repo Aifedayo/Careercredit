@@ -12,6 +12,7 @@ from smtplib import SMTPException
 from urllib.parse import urlparse
 from django.conf import settings
 from django.contrib.auth.hashers import check_password
+from django.core.files.storage import FileSystemStorage
 from django.core.mail import send_mail, BadHeaderError
 from django.db import IntegrityError
 from django.shortcuts import render,redirect, reverse, get_object_or_404
@@ -34,7 +35,7 @@ from Courses.models import Course, CoursePermission, UserInterest
 from ToolsApp.models import Tool
 from users.models import CustomUser
 from .forms import JobPlacementForm, JobApplicationForm, AWSCredUpload, InternshipForm,\
-    ResumeForm, PartimeApplicationForm, WeForm, UnsubscribeForm,CareerSwitchApplicationForm
+    ResumeForm, PartimeApplicationForm, WeForm, UnsubscribeForm
 from datetime import datetime
 
 fs = FileSystemStorage(location= settings.MEDIA_ROOT+'/uploads')
@@ -47,8 +48,6 @@ Log non database errors with the standard_logger instance'''
 standard_logger = logging.getLogger(__name__)
 dbalogger = logging.getLogger('dba')
 utc=pytz.UTC
-
-
 
 
 
@@ -369,18 +368,21 @@ def jobs(request):
     return render(request, 'home/job_index.html', {'posts':posts})
 
 @csrf_exempt
-def position_detail(request):
+def position_detail(request, position_type = "fulltime"):
+    data = FullTimePostion if position_type =="fulltime" else PartTimePostion
     response_data = {}
     if request.POST.get('get_position_detail', None):
-        print(request.POST.get('get_position_detail'))
         # This method handles AJAX request for job details
-        item = FullTimePostion.objects.get(id=request.POST.get('get_position_detail'))
-        response_data['requirement'] = item.requirement
-        response_data['responsibility'] = r"{}".format(item.responsibility.replace('\n','<br>'))
-        response_data['job_title'] = item.job_title
-        return HttpResponse(json.dumps(response_data),
-            content_type="application/json")
-    return HttpResponse(json.dumps({}),
+        try:
+            item = data.objects.get(id=request.POST.get('get_position_detail'))
+            response_data['requirement'] = item.requirement
+            response_data['responsibility'] = r"{}".format(item.responsibility.replace('\n','<br>'))
+            response_data['job_title'] = item.job_title
+            return HttpResponse(json.dumps(response_data),
+                content_type="application/json")
+        except:
+            pass
+    return HttpResponse(json.dumps(None),
                         content_type="application/json")
 
 
@@ -451,7 +453,7 @@ def partime(request):
         form = PartimeApplicationForm()
     form = PartimeApplicationForm()
     return render(request, 'home/job_application_parttime.html', {'form': form,
-                                                                  'position':PartTimePostion.objects.all()})
+                                                                  'position':FullTimePostion.objects.all()})
 
 
 @login_required
@@ -479,8 +481,38 @@ def jobchallenge(request, respon=None):
         return redirect("home:index")
     return render(request, 'home/jobchallenge.html')
 
-def jobfeed(request):
-    return render(request, 'home/jobfeed.html')
+from enum import Enum
+class JobAnswers(Enum):
+    """
+
+    """
+    interested = "interested"
+    not_interested = "not_interested"
+    skilled = "skilled"
+
+def jobfeed(request,is_fulltime=False):
+    """
+    Handles page user is to be sent to after signing up
+    We make use of a request.session key 'job_submission_next_page' to track
+
+    :param request:
+    :param is_fulltime:
+    :return page:
+    """
+    if is_fulltime:
+        if request.session.get('selected_job_id',None):
+            selected_job = FullTimePostion.objects.get(id=1)
+            if request.method == "POST":
+                selected_option = request.POST.get('interest',None)
+                if selected_option == JobAnswers.interested: # Sets to already specified next_page_url for job
+                    request.session['job_submission_next_page'] = selected_job.next_page
+                elif selected_option == JobAnswers.not_interested: # Send to try free page
+                    request.session['job_submission_next_page'] = selected_job.not_interested_page
+                elif selected_option == JobAnswers.skilled: # Send to Work Experience
+                    request.session['job_submission_next_page'] = selected_job.skilled_page
+        return TemplateResponse(request,'home/job_application_submitted.html',{'is_fulltime':True})
+
+    return render(request, 'home/job_application_submitted.html')
 
 def linux_start(request):
     return render(request, 'home/linux_start.html')
@@ -2105,6 +2137,7 @@ def combined_class_terms(request):
 
 @csrf_exempt
 def career_switch(request, position_id = None):
+    from .forms import CareerSwitchApplicationForm
     response_data = {}
     if request.POST.get('get_position_detail', None):
         # This method handles AJAX request for job details
@@ -2116,10 +2149,8 @@ def career_switch(request, position_id = None):
             content_type="application/json")
 
     form = CareerSwitchApplicationForm()
+    form.initial({'new_career':FullTimePostion.objects.all()})
     if request.method == "POST":
-
-
-
         form = CareerSwitchApplicationForm(request.POST, request.FILES)
         cv = None
         if form.is_valid():
@@ -2206,6 +2237,7 @@ Kindly review.
     return render(request, 'home/career_switch.html', {'form': form})
 
 
-def job_submitted(request,type="fulltime"):
+def job_submitted(request, type="fulltime"):
 
     return TemplateResponse(request,'home/job_application_submitted.html')
+

@@ -13,6 +13,12 @@ Part-Time Application| Linuxjobber
 
 {% load staticfiles %}
 {% block content %}
+    <style>
+        .homebanbut{
+        width: 250px;
+    }
+
+    </style>
     <section class="header-color"></section>
 
 <section class="job-application-banner">
@@ -46,7 +52,7 @@ Part-Time Application
         <div class="col-md-10">
             <span class="jobtypeh"><b>Job Position</b></span><br>
 					<span class="jobinfoh">Select the job position you would like to apply for</span><br><br>
-        					<span class="jobfinputp" style="color: rgba(0, 0, 0, 0.8);">Choose Job Position <span style="color:red">*</span></span><br>
+        					<span class="jobfinputp" style="color: rgba(0, 0, 0, 0.8);">Choose Job Position <span class="star">*</span></span><br>
 					{{form.position}}
         </div>
 
@@ -65,21 +71,22 @@ Part-Time Application
 					<span class="jobtypeh"><b>Personal Information</b></span><br>
 					<span class="jobinfoh">Tell us something about yourself</span>
 					<br><br>
-					<span class="jobfinputp">Full Name  <span style="color:red">*</span></span><br>
+					<span class="jobfinputp">Full Name  <span class="star">*</span></span><br>
 					{{form.fullname}}
 					<br>
-					<span class="jobfinputp">Email  <span style="color:red">*</span></span><br>
+					<span class="jobfinputp">Email  <span class="star">*</span></span><br>
 					{{form.email}}
 					<br>
-					<span class="jobfinputp">Phone  <span style="color:red">*</span></span><br>
-					{{form.phone}}
+					<span class="jobfinputp">Phone  <span class="star">*</span></span><br>
+					{{form.phone}}<br>
+
 
 				</div>
 				<div class="jobtype">
 					<span class="jobtypeh"><b>CV / Resume</b></span><br>
 					<span style="color:rgba(0, 0, 0, 0.5);font-size: 14px">Upload your CV or Resume file</span>
 					<br><br>
-					<span class="jobfinputp">Paste Link to Curriculum Vitae (CV)<span style="color:red">*</span></span><br>
+					<span class="jobfinputp">Paste Link to Curriculum Vitae (CV)<span class="star">*</span></span><br>
 					{{form.cv_link}}<br>
                     <span style="font-size: 14px"> or</span> <label for="file-upload" class="btn jobbut2">
 										Upload CV
@@ -91,7 +98,7 @@ Part-Time Application
 					<span style="color:rgba(0, 0, 0, 0.5);font-size: 14px">This program puts its members on a path to earning a higher salary for the same job. For example, if the average starting salary of a fresh graduate in a field is $30k per year, this program is designed to help its members start with $60k for the same job.
                         Our company will charge 17% of first year salary for this optional program.</span>
 					<br><br>
-                    <span class="jobfinputp">Would you like to sign up for it?<span style="color:red">*</span></span><br><br>
+                    <span class="jobfinputp">Would you like to sign up for it?<span class="star">*</span></span><br><br>
 
                     {% for choice in form.high_salary %}
 						{{ choice.tag }}
@@ -149,6 +156,7 @@ Part-Time Application
         success : function(data) {
             console.log(data);
             {# Display job description #}
+            if(data)
             $('#description').html(
                 '<div class="job-title"></div>' +
                 '<div class="job-title">'+data.job_title+ '</div>' +
@@ -176,7 +184,7 @@ Part-Time Application
 
     	jobSelector.change(
 	    function () {
-	        $("#description").html('<span>Loading details... </span>');
+	        $("#description").html('<span>... </span>');
 	        var data = $('#JobFname option:selected').val()
             if(data)
             get_postion_details()
