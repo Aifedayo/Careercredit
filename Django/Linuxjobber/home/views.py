@@ -507,7 +507,6 @@ def jobfeed(request, is_fulltime=0):
         if job_id:
             try:
                 selected_job = FullTimePostion.objects.get(id = job_id)
-                FullTimePostion.objects.filter(re)
             except:
                 pass
             if request.method == "POST":
