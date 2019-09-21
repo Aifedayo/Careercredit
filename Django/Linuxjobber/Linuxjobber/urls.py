@@ -48,3 +48,26 @@ urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 # if settings.DEBUG:
 #     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 #     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+def get_urls(urllist=None, depth=0, app="", store=None):
+    if store is None:
+        store = []
+    if urllist is None:
+        urllist = urlpatterns
+    for entry in urllist:
+        if hasattr(entry, 'app_name'):
+            if entry.app_name is not None:
+                app = entry.app_name
+        if hasattr(entry, 'name'):
+            if entry.name is not None:
+                store.append("{}:{}".format(str(app), str(entry.name)))
+        if hasattr(entry, 'url_patterns'):
+            get_urls(entry.url_patterns, depth + 1, app, store)
+    return sorted(store)
+
+import pickle
+with open('urls_tmp', 'wb') as url_tmp:
+    # Remove admin routes
+    items = [ url for url in get_urls() if not url.startswith('admin')]
+    print(items)
+    pickle.dump(items, url_tmp)

@@ -1,6 +1,6 @@
 from django import forms
-from . import models
-from .models import Document, Internship, Resume, PartTimePostion, FullTimePostion, wepeoples, wetype, Unsubscriber
+
+from .models import *
 
 class WeForm(forms.Form):
 	types = forms.ModelChoiceField(queryset=wetype.objects.all(), empty_label="Select",widget = forms.Select(attrs = {'class':'form-control'}) )
@@ -14,7 +14,7 @@ class JobApplicationForm(forms.ModelForm):
 	resume = forms.FileField(label='cv',required = False, widget = forms.FileInput(attrs = {'id':'file-upload','accept':".pdf,.doc,.docx"}))
 
 	class Meta:
-		model = models.Job
+		model = Job
 		fields = ['resume','email','fullname','cv_link','phone']
 
 class PartimeApplicationForm(forms.ModelForm):
@@ -25,7 +25,7 @@ class PartimeApplicationForm(forms.ModelForm):
     ]
 
 	fullname = forms.CharField(label='First Name', widget = forms.TextInput(attrs = {'placeholder': 'Your full name', 'id' :'JobFname', 'class':'form-control jobfinput'}) )
-	email = forms.CharField(label='Email', widget = forms.TextInput(attrs = {'placeholder': 'Your email address', 'id' :'JobFname', 'class':'form-control jobfinput'}) )
+	email = forms.EmailField(label='Email', widget = forms.TextInput(attrs = {'placeholder': 'Your email address', 'id' :'JobFname', 'class':'form-control jobfinput'}) )
 	phone = forms.CharField(label='Phone', widget = forms.TextInput(attrs = {'placeholder': 'Your phone number', 'id' :'JobFname', 'class':'form-control jobfinput'}) )
 	position = forms.ModelChoiceField(queryset=PartTimePostion.objects.all(), empty_label="Select",widget = forms.Select(attrs = {'placeholder': 'Position', 'id' :'JobFname', 'class':'form-control jobfinput jobselect'}) )
 	cv_link = forms.CharField(label='Phone',required = False, widget = forms.TextInput(attrs = {'placeholder': 'Link to CV or LinkedIn', 'id' :'cv_link', 'class':'form-control jobfinput', }) )
@@ -33,7 +33,7 @@ class PartimeApplicationForm(forms.ModelForm):
 	high_salary = forms.ChoiceField(choices=High,widget = forms.RadioSelect(attrs = {'class':'jobcheckbox'}))
 
 	class Meta:
-		model = models.PartTimeJob
+		model = PartTimeJob
 		fields = '__all__'
 
 
@@ -77,7 +77,7 @@ class ResumeForm(forms.ModelForm):
 class ContactUsForm(forms.ModelForm):
 	
 	class Meta:
-		model = models.ContactMessages
+		model = ContactMessages
 		fields = ['full_name','email','phone_no','message_subject','message',]
 		
 
@@ -105,5 +105,5 @@ class CareerSwitchApplicationForm(forms.ModelForm):
 	resume = forms.FileField(label='cv',required = False, widget = forms.FileInput(attrs = {'id':'file-upload','accept':".pdf,.doc,.docx"}))
 
 	class Meta:
-		model = models.CareerSwitchApplication
+		model = CareerSwitchApplication
 		exclude = []
