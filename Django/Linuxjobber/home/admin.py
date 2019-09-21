@@ -130,7 +130,13 @@ class FreeAccountClickAdmin(admin.ModelAdmin):
 
 class JobAdmin(admin.ModelAdmin):
     search_fields = ['email', 'position__job_title']
-    list_display = ['email', 'position']
+    list_display = ['email', 'position','get_technology','interest']
+
+    def get_technology(self, obj):
+        return obj.position.required_technology
+
+    get_technology.short_description = 'Required Technology'
+    get_technology.admin_order_field = 'position__required_technology'
 
 
 class PartimeAdmin(admin.ModelAdmin):
@@ -140,15 +146,25 @@ class PartimeAdmin(admin.ModelAdmin):
 class CareerSwitchApplicationAdmin(admin.ModelAdmin):
     list_display = ['email','old_career','new_career']
 
+def get_urls():
+    urls = ['---']
+    import pickle
+    with open('urls_tmp', 'rb') as file:
+        urls = pickle.load(file)
+    return ((choice, choice) for choice in urls)
+class CustomAdminFullTimeForm(forms.ModelForm):
 
-# class CustomAdminFullTimeForm(forms.ModelForm):
-#     class Meta:
-#         model = FullTimePostion
-#         exclude = []
-#
-# class FullTimeAdmin(admin.ModelAdmin):
-#     search_fields = ['interested','not_interested','skilled']
-#     form = CustomAdminFullTimeForm
+    interested_page = forms.ChoiceField(choices=get_urls())
+    not_interested_page= forms.ChoiceField(choices=get_urls())
+    skilled_page = forms.ChoiceField(choices=get_urls())
+    class Meta:
+        model = FullTimePostion
+        exclude = []
+
+class FullTimeAdmin(admin.ModelAdmin):
+
+    search_fields = ['interested','not_interested','skilled']
+    form = CustomAdminFullTimeForm
 
 admin.site.register(FAQ)
 admin.site.register(Job, JobAdmin)
@@ -173,7 +189,7 @@ admin.site.register(wepeoples)
 admin.site.register(Message, MessageAdmin)
 admin.site.register(MessageGroup)
 admin.site.register(PartTimeJob, PartimeAdmin)
-admin.site.register(FullTimePostion)
+admin.site.register(FullTimePostion,FullTimeAdmin)
 admin.site.register(PartTimePostion)
 admin.site.register(wetask, wetaskAdmin)
 admin.site.register(wework, weworkAdmin)

@@ -142,6 +142,9 @@ def signup(request):
         email = request.POST['email']
         password = request.POST['password']
         username = email.split('@')[0]
+        next_page = None
+        if request.session.get('job_submission_next_page',None):
+            next_page = request.session['job_submission_next_page']
         try:
             userd = CustomUser.objects.get(email=email)
             exists = True
@@ -182,7 +185,7 @@ def signup(request):
 
                     # ip = get_client_ip(request)
                     # add_location(ip,user)
-                    return render(request, "home/registration/signupfeedback.html", {'user': user})
+                    return render(request, "home/registration/signupfeedback.html", {'user': user,'next_page':next_page})
                 else:
                     error = True
                     return render(request, 'home/registration/signup.html', {'error': error})
@@ -447,13 +450,12 @@ def partime(request):
             send_mail('Part-Time Job Application Alert', 'Hello,\n'+request.POST['fullname']+' with email: '+request.POST['email']+ ' just applied for a part time role, '+position.job_title+'.\nCV can be found here: '+cv+'\n Phone number is: '+request.POST['phone']+' and high salary choice is: '+high+'.\nplease kindly review.\n\n Thanks & Regards \n Linuxjobber. \n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
             return redirect("home:jobfeed")
         else:
-            form = PartimeApplicationForm()
-            return render(request, 'home/job_application_parttime.html', {'form': form})
+            return render(request, 'home/job_application_parttime.html', {'form': form,'position':PartTimePostion.objects.all()})
     else:
         form = PartimeApplicationForm()
     form = PartimeApplicationForm()
     return render(request, 'home/job_application_parttime.html', {'form': form,
-                                                                  'position':FullTimePostion.objects.all()})
+                                                                  'position':PartTimePostion.objects.all()})
 
 
 @login_required
@@ -490,7 +492,7 @@ class JobAnswers(Enum):
     not_interested = "not_interested"
     skilled = "skilled"
 
-def jobfeed(request,is_fulltime=False):
+def jobfeed(request, is_fulltime=0):
     """
     Handles page user is to be sent to after signing up
     We make use of a request.session key 'job_submission_next_page' to track
@@ -500,17 +502,31 @@ def jobfeed(request,is_fulltime=False):
     :return page:
     """
     if is_fulltime:
-        if request.session.get('selected_job_id',None):
-            selected_job = FullTimePostion.objects.get(id=1)
+
+        job_id = request.session.get('selected_job_id', None)
+        if job_id:
+            try:
+                selected_job = FullTimePostion.objects.get(id = job_id)
+                FullTimePostion.objects.filter(re)
+            except:
+                pass
             if request.method == "POST":
                 selected_option = request.POST.get('interest',None)
-                if selected_option == JobAnswers.interested: # Sets to already specified next_page_url for job
-                    request.session['job_submission_next_page'] = selected_job.next_page
-                elif selected_option == JobAnswers.not_interested: # Send to try free page
+                applicant_email = request.session.get('job_email', None)
+                if selected_job and applicant_email:
+                    application_entry = Job.objects.get(position=selected_job,email=applicant_email)
+                    application_entry.interest = selected_option
+                    application_entry.save()
+                if selected_option == JobAnswers.interested.value: # Sets to already specified next_page_url for job
+                    request.session['job_submission_next_page'] = selected_job.interested_page
+                    return redirect("home:jobfeed")
+                elif selected_option == JobAnswers.not_interested.value: # Send to try free page
                     request.session['job_submission_next_page'] = selected_job.not_interested_page
-                elif selected_option == JobAnswers.skilled: # Send to Work Experience
+                    return  redirect('home:jobfeed')
+                elif selected_option == JobAnswers.skilled.value: # Send to Work Experience
                     request.session['job_submission_next_page'] = selected_job.skilled_page
-        return TemplateResponse(request,'home/job_application_submitted.html',{'is_fulltime':True})
+                    return redirect(selected_job.skilled_page)
+            return TemplateResponse(request,'home/job_application_submitted.html',{'is_fulltime':True,'job':selected_job})
 
     return render(request, 'home/job_application_submitted.html')
 
@@ -556,7 +572,9 @@ def jobapplication(request, job):
 
             send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you applied for a full-time role at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [request.POST['email']])
             send_mail('Full-Time Job Application Alert', 'Hello,\n'+request.POST['fullname']+' with email: '+request.POST['email']+ 'just applied for a full time role, '+posts.job_title+'. \nCV can be found here: '+cv+'\n Phone number is:'+request.POST['phone']+'\nplease kindly review.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
-            return redirect("home:jobfeed")
+            # Set job_picked to session so they are redirected accordingly after login
+            request.session['selected_job_id'] = posts.pk
+            return redirect("home:jobfeed",is_fulltime = 1)
         else:
             form = JobApplicationForm()
             return render(request, 'home/job_application.html', {'form': form, 'posts' : posts})
@@ -569,12 +587,38 @@ def jobapplication(request, job):
 def resume(request):
     return render(request, 'home/resume.html', {'courses' : get_courses(), 'tools' : get_tools()})
 
+def perform_registration_checks(user, next = ""):
+    if user.role == 4:
+        check_permission_expiry(user)
+    if next == "":
+        # check if user paid for work experience and has not filled the form
+        try:
+            weps = wepeoples.objects.get(user=user)
+            if not weps.types:
+                return redirect("home:workexpform")
+        except wepeoples.DoesNotExist:
+            pass
+
+        stats = UserInterest.objects.filter(user=user)
+
+        if next:
+            return redirect(next)
+        elif stats:
+            return redirect("home:index")
+        else:
+            return redirect("Courses:userinterest")
+    else:
+        return HttpResponseRedirect(next)
 
 def log_in(request):
+
+
     next = ''
     if request.GET:
         next = request.GET['next']
     error_message = ''
+    if request.user.is_authenticated:
+        return perform_registration_checks(request.user,next)
 
     if request.method == "POST":
         user_name = request.POST['username']
@@ -600,28 +644,9 @@ def log_in(request):
         finally:
             if error_message:
                 return TemplateResponse(request, "home/registration/login.html", {"error_message": error_message})
+            perform_registration_checks(request.user, next)
 
-            if user.role == 4:
-                check_permission_expiry(user)
-            if next == "":
-                #check if user paid for work experience and has not filled the form
-                try:
-                    weps = wepeoples.objects.get(user=request.user)
-                    if not weps.types:
-                        return redirect("home:workexpform")
-                except wepeoples.DoesNotExist:
-                    pass
 
-                stats = UserInterest.objects.filter(user=request.user)
-
-                if next:
-                    return redirect(next)
-                elif stats:
-                    return redirect("home:index")
-                else:
-                    return redirect("Courses:userinterest")
-            else:
-                return HttpResponseRedirect(next)
     return TemplateResponse(request, 'home/registration/login.html' , {'error_message':error_message})
 
 
@@ -1751,7 +1776,7 @@ def in_person_training(request):
 
 
 @login_required
-def tryfree(request, sub_plan):
+def tryfree(request, sub_plan='standardPlan'):
 
     if sub_plan == 'standardPlan':
         PRICE = 29

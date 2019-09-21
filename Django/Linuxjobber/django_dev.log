@@ -4748,3 +4748,654 @@ django.db.utils.OperationalError: (1054, "Unknown column 'home_fulltimepostion.i
 [2019-09-20 19:19:14] ERROR [django.server.log_message:124] "GET /admin/home/fulltimepostion/2/change/ HTTP/1.1" 500 250817
 [2019-09-20 19:21:11] INFO [django.server.log_message:124] "GET /admin/home/fulltimepostion/2/change/ HTTP/1.1" 200 30473
 [2019-09-20 19:21:11] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-20 19:51:07] INFO [django.server.log_message:124] "POST /admin/home/fulltimepostion/2/change/ HTTP/1.1" 302 0
+[2019-09-20 19:51:08] INFO [django.server.log_message:124] "GET /admin/home/fulltimepostion/ HTTP/1.1" 200 4704
+[2019-09-20 19:51:08] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-20 19:57:38] INFO [django.server.log_message:124] "GET /admin/logout/ HTTP/1.1" 200 1215
+[2019-09-20 19:57:42] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 23666
+[2019-09-20 19:57:48] INFO [django.server.log_message:124] "GET /jobs HTTP/1.1" 200 16661
+[2019-09-20 19:57:48] INFO [django.server.log_message:124] "GET /static/home/css/jobs_new.css HTTP/1.1" 304 0
+[2019-09-20 19:57:48] INFO [django.server.log_message:124] "GET /static/home/images/job-lady-banner.png HTTP/1.1" 304 0
+[2019-09-20 19:57:49] INFO [django.server.log_message:124] "GET /static/home/images/join-team-min.png HTTP/1.1" 304 0
+[2019-09-20 19:57:52] INFO [django.server.log_message:124] "GET /jobs/apply/2 HTTP/1.1" 200 19845
+[2019-09-20 19:57:53] INFO [django.server.log_message:124] "GET /static/home/images/job-application-banner.png HTTP/1.1" 304 0
+[2019-09-20 19:58:20] INFO [django.server.log_message:124] "POST /jobs/apply/2 HTTP/1.1" 302 0
+[2019-09-20 19:58:20] INFO [django.server.log_message:124] "GET /jobs/feedback HTTP/1.1" 200 20121
+[2019-09-20 19:59:32] INFO [django.server.log_message:124] "GET /jobs/apply/2 HTTP/1.1" 200 19845
+[2019-09-20 19:59:53] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /jobs/apply/2
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\views.py", line 570, in jobapplication
+    return redirect("home:jobfeed",is_fulltime = True)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\shortcuts.py", line 58, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\shortcuts.py", line 149, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\urls\base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\urls\resolvers.py", line 636, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'jobfeed' with keyword arguments '{'is_fulltime': True}' not found. 1 pattern(s) tried: ['jobs\\/feedback$']
+[2019-09-20 19:59:54] ERROR [django.server.log_message:124] "POST /jobs/apply/2 HTTP/1.1" 500 106350
+[2019-09-20 20:02:10] INFO [django.server.log_message:124] "POST /jobs/apply/2 HTTP/1.1" 302 0
+[2019-09-20 20:02:10] INFO [django.server.log_message:124] "GET /jobs/apply/2 HTTP/1.1" 200 20093
+[2019-09-20 20:02:41] INFO [django.server.log_message:124] "POST /jobs/apply/2 HTTP/1.1" 302 0
+[2019-09-20 20:02:42] INFO [django.server.log_message:124] "GET /jobs/feedback/yes HTTP/1.1" 200 20121
+[2019-09-20 20:05:29] INFO [django.server.log_message:124] "GET /jobs/apply/2 HTTP/1.1" 200 19845
+[2019-09-20 20:06:00] INFO [django.server.log_message:124] "POST /jobs/apply/2 HTTP/1.1" 302 0
+[2019-09-20 20:06:00] INFO [django.server.log_message:124] "GET /jobs/feedback/1 HTTP/1.1" 200 20121
+[2019-09-20 20:07:02] INFO [django.server.log_message:124] "GET /jobs/apply/2 HTTP/1.1" 200 19845
+[2019-09-20 20:07:19] INFO [django.server.log_message:124] "POST /jobs/apply/2 HTTP/1.1" 302 0
+[2019-09-20 20:07:19] INFO [django.server.log_message:124] "GET /jobs/feedback/1 HTTP/1.1" 200 21201
+[2019-09-20 20:07:30] INFO [django.server.log_message:124] "POST /jobs/feedback/1 HTTP/1.1" 200 21201
+[2019-09-20 20:07:35] INFO [django.server.log_message:124] "POST /jobs/feedback/1 HTTP/1.1" 200 21201
+[2019-09-20 20:08:49] INFO [django.server.log_message:124] "GET /jobs/feedback/1 HTTP/1.1" 200 21217
+[2019-09-20 20:08:50] INFO [django.server.log_message:124] "GET /jobs/apply/2 HTTP/1.1" 200 19845
+[2019-09-20 20:09:09] INFO [django.server.log_message:124] "POST /jobs/apply/2 HTTP/1.1" 302 0
+[2019-09-20 20:09:09] INFO [django.server.log_message:124] "GET /jobs/feedback/1 HTTP/1.1" 200 21217
+[2019-09-20 20:09:14] INFO [django.server.log_message:124] "POST /jobs/feedback/1 HTTP/1.1" 200 21217
+[2019-09-20 20:11:24] INFO [django.server.log_message:124] "GET /jobs/apply/2 HTTP/1.1" 200 19845
+[2019-09-20 20:11:26] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-09-20 20:11:51] INFO [django.server.log_message:124] "POST /jobs/apply/2 HTTP/1.1" 302 0
+[2019-09-20 20:11:51] INFO [django.server.log_message:124] "GET /jobs/feedback/1 HTTP/1.1" 200 21217
+[2019-09-20 20:11:58] INFO [django.server.log_message:124] "POST /jobs/feedback/1 HTTP/1.1" 200 21217
+[2019-09-20 20:13:05] INFO [django.server.log_message:124] "POST /jobs/feedback/1 HTTP/1.1" 302 0
+[2019-09-20 20:13:05] INFO [django.server.log_message:124] "GET /policies HTTP/1.1" 200 15702
+[2019-09-21 04:46:08] INFO [django.server.log_message:124] "GET /admin/ HTTP/1.1" 302 0
+[2019-09-21 04:46:09] INFO [django.server.log_message:124] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1855
+[2019-09-21 04:46:21] INFO [django.server.log_message:124] "POST /admin/login/?next=/admin/ HTTP/1.1" 200 2020
+[2019-09-21 04:46:28] INFO [django.server.log_message:124] "POST /admin/login/?next=/admin/ HTTP/1.1" 200 2020
+[2019-09-21 04:46:46] INFO [django.server.log_message:124] "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[2019-09-21 04:46:46] INFO [django.server.log_message:124] "GET /admin/ HTTP/1.1" 200 33123
+[2019-09-21 04:46:51] INFO [django.server.log_message:124] "GET /admin/home/job/ HTTP/1.1" 200 6963
+[2019-09-21 04:46:51] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-21 04:46:53] INFO [django.server.log_message:124] "GET /admin/home/job/8/change/ HTTP/1.1" 200 8041
+[2019-09-21 04:46:54] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-21 04:47:02] INFO [django.server.log_message:124] "GET /admin/home/job/ HTTP/1.1" 200 6963
+[2019-09-21 04:47:03] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-21 04:47:08] INFO [django.server.log_message:124] "GET /admin/home/job/5/change/ HTTP/1.1" 200 8010
+[2019-09-21 04:47:08] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-21 04:50:43] INFO [django.server.log_message:124] "GET /admin/home/job/5/change/ HTTP/1.1" 200 9752
+[2019-09-21 04:50:43] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-21 04:52:05] INFO [django.server.log_message:124] "GET /admin/home/job/ HTTP/1.1" 200 6963
+[2019-09-21 04:52:11] INFO [django.server.log_message:124] "GET /admin/home/ HTTP/1.1" 200 15800
+[2019-09-21 04:52:15] INFO [django.server.log_message:124] "GET /admin/home/fulltimepostion/ HTTP/1.1" 200 4487
+[2019-09-21 04:52:15] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-21 04:52:17] INFO [django.server.log_message:124] "GET /admin/home/fulltimepostion/2/change/ HTTP/1.1" 200 32242
+[2019-09-21 04:52:17] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-21 04:52:27] INFO [django.server.log_message:124] "POST /admin/home/fulltimepostion/2/change/ HTTP/1.1" 302 0
+[2019-09-21 04:52:28] INFO [django.server.log_message:124] "GET /admin/home/fulltimepostion/ HTTP/1.1" 200 4704
+[2019-09-21 04:52:28] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-21 04:59:57] INFO [django.server.log_message:124] "GET /admin/logout/ HTTP/1.1" 200 1215
+[2019-09-21 05:00:01] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 23666
+[2019-09-21 05:00:08] INFO [django.server.log_message:124] "GET /jobs HTTP/1.1" 200 16661
+[2019-09-21 05:00:08] INFO [django.server.log_message:124] "GET /static/home/css/jobs_new.css HTTP/1.1" 304 0
+[2019-09-21 05:00:08] INFO [django.server.log_message:124] "GET /static/home/images/job-lady-banner.png HTTP/1.1" 304 0
+[2019-09-21 05:00:08] INFO [django.server.log_message:124] "GET /static/home/images/join-team-min.png HTTP/1.1" 304 0
+[2019-09-21 05:00:12] INFO [django.server.log_message:124] "GET /jobs/apply/2 HTTP/1.1" 200 19845
+[2019-09-21 05:00:12] INFO [django.server.log_message:124] "GET /static/home/images/job-application-banner.png HTTP/1.1" 304 0
+[2019-09-21 05:00:27] INFO [django.server.log_message:124] "POST /jobs/apply/2 HTTP/1.1" 302 0
+[2019-09-21 05:00:27] INFO [django.server.log_message:124] "GET /jobs/apply/2 HTTP/1.1" 200 20093
+[2019-09-21 05:00:57] INFO [django.server.log_message:124] "POST /jobs/apply/2 HTTP/1.1" 302 0
+[2019-09-21 05:00:57] INFO [django.server.log_message:124] "GET /jobs/feedback/1 HTTP/1.1" 200 21277
+[2019-09-21 05:01:28] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /jobs/feedback/1
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\views.py", line 522, in jobfeed
+    return  redirect('home:jobfeed')
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\shortcuts.py", line 58, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\shortcuts.py", line 149, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\urls\base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\urls\resolvers.py", line 636, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'jobfeed' with no arguments not found. 1 pattern(s) tried: ['jobs\\/feedback\\/(?P<is_fulltime>[0-9]+)$']
+[2019-09-21 05:01:28] ERROR [django.server.log_message:124] "POST /jobs/feedback/1 HTTP/1.1" 500 105147
+[2019-09-21 05:02:44] INFO [django.server.log_message:124] "POST /jobs/feedback/1 HTTP/1.1" 302 0
+[2019-09-21 05:02:44] INFO [django.server.log_message:124] "GET /devops/class/ HTTP/1.1" 200 17110
+[2019-09-21 05:02:45] INFO [django.server.log_message:124] "GET /static/home/images/selfs.png HTTP/1.1" 200 218346
+[2019-09-21 05:02:45] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/img/trialimg.jpg HTTP/1.1" 200 168770
+[2019-09-21 05:04:21] INFO [django.server.log_message:124] "GET /admin/ HTTP/1.1" 302 0
+[2019-09-21 05:04:21] INFO [django.server.log_message:124] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1855
+[2019-09-21 05:04:30] INFO [django.server.log_message:124] "POST /admin/login/?next=/admin/ HTTP/1.1" 200 2020
+[2019-09-21 05:04:35] INFO [django.server.log_message:124] "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[2019-09-21 05:04:35] INFO [django.server.log_message:124] "GET /admin/ HTTP/1.1" 200 33123
+[2019-09-21 05:04:39] INFO [django.server.log_message:124] "GET /admin/home/fulltimepostion/ HTTP/1.1" 200 4487
+[2019-09-21 05:04:39] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-21 05:04:41] INFO [django.server.log_message:124] "GET /admin/home/fulltimepostion/2/change/ HTTP/1.1" 200 32404
+[2019-09-21 05:04:41] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-21 05:06:46] INFO [django.server.log_message:124] "GET /admin/home/fulltimepostion/2/change/ HTTP/1.1" 200 32404
+[2019-09-21 05:06:46] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-21 05:14:29] INFO [django.server.log_message:124] "GET /admin/home/fulltimepostion/2/change/ HTTP/1.1" 200 32404
+[2019-09-21 05:14:29] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-21 05:16:00] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 23666
+[2019-09-21 05:16:00] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2019-09-21 05:16:00] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2019-09-21 05:16:00] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 39923
+[2019-09-21 05:16:00] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 200 7720
+[2019-09-21 05:16:00] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 143625
+[2019-09-21 05:16:00] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 200 7448
+[2019-09-21 05:16:00] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css HTTP/1.1" 200 29279
+[2019-09-21 05:16:00] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 304 0
+[2019-09-21 05:16:00] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js HTTP/1.1" 304 0
+[2019-09-21 05:16:00] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 304 0
+[2019-09-21 05:16:00] INFO [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 200 8372
+[2019-09-21 05:16:00] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 200 3066
+[2019-09-21 05:16:00] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 304 0
+[2019-09-21 05:16:00] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 304 0
+[2019-09-21 05:16:00] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 304 0
+[2019-09-21 05:16:00] INFO [django.server.log_message:124] "GET /static/js/waterbubble.js HTTP/1.1" 304 0
+[2019-09-21 05:16:02] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/LaptopBook.png HTTP/1.1" 200 199346
+[2019-09-21 05:16:02] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/jobphone.png HTTP/1.1" 200 81490
+[2019-09-21 05:16:02] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/homelive.png HTTP/1.1" 200 126445
+[2019-09-21 05:16:02] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/get2.png HTTP/1.1" 200 3347
+[2019-09-21 05:16:02] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/get3.png HTTP/1.1" 200 3867
+[2019-09-21 05:16:02] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 200 7177
+[2019-09-21 05:16:02] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/testi.png HTTP/1.1" 200 158800
+[2019-09-21 05:16:02] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/hq2.png HTTP/1.1" 200 3242
+[2019-09-21 05:16:02] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/client2.png HTTP/1.1" 200 22913
+[2019-09-21 05:16:02] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/get1.png HTTP/1.1" 200 3968
+[2019-09-21 05:16:02] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/client1.png HTTP/1.1" 200 7837
+[2019-09-21 05:16:02] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/client3.png HTTP/1.1" 200 6337
+[2019-09-21 05:16:02] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/hq1.png HTTP/1.1" 200 3291
+[2019-09-21 05:16:02] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/jobban2.png HTTP/1.1" 200 143991
+[2019-09-21 05:16:02] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/homebanner.png HTTP/1.1" 200 220190
+[2019-09-21 05:16:02] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-09-21 05:16:02] ERROR [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 500 59
+[2019-09-21 05:16:04] INFO [django.server.log_message:124] "POST /ulocation HTTP/1.1" 200 0
+[2019-09-21 05:16:12] INFO [django.server.log_message:124] "GET /jobs HTTP/1.1" 200 16661
+[2019-09-21 05:16:12] INFO [django.server.log_message:124] "GET /static/home/css/jobs_new.css HTTP/1.1" 200 3404
+[2019-09-21 05:16:12] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 8192
+[2019-09-21 05:16:12] ERROR [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 500 59
+[2019-09-21 05:16:12] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 8192
+[2019-09-21 05:16:12] ERROR [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 500 59
+[2019-09-21 05:16:12] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 8192
+[2019-09-21 05:16:12] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 8192
+[2019-09-21 05:16:12] INFO [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 200 8192
+[2019-09-21 05:16:12] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 200 7448
+[2019-09-21 05:16:12] ERROR [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 500 59
+[2019-09-21 05:16:12] ERROR [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 500 59
+[2019-09-21 05:16:12] ERROR [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 500 59
+[2019-09-21 05:16:12] ERROR [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 500 59
+[2019-09-21 05:16:12] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 200 3066
+[2019-09-21 05:16:12] ERROR [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 500 59
+[2019-09-21 05:16:12] INFO [django.server.log_message:124] "GET /static/home/images/join-team-min.png HTTP/1.1" 200 12351
+[2019-09-21 05:16:12] INFO [django.server.log_message:124] "GET /static/home/images/job-lady-banner.png HTTP/1.1" 200 734609
+[2019-09-21 05:16:16] INFO [django.server.log_message:124] "GET /jobs/apply/2 HTTP/1.1" 200 19845
+[2019-09-21 05:16:16] INFO [django.server.log_message:124] "GET /static/home/images/job-application-banner.png HTTP/1.1" 200 2505
+[2019-09-21 05:16:56] INFO [django.server.log_message:124] "POST /jobs/apply/2 HTTP/1.1" 302 0
+[2019-09-21 05:16:56] INFO [django.server.log_message:124] "GET /jobs/feedback/1 HTTP/1.1" 200 21277
+[2019-09-21 05:17:03] INFO [django.server.log_message:124] "POST /jobs/feedback/1 HTTP/1.1" 302 0
+[2019-09-21 05:17:03] INFO [django.server.log_message:124] "GET /jobs/feedback/ HTTP/1.1" 200 20121
+[2019-09-21 05:17:03] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/play.png HTTP/1.1" 200 2231
+[2019-09-21 05:17:03] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/book.png HTTP/1.1" 200 3628
+[2019-09-21 05:17:03] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/gotoicon.png HTTP/1.1" 200 472
+[2019-09-21 05:17:03] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/labwhite.png HTTP/1.1" 200 2738
+[2019-09-21 05:17:03] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/workexpban.png HTTP/1.1" 200 357344
+[2019-09-21 05:18:01] INFO [django.server.log_message:124] "GET /signup HTTP/1.1" 200 3383
+[2019-09-21 05:18:01] INFO [django.server.log_message:124] "GET /static/home/css/styles.css HTTP/1.1" 200 8800
+[2019-09-21 05:18:01] INFO [django.server.log_message:124] "GET /static/home/images/imgback.jpg HTTP/1.1" 304 0
+[2019-09-21 05:18:02] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-09-21 05:18:02] WARNING [django.server.log_message:124] "GET /favicon.ico HTTP/1.1" 404 15504
+[2019-09-21 05:18:02] ERROR [django.server.log_message:124] "GET /favicon.ico HTTP/1.1" 500 59
+[2019-09-21 05:19:01] INFO [django.server.log_message:124] "POST /signup HTTP/1.1" 200 4407
+[2019-09-21 05:19:01] INFO [django.server.log_message:124] "GET /static/home/css/styles.css HTTP/1.1" 304 0
+[2019-09-21 05:19:01] INFO [django.server.log_message:124] "GET /static/home/images/checkers.png HTTP/1.1" 200 7207
+[2019-09-21 05:19:01] INFO [django.server.log_message:124] "GET /static/home/images/signupbg.png HTTP/1.1" 304 0
+[2019-09-21 05:28:06] INFO [django.server.log_message:124] "GET /login/ HTTP/1.1" 200 3408
+[2019-09-21 05:37:37] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 24912
+[2019-09-21 05:37:37] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/client3.png HTTP/1.1" 200 6337
+[2019-09-21 05:37:37] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/client2.png HTTP/1.1" 200 22913
+[2019-09-21 05:37:37] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/client1.png HTTP/1.1" 200 7837
+[2019-09-21 05:37:37] INFO [django.server.log_message:124] "GET /static/home/images/icon1.png HTTP/1.1" 304 0
+[2019-09-21 05:37:37] INFO [django.server.log_message:124] "GET /static/home/images/logout1.png HTTP/1.1" 304 0
+[2019-09-21 05:37:37] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/jobban2.png HTTP/1.1" 200 8192
+[2019-09-21 05:37:37] ERROR [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/jobban2.png HTTP/1.1" 500 59
+[2019-09-21 05:37:38] INFO [django.server.log_message:124] "POST /ulocation HTTP/1.1" 200 0
+[2019-09-21 05:37:41] INFO [django.server.log_message:124] "GET /logout HTTP/1.1" 200 7997
+[2019-09-21 05:37:41] INFO [django.server.log_message:124] "GET /static/home/images/slide1.png HTTP/1.1" 304 0
+[2019-09-21 05:37:43] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 23666
+[2019-09-21 05:37:44] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/client3.png HTTP/1.1" 200 6337
+[2019-09-21 05:37:44] ERROR [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/client3.png HTTP/1.1" 500 59
+[2019-09-21 05:37:44] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/client2.png HTTP/1.1" 200 8192
+[2019-09-21 05:37:44] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/client1.png HTTP/1.1" 200 7837
+[2019-09-21 05:37:44] ERROR [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/client2.png HTTP/1.1" 500 59
+[2019-09-21 05:37:44] ERROR [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/client1.png HTTP/1.1" 500 59
+[2019-09-21 05:37:44] INFO [django.server.log_message:124] "POST /ulocation HTTP/1.1" 200 0
+[2019-09-21 05:37:47] INFO [django.server.log_message:124] "GET /signup HTTP/1.1" 200 3383
+[2019-09-21 05:38:04] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /signup
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\views.py", line 146, in signup
+    if request.session['job_submission_next_page']:
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\contrib\sessions\backends\base.py", line 55, in __getitem__
+    return self._session[key]
+KeyError: 'job_submission_next_page'
+[2019-09-21 05:38:04] ERROR [django.server.log_message:124] "POST /signup HTTP/1.1" 500 86287
+[2019-09-21 05:40:36] INFO [django.server.log_message:124] "POST /signup HTTP/1.1" 200 4412
+[2019-09-21 05:40:42] INFO [django.server.log_message:124] "GET /login/ HTTP/1.1" 200 3408
+[2019-09-21 05:41:39] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 24918
+[2019-09-21 05:41:40] INFO [django.server.log_message:124] "GET /static/home/images/logout1.png HTTP/1.1" 200 1899
+[2019-09-21 05:41:40] ERROR [django.server.log_message:124] "GET /static/home/images/logout1.png HTTP/1.1" 500 59
+[2019-09-21 05:41:40] INFO [django.server.log_message:124] "POST /ulocation HTTP/1.1" 200 0
+[2019-09-21 05:44:49] INFO [django.server.log_message:124] "GET /login HTTP/1.1" 301 0
+[2019-09-21 05:44:49] INFO [django.server.log_message:124] "GET /login/ HTTP/1.1" 200 3408
+[2019-09-21 06:02:21] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 24918
+[2019-09-21 06:02:22] INFO [django.server.log_message:124] "POST /ulocation HTTP/1.1" 200 0
+[2019-09-21 06:02:27] INFO [django.server.log_message:124] "GET /login/ HTTP/1.1" 302 0
+[2019-09-21 06:02:28] INFO [django.server.log_message:124] "GET /courses/userinterest HTTP/1.1" 200 22114
+[2019-09-21 06:02:28] INFO [django.server.log_message:124] "GET /static/home/images/lin-logo.png HTTP/1.1" 200 9301
+[2019-09-21 06:02:28] INFO [django.server.log_message:124] "GET /static/home/images/button-left.png HTTP/1.1" 200 2071
+[2019-09-21 06:02:28] INFO [django.server.log_message:124] "GET /static/home/images/amazons.png HTTP/1.1" 200 10409
+[2019-09-21 06:02:28] INFO [django.server.log_message:124] "GET /static/home/images/ppt.png HTTP/1.1" 200 964
+[2019-09-21 06:02:28] INFO [django.server.log_message:124] "GET /static/home/images/jjava.png HTTP/1.1" 200 10506
+[2019-09-21 06:02:28] INFO [django.server.log_message:124] "GET /static/home/images/rchsaa.png HTTP/1.1" 200 6733
+[2019-09-21 06:02:28] INFO [django.server.log_message:124] "GET /static/home/images/dba.png HTTP/1.1" 200 5461
+[2019-09-21 06:02:28] INFO [django.server.log_message:124] "GET /static/home/images/csecurity.png HTTP/1.1" 200 5664
+[2019-09-21 06:02:28] INFO [django.server.log_message:124] "GET /static/home/images/biz.png HTTP/1.1" 200 7859
+[2019-09-21 06:02:28] INFO [django.server.log_message:124] "GET /static/home/images/py.png HTTP/1.1" 200 5447
+[2019-09-21 06:02:28] INFO [django.server.log_message:124] "GET /static/home/images/ajs.png HTTP/1.1" 200 6757
+[2019-09-21 06:02:28] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs//list-bg.png HTTP/1.1" 304 0
+[2019-09-21 06:02:29] INFO [django.server.log_message:124] "POST /ulocation HTTP/1.1" 200 0
+[2019-09-21 06:02:47] INFO [django.server.log_message:124] "GET /logout HTTP/1.1" 200 7997
+[2019-09-21 06:02:49] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 23666
+[2019-09-21 06:02:49] INFO [django.server.log_message:124] "POST /ulocation HTTP/1.1" 200 0
+[2019-09-21 06:02:56] INFO [django.server.log_message:124] "GET /jobs HTTP/1.1" 200 16661
+[2019-09-21 06:02:56] INFO [django.server.log_message:124] "GET /static/home/images/join-team-min.png HTTP/1.1" 200 12351
+[2019-09-21 06:03:00] INFO [django.server.log_message:124] "GET /jobs/apply/2 HTTP/1.1" 200 19845
+[2019-09-21 06:03:00] INFO [django.server.log_message:124] "GET /static/home/images/job-application-banner.png HTTP/1.1" 200 2505
+[2019-09-21 06:03:00] ERROR [django.server.log_message:124] "GET /static/home/images/job-application-banner.png HTTP/1.1" 500 59
+[2019-09-21 06:03:31] INFO [django.server.log_message:124] "POST /jobs/apply/2 HTTP/1.1" 302 0
+[2019-09-21 06:03:31] INFO [django.server.log_message:124] "GET /jobs/feedback/1 HTTP/1.1" 200 21277
+[2019-09-21 06:04:06] INFO [django.server.log_message:124] "POST /jobs/feedback/1 HTTP/1.1" 302 0
+[2019-09-21 06:04:06] INFO [django.server.log_message:124] "GET /jobs/feedback/ HTTP/1.1" 200 20121
+[2019-09-21 06:04:06] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/book.png HTTP/1.1" 200 3628
+[2019-09-21 06:04:06] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/play.png HTTP/1.1" 200 2231
+[2019-09-21 06:04:06] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/labwhite.png HTTP/1.1" 200 2738
+[2019-09-21 06:04:07] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/gotoicon.png HTTP/1.1" 200 472
+[2019-09-21 06:04:13] INFO [django.server.log_message:124] "GET /signup HTTP/1.1" 200 3383
+[2019-09-21 06:04:37] INFO [django.server.log_message:124] "POST /signup HTTP/1.1" 200 4419
+[2019-09-21 06:04:53] INFO [django.server.log_message:124] "GET /linux/full_training HTTP/1.1" 200 19103
+[2019-09-21 06:04:53] INFO [django.server.log_message:124] "GET /static/home/images/selfs.png HTTP/1.1" 200 218346
+[2019-09-21 06:05:01] INFO [django.server.log_message:124] "GET /logout HTTP/1.1" 200 7997
+[2019-09-21 06:05:04] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 23666
+[2019-09-21 06:05:05] INFO [django.server.log_message:124] "POST /ulocation HTTP/1.1" 200 0
+[2019-09-21 06:05:17] INFO [django.server.log_message:124] "GET /jobs HTTP/1.1" 200 16661
+[2019-09-21 06:05:17] INFO [django.server.log_message:124] "GET /static/home/images/join-team-min.png HTTP/1.1" 200 8192
+[2019-09-21 06:05:17] ERROR [django.server.log_message:124] "GET /static/home/images/join-team-min.png HTTP/1.1" 500 59
+[2019-09-21 06:05:21] INFO [django.server.log_message:124] "GET /jobs/apply/2 HTTP/1.1" 200 19845
+[2019-09-21 06:05:48] INFO [django.server.log_message:124] "POST /jobs/apply/2 HTTP/1.1" 302 0
+[2019-09-21 06:05:48] INFO [django.server.log_message:124] "GET /jobs/feedback/1 HTTP/1.1" 200 21277
+[2019-09-21 06:05:53] INFO [django.server.log_message:124] "POST /jobs/feedback/1 HTTP/1.1" 302 0
+[2019-09-21 06:05:53] INFO [django.server.log_message:124] "GET /jobs/feedback/ HTTP/1.1" 200 20121
+[2019-09-21 06:05:53] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/book.png HTTP/1.1" 200 3628
+[2019-09-21 06:05:53] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/gotoicon.png HTTP/1.1" 200 472
+[2019-09-21 06:05:53] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/play.png HTTP/1.1" 200 2231
+[2019-09-21 06:05:53] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/labwhite.png HTTP/1.1" 200 2738
+[2019-09-21 06:05:56] INFO [django.server.log_message:124] "GET /signup HTTP/1.1" 200 3383
+[2019-09-21 06:06:21] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /signup
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\views.py", line 149, in signup
+    userd = CustomUser.objects.get(email=email)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 403, in get
+    self.model._meta.object_name
+users.models.DoesNotExist: CustomUser matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\views.py", line 188, in signup
+    return render(request, "home/registration/signupfeedback.html", {'user': user,'next_page':next_page})
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\defaulttags.py", line 447, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\urls\base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\urls\resolvers.py", line 636, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'tryfree' with no arguments not found. 1 pattern(s) tried: ['tryfree\\/(?P<sub_plan>[-a-zA-Z0-9_]+)\\/$']
+[2019-09-21 06:06:22] ERROR [django.server.log_message:124] "POST /signup HTTP/1.1" 500 159917
+[2019-09-21 06:08:34] WARNING [django.security.csrf._reject:153] Forbidden (CSRF token missing or incorrect.): /signup
+[2019-09-21 06:08:34] WARNING [django.server.log_message:124] "POST /signup HTTP/1.1" 403 2513
+[2019-09-21 06:08:44] WARNING [django.security.csrf._reject:153] Forbidden (CSRF token missing or incorrect.): /signup
+[2019-09-21 06:08:44] WARNING [django.server.log_message:124] "POST /signup HTTP/1.1" 403 2513
+[2019-09-21 06:08:47] INFO [django.server.log_message:124] "GET /signup HTTP/1.1" 200 3383
+[2019-09-21 06:08:47] INFO [django.server.log_message:124] "GET /static/home/css/styles.css HTTP/1.1" 304 0
+[2019-09-21 06:08:47] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 304 0
+[2019-09-21 06:08:47] INFO [django.server.log_message:124] "GET /static/home/images/imgback.jpg HTTP/1.1" 304 0
+[2019-09-21 06:08:57] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /signup
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\views.py", line 149, in signup
+    userd = CustomUser.objects.get(email=email)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 403, in get
+    self.model._meta.object_name
+users.models.DoesNotExist: CustomUser matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\views.py", line 188, in signup
+    return render(request, "home/registration/signupfeedback.html", {'user': user,'next_page':next_page})
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\template\defaulttags.py", line 447, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\urls\base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\urls\resolvers.py", line 636, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'userinterest' not found. 'userinterest' is not a valid view function or pattern name.
+[2019-09-21 06:08:57] ERROR [django.server.log_message:124] "POST /signup HTTP/1.1" 500 157147
+[2019-09-21 06:09:50] WARNING [django.security.csrf._reject:153] Forbidden (CSRF token missing or incorrect.): /signup
+[2019-09-21 06:09:50] WARNING [django.server.log_message:124] "POST /signup HTTP/1.1" 403 2513
+[2019-09-21 06:09:59] WARNING [django.security.csrf._reject:153] Forbidden (CSRF token missing or incorrect.): /signup
+[2019-09-21 06:09:59] WARNING [django.server.log_message:124] "POST /signup HTTP/1.1" 403 2513
+[2019-09-21 06:10:02] INFO [django.server.log_message:124] "GET /signup HTTP/1.1" 200 3383
+[2019-09-21 06:10:02] INFO [django.server.log_message:124] "GET /static/home/css/styles.css HTTP/1.1" 304 0
+[2019-09-21 06:10:02] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 304 0
+[2019-09-21 06:10:02] INFO [django.server.log_message:124] "GET /static/home/images/imgback.jpg HTTP/1.1" 304 0
+[2019-09-21 06:10:11] INFO [django.server.log_message:124] "POST /signup HTTP/1.1" 200 4409
+[2019-09-21 06:10:17] INFO [django.server.log_message:124] "GET /login/ HTTP/1.1" 302 0
+[2019-09-21 06:10:18] INFO [django.server.log_message:124] "GET /courses/userinterest HTTP/1.1" 200 22108
+[2019-09-21 06:10:18] INFO [django.server.log_message:124] "GET /static/home/images/lin-logo.png HTTP/1.1" 304 0
+[2019-09-21 06:10:18] INFO [django.server.log_message:124] "GET /static/home/images/button-left.png HTTP/1.1" 304 0
+[2019-09-21 06:10:18] INFO [django.server.log_message:124] "GET /static/home/images/amazons.png HTTP/1.1" 304 0
+[2019-09-21 06:10:18] INFO [django.server.log_message:124] "GET /static/home/images/ppt.png HTTP/1.1" 200 964
+[2019-09-21 06:10:18] INFO [django.server.log_message:124] "GET /static/home/images/jjava.png HTTP/1.1" 200 10506
+[2019-09-21 06:10:18] INFO [django.server.log_message:124] "GET /static/home/images/rchsaa.png HTTP/1.1" 200 6733
+[2019-09-21 06:10:18] INFO [django.server.log_message:124] "GET /static/home/images/ajs.png HTTP/1.1" 200 6757
+[2019-09-21 06:10:18] INFO [django.server.log_message:124] "GET /static/home/images/biz.png HTTP/1.1" 200 7859
+[2019-09-21 06:10:18] ERROR [django.server.log_message:124] "GET /static/home/images/ajs.png HTTP/1.1" 500 59
+[2019-09-21 06:10:18] INFO [django.server.log_message:124] "GET /static/home/images/py.png HTTP/1.1" 200 5447
+[2019-09-21 06:10:18] INFO [django.server.log_message:124] "GET /static/home/images/dba.png HTTP/1.1" 200 5461
+[2019-09-21 06:10:18] INFO [django.server.log_message:124] "GET /static/home/images/csecurity.png HTTP/1.1" 200 5664
+[2019-09-21 06:10:19] INFO [django.server.log_message:124] "POST /ulocation HTTP/1.1" 200 0
+[2019-09-21 06:10:46] INFO [django.server.log_message:124] "GET /admin/home/fulltimepostion/ HTTP/1.1" 302 0
+[2019-09-21 06:10:46] INFO [django.server.log_message:124] "GET /timeout HTTP/1.1" 200 16613
+[2019-09-21 06:10:52] INFO [django.server.log_message:124] "POST /timeout HTTP/1.1" 302 0
+[2019-09-21 06:10:53] INFO [django.server.log_message:124] "GET /admin/home/fulltimepostion/ HTTP/1.1" 200 4813
+[2019-09-21 06:10:53] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-21 06:10:56] INFO [django.server.log_message:124] "GET /admin/home/ HTTP/1.1" 200 15800
+[2019-09-21 06:11:33] INFO [django.server.log_message:124] "GET /admin/home/fulltimepostion/ HTTP/1.1" 200 4813
+[2019-09-21 06:11:33] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-21 06:11:36] INFO [django.server.log_message:124] "GET /admin/home/ HTTP/1.1" 200 15800
+[2019-09-21 06:11:38] INFO [django.server.log_message:124] "GET /admin/home/job/ HTTP/1.1" 200 8144
+[2019-09-21 06:11:39] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-21 06:11:40] INFO [django.server.log_message:124] "GET /admin/home/job/12/change/ HTTP/1.1" 200 8015
+[2019-09-21 06:11:41] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-21 06:11:47] INFO [django.server.log_message:124] "GET /admin/home/job/ HTTP/1.1" 200 8144
+[2019-09-21 06:12:01] INFO [django.server.log_message:124] "GET /admin/home/job/12/change/ HTTP/1.1" 200 8015
+[2019-09-21 06:12:01] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-21 06:12:07] INFO [django.server.log_message:124] "GET /admin/home/job/ HTTP/1.1" 200 8144
+[2019-09-21 06:12:07] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-21 06:12:24] INFO [django.server.log_message:124] "GET /logout HTTP/1.1" 200 7997
+[2019-09-21 06:12:26] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 23666
+[2019-09-21 06:12:27] INFO [django.server.log_message:124] "POST /ulocation HTTP/1.1" 200 0
+[2019-09-21 06:13:18] INFO [django.server.log_message:124] "GET /jobs HTTP/1.1" 200 16661
+[2019-09-21 06:13:21] INFO [django.server.log_message:124] "GET /jobs/apply/2 HTTP/1.1" 200 19845
+[2019-09-21 06:13:22] INFO [django.server.log_message:124] "GET /static/home/images/job-application-banner.png HTTP/1.1" 200 2505
+[2019-09-21 06:13:22] ERROR [django.server.log_message:124] "GET /static/home/images/job-application-banner.png HTTP/1.1" 500 59
+[2019-09-21 06:14:06] INFO [django.server.log_message:124] "POST /jobs/apply/2 HTTP/1.1" 302 0
+[2019-09-21 06:14:06] INFO [django.server.log_message:124] "GET /jobs/feedback/1 HTTP/1.1" 200 21277
+[2019-09-21 06:14:18] INFO [django.server.log_message:124] "GET /admin/home/job/12/change/ HTTP/1.1" 200 8015
+[2019-09-21 06:14:18] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-21 06:14:21] INFO [django.server.log_message:124] "GET /admin/home/job/ HTTP/1.1" 200 8437
+[2019-09-21 06:14:23] INFO [django.server.log_message:124] "GET /admin/home/job/12/change/ HTTP/1.1" 200 8015
+[2019-09-21 06:14:23] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-21 06:14:26] INFO [django.server.log_message:124] "GET /admin/home/job/ HTTP/1.1" 200 8437
+[2019-09-21 06:14:28] INFO [django.server.log_message:124] "GET /admin/home/job/8/change/ HTTP/1.1" 200 8041
+[2019-09-21 06:14:29] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-21 06:14:31] INFO [django.server.log_message:124] "GET /admin/home/job/ HTTP/1.1" 200 8437
+[2019-09-21 06:14:34] INFO [django.server.log_message:124] "GET /admin/home/job/3/change/ HTTP/1.1" 200 8014
+[2019-09-21 06:14:34] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-21 06:14:36] INFO [django.server.log_message:124] "GET /admin/home/job/ HTTP/1.1" 200 8437
+[2019-09-21 06:14:38] INFO [django.server.log_message:124] "GET /admin/home/job/9/change/ HTTP/1.1" 200 8044
+[2019-09-21 06:14:39] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-21 06:14:42] INFO [django.server.log_message:124] "GET /admin/home/job/ HTTP/1.1" 200 8437
+[2019-09-21 06:15:54] INFO [django.server.log_message:124] "POST /jobs/feedback/1 HTTP/1.1" 302 0
+[2019-09-21 06:15:54] INFO [django.server.log_message:124] "GET /jobs/feedback/ HTTP/1.1" 200 20121
+[2019-09-21 06:15:54] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/book.png HTTP/1.1" 200 3628
+[2019-09-21 06:15:54] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/play.png HTTP/1.1" 200 2231
+[2019-09-21 06:15:54] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/labwhite.png HTTP/1.1" 200 2738
+[2019-09-21 06:15:54] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/gotoicon.png HTTP/1.1" 200 472
+[2019-09-21 06:15:57] INFO [django.server.log_message:124] "GET /signup HTTP/1.1" 200 3383
+[2019-09-21 06:16:16] INFO [django.server.log_message:124] "POST /signup HTTP/1.1" 200 4419
+[2019-09-21 06:16:22] INFO [django.server.log_message:124] "GET /linux/full_training HTTP/1.1" 200 19103
+[2019-09-21 06:16:22] INFO [django.server.log_message:124] "GET /static/home/images/selfs.png HTTP/1.1" 200 8192
+[2019-09-21 06:16:22] ERROR [django.server.log_message:124] "GET /static/home/images/selfs.png HTTP/1.1" 500 59
+[2019-09-21 06:21:23] INFO [django.server.log_message:124] "GET /admin/home/job/13/change/ HTTP/1.1" 200 8023
+[2019-09-21 06:21:23] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-21 06:33:19] INFO [django.server.log_message:124] "GET /admin/home/job/ HTTP/1.1" 200 9982
+[2019-09-21 06:33:19] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-21 06:33:31] INFO [django.server.log_message:124] "GET /admin/home/job/?o=3 HTTP/1.1" 200 10633
+[2019-09-21 06:33:31] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-21 06:33:31] INFO [django.server.log_message:124] "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1116
+[2019-09-21 06:33:33] INFO [django.server.log_message:124] "GET /admin/home/job/?o=4.3 HTTP/1.1" 200 11035
+[2019-09-21 06:33:33] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-21 06:34:08] INFO [django.server.log_message:124] "GET /logout HTTP/1.1" 200 7997
+[2019-09-21 06:34:12] INFO [django.server.log_message:124] "GET /jobs/parttime/apply HTTP/1.1" 200 21399
+[2019-09-21 06:34:19] INFO [django.server.log_message:124] "POST /obtain_position/ HTTP/1.1" 200 4
+[2019-09-21 06:34:44] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /jobs/parttime/apply
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\views.py", line 449, in partime
+    send_mail('Linuxjobber Newsletter', message, settings.EMAIL_HOST_USER, [request.POST['email']])
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\mail\__init__.py", line 60, in send_mail
+    return mail.send()
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\mail\message.py", line 294, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\mail\backends\smtp.py", line 110, in send_messages
+    sent = self._send(message)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\mail\backends\smtp.py", line 126, in _send
+    self.connection.sendmail(from_email, recipients, message.as_bytes(linesep='\r\n'))
+  File "C:\Users\user\AppData\Local\Programs\Python\Python35\Lib\smtplib.py", line 876, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+smtplib.SMTPRecipientsRefused: {'=?utf-8?q?jdsijidsji?=': (501, b'<=?utf-8?q?jdsijidsji?=>: recipient address must contain a domain')}
+[2019-09-21 06:34:45] ERROR [django.server.log_message:124] "POST /jobs/parttime/apply HTTP/1.1" 500 114922
+[2019-09-21 06:37:32] INFO [django.server.log_message:124] "GET /jobs/parttime/apply HTTP/1.1" 200 21399
+[2019-09-21 06:37:32] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 304 0
+[2019-09-21 06:37:32] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 304 0
+[2019-09-21 06:37:32] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 304 0
+[2019-09-21 06:37:32] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 304 0
+[2019-09-21 06:37:32] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 304 0
+[2019-09-21 06:37:32] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css HTTP/1.1" 304 0
+[2019-09-21 06:37:32] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 304 0
+[2019-09-21 06:37:32] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 304 0
+[2019-09-21 06:37:32] INFO [django.server.log_message:124] "GET /static/home/css/jobs_new.css HTTP/1.1" 304 0
+[2019-09-21 06:37:32] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 304 0
+[2019-09-21 06:37:32] INFO [django.server.log_message:124] "GET /static/js/waterbubble.js HTTP/1.1" 304 0
+[2019-09-21 06:37:32] INFO [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 304 0
+[2019-09-21 06:37:32] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js HTTP/1.1" 304 0
+[2019-09-21 06:37:32] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 304 0
+[2019-09-21 06:37:32] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 304 0
+[2019-09-21 06:37:32] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 304 0
+[2019-09-21 06:37:32] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 304 0
+[2019-09-21 06:37:32] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 304 0
+[2019-09-21 06:37:32] INFO [django.server.log_message:124] "GET /static/home/images/job-application-banner.png HTTP/1.1" 304 0
+[2019-09-21 06:37:35] INFO [django.server.log_message:124] "POST /jobs/parttime/apply HTTP/1.1" 200 17250
+[2019-09-21 06:39:22] INFO [django.server.log_message:124] "GET /admin/home/ HTTP/1.1" 200 15800
+[2019-09-21 06:39:33] INFO [django.server.log_message:124] "GET /admin/home/parttimepostion/ HTTP/1.1" 200 4477
+[2019-09-21 06:39:33] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-21 06:39:36] INFO [django.server.log_message:124] "GET /admin/home/parttimepostion/1/change/ HTTP/1.1" 200 4360
+[2019-09-21 06:39:36] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-21 06:39:40] INFO [django.server.log_message:124] "GET /admin/home/parttimepostion/ HTTP/1.1" 200 4477
+[2019-09-21 06:44:29] INFO [django.server.log_message:124] "GET /jobs/parttime/apply HTTP/1.1" 200 21399
+[2019-09-21 06:44:34] INFO [django.server.log_message:124] "POST /obtain_position/ HTTP/1.1" 200 4
+[2019-09-21 06:44:58] INFO [django.server.log_message:124] "POST /jobs/parttime/apply HTTP/1.1" 200 17250
+[2019-09-21 06:46:38] INFO [django.server.log_message:124] "GET /jobs/parttime/apply HTTP/1.1" 200 21399
+[2019-09-21 06:46:38] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 304 0
+[2019-09-21 06:46:38] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 304 0
+[2019-09-21 06:46:38] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 304 0
+[2019-09-21 06:46:39] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 304 0
+[2019-09-21 06:46:39] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 304 0
+[2019-09-21 06:46:39] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 304 0
+[2019-09-21 06:46:39] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 304 0
+[2019-09-21 06:46:39] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css HTTP/1.1" 304 0
+[2019-09-21 06:46:39] INFO [django.server.log_message:124] "GET /static/home/css/jobs_new.css HTTP/1.1" 304 0
+[2019-09-21 06:46:39] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 304 0
+[2019-09-21 06:46:39] INFO [django.server.log_message:124] "GET /static/js/waterbubble.js HTTP/1.1" 304 0
+[2019-09-21 06:46:39] INFO [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 304 0
+[2019-09-21 06:46:39] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 304 0
+[2019-09-21 06:46:39] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 304 0
+[2019-09-21 06:46:39] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 304 0
+[2019-09-21 06:46:39] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js HTTP/1.1" 304 0
+[2019-09-21 06:46:39] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 304 0
+[2019-09-21 06:46:39] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 304 0
+[2019-09-21 06:46:39] INFO [django.server.log_message:124] "GET /static/home/images/job-application-banner.png HTTP/1.1" 304 0
+[2019-09-21 06:46:39] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 304 0
+[2019-09-21 06:47:02] INFO [django.server.log_message:124] "POST /jobs/parttime/apply HTTP/1.1" 200 21466
+[2019-09-21 06:48:28] INFO [django.server.log_message:124] "POST /jobs/parttime/apply HTTP/1.1" 200 21630
+[2019-09-21 06:48:29] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 304 0
+[2019-09-21 06:48:29] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 304 0
+[2019-09-21 06:48:29] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 304 0
+[2019-09-21 06:48:29] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 304 0
+[2019-09-21 06:48:29] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 304 0
+[2019-09-21 06:48:29] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 304 0
+[2019-09-21 06:48:29] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 304 0
+[2019-09-21 06:48:29] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css HTTP/1.1" 304 0
+[2019-09-21 06:48:29] INFO [django.server.log_message:124] "GET /static/home/css/jobs_new.css HTTP/1.1" 304 0
+[2019-09-21 06:48:29] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 304 0
+[2019-09-21 06:48:29] INFO [django.server.log_message:124] "GET /static/js/waterbubble.js HTTP/1.1" 304 0
+[2019-09-21 06:48:29] INFO [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 304 0
+[2019-09-21 06:48:29] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 304 0
+[2019-09-21 06:48:29] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 304 0
+[2019-09-21 06:48:29] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 304 0
+[2019-09-21 06:48:29] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js HTTP/1.1" 304 0
+[2019-09-21 06:48:29] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 304 0
+[2019-09-21 06:48:29] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 304 0
+[2019-09-21 06:48:29] INFO [django.server.log_message:124] "GET /static/home/images/job-application-banner.png HTTP/1.1" 304 0
+[2019-09-21 06:48:29] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 304 0
+[2019-09-21 06:49:30] INFO [django.server.log_message:124] "POST /jobs/parttime/apply HTTP/1.1" 200 21664
+[2019-09-21 06:49:30] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 304 0
+[2019-09-21 06:49:30] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 304 0
+[2019-09-21 06:49:30] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 304 0
+[2019-09-21 06:49:30] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 304 0
+[2019-09-21 06:49:30] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 304 0
+[2019-09-21 06:49:30] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 304 0
+[2019-09-21 06:49:31] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 304 0
+[2019-09-21 06:49:31] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js HTTP/1.1" 304 0
+[2019-09-21 06:49:31] INFO [django.server.log_message:124] "GET /static/home/css/jobs_new.css HTTP/1.1" 304 0
+[2019-09-21 06:49:31] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 304 0
+[2019-09-21 06:49:31] INFO [django.server.log_message:124] "GET /static/js/waterbubble.js HTTP/1.1" 304 0
+[2019-09-21 06:49:31] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css HTTP/1.1" 304 0
+[2019-09-21 06:49:31] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 304 0
+[2019-09-21 06:49:31] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 304 0
+[2019-09-21 06:49:31] INFO [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 304 0
+[2019-09-21 06:49:31] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 304 0
+[2019-09-21 06:49:31] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 304 0
+[2019-09-21 06:49:31] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 304 0
+[2019-09-21 06:49:31] INFO [django.server.log_message:124] "GET /static/home/images/job-application-banner.png HTTP/1.1" 304 0
+[2019-09-21 06:49:31] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 304 0
+[2019-09-21 06:50:00] INFO [django.server.log_message:124] "POST /jobs/parttime/apply HTTP/1.1" 302 0
+[2019-09-21 06:50:00] INFO [django.server.log_message:124] "GET /jobs/feedback/ HTTP/1.1" 200 20121
+[2019-09-21 06:50:00] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/book.png HTTP/1.1" 200 3628
+[2019-09-21 06:50:00] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/play.png HTTP/1.1" 200 2231
+[2019-09-21 06:50:00] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/labwhite.png HTTP/1.1" 200 2738
+[2019-09-21 06:50:00] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs/gotoicon.png HTTP/1.1" 200 472
+[2019-09-21 06:51:36] INFO [django.server.log_message:124] "GET /static/home/css/jobs_new.css HTTP/1.1" 200 3404
+[2019-09-21 06:51:36] INFO [django.server.log_message:124] "GET /static/home/css/jobs_new.css HTTP/1.1" 200 3404
+[2019-09-21 06:51:36] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 143625
+[2019-09-21 06:51:36] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 143625
+[2019-09-21 06:51:36] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2019-09-21 06:51:37] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2019-09-21 06:51:37] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2019-09-21 06:51:37] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2019-09-21 06:51:37] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2019-09-21 06:52:10] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 39923
+[2019-09-21 06:52:10] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 39923
+[2019-09-21 06:54:29] INFO [django.server.log_message:124] "GET /jobs HTTP/1.1" 200 16661
+[2019-09-21 06:55:22] INFO [django.server.log_message:124] "GET /static/home/css/jobs_new.css HTTP/1.1" 200 3404
+[2019-09-21 06:55:22] INFO [django.server.log_message:124] "GET /static/home/css/jobs_new.css HTTP/1.1" 200 3404
+[2019-09-21 06:55:22] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 143625
+[2019-09-21 06:55:22] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 143625
+[2019-09-21 06:55:23] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2019-09-21 06:55:23] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2019-09-21 06:55:23] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2019-09-21 06:55:23] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2019-09-21 06:55:23] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2019-09-21 06:57:15] INFO [django.server.log_message:124] "GET /jobs HTTP/1.1" 200 16201
+[2019-09-21 06:57:15] INFO [django.server.log_message:124] "GET /static/home/css/style.css HTTP/1.1" 200 11247
+[2019-09-21 06:57:15] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/bootstrap.min.css HTTP/1.1" 200 100261
+[2019-09-21 06:57:15] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js HTTP/1.1" 200 1163
+[2019-09-21 06:57:15] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstylenew.css HTTP/1.1" 200 7448
+[2019-09-21 06:57:15] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/css/style.css HTTP/1.1" 200 39923
+[2019-09-21 06:57:15] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css HTTP/1.1" 200 29279
+[2019-09-21 06:57:15] INFO [django.server.log_message:124] "GET /static/home/css/jobs_new.css HTTP/1.1" 200 3404
+[2019-09-21 06:57:15] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/newstyle2.css HTTP/1.1" 200 143625
+[2019-09-21 06:57:15] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/css/main.css HTTP/1.1" 200 7720
+[2019-09-21 06:57:15] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/validation/jquery.validate.js HTTP/1.1" 200 3979
+[2019-09-21 06:57:15] INFO [django.server.log_message:124] "GET /static/js/waterbubble.js HTTP/1.1" 200 6268
+[2019-09-21 06:57:15] INFO [django.server.log_message:124] "GET /static/Projects/custom/css/projects.css HTTP/1.1" 200 8372
+[2019-09-21 06:57:15] INFO [django.server.log_message:124] "GET /static/faq/js/main.js HTTP/1.1" 200 4488
+[2019-09-21 06:57:15] INFO [django.server.log_message:124] "GET /static/faq/js/jquery.mobile.custom.min.js HTTP/1.1" 200 9198
+[2019-09-21 06:57:15] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/js/bootstrap.min.js HTTP/1.1" 200 29115
+[2019-09-21 06:57:15] INFO [django.server.log_message:124] "GET /static/home/css/newdesigner/fonts/fontsstylesheet.css HTTP/1.1" 200 3066
+[2019-09-21 06:57:15] INFO [django.server.log_message:124] "GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js HTTP/1.1" 200 240434
+[2019-09-21 06:57:15] INFO [django.server.log_message:124] "GET /static/home/images/logo.png HTTP/1.1" 200 7177
+[2019-09-21 06:57:15] INFO [django.server.log_message:124] "GET /static/home/images/join-team-min.png HTTP/1.1" 200 12351
+[2019-09-21 06:57:15] INFO [django.server.log_message:124] "GET /static/home/images/job-lady-banner.png HTTP/1.1" 200 734609
+[2019-09-21 06:57:16] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
+[2019-09-21 06:57:16] INFO [django.server.log_message:124] "GET /static/home/css/jobs_new.css HTTP/1.1" 200 3404

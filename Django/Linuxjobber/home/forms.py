@@ -25,7 +25,7 @@ class PartimeApplicationForm(forms.ModelForm):
     ]
 
 	fullname = forms.CharField(label='First Name', widget = forms.TextInput(attrs = {'placeholder': 'Your full name', 'id' :'JobFname', 'class':'form-control jobfinput'}) )
-	email = forms.CharField(label='Email', widget = forms.TextInput(attrs = {'placeholder': 'Your email address', 'id' :'JobFname', 'class':'form-control jobfinput'}) )
+	email = forms.EmailField(label='Email', widget = forms.TextInput(attrs = {'placeholder': 'Your email address', 'id' :'JobFname', 'class':'form-control jobfinput'}) )
 	phone = forms.CharField(label='Phone', widget = forms.TextInput(attrs = {'placeholder': 'Your phone number', 'id' :'JobFname', 'class':'form-control jobfinput'}) )
 	position = forms.ModelChoiceField(queryset=PartTimePostion.objects.all(), empty_label="Select",widget = forms.Select(attrs = {'placeholder': 'Position', 'id' :'JobFname', 'class':'form-control jobfinput jobselect'}) )
 	cv_link = forms.CharField(label='Phone',required = False, widget = forms.TextInput(attrs = {'placeholder': 'Link to CV or LinkedIn', 'id' :'cv_link', 'class':'form-control jobfinput', }) )

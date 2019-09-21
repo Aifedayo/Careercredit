@@ -63,7 +63,7 @@ def get_urls(urllist=None, depth=0, app="", store=None):
                 store.append("{}:{}".format(str(app), str(entry.name)))
         if hasattr(entry, 'url_patterns'):
             get_urls(entry.url_patterns, depth + 1, app, store)
-    return store
+    return sorted(store)
 
 import pickle
 with open('urls_tmp', 'wb') as url_tmp:

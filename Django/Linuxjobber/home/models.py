@@ -15,12 +15,6 @@ from Courses.models import Course
 def due_time():
     return timezone.now() + timezone.timedelta(days=6)
 
-def get_urls():
-    urls = ['---']
-    import pickle
-    with open('urls_tmp', 'rb') as file:
-        urls = pickle.load(file)
-    return ((choice,choice) for choice in urls)
 
 class FAQ(models.Model):
     question = models.CharField(max_length=200)
@@ -33,14 +27,14 @@ class FAQ(models.Model):
         return self.question
 
 class FullTimePostion(models.Model):
-    items =[("Done","Don")]
     job_title = models.CharField(max_length=200)
     requirement = models.CharField(max_length=500)
     responsibility = models.TextField()
+    required_technology = models.ForeignKey(Course,on_delete=models.DO_NOTHING,null=True)
     weight = models.IntegerField(unique=True, null=True)
-    interested_page = models.CharField(max_length=500,default="home:userinterest",choices=get_urls())
-    not_interested_page = models.CharField(max_length=500,default="home:jobfeed",choices=get_urls())
-    skilled_page = models.CharField(max_length=500,default="home:workexperience",choices=get_urls())
+    interested_page = models.CharField(max_length=500,default="home:userinterest")
+    not_interested_page = models.CharField(max_length=500,default="home:jobfeed")
+    skilled_page = models.CharField(max_length=500,default="home:workexperience")
 
     def __str__(self):
         return '%s' % self.job_title
@@ -59,6 +53,7 @@ class Job(models.Model):
     position = models.ForeignKey(FullTimePostion, on_delete=models.CASCADE)
     resume = models.FileField(upload_to='resume', null=True)
     cv_link = models.CharField(max_length=200, null=True)
+    interest = models.CharField(max_length=200,null=True,blank=True,default="")
 
     def __str__(self):
         return self.fullname

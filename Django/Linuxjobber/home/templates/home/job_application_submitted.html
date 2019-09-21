@@ -101,7 +101,7 @@ border-radius: 10px;
 Application Submitted
 </div>
 </section>
-    {% if is_full_time %}
+    {% if is_fulltime %}
 
     <section class="application">
 
@@ -123,10 +123,10 @@ Application Submitted
                            &starf;
                         </div>
                                                 <div class="container-fluid">
-                            <div class="con-header">I do not wish to learn Linux</div>
+                            <div class="con-header">I do not wish to learn {{ job.required_technology|default:'Linux' }}</div>
                             <div class="con-subtitle">
                                 <div class="data">
-                                    If you want to join us but have no knowledge or experience in linux
+                                    If you want to join us but have no knowledge or experience in {{ job.required_technology|default:'Linux' }}
                                     <br>
                                 </div>
 
@@ -141,10 +141,10 @@ Application Submitted
                            &starf;
                         </div>
                         <div class="container-fluid">
-                            <div class="con-header">I am interested in learning linux</div>
+                            <div class="con-header">I am interested in learning {{ job.required_technology|default:'Linux' }}</div>
                             <div class="con-subtitle">
                                 <div class="data">
-                                    If you want to join us and you have no knowledge of linux but you are intrested in
+                                    If you want to join us and you have no knowledge of {{ job.required_technology|default:'Linux' }} but you are intrested in
                                     learning it on the Job
                                 </div>
 
@@ -161,10 +161,10 @@ Application Submitted
                            &starf;
                         </div>
                                                 <div class="container-fluid">
-                            <div class="con-header">I have already learned Linux</div>
+                            <div class="con-header">I have already learned {{ job.required_technology|default:'Linux' }}</div>
                             <div class="con-subtitle">
                                 <div class="data">
-                                    If you want to join us and you already have knowledge or know linux
+                                    If you want to join us and you already have knowledge or know {{ job.required_technology|default:'Linux' }}
 
                                 </div>
 
@@ -177,7 +177,7 @@ Application Submitted
 
                 </div>
                 <div class="text-center">
-                   <form action="" method="post">
+                   <form action="{% url 'home:jobfeed' 1 %}" method="post">
                     {% csrf_token %}
                     <input name="interest" hidden id="interest">
 
