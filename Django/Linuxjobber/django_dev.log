@@ -5418,3 +5418,66 @@ smtplib.SMTPRecipientsRefused: {'=?utf-8?q?jdsijidsji?=': (501, b'<=?utf-8?q?jds
 [2019-09-22 10:18:26] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
 [2019-09-22 10:18:28] INFO [django.server.log_message:124] "GET /admin/home/fulltimepostion/add/ HTTP/1.1" 200 31715
 [2019-09-22 10:18:28] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-22 11:45:09] INFO [django.server.log_message:124] "GET / HTTP/1.1" 302 0
+[2019-09-22 11:45:09] INFO [django.server.log_message:124] "GET /timeout HTTP/1.1" 200 16609
+[2019-09-22 11:45:12] INFO [django.server.log_message:124] "GET /logout HTTP/1.1" 200 7997
+[2019-09-22 11:45:14] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 23662
+[2019-09-22 11:45:41] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /user/account/settings
+Traceback (most recent call last):
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\PycharmProjects\sso_new\Django\Linuxjobber\home\views.py", line 1429, in account_settings
+    check = AwsCredential.objects.get(user=request.user)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 394, in get
+    clone = self.filter(*args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 836, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\query.py", line 854, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\query.py", line 1253, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\query.py", line 1277, in _add_q
+    split_subq=split_subq,
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\query.py", line 1187, in build_filter
+    self.check_related_objects(join_info.final_field, value, join_info.opts)
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\db\models\sql\query.py", line 1052, in check_related_objects
+    for v in value:
+  File "C:\Users\user\.virtualenvs\Linuxjobber-VKD_G5k-\lib\site-packages\django\utils\functional.py", line 216, in inner
+    return func(self._wrapped, *args)
+TypeError: 'AnonymousUser' object is not iterable
+[2019-09-22 11:45:42] ERROR [django.server.log_message:124] "GET /user/account/settings HTTP/1.1" 500 124282
+[2019-09-22 13:47:37] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 23662
+[2019-09-22 13:47:54] INFO [django.server.log_message:124] "GET /user/account/settings HTTP/1.1" 302 0
+[2019-09-22 13:47:55] INFO [django.server.log_message:124] "GET /accounts/login/?next=/user/account/settings HTTP/1.1" 200 3459
+[2019-09-22 13:47:55] INFO [django.server.log_message:124] "GET /static/home/css/styles.css HTTP/1.1" 200 8800
+[2019-09-22 13:47:55] INFO [django.server.log_message:124] "GET /static/home/images/imgback.jpg HTTP/1.1" 200 1032219
+[2019-09-22 13:48:05] INFO [django.server.log_message:124] "POST /login/?next=/user/account/settings HTTP/1.1" 200 3408
+[2019-09-22 13:48:19] INFO [django.server.log_message:124] "POST /login/ HTTP/1.1" 302 0
+[2019-09-22 13:48:20] INFO [django.server.log_message:124] "GET /courses/userinterest HTTP/1.1" 200 22009
+[2019-09-22 13:48:20] INFO [django.server.log_message:124] "GET /static/home/images/lin-logo.png HTTP/1.1" 200 9301
+[2019-09-22 13:48:20] INFO [django.server.log_message:124] "GET /static/home/images/button-left.png HTTP/1.1" 200 2071
+[2019-09-22 13:48:20] INFO [django.server.log_message:124] "GET /static/home/images/amazons.png HTTP/1.1" 200 10409
+[2019-09-22 13:48:20] INFO [django.server.log_message:124] "GET /static/home/images/ppt.png HTTP/1.1" 200 964
+[2019-09-22 13:48:20] INFO [django.server.log_message:124] "GET /static/home/css/newhomepage/imgs//list-bg.png HTTP/1.1" 200 279917
+[2019-09-22 13:48:20] INFO [django.server.log_message:124] "GET /static/home/images/jjava.png HTTP/1.1" 200 10506
+[2019-09-22 13:48:20] INFO [django.server.log_message:124] "GET /static/home/images/rchsaa.png HTTP/1.1" 200 6733
+[2019-09-22 13:48:21] INFO [django.server.log_message:124] "GET /static/home/images/ajs.png HTTP/1.1" 200 6757
+[2019-09-22 13:48:21] INFO [django.server.log_message:124] "GET /static/home/images/biz.png HTTP/1.1" 200 7859
+[2019-09-22 13:48:21] INFO [django.server.log_message:124] "GET /static/home/images/csecurity.png HTTP/1.1" 200 5664
+[2019-09-22 13:48:21] INFO [django.server.log_message:124] "GET /static/home/images/dba.png HTTP/1.1" 200 5461
+[2019-09-22 13:48:21] INFO [django.server.log_message:124] "GET /static/home/images/py.png HTTP/1.1" 200 5447
+[2019-09-22 13:48:32] INFO [django.server.log_message:124] "GET /user/account/settings HTTP/1.1" 200 20785
+[2019-09-22 13:51:35] INFO [django.server.log_message:124] "GET /logout HTTP/1.1" 200 7997
+[2019-09-22 13:51:42] INFO [django.server.log_message:124] "GET /user/account/settings HTTP/1.1" 302 0
+[2019-09-22 13:51:42] INFO [django.server.log_message:124] "GET /accounts/login/?next=/user/account/settings HTTP/1.1" 200 3459
+[2019-09-22 13:51:56] INFO [django.server.log_message:124] "POST /login/?next=/user/account/settings HTTP/1.1" 200 3469
+[2019-09-22 13:52:03] INFO [django.server.log_message:124] "GET /login/?next=/user/account/settings HTTP/1.1" 200 3408
+[2019-09-22 13:52:11] INFO [django.server.log_message:124] "POST /login/ HTTP/1.1" 200 3408
+[2019-09-22 13:52:27] INFO [django.server.log_message:124] "GET /login/?next=/user/account/settings HTTP/1.1" 302 0
+[2019-09-22 13:52:28] INFO [django.server.log_message:124] "GET /user/account/settings HTTP/1.1" 200 20785

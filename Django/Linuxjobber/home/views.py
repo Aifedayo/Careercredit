@@ -1343,7 +1343,7 @@ def contact_us(request):
 def location(request):
     return render(request, 'home/location.html', {'courses' : get_courses(), 'tools' : get_tools()})
 
-
+@login_required()
 def account_settings(request):
     form = AWSCredUpload()
     if request.method == "POST":
