@@ -644,7 +644,7 @@ def log_in(request):
         finally:
             if error_message:
                 return TemplateResponse(request, "home/registration/login.html", {"error_message": error_message})
-            perform_registration_checks(request.user, next)
+            return perform_registration_checks(request.user, next)
 
 
     return TemplateResponse(request, 'home/registration/login.html' , {'error_message':error_message})
