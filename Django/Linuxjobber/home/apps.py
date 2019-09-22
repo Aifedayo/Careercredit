@@ -31,5 +31,4 @@ class HomeConfig(AppConfig):
             print('Proxy URLS loading')
             # Remove admin routes
             items = [url for url in self.get_urls(urlpatterns) if not url.startswith('admin')]
-            # print(items)
             pickle.dump(items, url_tmp)
