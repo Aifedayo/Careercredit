@@ -5399,3 +5399,22 @@ smtplib.SMTPRecipientsRefused: {'=?utf-8?q?jdsijidsji?=': (501, b'<=?utf-8?q?jds
 [2019-09-21 06:57:15] INFO [django.server.log_message:124] "GET /static/home/images/job-lady-banner.png HTTP/1.1" 200 734609
 [2019-09-21 06:57:16] INFO [django.server.log_message:124] "GET /static/favicon.ico HTTP/1.1" 200 4682
 [2019-09-21 06:57:16] INFO [django.server.log_message:124] "GET /static/home/css/jobs_new.css HTTP/1.1" 200 3404
+[2019-09-22 10:16:51] INFO [django.server.log_message:124] "GET / HTTP/1.1" 200 23662
+[2019-09-22 10:16:57] INFO [django.server.log_message:124] "GET /admin/ HTTP/1.1" 302 0
+[2019-09-22 10:16:57] INFO [django.server.log_message:124] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1855
+[2019-09-22 10:16:58] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2019-09-22 10:16:58] WARNING [django.server.log_message:124] "GET /favicon.ico HTTP/1.1" 404 15675
+[2019-09-22 10:17:09] INFO [django.server.log_message:124] "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[2019-09-22 10:17:10] INFO [django.server.log_message:124] "GET /admin/ HTTP/1.1" 200 33123
+[2019-09-22 10:17:19] INFO [django.server.log_message:124] "GET /admin/home/fulltimepostion/2/change/ HTTP/1.1" 200 32566
+[2019-09-22 10:17:19] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-22 10:18:07] INFO [django.server.log_message:124] "GET /admin/home/fulltimepostion/2/change/ HTTP/1.1" 200 32566
+[2019-09-22 10:18:07] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-22 10:18:15] INFO [django.server.log_message:124] "GET /admin/ HTTP/1.1" 200 33123
+[2019-09-22 10:18:18] INFO [django.server.log_message:124] "GET /admin/home/parttimepostion/1/change/ HTTP/1.1" 200 4360
+[2019-09-22 10:18:19] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-22 10:18:21] INFO [django.server.log_message:124] "GET /admin/home/ HTTP/1.1" 200 15800
+[2019-09-22 10:18:26] INFO [django.server.log_message:124] "GET /admin/home/fulltimepostion/ HTTP/1.1" 200 4813
+[2019-09-22 10:18:26] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[2019-09-22 10:18:28] INFO [django.server.log_message:124] "GET /admin/home/fulltimepostion/add/ HTTP/1.1" 200 31715
+[2019-09-22 10:18:28] INFO [django.server.log_message:124] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
