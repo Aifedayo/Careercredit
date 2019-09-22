@@ -1,0 +1,197 @@
+{% extends 'home/base.html' %}
+{% load staticfiles%}
+{% block title %}
+Full-Time Application| Linuxjobber
+{% endblock %}
+
+{% load staticfiles %}
+{% block external_header %}
+        <link href="https://fonts.googleapis.com/css?family=Caveat+Brush&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'home/css/jobs_new.css' %}">
+{% endblock %}
+
+{% load staticfiles %}
+{% block content %}
+    <style>
+
+        html body{
+        background-color: #6363631c;
+    }
+
+    .header-color{
+        height: 70px;
+        background-color: #1B539E;
+    }
+
+        .job-application-banner{
+
+        background: url("{% static 'home/images/job-application-banner.png' %}") ;
+
+	height: 181px;
+	background-size: cover;
+    background-repeat: no-repeat;
+
+    }
+
+    .application{
+        padding: 100px 90px 100px 90px;
+    }
+
+    .job-application-text{
+        margin-left: 90px;
+        padding-top: 14px;
+        font-size: 64px;
+        color: white;
+        font-family: "Caveat Brush",cursive;
+    }
+
+
+    .jobinfoh {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.5);
+
+}
+    .jobfinputp{
+        line-height: 40px;
+    }
+
+    .jobbut2{
+        margin-left: 30px;
+        padding-top:9px;
+        background: rgba(0, 0, 0, 0.1);
+border-radius: 30px;
+    text-align: center;
+        width: 248px;
+        height: 39px;
+        border: none;
+    }
+    .homebanbut{
+        width: 250px;
+    }
+    .margin-70{
+        margin-top: 70px;
+    }
+
+    </style>
+    <section class="header-color"></section>
+
+<section class="job-application-banner">
+
+<div class="job-application-text">
+Full-Time Application
+</div>
+</section>
+    <section class="application">
+
+        <form method="post" action="" enctype="multipart/form-data" id="formd">
+
+{% csrf_token %}
+
+    <div class="row">
+        			{% if messages %}
+          {% for message in messages %}
+            {% if message.tags == "success" %}
+            <div class="alert alert-success" role="alert">
+            <p style="color:#155724">{{message}}</p>
+        	</div>
+            {%else%}
+            <div class="alert alert-danger" role="alert">
+            <p style="color:#721c24">{{message}}</p>
+            </div>
+            {%endif%}
+    {% endfor %}
+    {% endif %}
+    </div>
+
+    <div class="row" id="description">
+
+
+                    <div class="job-title">{{ posts.job_title }}</div>
+                    <div class="job-description">{{ posts.requirement }}</div>
+                    <div class="job-responsibilites">Responsibilities:</div>
+                    <div class="item-list">
+                        <p>
+                            {{posts.responsibility |linebreaksbr|linebreaksbr}}
+                        </p>
+                    </div>
+
+
+    </div>
+
+    <div style="min-height: 100px">&nbsp;</div>
+        <hr>
+
+    <div class="row">
+        <div class="col-md-10">
+                    <div class="jobtype">
+					<span class="jobtypeh"><b>Personal Information</b></span><br>
+					<span class="jobinfoh">Tell us something about yourself</span>
+					<br><br>
+					<span class="jobfinputp">Full Name  <span class="star">*</span></span><br>
+					{{form.fullname}}
+					<br>
+					<span class="jobfinputp">Email  <span class="star">*</span></span><br>
+					{{form.email}}
+					<br>
+					<span class="jobfinputp">Phone  <span class="star">*</span></span><br>
+					{{form.phone}}
+
+				</div>
+				<div class="jobtype">
+					<span class="jobtypeh"><b>CV / Resume</b></span><br>
+					<span style="color:rgba(0, 0, 0, 0.5);font-size: 14px">Upload your CV or Resume file</span>
+					<br><br>
+					<span class="jobfinputp">Paste Link to Curriculum Vitae (CV)<span class="star">*</span></span><br>
+					{{form.cv_link}}<br>
+                    <span style="font-size: 14px"> or</span> <label for="file-upload" class="btn jobbut2">
+										Upload CV
+										</label><span class="filename"> </span>
+					{{form.resume}}
+				</div>
+
+        </div>
+
+    </div>
+    <div class="margin-70">
+        <div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-10">
+
+				<div class="text-center">
+					<span class="cverr" style="color:#721c24">Please fill up required fields before submitting</span><br>
+					<div>
+						<button type="submit" class="btn homebanbut"> SUBMIT </button>
+					</div><br>
+					<span class="">Crosscheck to make sure all fields are filled correctly before submitting</span>
+					<br><br><br>
+				</div>
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+
+    </div>
+        </form>
+
+    </section>
+
+
+<script>
+	$('.cverr').hide();
+
+	$('#formd').submit(function() {
+		if ($('#cv_link').val() === "" && document.getElementById("file-upload").files.length == 0){
+			$('.cverr').show();
+			return false;
+		}
+	});
+
+	$('#file-upload').on('change',function(){
+                //get the file name
+                var fileName = $(this).val().split('\\').pop().split('/').pop();
+                //replace the "Choose a file" label
+                $('.filename').html(fileName);
+            });
+</script>
+
+{% endblock %}

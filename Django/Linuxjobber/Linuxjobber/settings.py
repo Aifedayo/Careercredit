@@ -43,8 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
-    # 'home.apps.HomeConfig',
-    'home',
+    'home.apps.HomeConfig',
+    # 'home',
     'Courses.apps.CoursesConfig',
     'Projects.apps.ProjectsConfig',
     'ToolsApp.apps.ToolsappConfig',
@@ -317,5 +317,7 @@ NEW_TOOLS_PATH = config('NEW_TOOLS_PATH', "/tools/campaigns/")
 
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+
 
 

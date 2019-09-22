@@ -48,6 +48,7 @@ urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 # if settings.DEBUG:
 #     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 #     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+<<<<<<< HEAD
 
 def get_urls(urllist=None, depth=0, app="", store=None):
     if store is None:
@@ -71,3 +72,9 @@ with open('urls_tmp', 'wb') as url_tmp:
     items = [ url for url in get_urls() if not url.startswith('admin')]
     print(items)
     pickle.dump(items, url_tmp)
+=======
+import copy
+url_items = urlpatterns
+
+
+>>>>>>> new_job_application

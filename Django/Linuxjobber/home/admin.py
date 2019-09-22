@@ -149,9 +149,14 @@ class CareerSwitchApplicationAdmin(admin.ModelAdmin):
 def get_urls():
     urls = ['---']
     import pickle
-    with open('urls_tmp', 'rb') as file:
-        urls = pickle.load(file)
+
+    try:
+        with open('urls_tmp', 'rb') as file:
+            urls = pickle.load(file)
+    except:
+        return []
     return ((choice, choice) for choice in urls)
+
 class CustomAdminFullTimeForm(forms.ModelForm):
 
     interested_page = forms.ChoiceField(choices=get_urls())

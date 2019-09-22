@@ -643,7 +643,9 @@ def log_in(request):
         finally:
             if error_message:
                 return TemplateResponse(request, "home/registration/login.html", {"error_message": error_message})
-            perform_registration_checks(request.user, next)
+
+            return perform_registration_checks(request.user, next)
+
 
 
     return TemplateResponse(request, 'home/registration/login.html' , {'error_message':error_message})
@@ -1342,7 +1344,7 @@ def contact_us(request):
 def location(request):
     return render(request, 'home/location.html', {'courses' : get_courses(), 'tools' : get_tools()})
 
-
+@login_required()
 def account_settings(request):
     form = AWSCredUpload()
     if request.method == "POST":

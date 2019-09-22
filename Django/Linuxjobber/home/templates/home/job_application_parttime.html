@@ -1,0 +1,211 @@
+{% extends 'home/base.html' %}
+{% load staticfiles%}
+{% block title %}
+Part-Time Application| Linuxjobber
+{% endblock %}
+
+{% load staticfiles %}
+{% block external_header %}
+    <link href="https://fonts.googleapis.com/css?family=Caveat+Brush&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'home/css/jobs_new.css' %}">
+
+{% endblock %}
+
+{% load staticfiles %}
+{% block content %}
+    <style>
+        .homebanbut{
+        width: 250px;
+    }
+
+    </style>
+    <section class="header-color"></section>
+
+<section class="job-application-banner">
+
+<div class="job-application-text">
+Part-Time Application
+</div>
+</section>
+
+
+  {% if position %}
+       <section class="application">
+        <form method="post" action="" enctype="multipart/form-data" id="formd">
+        {% csrf_token %}
+    <div class="row">
+        			{% if messages %}
+          {% for message in messages %}
+            {% if message.tags == "success" %}
+            <div class="alert alert-success" role="alert">
+            <p style="color:#155724">{{message}}</p>
+        	</div>
+            {%else%}
+            <div class="alert alert-danger" role="alert">
+            <p style="color:#721c24">{{message}}</p>
+            </div>
+            {%endif%}
+    {% endfor %}
+    {% endif %}
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <span class="jobtypeh"><b>Job Position</b></span><br>
+					<span class="jobinfoh">Select the job position you would like to apply for</span><br><br>
+        					<span class="jobfinputp" style="color: rgba(0, 0, 0, 0.8);">Choose Job Position <span class="star">*</span></span><br>
+					{{form.position}}
+        </div>
+
+    </div>
+    <div class="row" id="description">
+
+
+    </div>
+
+    <div style="min-height: 100px">&nbsp;</div>
+        <hr>
+
+    <div class="row">
+        <div class="col-md-10">
+                    <div class="jobtype">
+					<span class="jobtypeh"><b>Personal Information</b></span><br>
+					<span class="jobinfoh">Tell us something about yourself</span>
+					<br><br>
+                        <span class="text-danger" style="text-transform: uppercase">{{ form.errors }}</span>
+					<span class="jobfinputp">Full Name  <span class="star">*</span></span><br>
+					{{form.fullname}}
+					<br>
+
+					<span class="jobfinputp">Email  <span class="star">*</span></span><br>
+					{{form.email}}
+					<br>
+					<span class="jobfinputp">Phone  <span class="star">*</span></span><br>
+					{{form.phone}}<br>
+
+
+				</div>
+				<div class="jobtype">
+					<span class="jobtypeh"><b>CV / Resume</b></span><br>
+					<span style="color:rgba(0, 0, 0, 0.5);font-size: 14px">Upload your CV or Resume file</span>
+					<br><br>
+					<span class="jobfinputp">Paste Link to Curriculum Vitae (CV)<span class="star">*</span></span><br>
+					{{form.cv_link}}<br>
+                    <span style="font-size: 14px"> or</span> <label for="file-upload" class="btn jobbut2">
+										Upload CV
+										</label><span class="filename"> </span>
+					{{form.cv}}
+				</div>
+				<div class="jobtype">
+					<span class="jobtypeh"><b>Higher Salary Program</b></span><br>
+					<span style="color:rgba(0, 0, 0, 0.5);font-size: 14px">This program puts its members on a path to earning a higher salary for the same job. For example, if the average starting salary of a fresh graduate in a field is $30k per year, this program is designed to help its members start with $60k for the same job.
+                        Our company will charge 17% of first year salary for this optional program.</span>
+					<br><br>
+                    <span class="jobfinputp">Would you like to sign up for it?<span class="star">*</span></span><br><br>
+
+                    {% for choice in form.high_salary %}
+						{{ choice.tag }}
+						<label for="id_high_salary_{{forloop.counter0}}" ><span>{{ choice.choice_label }}</span></label><br>
+                        <div style="min-height: 10px"></div>
+					{%endfor%}
+				</div>
+
+        </div>
+
+    </div>
+    <div class="margin-70">
+        <div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-10">
+
+				<div class="text-center">
+					<span class="cverr" style="color:#721c24">Please fill up required fields before submitting</span><br>
+					<div>
+						<button type="submit" class="btn homebanbut"> SUBMIT </button>
+					</div><br>
+					<span class="">Crosscheck to make sure all fields are filled correctly before submitting</span>
+					<br><br><br>
+				</div>
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+
+    </div>
+
+    </form>
+ </section>
+      {% else %}
+<section class="none">
+      <h3 class="">Sorry, Part-Time positions not available right now.</h3><br>
+       <p><a class="btn homebanbut" href="{% url 'home:jobs' %}">Check Full-Time Jobs</a></p>
+
+</section>
+
+
+    {% endif %}
+
+<script>
+	$('.cverr').hide();
+
+	    var jobSelector = $("#JobFname");
+
+    function get_postion_details() {
+    $.ajax({
+        url : "/obtain_position/", // the endpoint
+        type : "POST", // http method
+        data : { get_position_detail : jobSelector.val() }, // data sent with the post request
+
+        // handle a successful response
+        success : function(data) {
+            console.log(data);
+            {# Display job description #}
+            if(data)
+            $('#description').html(
+                '<div class="job-title"></div>' +
+                '<div class="job-title">'+data.job_title+ '</div>' +
+                '<div class="job-description">'+data.requirement+'</div>\n' +
+                '<div class="job-responsibilites">Responsibilities:</div>\n' +
+                '<div class="item-list">' +
+                '<p>' + data.responsibility+
+                '                        </p>\n' +
+                '                    </div>'
+            );
+
+
+            console.log("success"); // another sanity check
+        },
+
+        // handle a non-successful response
+        error : function(xhr,errmsg,err) {
+            $('#results').html("" +
+                "<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: "+errmsg+
+                " <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
+            console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+        }
+    });
+}
+
+    	jobSelector.change(
+	    function () {
+	        $("#description").html('<span>... </span>');
+	        var data = $('#JobFname option:selected').val()
+            if(data)
+            get_postion_details()
+
+        }
+    );
+	$('#formd').submit(function() {
+		if ($('#cv_link').val() === "" && document.getElementById("file-upload").files.length == 0){
+			$('.cverr').show();
+			return false;
+		}
+	});
+
+	$('#file-upload').on('change',function(){
+                //get the file name
+                var fileName = $(this).val().split('\\').pop().split('/').pop();
+                //replace the "Choose a file" label
+                $('.filename').html(fileName);
+            });
+</script>
+
+{% endblock %}

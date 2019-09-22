@@ -1,0 +1,183 @@
+    html body{
+        background-color: #63636300;
+    }
+
+    .header-color{
+        height: 70px;
+        background-color: #1B539E;
+    }
+
+    .job-banner{
+
+        background: url("../images/job-lady-banner.png");
+         /*linear-gradient(90deg, #1B539E 38.54%, rgba(0, 0, 0, 0.2) 100%);*/
+
+	min-height: 555px;
+	background-size: cover;
+    background-repeat: no-repeat;
+
+    }
+    .job-text{
+        min-height: 500px;
+        margin-left: 80px;
+        background-image: url("../images/join-team-min.png");
+        background-repeat: no-repeat;
+    }
+
+    .job-outline{
+        padding: 50px 37px 50px 37px;
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.5);
+    }
+    .category-tab{
+        margin-top: 45px;
+    }
+
+    .job-card{
+        background-color: white;
+        border-radius: 10px;
+        padding: 50px;
+        min-height: 400px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .job-title{
+        font-size: 24px;
+        color: rgba(0, 0, 0, 0.8);
+        font-weight: 500;
+
+    }
+    .job-description{
+        font-size: 18px;
+        color: rgba(0, 0, 0, 0.8);
+        margin-bottom: 50px;
+        margin-top: 10px;
+    }
+    .job-responsibilites{
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 24px;
+        color: rgba(0, 0, 0, 0.8);
+        margin-bottom: 10px;
+
+
+    }
+    .apply{
+        margin-top: 50px;
+    }
+
+
+
+.nav-container {
+    overflow: auto;
+    padding-left: 1px;
+    vertical-align: center;
+}
+
+.nav-image {
+    float: left;
+}
+
+.nav-text {
+    line-height: 14px;
+    padding-left: 10px;
+    font-size: 14px;
+}
+.item-list{
+    font-size: 14px;
+    line-height: 28px;
+}
+    .type{
+        font-size: 18px;
+        color: rgba(0, 0, 0, 0.8);
+        margin-bottom: 25px;
+
+    }
+    html body{
+        background-color: #6363631c;
+    }
+
+    .header-color{
+        height: 70px;
+        background-color: #1B539E;
+    }
+    .job-application-banner{
+
+        background: url("../images/job-application-banner.png") ;
+
+	height: 181px;
+	background-size: cover;
+    background-repeat: no-repeat;
+
+    }
+
+    .application{
+        padding: 100px 90px 100px 90px;
+    }
+
+    .job-application-text{
+        margin-left: 90px;
+        padding-top: 14px;
+        font-size: 64px;
+        color: white;
+        font-family: 'Caveat Brush', cursive;
+    }
+
+
+    .jobinfoh {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.5);
+
+}
+    .jobfinputp{
+        line-height: 40px;
+    }
+
+    .jobbut2{
+        margin-left: 30px;
+        padding-top:9px;
+        background: rgba(0, 0, 0, 0.1);
+border-radius: 30px;
+    text-align: center;
+        width: 248px;
+        height: 39px;
+        border: none;
+    }
+
+    .margin-70{
+        margin-top: 70px;
+    }
+
+    .jobcheckbox{
+        padding-top: 9px;
+        font-size: 14px;
+    }
+    .jobbantext, span {
+    font-size: 14px;
+}
+    .none{
+        min-height: 300px;
+        padding: 50px;
+    }
+
+    .star{
+        color:red;font-size: 16px;
+    }
+
+@media only screen and (max-width: 760px) {
+
+    .application{
+        padding: 30px 30px 30px 30px;
+    }
+
+    .job-application-text{
+        margin: 0;
+        padding: 0 20px;
+    }
+    .job-application-banner{
+        height: 200px;
+    }
+
+}
+
