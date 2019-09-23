@@ -2174,7 +2174,6 @@ def career_switch(request, position_id = None):
             content_type="application/json")
 
     form = CareerSwitchApplicationForm()
-    form.initial({'new_career':FullTimePostion.objects.all()})
     if request.method == "POST":
         form = CareerSwitchApplicationForm(request.POST, request.FILES)
         cv = None
