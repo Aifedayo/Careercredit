@@ -7,18 +7,7 @@ Career Switch | Linuxjobber
 
 <div class="jobbaner2">
 	<div class="text-center jobbantext2">
-		<h1>Career Switch</h1>
-		<div class="row">
-		<div class="col-md-2"></div>
-		<div class="col-md-8">
-			<span>
-				Are you willing to switch to get on a new path in the tech space?
-                <br>
-                We would love to make it happen for you
-			</span>
-		</div>
-		<div class="col-md-2"></div>
-	</div>
+		<h1>Begin a Career in Tech Today!</h1>
 	</div>
 </div>
 
@@ -43,7 +32,7 @@ Career Switch | Linuxjobber
         {% endif %}
 
 
-				<div class="jobtype"><p class="jobtypeh">Kindly fill the form below</p>
+				<div class="jobtype">
 					<span class="jobtypeh"><b>PERSONAL INFORMATION</b></span><br>
 					<span class="jobinfoh">Tell us something about yourself</span>
 					<br><br>
@@ -70,12 +59,12 @@ Career Switch | Linuxjobber
 
 				</div>
 				<div class="">
-					<span class="jobtypeh"><b>CV/RESUME</b></span><br>
-					<span class="jobtypeh">UPLOAD YOUR CV/RESUME FILE</span>
+					<span class="jobtypeh"><b>RESUME</b></span><br>
+					<span class="jobtypeh">UPLOAD YOUR RESUME FILE</span>
 					<br><br>
-					<span class="jobfinputp">Paste Link to CV/Resume <span style="color:red">*</span></span><br>pdf, doc, docx only<br><br>
+					<span class="jobfinputp">Paste Link to Resume <span style="color:red">*</span></span><br>pdf, doc, docx only<br><br>
 					{{form.cv_link}}<br><span class="jobfinputp">or </span><label for="file-upload" class="btn jobbut2">
-										UPLOAD CV
+										UPLOAD RESUME
 										</label><span class="filename"> </span>
 					{{form.resume}}
 				</div>
@@ -112,7 +101,7 @@ Career Switch | Linuxjobber
         // handle a successful response
         success : function(data) {
             console.log(data);
-            {# Display job description #}
+            // {# Display job description #}
             $('#description').html(
                 "<div class=''>" +
                 "<p class='jobtypeh'>"+ data.job_title +"</p>" +
