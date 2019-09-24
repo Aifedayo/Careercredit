@@ -17,6 +17,14 @@ Work Experience | Linuxjobber
         font-family: Roboto, "Helvetica Neue", sans-serif;
     }
 
+    section a{
+
+        color: #3B97D3;
+    }
+    section a:hover{
+
+        color: #3B97D367;
+    }
     .header-color{
         height: 665px;
         text-align: center;
@@ -29,7 +37,7 @@ Work Experience | Linuxjobber
         .header-text{
                padding: 130px 200px 0 200px;
             font-size: 55px;
-            font-family: 'Montserrat', Roboto;
+            font-family: 'Montserrat', cursive;
             font-weight: bold;
             color: white;
             margin-bottom: 50px;
@@ -109,6 +117,7 @@ Work Experience | Linuxjobber
     }
     main{
         margin-top: 20px;
+        padding: 0 30px;
     }
     .blue-text{
         font-weight: bold;
@@ -202,10 +211,21 @@ Work Experience | Linuxjobber
         width:27px;
         height:27px;
         border-radius:50%;
-        border:3px solid #1b539E;
-        background-color: white;
-        box-shadow: 0 0 0 1px #1B539E,0 0 0 3px transparent inset;
+        border: 5px solid #1b539E;
+        background-color: transparent;
         background-repeat: no-repeat;
+    color: #1b539E;
+
+}
+.alumni-image p:before{
+    position: absolute;
+    top:-5.9px;
+    left: 1.4px;
+    height: 10px;
+    width: 10px;
+    content: '•';
+    color: #1b539E;
+    font-size: 40px;
 }
 .alumni-image p:nth-child(1) {
     top:5px;
@@ -227,7 +247,31 @@ Work Experience | Linuxjobber
     {# Specify alumni images here #}
 
     .alumni-image.one {
-        background-image: url("{% static 'home/images/lady.png' %}");
+        background-image: url("https://ljtestimonials.s3-us-west-2.amazonaws.com/aaron_testimonial.jpeg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .alumni-image.two {
+        background-image: url("https://ljtestimonials.s3-us-west-2.amazonaws.com/senai_testimonial.JPEG");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .alumni-image.three {
+        background-image: url("https://ljtestimonials.s3-us-west-2.amazonaws.com/chidi_testimonial2.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .alumni-image.four {
+        background-image: url("https://ljtestimonials.s3-us-west-2.amazonaws.com/ndzoh_testimonial.JPEG");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+
+    .alumni-image.five {
+        background-image: url("https://ljtestimonials.s3-us-west-2.amazonaws.com/azeem_testimonial.png");
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -287,6 +331,9 @@ Work Experience | Linuxjobber
     .row.height{
         margin-top: 100px;
     }
+    .price-container a.blue-text{
+        color:#3B97D3;
+    }
 
     {#Responsiveness#}
     @media only screen and (max-width: 760px) {
@@ -295,7 +342,7 @@ Work Experience | Linuxjobber
         }
         .header-text{
             font-size: 24px;
-            padding: 50px 30px 0px 30px;
+            padding: 50px 30px 0 30px;
             line-height: 25px;
             margin-bottom: 10px;
             font-weight: bold;
@@ -362,8 +409,16 @@ Work Experience | Linuxjobber
             padding-top: 5px;
             text-align: center;
         }
+        main{
+            padding: 0;
+        }
 
     }
+    @media (min-width: 992px){
+    .col-md-3 {
+    width: 20%;
+    }
+}
 
     </style>
     <section class="header-color">
@@ -379,7 +434,10 @@ Work Experience | Linuxjobber
        <b>Join the LinuxJobber Work Experience Program </b>
     </p>
     <p class="color-white">
-        Learn More <span class="color-white">&rightarrow;</span>
+        <a class="color-white" href="#main">Learn More <span class=" color-white ">
+        <sub>
+        <img src="{% static 'home/images/arrow-right.png' %}" alt="/ur">
+    </sub>  </span> </a>
     </p>
     
     <p class="left-badge">
@@ -395,7 +453,7 @@ Work Experience | Linuxjobber
         </p>
     </div>
 
-    <main>
+    <main id="main">
         <section class="row">
             <div class="col-md-6">
                 <div class="blue-line"></div>
@@ -476,10 +534,18 @@ Work Experience | Linuxjobber
             <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-4">
-                        <p class="blue-text"><a class="blue-text" href="">See All FAQ's &nbsp; &rightarrow;</a> </p>
+                        <p class="blue-text"><a class="blue-text" href="">See All FAQ's &nbsp;         <i>
+        <img src="{% static 'home/images/arrow-blue.png' %}" alt="/ur">
+    </i> </a> </p>
                     </div>
                     <div class="col-md-4">
-                        <p class="blue-text"><a href="" class="blue-text">See Details &nbsp; &rightarrow;</a> </p>
+                        <p class="blue-text">
+
+                            <a href="{% if request.user.is_authenticated %} #pricing {% else %} {% url 'home:login' %}?next=/workexperience#pricing{% endif %}"
+                               class="blue-text">See Details &nbsp;         <i>
+        <img src="{% static 'home/images/arrow-blue.png' %}" alt="/ur">
+    </i> </a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -500,7 +566,10 @@ Work Experience | Linuxjobber
                                 <li> DevOps</li>
                             </ul>
                             <div style="min-height: 40px"></div>
-                            <p class="blue-text"><a href="" class="blue-text">See Details &nbsp; &rightarrow;</a> </p>
+                            <p class="blue-text"><a href="{% if request.user.is_authenticated %} #pricing {% else %} {% url 'home:login' %}?next=/workexperience#pricing {% endif %}"
+                               class="blue-text">See Details &nbsp;         <i>
+        <img src="{% static 'home/images/arrow-blue.png' %}" alt="/ur">
+    </i> </a> </p>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -517,7 +586,10 @@ Work Experience | Linuxjobber
                                 <li> The training is totally remote.</li>
                             </ul>
                             <div style="min-height: 40px"></div>
-                            <p class="blue-text"><a href="" class="blue-text">See Details &nbsp; &rightarrow;</a> </p>
+                            <p class="blue-text"><a href="{% if request.user.is_authenticated %} #pricing {% else %} {% url 'home:login' %}?next=/workexperience#pricing  {% endif %}"
+                               class="blue-text">See Details &nbsp;         <i>
+        <img src="{% static 'home/images/arrow-blue.png' %}" alt="/ur">
+    </i> </a> </p>
                         </div>
                     </div>
                 </div>
@@ -535,7 +607,7 @@ Work Experience | Linuxjobber
                         </p>
                         <p class="instructor-name">Louis E.</p>
                         <p class="instructor-role">Lead Instructor</p>
-                        <p class="blue-text"><a href=""> Message on Twitter <i class="fa fa-twitter"></i></a></p>
+                        <p class="blue-text"><a href="https://twitter.com/linuxjobber"> Message on Twitter <i class="fa fa-twitter"></i></a></p>
                     </div>
 
                 </div>
@@ -544,9 +616,9 @@ Work Experience | Linuxjobber
                         <p class="text-center">
                             <img class="facilitator" src="{% static 'home/images/lady.png' %}" alt="">
                         </p>
-                        <p class="instructor-name">Louis E.</p>
-                        <p class="instructor-role">Lead Instructor</p>
-                        <p class="blue-text"><a href=""> Message on Twitter <i class="fa fa-twitter"></i></a></p>
+                        <p class="instructor-name">Mary O.</p>
+                        <p class="instructor-role">Software Developer</p>
+                        <p class="blue-text"><a href="https://twitter.com/linuxjobber"> Message on Twitter <i class="fa fa-twitter"></i></a></p>
                     </div>
 
                 </div>
@@ -555,21 +627,23 @@ Work Experience | Linuxjobber
                         <p class="text-center">
                             <img class="facilitator" src="{% static 'home/images/lady.png' %}" alt="">
                         </p>
-                        <p class="instructor-name">Louis E.</p>
-                        <p class="instructor-role">Lead Instructor</p>
-                        <p class="blue-text"><a href=""> Message on Twitter <i class="fa fa-twitter"></i></a></p>
+                        <p class="instructor-name">Azeem A.</p>
+                        <p class="instructor-role">Technical Mentor</p>
+                        <p class="blue-text"><a href="https://twitter.com/linuxjobber"> Message on Twitter <i class="fa fa-twitter"></i></a></p>
                     </div>
 
                 </div>
             </div>
             </div>
         </section>
+
+    </main>
         <section class="alumni-network">
             <p class="text-center">
                 <img src="{% static 'home/images/cap.png' %}" alt="">
             </p>
             <p class="alumni-header">THE ALUMNI</p>
-            
+
             <div class="row">
                 <div class="col-md-3">
                     <div class="alumni-image one">
@@ -577,6 +651,12 @@ Work Experience | Linuxjobber
                         <p></p>
                         <p></p>
                         <p></p>
+                    </div>
+                     <div class="info">
+                     <p class="alumni-name"> Aaron M.</p>
+                         <p class="alumni-role"> DevOps Engineer</p>
+                         <p class="alumni-role"> Baltimore, MD</p>
+                         <p class="alumni-role"> <a href="https://twitter.com/linuxjobber"> Message on Twitter <i class="fa fa-twitter"></i></a></p>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -588,8 +668,10 @@ Work Experience | Linuxjobber
                         <p></p>
                     </div>
                     <div class="info">
-                 <p class="alumni-name"> Azeem Animashaun</p>
-                    <p class="alumni-role"> Azeem Animashaun</p>
+                 <p class="alumni-name"> Senai T.</p>
+                    <p class="alumni-role"> Linux Administrator</p>
+                    <p class="alumni-role"> Seattle, WA</p>
+                    <p class="alumni-role"> <a href="https://twitter.com/linuxjobber"> Message on Twitter <i class="fa fa-twitter"></i></a></p>
                     </div>
 
                 </div>
@@ -599,6 +681,40 @@ Work Experience | Linuxjobber
                         <p></p>
                         <p></p>
                         <p></p>
+                    </div>
+                      <div class="info">
+                 <p class="alumni-name"> Chidi N.</p>
+                    <p class="alumni-role"> Linux Administrator</p>
+                    <p class="alumni-role">Silver Spring, MD </p>
+                    <p class="alumni-role"><a href="https://twitter.com/linuxjobber"> Message on Twitter <i class="fa fa-twitter"></i></a> </p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="alumni-image four">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                      <div class="info">
+                 <p class="alumni-name"> Joseph N.</p>
+                    <p class="alumni-role"> Linux Administrator</p>
+                    <p class="alumni-role">Bronx, NY </p>
+                    <p class="alumni-role"><a href="https://twitter.com/linuxjobber"> Message on Twitter <i class="fa fa-twitter"></i></a> </p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="alumni-image five">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                      <div class="info">
+                 <p class="alumni-name"> Azeem A.</p>
+                    <p class="alumni-role"> Linux Administrator</p>
+                    <p class="alumni-role">Los Angeles, CA </p>
+                    <p class="alumni-role"><a href="https://twitter.com/linuxjobber"> Message on Twitter <i class="fa fa-twitter"></i></a> </p>
                     </div>
                 </div>
 
@@ -614,29 +730,10 @@ Work Experience | Linuxjobber
             </div>
 
         </section>
-                <section class="bottom-faq">
-                <div class="container faq">
-                    <div class="row height">
+        <section class="bottom-faq">
 
-                        <div class="col-md-4">
-                            <p class="text-center">
-                            <a href="" class="blue-text">See Details &nbsp; &rightarrow;</a>
-                            </p>
-                        </div>
-                        <div class="col-md-4">
-                            <p class="text-center">
-                            <a href="" class="blue-text">See terms and conditions for Work Experience &nbsp; &rightarrow;</a>
-                            </p>
-                        </div>
-                        <div class="col-md-4">
-                            <p class="text-center"><a href="" class="blue-text">See FAQ’s &nbsp; &rightarrow;</a>
-                            </p>
-                        </div>
-
-                    </div>
-                </div>
-                    <hr>
-                    <div class="authenticated-user-faq">
+                    {% if not request.user.is_authenticated %}
+                    <div id="pricing" class="authenticated-user-faq">
                         <div class="price-container">
                             <div class="row">
                                 <div class="col-md-7">
@@ -660,17 +757,51 @@ Work Experience | Linuxjobber
                                 </div>
                                 <div class="col-md-5">
                                     <div class="container-colored">
-                                        <p class="top-50"><a href="" class="blue-text">See Details &nbsp; &rightarrow;</a> </p>
-                                        <p class="top-50"><a href="" class="blue-text">See terms and conditions for Work Experience &nbsp; &rightarrow;</a> </p>
-                                        <p class="top-50"><a href="" class="blue-text">See FAQ’s &nbsp; &rightarrow;</a> </p>
+                                        <p class="top-50"><a href="{% if request.user.is_authenticated %} #pricing {% else %} {% url 'home:login' %}?next=/workexperience#pricing  {% endif %}"
+                               class="blue-text">See Details &nbsp;         <i>
+        <img src="{% static 'home/images/arrow-blue.png' %}" alt="/ur">
+    </i> </a> </p>
+                                        <p class="top-50"><a href="{% url 'home:workterm' %}" class="blue-text">See terms and conditions for Work Experience &nbsp;         <i>
+        <img src="{% static 'home/images/arrow-blue.png' %}" alt="/ur">
+    </i> </a> </p>
+                                        <p class="top-50"><a href="" class="blue-text">See FAQ’s &nbsp;         <i>
+        <img src="{% static 'home/images/arrow-blue.png' %}" alt="/ur">
+    </i> </a> </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                        {% else %}
+                        <div class="container faq">
+                    <div class="row height">
+
+                        <div class="col-md-4">
+                            <p class="text-center">
+                            <a href="{% if request.user.is_authenticated %} #pricing {% else %} {% url 'home:login' %}?next=/workexperience#pricing  {% endif %}"
+                               class="blue-text">See Details &nbsp;         <i>
+        <img src="{% static 'home/images/arrow-blue.png' %}" alt="/ur">
+    </i> </a>
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <p class="text-center">
+                            <a href="{% url 'home:workterm' %}" class="blue-text">See terms and conditions for Work Experience &nbsp;         <i>
+        <img src="{% static 'home/images/arrow-blue.png' %}" alt="/ur">
+    </i> </a>
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <p class="text-center"><a href="" class="blue-text">See FAQ’s &nbsp;         <i>
+        <img src="{% static 'home/images/arrow-blue.png' %}" alt="/ur">
+    </i> </a>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+                    {% endif %}
+
             </section>
-
-
-    </main>
-
 {% endblock %}
