@@ -111,7 +111,7 @@ WSGI_APPLICATION = 'Linuxjobber.wsgi.application'
 # Here I made use of a mysql database for expense application
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': config('DATABASE_ENGINE', 'django.db.backends.mysql'), 
         'NAME': config('DATABASE_NAME', 'linuxjobber'),  # linuxjb
         'USER': config('DATABASE_USER', 'root'),  # linuxjobber
         'PASSWORD': config('DATABASE_PASSWORD', 'jehovah205'),  # linuxjobber

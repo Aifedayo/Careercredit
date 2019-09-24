@@ -1,10 +1,12 @@
 *.py[cod]
 *\.idea*
+*\.vscode*
 !.gitignore
 *.pyc
 db.sqlite3
 *.ini
 **.ini
 **/node_modules*
+**/**/django_dev.log
 
 !logging.ini
