@@ -1,0 +1,31 @@
+[settings]
+DJANGO_DEBUG = True
+
+DATABASE_ENGINE = mysql.connector.django
+DATABASE_NAME = linuxjobber
+DATABASE_USER = root
+DATABASE_PASSWORD = 
+DATABASE_HOST = localhost
+DATABASE_PORT = 3306
+
+AWS_ACCESS_KEY_ID = 
+AWS_SECRET_ACCESS_KEY = 
+AWS_STORAGE_BUCKET_NAME =
+AWS_LOCATION = static
+
+EMAIL_HOST = smtp.linuxjobber.com
+EMAIL_PORT = 587
+EMAIL_HOST_USER = admin@linuxjobber.com
+EMAIL_HOST_PASSWORD = m4k3Aw!y
+
+channel_hosts = 127.0.0.1,6379
+
+SERVER_IP = 192.168.122.1
+SERVER_USER = sysadmin
+SERVER_PASSWORD = 8iu7*IU&
+GROUP_CLASS_URL = http://localhost:4200/classroom/
+
+TOOLS_USER = samuel
+TOOLS_PASSWORD = 8iu7*IU&
+OLD_TOOLS_PATH = /oldtools/campaigns/
+NEW_TOOLS_PATH = /tools/campaigns/
