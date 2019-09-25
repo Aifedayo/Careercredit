@@ -11,12 +11,21 @@ Jobs | Linuxjobber
 
 {% load staticfiles %}
 {% block content %}
+    <style>
+    ul.oo{
+        margin-right: 40px;
+    }
+    li.oo{
+
+    }
+    </style>
 
     <section class="header-color"></section>
 
 <section class="job-banner">
 
 <div class="job-text">
+
 </div>
 </section>
 
@@ -67,8 +76,6 @@ Jobs | Linuxjobber
     <section class="none">
       <h3 class="">Sorry, Full-Time Positions not available right now.</h3><br>
        <p><a class="btn homebanbut" href="{% url 'home:jobs' %}">Check Part-Time Positions</a></p>
-
 </section>
     {% endif %}
-
 {% endblock %}
