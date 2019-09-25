@@ -5,7 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 import stripe
 
 
-app_name = 'home'
+app_name='home'
 
 webhookview = views.my_webhook_view
 
@@ -27,7 +27,6 @@ wp_patterns = [
 urlpatterns = [
     # path("stripe/", include("djstripe.urls", namespace="djstripe")),
     path('', views.index, name='index'),
-    path('admin',admin.site.urls),
     path('webhooks',  csrf_exempt(webhookview), name='my_webhook_view'),
     path('login/', views.log_in, name = 'login'),
     path('signup', views.signup, name='signup'),
@@ -62,7 +61,8 @@ urlpatterns = [
     path('policies', views.policies, name="policies"),
     path('linux_start', views.linux_start, name='linux_start'),
     path('jobs', views.jobs, name="jobs"),
-    path('jobs/feedback', views.jobfeed, name="jobfeed"),
+    path('jobs/feedback/', views.jobfeed, name="jobfeed"),
+    path('jobs/feedback/<int:is_fulltime>', views.jobfeed, name="jobfeed"),
     path('jobs/parttime/apply', views.partime, name="partime"),
     path('jobs/challenge/',views.jobchallenge, name='challenge'),
     path('jobs/challenge/<respon>/',views.jobchallenge, name='challenge'),
@@ -84,6 +84,7 @@ urlpatterns = [
     path('home/pay/livehelp', views.pay_live_help, name='pay_live_help'),
     path('home/server/service', views.server_service, name='server_service'),
     path('home/liveinstructor', views.in_person_training, name='in_person_training'),
+    path('tryfree/', views.tryfree, name='tryfree'),
     path('tryfree/<slug:sub_plan>/', views.tryfree, name='tryfree'),
     path('user/RHCSA/order_details', views.rhcsa_order, name='rhcsa_order'),
     path('tutorials/userinterest', views.user_interest, name='user_interest'),
@@ -92,4 +93,9 @@ urlpatterns = [
     path('combined_class/',views.combined_class,name='combined_class'),
     path('combined_class_terms/',views.combined_class_terms,name='combined_class_terms'),
     path('combined_class/pay',views.combined_class_pay,name='combined_class_pay'),
+    path('career_switch/',views.career_switch,name='career_switch'),
+    path('obtain_position/',views.position_detail),
+    path('jobs/submitted',views.job_submitted),
 ]
+
+

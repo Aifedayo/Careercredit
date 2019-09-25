@@ -1,0 +1,260 @@
+{% extends 'home/base.html' %}
+{% load staticfiles%}
+{% block title %}
+Application Submitted | Linuxjobber
+{% endblock %}
+
+{% load staticfiles %}
+{% block external_header %}
+        <link href="https://fonts.googleapis.com/css?family=Caveat+Brush&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'home/css/jobs_new.css' %}">
+{% endblock %}
+
+{% load staticfiles %}
+
+{% block content %}
+    <style>
+        html,body{
+        background-color:white
+    }
+    .application{
+        padding-top: 50px;
+        padding-left: 70px;
+    }
+@media only screen and (max-width: 640px) {
+    .application{
+        padding: 10px;
+    }
+}
+    .proficiency-card{
+        margin: 5px 0;
+        padding: 40px 0 40px 0;
+        display: inline-block;
+        width:100%;
+        background-color: white;
+min-height: 256px;
+border: 2px solid #E5E5E5;
+box-sizing: border-box;
+border-radius: 10px;
+    }
+    .rating{
+        text-align: center;
+        max-width: 134px;
+        font-size: 28px;
+        align-content: center;
+        padding-top: 15px;
+        line-height: 28px;
+        height: 60px;
+        background: #E5E5E5;
+        border-radius: 0px 30px 30px 0px;
+    }
+    .rating.one{
+        width: 68px;
+    }
+    .rating.two{
+        width: 101px;
+    }
+    .row.adjusted{
+        left: -15px;
+    }
+
+    .rating.selected{
+        color: #FAC917;;
+        background-color: #303030;
+    }
+    .proficiency-card:hover{
+        border: 3px solid #aaaaaa;
+        cursor: pointer;
+    }
+    .proficiency-card.selected{
+        border: 5px solid #303030;
+        cursor: pointer;
+    }
+    .homebanbut{
+        width: 250px;
+    }
+    .con-header{
+        display: flex;
+        text-align: center;
+        margin-top: 20px;
+        font-size: 24px;
+  align-items: center;
+  justify-content: center;
+        color:rgba(0, 0, 0, 0.8);
+    }
+    .con-subtitle{
+        display: flex;
+        font-size: 14px;
+        text-align: center;
+        color:rgba(0, 0, 0, 0.8);
+          align-items: center;
+          justify-content: center;
+    }
+    .con-subtitle .data{
+                width: 224px;
+
+    }
+
+</style>
+    <section class="application-header-color"></section>
+
+<section class="job-application-banner">
+
+<div class="job-application-text">
+Application Submitted
+</div>
+</section>
+    {% if is_fulltime %}
+
+    <section class="application">
+
+    <div class="row">
+        <div class="">
+
+				<div class="col-md-12">
+                    <span class="jobtypeh"><b>Select one option below!</b></span><br>
+                </div>
+					<div class="col-md-12">
+                        <span class="jobinfoh"> Before you go, choose which option that best describes you below.</span></div>
+					<br><br>
+            <br>
+            <br>
+            <div class="row ">
+                <div class="col-md-4">
+                    <div class="proficiency-card" id="not_interested">
+                        <div class="rating one">
+                           &starf;
+                        </div>
+                                                <div class="container-fluid">
+                            <div class="con-header">I do not wish to learn {{ job.required_technology|default:'Linux' }}</div>
+                            <div class="con-subtitle">
+                                <div class="data">
+                                    If you want to join us but have no knowledge or experience in {{ job.required_technology|default:'Linux' }}
+                                    <br>
+                                </div>
+
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="proficiency-card" id='interested'>
+                        <div class="rating two">
+                           &starf;
+                           &starf;
+                        </div>
+                        <div class="container-fluid">
+                            <div class="con-header">I am interested in learning {{ job.required_technology|default:'Linux' }}</div>
+                            <div class="con-subtitle">
+                                <div class="data">
+                                    If you want to join us and you have no knowledge of {{ job.required_technology|default:'Linux' }} but you are intrested in
+                                    learning it on the Job
+                                </div>
+
+                        </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="proficiency-card" id="skilled">
+                        <div class="rating">
+                           &starf;
+                           &starf;
+                           &starf;
+                        </div>
+                                                <div class="container-fluid">
+                            <div class="con-header">I have already learned {{ job.required_technology|default:'Linux' }}</div>
+                            <div class="con-subtitle">
+                                <div class="data">
+                                    If you want to join us and you already have knowledge or know {{ job.required_technology|default:'Linux' }}
+
+                                </div>
+
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                            <div style="min-height: 50px">
+
+                </div>
+                <div class="text-center">
+                   <form action="{% url 'home:jobfeed' 1 %}" method="post">
+                    {% csrf_token %}
+                    <input name="interest" hidden id="interest">
+
+                    <button id="continue" class="btn homebanbut">Continue</button>
+
+                </form>
+                </div>
+        </div>
+    </div>
+
+
+ </section>
+        {% else %}
+        <div class="" style="padding: 60px">
+                		<div class="container-fluid" style="margin-top: 30px">
+                    <span class="jobtypeh"><b>Thanks, your application has been received and we would get back to you</b></span><br>
+                </div>
+        </div>
+
+        {% include 'home/job_feed_template.html' %}
+    {% endif %}
+
+<script>
+
+var interested =  $('#interested');
+var not_interested =  $('#not_interested');
+var skilled =  $('#skilled');
+var interestField =  $('#interest');
+var continueButton =  $('#continue');
+continueButton.hide();
+
+interestField.change(function () {
+    if(interestField.val() !=null){
+
+    }
+    else
+        continueButton.show();
+});
+
+function setDefault(item){
+    item.removeClass('selected');
+    item.children('.rating').removeClass('selected');
+    continueButton.show();
+}
+
+interested.click(
+    function () {
+        interestField.attr('value','interested');
+        $(this).children('.rating').addClass('selected');
+        $(this).addClass('selected');
+        setDefault(not_interested);
+        setDefault(skilled);
+
+    }
+);
+not_interested.click(
+    function () {
+        interestField.attr('value','not_interested');
+        $(this).children('.rating').addClass('selected');
+        $(this).addClass('selected');
+        setDefault(interested);
+        setDefault(skilled);
+    }
+);
+skilled.click(
+    function () {
+        interestField.attr('value','skilled');
+        $(this).children('.rating').addClass('selected');
+        $(this).addClass('selected');
+        setDefault(interested);
+        setDefault(not_interested);
+    }
+);
+
+</script>
+
+{% endblock %}

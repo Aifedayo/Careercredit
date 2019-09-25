@@ -12,6 +12,7 @@ from smtplib import SMTPException
 from urllib.parse import urlparse
 from django.conf import settings
 from django.contrib.auth.hashers import check_password
+from django.core.files.storage import FileSystemStorage
 from django.core.mail import send_mail, BadHeaderError
 from django.db import IntegrityError
 from django.shortcuts import render,redirect, reverse, get_object_or_404
@@ -33,7 +34,8 @@ from users.models import *
 from Courses.models import Course, CoursePermission, UserInterest
 from ToolsApp.models import Tool
 from users.models import CustomUser
-from .forms import JobPlacementForm, JobApplicationForm, AWSCredUpload, InternshipForm, ResumeForm, PartimeApplicationForm, WeForm, UnsubscribeForm
+from .forms import JobPlacementForm, JobApplicationForm, AWSCredUpload, InternshipForm,\
+    ResumeForm, PartimeApplicationForm, WeForm, UnsubscribeForm
 from datetime import datetime
 
 fs = FileSystemStorage(location= settings.MEDIA_ROOT+'/uploads')
@@ -46,8 +48,6 @@ Log non database errors with the standard_logger instance'''
 standard_logger = logging.getLogger(__name__)
 dbalogger = logging.getLogger('dba')
 utc=pytz.UTC
-
-
 
 
 
@@ -142,6 +142,9 @@ def signup(request):
         email = request.POST['email']
         password = request.POST['password']
         username = email.split('@')[0]
+        next_page = None
+        if request.session.get('job_submission_next_page',None):
+            next_page = request.session['job_submission_next_page']
         try:
             userd = CustomUser.objects.get(email=email)
             exists = True
@@ -182,7 +185,7 @@ def signup(request):
 
                     # ip = get_client_ip(request)
                     # add_location(ip,user)
-                    return render(request, "home/registration/signupfeedback.html", {'user': user})
+                    return render(request, "home/registration/signupfeedback.html", {'user': user,'next_page':next_page})
                 else:
                     error = True
                     return render(request, 'home/registration/signup.html', {'error': error})
@@ -365,7 +368,27 @@ def policies(request):
 
 def jobs(request):
     posts = FullTimePostion.objects.all()
-    return render(request, 'home/job.html', {'posts':posts})
+    return render(request, 'home/job_index.html', {'posts':posts})
+
+@csrf_exempt
+def position_detail(request, position_type = "fulltime"):
+    data = FullTimePostion if position_type =="fulltime" else PartTimePostion
+    response_data = {}
+    if request.POST.get('get_position_detail', None):
+        # This method handles AJAX request for job details
+        try:
+            item = data.objects.get(id=request.POST.get('get_position_detail'))
+            response_data['requirement'] = item.requirement
+            response_data['responsibility'] = r"{}".format(item.responsibility.replace('\n','<br>'))
+            response_data['job_title'] = item.job_title
+            return HttpResponse(json.dumps(response_data),
+                content_type="application/json")
+        except:
+            pass
+    return HttpResponse(json.dumps(None),
+                        content_type="application/json")
+
+
 
 def partime(request):
     cv = None
@@ -376,7 +399,6 @@ def partime(request):
     if request.method == "POST":
         form = PartimeApplicationForm(request.POST, request.FILES)
         if form.is_valid():
-            print(request.POST['email'])
             pos = PartTimePostion.objects.get(id=request.POST['position'])
             try:
                 PartTimeJob.objects.get(email=request.POST['email'],position=pos)
@@ -428,12 +450,12 @@ def partime(request):
             send_mail('Part-Time Job Application Alert', 'Hello,\n'+request.POST['fullname']+' with email: '+request.POST['email']+ ' just applied for a part time role, '+position.job_title+'.\nCV can be found here: '+cv+'\n Phone number is: '+request.POST['phone']+' and high salary choice is: '+high+'.\nplease kindly review.\n\n Thanks & Regards \n Linuxjobber. \n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
             return redirect("home:jobfeed")
         else:
-            form = PartimeApplicationForm()
-            return render(request, 'home/partime.html', {'form': form})
+            return render(request, 'home/job_application_parttime.html', {'form': form,'position':PartTimePostion.objects.all()})
     else:
         form = PartimeApplicationForm()
     form = PartimeApplicationForm()
-    return render(request, 'home/partime.html', {'form': form})
+    return render(request, 'home/job_application_parttime.html', {'form': form,
+                                                                  'position':PartTimePostion.objects.all()})
 
 
 @login_required
@@ -461,8 +483,51 @@ def jobchallenge(request, respon=None):
         return redirect("home:index")
     return render(request, 'home/jobchallenge.html')
 
-def jobfeed(request):
-    return render(request, 'home/jobfeed.html')
+from enum import Enum
+class JobAnswers(Enum):
+    """
+
+    """
+    interested = "interested"
+    not_interested = "not_interested"
+    skilled = "skilled"
+
+def jobfeed(request, is_fulltime=0):
+    """
+    Handles page user is to be sent to after signing up
+    We make use of a request.session key 'job_submission_next_page' to track
+
+    :param request:
+    :param is_fulltime:
+    :return page:
+    """
+    if is_fulltime:
+
+        job_id = request.session.get('selected_job_id', None)
+        if job_id:
+            try:
+                selected_job = FullTimePostion.objects.get(id = job_id)
+            except:
+                pass
+            if request.method == "POST":
+                selected_option = request.POST.get('interest',None)
+                applicant_email = request.session.get('job_email', None)
+                if selected_job and applicant_email:
+                    application_entry = Job.objects.get(position=selected_job,email=applicant_email)
+                    application_entry.interest = selected_option
+                    application_entry.save()
+                if selected_option == JobAnswers.interested.value: # Sets to already specified next_page_url for job
+                    request.session['job_submission_next_page'] = selected_job.interested_page
+                    return redirect("home:jobfeed")
+                elif selected_option == JobAnswers.not_interested.value: # Send to try free page
+                    request.session['job_submission_next_page'] = selected_job.not_interested_page
+                    return  redirect('home:jobfeed')
+                elif selected_option == JobAnswers.skilled.value: # Send to Work Experience
+                    request.session['job_submission_next_page'] = selected_job.skilled_page
+                    return redirect(selected_job.skilled_page)
+            return TemplateResponse(request,'home/job_application_submitted.html',{'is_fulltime':True,'job':selected_job})
+
+    return render(request, 'home/job_application_submitted.html')
 
 def linux_start(request):
     return render(request, 'home/linux_start.html')
@@ -506,25 +571,53 @@ def jobapplication(request, job):
 
             send_mail('Linuxjobber Newsletter', 'Hello, you are receiving this email because you applied for a full-time role at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [request.POST['email']])
             send_mail('Full-Time Job Application Alert', 'Hello,\n'+request.POST['fullname']+' with email: '+request.POST['email']+ 'just applied for a full time role, '+posts.job_title+'. \nCV can be found here: '+cv+'\n Phone number is:'+request.POST['phone']+'\nplease kindly review.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
-            return redirect("home:jobfeed")
+            # Set job_picked to session so they are redirected accordingly after login
+            request.session['selected_job_id'] = posts.pk
+            return redirect("home:jobfeed",is_fulltime = 1)
         else:
             form = JobApplicationForm()
-            return render(request, 'home/jobapplication.html', {'form': form, 'posts' : posts})
+            return render(request, 'home/job_application.html', {'form': form, 'posts' : posts})
     else:
         form = JobApplicationForm()
     form = JobApplicationForm()
-    return render(request, 'home/jobapplication.html', {'form': form, 'posts' : posts})
+    return render(request, 'home/job_application.html', {'form': form, 'posts' : posts})
 
 
 def resume(request):
     return render(request, 'home/resume.html', {'courses' : get_courses(), 'tools' : get_tools()})
 
+def perform_registration_checks(user, next = ""):
+    if user.role == 4:
+        check_permission_expiry(user)
+    if next == "":
+        # check if user paid for work experience and has not filled the form
+        try:
+            weps = wepeoples.objects.get(user=user)
+            if not weps.types:
+                return redirect("home:workexpform")
+        except wepeoples.DoesNotExist:
+            pass
+
+        stats = UserInterest.objects.filter(user=user)
+
+        if next:
+            return redirect(next)
+        elif stats:
+            return redirect("home:index")
+        else:
+            return redirect("Courses:userinterest")
+    else:
+        return HttpResponseRedirect(next)
 
 def log_in(request):
+
+
     next = ''
     if request.GET:
         next = request.GET['next']
     error_message = ''
+    if request.user.is_authenticated:
+        return perform_registration_checks(request.user,next)
 
     if request.method == "POST":
         user_name = request.POST['username']
@@ -551,27 +644,10 @@ def log_in(request):
             if error_message:
                 return TemplateResponse(request, "home/registration/login.html", {"error_message": error_message})
 
-            if user.role == 4:
-                check_permission_expiry(user)
-            if next == "":
-                #check if user paid for work experience and has not filled the form
-                try:
-                    weps = wepeoples.objects.get(user=request.user)
-                    if not weps.types:
-                        return redirect("home:workexpform")
-                except wepeoples.DoesNotExist:
-                    pass
+            return perform_registration_checks(request.user, next)
 
-                stats = UserInterest.objects.filter(user=request.user)
 
-                if next:
-                    return redirect(next)
-                elif stats:
-                    return redirect("home:index")
-                else:
-                    return redirect("Courses:userinterest")
-            else:
-                return HttpResponseRedirect(next)
+
     return TemplateResponse(request, 'home/registration/login.html' , {'error_message':error_message})
 
 
@@ -748,7 +824,7 @@ def workexperience(request):
             pass
     else:
         pass
-    return render(request, 'home/workexperience.html')
+    return render(request, 'home/work_experience.html')
 
 def workterm(request):
     return render(request, 'home/workexpterm.html')    
@@ -831,7 +907,7 @@ def workexprofile(request):
 
             link = weps.Paystub.url
             
-            send_mail('Pay Stub verification needed', 'Hello,\n '+request.user.email+' just uploaded is pay stub at: '+link+'.\nPlease review and confirm last verification\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, ['azeemmayowa@gmail.com'])
+            send_mail('Pay Stub verification needed', 'Hello,\n '+request.user.email+' just uploaded is pay stub at: '+link+'.\nPlease review and confirm last verification\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
             messages.success(request, 'Paystub uploaded successfully, Last verification would be confirmed as soon as Paystub is verified')
             return redirect("home:workexprofile")
         elif request.POST['type'] == '2':
@@ -1268,7 +1344,7 @@ def contact_us(request):
 def location(request):
     return render(request, 'home/location.html', {'courses' : get_courses(), 'tools' : get_tools()})
 
-
+@login_required()
 def account_settings(request):
     form = AWSCredUpload()
     if request.method == "POST":
@@ -1701,7 +1777,7 @@ def in_person_training(request):
 
 
 @login_required
-def tryfree(request, sub_plan):
+def tryfree(request, sub_plan='standardPlan'):
 
     if sub_plan == 'standardPlan':
         PRICE = 29
@@ -1960,7 +2036,8 @@ def group_list(request):
                 group_item.users.add(user)
                 messages.success(request, 'You registered in '+group_item.name+' group class successfully..')
                 return redirect("home:group")
-            groupreg = GroupClassRegister.objects.create(user= user, is_paid = 0, amount=29, type_of_class = group_item.type_of_class)
+            groupreg = GroupClassRegister.objects.create(user= user, is_paid = 0,
+                                                         amount=29, type_of_class = group_item.type_of_class)
             groupreg.save()
             if int(choice) == 1:
                 request.session['gclass'] = int(gclass)
@@ -1971,7 +2048,8 @@ def group_list(request):
     if request.user.is_authenticated:
         user_token,_=Token.objects.get_or_create(user=request.user)
 
-    return TemplateResponse(request,'home/group_class.html',{'groups': Groupclass.objects.all(), 'GROUP_URL':settings.GROUP_CLASS_URL, 'token':user_token})
+    return TemplateResponse(request,'home/group_class.html',{'groups': Groupclass.objects.all(),
+                                                             'GROUP_URL':settings.GROUP_CLASS_URL, 'token':user_token})
 
 
 def handler_404(request):
@@ -2052,7 +2130,10 @@ def combined_class_pay(request):
                                                    person=None, state=None, income=None, relocation=None,
                                                    last_verification=None, Paystub=None, graduation_date=None)
                 send_mail('Linuxjobber Combined Class Payment',
-                          'Hello, you have successfuly beem enrolled in our Combined Class which gives you access to full technical training with Work Experience package included \n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
+                          'Hello, you have successfuly beem enrolled in our Combined Class '
+                          'which gives you access to full technical training with Work Experience package included \n\n'
+                          'Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL
+                          + 'unsubscribe',
                           settings.EMAIL_HOST_USER, [request.user.email])
                 return render(request, 'home/combined_class_pay_success.html')
             except SMTPException as error:
@@ -2078,3 +2159,110 @@ def combined_class(request):
 @login_required()
 def combined_class_terms(request):
     return TemplateResponse(request,'home/combined_class_terms.html')
+
+
+@csrf_exempt
+def career_switch(request, position_id = None):
+    from .forms import CareerSwitchApplicationForm
+    response_data = {}
+    if request.POST.get('get_position_detail', None):
+        # This method handles AJAX request for job details
+        item = FullTimePostion.objects.get(id=request.POST.get('get_position_detail'))
+        response_data['requirement'] = item.requirement
+        response_data['responsibility'] = r"{}".format(item.responsibility.replace('\n','<br>'))
+        response_data['job_title'] = item.job_title
+        return HttpResponse(json.dumps(response_data),
+            content_type="application/json")
+
+    form = CareerSwitchApplicationForm()
+    if request.method == "POST":
+        form = CareerSwitchApplicationForm(request.POST, request.FILES)
+        cv = None
+        if form.is_valid():
+            jobform = form.save(commit=False)
+            try:
+                CareerSwitchApplication.objects.get(email=request.POST['email'],new_career=jobform.new_career)
+                messages.success(request,
+                                 "Sorry We could not submit your application as you have applied for this role before.")
+                return redirect("home:career_switch")
+            except CareerSwitchApplication.DoesNotExist:
+                pass
+            jobform.save()
+            request.session['job_email'] = request.POST['email']
+            request.session['job_fullname'] = request.POST['fullname']
+            request.session['page'] = 'Switch Career'
+
+            try:
+                freeexist = FreeAccountClick.objects.get(email=request.session['job_email'])
+            except FreeAccountClick.DoesNotExist:
+                freeclick = FreeAccountClick(fullname=request.session['job_fullname'],
+                                             email=request.session['job_email'],
+                                             filled_jobs=1,
+                                             freeaccountclick=0,
+                                             from_what_page=request.session['page'],
+                                             registered=0,
+                                             visited_tryfree=0,
+                                             paid=0)
+                freeclick.save()
+            except Exception:
+                pass
+
+
+            if not request.POST['cv_link']:
+                cv = jobform.resume.url
+            else:
+                cv = request.POST['cv_link']
+
+            applicant_template = """
+Hi {fullname},
+
+We are happy you are interested to switch to a {new_career} role.
+
+This mail is to confirm we have received your details, and would be reviewing it accordingly.
+
+In addition, you would also be informed occasionally on open roles, you can unsubscribe from these notifications here {unsubscribe_url}
+
+Warm Regards,
+Linuxjobber
+            
+            
+            """.format(
+                fullname = jobform.fullname,
+                new_career = jobform.new_career,
+                unsubscribe_url = settings.ENV_URL + '/unsubscribe'
+            )
+
+            send_mail('Your Career Switch application has been received - Linuxjobber',
+                      applicant_template, settings.EMAIL_HOST_USER,
+                      [request.POST['email']])
+
+            admin_email_template = """
+Hello,
+
+{fullname} with {email} just submitted a career switch application for the {new_career}.
+
+Old career : {old_career}
+Phone : {phone}          
+CV can be found here : {cv_url} 
+
+Kindly review.   
+            """.format(
+                fullname = jobform.fullname,
+                new_career = jobform.new_career,
+                old_career = jobform.old_career,
+                phone = jobform.phone,
+                cv_url = cv,
+                email = jobform.email
+            )
+            send_mail('Career Switch Application Received ', admin_email_template
+                      ,settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com',])
+            return redirect("home:jobfeed")
+        else:
+            return render(request, 'home/career_switch.html', {'form': form})
+    return render(request, 'home/career_switch.html', {'form': form})
+
+
+def job_submitted(request, type="fulltime"):
+
+    return TemplateResponse(request,'home/job_application_submitted.html')
+

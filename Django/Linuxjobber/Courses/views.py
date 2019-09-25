@@ -905,8 +905,8 @@ def self_topic_details(request, course_name, lab_no):
         active_topic_number = context['active_topic'].data.topic_number
         active_topic_number_index = topic_numbers.index(active_topic_number)
 
-        is_first_topic =  1 if active_topic_number == topic_numbers[0] else 0
-        is_last_topic =  1 if active_topic_number == topic_numbers[-1]  else 0
+        is_first_topic = 1 if active_topic_number == topic_numbers[0] else 0
+        is_last_topic = 1 if active_topic_number == topic_numbers[-1] else 0
 
         if not is_last_topic:
             context['next_topic'] = topic_numbers[active_topic_number_index + 1]
@@ -923,3 +923,5 @@ def self_topic_details(request, course_name, lab_no):
         except CoursePermission.DoesNotExist or Exception:
             context['permission'] = 0
     return TemplateResponse(request,'courses/self_topic_detail.html',context)
+
+
