@@ -4,14 +4,14 @@
 
     .header-color{
         height: 70px;
-        /*background-color: #1B539E;*/
-        background-color: #021a38;
+        background-color: #1B539E;
+        /*background-color: #021a38;*/
     }
 
 
     .job-banner{
 
-        background: url("../images/job-banner.png");
+        background: url("../images/job-bannerx.png");
          /*linear-gradient(90deg, #1B539E 38.54%, rgba(0, 0, 0, 0.2) 100%);*/
 	min-height: 555px;
 	background-size: cover;
@@ -21,7 +21,7 @@
     .job-text{
         min-height: 500px;
         margin-left: 80px;
-        /*background-image: url("../images/join-team-min.png");*/
+        background-image: url("../images/join-team-min.png");
         background-repeat: no-repeat;
     }
 

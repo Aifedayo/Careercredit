@@ -149,6 +149,7 @@ class CareerSwitchApplicationAdmin(admin.ModelAdmin):
 def get_urls():
     urls = ['---']
     import pickle
+
     try:
         with open('urls_tmp', 'rb') as file:
             urls = pickle.load(file)

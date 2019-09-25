@@ -507,7 +507,6 @@ def jobfeed(request, is_fulltime=0):
         if job_id:
             try:
                 selected_job = FullTimePostion.objects.get(id = job_id)
-                FullTimePostion.objects.filter(re)
             except:
                 pass
             if request.method == "POST":
@@ -644,7 +643,9 @@ def log_in(request):
         finally:
             if error_message:
                 return TemplateResponse(request, "home/registration/login.html", {"error_message": error_message})
+
             return perform_registration_checks(request.user, next)
+
 
 
     return TemplateResponse(request, 'home/registration/login.html' , {'error_message':error_message})
@@ -823,7 +824,7 @@ def workexperience(request):
             pass
     else:
         pass
-    return render(request, 'home/workexperience.html')
+    return render(request, 'home/work_experience.html')
 
 def workterm(request):
     return render(request, 'home/workexpterm.html')    
