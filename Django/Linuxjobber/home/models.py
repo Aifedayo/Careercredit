@@ -451,6 +451,13 @@ class CareerSwitchApplication(models.Model):
     def __str__(self):
         return self.fullname
 
+class Certificates(models.Model):
+    graduate_id = models.CharField(max_length=200, unique=True)
+    graduate_name = models.CharField(max_length=250)
+    graduate_email = models.CharField(max_length=200)
+    graduation_date = models.CharField(max_length=200)
+    technology_learnt = models.CharField(max_length=200)
+    image = models.CharField(max_length=200)
 
-
-
+    def __str__(self):
+        return self.graduate_name
