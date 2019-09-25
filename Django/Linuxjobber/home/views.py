@@ -824,7 +824,7 @@ def workexperience(request):
             pass
     else:
         pass
-    return render(request, 'home/workexperience.html')
+    return render(request, 'home/work_experience.html')
 
 def workterm(request):
     return render(request, 'home/workexpterm.html')    

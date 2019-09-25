@@ -44,14 +44,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
     'home.apps.HomeConfig',
-    # 'home',
     'Courses.apps.CoursesConfig',
     'Projects.apps.ProjectsConfig',
     'ToolsApp.apps.ToolsappConfig',
     'classroom.apps.ClassroomConfig',
     'rest_framework.authtoken',
     'sso_api',
-    'storages'
+    'storages',
+    'livereload'
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -79,6 +79,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'home.middleware.SessionMiddle.SessionMiddleWare',
+'livereload.middleware.LiveReloadScript',
 ]
 
 ROOT_URLCONF = 'Linuxjobber.urls'
@@ -317,7 +318,5 @@ NEW_TOOLS_PATH = config('NEW_TOOLS_PATH', "/tools/campaigns/")
 
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
-
-
 
 
