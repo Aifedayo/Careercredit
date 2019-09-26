@@ -35,19 +35,24 @@ Work Experience | Linuxjobber
         background-repeat: no-repeat;
     }
         .header-text{
-               padding: 130px 200px 0 200px;
+               padding: 150px 200px 0 200px;
             font-size: 55px;
             font-family: 'Montserrat', cursive;
-            font-weight: bold;
+            line-height: 60px;
             color: white;
+            font-weight: 700;
             margin-bottom: 50px;
         }
     .header-subtitle{
            padding: 0 200px;
         font-size: 24px;
         color: white;
-        font-weight: 400;
+        font-weight: 100;
 
+    }
+    .header-subtitle > span{
+        font-size: 24px;
+        font-weight: 600;
     }
     .color-white{
         color: white;
@@ -56,22 +61,23 @@ Work Experience | Linuxjobber
     }
 
     .left-badge{
-        margin-top: 40px;
+        margin-top: 20px;
         padding-top: 40px;
         margin-left: 40px;
         text-align: left;
         height: 40px;
-        width: 213px;
+        width: 240px;
         background-image: url("{% static 'home/images/cup.png' %}");
         background-repeat: no-repeat;
         color: white;
         font-size: 14px;
+        line-height: 16px;
     }
     .blue-line{
         background-color:#1B539E;
         border-radius: 18px;
         height: 5px;
-        width: 180px;
+        width: 100px;
     }
     .text-header{
         text-transform: uppercase;
@@ -129,6 +135,7 @@ Work Experience | Linuxjobber
         background: rgba(0, 0, 0, 0.1);
         border-radius: 50px;
         padding: 100px;
+        height: 529px;
     }
     #rounded{
         margin: 100px 50px 0;
@@ -158,10 +165,17 @@ Work Experience | Linuxjobber
         border-radius:50%;
         background-size: cover;
         border:5px solid #1b539E;
-        box-shadow: 0 0 0 10px #e8eef5,0 0 0 3px #e8eef5 inset;
+        box-shadow: 0 0 0 5px #ffffff,0 0 0 15px #e8eef5,0 0 0 5px #e8eef5 inset;
         background-repeat: no-repeat;
-        object-fit: cover;
+        object-fit: contain;
     }
+
+    .facilitator.three{
+        height: 241px;
+        width: 241px;
+        background-image: url("https://opentogeneralpublic.s3-us-west-2.amazonaws.com/Selected/IMG_20171206_113651.jpg");
+    }
+
     .info{
         line-height: 30px;
         font-size: 14px;
@@ -247,24 +261,24 @@ Work Experience | Linuxjobber
     {# Specify alumni images here #}
 
     .alumni-image.one {
-        background-image: url("https://ljtestimonials.s3-us-west-2.amazonaws.com/aaron_testimonial.jpeg");
+        background-image: url("https://s3.amazonaws.com/assets.prod.linuxjobber.com/media/aaron_testimonial.jpeg");
         background-repeat: no-repeat;
         background-size: cover;
     }
     .alumni-image.two {
-        background-image: url("https://ljtestimonials.s3-us-west-2.amazonaws.com/senai_testimonial.JPEG");
+        background-image: url("https://s3.amazonaws.com/assets.prod.linuxjobber.com/media/senai_testimonial.jpg");
         background-repeat: no-repeat;
         background-size: cover;
     }
 
     .alumni-image.three {
-        background-image: url("https://ljtestimonials.s3-us-west-2.amazonaws.com/chidi_testimonial2.jpg");
+        background-image: url("https://s3.amazonaws.com/assets.prod.linuxjobber.com/media/chidi_testimonial2.jpg");
         background-repeat: no-repeat;
         background-size: cover;
     }
 
     .alumni-image.four {
-        background-image: url("https://ljtestimonials.s3-us-west-2.amazonaws.com/ndzoh_testimonial.JPEG");
+        background-image: url("https://s3.amazonaws.com/assets.prod.linuxjobber.com/media/ndzoh_testimonial.jpg");
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -340,6 +354,11 @@ Work Experience | Linuxjobber
         .header-color{
             height:190px;
         }
+
+        .rounded-container{
+            height: 100%;
+        }
+
         .header-text{
             font-size: 24px;
             padding: 50px 30px 0 30px;
@@ -351,6 +370,10 @@ Work Experience | Linuxjobber
             font-size: 12px;
             padding: 0 30px;
         }
+        .header-subtitle > span{
+            font-size: 12px;
+        }
+
         .color-white{
             font-size: 12px;
             line-height: 14px;
@@ -419,6 +442,11 @@ Work Experience | Linuxjobber
     width: 20%;
     }
 }
+    .bottom-text{
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 10px;
+    }
 
     </style>
     <section class="header-color">
@@ -431,7 +459,7 @@ Work Experience | Linuxjobber
         Begin your own success story now
     </p>
     <p class="header-subtitle">
-       <b>Join the LinuxJobber Work Experience Program </b>
+       Join the <span> LinuxJobber Work Experience Program </span>
     </p>
     <p class="color-white">
         <a class="color-white" href="#main">Learn More <span class=" color-white ">
@@ -441,6 +469,7 @@ Work Experience | Linuxjobber
     </p>
     
     <p class="left-badge">
+        <br>
         Linuxjobber is the first and only company in the United States to offer a Work Experience Program.
     </p>
 
@@ -603,7 +632,7 @@ Work Experience | Linuxjobber
                 <div class="col-md-4">
                     <div class="info">
                         <p class="text-center">
-                            <img class="facilitator" src="https://opentogeneralpublic.s3-us-west-2.amazonaws.com/Selected/Louis.JPEG" alt="">
+                            <img class="facilitator" src="https://s3.amazonaws.com/assets.prod.linuxjobber.com/media/Louis.jpg" alt="">
                         </p>
                         <p class="instructor-name">Louis E.</p>
                         <p class="instructor-role">Lead Instructor</p>
@@ -614,7 +643,7 @@ Work Experience | Linuxjobber
                 <div class="col-md-4">
                     <div class="info">
                         <p class="text-center">
-                            <img class="facilitator" src="https://opentogeneralpublic.s3-us-west-2.amazonaws.com/Selected/Mary.jpg" alt="">
+                            <img class="facilitator" src="https://s3.amazonaws.com/assets.prod.linuxjobber.com/media/Mary.jpg" alt="">
                         </p>
                         <p class="instructor-name">Mary O.</p>
                         <p class="instructor-role">Software Developer</p>
@@ -625,7 +654,8 @@ Work Experience | Linuxjobber
                 <div class="col-md-4">
                     <div class="info">
                         <p class="text-center">
-                            <img class="facilitator" src="https://opentogeneralpublic.s3-us-west-2.amazonaws.com/Selected/IMG_20171206_113651.jpg" alt="">
+                           <img class="facilitator" src="https://s3.amazonaws.com/assets.prod.linuxjobber.com/media/azeem_tut.jpg" alt="">
+
                         </p>
                         <p class="instructor-name">Azeem A.</p>
                         <p class="instructor-role">Technical Mentor</p>
@@ -723,7 +753,7 @@ Work Experience | Linuxjobber
             <div class="row">
                 <div class="col-md-5">
                     <p style="line-height:50px; background-repeat: no-repeat; background-image: url({% static 'home/images/thmbs.png' %})">&nbsp;</p>
-                    <p>At Linux Jobber, we cannot guarantee jobs but providing real-life work,
+                    <p class="bottom-text">At Linux Jobber, we cannot guarantee jobs but providing real-life work,
                         connection to our alumni network and connection to our  network of recruiters significantly
                         improves our graduates chances of getting jobs and also more more quickly.</p>
                 </div>
@@ -732,7 +762,7 @@ Work Experience | Linuxjobber
         </section>
         <section class="bottom-faq">
 
-                    {% if not request.user.is_authenticated %}
+                    {% if request.user.is_authenticated %}
                     <div id="pricing" class="authenticated-user-faq">
                         <div class="price-container">
                             <div class="row">
