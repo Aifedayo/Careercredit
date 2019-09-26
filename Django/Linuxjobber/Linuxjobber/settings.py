@@ -115,7 +115,7 @@ DATABASES = {
         'ENGINE': config('DATABASE_ENGINE', 'django.db.backends.mysql'), 
         'NAME': config('DATABASE_NAME', 'linuxjobber'),  # linuxjb
         'USER': config('DATABASE_USER', 'root'),  # linuxjobber
-        'PASSWORD': config('DATABASE_PASSWORD', 'jehovah205'),  # linuxjobber
+        'PASSWORD': config('DATABASE_PASSWORD', '8iu7*IU&'),  # linuxjobber
         'HOST': config('DATABASE_HOST', 'localhost'),
         'PORT': config('DATABASE_PORT', ''),
 
