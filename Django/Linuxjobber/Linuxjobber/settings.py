@@ -43,15 +43,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
-    # 'home.apps.HomeConfig',
-    'home',
+    'home.apps.HomeConfig',
     'Courses.apps.CoursesConfig',
     'Projects.apps.ProjectsConfig',
     'ToolsApp.apps.ToolsappConfig',
     'classroom.apps.ClassroomConfig',
     'rest_framework.authtoken',
     'sso_api',
-    'storages'
+    'storages',
+    'livereload'
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -79,6 +79,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'home.middleware.SessionMiddle.SessionMiddleWare',
+'livereload.middleware.LiveReloadScript',
 ]
 
 ROOT_URLCONF = 'Linuxjobber.urls'
@@ -111,10 +112,10 @@ WSGI_APPLICATION = 'Linuxjobber.wsgi.application'
 # Here I made use of a mysql database for expense application
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': config('DATABASE_ENGINE', 'django.db.backends.mysql'), 
         'NAME': config('DATABASE_NAME', 'linuxjobber'),  # linuxjb
         'USER': config('DATABASE_USER', 'root'),  # linuxjobber
-        'PASSWORD': config('DATABASE_PASSWORD', 'jehovah205'),  # linuxjobber
+        'PASSWORD': config('DATABASE_PASSWORD', '8iu7*IU&'),  # linuxjobber
         'HOST': config('DATABASE_HOST', 'localhost'),
         'PORT': config('DATABASE_PORT', ''),
 

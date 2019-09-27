@@ -1,8 +1,6 @@
 from . import views
 from django.urls import path
 from django.contrib.auth.decorators import login_required
-from rest_framework.routers import DefaultRouter
-from django.conf.urls import url, include
 
 app_name = "Courses"
 

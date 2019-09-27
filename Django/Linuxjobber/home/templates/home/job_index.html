@@ -1,0 +1,82 @@
+{% extends 'home/base.html' %}
+{% load staticfiles%}
+{% block title %}
+Jobs | Linuxjobber
+{% endblock %}
+
+{% load staticfiles %}
+{% block external_header %}
+    <link rel="stylesheet" href="{% static 'home/css/jobs_new.css' %}">
+{% endblock %}
+
+{% load staticfiles %}
+{% block content %}
+    <style>
+    ul.oo{
+        margin-right: 40px;
+    }
+    li.oo{
+
+    }
+    </style>
+
+    <section class="header-color"></section>
+
+<section class="job-banner">
+
+<div class="job-text">
+
+</div>
+</section>
+
+    {% if posts %}
+<section class="job-outline">
+
+    <div class="row">
+        <div class="col col-md-2">
+            <div class="category-tab">
+                <p class="type">Type</p>
+                 <p class="">Full-Time Position</p>
+            </div>
+        </div>
+
+        <div class="col col-md-10">
+            {% if posts %}
+                {% for post in posts %}
+            <div class="row">
+                <div class="job-card">
+
+                    <div class="job-title">{{ post.job_title }}</div>
+                    <div class="job-description">{{ post.requirement }}</div>
+                    <div class="job-responsibilites">Responsibilities:</div>
+                    <div class="item-list">
+                        <p>
+                            {{post.responsibility |linebreaksbr|linebreaksbr}}
+                        </p>
+                    </div>
+                    <div class="apply">
+                        <a href="{% url 'home:jobapplication' post.id %}" class="btn homebanbut">APPLY NOW</a>
+                    </div>
+
+
+                </div>
+            </div>
+                {% endfor %}
+
+                {% else %}
+                <div class="text-center">
+                Sorry no available position open at the moment
+                </div>
+            {% endif %}
+
+        </div>
+    </div>
+    </section>
+
+{% else %}
+    <section class="none">
+      <h3 class="">Sorry, Full-Time Positions not available right now.</h3><br>
+       <p><a class="btn homebanbut" href="{% url 'home:jobs' %}">Check Part-Time Positions</a></p>
+</section>
+    {% endif %}
+{% endblock %}

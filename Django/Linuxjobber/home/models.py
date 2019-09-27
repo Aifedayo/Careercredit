@@ -1,16 +1,20 @@
 import os
+
+
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
-from django.core.files.storage import FileSystemStorage
-from datetime import datetime,timedelta,date
 
 from users.models import CustomUser
 
 from Courses.models import Course
 
+
+
+
 def due_time():
     return timezone.now() + timezone.timedelta(days=6)
+
 
 class FAQ(models.Model):
     question = models.CharField(max_length=200)
@@ -22,16 +26,18 @@ class FAQ(models.Model):
     def __str__(self):
         return self.question
 
-
 class FullTimePostion(models.Model):
     job_title = models.CharField(max_length=200)
-    requirement = models.CharField(max_length=200)
+    requirement = models.CharField(max_length=500)
     responsibility = models.TextField()
+    required_technology = models.ForeignKey(Course,on_delete=models.DO_NOTHING,null=True)
     weight = models.IntegerField(unique=True, null=True)
+    interested_page = models.CharField(max_length=500,default="home:userinterest")
+    not_interested_page = models.CharField(max_length=500,default="home:jobfeed")
+    skilled_page = models.CharField(max_length=500,default="home:workexperience")
 
     def __str__(self):
         return '%s' % self.job_title
-
 
 class PartTimePostion(models.Model):
     job_title = models.CharField(max_length=200)
@@ -47,6 +53,7 @@ class Job(models.Model):
     position = models.ForeignKey(FullTimePostion, on_delete=models.CASCADE)
     resume = models.FileField(upload_to='resume', null=True)
     cv_link = models.CharField(max_length=200, null=True)
+    interest = models.CharField(max_length=200,null=True,blank=True,default="")
 
     def __str__(self):
         return self.fullname
@@ -443,3 +450,14 @@ class CareerSwitchApplication(models.Model):
 
     def __str__(self):
         return self.fullname
+
+class Certificates(models.Model):
+    graduate_id = models.CharField(max_length=200, unique=True)
+    graduate_name = models.CharField(max_length=250)
+    graduate_email = models.CharField(max_length=200)
+    graduation_date = models.CharField(max_length=200)
+    technology_learnt = models.CharField(max_length=200)
+    image = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.graduate_name

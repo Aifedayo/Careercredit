@@ -6,12 +6,12 @@ from django.conf import settings
 from .models import FAQ, Job, RHCSAOrder, FreeAccountClick, Campaign, Message, Unsubscriber, Internship, \
     InternshipDetail, MessageGroup, UserLocation, NewsLetterSubscribers, UserOrder, Document, MainModel, AwsCredential, \
     Jobplacement, Groupclass, BillingHistory, GroupClassRegister, StripePayment, UserPayment, wepeoples, wetask, werole, \
-    wework, wetype, PartTimeJob, TryFreeRecord, FullTimePostion, PartTimePostion, Resume, CareerSwitchApplication
+    wework, wetype, PartTimeJob, TryFreeRecord, FullTimePostion, PartTimePostion, Resume, CareerSwitchApplication, Certificates
+
 from datetime import timedelta
 import datetime
 import subprocess, os
 from django.conf import settings
-
 
 class weworkAdmin(admin.ModelAdmin):
     search_fields = ['we_people__user__email']
@@ -130,7 +130,13 @@ class FreeAccountClickAdmin(admin.ModelAdmin):
 
 class JobAdmin(admin.ModelAdmin):
     search_fields = ['email', 'position__job_title']
-    list_display = ['email', 'position']
+    list_display = ['email', 'position','get_technology','interest']
+
+    def get_technology(self, obj):
+        return obj.position.required_technology
+
+    get_technology.short_description = 'Required Technology'
+    get_technology.admin_order_field = 'position__required_technology'
 
 
 class PartimeAdmin(admin.ModelAdmin):
@@ -140,6 +146,30 @@ class PartimeAdmin(admin.ModelAdmin):
 class CareerSwitchApplicationAdmin(admin.ModelAdmin):
     list_display = ['email','old_career','new_career']
 
+def get_urls():
+    urls = ['---']
+    import pickle
+
+    try:
+        with open('urls_tmp', 'rb') as file:
+            urls = pickle.load(file)
+    except:
+        return []
+    return ((choice, choice) for choice in urls)
+
+class CustomAdminFullTimeForm(forms.ModelForm):
+
+    interested_page = forms.ChoiceField(choices=get_urls())
+    not_interested_page= forms.ChoiceField(choices=get_urls())
+    skilled_page = forms.ChoiceField(choices=get_urls())
+    class Meta:
+        model = FullTimePostion
+        exclude = []
+
+class FullTimeAdmin(admin.ModelAdmin):
+
+    search_fields = ['interested','not_interested','skilled']
+    form = CustomAdminFullTimeForm
 
 admin.site.register(FAQ)
 admin.site.register(Job, JobAdmin)
@@ -164,7 +194,7 @@ admin.site.register(wepeoples)
 admin.site.register(Message, MessageAdmin)
 admin.site.register(MessageGroup)
 admin.site.register(PartTimeJob, PartimeAdmin)
-admin.site.register(FullTimePostion)
+admin.site.register(FullTimePostion,FullTimeAdmin)
 admin.site.register(PartTimePostion)
 admin.site.register(wetask, wetaskAdmin)
 admin.site.register(wework, weworkAdmin)
@@ -174,3 +204,4 @@ admin.site.register(werole)
 admin.site.register(Resume)
 admin.site.register(TryFreeRecord)
 admin.site.register(CareerSwitchApplication, CareerSwitchApplicationAdmin)
+admin.site.register(Certificates)

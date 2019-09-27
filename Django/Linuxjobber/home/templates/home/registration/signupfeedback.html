@@ -96,7 +96,7 @@ a{
             <br>
             <div class="row">
                 <div class="col-md-3"></div>
-                <div class="col-md-3"><a href="{% url 'home:login' %}" class="tryfreelink1">NO, THANKS</a></div>
+                <div class="col-md-3"><a href="{% url next_page|default:'home:login' %}" class="tryfreelink1">NO, THANKS</a></div>
                 <div class="col-md-3"><a href="{% url 'home:monthly_subscription' %}" class=" btn tryfreelink2">YES, SIGN ME UP</a></div>
                 <div class="col-md-3"></div>
             </div>
