@@ -13,7 +13,7 @@ import {environment} from "../../../environments/environment";
 })
 export class AttendanceComponent implements OnInit {
 
-  url=environment.API_URL;
+  url = environment.API_URL;
   public a;
   public attendance$;
   public user$:Observable<UserModel>;
