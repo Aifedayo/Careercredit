@@ -939,6 +939,9 @@ def workexprofile(request):
 
     return render(request, 'home/workexprofile.html',{'weps': weps, 'status':status, 'group':group, 'listask':listask})
 
+def workexpfaq(request):
+    return render(request, 'home/workexperience_faq.html')
+
 def jobplacements(request):
     return render(request, 'home/jobplacements.html',{'courses' : get_courses(), 'tools' : get_tools()})
 
