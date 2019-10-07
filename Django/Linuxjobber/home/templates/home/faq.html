@@ -1,7 +1,7 @@
 {% extends 'home/base.html' %}
 {% load staticfiles%}
 {% block title %}
-FAQs | workexperience
+FAQs | linuxjobber
 {% endblock %}
 {% block content %}
 <style>
@@ -54,76 +54,6 @@ FAQs | workexperience
     </div>
   </div>     
 </div>
-{%if wefaq_is_visible %}
-  <div class="server_services">   
-    <div class="our-benefits">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 col-sm-12" style="margin:12px 0;">
-            <h2>JOB PREPARATION TIPS</h2>  
-            <div class="main-container inner-page">
-              <div class="container">
-                <div class="section-content">
-                  <div class="row ">
-                    <hr class="center-block small text-hr">
-                  </div>
-                  <div class="faq-content">
-                    <div aria-multiselectable="true" role="tablist" id="accordio" 
-                      class="panel-group faq-panel">
-                      {%for faq in workexperience_faqs %}
-                          <div class="panel">
-                            <div id="heading{{faq.id}}" role="tab" class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a style="color:#333333; font-weight:bold;"  
-                                      aria-controls="collapse{{faq.id}}" aria-expanded="false" 
-                                      href="#collapse{{faq.id}}" data-parent="#accordion" 
-                                      data-toggle="collapse" class="collapsed">
-                                        {{faq.question}}
-                                    </a>
-                                </h4>
-                            </div>
-                            <div aria-labelledby="heading{{faq.id}}" role="tabpanel" 
-                                class="panel-collapse collapse" id="collapse{{faq.id}}">
-                                <div class="panel-body">
-                                    {{faq.response|safe|escape}}
-                                </div>
-                            </div>
-                          </div> 
-                      {%endfor%}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>        
-          </div>
-        </div>
-        {% if workexperience_faqs.has_other_pages %}
-          <div class="text-center">
-            <ul class="pagination">
-              {% if workexperience_faqs.has_previous %}
-                <li><a href="?page={{ workexperience_faqs.previous_page_number }}">&laquo;</a></li>
-              {% else %}
-                <li class="disabled"><span>&laquo;</span></li>
-              {% endif %}
-              {% for i in workexperience_faqs.paginator.page_range %}
-                {% if workexperience_faqs.number == i %}
-                  <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-                {% else %}
-                  <li><a href="?page={{ i }}">{{ i }}</a></li>
-                {% endif %}
-              {% endfor %}
-              {% if workexperience_faqs.has_next %}
-                <li><a href="?page={{ workexperience_faqs.next_page_number }}">&raquo;</a></li>
-              {% else %}
-                <li class="disabled"><span>&raquo;</span></li>
-              {% endif %}
-            </ul>
-          </div>
-        {% endif %}
-      </div>
-    </div><!--our-benefits-->
-  </div>
-{% endif %}
 <div class="server_services">   
   <div class="our-benefits">
     <div class="container">

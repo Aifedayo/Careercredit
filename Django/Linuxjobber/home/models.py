@@ -16,7 +16,8 @@ class FAQ(models.Model):
     question = models.CharField(max_length=2000)
     response = models.CharField(max_length=5000)
     is_wefaq = models.BooleanField(default=False)
-
+    is_fifty_percent_faq = models.BooleanField(default=False)
+    
     @classmethod
     def wefaq_is_visible_for(cls, user, weps):
         if user.is_authenticated:

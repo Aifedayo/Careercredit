@@ -289,8 +289,18 @@ def get_workexperience_faqs():
             This is a huge company in New York, Leif.org, they process thousands of students all over the country, no problem
             We have been working with them for over 2 years. Never had a single problem.</p>
             <p>I am positive that they are legit especially since I can point to tens of our graduates who signed the same agreement and are currently working now</p>"""
-        },
+        }
+    ]
         
+
+
+
+
+
+
+
+def get_wefaqs_job_section():
+    return [
         {   'question':'I LEARNED LINUX. WHY AM I IN DEVOPS PATH?',
             'answer':"""Devops is just tools like Git, Jenkins, Docker, Ansible, Kubernetes on top of your Linux. We know what the employers are looking for and that is what we are training you on.<br/>
             If you wish to just do only Linux Work Experience, we have that one also will give it to you but you will be short-changing yourself. Do you want it?"""
@@ -376,6 +386,8 @@ def get_workexperience_faqs():
         }
 
     ]
+
+
 
 
 def get_faqs():
