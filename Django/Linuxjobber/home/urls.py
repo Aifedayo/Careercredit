@@ -21,7 +21,6 @@ wp_patterns = [
     path('pay/', views.pay, name='pay'),
     path('apply/', views.workexpform, name='workexpform'),
     path('profile/',views.workexprofile, name='workexprofile'),
-    path('faq/',views.workexpfaq, name='workexpfaq'),
 ]
 
 

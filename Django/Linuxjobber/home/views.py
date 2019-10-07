@@ -36,6 +36,7 @@ from ToolsApp.models import Tool
 from users.models import CustomUser
 from .forms import JobPlacementForm, JobApplicationForm, AWSCredUpload, InternshipForm,\
     ResumeForm, PartimeApplicationForm, WeForm, UnsubscribeForm
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from datetime import datetime
 
 fs = FileSystemStorage(location= settings.MEDIA_ROOT+'/uploads')
@@ -285,12 +286,30 @@ def selfstudy(request):
 
 
 def faq(request):
-    faqs = FAQ.objects.all()
+    faq_list = FAQ.objects.filter(is_wefaq=False)
+    we_faq_list = FAQ.objects.filter(is_wefaq=True)
+    page = request.GET.get('page', 1)
+
+    paginator = Paginator(we_faq_list, 20)
+    try:
+        we_faqs = paginator.page(page)
+    except PageNotAnInteger:
+        we_faqs = paginator.page(1)
+    except EmptyPage:
+        we_faqs = paginator.page(paginator.num_pages)
+
     context ={
-            'faqs': faqs,
-                   
-                }
-    return render(request, 'home/faq.html', {'faqs': faqs,'courses' : get_courses(), 'tools' : get_tools()})
+        'faqs': faq_list,
+        'workexperience_faqs':we_faqs,
+        'courses' : get_courses(), 
+        'tools' : get_tools(),
+        'wefaq_is_visible':FAQ.wefaq_is_visible_for(
+            request.user, wepeoples 
+        )
+    }
+
+    return render(request, 'home/faq.html', context)
+
 
 def gainexperience(request):
     return render(request, 'home/gainexperience.html', {'courses' : get_courses(), 'tools' : get_tools()})
@@ -939,8 +958,6 @@ def workexprofile(request):
 
     return render(request, 'home/workexprofile.html',{'weps': weps, 'status':status, 'group':group, 'listask':listask})
 
-def workexpfaq(request):
-    return render(request, 'home/workexperience_faq.html')
 
 def jobplacements(request):
     return render(request, 'home/jobplacements.html',{'courses' : get_courses(), 'tools' : get_tools()})
