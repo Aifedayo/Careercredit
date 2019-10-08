@@ -1,15 +1,11 @@
 import os
 
-
-from django.db import models
-from django.utils import timezone
 from django.contrib.auth.models import User
-
-from users.models import CustomUser
+from django.db import connection, models
+from django.utils import timezone
 
 from Courses.models import Course
-
-
+from users.models import CustomUser
 
 
 def due_time():
@@ -17,8 +13,19 @@ def due_time():
 
 
 class FAQ(models.Model):
-    question = models.CharField(max_length=200)
-    response = models.CharField(max_length=1000)
+    question = models.CharField(max_length=2000)
+    response = models.CharField(max_length=5000)
+    is_wefaq = models.BooleanField(default=False)
+    is_fifty_percent_faq = models.BooleanField(default=False)
+    
+    @classmethod
+    def wefaq_is_visible_for(cls, user, weps):
+        if user.is_authenticated:
+            wep = weps.objects.filter(user=user)
+            if wep.exists():
+                if wep[0].wework_set.all().count() > 20:
+                    return True
+        return False
 
     class Meta:
         verbose_name_plural = 'FAQs'
