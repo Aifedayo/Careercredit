@@ -64,6 +64,7 @@ class AttendanceSerializer(serializers.ModelSerializer):
 class UserAttendaceSerializer(serializers.ModelSerializer):
 
     group_attendance = AttendanceSerializer(many=True)
+
     class Meta:
         model = CustomUser
         fields=['group_attendance','user']
