@@ -2126,11 +2126,13 @@ def combined_class_pay(request):
         pass
     course = request.GET.get('course_picked',1)
     request.session['combined_class'] = course
-    PRICE = 399
+    PRICE = 798
     mode = "One Time Payment"
     PAY_FOR = "Combined Class"
-    DISCLMR = "Please note that you will be charged ${} upfront. However, you may cancel at any time within 14 days for a full refund. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ${} One Time".format(
-        PRICE, PRICE)
+    DISCLMR = "Please note that you will be charged ${price} upfront." \
+              " However, you may cancel at any time within 14 days for a full refund. " \
+              "By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ${price} One Time".format(
+        price = PRICE)
     stripeset = StripePayment.objects.all()
     stripe.api_key = stripeset[0].secretkey
 
@@ -2223,7 +2225,10 @@ def career_switch(request, position_id = None):
         if form.is_valid():
             jobform = form.save(commit=False)
             try:
-                CareerSwitchApplication.objects.get(email=request.POST['email'],new_career=jobform.new_career)
+                CareerSwitchApplication.objects.get(
+                    email = request.POST['email'],
+                    new_career = jobform.new_career
+                )
                 messages.success(request,
                                  "Sorry We could not submit your application as you have applied for this role before.")
                 return redirect("home:career_switch")

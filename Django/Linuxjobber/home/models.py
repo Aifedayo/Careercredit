@@ -61,6 +61,7 @@ class Job(models.Model):
     resume = models.FileField(upload_to='resume', null=True)
     cv_link = models.CharField(max_length=200, null=True)
     interest = models.CharField(max_length=200,null=True,blank=True,default="")
+    application_date = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.fullname
@@ -74,6 +75,7 @@ class PartTimeJob(models.Model):
     cv_link = models.CharField(max_length=200, null=True)
     position = models.ForeignKey(PartTimePostion, on_delete=models.CASCADE)
     high_salary = models.IntegerField(default=0, choices=((0, 'No'), (1, 'Yes')))
+    application_date = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.email
@@ -129,7 +131,7 @@ class Groupclass(models.Model):
     type_of_class = models.CharField(max_length=100)
     date = models.DateTimeField(default=timezone.now, null=False)
     video_required = models.BooleanField(default=False)
-    users = models.ManyToManyField(CustomUser, blank=True, null=True)
+    users = models.ManyToManyField(CustomUser, blank=True)
     description = models.TextField(null=True)
     course = models.ForeignKey(Course, on_delete=models.CASCADE, null=True)
 
@@ -454,6 +456,7 @@ class CareerSwitchApplication(models.Model):
     new_career = models.ForeignKey(FullTimePostion, on_delete=models.CASCADE)
     resume = models.FileField(upload_to='resume', null=True)
     cv_link = models.CharField(max_length=200, null=True)
+    application_date = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.fullname
