@@ -13,7 +13,7 @@ webhookview = views.my_webhook_view
 jp_patterns = [
     path('', views.jobplacements, name='jobplacements'),
     path('apply/<str:level>/', views.apply, name='apply'),
-    ]
+]
 
 wp_patterns = [
     path('', views.workexperience, name='workexperience'),
@@ -21,7 +21,8 @@ wp_patterns = [
     path('pay/', views.pay, name='pay'),
     path('apply/', views.workexpform, name='workexpform'),
     path('profile/',views.workexprofile, name='workexprofile'),
-    ]
+    path('faq/',views.workexpfaq, name='workexpfaq'),
+]
 
 
 urlpatterns = [

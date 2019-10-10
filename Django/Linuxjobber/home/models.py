@@ -1,15 +1,11 @@
 import os
 
-
-from django.db import models
-from django.utils import timezone
 from django.contrib.auth.models import User
-
-from users.models import CustomUser
+from django.db import connection, models
+from django.utils import timezone
 
 from Courses.models import Course
-
-
+from users.models import CustomUser
 
 
 def due_time():
@@ -17,8 +13,19 @@ def due_time():
 
 
 class FAQ(models.Model):
-    question = models.CharField(max_length=200)
-    response = models.CharField(max_length=1000)
+    question = models.CharField(max_length=2000)
+    response = models.CharField(max_length=5000)
+    is_wefaq = models.BooleanField(default=False)
+    is_fifty_percent_faq = models.BooleanField(default=False)
+    
+    @classmethod
+    def wefaq_is_visible_for(cls, user, weps):
+        if user.is_authenticated:
+            wep = weps.objects.filter(user=user)
+            if wep.exists():
+                if wep[0].wework_set.all().count() > 20:
+                    return True
+        return False
 
     class Meta:
         verbose_name_plural = 'FAQs'
@@ -54,6 +61,7 @@ class Job(models.Model):
     resume = models.FileField(upload_to='resume', null=True)
     cv_link = models.CharField(max_length=200, null=True)
     interest = models.CharField(max_length=200,null=True,blank=True,default="")
+    application_date = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.fullname
@@ -67,6 +75,7 @@ class PartTimeJob(models.Model):
     cv_link = models.CharField(max_length=200, null=True)
     position = models.ForeignKey(PartTimePostion, on_delete=models.CASCADE)
     high_salary = models.IntegerField(default=0, choices=((0, 'No'), (1, 'Yes')))
+    application_date = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.email
@@ -122,7 +131,7 @@ class Groupclass(models.Model):
     type_of_class = models.CharField(max_length=100)
     date = models.DateTimeField(default=timezone.now, null=False)
     video_required = models.BooleanField(default=False)
-    users = models.ManyToManyField(CustomUser, blank=True, null=True)
+    users = models.ManyToManyField(CustomUser, blank=True)
     description = models.TextField(null=True)
     course = models.ForeignKey(Course, on_delete=models.CASCADE, null=True)
 
@@ -447,6 +456,7 @@ class CareerSwitchApplication(models.Model):
     new_career = models.ForeignKey(FullTimePostion, on_delete=models.CASCADE)
     resume = models.FileField(upload_to='resume', null=True)
     cv_link = models.CharField(max_length=200, null=True)
+    application_date = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.fullname
