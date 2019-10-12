@@ -3,10 +3,13 @@
 {% block title %}
 Home | Linuxjobber
 {% endblock %}
+
+{% block external_header %}
+    <link rel="stylesheet" href="{% static 'home/css/testimonial-timeline.css' %}">
+{% endblock %}
+
+{% load staticfiles %}
 {% block content %}
-<style type="text/css">
-	
-</style>
 
 <div class="navhead">
 </div>
@@ -171,60 +174,77 @@ Home | Linuxjobber
 </div>
 
 <div class="testhome">
-	<div class="text-center">
-		<p class="homeworkh2">Testimonials</p>
-	</div>
-	<div class="testhomein">
-		<div class="row">
-			<div class="col-md-4">
-				<div class="testhomefimg">
-					<img class="testimg testimob" src="{% static 'home/css/newhomepage/imgs/testi.png'%}" >
-				</div>
-			</div>
-			<div class="col-md-8">
-				<div class="testhomerit">
-					<div class="row">
-						<div class="col-md-1"><img class="homequo" src="{% static 'home/css/newhomepage/imgs/hq1.png'%}" ></div>
-						<div class="col-md-9 col-xs-12">
-							<div class="testhompdiv">
-								<p class="testhomep">
-									“I will definitely recommend this work experience program. 
-									If you have already acquired tech training and employers 
-									need you to have work experience, this program will save you. It is what you need”
-								</p>
-								<p class="testhomep2">
-									Michael Fisher
-								</p>
-								<span class="text-muted">Student Developer</span>
-							</div>	
-						</div>
-						<div class="col-md-1">
-							<div class="testhomehq2">
-								<img class="homequo" src="{% static 'home/css/newhomepage/imgs/hq2.png'%}" >								
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+
+    <p class="testimonial-text">
+        Testimonials
+    </p>
+    <p class="testimonial-subtext">
+Read why many use our services
+    </p>
+
+
+		<section id="cd-timeline" class="cd-container">
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-movie">
+                <img src="{% static 'home/images/adekunle.png' %}" alt="">
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>Adekunle A.</h2>
+                <p><span>Work Experience</span></p>
+                <p>Kunle was in New York when he heard about our program. He enrolled and completed the program online. He was able to secure position in Baltimore and later went on to work for big companies like Amazon.</p>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-movie">
+                <img src="{% static 'home/images/kenna.png' %}" alt="">
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>Kenna Ofoegbu.</h2>
+                <p><span>Work Experience</span></p>
+                <p>Kenna was an oracle dba already but wanted to switch to Linux because Linux is more lucrative in today's world. Then he contacted us and took our program. After graduation, he got a job and did very well. He even worked for AWS in Virginia before moving to another bigger opportunity.</p>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-movie">
+                <img src="{% static 'home/images/fetigue.png' %}" alt="">
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>Fetigue O.</h2>
+                <p><span>Work Experience</span></p>
+                <p>Fetigue, contacted us when he was still enrolled in his Associate program at Prince Georges Community College. He enrolled in the Linux program and graduated. He got a job immediately in North Carolina and then another one in the DC area. He is now a seasoned DevOps Engineer</p>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img">
+                <p>Be Part of Our Story</p>
+			</div> <!-- cd-timeline-img -->
 		</div>
-	</div>
+
+            <div class="last-container">
+
+                <p class="text-center"><a href="{% url 'home:workexperience' %}" class="btn homebanbut">SIGNUP NOW</a></p>
+            </div><!-- cd-timeline-block -->
+	</section> <!-- cd-timeline -->
 </div>
 
 <div class="homeclient">
-	<div class="text-center">
-		<p class="homeworkh2">Our Clients</p>
-	</div>
-	<div class="homeclients">
-		<div class="homecenter homecenterd">
-			<div class="row">
-				<div class="col-md-2"></div>
-				<div class="col-md-3"><img class="clientsimg" src="{% static 'home/css/newhomepage/imgs/client3.png'%}" ></div>
-				<div class="col-md-3"><img class="clientsimg" src="{% static 'home/css/newhomepage/imgs/client2.png'%}" ></div>
-				<div class="col-md-3"><img class="clientsimg" src="{% static 'home/css/newhomepage/imgs/client1.png'%}" ></div>
-				<div class="col-md-1"></div>
-			</div>
-		</div>
-	</div>
+	<p class="text-center">
+         For more information <a class="home-contact-link" href="{% url 'home:contact_us' %}">Contact Us</a>
+	</p>
+{#	<div class="homeclients">#}
+{#		<div class="homecenter homecenterd">#}
+{#			<div class="row">#}
+{#				<div class="col-md-2"></div>#}
+{#				<div class="col-md-3"><img class="clientsimg" src="{% static 'home/css/newhomepage/imgs/client3.png'%}" ></div>#}
+{#				<div class="col-md-3"><img class="clientsimg" src="{% static 'home/css/newhomepage/imgs/client2.png'%}" ></div>#}
+{#				<div class="col-md-3"><img class="clientsimg" src="{% static 'home/css/newhomepage/imgs/client1.png'%}" ></div>#}
+{#				<div class="col-md-1"></div>#}
+{#			</div>#}
+{#		</div>#}
+{#	</div>#}
 </div>
 
 <script type="text/javascript">
