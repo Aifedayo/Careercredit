@@ -231,6 +231,7 @@
 .testhome{
 	padding-top: 50px;
 	padding-bottom: 50px;
+	min-height: 500px;
 }
 
 .testhomein{
@@ -268,9 +269,12 @@
 }
 
 .homeclient{
+	font-size: 18px;
+	color: rgba(0, 0, 0, 0.8);;
+	line-height: 21px;
 	background: rgba(229, 229, 229, 0.2);
-	padding-top: 30px;
-	padding-bottom: 30px; 
+padding: 1em;
+	text-align: center;
 }
 
 .homeclients{
