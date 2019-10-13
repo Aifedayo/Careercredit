@@ -303,7 +303,8 @@ bottom: 200px;
 												</ul>
 											</div>
 										</div>
-									</div></li>
+									</div>
+									</li>
 								{%if not user.is_authenticated%}
 								<li class=" sub-menu "><a class=""
 									href="{% url 'home:monthly_subscription' %}">Try Free</a></li>
@@ -331,6 +332,11 @@ bottom: 200px;
 					<div class="col-md-3 col-sm-3 col-xs-6 mainmnu">	
 						<nav>
 							<ul class="nav navbar-nav navbar-right main-nav" >
+								{% if request.path == '/workexperience/profile/' %}
+									<li class=" sub-menu ">
+										<a class="" href="{% url 'home:workexpfaq' %}">Faq</a>
+									</li>
+								{% endif %}
 								<li class="has-dropdown sub-menu profile"> 
 									<a class="b-n" href="javascript:void(0)">{{ user.first_name }}</a>
 									<div class="dropdowns transparent-style" id="profile">
@@ -357,7 +363,7 @@ bottom: 200px;
 													<li><a href="{% url 'home:workexprofile' %}"><span class="link-icon"><img src="{% static 'home/images/icon1.png' %}" alt="" /></span>Work Experience Profile</a></li>
 												</ul>
 											</div>
-											{%endif%}
+											{%endif%} 
 										</div>
 									</div>	
 								</li>

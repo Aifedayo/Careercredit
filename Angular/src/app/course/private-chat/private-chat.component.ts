@@ -2,6 +2,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../data.service';
 import { HttpClient } from '@angular/common/http';
+import { AlertService } from './../_alert/alert.service';
 
 
 @Component({
@@ -21,7 +22,12 @@ export class PrivateChatComponent implements OnInit {
   public email;
   private user: {id: number, username: string};
 
-  constructor( public dataservice: DataService, private http: HttpClient, private route: ActivatedRoute) {
+  constructor( 
+    public dataservice: DataService, 
+    private http: HttpClient, 
+    private route: ActivatedRoute,
+    private alertService:AlertService
+  ) {
     this.dataservice.username = sessionStorage.getItem('username');
     this.websocket = new WebSocket('ws://' + '54.244.162.68:8001');
     this.websocket.onopen = (evt) => {
@@ -51,11 +57,22 @@ export class PrivateChatComponent implements OnInit {
   }
 
 
-
-
   sendMessage(message) {
-    this.websocket.send(JSON.stringify({'user': this.dataservice.username, 'message': this.chat_text}));
-    this.chat_text = '';
+    if(this.dataservice.profileImgIsSet()){
+      this.websocket.send(
+        JSON.stringify(
+          {'user': this.dataservice.username, 'message': this.chat_text}
+        )
+      );
+      
+      this.chat_text = '';
+    }
+    else
+    {
+      this.alertService.error(
+        'You need to set your profile image to continue'
+      );
+    }
   }
 
 }

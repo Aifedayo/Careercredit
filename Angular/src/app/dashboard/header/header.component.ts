@@ -16,10 +16,15 @@ export class HeaderComponent implements OnInit {
 
   public user$:Observable<UserModel>=null;
   public group$:Observable<ClassModel>=null;
-  constructor(private apiService:ApiService, private dataservice: DataService) { }
+  public environment = environment;
+
+  constructor(
+    private apiService:ApiService, 
+    private dataservice: DataService,
+  ) { }
 
   logout(){
-    this.dataservice.logout();
+    this.dataservice.logout(); 
   }
 
   public openClasses(){
@@ -31,9 +36,14 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.group$ = this.apiService.getGroupInfo(sessionStorage.getItem('active_group'))
     this.user$ = this.apiService.getUserInfo()
- 
-
-
   }
 
+  public getImgUrl(prevUrl){
+    // return this.dataservice.profileImgIsSet()?
+    //    environment.API_URL + (this.dataservice.updatedImgUrl || prevUrl):
+    //    prevUrl;
+    return this.dataservice.profileImgIsSet()?
+       this.dataservice.updatedImgUrl || (environment.API_URL + prevUrl):
+       prevUrl;
+  }
 }
