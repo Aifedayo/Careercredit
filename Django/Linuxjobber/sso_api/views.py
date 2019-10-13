@@ -80,8 +80,7 @@ def confirm_api(request,group_id):
                          'id':token.user.pk,
                          'role':token.user.role,
                          'video_required':video_required,
-                         'uploaded':uploaded,
-                         'profile_img':token.user.profile_img
+                         'uploaded':uploaded
                          },status=status.HTTP_202_ACCEPTED)
     except Token.DoesNotExist:
         return Response("Nothing",status=status.HTTP_403_FORBIDDEN)

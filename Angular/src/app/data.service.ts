@@ -19,10 +19,7 @@ export class DataService {
   public username;
   public id;
   public users;
-  public updatedImgUrl = ''
-  private defaultProfileImg:string = 'https://res.cloudinary.com/louiseyoma/image/upload/v1546701687/profile_pic.png';
-
-  private headers: HttpHeaders = new HttpHeaders();
+    private headers: HttpHeaders = new HttpHeaders();
 
 
   public httpOptions = {
@@ -55,7 +52,7 @@ export class DataService {
   }
 
 
-  sessionSet(token:string,group_id:string)  {
+   sessionSet(token:string,group_id:string)  {
     this.http.post(environment.API_URL + 'sso_api/confirm_key/' + group_id,JSON.stringify({'token':token}),this.httpOptions)
       .subscribe(data=>{
       sessionStorage.clear();
@@ -66,8 +63,6 @@ export class DataService {
       sessionStorage.setItem('active_group', group_id);
       sessionStorage.setItem('video_required', data['video_required']);
       sessionStorage.setItem('uploaded', data['uploaded']);
-      sessionStorage.setItem('profile_img', data['profile_img']);
-
       console.log(data['video_required'])
       console.log(data['uploaded'])
       if(!!data['video_required']){
@@ -93,11 +88,6 @@ export class DataService {
         alert('Cannot communicate with server, please try again')
       return false;
     })
-  }
-
-  profileImgIsSet(){
-    return sessionStorage.getItem('profile_img')==this.defaultProfileImg?
-      false:true;
   }
 }
 

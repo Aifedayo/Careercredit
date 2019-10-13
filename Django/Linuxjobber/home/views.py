@@ -918,6 +918,9 @@ def workexprofile(request):
 
     listask = wetask.objects.filter(types=weps.types)
     
+
+
+
     if request.method == "POST":
         if request.POST['type'] == '1':
             last_verify = request.FILES['verify']
@@ -940,7 +943,7 @@ def workexprofile(request):
             u = CustomUser.objects.get(email=request.user.email)
             u.first_name = request.POST['first_name']
             u.last_name = request.POST['last_name']
-            u.save(update_fields=["last_name","first_name"])
+            u.save(update_fields=["last_name","first_name"]);
             messages.success(request, 'Your names have been updated successfully')
             return redirect("home:workexprofile")
         elif request.POST['type'] == '4':
@@ -956,13 +959,6 @@ def workexprofile(request):
         else:
             messages.error(request, 'Sorry, an error occured. please contact admin@linuxjobber.com')
             return redirect("home:workexprofile")
-
-    if not weps.profile_picture:
-        # messages.set_level(request, messages.ERROR)
-        messages.error(
-            request, 
-            "!!! Note Admin can't create your task with out your profile image set"
-        )
 
     return render(request, 'home/workexprofile.html',{'weps': weps, 'status':status, 'group':group, 'listask':listask})
 

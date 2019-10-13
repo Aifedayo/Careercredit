@@ -1,52 +1,17 @@
-import datetime
-import os
-import subprocess
-from datetime import timedelta
-
+from django.contrib import admin
 from django import forms
-from django.conf import settings
-from django.contrib import admin, messages
-from django.core.mail import send_mail
-
 from . import models
-from .models import (FAQ, AwsCredential, BillingHistory, Campaign,
-                     CareerSwitchApplication, Certificates, Document,
-                     FreeAccountClick, FullTimePostion, Groupclass,
-                     GroupClassRegister, Internship, InternshipDetail, Job,
-                     Jobplacement, MainModel, Message, MessageGroup,
-                     NewsLetterSubscribers, PartTimeJob, PartTimePostion,
-                     Resume, RHCSAOrder, StripePayment, TryFreeRecord,
-                     Unsubscriber, UserLocation, UserOrder, UserPayment,
-                     wepeoples, werole, wetask, wetype, wework)
+from django.core.mail import send_mail
+from django.conf import settings
+from .models import FAQ, Job, RHCSAOrder, FreeAccountClick, Campaign, Message, Unsubscriber, Internship, \
+    InternshipDetail, MessageGroup, UserLocation, NewsLetterSubscribers, UserOrder, Document, MainModel, AwsCredential, \
+    Jobplacement, Groupclass, BillingHistory, GroupClassRegister, StripePayment, UserPayment, wepeoples, wetask, werole, \
+    wework, wetype, PartTimeJob, TryFreeRecord, FullTimePostion, PartTimePostion, Resume, CareerSwitchApplication, Certificates
 
-
-def get_send_task_mail_template(obj, task):
-    return """
-        Hello {firstname}
-
-        You have been assigned a task for the {program} program.  
-
-        Task assigned: {task}
-        {objective}
-
-        Further Description:
-        {description}
-
-
-        Do ensure you accomplish this task as it is a requirement to finish the work experience program.
-        Always ensure you reach out to your tech lead when you are stuck.
-
-
-        Warm Regards,
-        Linuxjobber
-
-        """.format(
-            firstname=obj.we_people.user.first_name,
-            program = task.types,
-            objective = task.objective,
-            task = task.task,
-            description = task.description
-        )
+from datetime import timedelta
+import datetime
+import subprocess, os
+from django.conf import settings
 
 class weworkAdmin(admin.ModelAdmin):
     search_fields = ['we_people__user__email']
@@ -69,22 +34,38 @@ class weworkAdmin(admin.ModelAdmin):
             weprof.start_date = datetime.datetime.now()
             weprof.graduation_date = datetime.datetime.now() + timedelta(days=90)
             weprof.save(update_fields=["start_date", "graduation_date"])
-        
-        if not weprof.profile_picture:
-            # self.message_user(request, "Users image is not set yet", messages.INFO)
-            messages.set_level(request, messages.ERROR)
-            messages.error(
-                request, 
-                'Unable to create work for user as user profile image is not set yet'
-            )
-        else:
-            # send task to user
-            if obj.send_task == 1:
-                task = wetask.objects.get(pk=form.cleaned_data['task'].id)
-                template = get_send_task_mail_template(obj, task)
-                send_mail('New Work Experience Task Assigned - Linuxjobber', template, settings.EMAIL_HOST_USER, [obj.we_people.user.email])
+        # send task to user
+        if obj.send_task == 1:
+            task = wetask.objects.get(pk=form.cleaned_data['task'].id)
+            template = """
+Hello {firstname}
 
-            super().save_model(request, obj, form, change)
+You have been assigned a task for the {program} program. 
+
+Task assigned: {task}
+{objective}
+
+Further Description:
+{description}
+
+
+Do ensure you accomplish this task as it is a requirement to finish the work experience program.
+Always ensure you reach out to your tech lead when you are stuck.
+
+
+Warm Regards,
+Linuxjobber
+
+            """.format(
+                firstname=obj.we_people.user.first_name,
+                program = task.types,
+                objective = task.objective,
+                task = task.task,
+                description = task.description
+            )
+            send_mail('New Work Experience Task Assigned - Linuxjobber', template, settings.EMAIL_HOST_USER, [obj.we_people.user.email])
+
+        super().save_model(request, obj, form, change)
 
 
 class campaignAdmin(admin.ModelAdmin):

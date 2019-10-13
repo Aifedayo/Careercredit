@@ -19,7 +19,6 @@ import { VerificationComponent } from './verification/verification.component';
 import {AuthGuard} from "../auth.guard";
 import {VerificationGuard} from "../verification.guard";
 import { CourseListComponent } from './course-list/course-list.component';
-import { AlertModule } from './_alert/alert.module';
 
 @NgModule({
   imports: [
@@ -30,8 +29,7 @@ import { AlertModule } from './_alert/alert.module';
     CourseRoutingModule,
     FormsModule,
     OrderModule,
-    SharedModule,
-    AlertModule
+    SharedModule
 
   ],
   declarations: [
@@ -43,6 +41,7 @@ import { AlertModule } from './_alert/alert.module';
     SafePipe,
     VerificationComponent,
     CourseListComponent,
+
   ],
   providers: [AuthGuard,VerificationGuard],
   bootstrap: [CourseComponent]
