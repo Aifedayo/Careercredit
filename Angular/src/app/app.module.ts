@@ -21,6 +21,7 @@ import {ApiService} from "./share/api.service";
 import { SafePipe } from './share/safe.pipe';
 import {OrderModule} from "ngx-order-pipe";
 import {DashboardModule} from "./dashboard/dashboard.module";
+import { AlertModule } from './course/_alert/alert.module';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {DashboardModule} from "./dashboard/dashboard.module";
     CourseModule,
     OrderModule,
     DashboardModule,
-    RouterModule
+    RouterModule,
+    // AlertModule
   ],
   providers: [DataService,Location,ApiService],
   bootstrap: [AppComponent]
