@@ -2313,3 +2313,6 @@ def job_submitted(request, type="fulltime"):
 
     return TemplateResponse(request,'home/job_application_submitted.html')
 
+
+def test_about(request):
+    return TemplateResponse(request,'home/about_us.html')
