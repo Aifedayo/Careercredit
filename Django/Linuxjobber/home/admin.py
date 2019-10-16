@@ -130,7 +130,7 @@ class FreeAccountClickAdmin(admin.ModelAdmin):
 
 class JobAdmin(admin.ModelAdmin):
     search_fields = ['email', 'position__job_title']
-    list_display = ['email', 'position','get_technology','interest']
+    list_display = ['email', 'position','get_technology','interest','application_date']
 
     def get_technology(self, obj):
         return obj.position.required_technology
