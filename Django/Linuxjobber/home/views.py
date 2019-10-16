@@ -382,7 +382,7 @@ def resumeupload(request):
 
 
 def aboutus(request):
-    return render(request, 'home/aboutus.html', {'courses' : get_courses(), 'tools' : get_tools()})
+    return redirect('home:contact_us')
 
  
 def policies(request):
@@ -2316,6 +2316,3 @@ def job_submitted(request, type="fulltime"):
 
     return TemplateResponse(request,'home/job_application_submitted.html')
 
-
-def test_about(request):
-    return TemplateResponse(request,'home/about_us.html')
