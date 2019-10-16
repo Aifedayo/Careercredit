@@ -53,7 +53,8 @@
 
           </p>
                   <div style="text-align: right;margin: 30px 0px 15px 15px; width: 50px; height: 50px;" >
-                    <img *ngIf="user$|async as i" class="img-responsive img-circle" style="background: white" [src]="i.profile_img">
+                    <img *ngIf="user$|async as i" class="img-responsive img-circle" 
+                      style="background: white" [src]="environment.API_URL + i.profile_img">
                   </div>
 
 
@@ -75,7 +76,8 @@
     </label>
 
 </div>
-  <input (keyup.enter)="sendMessage(chat_text,'plain')" class="form-control"  name="chat_text" [(ngModel)]="chat_text" placeholder="Type Your Message Here" maxlength="400">
+  <!-- <input (keyup.enter)="sendMessage(chat_text,'plain')" class="form-control"  name="chat_text" [(ngModel)]="chat_text" placeholder="Type Your Message Here" maxlength="400"> -->
+  <input  class="form-control"  name="chat_text" [(ngModel)]="chat_text" placeholder="Type Your Message Here" maxlength="400">
   <button class="send" (click)="sendMessage(chat_text,'plain')" id="submit"> SEND
   </button>
 </form>
