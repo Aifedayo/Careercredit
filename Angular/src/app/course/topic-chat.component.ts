@@ -8,6 +8,7 @@ import {Observable} from "rxjs/index";
 import {MatList, MatListItem} from "@angular/material";
 import {environment} from "../../environments/environment";
 import {UserModel} from "../share/user-model";
+import { AlertService } from './_alert/alert.service';
 
 export enum TYPE {Plain='plain', Image='image', File='file'}
 
@@ -35,17 +36,28 @@ export class TopicChatComponent implements OnInit {
   public email;
   public type=TYPE;
   public avatar:string ;
+
       // getting a reference to the overall list, which is the parent container of the list items
   @ViewChild(MatList, { read: ElementRef }) matList: ElementRef;
 
   // getting a reference to the items/messages within the list
   @ViewChildren(MatListItem, { read: ElementRef }) matListItems: QueryList<MatListItem>;
   private user$: Observable<UserModel>;
-  constructor(private http: HttpClient, private apiService:ApiService) {
+  public environment = environment;
+  
+  constructor(
+    private http: HttpClient, 
+    private apiService:ApiService,
+    private alertService: AlertService,
+    private dataService: DataService,
+  ) {
 
     this.user$=this.apiService.getUserInfo();
     this.current_user = sessionStorage.getItem('username');
-    this.avatar=environment.API_URL + `media/avatar.png`;
+    // this.avatar=environment.API_URL + `media/avatar.png`;
+    this.avatar=this.dataService.profileImgIsSet()?
+      environment.API_URL + sessionStorage.getItem('profile_img'):
+      environment.API_URL + `media/avatar.png`;
     this.websocket = new WebSocket(environment.WS_URL);
     this.websocket.onopen = (evt) => {
       const now=new Date();
@@ -68,8 +80,7 @@ export class TopicChatComponent implements OnInit {
               this.the_message.the_type = data['messages'][i]['the_type'];
               this.messages.push(this.the_message);
               const chat_scroll = document.getElementById('chat_div_space');
-        chat_scroll.scrollTop = chat_scroll.scrollHeight  ;
-
+              chat_scroll.scrollTop = chat_scroll.scrollHeight;
             }
         }
         else {
@@ -79,71 +90,72 @@ export class TopicChatComponent implements OnInit {
             this.the_message.the_type = data['the_type'];
             this.the_message.timestamp = data['timestamp'];
             this.messages.push(this.the_message);
-              const chat_scroll = document.getElementById('chat_div_space');
-        chat_scroll.scrollTop = chat_scroll.scrollHeight;
+            const chat_scroll = document.getElementById('chat_div_space');
+            chat_scroll.scrollTop = chat_scroll.scrollHeight;
          }
-
-
     };
    }
 
   ngOnInit() {
-
     this.mutationObserver = new MutationObserver((mutations) => {
-            this.scrollToBottom();
-
- const chat_scroll = document.getElementById('chat_div_space');
+        this.scrollToBottom();
+        const chat_scroll = document.getElementById('chat_div_space');
         chat_scroll.scrollTop = chat_scroll.scrollHeight ;
-        });
-
-        this.mutationObserver.observe(this.matList.nativeElement, {
-            childList: true
-        });
-
-  }
-
-   sendMessage(message,type:string) {
-    if (message!==""){
-          const now = new Date();
-    const m = new ChatMessage();
-    m.user=sessionStorage.getItem('username');
-    m.message= message;
-    m.the_type = type;
-    m.timestamp= now.toLocaleString();
-    this.websocket.send(
-      JSON.stringify(m)
+      }
     );
-    this.chat_text = '';
-    }
 
+    this.mutationObserver.observe(this.matList.nativeElement, {
+        childList: true
+    });
   }
-  openImage(url):void{
 
-
+  sendMessage(message,type:string) {
+     if(this.dataService.profileImgIsSet()){
+       if (message!==""){
+         const now = new Date();
+         const m = new ChatMessage();
+         m.user=sessionStorage.getItem('username');
+         m.message= message;
+         m.the_type = type;
+         m.timestamp= now.toLocaleString();
+         this.websocket.send(
+            JSON.stringify(m)
+          );
+          this.chat_text = '';
+        } 
+        //console.log(message)
+      }
+      else{
+          this.alertService.error(
+            'You need to set your profile image to continue'
+          );
+      }
   }
-    fileChange(event): void {
-        const fileList: FileList = event.target.files;
-        if (fileList.length > 0) {
-            const file = fileList[0];
 
-            const formData = new FormData();
-            formData.append('file', file, file.name);
+  openImage(url):void{} 
 
-            this.apiService.uploadFile(formData)
-                 .subscribe(
-                     data => {
-                       const url=environment.API_URL + data['url'];
-                       this.sendMessage(url,data['type'])
-                     },
-                     error => console.log( error)
-                 );
-        }
-    }
+  fileChange(event): void {
+      const fileList: FileList = event.target.files;
+      if (fileList.length > 0) {
+          const file = fileList[0];
+
+          const formData = new FormData();
+          formData.append('file', file, file.name);
+
+          this.apiService.uploadFile(formData)
+                .subscribe(
+                    data => {
+                      const url=environment.API_URL + data['url'];
+                      this.sendMessage(url,data['type'])
+                    },
+                    error => console.log( error)
+                );
+      }
+  }
 
 
-    ngAfterViewInit(): void {
+  ngAfterViewInit(): void {
     // subscribing to any changes in the list of items / messages
-
   }
 
   // auto-scroll fix: inspired by this stack overflow post
@@ -151,8 +163,7 @@ export class TopicChatComponent implements OnInit {
   private scrollToBottom(): void {
     try {
       this.matList.nativeElement.scrollTop = this.matList.nativeElement.scrollHeight;
-    } catch (err) {
-    }
+    } catch (err) {}
   }
 
 
