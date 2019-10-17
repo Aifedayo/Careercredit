@@ -53,6 +53,7 @@ About Us | Linuxjobber
 
     }
     .section-content{
+        color: rgba(0, 0, 0, 0.5);
 
     }
     .connect-links{
@@ -185,6 +186,55 @@ border-radius: 10px 0 0 10px;
         font-size: 14px;
         width: 342px;
     }
+
+
+    @media screen and (max-width: 800px) {
+        section.about-banner{
+            min-height: 100%;
+        }
+        .icon{
+            margin-right: 30px;
+        }
+        .about-main{
+            margin-top: 100px;
+            padding: 10px;
+        }
+        #intro-section{
+            padding-left: 20px;
+        }
+        #intro-section h1{
+            width: 300px;
+        }
+        main{
+            padding: 10px;
+        }
+     .about-image-card img{
+        margin-top: 8.24px;
+        margin-left: 13px;
+        width: 282.42px;
+        height: 282.42px;
+    }
+     .card-border{
+        height:  252.55px;
+    }
+     .owner-info{
+         margin-top: 50px;
+     }
+     .team-section{
+         padding-top: 50px;
+     }
+     .team-member-role{
+         margin-bottom: 30px;
+     }
+     #goals ,#partners ,#contact-us{
+         margin-top: 50px;
+     }
+     #contact-us{
+         padding: 10px;
+     }
+}
+
+
     </style>
     <section class="header-color"></section>
     <section class="about-banner">
@@ -407,7 +457,7 @@ border-radius: 10px 0 0 10px;
                         <div class="col-md-12">
                             <label for="message">
                                 <span>Your Message</span>
-                                <textarea type="text" class="form-control"></textarea>
+                                <textarea name="message" type="text" class="form-control"></textarea>
                             </label>
                         </div>
 

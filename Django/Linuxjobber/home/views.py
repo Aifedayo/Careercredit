@@ -1291,9 +1291,10 @@ def group(request,pk):
                 groupreg = GroupClassRegister.objects.create(user= user, is_paid=0, amount=group_item.price, type_of_class = group_item.type_of_class)
                 groupreg.save()
 
-                new_user = authenticate(username=username,
-                                    password=password,
-                                    )
+                new_user = authenticate(
+                    username=username,
+                    password=password,
+                    )
                 login(request, new_user)
                 user = new_user
 
@@ -1302,6 +1303,7 @@ def group(request,pk):
             groupreg.save()
             login(request, user)
             if int(choice) == 1:
+                request.session['gclass'] = int(group_item)
                 return redirect("home:monthly_subscription")
             return redirect("home:group_pay",pk=group_item.pk)
     user_token=""
@@ -2064,8 +2066,8 @@ def group_list(request):
                 login(request, new_user)
 
                 if int(choice) == 1:
+                    request.session['gclass'] = int(group_item.id)
                     return redirect("home:monthly_subscription")
-
                 return redirect("home:group_pay",pk=group_item.id)
 
         if user:
@@ -2085,7 +2087,7 @@ def group_list(request):
                                                          amount=29, type_of_class = group_item.type_of_class)
             groupreg.save()
             if int(choice) == 1:
-                request.session['gclass'] = int(gclass)
+                request.session['gclass'] = int(group_item.id)
                 return redirect("home:monthly_subscription")
             return redirect("home:group_pay",pk=group_item.id)
 
