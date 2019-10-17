@@ -135,6 +135,7 @@ border-radius: 10px 0 0 10px;
     }
     label > span{
         color:white;
+        opacity: 0.7;
         font-size: 18px;
         margin-bottom: 20px;
     }
@@ -180,6 +181,13 @@ border-radius: 10px 0 0 10px;
         font-size: 14px;
         width: 342px;
     }
+    {#Responsive styles#}
+@media screen and (max-width: 800px) {
+
+
+
+
+}
     </style>
     <section class="header-color"></section>
     <section class="about-banner">
@@ -331,7 +339,7 @@ border-radius: 10px 0 0 10px;
     </main>
             <div id="contact-us">
             <h2 class="text-center"> Contact Us</h2>
-                <form class="form" method="post">
+                <form id="contactform" class="form" method="post">
                     {% csrf_token %}
                     {% if error != '' %}
 								<p class="text">Your message was not sent please try again! </p>
@@ -371,7 +379,7 @@ border-radius: 10px 0 0 10px;
                         <div class="col-md-12">
                             <label for="message">
                                 <span>Your Message</span>
-                                <textarea type="text" class="form-control"></textarea>
+                                <textarea form="theforms" name="message" type="text" class="form-control"></textarea>
                             </label>
                         </div>
 
