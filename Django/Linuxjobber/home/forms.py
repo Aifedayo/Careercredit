@@ -106,4 +106,4 @@ class CareerSwitchApplicationForm(forms.ModelForm):
 
 	class Meta:
 		model = CareerSwitchApplication
-		exclude = []
+		exclude = ['application_date']
