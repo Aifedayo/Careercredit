@@ -1,109 +1,495 @@
 {% extends 'home/base.html' %}
-
 {% load staticfiles%}
 {% block title %}
-Contact Us | Linuxjobber
+About Us | Linuxjobber
 {% endblock %}
 
+{% load staticfiles %}
+{% block external_header %}
+    <link rel="stylesheet" href="{% static 'home/css/jobs_new.css' %}">
+{% endblock %}
+
+{% load staticfiles %}
 {% block content %}
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-<div class="carousel-inner" role="listbox">
-  <div class="item active">
-    
-  </div>
-</div>
-</div>
+    <style>
+    html body{
+        background-color: white;
+    }
+        .about-banner{
 
-<section class="col-xs-12 locationmain">
-	<div class="row raise-to-banner2">
-				<div class="col-md-8 col-md-offset-2 text-center">
-					<div class="display-t">
-						<div class="display-tc animate-box h1-bg" data-animate-effect="fadeIn">
-							<h1>Chat with Us</h1>
-							
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4"></div>
-			</div>
-			<div id="fh5co-contact">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<h6></h6>
-				</div>
-				<div class="col-md-6 animate-box">
-					
-					<div class="fh5co-contact-info">
-						<h3>Contact Information</h3>
-						<ul>
-							<li class="address">Suite 700, 6301 Ivy Lane, <br> Greenbelt, Maryland </li><br>
-							<li class="email"><a href="mailto:elena.edwards@linuxjobber.com">elena.edwards@linuxjobber.com</a></li>
-						</ul>
-						<h3>Please note that office visits are by appointments only.<br>Kindly schedule your visit.</h3>
-					</div>
+        background: url("{% static 'home/images/about-banner.png' %}");
+         /*linear-gradient(90deg, #1B539E 38.54%, rgba(0, 0, 0, 0.2) 100%);*/
+	min-height: 954px;
+	background-size: contain;
+    background-repeat: no-repeat;
+
+    }
+        .col-md-4{
+            padding: 0;
+            padding-right: 10px;
+        }
+    #intro-section{
+        padding-left: 152px;
+        padding-top: 48%;
+        max-width: 700px;
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.5);
+    }
+
+        .section-blue-line{
+        background-color:#1B539E;
+        border-radius: 18px;
+        height: 5px;
+        width: 50px;
+            margin-bottom: 10px;
+    }
+    .section-header{
+        font-size: 36px;
+        line-height: 44px;
+        margin-top: 10px;
+        color:rgba(0, 0, 0, 0.8);
 
 
-				</div>
-				<div class="col-md-6 animate-box">
+    }
+    .section-content{
+        color: rgba(0, 0, 0, 0.5);
 
-					<h3>Get In Touch</h3>
-					<form method='post'>
-						{% csrf_token %}
-						<div class="row form-group">
-							{% if error != '' %}
-								<p>Your message was not sent please try again! </p>
+    }
+    .connect-links{
+        margin-top: 20px;
+    }
+    .icon{
+        margin-right: 50px;
+                color:rgba(0, 0, 0, 0.8);
+
+    }
+    main{
+        margin-top: 250px;
+        padding: 0 154px 100px 140px;
+    }
+    .about-image-card{
+        display: inline-block;
+    }
+
+    .about-image-card img{
+        position: absolute;
+        object-fit: cover;
+        top:-22px;
+        margin-left: 20px;
+        width: 415px;
+        height: 415px;
+        border-radius: 20px;
+        background-color: cadetblue;
+    }
+    .card-border{
+        width: 100px;
+        height: 372px;
+background: linear-gradient(138.23deg, #1B539E 1.92%, #313328 99.1%);
+box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.8);
+border-radius: 10px 0 0 10px;
+    }
+
+    .team-member-card .about-image-card img{
+        margin-top: 8.24px;
+        margin-left: 13px;
+        width: 282.42px;
+        height: 282.42px;
+    }
+    .team-member-card .card-border{
+        height:  252.55px;
+    }
+    .owner-info{
+        margin-top: 200px;
+    }
+    .team-section{
+        padding-top: 250px;
+    }
+
+    .team-member-name{
+        width: 300px;
+        margin-top: 40px;
+        font-size: 18px;
+        color: black;
+    }
+    .team-member-role{
+        font-size: 14px;
+        color: black;
+        margin-bottom: 120px;
+    }
+
+    #partners{
+        margin-top: 200px;
+    }
+    #goals{
+        margin-top: 250px;
+    }
+
+    #contact-us{
+        margin-top: 200px;
+        background: url("{% static 'home/images/contact-us-bg.png' %}");
+	min-height: 850px;
+	background-size: cover;
+    background-repeat: no-repeat;
+        padding: 40px 159px;
+
+    }
+    #contact-us h2.text-center{
+        color: white;
+        font-size: 36px;
+        line-height: 44px;
+    }
+    label > span{
+        color:white;
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+    input.form-control , textarea{
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 0;
+        color: white;
+    }
+    textarea.form-control{
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 0;
+        color: white;
+        height: 237px;
+    }
+    label{
+        width : 100%;
+    }
+    .btn.homebanbut.white{
+        background: white;
+        color:  #1B539E;
+        width: 159px;
+        border-radius: 5px;
+    }
+    form .row{
+        margin-top: 15px;
+    }
+    .text{
+        font-size: 14px;
+        padding: 5px 0;
+    }
+    .text:first-child{
+        margin-top: 20px;
+    }
+    .blue{
+        color: #1B539E;
+    }
+    .white{
+        color:white;
+    }
+    .note{
+        color: rgba(255, 255, 255, 0.5);
+        margin-top: 30px;
+        font-size: 14px;
+        width: 342px;
+    }
+
+
+    @media screen and (max-width: 800px) {
+        section.about-banner{
+            min-height: 100%;
+        }
+        .icon{
+            margin-right: 30px;
+        }
+        .about-main{
+            margin-top: 100px;
+            padding: 10px;
+        }
+        #intro-section{
+            padding-left: 20px;
+        }
+        #intro-section h1{
+            width: 300px;
+        }
+        main{
+            padding: 10px;
+        }
+     .about-image-card img{
+        margin-top: 8.24px;
+        margin-left: 13px;
+        width: 282.42px;
+        height: 282.42px;
+    }
+     .card-border{
+        height:  252.55px;
+    }
+     .owner-info{
+         margin-top: 50px;
+     }
+     .team-section{
+         padding-top: 50px;
+     }
+     .team-member-role{
+         margin-bottom: 30px;
+     }
+     #goals ,#partners ,#contact-us{
+         margin-top: 50px;
+     }
+     #contact-us{
+         padding: 10px;
+     }
+}
+
+
+    </style>
+    <section class="header-color"></section>
+    <section class="about-banner">
+        <div id="intro-section">
+            <div class="section-blue-line"></div>
+            <h1 class="section-header">
+                We are Linuxjobber
+            </h1>
+            <p class="section-content">
+                Our company was born out of the need to close the gap between the market's demand for
+                linux professionals and the supply pool of available professionals.
+                <br>
+                <br>
+                Most people are well aware that nearly all devices now
+                run linux in the back: from android cell phones to smart TVs, it is linux.
+                Also, from embedded car computer controls to airplane movie displays, it is all linux.
+                Most importantly, because linux is much more secure than Microsoft's Windows,
+                many companies now use linux in the backend to provide information security.
+                As a result, the demand for linux professionals today is phenominal.
+                Hence, we have decided to train more people to fill the numerous open positions.
+            </p>
+            <div class="connect-links">
+                <a href="https://twitter.com/linuxjobber" class="icon">
+                   <span> <i class="fa fa-twitter fa-2x"></i></span>
+                </a>
+                <a href="https://www.facebook.com/linuxjobber" class="icon">
+                   <span> <i class="fa fa-facebook fa-2x"></i></span>
+                </a>
+                <a href="https://www.instagram.com/linuxjobber_/" class="icon">
+                   <span> <i class="fa fa-instagram fa-2x"></i></span>
+                </a>
+                <a href="https://www.linkedin.com/company/linuxjobber" class="icon">
+                   <span> <i class="fa fa-linkedin fa-2x"></i></span>
+                </a>
+                <a href="https://plus.google.com/u/1/104352481273501435159" class="icon">
+                   <span> <i class="fa fa-google-plus fa-2x"></i></span>
+                </a>
+
+            </div>
+        </div>
+    </section>
+    <main class="about-main">
+        <div class="row">
+        <div class="col-md-6">
+            <div class="about-image-card">
+                <div class="card-border">
+                    <img src="{% static 'home/jo.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="owner-info">
+                            <div class="section-blue-line"></div>
+            <h1 class="section-header">
+                Meet Our Founder
+            </h1>
+            <p class="section-content">
+                The company was founded by Showunmi Joseph, a dedicated linux administrator with over 15 years
+                of experience. Mr. Showunmi studied Computer Science at Queens College of the City University of
+                New York and graduated with a Bachelors of Science. He later earned a
+                Masters of Business Administration in Technology Management from the State University of
+                New York Institute of Technology.
+                Mr. Showunmi is a hands-on advocate and he is also an instructor at the linuxjobber training site.
+            </p>
+            </div>
+        </div>
+    </div>
+        <div class="team-section">
+               <div class="row">
+                                               <div class="section-blue-line"></div>
+            <h1 class="section-header">
+                Meet the team
+            </h1>
+                   <div style="min-height:50px; "></div>
+
+        <div class="col-md-4">
+            <div class="team-member-card">
+                <div class="about-image-card">
+                <div class="card-border">
+                    <img src="{% static 'home/Louis Eyoma.JPEG' %}" alt="">
+                </div>
+                    <p class="text-center team-member-name"> Louis Eyoma</p>
+                    <p class="text-center team-member-role"> Project Manager</p>
+            </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="team-member-card">
+                <div class="about-image-card">
+                <div class="card-border">
+                    <img src="{% static 'home/Boluwatife Fasugba.jpeg' %}" alt="">
+                </div>
+                    <p class="text-center team-member-name"> Boluwatife Fasugba</p>
+                    <p class="text-center team-member-role"> Developer</p>
+            </div>
+            </div>
+        </div>
+                    <div class="col-md-4">
+            <div class="team-member-card">
+                <div class="about-image-card">
+                <div class="card-border">
+                    <img src="{% static 'home/Azeem Animashaun.jpg' %}" alt="">
+                </div>
+                    <p class="text-center team-member-name"> Azeem Animashaun</p>
+                    <p class="text-center team-member-role"> Developer</p>
+            </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="team-member-card">
+                <div class="about-image-card">
+                <div class="card-border">
+                    <img src="{% static 'home/Mary Okafor.jpg' %}" alt="">
+                </div>
+                    <p class="text-center team-member-name"> Mary Okafor</p>
+                    <p class="text-center team-member-role"> Developer</p>
+            </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="team-member-card">
+                <div class="about-image-card">
+                <div class="card-border">
+                    <img src="{% static 'home/Pelumi Oluwaseyi.jpeg' %}" alt="">
+                </div>
+                    <p class="text-center team-member-name"> Pelumi Oluwaseyi.</p>
+                    <p class="text-center team-member-role"> DevOps Engineer</p>
+            </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="team-member-card">
+                <div class="about-image-card">
+                <div class="card-border">
+                    <img src="{% static 'home/Ebuka Onyebinamma.jpeg' %}" alt="">
+                </div>
+                    <p class="text-center team-member-name"> Ebuka Onyebinamma</p>
+                    <p class="text-center team-member-role"> Developer</p>
+            </div>
+            </div>
+        </div>
+    </div>
+        </div>
+        <div id="partners">
+            <div class="row">
+                            <div class="section-blue-line"></div>
+            <h1 class="section-header">
+                Our partners
+            </h1>
+            <p class="section-content">
+                Linuxjobber is in partnership with The LinuxWorldWide Organization to adopt the best training practices.
+                On completion of our linux classes, each student receives a certificate of course completion from us
+                backed by the internationally recognized LinuxWorldWide organization.
+                Our staff at Linuxjobber attend the yearly LinuxWorldWide conferences and aim for its outstanding awards.
+            </p>
+            </div>
+        </div>
+        <div id="goals">
+            <div class="row">
+                            <div class="section-blue-line"></div>
+            <h1 class="section-header">
+                Company Goals
+            </h1>
+            <p class="section-content">
+                Our goal is to secure employment for all of our students.
+                Therefore, after training, we provide job seeking assistance,
+                resume writing help and interview preparation for our students so that our students become candidates
+                with higher chances of success.
+                If you have any questions, feel free to call us or send us an email.
+             </p>
+            </div>
+        </div>
+
+
+
+
+    </main>
+            <div id="contact-us">
+            <h2 class="text-center"> Contact Us</h2>
+                <form class="form" action="" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                                           {% if error != '' %}
+								<p class="text white">Your message was not sent please try again! </p>
 							{% endif %}
 							{% if success != '' %}
-								<p>Message sent!</p>
+								<p class="text white">Message sent!</p>
 							{% endif %}
-							<div class="col-md-6">
-								<!-- <label for="fname">First Name</label> -->
-								<input type="text" name='full_name' id="fname" class="form-control" placeholder="Your Full Name" required="">
-							</div>
-							<div class="col-md-6">
-								<!-- <label for="lname">Last Name</label> -->
-								<input type="text" name='phonenumber' id="phone" class="form-control" placeholder="Your Phone Number" required>
-							</div>
-						</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="full_name">
+                                <span>Full Name</span>
+                                <input required name="full_name" placeholder="Enter your full name" type="text" class="form-control">
+                            </label>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="phonenumber">
+                                <span>Phone Number</span>
+                                <input required name="phonenumber" placeholder="Enter your phone number" type="text" class="form-control">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="email">
+                                <span>Email Address</span>
+                                <input required name="email" placeholder="Enter your email address" type="email" class="form-control">
+                            </label>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="subject">
+                                <span>Subject</span>
+                                <input required name="subject" placeholder="Enter subject of the message" type="text" class="form-control">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="message">
+                                <span>Your Message</span>
+                                <textarea required name="message" type="text" class="form-control"></textarea>
+                            </label>
+                        </div>
 
-						<div class="row form-group">
-							<div class="col-md-12">
-								<!-- <label for="email">Email</label> -->
-								<input type="email" name='email' id="email" class="form-control" placeholder="Your email address" required>
-							</div>
-						</div>
+                    </div>
 
-						<div class="row form-group">
-							<div class="col-md-12">
-								<!-- <label for="subject">Subject</label> -->
-								<input type="text" name='subject' id="subject" class="form-control" placeholder="Your subject of this message" required>
-							</div>
-						</div>
+                    <div class="row">
+                        <p class="text-center">
+                            <button class="btn homebanbut white">
+                                Send Message
+                            </button>
+                        </p>
+                    </div>
+                </form>
+            <div class="row">
+                <p class="text blue">
+                    Address
+                </p>
+                <p class="text white">
+                    Suite 700, 6301 Ivy Lane, Greenbelt, Maryland
+                </p>
+               <p class="text blue">
+                    Email
+                </p>
+                <p class="text white">
+                    elena.edwards@linuxjobber.com
+                </p>
+                <p class="note">
+                    Please note that office visits are by appointments only. Kindly schedule your visit.
+                </p>
 
-						<div class="row form-group">
-							<div class="col-md-12">
-								<!-- <label for="message">Message</label> -->
-								<textarea name="message" name='message' id="message" cols="30" rows="10" class="form-control" placeholder="Say something about us"  required=""></textarea>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-md-12">
-								<input type="submit" value="Send Message" class="btn btn-primary msg-color">
-							</div>
-						</div>
-
-						
-						
-
-					</form>		
-				</div>
-			</div>
-			
-		</div>
-	</div>
-		</section>
+            </div>
+        </div>
 
 
 {% endblock %}

@@ -13,7 +13,7 @@ webhookview = views.my_webhook_view
 jp_patterns = [
     path('', views.jobplacements, name='jobplacements'),
     path('apply/<str:level>/', views.apply, name='apply'),
-    ]
+]
 
 wp_patterns = [
     path('', views.workexperience, name='workexperience'),
@@ -21,7 +21,8 @@ wp_patterns = [
     path('pay/', views.pay, name='pay'),
     path('apply/', views.workexpform, name='workexpform'),
     path('profile/',views.workexprofile, name='workexprofile'),
-    ]
+    path('faq/',views.workexpfaq, name='workexpfaq'),
+]
 
 
 urlpatterns = [
@@ -47,7 +48,7 @@ urlpatterns = [
     path('internships', views.internships, name='internships'),
     path('jobplacements/', include(jp_patterns)),
     path('accepted', views.accepted, name='accepted'),
-    path('groupCourse/',views.group_list,name='group'),
+    path('groupCourse/',views.group_list, name='group'),
     path('subscriptionstatus', views.check_subscription_status, name='check_subscription_status'),
     # path('groupCourse', views.group, name='group'),
     path('groupCourse/<int:pk>',views.group,name='group'),
@@ -57,7 +58,7 @@ urlpatterns = [
     path('logout', views.log_out, name="logout"),
     path('forgot/password', views.forgot_password, name='forgot_password'),
     path('reset_password/<str:reset_token>/', views.reset_password, name='reset_password'),
-    path('aboutus', views.aboutus, name="aboutus"),
+    path('aboutus', views.contact_us, name="aboutus"),
     path('policies', views.policies, name="policies"),
     path('linux_start', views.linux_start, name='linux_start'),
     path('jobs', views.jobs, name="jobs"),

@@ -36,6 +36,7 @@ from ToolsApp.models import Tool
 from users.models import CustomUser
 from .forms import JobPlacementForm, JobApplicationForm, AWSCredUpload, InternshipForm,\
     ResumeForm, PartimeApplicationForm, WeForm, UnsubscribeForm
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from datetime import datetime
 
 fs = FileSystemStorage(location= settings.MEDIA_ROOT+'/uploads')
@@ -285,12 +286,34 @@ def selfstudy(request):
 
 
 def faq(request):
-    faqs = FAQ.objects.all()
-    context ={
-            'faqs': faqs,
-                   
-                }
-    return render(request, 'home/faq.html', {'faqs': faqs,'courses' : get_courses(), 'tools' : get_tools()})
+    faqs = FAQ.objects.filter(is_wefaq=False)
+    return render(request, 'home/faq.html', {'faqs':faqs})
+
+# def wfaq(request):
+#     faq_list = FAQ.objects.filter(is_wefaq=False)
+#     we_faq_list = FAQ.objects.filter(is_wefaq=True)
+#     page = request.GET.get('page', 1)
+
+#     paginator = Paginator(we_faq_list, 20)
+#     try:
+#         we_faqs = paginator.page(page)
+#     except PageNotAnInteger:
+#         we_faqs = paginator.page(1)
+#     except EmptyPage:
+#         we_faqs = paginator.page(paginator.num_pages)
+
+#     context ={
+#         'faqs': faq_list,
+#         'workexperience_faqs':we_faqs,
+#         'courses' : get_courses(), 
+#         'tools' : get_tools(),
+#         'wefaq_is_visible':FAQ.wefaq_is_visible_for(
+#             request.user, wepeoples 
+#         )
+#     }
+
+#     return render(request, 'home/faq.html', context)
+
 
 def gainexperience(request):
     return render(request, 'home/gainexperience.html', {'courses' : get_courses(), 'tools' : get_tools()})
@@ -359,7 +382,7 @@ def resumeupload(request):
 
 
 def aboutus(request):
-    return render(request, 'home/aboutus.html', {'courses' : get_courses(), 'tools' : get_tools()})
+    return redirect('home:contact_us')
 
  
 def policies(request):
@@ -894,9 +917,6 @@ def workexprofile(request):
         group.append(sta.task.id)
 
     listask = wetask.objects.filter(types=weps.types)
-    
-
-
 
     if request.method == "POST":
         if request.POST['type'] == '1':
@@ -920,7 +940,7 @@ def workexprofile(request):
             u = CustomUser.objects.get(email=request.user.email)
             u.first_name = request.POST['first_name']
             u.last_name = request.POST['last_name']
-            u.save(update_fields=["last_name","first_name"]);
+            u.save(update_fields=["last_name","first_name"])
             messages.success(request, 'Your names have been updated successfully')
             return redirect("home:workexprofile")
         elif request.POST['type'] == '4':
@@ -937,7 +957,32 @@ def workexprofile(request):
             messages.error(request, 'Sorry, an error occured. please contact admin@linuxjobber.com')
             return redirect("home:workexprofile")
 
+    if not weps.profile_picture:
+        messages.error(
+            request, 
+            "!!! Note Admin can't create your task with out your profile image set"
+        )
+
     return render(request, 'home/workexprofile.html',{'weps': weps, 'status':status, 'group':group, 'listask':listask})
+
+def workexpfaq(request):
+    above_fifty_percent = FAQ.objects.filter(
+        is_wefaq=True, is_fifty_percent_faq=True
+    )
+
+    below_fifty_percent = FAQ.objects.filter(
+        is_wefaq=True, is_fifty_percent_faq=False
+    )
+     
+    context = {
+        'above_fifty_percent':above_fifty_percent,
+        'below_fifty_percent':below_fifty_percent,
+        'faq_above_fifty_is_visible':FAQ.wefaq_is_visible_for(
+            request.user, wepeoples
+        )
+    }
+
+    return render(request, 'home/workexpfaq.html',context)
 
 def jobplacements(request):
     return render(request, 'home/jobplacements.html',{'courses' : get_courses(), 'tools' : get_tools()})
@@ -1246,9 +1291,10 @@ def group(request,pk):
                 groupreg = GroupClassRegister.objects.create(user= user, is_paid=0, amount=group_item.price, type_of_class = group_item.type_of_class)
                 groupreg.save()
 
-                new_user = authenticate(username=username,
-                                    password=password,
-                                    )
+                new_user = authenticate(
+                    username=username,
+                    password=password,
+                    )
                 login(request, new_user)
                 user = new_user
 
@@ -1257,6 +1303,7 @@ def group(request,pk):
             groupreg.save()
             login(request, user)
             if int(choice) == 1:
+                request.session['gclass'] = int(group_item)
                 return redirect("home:monthly_subscription")
             return redirect("home:group_pay",pk=group_item.pk)
     user_token=""
@@ -2019,8 +2066,8 @@ def group_list(request):
                 login(request, new_user)
 
                 if int(choice) == 1:
+                    request.session['gclass'] = int(group_item.id)
                     return redirect("home:monthly_subscription")
-
                 return redirect("home:group_pay",pk=group_item.id)
 
         if user:
@@ -2040,7 +2087,7 @@ def group_list(request):
                                                          amount=29, type_of_class = group_item.type_of_class)
             groupreg.save()
             if int(choice) == 1:
-                request.session['gclass'] = int(gclass)
+                request.session['gclass'] = int(group_item.id)
                 return redirect("home:monthly_subscription")
             return redirect("home:group_pay",pk=group_item.id)
 
@@ -2084,11 +2131,13 @@ def combined_class_pay(request):
         pass
     course = request.GET.get('course_picked',1)
     request.session['combined_class'] = course
-    PRICE = 399
+    PRICE = 798
     mode = "One Time Payment"
     PAY_FOR = "Combined Class"
-    DISCLMR = "Please note that you will be charged ${} upfront. However, you may cancel at any time within 14 days for a full refund. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ${} One Time".format(
-        PRICE, PRICE)
+    DISCLMR = "Please note that you will be charged ${price} upfront." \
+              " However, you may cancel at any time within 14 days for a full refund. " \
+              "By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ${price} One Time".format(
+        price = PRICE)
     stripeset = StripePayment.objects.all()
     stripe.api_key = stripeset[0].secretkey
 
@@ -2181,7 +2230,10 @@ def career_switch(request, position_id = None):
         if form.is_valid():
             jobform = form.save(commit=False)
             try:
-                CareerSwitchApplication.objects.get(email=request.POST['email'],new_career=jobform.new_career)
+                CareerSwitchApplication.objects.get(
+                    email = request.POST['email'],
+                    new_career = jobform.new_career
+                )
                 messages.success(request,
                                  "Sorry We could not submit your application as you have applied for this role before.")
                 return redirect("home:career_switch")
