@@ -121,8 +121,8 @@ border-radius: 10px 0 0 10px;
 
     #contact-us{
         margin-top: 200px;
-                background: url("{% static 'home/images/contact-us-bg.png' %}");
-	min-height: 941px;
+        background: url("{% static 'home/images/contact-us-bg.png' %}");
+	min-height: 850px;
 	background-size: cover;
     background-repeat: no-repeat;
         padding: 40px 159px;
@@ -135,17 +135,59 @@ border-radius: 10px 0 0 10px;
     }
     label > span{
         color:white;
+        opacity: 0.7;
         font-size: 18px;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
     }
-    input.form-control{
-        width: 100%;
+    input.form-control , textarea{
         background-color: rgba(255, 255, 255, 0.1);
         border: 0;
         color: white;
     }
+    textarea.form-control{
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 0;
+        color: white;
+        height: 237px;
+    }
+    label{
+        width : 100%;
+    }
+    .btn.homebanbut.white{
+        background: white;
+        color:  #1B539E;
+        width: 159px;
+        border-radius: 5px;
+    }
+    form .row{
+        margin-top: 15px;
+    }
+    .text{
+        font-size: 14px;
+        padding: 5px 0;
+    }
+    .text:first-child{
+        margin-top: 20px;
+    }
+    .blue{
+        color: #1B539E;
+    }
+    .white{
+        color:white;
+    }
+    .note{
+        color: rgba(255, 255, 255, 0.5);
+        margin-top: 30px;
+        font-size: 14px;
+        width: 342px;
+    }
+    {#Responsive styles#}
+@media screen and (max-width: 800px) {
 
 
+
+
+}
     </style>
     <section class="header-color"></section>
     <section class="about-banner">
@@ -297,46 +339,78 @@ border-radius: 10px 0 0 10px;
     </main>
             <div id="contact-us">
             <h2 class="text-center"> Contact Us</h2>
-                <form class="form" action="">
+                <form id="contactform" class="form" method="post">
                     {% csrf_token %}
+                    {% if error != '' %}
+								<p class="text">Your message was not sent please try again! </p>
+							{% endif %}
+							{% if success != '' %}
+								<p class="text blue">Message sent!</p>
+							{% endif %}
                     <div class="row">
                         <div class="col-md-6">
-                            <label for="fullname">
+                            <label for="full_name">
                                 <span>Full Name</span>
-                                <input type="text" class="form-control">
+                                <input name="full_name" placeholder="Enter your full name" type="text" class="form-control">
                             </label>
                         </div>
                         <div class="col-md-6">
-                            <label for="fullname">
-                                <span>Full Name</span>
-                                <input type="text" class="form-control">
+                            <label for="phonenumber">
+                                <span>Phone Number</span>
+                                <input name="phonenumber" placeholder="Enter your phone number" type="number" class="form-control">
                             </label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <label for="fullname">
-                                <span>Full Name</span>
-                                <input type="text" class="form-control">
+                            <label for="email">
+                                <span>Email Address</span>
+                                <input name="email" placeholder="Enter your email address" type="email" class="form-control">
                             </label>
                         </div>
                         <div class="col-md-6">
-                            <label for="fullname">
-                                <span>Full Name</span>
-                                <input type="text" class="form-control">
+                            <label for="subject">
+                                <span>Subject</span>
+                                <input name="subject" placeholder="Enter subject of the message" type="text" class="form-control">
                             </label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <label for="fullname">
-                                <span>Full Name</span>
-                                <textarea type="text" class="form-control"></textarea>
+                            <label for="message">
+                                <span>Your Message</span>
+                                <textarea form="theforms" name="message" type="text" class="form-control"></textarea>
                             </label>
                         </div>
 
                     </div>
+
+                    <div class="row">
+                        <p class="text-center">
+                            <button class="btn homebanbut white">
+                                SUBMIT
+                            </button>
+                        </p>
+                    </div>
                 </form>
+            <div class="row">
+                <p class="text blue">
+                    Address
+                </p>
+                <p class="text white">
+                    Suite 700, 6301 Ivy Lane, Greenbelt, Maryland
+                </p>
+                <p class="text blue">
+                    Email
+                </p>
+                <p class="text white">
+                    elena.edwards@linuxjobber.com
+                </p>
+                <p class="note">
+                    Please note that office visits are by appointments only. Kindly schedule your visit.
+                </p>
+
+            </div>
         </div>
 
 

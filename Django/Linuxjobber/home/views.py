@@ -382,7 +382,7 @@ def resumeupload(request):
 
 
 def aboutus(request):
-    return render(request, 'home/aboutus.html', {'courses' : get_courses(), 'tools' : get_tools()})
+    return redirect('home:contact_us')
 
  
 def policies(request):
@@ -917,9 +917,6 @@ def workexprofile(request):
         group.append(sta.task.id)
 
     listask = wetask.objects.filter(types=weps.types)
-    
-
-
 
     if request.method == "POST":
         if request.POST['type'] == '1':
@@ -943,7 +940,7 @@ def workexprofile(request):
             u = CustomUser.objects.get(email=request.user.email)
             u.first_name = request.POST['first_name']
             u.last_name = request.POST['last_name']
-            u.save(update_fields=["last_name","first_name"]);
+            u.save(update_fields=["last_name","first_name"])
             messages.success(request, 'Your names have been updated successfully')
             return redirect("home:workexprofile")
         elif request.POST['type'] == '4':
@@ -959,6 +956,12 @@ def workexprofile(request):
         else:
             messages.error(request, 'Sorry, an error occured. please contact admin@linuxjobber.com')
             return redirect("home:workexprofile")
+
+    if not weps.profile_picture:
+        messages.error(
+            request, 
+            "!!! Note Admin can't create your task with out your profile image set"
+        )
 
     return render(request, 'home/workexprofile.html',{'weps': weps, 'status':status, 'group':group, 'listask':listask})
 
@@ -1288,9 +1291,10 @@ def group(request,pk):
                 groupreg = GroupClassRegister.objects.create(user= user, is_paid=0, amount=group_item.price, type_of_class = group_item.type_of_class)
                 groupreg.save()
 
-                new_user = authenticate(username=username,
-                                    password=password,
-                                    )
+                new_user = authenticate(
+                    username=username,
+                    password=password,
+                    )
                 login(request, new_user)
                 user = new_user
 
@@ -1299,6 +1303,7 @@ def group(request,pk):
             groupreg.save()
             login(request, user)
             if int(choice) == 1:
+                request.session['gclass'] = int(group_item)
                 return redirect("home:monthly_subscription")
             return redirect("home:group_pay",pk=group_item.pk)
     user_token=""
@@ -2061,8 +2066,8 @@ def group_list(request):
                 login(request, new_user)
 
                 if int(choice) == 1:
+                    request.session['gclass'] = int(group_item.id)
                     return redirect("home:monthly_subscription")
-
                 return redirect("home:group_pay",pk=group_item.id)
 
         if user:
@@ -2082,7 +2087,7 @@ def group_list(request):
                                                          amount=29, type_of_class = group_item.type_of_class)
             groupreg.save()
             if int(choice) == 1:
-                request.session['gclass'] = int(gclass)
+                request.session['gclass'] = int(group_item.id)
                 return redirect("home:monthly_subscription")
             return redirect("home:group_pay",pk=group_item.id)
 
@@ -2313,6 +2318,3 @@ def job_submitted(request, type="fulltime"):
 
     return TemplateResponse(request,'home/job_application_submitted.html')
 
-
-def test_about(request):
-    return TemplateResponse(request,'home/about_us.html')

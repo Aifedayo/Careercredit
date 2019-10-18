@@ -13,7 +13,7 @@ class MediaStorage(FileSystemStorage):
             import subprocess
             import platform
             if platform.system().lower() != 'windows':
-
+                print('file saved')
                 # outs = subprocess.Popen(
                 #     ["sshpass", "-p", config('SSH_PASSWORD', ''), "ssh", "-o StrictHostKeyChecking=no",
                 #      "-o LogLevel=ERROR",
@@ -22,14 +22,14 @@ class MediaStorage(FileSystemStorage):
                 #     stdout=subprocess.PIPE,
                 #     stderr=subprocess.PIPE).communicate()
                 #
-                subprocess.Popen(
-                    [
-                    "aws",
-                    's3',
-                    'sync',
-                    '/mnt/media/',
-                    's3://{}/media/'.format(config('AWS_STORAGE_BUCKET_NAME','test'))
-                    ]
-                )
+                # subprocess.Popen(
+                #     [
+                #     "aws",
+                #     's3',
+                #     'sync',
+                #     '/mnt/media/',
+                #     's3://{}/media/'.format(config('AWS_STORAGE_BUCKET_NAME','test'))
+                #     ]
+                # )
 
         return filename
