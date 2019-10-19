@@ -31,9 +31,29 @@
   letter-spacing: 0.25em;
 }
  
-sup{
-  font-size: 35px;
-} 
+  sup{
+    font-size: 35px;
+  } 
+  .mouse-overlay{
+    position: absolute;
+    top:0px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    display: flex;
+    justify-content: center;
+    background: rgb(73, 117, 177); 
+    z-index: 1;
+  }
+  .groupcard span.icon{
+    font-size:40px;
+    margin-left: 20px; 
+    visibility:hidden;*
+  }
+
+  .groupdate {
+    margin-top: 20px;
+  }
 </style>
 <div class="groupblueban">
 </div>
@@ -88,8 +108,11 @@ sup{
           <div class="groupcard1 groupcard">
           {%endif%}
             <br><b>class:</b><br>
-            <b><span>{{group.name}}</span></b><br>
-            <div class="groupdate">
+            <b><span>{{group.name}}</span></b><br><br>
+            <span  class="icon title{{group.id}}">
+                <i class="fa fa-check"></i>
+            </span>
+            <div class="groupdate" style="">
               {% if request.user not in group.users.all %}
               starts:<br>
               <b>{{group.start_date}}</b>
@@ -104,9 +127,10 @@ sup{
             <div class="text-muted">{{group.start_date}}<br>{{group.duration}}<br>{{group.class_meet}}<br>{{group.type_of_class}}</div>
             <div class="pull-right"><button type="button" class="btn butg groupclabut2 but{{group.id}}">Enroll Now</button></div>
             <br>
+            <span class="icon description{{group.id}}">
+              <i class="fa fa-check"></i>
+            </span>
           </div>
-
-          
         </div>
         {%endfor%}
       </div>
@@ -129,6 +153,21 @@ sup{
       <div class="col-md-3"></div>
       <div class="col-md-3">
         <div class="grouppaycard" id="g1">
+          <div class="show-click hidden">
+              <svg 
+                aria-hidden="true" 
+                focusable="false" 
+                data-prefix="fas" 
+                data-icon="hand-pointer" 
+                class="svg-inline--fa fa-hand-pointer fa-w-14" 
+                role="img" 
+                xmlns="http://www.w3.org/2000/svg" 
+                viewBox="0 0 448 512">
+                  <path fill="currentColor" 
+                    d="M448 240v96c0 3.084-.356 6.159-1.063 9.162l-32 136C410.686 499.23 394.562 512 376 512H168a40.004 40.004 0 0 1-32.35-16.473l-127.997-176c-12.993-17.866-9.043-42.883 8.822-55.876 17.867-12.994 42.884-9.043 55.877 8.823L104 315.992V40c0-22.091 17.908-40 40-40s40 17.909 40 40v200h8v-40c0-22.091 17.908-40 40-40s40 17.909 40 40v40h8v-24c0-22.091 17.908-40 40-40s40 17.909 40 40v24h8c0-22.091 17.908-40 40-40s40 17.909 40 40zm-256 80h-8v96h8v-96zm88 0h-8v96h8v-96zm88 0h-8v96h8v-96z">
+                  </path>
+              </svg>
+          </div>
           <div class="text-center">
             <span>Monthly</span><br>
             <span class="groupamount"><sup>$</sup>29</span><br><br>
@@ -141,6 +180,21 @@ sup{
       </div>
       <div class="col-md-3">
         <div class="grouppaycard" id="g2">
+          <div class="show-click hidden">
+              <svg 
+                aria-hidden="true" 
+                focusable="false" 
+                data-prefix="fas" 
+                data-icon="hand-pointer" 
+                class="svg-inline--fa fa-hand-pointer fa-w-14" 
+                role="img" 
+                xmlns="http://www.w3.org/2000/svg" 
+                viewBox="0 0 448 512">
+                  <path fill="currentColor" 
+                    d="M448 240v96c0 3.084-.356 6.159-1.063 9.162l-32 136C410.686 499.23 394.562 512 376 512H168a40.004 40.004 0 0 1-32.35-16.473l-127.997-176c-12.993-17.866-9.043-42.883 8.822-55.876 17.867-12.994 42.884-9.043 55.877 8.823L104 315.992V40c0-22.091 17.908-40 40-40s40 17.909 40 40v200h8v-40c0-22.091 17.908-40 40-40s40 17.909 40 40v40h8v-24c0-22.091 17.908-40 40-40s40 17.909 40 40v24h8c0-22.091 17.908-40 40-40s40 17.909 40 40zm-256 80h-8v96h8v-96zm88 0h-8v96h8v-96zm88 0h-8v96h8v-96z">
+                  </path>
+              </svg>
+          </div>
           <div class="text-center">
             <span>One-Time</span><br>
             <span class="groupamount"><sup>$</sup><span id="amount"> </span> </span><br><br>
@@ -306,6 +360,7 @@ sup{
     
   });
 
+  let iconIsActive = null
   {%for group in groups%}
 
   $('.nothover{{group.id}}').hover(
@@ -313,10 +368,10 @@ sup{
         var $this = $(this); // caching $(this)
         $this.data('initialText', $this.html());
         $this.html($('.hover{{group.id}}').html());
+        
         $('.but{{group.id}}').click(function(){
           $('.butg').text('Enroll Now');
           $('.but{{group.id}}').text('Selected');
-
 
           var item  = $('#amount');
             item.text({{ group.price }});
@@ -334,11 +389,23 @@ sup{
           $('#grouptype').val('{{group.id}}');
 
           $('.grouppaytype').show();
+
+          iconIsActive = '{{group.id}}';
+          $('span.icon').css({visibility:'hidden'})
+          $('span.icon.description{{group.id}}').css({visibility:'visible'})
+          $('span.icon.title{{group.id}}').css({visibility:'visible'})
         })
         },
       function() {
         var $this = $(this); // caching $(this)
         $this.html($this.data('initialText'));
+
+        const gId = $('#grouptype').val()
+        if(iconIsActive != null && gId == '{{group.id}}'){
+          $('span.icon').css({visibility:'hidden'})
+          $('span.icon.description{{group.id}}').css({visibility:'visible'})
+          $('span.icon.title{{group.id}}').css({visibility:'visible'})
+        }
       }
    );
 
@@ -361,6 +428,11 @@ sup{
       'background': '#FFFFFF',
       'color': 'black',
     });
+
+    $(this).find($('.show-click'))
+      .css({visibility:'hidden'});
+    $('#g2').find($('.show-click'))
+      .css({visibility: 'visible'});
   });
 
   $('#g2').click(function(){
@@ -377,8 +449,25 @@ sup{
       'background': '#FFFFFF',
       'color': 'black',
     });
+
+    $(this).find($('.show-click'))
+      .css({visibility:'hidden'});
+    $('#g1').find($('.show-click'))
+      .css({visibility:'visible'});
   });
 
-
+    $(".grouppaycard").hover(function(){
+      $(this).css({position:'relative'})
+      $(this).find($('svg')).css(
+        {width:'20%', color:'#fff'}
+      )
+      $(this).find($('.show-click'))
+        .removeClass('hidden')
+        .addClass('mouse-overlay');
+      },function(){
+        $(this).find($('.show-click'))
+          .removeClass('mouse-overlay')
+          .addClass('hidden');
+    });
 </script>
 {% endblock%}
