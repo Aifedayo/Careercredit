@@ -43,6 +43,7 @@ import { AlertModule } from './_alert/alert.module';
     SafePipe,
     VerificationComponent,
     CourseListComponent,
+
   ],
   providers: [AuthGuard,VerificationGuard],
   bootstrap: [CourseComponent]

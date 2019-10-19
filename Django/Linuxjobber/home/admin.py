@@ -1,23 +1,17 @@
-import datetime
-import os
-import subprocess
-from datetime import timedelta
-
-from django import forms
-from django.conf import settings
 from django.contrib import admin, messages
-from django.core.mail import send_mail
-
+from django import forms
 from . import models
-from .models import (FAQ, AwsCredential, BillingHistory, Campaign,
-                     CareerSwitchApplication, Certificates, Document,
-                     FreeAccountClick, FullTimePostion, Groupclass,
-                     GroupClassRegister, Internship, InternshipDetail, Job,
-                     Jobplacement, MainModel, Message, MessageGroup,
-                     NewsLetterSubscribers, PartTimeJob, PartTimePostion,
-                     Resume, RHCSAOrder, StripePayment, TryFreeRecord,
-                     Unsubscriber, UserLocation, UserOrder, UserPayment,
-                     wepeoples, werole, wetask, wetype, wework)
+from django.core.mail import send_mail
+from django.conf import settings
+from .models import FAQ, Job, RHCSAOrder, FreeAccountClick, Campaign, Message, Unsubscriber, Internship, \
+    InternshipDetail, MessageGroup, UserLocation, NewsLetterSubscribers, UserOrder, Document, MainModel, AwsCredential, \
+    Jobplacement, Groupclass, BillingHistory, GroupClassRegister, StripePayment, UserPayment, wepeoples, wetask, werole, \
+    wework, wetype, PartTimeJob, TryFreeRecord, FullTimePostion, PartTimePostion, Resume, CareerSwitchApplication, Certificates
+
+from datetime import timedelta
+import datetime
+import subprocess, os
+from django.conf import settings
 
 
 def get_send_task_mail_template(obj, task):
@@ -71,7 +65,6 @@ class weworkAdmin(admin.ModelAdmin):
             weprof.save(update_fields=["start_date", "graduation_date"])
         
         if not weprof.profile_picture:
-            # self.message_user(request, "Users image is not set yet", messages.INFO)
             messages.set_level(request, messages.ERROR)
             messages.error(
                 request, 
@@ -149,7 +142,7 @@ class FreeAccountClickAdmin(admin.ModelAdmin):
 
 class JobAdmin(admin.ModelAdmin):
     search_fields = ['email', 'position__job_title']
-    list_display = ['email', 'position','get_technology','interest']
+    list_display = ['email', 'position','get_technology','interest','application_date']
 
     def get_technology(self, obj):
         return obj.position.required_technology

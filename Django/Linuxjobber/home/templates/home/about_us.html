@@ -25,10 +25,6 @@ About Us | Linuxjobber
     background-repeat: no-repeat;
 
     }
-        .col-md-4{
-            padding: 0;
-            padding-right: 10px;
-        }
     #intro-section{
         padding-left: 152px;
         padding-top: 48%;
@@ -53,7 +49,6 @@ About Us | Linuxjobber
 
     }
     .section-content{
-        color: rgba(0, 0, 0, 0.5);
 
     }
     .connect-links{
@@ -74,7 +69,6 @@ About Us | Linuxjobber
 
     .about-image-card img{
         position: absolute;
-        object-fit: cover;
         top:-22px;
         margin-left: 20px;
         width: 415px;
@@ -141,6 +135,7 @@ border-radius: 10px 0 0 10px;
     }
     label > span{
         color:white;
+        opacity: 0.7;
         font-size: 18px;
         margin-bottom: 20px;
     }
@@ -186,55 +181,13 @@ border-radius: 10px 0 0 10px;
         font-size: 14px;
         width: 342px;
     }
+    {#Responsive styles#}
+@media screen and (max-width: 800px) {
 
 
-    @media screen and (max-width: 800px) {
-        section.about-banner{
-            min-height: 100%;
-        }
-        .icon{
-            margin-right: 30px;
-        }
-        .about-main{
-            margin-top: 100px;
-            padding: 10px;
-        }
-        #intro-section{
-            padding-left: 20px;
-        }
-        #intro-section h1{
-            width: 300px;
-        }
-        main{
-            padding: 10px;
-        }
-     .about-image-card img{
-        margin-top: 8.24px;
-        margin-left: 13px;
-        width: 282.42px;
-        height: 282.42px;
-    }
-     .card-border{
-        height:  252.55px;
-    }
-     .owner-info{
-         margin-top: 50px;
-     }
-     .team-section{
-         padding-top: 50px;
-     }
-     .team-member-role{
-         margin-bottom: 30px;
-     }
-     #goals ,#partners ,#contact-us{
-         margin-top: 50px;
-     }
-     #contact-us{
-         padding: 10px;
-     }
+
+
 }
-
-
     </style>
     <section class="header-color"></section>
     <section class="about-banner">
@@ -257,21 +210,21 @@ border-radius: 10px 0 0 10px;
                 Hence, we have decided to train more people to fill the numerous open positions.
             </p>
             <div class="connect-links">
-                <a href="https://twitter.com/linuxjobber" class="icon">
-                   <span> <i class="fa fa-twitter fa-2x"></i></span>
-                </a>
-                <a href="https://www.facebook.com/linuxjobber" class="icon">
-                   <span> <i class="fa fa-facebook fa-2x"></i></span>
-                </a>
-                <a href="https://www.instagram.com/linuxjobber_/" class="icon">
-                   <span> <i class="fa fa-instagram fa-2x"></i></span>
-                </a>
-                <a href="https://www.linkedin.com/company/linuxjobber" class="icon">
-                   <span> <i class="fa fa-linkedin fa-2x"></i></span>
-                </a>
-                <a href="https://plus.google.com/u/1/104352481273501435159" class="icon">
-                   <span> <i class="fa fa-google-plus fa-2x"></i></span>
-                </a>
+                <span class="icon">
+                    <i class="fa fa-twitter fa-2x"></i>
+                </span>
+                <span class="icon">
+                    <i class="fa fa-facebook fa-2x"></i>
+                </span>
+                <span class="icon">
+                    <i class="fa fa-instagram fa-2x"></i>
+                </span>
+                <span class="icon">
+                    <i class="fa fa-linkedin fa-2x"></i>
+                </span>
+                <span class="icon">
+                    <i class="fa fa-google-plus fa-2x"></i>
+                </span>
 
             </div>
         </div>
@@ -281,7 +234,7 @@ border-radius: 10px 0 0 10px;
         <div class="col-md-6">
             <div class="about-image-card">
                 <div class="card-border">
-                    <img src="{% static 'home/jo.png' %}" alt="">
+                    <img src="{% static 'home/images/lady.png' %}" alt="">
                 </div>
             </div>
         </div>
@@ -304,40 +257,11 @@ border-radius: 10px 0 0 10px;
     </div>
         <div class="team-section">
                <div class="row">
-                                               <div class="section-blue-line"></div>
-            <h1 class="section-header">
-                Meet the team
-            </h1>
-                   <div style="min-height:50px; "></div>
-
         <div class="col-md-4">
             <div class="team-member-card">
                 <div class="about-image-card">
                 <div class="card-border">
-                    <img src="{% static 'home/Louis Eyoma.JPEG' %}" alt="">
-                </div>
-                    <p class="text-center team-member-name"> Louis Eyoma</p>
-                    <p class="text-center team-member-role"> Project Manager</p>
-            </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="team-member-card">
-                <div class="about-image-card">
-                <div class="card-border">
-                    <img src="{% static 'home/Boluwatife Fasugba.jpeg' %}" alt="">
-                </div>
-                    <p class="text-center team-member-name"> Boluwatife Fasugba</p>
-                    <p class="text-center team-member-role"> Developer</p>
-            </div>
-            </div>
-        </div>
-                    <div class="col-md-4">
-            <div class="team-member-card">
-                <div class="about-image-card">
-                <div class="card-border">
-                    <img src="{% static 'home/Azeem Animashaun.jpg' %}" alt="">
+                    <img src="{% static 'home/images/lady.png' %}" alt="">
                 </div>
                     <p class="text-center team-member-name"> Azeem Animashaun</p>
                     <p class="text-center team-member-role"> Developer</p>
@@ -348,9 +272,9 @@ border-radius: 10px 0 0 10px;
             <div class="team-member-card">
                 <div class="about-image-card">
                 <div class="card-border">
-                    <img src="{% static 'home/Mary Okafor.jpg' %}" alt="">
+                    <img src="{% static 'home/images/lady.png' %}" alt="">
                 </div>
-                    <p class="text-center team-member-name"> Mary Okafor</p>
+                    <p class="text-center team-member-name"> Azeem Animashaun</p>
                     <p class="text-center team-member-role"> Developer</p>
             </div>
             </div>
@@ -359,10 +283,10 @@ border-radius: 10px 0 0 10px;
             <div class="team-member-card">
                 <div class="about-image-card">
                 <div class="card-border">
-                    <img src="{% static 'home/Pelumi Oluwaseyi.jpeg' %}" alt="">
+                    <img src="{% static 'home/images/lady.png' %}" alt="">
                 </div>
-                    <p class="text-center team-member-name"> Pelumi Oluwaseyi.</p>
-                    <p class="text-center team-member-role"> DevOps Engineer</p>
+                    <p class="text-center team-member-name"> Azeem Animashaun</p>
+                    <p class="text-center team-member-role"> Developer</p>
             </div>
             </div>
         </div>
@@ -370,9 +294,9 @@ border-radius: 10px 0 0 10px;
             <div class="team-member-card">
                 <div class="about-image-card">
                 <div class="card-border">
-                    <img src="{% static 'home/Ebuka Onyebinamma.jpeg' %}" alt="">
+                    <img src="{% static 'home/images/lady.png' %}" alt="">
                 </div>
-                    <p class="text-center team-member-name"> Ebuka Onyebinamma</p>
+                    <p class="text-center team-member-name"> Azeem Animashaun</p>
                     <p class="text-center team-member-role"> Developer</p>
             </div>
             </div>
@@ -415,27 +339,25 @@ border-radius: 10px 0 0 10px;
     </main>
             <div id="contact-us">
             <h2 class="text-center"> Contact Us</h2>
-                <form class="form" action="" method="post">
+                <form id="contactform" class="form" method="post">
                     {% csrf_token %}
-                    <div class="row">
-                                           {% if error != '' %}
-								<p class="text white">Your message was not sent please try again! </p>
+                    {% if error != '' %}
+								<p class="text">Your message was not sent please try again! </p>
 							{% endif %}
 							{% if success != '' %}
-								<p class="text white">Message sent!</p>
+								<p class="text blue">Message sent!</p>
 							{% endif %}
-                    </div>
                     <div class="row">
                         <div class="col-md-6">
                             <label for="full_name">
                                 <span>Full Name</span>
-                                <input required name="full_name" placeholder="Enter your full name" type="text" class="form-control">
+                                <input name="full_name" placeholder="Enter your full name" type="text" class="form-control">
                             </label>
                         </div>
                         <div class="col-md-6">
                             <label for="phonenumber">
                                 <span>Phone Number</span>
-                                <input required name="phonenumber" placeholder="Enter your phone number" type="text" class="form-control">
+                                <input name="phonenumber" placeholder="Enter your phone number" type="number" class="form-control">
                             </label>
                         </div>
                     </div>
@@ -443,13 +365,13 @@ border-radius: 10px 0 0 10px;
                         <div class="col-md-6">
                             <label for="email">
                                 <span>Email Address</span>
-                                <input required name="email" placeholder="Enter your email address" type="email" class="form-control">
+                                <input name="email" placeholder="Enter your email address" type="email" class="form-control">
                             </label>
                         </div>
                         <div class="col-md-6">
                             <label for="subject">
                                 <span>Subject</span>
-                                <input required name="subject" placeholder="Enter subject of the message" type="text" class="form-control">
+                                <input name="subject" placeholder="Enter subject of the message" type="text" class="form-control">
                             </label>
                         </div>
                     </div>
@@ -457,7 +379,7 @@ border-radius: 10px 0 0 10px;
                         <div class="col-md-12">
                             <label for="message">
                                 <span>Your Message</span>
-                                <textarea required name="message" type="text" class="form-control"></textarea>
+                                <textarea form="theforms" name="message" type="text" class="form-control"></textarea>
                             </label>
                         </div>
 
@@ -466,7 +388,7 @@ border-radius: 10px 0 0 10px;
                     <div class="row">
                         <p class="text-center">
                             <button class="btn homebanbut white">
-                                Send Message
+                                SUBMIT
                             </button>
                         </p>
                     </div>
@@ -478,7 +400,7 @@ border-radius: 10px 0 0 10px;
                 <p class="text white">
                     Suite 700, 6301 Ivy Lane, Greenbelt, Maryland
                 </p>
-               <p class="text blue">
+                <p class="text blue">
                     Email
                 </p>
                 <p class="text white">

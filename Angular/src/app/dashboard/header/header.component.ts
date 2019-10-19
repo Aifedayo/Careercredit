@@ -39,9 +39,6 @@ export class HeaderComponent implements OnInit {
   }
 
   public getImgUrl(prevUrl){
-    // return this.dataservice.profileImgIsSet()?
-    //    environment.API_URL + (this.dataservice.updatedImgUrl || prevUrl):
-    //    prevUrl;
     return this.dataservice.profileImgIsSet()?
        this.dataservice.updatedImgUrl || (environment.API_URL + prevUrl):
        prevUrl;

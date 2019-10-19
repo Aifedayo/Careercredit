@@ -382,7 +382,7 @@ def resumeupload(request):
 
 
 def aboutus(request):
-    return render(request, 'home/aboutus.html', {'courses' : get_courses(), 'tools' : get_tools()})
+    return redirect('home:contact_us')
 
  
 def policies(request):
@@ -917,7 +917,7 @@ def workexprofile(request):
         group.append(sta.task.id)
 
     listask = wetask.objects.filter(types=weps.types)
-    
+
     if request.method == "POST":
         if request.POST['type'] == '1':
             last_verify = request.FILES['verify']
@@ -958,7 +958,6 @@ def workexprofile(request):
             return redirect("home:workexprofile")
 
     if not weps.profile_picture:
-        # messages.set_level(request, messages.ERROR)
         messages.error(
             request, 
             "!!! Note Admin can't create your task with out your profile image set"
@@ -1292,9 +1291,10 @@ def group(request,pk):
                 groupreg = GroupClassRegister.objects.create(user= user, is_paid=0, amount=group_item.price, type_of_class = group_item.type_of_class)
                 groupreg.save()
 
-                new_user = authenticate(username=username,
-                                    password=password,
-                                    )
+                new_user = authenticate(
+                    username=username,
+                    password=password,
+                    )
                 login(request, new_user)
                 user = new_user
 
@@ -1303,6 +1303,7 @@ def group(request,pk):
             groupreg.save()
             login(request, user)
             if int(choice) == 1:
+                request.session['gclass'] = int(group_item)
                 return redirect("home:monthly_subscription")
             return redirect("home:group_pay",pk=group_item.pk)
     user_token=""
@@ -2065,8 +2066,8 @@ def group_list(request):
                 login(request, new_user)
 
                 if int(choice) == 1:
+                    request.session['gclass'] = int(group_item.id)
                     return redirect("home:monthly_subscription")
-
                 return redirect("home:group_pay",pk=group_item.id)
 
         if user:
@@ -2086,7 +2087,7 @@ def group_list(request):
                                                          amount=29, type_of_class = group_item.type_of_class)
             groupreg.save()
             if int(choice) == 1:
-                request.session['gclass'] = int(gclass)
+                request.session['gclass'] = int(group_item.id)
                 return redirect("home:monthly_subscription")
             return redirect("home:group_pay",pk=group_item.id)
 
@@ -2130,11 +2131,13 @@ def combined_class_pay(request):
         pass
     course = request.GET.get('course_picked',1)
     request.session['combined_class'] = course
-    PRICE = 399
+    PRICE = 798
     mode = "One Time Payment"
     PAY_FOR = "Combined Class"
-    DISCLMR = "Please note that you will be charged ${} upfront. However, you may cancel at any time within 14 days for a full refund. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ${} One Time".format(
-        PRICE, PRICE)
+    DISCLMR = "Please note that you will be charged ${price} upfront." \
+              " However, you may cancel at any time within 14 days for a full refund. " \
+              "By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ${price} One Time".format(
+        price = PRICE)
     stripeset = StripePayment.objects.all()
     stripe.api_key = stripeset[0].secretkey
 
@@ -2227,7 +2230,10 @@ def career_switch(request, position_id = None):
         if form.is_valid():
             jobform = form.save(commit=False)
             try:
-                CareerSwitchApplication.objects.get(email=request.POST['email'],new_career=jobform.new_career)
+                CareerSwitchApplication.objects.get(
+                    email = request.POST['email'],
+                    new_career = jobform.new_career
+                )
                 messages.success(request,
                                  "Sorry We could not submit your application as you have applied for this role before.")
                 return redirect("home:career_switch")

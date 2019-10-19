@@ -43,11 +43,13 @@ export class TopicChatComponent implements OnInit {
   // getting a reference to the items/messages within the list
   @ViewChildren(MatListItem, { read: ElementRef }) matListItems: QueryList<MatListItem>;
   private user$: Observable<UserModel>;
+  public environment = environment;
+  
   constructor(
     private http: HttpClient, 
     private apiService:ApiService,
     private alertService: AlertService,
-    private dataService: DataService
+    private dataService: DataService,
   ) {
 
     this.user$=this.apiService.getUserInfo();
