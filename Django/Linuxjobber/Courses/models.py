@@ -63,6 +63,7 @@ class CourseTopic(models.Model):
     def get_status(self):
         return self.topicstatus_set.filter()
 
+
 class TopicStat(models.Model):
     topic = models.ForeignKey(CourseTopic, on_delete = models.CASCADE)
     user = models.ForeignKey(CustomUser, on_delete = models.CASCADE)
@@ -71,7 +72,22 @@ class TopicStat(models.Model):
     last_watched = models.DateTimeField(default=timezone.now, null=False)
 
     def __str__(self):
-        return self.user.email    
+        return self.user.email
+
+
+    def videos_watched_is_true(self, count:int, user:CustomUser, course:Course) -> bool:
+        """
+        Used to validate if X number of videos has been watched
+        :param count:
+        :param user:
+        :param course:
+        :return: True|false
+        """
+        if count == None:
+            count = 4
+        if TopicStat.objects.filter(user=user,topic__course= course).count() >= count:
+            return True
+        return False
 
 class Note(models.Model):
     Topic = models.OneToOneField(CourseTopic, on_delete = models.CASCADE)
@@ -206,3 +222,21 @@ class CourseSection(models.Model):
     def __str__(self):
         return self.name
 
+class CourseFeedback(models.Model):
+    """
+        Linuxjobber feedback model.
+        User feedback on courses go here
+
+    """
+    course = models.ForeignKey(Course,on_delete=models.CASCADE)
+    user = models.ForeignKey(CustomUser,on_delete=models.CASCADE)
+    rating = models.IntegerField(default=0)
+    comment =  models.TextField()
+    created_on = models.DateTimeField(null=True,auto_now_add=True)
+    updated_on = models.DateTimeField(null=True,auto_now=True)
+
+    def __str__(self):
+        return " {course}: {rating} stars  ".format(
+            course = self.course.course_title,
+            rating = self.rating
+        )
