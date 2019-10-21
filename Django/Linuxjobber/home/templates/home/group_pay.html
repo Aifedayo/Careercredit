@@ -1,5 +1,8 @@
 {% extends 'home/base.html' %}
 {% load staticfiles%}
+{% block title %}
+  One Time Payment | Linuxjobber
+{% endblock %}
 {% block content %}
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
@@ -34,17 +37,18 @@
 								<div class="form-group required">
 									<div  class="col-md-4"></div>
 									<div class="col-md-8">
+										{% comment %} data-image="https://linuxjobber.com/images/linuxlogo.png" {% endcomment %}
 										<script id='stripejsfile'
-										src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-										data-key="{{stripe_key}}"
-										data-amount="{{ amount }}"
-										data-email="{{ request.user.email }}"
-										data-name="Linuxjobber"
-										data-description="Group Course Payment"
-										data-image="https://linuxjobber.com/images/linuxlogo.png"
-										data-locale="auto"
-										data-allow-remember-me="false"
-										data-currency="usd">
+											src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+											data-key="{{stripe_key}}"
+											data-amount="{{ amount }}"
+											data-email="{{ request.user.email }}"
+											data-name="Linuxjobber"
+											data-description="Group Course Payment"
+											data-image="{% static 'home/images/linuxlogo.png' %}"
+											data-locale="auto"
+											data-allow-remember-me="false"
+											data-currency="usd">
 										</script>
 									</div>
 								</div>	
