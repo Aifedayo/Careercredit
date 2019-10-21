@@ -221,7 +221,7 @@ rel="stylesheet">
   <button id="sclose-button" class="modal-close is-large" aria-label="close"></button>
 </div>
 
-{% if not course.feedback_required %}
+{% if course.feedback_required %}
 <div id="modal" class="modal is-active">
   <div class="modal-background"></div>
   <div class="modal-content">
