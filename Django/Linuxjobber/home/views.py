@@ -768,7 +768,7 @@ def devops_class(request):
 
 @login_required
 def devops_pay(request):
-    PRICE = 1695
+    PRICE = 1225
     mode = "One Time Payment"
     PAY_FOR = "DevOps Course"
     DISCLMR = "Please note that you will be charged ${} upfront. However, you may cancel at any time within 14 days for a full refund. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ${} One Time".format(PRICE,PRICE)
@@ -1852,7 +1852,7 @@ def tryfree(request, sub_plan='standardPlan'):
         # return HttpResponse(status=200)
 
     if sub_plan == 'awsPlan':
-            PRICE = 1695
+            PRICE = 1225
             mode = "One Time Payment"
             PAY_FOR = "AWS Full Training"
             DISCLMR = "Please note that you will be charged ${} upfront. However, you may cancel at any time within 14 days for a full refund. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ${} One Time".format(PRICE,PRICE)
@@ -1912,7 +1912,7 @@ def tryfree(request, sub_plan='standardPlan'):
             token = request.POST.get("stripeToken")
             try:
                 charge = stripe.Charge.create(
-                    amount = PRICE *100,
+                    amount = PRICE * 100,
                     currency = "usd",
                     source = token,
                     description = sub_plan.lower()
