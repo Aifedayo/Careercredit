@@ -2,7 +2,6 @@
 {% load staticfiles %}
 <html lang="en" >
 <head>
-    <link rel="stylesheet" type="text/css" href="../../static/Courses/css/selfstudy.css"/>
     <link
 href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
 rel="stylesheet">
@@ -210,8 +209,125 @@ rel="stylesheet">
         {% endblock %}
     </div>
   </section>
+
+<div id="successModal" class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <div class="notification is-success">
+  <button id="sclose" class="delete"></button>
+  Thanks! Your review has been successfully sent. <br>
+</div>
+  </div>
+  <button id="sclose-button" class="modal-close is-large" aria-label="close"></button>
+</div>
+
+{% if not course.feedback_required %}
+<div id="modal" class="modal is-active">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+      <div id="rating-form">
+
+          <div class="card">
+  <header class="card-header">
+    <p class="card-header-title ">
+      Leave a review
+
+    </p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <p>Tell us what you think about the {{ course.data }} course</p>
+        <div class="control">
+            <label for="comment" class="label">
+            Rating
+        </label>
+            <p class="has-text-centered">
+                <span class="rating-star">
+<input type="radio" name="rating" value="5"><span class=" fa star"></span>
+
+    <input type="radio" name="rating" value="4"><span class=" fa star"></span>
+
+    <input type="radio" name="rating" value="3"><span class=" fa star"></span>
+
+    <input type="radio" name="rating" value="2"><span class=" fa star"></span>
+
+    <input type="radio" name="rating" value="1"><span class="fa star"></span>
+</span>
+            </p>
+        </div>
+        <input name="course_id" hidden value="{{ course.data.pk }}" >
+        <div class="control">
+            <label for="comment" class="label">
+            Comment (Optional)
+            <textarea name="comment" id="" class="textarea" placeholder="Tell us what you think" value="" ></textarea>
+        </label>
+        </div>
+
+
+    </div>
+  </div>
+  <footer class="card-footer">
+      <div class="card-footer-item">
+          <button id="submit-button" type="submit" class="button is-success">Submit</button>
+      </div>
+      <div class="card-footer-item">
+          <a id="close"  class="button is-danger">Cancel</a>
+      </div>
+  </footer>
+</div>
+      </div>
+
+  </div>
+  <button id="close-button" class="modal-close is-large" aria-label="close"></button>
+</div>
+{% endif %}
 </main>
 
+<style>
+
+.rating-star {
+    direction: rtl;
+    font-size: 40px;
+    unicode-bidi: bidi-override;
+    display: inline-block;
+}
+.rating-star input {
+    opacity: 0;
+    position: relative;
+    left: -30px;
+    z-index: 2;
+    cursor: pointer;
+}
+.rating-star span.star:before {
+    color: #777777;
+
+}
+.rating-star span.star {
+    display: inline-block;
+    font-style: normal;
+    font-weight: normal;
+    position: relative;
+    z-index: 1;
+
+}
+.rating-star span {
+    margin-left: -30px;
+}
+.rating-star span.star:before {
+    color: #777777;
+    content:"\f006";
+}
+.rating-star input:hover + span.star:before, .rating-star input:hover + span.star ~ span.star:before, .rating-star input:checked + span.star:before, .rating-star input:checked + span.star ~ span.star:before {
+    color: #ffd100;
+    content:"\f005";
+}
+
+.selected-rating{
+    color: #ffd100;
+    font-weight: bold;
+    font-size: 42px;
+}
+</style>
 
 <script src="{% static 'Courses/js/jquery.min.js' %}"></script>
 
@@ -219,6 +335,73 @@ rel="stylesheet">
     {% block extra_scripts %}
 
     {% endblock %}
+<script>
+        var modal = $('#modal');
+        var successModal = $('#successModal');
+        var rating ;
+        var submitButton = $('#submit-button')
+
+        $(document).ready(function(){
+            $('#close-button,#close').click(function(){
+                closeModal();
+            });
+           submitButton.click(function(){
+                submitRating()
+            });
+            $('#sclose-button,#sclose').click(function () {
+                    successModal.removeClass('is-active')
+            });
+            function closeModal(){
+                modal.removeClass('is-active');
+
+            }
+            function openModal(){
+                modal.addClass('is-active')
+            }
+
+            var showSuccessMessage = function () {
+                closeModal();
+                successModal.addClass('is-active')
+
+            };
+
+            function submitRating(){
+                submitButton.addClass('is-disabled')
+                submitButton.addClass('is-loading')
+                $.ajax({
+                    type: 'POST',
+                    data:
+                        {
+                            'course_id':'{{ course.data.pk }}',
+                            'comment': $('[name="comment"]').val(),
+                            'rating': rating
+                        }
+                    ,
+                    url: '{% url "Courses:feedback-add" %}',
+                    success: function (result) {
+                        console.log(result);
+                        showSuccessMessage();
+                    },
+                    error: function (err) {
+                        console.log(err)
+                    }
+                });
+            }
+
+/** code by webdevtrick ( https://webdevtrick.com ) **/
+$('#rating-form').on('change','[name="rating"]',function(){
+    rating = $('[name="rating"]:checked').val();
+    console.log("Closing")
+    var comment = $('[name="comment"]').val();
+    var user_id = '{{ request.user.pk }}'
+
+
+
+});
+
+
+        });
+</script>
 
 
 
