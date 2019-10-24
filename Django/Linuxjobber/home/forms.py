@@ -34,7 +34,7 @@ class PartimeApplicationForm(forms.ModelForm):
 
 	class Meta:
 		model = PartTimeJob
-		fields = '__all__'
+		exclude = ['application_date']
 
 
 

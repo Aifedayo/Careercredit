@@ -28,6 +28,7 @@ urlpatterns = [
     path('<slug:course_name>/topic/<int:lab_no>/', views.self_topic_details, name='topic_details'),
     # Notes is referred via a div
     path('<slug:course_name>/topic/<int:lab_no>/notes', views.self_topic_details, name='Note'),
+    path('feedback/add', views.submit_course_feedback, name='feedback-add'),
 
 
 ]
