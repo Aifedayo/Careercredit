@@ -127,7 +127,7 @@ def generate_username(fullname):
 def signup(request):
     next_url = ""
     if request.GET.get('next',None):
-        next_url = request.GET.get('next')
+        next_url = request.GET.get('next',"")
         request.session['next_url'] = next_url
     next_url = request.session.get('next_url',"")
     if request.method == "POST":
@@ -652,7 +652,7 @@ def perform_registration_checks(user, next=""):
 def log_in(request):
     next = ''
     if request.method == "GET":
-        next = request.GET['next']
+        next = request.GET.get('next',"")
         request.session['next_url'] = next
     error_message = ''
     if request.user.is_authenticated:
