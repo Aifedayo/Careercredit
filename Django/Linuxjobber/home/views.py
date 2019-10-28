@@ -129,7 +129,7 @@ def signup(request):
     if request.GET.get('next',None):
         next_url = request.GET.get('next')
         request.session['next_url'] = next_url
-
+    next_url = request.session.get('next_url',"")
     if request.method == "POST":
         next_url = request.session.get('next_url',"")
         firstname = request.POST['fullname'].split()[0]
@@ -651,7 +651,7 @@ def perform_registration_checks(user, next=""):
 
 def log_in(request):
     next = ''
-    if request.GET:
+    if request.method == "GET":
         next = request.GET['next']
         request.session['next_url'] = next
     error_message = ''
