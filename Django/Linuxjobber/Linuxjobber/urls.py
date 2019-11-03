@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-
+from home.views import log_in
 urlpatterns = [
     path('', include('home.urls')),
     path('admin/', admin.site.urls),
@@ -27,7 +27,9 @@ urlpatterns = [
     path('projects/', include("Projects.urls")),
     path('tools/', include("ToolsApp.urls")),
     path('classroom/', include("classroom.urls")),
+path('accounts/login/', log_in, name="login" ),
     path('accounts/', include('django.contrib.auth.urls')),
+
     path('sso_api/', include('sso_api.urls')),
 
 
