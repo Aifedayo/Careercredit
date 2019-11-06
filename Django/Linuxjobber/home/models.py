@@ -471,3 +471,45 @@ class Certificates(models.Model):
 
     def __str__(self):
         return self.graduate_name
+
+
+class EmailMessageType(models.Model):
+    pass
+
+
+
+class EmailMessageLog(models.Model):
+    message_header = models.CharField(max_length=255,default="",blank=True) # Staff name (e.g Joseph)
+    to_address = models.CharField(max_length=255,default="",blank=True)
+    subject = models.CharField(max_length=500,default="",blank=True)
+    content = models.TextField(default="",blank=True)
+    has_sent = models.BooleanField(default=False)
+    message_type = models.ForeignKey(EmailMessageType,null=True,on_delete=models.DO_NOTHING)
+    error_message =  models.TextField(blank=False,null=True)
+    timestamp = models.DateTimeField(default=timezone.now,null=True)
+
+    def set_as_sent(self):
+        self.has_sent=True
+        self.save()
+
+    def set_as_fail(self, error=""):
+        self.error_message = error
+        self.has_sent=False
+        self.save()
+
+    def send_mail(self):
+        from .mail_service import send_mail_with_client
+        # Defining a default
+        self.sender_name = "Joseph" if self.sender_name == "" else self.sender_name
+        try:
+            send_mail_with_client(self)
+            self.set_as_sent()
+        except Exception as error:
+            self.set_as_fail(error.__str__())
+
+
+
+
+
+
+
