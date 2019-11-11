@@ -542,8 +542,14 @@ class EmailMessageLog(models.Model):
             header_format = self.message_type.header_format
         else:
             try:
-                header_format = EmailMessageType.objects.get(is_default=True).header_format
-            except:
+                if not self.header_text:
+                    self.message_type = EmailMessageType.objects.get(is_default=True)
+                    header_format = EmailMessageType.objects.get(is_default=True).header_format
+                else:
+                    self.message_type = EmailMessageType.objects.get(type='custom')
+                    header_format = self.message_type.header_format
+            except Exception as e:
+                print(e)
                 header_format = "{}"
 
 

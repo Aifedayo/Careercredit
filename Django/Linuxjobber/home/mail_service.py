@@ -18,6 +18,8 @@ class LinuxjobberMailer:
         # self.type = type,
         # self.content = message
 
+
+
         self.message_item = EmailMessageLog.objects.create(
             subject = subject,
             to_address = to_address,
@@ -27,7 +29,15 @@ class LinuxjobberMailer:
         )
 
     def send_mail(self):
-        send_mail_with_client(self.message_item)
+        # if not self.message_item.header_text:
+        #
+        #
+        # if self.message_item.message_type:
+        #     self.message_item.header_text = self.message_item.message_type.header_format.format(
+        #         self.message_item.header_text
+        #     )
+
+        self.message_item.send_mail()
 
 
 
