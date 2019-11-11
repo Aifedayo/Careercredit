@@ -221,7 +221,7 @@ rel="stylesheet">
   <button id="sclose-button" class="modal-close is-large" aria-label="close"></button>
 </div>
 
-{% if course.feedback_required %}
+{% if  course.feedback_required %}
 <div id="modal" class="modal is-active">
   <div class="modal-background"></div>
   <div class="modal-content">
@@ -339,9 +339,14 @@ rel="stylesheet">
         var modal = $('#modal');
         var successModal = $('#successModal');
         var rating ;
-        var submitButton = $('#submit-button')
+        var submitButton = $('#submit-button');
+
+
 
         $(document).ready(function(){
+
+            submitButton.addClass('is-static')
+
             $('#close-button,#close').click(function(){
                 closeModal();
             });
@@ -391,10 +396,9 @@ rel="stylesheet">
 /** code by webdevtrick ( https://webdevtrick.com ) **/
 $('#rating-form').on('change','[name="rating"]',function(){
     rating = $('[name="rating"]:checked').val();
-    console.log("Closing")
     var comment = $('[name="comment"]').val();
     var user_id = '{{ request.user.pk }}'
-
+    submitButton.removeClass('is-static')
 
 
 });
