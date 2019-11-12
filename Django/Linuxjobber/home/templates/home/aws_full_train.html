@@ -49,8 +49,7 @@ AWS Full Training | Linuxjobber
         }
 
         .faqimage{
-            -webkit-transform:rotate(90deg);
-            -webkit-transition-duration: 1s;
+            transform: rotate(90deg);
         }
 
         .fqimg{
@@ -64,7 +63,7 @@ AWS Full Training | Linuxjobber
     <div class="container">
         <p class="aws_fullbanp">Full Training Course</p>
         <h1 class="aws_fullbanh1">AWS: Amazon Web Services</h1>
-        <span class="awsrate"><img style="padding-top: 10px;" src="{% static 'home/images/rating.png' %}">  <span class="aws_fullbanp-2">2307 Ratings</span></span><br><br>
+        <span class="awsrate"><img class="awsrateimg" style="padding-top: 10px;" src="{% static 'home/images/rating.png' %}">  <span class="aws_fullbanp-2">2307 Ratings</span></span><br><br>
         <p class="aws_fullbanp1">Learn the essential skillset required to build a cost-effective, scalable, and<br> reliable infrastructure on the AWS platform.</p><br>
 
         <a href="{% url 'home:tryfree' 'awsPlan' %}" class="btn awsnewbut">Enroll Now</a>
@@ -83,36 +82,36 @@ AWS Full Training | Linuxjobber
                 <div class="row">
                         <div class="col-md-6">
                             <div class="row">
-                                <div class="col-md-1"><img style="margin-right: 10px; margin-left: -15px;" src="{% static 'home/images/sucaws.png' %}"> </div>
-                                <div class="col-md-11"><p class="awspdef awslista">How to sign up to Amazon Web Services (AWS)</p></div>
+                                <div class="col-md-1"><img style="margin-right: 10px; margin-left: -30px;" src="{% static 'home/images/sucaws.png' %}"> </div>
+                                <div class="col-md-11"><p class="awspdef" style="margin-right: 10px; margin-left: -30px;">How to sign up to Amazon Web Services (AWS)</p></div>
                             </div>
                             <br>
                             <div class="row">
-                                <div class="col-md-1"><img style="margin-right: 10px; margin-left: -15px;" src="{% static 'home/images/sucaws.png' %}"> </div>
-                                <div class="col-md-11"><p class="awspdef awslista">How to use AWS compute, storage, database, and security services via the AWS Console</p></div>
+                                <div class="col-md-1"><img style="margin-right: 10px; margin-left: -30px;" src="{% static 'home/images/sucaws.png' %}"> </div>
+                                <div class="col-md-11"><p class="awspdef" style="margin-right: 10px; margin-left: -30px;">How to use AWS compute, storage, database, and security services via the AWS Console</p></div>
                             </div>
                             <br>
                             <div class="row">
-                                <div class="col-md-1"><img style="margin-right: 10px; margin-left: -15px;" src="{% static 'home/images/sucaws.png' %}"> </div>
-                                <div class="col-md-11"><p class="awspdef awslista">How to make an applications durable, distributed, and highly available</p></div>
+                                <div class="col-md-1"><img style="margin-right: 10px; margin-left: -30px;" src="{% static 'home/images/sucaws.png' %}"> </div>
+                                <div class="col-md-11"><p class="awspdef" style="margin-right: 10px; margin-left: -30px;">How to make an applications durable, distributed, and highly available</p></div>
                             </div>
                             
                             </div>
                         <div class="col-md-6">
                                 <div class="row">
-                                        <div class="col-md-1"><img style="margin-right: 10px; margin-left: -15px;" src="{% static 'home/images/sucaws.png' %}"> </div>
-                                        <div class="col-md-11"><p class="awspdef awslista">AWS fundamental concepts including Regions, Availability Zones, and Virtual Private Clouds (VPCs)</p></div>
+                                        <div class="col-md-1"><img style="margin-right: 10px; margin-left: -30px;" src="{% static 'home/images/sucaws.png' %}"> </div>
+                                        <div class="col-md-11"><p class="awspdef" style="margin-right: 10px; margin-left: -30px;">AWS fundamental concepts including Regions, Availability Zones, and Virtual Private Clouds (VPCs)</p></div>
                                     </div>
                                     <br>
                                     <div class="row">
-                                        <div class="col-md-1"><img style="margin-right: 10px; margin-left: -15px;" src="{% static 'home/images/sucaws.png' %}"> </div>
-                                        <div class="col-md-11"><p class="awspdef awslista">How to build a simple AWS serverless system, Windows and Linux servers
+                                        <div class="col-md-1"><img style="margin-right: 10px; margin-left: -30px;" src="{% static 'home/images/sucaws.png' %}"> </div>
+                                        <div class="col-md-11"><p class="awspdef" style="margin-right: 10px; margin-left: -30px;">How to build a simple AWS serverless system, Windows and Linux servers
                                                 and create a Wordpress website</p></div>
                                     </div>
                                     <br>
                                     <div class="row">
-                                        <div class="col-md-1"><img style="margin-right: 10px; margin-left: -15px;" src="{% static 'home/images/sucaws.png' %}"> </div>
-                                        <div class="col-md-11"><p class="awspdef awslista">How to audit and monitor applications using services such as Amazon CloudWatch, Amazon GuardDuty and AWS Security Hub</p></div>
+                                        <div class="col-md-1"><img style="margin-right: 10px; margin-left: -30px;" src="{% static 'home/images/sucaws.png' %}"> </div>
+                                        <div class="col-md-11"><p class="awspdef" style="margin-right: 10px; margin-left: -30px;">How to audit and monitor applications using services such as Amazon CloudWatch, Amazon GuardDuty and AWS Security Hub</p></div>
                                     </div>
                                     
                                     </div>
@@ -127,82 +126,82 @@ AWS Full Training | Linuxjobber
                 <br><br>
                 <p class="awsleftp">Course Outline</p>
                 <div class="row">
-                    <div class="col-md-1"><img src="{% static 'home/images/playbut.png' %}"></div>
-                    <div class="col-md-10"><p class="awspdef awslista">Overview of Special AWS Services</p></div>
-                    <div class="col-md-1"><p class="awspdef awslista">3 min</p></div>
+                    <div class="col-md-1"><img  style=" margin-left: -15px;" src="{% static 'home/images/playbut.png' %}"></div>
+                    <div class="col-md-10"><p class="awspdef awslista" style=" margin-left: -40px;">Overview of Special AWS Services</p></div>
+                    <div class="col-md-1"><p class="awspdef awslista" style=" margin-left: -30px;">3 min</p></div>
                 </div><br>
                 <div class="row">
-                        <div class="col-md-1"><img src="{% static 'home/images/playbut.png' %}"></div>
-                        <div class="col-md-10"><p class="awspdef awslista">
+                        <div class="col-md-1"><img style=" margin-left: -15px;" src="{% static 'home/images/playbut.png' %}"></div>
+                        <div class="col-md-10"><p class="awspdef awslista"  style=" margin-left: -40px;">
                                 Getting Started with S3</p></div>
-                        <div class="col-md-1"><p class="awspdef awslista">8 min</p></div>
+                        <div class="col-md-1"><p class="awspdef awslista"  style=" margin-left: -30px;">8 min</p></div>
                     </div>
                 <br>
                 <div class="row">
-                        <div class="col-md-1"><img src="{% static 'home/images/playbut.png' %}"></div>
-                        <div class="col-md-10"><p class="awspdef awslista">Hosting Static Websites with Amazon S3</p></div>
-                        <div class="col-md-1"><p class="awspdef awslista">9 min</p></div>
+                        <div class="col-md-1"><img style=" margin-left: -15px;" src="{% static 'home/images/playbut.png' %}"></div>
+                        <div class="col-md-10"><p class="awspdef awslista"  style=" margin-left: -40px;">Hosting Static Websites with Amazon S3</p></div>
+                        <div class="col-md-1"><p class="awspdef awslista"  style=" margin-left: -30px;">9 min</p></div>
                     </div><br>
                 <div class="row">
-                        <div class="col-md-1"><img src="{% static 'home/images/playbut.png' %}"></div>
-                        <div class="col-md-10"><p class="awspdef awslista">Enabling Cross-Region Replication on S3 Bucket</p></div>
-                        <div class="col-md-1"><p class="awspdef awslista">7 min</p></div>
+                        <div class="col-md-1"><img style=" margin-left: -15px;" src="{% static 'home/images/playbut.png' %}"></div>
+                        <div class="col-md-10"><p class="awspdef awslista"  style=" margin-left: -40px;">Enabling Cross-Region Replication on S3 Bucket</p></div>
+                        <div class="col-md-1"><p class="awspdef awslista"  style=" margin-left: -30px;">7 min</p></div>
                     </div><br>
                 <div class="row">
-                        <div class="col-md-1"><img src="{% static 'home/images/playbut.png' %}"></div>
-                        <div class="col-md-10"><p class="awspdef awslista">Encryption and Managing Object Lifecycle</p></div>
-                        <div class="col-md-1"><p class="awspdef awslista">9 min</p></div>
+                        <div class="col-md-1"><img style=" margin-left: -15px;" src="{% static 'home/images/playbut.png' %}"></div>
+                        <div class="col-md-10"><p class="awspdef awslista"  style=" margin-left: -40px;">Encryption and Managing Object Lifecycle</p></div>
+                        <div class="col-md-1"><p class="awspdef awslista"  style=" margin-left: -30px;">9 min</p></div>
                     </div><br>
                 <div class="row">
-                        <div class="col-md-1"><img src="{% static 'home/images/playbut.png' %}"></div>
-                        <div class="col-md-10"><p class="awspdef awslista">Introduction to EC2</p></div>
-                        <div class="col-md-1"><p class="awspdef awslista">9 min</p></div>
+                        <div class="col-md-1"><img style=" margin-left: -15px;" src="{% static 'home/images/playbut.png' %}"></div>
+                        <div class="col-md-10"><p class="awspdef awslista"  style=" margin-left: -40px;">Introduction to EC2</p></div>
+                        <div class="col-md-1"><p class="awspdef awslista"  style=" margin-left: -30px;">9 min</p></div>
                     </div><br>
                 <div class="row">
-                        <div class="col-md-1"><img src="{% static 'home/images/playbut.png' %}"></div>
-                        <div class="col-md-10"><p class="awspdef awslista">Security groups on EC2</p></div>
-                        <div class="col-md-1"><p class="awspdef awslista">9 min</p></div>
+                        <div class="col-md-1"><img style=" margin-left: -15px;" src="{% static 'home/images/playbut.png' %}"></div>
+                        <div class="col-md-10"><p class="awspdef awslista"  style=" margin-left: -40px;">Security groups on EC2</p></div>
+                        <div class="col-md-1"><p class="awspdef awslista"  style=" margin-left: -30px;">9 min</p></div>
                     </div><br>
                 <div class="row">
-                        <div class="col-md-1"><img src="{% static 'home/images/playbut.png' %}"></div>
-                        <div class="col-md-10"><p class="awspdef awslista">EBS Volumes, Snapshots and Encryption</p></div>
-                        <div class="col-md-1"><p class="awspdef awslista">9 min</p></div>
+                        <div class="col-md-1"><img style=" margin-left: -15px;" src="{% static 'home/images/playbut.png' %}"></div>
+                        <div class="col-md-10"><p class="awspdef awslista"  style=" margin-left: -40px;">EBS Volumes, Snapshots and Encryption</p></div>
+                        <div class="col-md-1"><p class="awspdef awslista"  style=" margin-left: -30px;">9 min</p></div>
                     </div><br>
                 <div class="row">
-                        <div class="col-md-1"><img src="{% static 'home/images/playbut.png' %}"></div>
-                        <div class="col-md-10"><p class="awspdef awslista">Cloudwatch, IAM Roles, and AWS CLI</p></div>
-                        <div class="col-md-1"><p class="awspdef awslista">9 min</p></div>
+                        <div class="col-md-1"><img style=" margin-left: -15px;" src="{% static 'home/images/playbut.png' %}"></div>
+                        <div class="col-md-10"><p class="awspdef awslista"  style=" margin-left: -40px;">Cloudwatch, IAM Roles, and AWS CLI</p></div>
+                        <div class="col-md-1"><p class="awspdef awslista"  style=" margin-left: -30px;">9 min</p></div>
                     </div><br>
                 <div class="row">
-                        <div class="col-md-1"><img src="{% static 'home/images/playbut.png' %}"></div>
-                        <div class="col-md-10"><p class="awspdef awslista">BOOTSTRAP SCRIPTS, META-DATA, and Elastic File System</p></div>
-                        <div class="col-md-1"><p class="awspdef awslista">6 min</p></div>
+                        <div class="col-md-1"><img style=" margin-left: -15px;" src="{% static 'home/images/playbut.png' %}"></div>
+                        <div class="col-md-10"><p class="awspdef awslista"  style=" margin-left: -40px;">BOOTSTRAP SCRIPTS, META-DATA, and Elastic File System</p></div>
+                        <div class="col-md-1"><p class="awspdef awslista"  style=" margin-left: -30px;">6 min</p></div>
                     </div><br>
                 <div class="row">
-                        <div class="col-md-1"><img src="{% static 'home/images/playbut.png' %}"></div>
-                        <div class="col-md-10"><p class="awspdef awslista">Getting Started with Amazon Virtual Private Cloud (VPC)</p></div>
-                        <div class="col-md-1"><p class="awspdef awslista">8 min</p></div>
+                        <div class="col-md-1"><img style=" margin-left: -15px;" src="{% static 'home/images/playbut.png' %}"></div>
+                        <div class="col-md-10"><p class="awspdef awslista"  style=" margin-left: -40px;">Getting Started with Amazon Virtual Private Cloud (VPC)</p></div>
+                        <div class="col-md-1"><p class="awspdef awslista"  style=" margin-left: -30px;">8 min</p></div>
                     </div><br>
                 <div class="row">
-                        <div class="col-md-1"><img src="{% static 'home/images/playbut.png' %}"></div>
-                        <div class="col-md-10"><p class="awspdef awslista">Creating and Setting Up a Virtual Private Cloud</p></div>
-                        <div class="col-md-1"><p class="awspdef awslista">9 min</p></div>
+                        <div class="col-md-1"><img style=" margin-left: -15px;" src="{% static 'home/images/playbut.png' %}"></div>
+                        <div class="col-md-10"><p class="awspdef awslista"  style=" margin-left: -40px;">Creating and Setting Up a Virtual Private Cloud</p></div>
+                        <div class="col-md-1"><p class="awspdef awslista"  style=" margin-left: -30px;">9 min</p></div>
                     </div><br>
                 <div class="row">
-                        <div class="col-md-1"><img src="{% static 'home/images/playbut.png' %}"></div>
-                        <div class="col-md-10"><p class="awspdef awslista">Network Access Control and Secure External Communications in VPCs</p></div>
-                        <div class="col-md-1"><p class="awspdef awslista">9 min</p></div>
+                        <div class="col-md-1"><img style=" margin-left: -15px;" src="{% static 'home/images/playbut.png' %}"></div>
+                        <div class="col-md-10"><p class="awspdef awslista"  style=" margin-left: -40px;">Network Access Control and Secure External Communications in VPCs</p></div>
+                        <div class="col-md-1"><p class="awspdef awslista"  style=" margin-left: -30px;">9 min</p></div>
                     </div><br>
                 <div class="row">
-                        <div class="col-md-1"><img src="{% static 'home/images/playbut.png' %}"></div>
-                        <div class="col-md-10"><p class="awspdef awslista">Launching Instances in a VPC and Enabling Port Communications between Instances</p></div>
-                        <div class="col-md-1"><p class="awspdef awslista">7 min</p></div>
+                        <div class="col-md-1"><img style=" margin-left: -15px;" src="{% static 'home/images/playbut.png' %}"></div>
+                        <div class="col-md-10"><p class="awspdef awslista"  style=" margin-left: -40px;">Launching Instances in a VPC and Enabling Port Communications between Instances</p></div>
+                        <div class="col-md-1"><p class="awspdef awslista"  style=" margin-left: -30px;">7 min</p></div>
                     </div><br><br>
                 <p class="awsleftp">Past Student Certificate</p>
                 <div class="row">
-                    <div class="col-md-4"><img src="{% static 'home/images/ayocert1.png' %}"></div>
-                    <div class="col-md-4"><img src="{% static 'home/images/ayocert2.png' %}"></div>
-                    <div class="col-md-4"><img src="{% static 'home/images/ayocert3.png' %}"></div>
+                    <div class="col-md-4"><img  style=" margin-left: -15px;" src="{% static 'home/images/ayocert1.png' %}"></div>
+                    <div class="col-md-4"><img  style=" margin-left: -15px;" src="{% static 'home/images/ayocert2.png' %}"></div>
+                    <div class="col-md-4"><img  style=" margin-left: -5px;" src="{% static 'home/images/ayocert3.png' %}"></div>
                 </div>
 
                 <br><br>

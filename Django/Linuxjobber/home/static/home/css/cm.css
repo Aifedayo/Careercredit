@@ -17,13 +17,14 @@
 
 .bgimagenew {
     max-width:100%;
-   height:340px;
+   height:300px;
     background: url('../images/combina.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size:cover;
     
 }  
+
 
 .bgimage a:hover{
     text-decoration:none;
@@ -45,39 +46,40 @@
 
 .bgimagenew h1{color:white;
     font-style: normal;
-    font-weight: 500;
-    font-size: 80px;
-    line-height: 70px;
+    font-weight: 700;
+    font-size: 55px;
+    line-height: 50px;
         text-align: left;
-        margin-bottom:10px;
+        margin-bottom:30px;
       }
 
 
       .bgimagenew p{color:white;
         font-style: normal;
         font-weight: 500;
-        font-size: 24px;
+        font-size: 20px;
               text-align: right;
         line-height: 28px;
           }
 .bgimagenewbut{
     background: #FFFFFF;
     border-radius: 5px;
-    font-size: 18px;
+    font-size: 16px;
     color: #1B539E;
-    min-width: 295px;
-    min-height: 66px;
-    padding-top: 20px;
+    min-width: 230px;
+    min-height: 50px;
+    padding-top: 12px;
+    font-weight: 600;
 }
 
 .combi-right{
-    margin-top: 40px;
+    margin-top: 50px;
     text-align: right;
     padding-right: 0px;
 }
 
 .combisecleft{
-    padding-top: 50px;
+    padding-top: 40px;
 }
 
 .combplus{
@@ -92,8 +94,8 @@
     padding-bottom: 40px;
 }
 .combcert1{
-    max-width: 370px;
-    max-height: 180px;
+    max-width: 380px;
+    max-height: 190px;
     margin-bottom: 30px;
 }
 
@@ -101,21 +103,25 @@
     color: #4975B1;
     font-size: 24px;
     font-weight: 600;
-    padding-bottom: 50px;
+    padding-bottom: 30px;
 }
 
 .com2{
     margin-bottom: 30px;
 }
 .combinedh1{
+    font-size: 24px;
+    font-weight: 600;
     color: #4975B1;
 }
 .combinedp1{
-    font-size: 18px;
+    font-size: 16px;
     color: #808080;
-    font-weight: bolder;
+    font-weight: 600;
 }
 .combinedp1span{
+    font-size: 16px;
+    font-weight: 600;
     color: #76AADB;
 }
 .combinedsec2{
@@ -126,9 +132,11 @@
     padding-left: 0px;
 }
 .combinedp2{
-    font-size: 18px;
+    font-size: 16px;
+    font-weight: 600;
     color: rgba(51, 51, 51, 0.8);
 }
+
 .combinedsec2right{
     text-align: right;
 }
@@ -136,20 +144,22 @@
     color: #FFFFFF;
     background: #242525;
     border-radius: 5px;
-    margin-top: 30px;
-    min-width: 505px;
+    margin-top: 25px;
+    min-width: 480px;
     font-size: 14px;
     border-color: #242525;
+    font-weight: 600;
 }
 
 .btn-blackbim2{
     color: #FFFFFF;
     background: #242525;
     border-radius: 5px;
-    margin-top: 30px;
-    min-width: 505px;
+    margin-top: 25px;
+    min-width: 480px;
     font-size: 14px;
     border-color: #242525;
+    font-weight: 600;
 }
 .combi-but{
     margin-top: 10px; 
@@ -162,6 +172,7 @@
     padding: 20px;
     margin-bottom: 30px;
     cursor: pointer; 
+    width: 250px;
 }
 
 .comcor1{
@@ -170,7 +181,7 @@
 }
 
 .comprice{
-    font-size: 72px;
+    font-size: 60px;
 }
 
 .comprice1{
@@ -385,14 +396,14 @@ height: 560px;
     }
 
     .icon2 ul > li{
-        font-size: 14px;
+        font-size: 12px;
         padding-bottom: 3px;
         margin-right: 5px;
         font-weight: 200;
-        color: rgba(0, 0, 0, 0.8);
+        color: #808080;
     }
     .icon3 ul > li:before {
-
+        color: #808080;
    content: '';
         border-radius: 5px;
    display: inline-block;
@@ -404,11 +415,11 @@ height: 560px;
     }
 
     .icon3 ul > li{
-        font-size: 14px;
+        font-size: 12px;
         padding-bottom: 3px;
         margin-left: 5px;
         font-weight: 200;
-        color: rgba(0, 0, 0, 0.8);
+        color: #808080;
     }
     .icon2 ul > li:before {
 
