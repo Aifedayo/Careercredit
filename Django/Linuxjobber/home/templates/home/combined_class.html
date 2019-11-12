@@ -12,216 +12,280 @@ Combined Class | Linuxjobber
 {% load staticfiles %}
 {% block content %}
     <style>
-
+        .combi{
+          text-align: left;
+        }
 
     </style>
 
 
 <div class="combinedblueban"></div>
-    <div class="bgimage">
-        <div class="overlay-color">
-                <div class="col-md-8 col-md-offset-2">
-                    <h1>Combined Training</h1>
-                    <p>Pay once for "Technical Training" and <br> "Work Experience"</p>
-                       <div style="text-align: center; padding-top: 20px">
-                           {% if request.user.is_authenticated %}
-                           <a id="bgbtn" class="bgbtn">Let's begin </a>
-                           {% else %}
-                           <a class="bgbtn" href="{% url 'home:login' %}">Let's begin </a>
-
-                           {% endif %}&nbsp;&nbsp;
-                           <span class="cir-white"></span>&nbsp;&nbsp;
-                           <a class="lmbtn">Learn more</a>
-                        </div>
-                    </div>
-
-        </div>
-      </div>
-
-      <div class="container text-2" id="info">
-        <h1>Combined Training</h1>
-         <p>offers both Technical Training and Work Experience</p>
-      </div>
-          <div class="slanteda">
-                <div class="row">
-                      <div class="col-md-6">
-                          <div class="c-img">
-                              <img class="c-img" src="{% static 'home/images/Group37.png' %}">
-                          </div>
-
-                </div>
-                                    <div class="v2 hidden-sm hidden-xs"></div>
-
-                <div class="col-md-6">
-                      <div class="icon2">
-                          <h1>Technical Training</h1>
-                         <b><span class="dark"> Choose between Linux, AWS and DevOps to learn </span> </b>
-                          <p class="courses"><strong>These courses cover everything from</strong></p>
-                          <ul style="padding-left: 0">
-                                   <li >  Command-line</li>
-                                   <li>  Shell scripting to setting up basic servers</li>
-                                   <li>  Touches the core areas of Linux Administration</li>
-                                   <li>  Amazon services such as computing, storage, networking, database,
-                                       analytics,application services, deployment, management, mobile, developer tools and tools for Internet of Things.</li>
-                          </ul>
-                           {% if request.user.is_authenticated %}
-                           <li><a class="btn btn-black apbtn">Apply Now</a></li>
-                           {% else %}
-                           <li><a class="btn btn-black" href="{% url 'home:login' %}">Apply Now</a></li>
-
-                           {% endif %}
-
-                          <ul>
-
-                          </ul>
+    <div class="bgimagenew">
+        <div class="bgtopper container">
+            <div class="row">
+                <div class="col-md-4">
+                  <div class="combi combim">
+                      <h1>Combined Training</h1>
+                      <div class="combi-but">
+                         {% if request.user.is_authenticated %}
+                          <a class="btn bgimagenewbut " id="bgbtn">Apply Now</a>
+                          {%else%}
+                          <a class="btn bgimagenewbut " href="{% url 'home:login' %}?next=/combined_class/">Apply Now</a>
+                          {%endif%}
                       </div>
-          </div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="row line2">
-
-            <div class="col-md-6">
-                  <div class="icon2">
-                      <h1>Get Work Experience</h1>
-                      <p>The Work Experience programme which is a 3 month program. You will engage with our team as if they work
-                          for our company and by so doing, understand the development process and work culture.  </p>
-                      <br>
-
-                      <ul style="font-size: 14px;">
-                             <li>  The programme is 100% online and our meetings are Mondays - Fridays, 20 minutes each day.</li>
-                             <li> You will be assigned a live instructor</li>
-  <li>  You will meet with your instructor 3 times per week</li>
-  <li>  Each session is 1 hr long</li>
-  <li>  You have 24/7 access to labs and hands-on practice materials</li>
-  <li>  Duration of the Linux training is 3 months</li>
-  <li>  You are automatically enrolled in the Work Experience program</li>
-                      </ul>
-                                                <ul>
-                           {% if request.user.is_authenticated %}
-                           <p><a class="btn btn-black apbtn">Apply Now</a></p>
-                           {% else %}
-                           <p><a class="btn btn-black" href="{% url 'home:login' %}">Apply Now</a></p>
-
-                           {% endif %}
-
-                          </ul>
-
                   </div>
+                    
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <div class="combisecleft">
+                    <p>Acquire both “Technical Training” <br>and “Work Experience” at a go!</p>
+                    <div class="combi-right">
+                      {% if request.user.is_authenticated %}
+                      <a class="btn bgimagenewbut " id="bgbtn2">Apply Now</a>
+                      {%else%}
+                      <a class="btn bgimagenewbut " href="{% url 'home:login' %}?next=/combined_class/">Apply Now</a>
+                      {%endif%}
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
       </div>
-                <div class="v2 hidden-sm hidden-xs"></div>
-                  <div class="col-md-6">
-                      <div class="c-img">
-                          <img src="{% static 'home/images/Group.png' %}">
-                      </div>
-
+    <div class="container">
+      <div class="com1">
+            <div class="text-center">
+                <h1 class="combinedh1">What is Combined Training?</h1>
+                <p class="combinedp1">Basically, this program allows you obtain two trainings, “<span class="combinedp1span">Technical Training</span>” and “<span class="combinedp1span">Work Experience</span>” under one package.</p>
             </div>
-
-
-        </div><br>
-        <div class="clearfix"></div>
-
-              {% if request.user.is_authenticated %}
-             <div class="row jar" id="payment">
-            <h3 class="text-center"><b>CHOOSE A COURSE</b></h3>
-            <div class="col-md-10 col-md-offset-1 col-xs-offset-3">
-            <div class="com col-md-4 col-sm-8 col-xs-6">
-                <div class="card" id="type1">
-                        <h4> Linux</h4>
-                        <p class="large"><span class="sup">$</span>798</p>
-                        <p class="lead">+ 14% of 2 years salary when you get a tech job</p>
-
-                        <hr>
-           <table class="cmb-table">
-
-                           <tr height="40">
-                             <td style="text-align: left" width="95%">Technical training </td>
-                           <td> $399 </td>
-                           </tr>
-                           <tr>
-                             <td style="text-align: left;">Work Experience</td>
-                             <td> $399 </td>
-                           </tr>
-                         </table>
+    
+            <div class="row combinedsec2">
+                <div class="col-md-5">
+                <div class="combinedsec2right">
+                    <p class="combinedp2">For Technical Training</p><br>
+                    <p>Choose between Linux, AWS and DevOps to learn: These courses covers everything from:</p><br>
+                    <div class="icon3" dir="rtl">
+                      <ul>
+                      <li>Command-line</li><br>
+                      <li>Touches the core areas of Linux Administration</li><br>
+                      <li>Shell scripting to setting up basic servers</li><br>
+                      <li>Amazon services such as computing, storage, networking, database,analytics, application services, deployment, management, mobile, developer tools, and tools for the Internet of Things.</li><br>
+                      </ul>
+                    </div>
                 </div>
             </div>
-            <div class="com col-md-4 col-sm-8 col-xs-6">
-                <div class="card" id="type2">
-                        <h4> AWS</h4>
-                        <p class="large"><span class="sup">$</span>798</p>
-                        <p class="lead">+ 14% of 2 years salary when you get a tech job</p>
-
-                        <hr>
-                             <table class="cmb-table">
-
-                           <tr height="40">
-                             <td style="text-align: left" width="95%">Technical training </td>
-                             <td> $399 </td>
-                           </tr>
-                           <tr>
-                             <td style="text-align: left;">Work Experience</td>
-                             <td> $399 </td>
-                           </tr>
-                         </table>
+            <div class="col-md-2">
+              <div class="combimg text-center">
+                <img src="{% static 'home/images/chain.png' %}">
+              </div>
+            </div>
+            <div class="col-md-5">
+                <div>
+                    <p class="combinedp2">For Work Experience</p><br>
+                    <p>The Work experience programme which is a 3 month program. You will</p><br>
+                    <div class="icon2">
+                    <ul>
+                    <li>Work closely with our experienced development team and build experience.</li><br>
+                    <li>Learn with the most current technologies used in today’s workplace.</li><br>
+                    <li>We maintain Work History Record for each trainee, as proof of tasks accomplished and tender for employment purposes.</li><br>
+                    <li>The training is totally remote.</li><br>
+                    </ul>
+                    </div>
                 </div>
             </div>
-            <div class="com col-md-4 col-sm-8 col-xs-6">
-                <div class="card" id="type3">
-                   <h4> DevOps</h4>
-                   <p class="large"><span class="sup">$</span>798</p>
-                   <p class="lead">+ 14% of 2 years salary when you get a tech job</p>
-
-                   <hr>
-                             <table class="cmb-table">
-
-                           <tr height="40">
-                             <td style="text-align: left" width="95%">Technical training </td>
-<td> $399 </td>                           </tr>
-                           <tr>
-                             <td style="text-align: left;">Work Experience</td>
-                             <td> $399 </td>
-                           </tr>
-                         </table>
-                </div>
+            </div>
+            <div class="text-center">
+                <p class="combinedp1">Combination of the two programs into one is “<span class="combinedp1span">Combined Tranining</span>”</p>
+                {% if request.user.is_authenticated %}
+                <button class="btn-lg btn-blackbim" id="bgbtn4">Apply Now</button>
+                {%else%}
+                <a class="btn btn-blackbim2 " href="{% url 'home:login' %}?next=/combined_class/">Apply Now</a>
+                {%endif%}
             </div>
         </div>
-        <div class="col-md-12 last">
-            <form action="{% url 'home:combined_class_terms' %}">
+        <br><br>
+        <div class="com2">
+            <div class="text-center pastg">
+                <h1 class="combinedh1">Past Graduates</h1>
+                <p class="combinedp1">Photos and certificates from some of our previous graduates of <span class="combinedp1span">Combined Training</span></p>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                <div class="combcert1">
+                  <img class="combcert1" src="{% static 'home/images/samson.png' %}">
+                </div>
+                </div>
+                <div class="col-md-3">
+                <div class="combcert1">
+                  <img class="combcert1" src="{% static 'home/images/ayocert.png' %}">
+                </div>
+                </div>
+                <div class="col-md-2">
+                <div class="combcert1">
+                  <img class="combcert1" src="{% static 'home/images/adeniyi.png' %}">
+                </div>
+                </div>
+                <div class="col-md-4">
+                <div class="combcert1">
+                  <img class="combcert1" src="{% static 'home/images/joinsus.png' %}">
+                </div>
+                </div>
+            </div>
+            <div class="text-center">
+                {% if request.user.is_authenticated %}
+                <button class="btn-lg btn-blackbim" id="bgbtn3">Apply Now</button>
+                {%else%}
+                <a class="btn btn-blackbim2 " href="{% url 'home:login' %}?next=/combined_class/">Apply Now</a>
+                {%endif%}
+            </div>
+        </div>
+      <br><br>
+      {% if request.user.is_authenticated %}
+      <div class="com3" id="payment">
+          <div class="text-center">
+            <p class="combinedh12">CHOOSE A COURSE</p>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="comcourse" id="type1">
+                  <div class="text-center">
+                    <p class="comcor1">Linux</p><br>
+                   <span class="comprice"> <sup class="comprice1">$</sup>399</span>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6"><p>Technical training</p></div>
+                    <div class="col-md-4"></div>
+                    <div class="col-md-2"><span class="glyphicon glyphicon-ok corr"></span> </div>
+                  </div>
+                  <br>
+                  <div class="text-center">
+                    <p class="combplus">+</p>
+                  </div>
+                  <br>
+                  <div class="text-center">
+                   <span class="comprice"> <sup class="comprice1">$</sup>399</span>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6"><p>Work experience</p></div>
+                    <div class="col-md-4"></div>
+                    <div class="col-md-2"><span class="glyphicon glyphicon-ok corr"></span> </div>
+                  </div>
+                  <hr><br>
+                  <div class="text-center">
+                    <p>+ 14% of 2 years salary when<br>you get a tech job</p>
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="comcourse" id="type2">
+                  <div class="text-center">
+                    <p class="comcor1">AWS</p><br>
+                   <span class="comprice"> <sup class="comprice1">$</sup>399</span>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6"><p>Technical training</p></div>
+                    <div class="col-md-4"></div>
+                    <div class="col-md-2"><span class="glyphicon glyphicon-ok corr"></span> </div>
+                  </div>
+                  <br>
+                  <div class="text-center">
+                    <p class="combplus">+</p>
+                  </div>
+                  <br>
+                  <div class="text-center">
+                   <span class="comprice"> <sup class="comprice1">$</sup>399</span>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6"><p>Work experience</p></div>
+                    <div class="col-md-4"></div>
+                    <div class="col-md-2"><span class="glyphicon glyphicon-ok corr"></span> </div>
+                  </div>
+                  <hr><br>
+                  <div class="text-center">
+                    <p>+ 14% of 2 years salary when<br>you get a tech job</p>
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="comcourse" id="type3">
+                  <div class="text-center">
+                    <p class="comcor1">DevOps</p><br>
+                   <span class="comprice"> <sup class="comprice1">$</sup>399</span>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6"><p>Technical training</p></div>
+                    <div class="col-md-4"></div>
+                    <div class="col-md-2"><span class="glyphicon glyphicon-ok corr"></span> </div>
+                  </div>
+                  <br>
+                  <div class="text-center">
+                    <p class="combplus">+</p>
+                  </div>
+                  <br>
+                  <div class="text-center">
+                   <span class="comprice"> <sup class="comprice1">$</sup>399</span>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6"><p>Work experience</p></div>
+                    <div class="col-md-4"></div>
+                    <div class="col-md-2"><span class="glyphicon glyphicon-ok corr"></span> </div>
+                  </div>
+                  <hr><br>
+                  <div class="text-center">
+                    <p>+ 14% of 2 years salary when<br>you get a tech job</p>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center">
+                <form action="{% url 'home:combined_class_terms' %}">
                 <input hidden name="course_picked" id="course_picked">
-                <button id="proceedbtn" type="submit" class="bnbtn text-center">Apply now </button>
-            </form>
-
-        </div>
-        </div>
-                   {% endif %}
-
-
+                <button class="btn-lg btn-blackbim" id="proceedbtn">Apply Now</button>
+                </form>
             </div>
+            <br><br>
+        </div>
+        {%endif%}
+    </div>
 
 
+<script>
 
-    <script>
-
-
-  $('#proceedbtn').hide();
+ $('#proceedbtn').hide();
             $(".lmbtn").click(function() {
     $('html,body').animate({
         scrollTop: $("#info").offset().top},
         'slow');
 });
-            $("#bgbtn").click(function() {
+
+
+$("#bgbtn").click(function() {
     $('html,body').animate({
         scrollTop: $("#payment").offset().top},
         'slow');
 });
-            $(".apbtn").click(function() {
+
+$("#bgbtn2").click(function() {
+    $('html,body').animate({
+        scrollTop: $("#payment").offset().top},
+        'slow');
+});
+
+$("#bgbtn3").click(function() {
+    $('html,body').animate({
+        scrollTop: $("#payment").offset().top},
+        'slow');
+});
+
+$("#bgbtn4").click(function() {
     $('html,body').animate({
         scrollTop: $("#payment").offset().top},
         'slow');
 });
 
 
-              /**Subscription picked**/
-  $('#type1').click(function(){
+$('#type1').click(function(){
     $('#type1').css({
       'background': '#4975B1',
       'transition-delay': '0.1s',
@@ -242,7 +306,7 @@ Combined Class | Linuxjobber
     });
   });
 
-  var type2 =  $('#type2');
+var type2 =  $('#type2');
   type2.click(function(){
     $('#type2').css({
       'background': '#4975B1',
@@ -264,9 +328,7 @@ Combined Class | Linuxjobber
     });
   });
 
-
-
-  var type3= $('#type3');
+var type3= $('#type3');
   type3.click(function(){
     $('#type3').css({
       'background': '#4975B1',
@@ -291,6 +353,6 @@ Combined Class | Linuxjobber
 
 
 
-    </script>
 
+</script>
 {% endblock %}

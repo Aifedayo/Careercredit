@@ -742,16 +742,16 @@ def aws_full_training(request):
             send_mail('Linuxjobber Newsletter',
                       'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
                       settings.EMAIL_HOST_USER, [email])
-            return render(request, 'home/aws_full_training.html',
+            return render(request, 'home/aws_full_train.html',
                           {'news_letter_message': 'You have successfully subscribed to our news letter!',
                            'courses': get_courses(), 'tools': get_tools()})
         except Exception as e:
             standard_logger.error('error')
-            return render(request, 'home/aws_full_training.html',
+            return render(request, 'home/aws_full_train.html',
                           {'news_letter_message': 'Something went wrong please try again!', 'courses': get_courses(),
                            'tools': get_tools()})
     else:
-        return render(request, 'home/aws_full_training.html',
+        return render(request, 'home/aws_full_train.html',
                       {'news_letter_message': news_letter_message, 'courses': get_courses(), 'tools': get_tools()})
 
 
