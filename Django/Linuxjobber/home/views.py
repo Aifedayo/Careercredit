@@ -756,7 +756,7 @@ def completeclass(request,course):
     except CompleteClass.DoesNotExist:
         raise Http404
 
-    return render(request, 'home/aws_full_train.html', {'page':page,'learn':page_learn,'cert':page_cert,'tomorrow':tomorrow,'today':today, 'expired':expired, 'courses': courses, 'url':url})
+    return render(request, 'home/aws_full_train.html', {'page':page,'learn':page_learn,'cert':page_cert,'tomorrow':tomorrow,'today':today, 'expired':expired, 'courses': courses})
 
 def aws_full_training(request):
     news_letter_message = ''
