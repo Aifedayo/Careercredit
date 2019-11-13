@@ -6,7 +6,8 @@ from django.conf import settings
 from .models import FAQ, Job, RHCSAOrder, FreeAccountClick, Campaign, Message, Unsubscriber, Internship, \
     InternshipDetail, MessageGroup, UserLocation, NewsLetterSubscribers, UserOrder, Document, MainModel, AwsCredential, \
     Jobplacement, Groupclass, BillingHistory, GroupClassRegister, StripePayment, UserPayment, wepeoples, wetask, werole, \
-    wework, wetype, PartTimeJob, TryFreeRecord, FullTimePostion, PartTimePostion, Resume, CareerSwitchApplication, Certificates
+    wework, wetype, PartTimeJob, TryFreeRecord, FullTimePostion, PartTimePostion, Resume, CareerSwitchApplication, Certificates, CompleteClass,\
+    CompleteClassLearn, CompleteClassCertificate
 
 from datetime import timedelta
 import datetime
@@ -217,3 +218,6 @@ admin.site.register(Resume)
 admin.site.register(TryFreeRecord)
 admin.site.register(CareerSwitchApplication, CareerSwitchApplicationAdmin)
 admin.site.register(Certificates)
+admin.site.register(CompleteClass)
+admin.site.register(CompleteClassLearn)
+admin.site.register(CompleteClassCertificate)

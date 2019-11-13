@@ -23,20 +23,21 @@ from django.utils.datastructures import MultiValueDictKeyError
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
 # from django.core.mail import send_mail
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, Http404
 from rest_framework.authtoken.models import Token
 from datetime import timedelta
 from django.views.decorators.csrf import csrf_protect
 
 from .models import *
 from users.models import *
-from Courses.models import Course, CoursePermission, UserInterest
+from Courses.models import Course, CoursePermission, UserInterest, CourseTopic
 from ToolsApp.models import Tool
 from users.models import CustomUser
 from .forms import JobPlacementForm, JobApplicationForm, AWSCredUpload, InternshipForm, \
     ResumeForm, PartimeApplicationForm, WeForm, UnsubscribeForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from datetime import datetime
+
 
 fs = FileSystemStorage(location=settings.MEDIA_ROOT + '/uploads')
 # stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -731,6 +732,31 @@ def linux_full_training(request):
     else:
         return render(request, 'home/linux_full_training.html', {'news_letter_message': news_letter_message})
 
+def completeclass(request,course):
+    expired = False
+    today = False
+    tomorrow = False
+    try:
+        page = CompleteClass.objects.get(slug=course)
+        page_learn = CompleteClassLearn.objects.filter(completeclass=page)
+        page_cert = CompleteClassCertificate.objects.filter(completeclass=page)
+        courses = CourseTopic.objects.filter(course=page.course)
+        tm = timezone.now() + timedelta(days=1)
+        td = datetime.now()
+        td = utc.localize(td)
+
+        if tm.date() ==  page.due_date.date():
+            tomorrow = True
+        if td > page.due_date:
+            expired = True
+        if td.date() == page.due_date.date():
+            today = True
+
+        
+    except CompleteClass.DoesNotExist:
+        raise Http404
+
+    return render(request, 'home/aws_full_train.html', {'page':page,'learn':page_learn,'cert':page_cert,'tomorrow':tomorrow,'today':today, 'expired':expired, 'courses': courses, 'url':url})
 
 def aws_full_training(request):
     news_letter_message = ''

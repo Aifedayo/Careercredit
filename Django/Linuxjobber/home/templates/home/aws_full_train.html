@@ -55,6 +55,11 @@ AWS Full Training | Linuxjobber
         .fqimg{
             margin-right: 10px;
         }
+
+        .aws_fullbanpdiv{
+            margin-left: -20px;
+            padding-right: 50px;
+        }
     </style>
 <div class="groupblueban">
 </div>
@@ -62,11 +67,18 @@ AWS Full Training | Linuxjobber
 <div class="aws_fullban">
     <div class="container">
         <p class="aws_fullbanp">Full Training Course</p>
-        <h1 class="aws_fullbanh1">AWS: Amazon Web Services</h1>
+        <h1 class="aws_fullbanh1">{{page.title}}</h1>
         <span class="awsrate"><img class="awsrateimg" style="padding-top: 10px;" src="{% static 'home/images/rating.png' %}">  <span class="aws_fullbanp-2">2307 Ratings</span></span><br><br>
-        <p class="aws_fullbanp1">Learn the essential skillset required to build a cost-effective, scalable, and<br> reliable infrastructure on the AWS platform.</p><br>
-
-        <a href="{% url 'home:tryfree' 'awsPlan' %}" class="btn awsnewbut">Enroll Now</a>
+        <div class="row">
+        <div class="aws_fullbanpdiv col-md-6">
+        <p class="aws_fullbanp1">{{page.description}}</p><br>
+        </div>
+        </div>
+        {%if expired %}
+        <a href="/{{page.pay_url}}" class="btn awsnewbut" disabled>Enroll Now</a>
+        {%else%}
+        <a href="/{{page.pay_url}}" class="btn awsnewbut">Enroll Now</a>
+        {%endif%}
     </div>
 </div>
 <div class="container">
@@ -74,134 +86,43 @@ AWS Full Training | Linuxjobber
         <div class="col-md-9">
             <div class="awsleft">
                 <p class="awsleftp">About This Course</p>
-                <p class="awspdef">Amazon Web Services (AWS) is the world’s most comprehensive and broadly adopted cloud platform, offering over 165 fully featured services from data centers globally, including compute, storage, databases, analytics, networking, mobile, developer tools, management tools, IoT, security and enterprise applications.. Millions of customers – including the fastest-growing startups, largest enterprises, and leading government agencies –trust AWS to power their infrastructure, become more agile, and lower costs
-                    This course will introduce you to Amazon Web Services (AWS) core services and infrastructure. Through demonstrations you'll learn how to use and configure AWS services and get an in-depth knowledge on EC2 instance as well as useful strategy on how to build, modify instances, host and deploy your own cloud-native applications</p>
+                <p class="awspdef">{{page.about}}</p>
                 
                 <br><br>
                 <p class="awsleftp">What will you learn</p>
                 <div class="row">
-                        <div class="col-md-6">
-                            <div class="row">
-                                <div class="col-md-1"><img style="margin-right: 10px; margin-left: -30px;" src="{% static 'home/images/sucaws.png' %}"> </div>
-                                <div class="col-md-11"><p class="awspdef" style="margin-right: 10px; margin-left: -30px;">How to sign up to Amazon Web Services (AWS)</p></div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="col-md-1"><img style="margin-right: 10px; margin-left: -30px;" src="{% static 'home/images/sucaws.png' %}"> </div>
-                                <div class="col-md-11"><p class="awspdef" style="margin-right: 10px; margin-left: -30px;">How to use AWS compute, storage, database, and security services via the AWS Console</p></div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="col-md-1"><img style="margin-right: 10px; margin-left: -30px;" src="{% static 'home/images/sucaws.png' %}"> </div>
-                                <div class="col-md-11"><p class="awspdef" style="margin-right: 10px; margin-left: -30px;">How to make an applications durable, distributed, and highly available</p></div>
-                            </div>
-                            
-                            </div>
-                        <div class="col-md-6">
-                                <div class="row">
-                                        <div class="col-md-1"><img style="margin-right: 10px; margin-left: -30px;" src="{% static 'home/images/sucaws.png' %}"> </div>
-                                        <div class="col-md-11"><p class="awspdef" style="margin-right: 10px; margin-left: -30px;">AWS fundamental concepts including Regions, Availability Zones, and Virtual Private Clouds (VPCs)</p></div>
-                                    </div>
-                                    <br>
-                                    <div class="row">
-                                        <div class="col-md-1"><img style="margin-right: 10px; margin-left: -30px;" src="{% static 'home/images/sucaws.png' %}"> </div>
-                                        <div class="col-md-11"><p class="awspdef" style="margin-right: 10px; margin-left: -30px;">How to build a simple AWS serverless system, Windows and Linux servers
-                                                and create a Wordpress website</p></div>
-                                    </div>
-                                    <br>
-                                    <div class="row">
-                                        <div class="col-md-1"><img style="margin-right: 10px; margin-left: -30px;" src="{% static 'home/images/sucaws.png' %}"> </div>
-                                        <div class="col-md-11"><p class="awspdef" style="margin-right: 10px; margin-left: -30px;">How to audit and monitor applications using services such as Amazon CloudWatch, Amazon GuardDuty and AWS Security Hub</p></div>
-                                    </div>
-                                    
-                                    </div>
+                    {%for led in learn%}
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-1"><img style="margin-right: 10px; margin-left: -30px;" src="{% static 'home/images/sucaws.png' %}"> </div>
+                            <div class="col-md-11"><p class="awspdef" style="margin-right: 10px; margin-left: -30px;">{{led.description}}</p></div>
                         </div>
+                        <br>      
+                    </div>
+                    {%endfor%}
                 </div>
+            
                 
                    
                 <br>
-                <p class="awsleftp">Requirements</p>
-                <p class="awspdef">• You should have a basic understanding of Information Technology.</p>
+                <p class="awsleftp">Course Prerequisite</p>
+                <p class="awspdef">{{page.prerequisite}}</p>
 
                 <br><br>
                 <p class="awsleftp">Course Outline</p>
+                {%for course in courses%}
                 <div class="row">
                     <div class="col-md-1"><img  style=" margin-left: -15px;" src="{% static 'home/images/playbut.png' %}"></div>
-                    <div class="col-md-10"><p class="awspdef awslista" style=" margin-left: -40px;">Overview of Special AWS Services</p></div>
-                    <div class="col-md-1"><p class="awspdef awslista" style=" margin-left: -30px;">3 min</p></div>
+                    <div class="col-md-10"><p class="awspdef awslista" style=" margin-left: -40px;">{{course.topic}}</p></div>
+                    <div class="col-md-1"><p class="awspdef awslista" style=" margin-left: -30px;">9 min</p></div>
                 </div><br>
-                <div class="row">
-                        <div class="col-md-1"><img style=" margin-left: -15px;" src="{% static 'home/images/playbut.png' %}"></div>
-                        <div class="col-md-10"><p class="awspdef awslista"  style=" margin-left: -40px;">
-                                Getting Started with S3</p></div>
-                        <div class="col-md-1"><p class="awspdef awslista"  style=" margin-left: -30px;">8 min</p></div>
-                    </div>
-                <br>
-                <div class="row">
-                        <div class="col-md-1"><img style=" margin-left: -15px;" src="{% static 'home/images/playbut.png' %}"></div>
-                        <div class="col-md-10"><p class="awspdef awslista"  style=" margin-left: -40px;">Hosting Static Websites with Amazon S3</p></div>
-                        <div class="col-md-1"><p class="awspdef awslista"  style=" margin-left: -30px;">9 min</p></div>
-                    </div><br>
-                <div class="row">
-                        <div class="col-md-1"><img style=" margin-left: -15px;" src="{% static 'home/images/playbut.png' %}"></div>
-                        <div class="col-md-10"><p class="awspdef awslista"  style=" margin-left: -40px;">Enabling Cross-Region Replication on S3 Bucket</p></div>
-                        <div class="col-md-1"><p class="awspdef awslista"  style=" margin-left: -30px;">7 min</p></div>
-                    </div><br>
-                <div class="row">
-                        <div class="col-md-1"><img style=" margin-left: -15px;" src="{% static 'home/images/playbut.png' %}"></div>
-                        <div class="col-md-10"><p class="awspdef awslista"  style=" margin-left: -40px;">Encryption and Managing Object Lifecycle</p></div>
-                        <div class="col-md-1"><p class="awspdef awslista"  style=" margin-left: -30px;">9 min</p></div>
-                    </div><br>
-                <div class="row">
-                        <div class="col-md-1"><img style=" margin-left: -15px;" src="{% static 'home/images/playbut.png' %}"></div>
-                        <div class="col-md-10"><p class="awspdef awslista"  style=" margin-left: -40px;">Introduction to EC2</p></div>
-                        <div class="col-md-1"><p class="awspdef awslista"  style=" margin-left: -30px;">9 min</p></div>
-                    </div><br>
-                <div class="row">
-                        <div class="col-md-1"><img style=" margin-left: -15px;" src="{% static 'home/images/playbut.png' %}"></div>
-                        <div class="col-md-10"><p class="awspdef awslista"  style=" margin-left: -40px;">Security groups on EC2</p></div>
-                        <div class="col-md-1"><p class="awspdef awslista"  style=" margin-left: -30px;">9 min</p></div>
-                    </div><br>
-                <div class="row">
-                        <div class="col-md-1"><img style=" margin-left: -15px;" src="{% static 'home/images/playbut.png' %}"></div>
-                        <div class="col-md-10"><p class="awspdef awslista"  style=" margin-left: -40px;">EBS Volumes, Snapshots and Encryption</p></div>
-                        <div class="col-md-1"><p class="awspdef awslista"  style=" margin-left: -30px;">9 min</p></div>
-                    </div><br>
-                <div class="row">
-                        <div class="col-md-1"><img style=" margin-left: -15px;" src="{% static 'home/images/playbut.png' %}"></div>
-                        <div class="col-md-10"><p class="awspdef awslista"  style=" margin-left: -40px;">Cloudwatch, IAM Roles, and AWS CLI</p></div>
-                        <div class="col-md-1"><p class="awspdef awslista"  style=" margin-left: -30px;">9 min</p></div>
-                    </div><br>
-                <div class="row">
-                        <div class="col-md-1"><img style=" margin-left: -15px;" src="{% static 'home/images/playbut.png' %}"></div>
-                        <div class="col-md-10"><p class="awspdef awslista"  style=" margin-left: -40px;">BOOTSTRAP SCRIPTS, META-DATA, and Elastic File System</p></div>
-                        <div class="col-md-1"><p class="awspdef awslista"  style=" margin-left: -30px;">6 min</p></div>
-                    </div><br>
-                <div class="row">
-                        <div class="col-md-1"><img style=" margin-left: -15px;" src="{% static 'home/images/playbut.png' %}"></div>
-                        <div class="col-md-10"><p class="awspdef awslista"  style=" margin-left: -40px;">Getting Started with Amazon Virtual Private Cloud (VPC)</p></div>
-                        <div class="col-md-1"><p class="awspdef awslista"  style=" margin-left: -30px;">8 min</p></div>
-                    </div><br>
-                <div class="row">
-                        <div class="col-md-1"><img style=" margin-left: -15px;" src="{% static 'home/images/playbut.png' %}"></div>
-                        <div class="col-md-10"><p class="awspdef awslista"  style=" margin-left: -40px;">Creating and Setting Up a Virtual Private Cloud</p></div>
-                        <div class="col-md-1"><p class="awspdef awslista"  style=" margin-left: -30px;">9 min</p></div>
-                    </div><br>
-                <div class="row">
-                        <div class="col-md-1"><img style=" margin-left: -15px;" src="{% static 'home/images/playbut.png' %}"></div>
-                        <div class="col-md-10"><p class="awspdef awslista"  style=" margin-left: -40px;">Network Access Control and Secure External Communications in VPCs</p></div>
-                        <div class="col-md-1"><p class="awspdef awslista"  style=" margin-left: -30px;">9 min</p></div>
-                    </div><br>
-                <div class="row">
-                        <div class="col-md-1"><img style=" margin-left: -15px;" src="{% static 'home/images/playbut.png' %}"></div>
-                        <div class="col-md-10"><p class="awspdef awslista"  style=" margin-left: -40px;">Launching Instances in a VPC and Enabling Port Communications between Instances</p></div>
-                        <div class="col-md-1"><p class="awspdef awslista"  style=" margin-left: -30px;">7 min</p></div>
-                    </div><br><br>
+                {%endfor%}
+                <br><br>
                 <p class="awsleftp">Past Student Certificate</p>
                 <div class="row">
-                    <div class="col-md-4"><img  style=" margin-left: -15px;" src="{% static 'home/images/ayocert1.png' %}"></div>
-                    <div class="col-md-4"><img  style=" margin-left: -15px;" src="{% static 'home/images/ayocert2.png' %}"></div>
-                    <div class="col-md-4"><img  style=" margin-left: -5px;" src="{% static 'home/images/ayocert3.png' %}"></div>
+                    {%for img in cert%}
+                        <div class="col-md-4"><img  style=" margin-left: -15px;" src="{{img.url_of_image}}"></div>
+                    {%endfor%}
                 </div>
 
                 <br><br>
@@ -221,6 +142,7 @@ AWS Full Training | Linuxjobber
                             </div>
                         </div>
                     </div><br>
+                <!--
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
@@ -248,11 +170,12 @@ AWS Full Training | Linuxjobber
                                 If you choose to explore the course without purchasing, you may not be able to access certain assignments. 
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
                 <br>
                
             </div>
+        </div>
         <div class="col-md-3">
             <div class="awsright">
                 <div class="awsrightsec">
@@ -279,19 +202,23 @@ AWS Full Training | Linuxjobber
                 <div class="awsrightsec">
                     <img src="{% static 'home/images/awsicon5.png' %}"><br> <br>  
                     <p class="awsrightp1">3 Times A Week</p>
-                    <p class="awspdef awslista">Registration Due: Wed, June 24th, 2019</p>
+                    <p class="awspdef awslista">Registration Due: {%if expired %} Expired {%elif today %} Today {%elif tomorrow %}Tomorrow {%else%}  {{page.due_date|date}} {%endif%}</p>
                 </div>
                 <div class="awsrightsec">
                     <img src="{% static 'home/images/awsicon6.png' %}"><br> <br>  
-                    <p class="awsrightp1">Get AWS Certified</p>
-                    <p class="awspdef awslista">Validate your AWS Cloud skills and enhance your credibility with an industry-recognized credential.</p>
+                    <p class="awsrightp1">Get Certified</p>
+                    <p class="awspdef awslista">Validate your skills and enhance your credibility with an industry-recognized credential.</p>
                 </div>
                 <div class="awsrightsec">
                     <img src="{% static 'home/images/awsicon7.png' %}"><br> <br>  
-                    <p class="awsrightp1">$1,225.00</p>
+                    <p class="awsrightp1">${{page.fee}}</p>
                     <p class="awspdef awslista">One time fee</p>
                 </div>
-                <a href="{% url 'home:tryfree' 'awsPlan' %}" class="btn awsnewbut2">Enroll Now</a>
+                {%if expired %}
+                <a href="/{{page.pay_url}}" class="btn awsnewbut2" disabled>Enroll Now</a>
+                {%else%}
+                <a href="/{{page.pay_url}}" class="btn awsnewbut2">Enroll Now</a>
+                {%endif%}
             </div>
         </div>
     </div>
