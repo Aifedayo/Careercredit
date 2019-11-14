@@ -89,7 +89,7 @@ class CompleteClassCertificate(models.Model):
         unique_together = (('weight','completeclass'),)
 
     def __str__(self):
-        return self.completeclass.course
+        return self.completeclass.title
 
 class Job(models.Model):
     fullname = models.CharField(max_length=200)
