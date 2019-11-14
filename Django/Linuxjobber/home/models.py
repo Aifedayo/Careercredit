@@ -7,6 +7,8 @@ from django.utils import timezone
 from Courses.models import Course
 from users.models import CustomUser
 
+from datetime import date
+
 
 def due_time():
     return timezone.now() + timezone.timedelta(days=6)
@@ -52,6 +54,42 @@ class PartTimePostion(models.Model):
     def __str__(self):
         return '%s' % self.job_title
 
+class CompleteClass(models.Model):
+    course = models.ForeignKey(Course,on_delete=models.CASCADE,null=True)
+    title = models.CharField(max_length=200)
+    slug = models.CharField(max_length=200)
+    description = models.TextField()
+    about = models.TextField()
+    prerequisite = models.TextField()
+    fee = models.CharField(max_length=200, default="1,225.00")
+    pay_url = models.CharField(max_length=200)
+    due_date = models.DateTimeField(default=timezone.now)
+
+    @property
+    def is_past_due(self):
+        return date.today() > self.due_date
+
+    def __str__(self):
+        return self.title
+
+class CompleteClassLearn(models.Model):
+    description = models.TextField()
+    weight = models.IntegerField()
+    completeclass = models.ForeignKey(CompleteClass, on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = (('weight','completeclass'),)
+
+class CompleteClassCertificate(models.Model):
+    url_of_image = models.TextField()
+    weight = models.IntegerField()
+    completeclass = models.ForeignKey(CompleteClass, on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = (('weight','completeclass'),)
+
+    def __str__(self):
+        return self.completeclass.title
 
 class Job(models.Model):
     fullname = models.CharField(max_length=200)

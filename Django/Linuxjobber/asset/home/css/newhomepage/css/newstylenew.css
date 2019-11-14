@@ -144,7 +144,105 @@
     margin-bottom: 200px;
   }
   
+ .awsrateimg{
+   padding-top: 10px;
+ }
+  .aws_fullban{
+    max-width:100%;
+    height: 475px;
+    background: url('../imgs/awsft.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+    background-color: rgba(27, 83, 158, 0.65);
+    padding-top: 50px;
+    color: #FFFFFF;
+    padding-bottom: 30px;
+  }
+  .aws_fullbanh1{
+    font-size: 40px;
+    font-weight: 500;
+    margin-top: 10px;
+    text-transform: uppercase;
+  }
 
+  .awsnewbut{
+    background: #FFFFFF;
+    border-radius: 5px;
+    font-size: 18px;
+    color: #1B539E;
+    min-width: 250px;
+    min-height: 66px;
+    padding-top: 20px;
+    font-weight: 600;
+}
+
+.awsnewbut2{
+  background: #1B539E;
+  border-radius: 5px;
+  font-size: 18px;
+  color: #FFFFFF;
+  min-width: 250px;
+  min-height: 66px;
+  padding-top: 20px;
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+.awslista{
+  font-size: 14px;
+  text-align: left;
+}
+
+.awsright{
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.awsrightp1{
+  font-size: 18px;
+}
+
+.awsrightsec{
+  margin-bottom: 30px;
+  margin-left: 10px;
+}
+
+.awsrate{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+  .aws_fullbanp1{
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 16px;
+  }
+
+  .aws_fullbanp-2{
+    margin-left: 50px;
+    font-size: 18px;
+    margin-top: -5px;
+  }
+
+  .aws_fullbanp{
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .awsleft{
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .awsleftp{
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .awspdef{
+    color: #808080;
+  }
   .jobplace-action {
     background-color: #f2f2f2;
     /*background-image: linear-gradient(#f2f2f2, transparent 350%), url(../img/getstart.jpg);*/

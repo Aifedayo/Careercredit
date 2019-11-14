@@ -7479,3 +7479,14 @@ h6 {
         padding-bottom: 50px;
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
+
+
+    .aws_fullban{
+        max-width:100%;
+        min-height:340px;
+        background: url('../images/awsft.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size:cover;
+        
+    }

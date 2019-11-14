@@ -1,0 +1,237 @@
+{% extends 'home/base.html' %}
+{% load staticfiles%}
+{% block title %}
+AWS Full Training | Linuxjobber
+{% endblock %}
+{% block content %}
+
+<style>
+        .faqHeader {
+            font-size: 27px;
+            margin: 20px;
+        }
+    
+        .panel-default>.panel-heading {
+            color: #808080;
+            background-color: #ffffff;
+            border-color: #FFFFFF;
+            cursor: pointer;
+            content: 003E;
+        }
+
+        .panel-group .panel-heading+.panel-collapse .panel-body {
+            border-color: #FFFFFF;
+        }
+
+        .panel-heading [data-toggle="collapse"]:after {
+            font-family: 'Glyphicons Halflings';
+            content: 003E;/* "play" icon */
+            float: right;
+            color: #F58723;
+            font-size: 18px;
+            line-height: 22px;
+            /* rotate "play" icon from > (right arrow) to down arrow */
+            -webkit-transform: rotate(-90deg);
+            -moz-transform: rotate(-90deg);
+            -ms-transform: rotate(-90deg);
+            -o-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+        }
+    
+        .panel-heading [data-toggle="collapse"].collapsed:after {
+            /* rotate "play" icon from > (right arrow) to ^ (up arrow) */
+            -webkit-transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            -o-transform: rotate(90deg);
+            transform: rotate(90deg);
+            color: #454444;
+        }
+
+        .faqimage{
+            transform: rotate(90deg);
+        }
+
+        .fqimg{
+            margin-right: 10px;
+        }
+
+        .aws_fullbanpdiv{
+            margin-left: -20px;
+            padding-right: 50px;
+        }
+    </style>
+<div class="groupblueban">
+</div>
+
+<div class="aws_fullban">
+    <div class="container">
+        <p class="aws_fullbanp">Full Training Course</p>
+        <h1 class="aws_fullbanh1">{{page.title}}</h1>
+        <span class="awsrate"><img class="awsrateimg" style="padding-top: 10px;" src="{% static 'home/images/rating.png' %}">  <span class="aws_fullbanp-2">2307 Ratings</span></span><br><br>
+        <div class="row">
+        <div class="aws_fullbanpdiv col-md-6">
+        <p class="aws_fullbanp1">{{page.description}}</p><br>
+        </div>
+        </div>
+        {%if expired %}
+        <a href="/{{page.pay_url}}" class="btn awsnewbut" disabled>Enroll Now</a>
+        {%else%}
+        <a href="/{{page.pay_url}}" class="btn awsnewbut">Enroll Now</a>
+        {%endif%}
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="awsleft">
+                <p class="awsleftp">About This Course</p>
+                <p class="awspdef">{{page.about}}</p>
+                
+                <br><br>
+                <p class="awsleftp">What will you learn</p>
+                <div class="row">
+                    {%for led in learn%}
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-1"><img style="margin-right: 10px; margin-left: -30px;" src="{% static 'home/images/sucaws.png' %}"> </div>
+                            <div class="col-md-11"><p class="awspdef" style="margin-right: 10px; margin-left: -30px;">{{led.description}}</p></div>
+                        </div>
+                        <br>      
+                    </div>
+                    {%endfor%}
+                </div>
+            
+                
+                   
+                <br>
+                <p class="awsleftp">Course Prerequisite</p>
+                <p class="awspdef">{{page.prerequisite}}</p>
+
+                <br><br>
+                <p class="awsleftp">Course Outline</p>
+                {%for curse in curses%}
+                <div class="row">
+                    <div class="col-md-1"><img  style=" margin-left: -15px;" src="{% static 'home/images/playbut.png' %}"></div>
+                    <div class="col-md-10"><p class="awspdef awslista" style=" margin-left: -40px;">{{curse.topic}}</p></div>
+                    <div class="col-md-1"><p class="awspdef awslista" style=" margin-left: -30px;">9 min</p></div>
+                </div><br>
+                {%endfor%}
+                <br><br>
+                <p class="awsleftp">Past Student Certificate</p>
+                <div class="row">
+                    {%for img in cert%}
+                        <div class="col-md-4"><img  style=" margin-left: -15px;" src="{{img.url_of_image}}"></div>
+                    {%endfor%}
+                </div>
+
+                <br><br>
+                <p class="awsleftp">FAQs</p>
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <img class="faqimage1 fqimg" src="{% static 'home/images/Vector2.png' %}"> <a class="accordion-toggle collapsed co1" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"> When will I have access to lectures and assignments?</a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse">
+                            <div class="panel-body awspdef awslista" >
+                                    Once you enroll for a Certificate, you’ll have access to all videos, quizzes, and programming assignments (if applicable). 
+                                    Peer review assignments can only be submitted and reviewed once your session has begun. 
+                                    If you choose to explore the course without purchasing, you may not be able to access certain assignments. 
+                            </div>
+                        </div>
+                    </div><br>
+                <!--
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <img class="faqimage2 fqimg" src="{% static 'home/images/Vector2.png' %}"><a class="accordion-toggle collapsed co2" data-toggle="collapse" data-parent="#accordion" href="#collapseTen">  When will I have access to lectures and assignments?</a>
+                        </h4>
+                    </div>
+                    <div id="collapseTen" class="panel-collapse collapse">
+                        <div class="panel-body awspdef awslista">
+                                Once you enroll for a Certificate, you’ll have access to all videos, quizzes, and programming assignments (if applicable). 
+                                Peer review assignments can only be submitted and reviewed once your session has begun. 
+                                If you choose to explore the course without purchasing, you may not be able to access certain assignments. 
+                        </div>
+                    </div>
+                </div><br>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <img class="faqimage3 fqimg" src="{% static 'home/images/Vector2.png' %}"><a class="accordion-toggle collapsed co3" data-toggle="collapse" data-parent="#accordion" href="#collapseEleven"> When will I have access to lectures and assignments?</a>
+                        </h4>
+                    </div>
+                    <div id="collapseEleven" class="panel-collapse collapse">
+                        <div class="panel-body awspdef awslista">
+                                Once you enroll for a Certificate, you’ll have access to all videos, quizzes, and programming assignments (if applicable). 
+                                Peer review assignments can only be submitted and reviewed once your session has begun. 
+                                If you choose to explore the course without purchasing, you may not be able to access certain assignments. 
+                        </div>
+                    </div>
+                </div>-->
+            </div>
+                <br>
+               
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="awsright">
+                <div class="awsrightsec">
+                    <img src="{% static 'home/images/awsicon1.png' %}"><br> <br>                   
+                    <p class="awsrightp1">100% Online</p>
+                    <p class="awspdef awslista">Start instantly without leaving the comfort of your home</p>
+                </div>
+                <div class="awsrightsec">
+                    <img src="{% static 'home/images/awsicon2.png' %}"><br> <br>  
+                    <p class="awsrightp1">Beginner Level</p>
+                    <p class="awspdef awslista">Easy for starters</p>
+                </div>
+                <div class="awsrightsec">
+                    <img src="{% static 'home/images/awsicon3.png' %}"><br> <br>  
+                    <p class="awsrightp1">English</p>
+                    <p class="awspdef awslista">Course is english language</p>
+                </div>
+                <div class="awsrightsec">
+                    <img src="{% static 'home/images/awsicon4.png' %}"><br> <br>  
+                    <p class="awsrightp1">One-on-One with Live Instructor</p>
+                    <p class="awspdef awslista">Step-by-step walk-through of the entire course with a live professional. 
+                    Get the dedicated attention, schedule and time of an active professional going through the entire course materials with you..</p>
+                </div>
+                <div class="awsrightsec">
+                    <img src="{% static 'home/images/awsicon5.png' %}"><br> <br>  
+                    <p class="awsrightp1">3 Times A Week</p>
+                    <p class="awspdef awslista">Registration Due: {%if expired %} Expired {%elif today %} Today {%elif tomorrow %}Tomorrow {%else%}  {{page.due_date|date}} {%endif%}</p>
+                </div>
+                <div class="awsrightsec">
+                    <img src="{% static 'home/images/awsicon6.png' %}"><br> <br>  
+                    <p class="awsrightp1">Get Certified</p>
+                    <p class="awspdef awslista">Validate your skills and enhance your credibility with an industry-recognized credential.</p>
+                </div>
+                <div class="awsrightsec">
+                    <img src="{% static 'home/images/awsicon7.png' %}"><br> <br>  
+                    <p class="awsrightp1">${{page.fee}}</p>
+                    <p class="awspdef awslista">One time fee</p>
+                </div>
+                {%if expired %}
+                <a href="/{{page.pay_url}}" class="btn awsnewbut2" disabled>Enroll Now</a>
+                {%else%}
+                <a href="/{{page.pay_url}}" class="btn awsnewbut2">Enroll Now</a>
+                {%endif%}
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $( ".co1" ).click( function() {
+        $(".faqimage1").toggleClass("faqimage");
+    });
+    $( ".co2" ).click( function() {
+        $(".faqimage2").toggleClass("faqimage");
+    });
+    $( ".co3" ).click( function() {
+        $(".faqimage3").toggleClass("faqimage");
+    });
+</script>
+{%endblock%}

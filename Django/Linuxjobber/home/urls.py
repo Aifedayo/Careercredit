@@ -41,6 +41,7 @@ urlpatterns = [
     path('devops/class/pay', views.devops_pay, name='devops_pay'),
     path('linux/full_training', views.linux_full_training, name='linux_full_training'),
     path('aws/full_training', views.aws_full_training, name='aws_full_training'),
+    path('full_training/<slug:course>', views.completeclass, name='completeclass'),
     path('faq', views.faq, name='faq'),
     path('ulocation', views.ulocation, name='ulocation'),
     path('workexperience/', include(wp_patterns)),
