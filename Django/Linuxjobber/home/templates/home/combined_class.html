@@ -127,9 +127,15 @@ Combined Class | Linuxjobber
                 </div>
                 </div>
                 <div class="col-md-4">
+                {% if request.user.is_authenticated %}
+                <a href="#payment">
+                {%else%}
+                <a href="{% url 'home:login' %}?next=/combined_class/#payment">
+                {%endif%}
                 <div class="combcert1">
                   <img class="combcert1" style="margin-left:20px;" src="{% static 'home/images/joinsus.png' %}">
                 </div>
+                </a>
                 </div>
             </div>
             <div class="text-center">
