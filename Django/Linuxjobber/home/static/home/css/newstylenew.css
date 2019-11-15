@@ -305,4 +305,14 @@
 
 
   
+    .aws_fullban{
+        max-width:100%;
+        min-height:340px;
+        background: url('../images/awsft.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size:cover;
+        background-color: rgba(27, 83, 158, 0.65);
+    }
+  
 

@@ -1,0 +1,83 @@
+[19-11-10 18:58:52] ERROR HTTP GET / 500 [0.00, 127.0.0.1:18658]
+[19-11-10 18:58:52] ERROR HTTP GET /favicon.ico 500 [0.00, 127.0.0.1:18658]
+[19-11-10 18:58:53] ERROR HTTP GET / 500 [0.00, 127.0.0.1:18658]
+[19-11-10 18:58:53] ERROR HTTP GET /favicon.ico 500 [0.00, 127.0.0.1:18658]
+[19-11-10 19:03:13] ERROR HTTP GET / 500 [0.00, 127.0.0.1:18787]
+[19-11-10 19:03:13] ERROR HTTP GET /favicon.ico 500 [0.00, 127.0.0.1:18787]
+[19-11-13 13:09:45] ERROR Internal Server Error: /aws/full_training
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\MySQLdb\cursors.py", line 206, in execute
+    res = self._query(query)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\MySQLdb\cursors.py", line 312, in _query
+    db.query(q)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\MySQLdb\connections.py", line 224, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.OperationalError: (1054, "Unknown column 'Courses_course.has_certification' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Documents\Web\linux-contract\Django\Linuxjobber\home\views.py", line 765, in aws_full_training
+    {'news_letter_message': news_letter_message, 'courses': get_courses(), 'tools': get_tools()})
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\template\defaulttags.py", line 308, in render
+    if match:
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\db\models\query.py", line 278, in __bool__
+    self._fetch_all()
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\db\models\sql\compiler.py", line 1100, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\MySQLdb\cursors.py", line 206, in execute
+    res = self._query(query)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\MySQLdb\cursors.py", line 312, in _query
+    db.query(q)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\MySQLdb\connections.py", line 224, in query
+    _mysql.connection.query(self, query)
+django.db.utils.OperationalError: (1054, "Unknown column 'Courses_course.has_certification' in 'field list'")
+[19-11-13 13:09:46] ERROR HTTP GET /aws/full_training 500 [0.33, 127.0.0.1:1213]
