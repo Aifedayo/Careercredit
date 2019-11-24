@@ -140,9 +140,9 @@ Combined Class | Linuxjobber
             </div>
             <div class="text-center">
                 {% if request.user.is_authenticated %}
-                <button class="btn-lg btn-blackbim" id="bgbtn3">Apply Now</button>
+                  <button class="btn-lg btn-blackbim" id="bgbtn3">Apply Now</button>
                 {%else%}
-                <a class="btn btn-blackbim2 " href="{% url 'home:login' %}?next=/combined_class/">Apply Now</a>
+                  <a class="btn btn-blackbim2 " href="{% url 'home:login' %}?next=/combined_class/">Apply Now</a>
                 {%endif%}
             </div>
         </div>
@@ -153,7 +153,7 @@ Combined Class | Linuxjobber
             <p class="combinedh12">CHOOSE A COURSE</p>
           </div>
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4" class="ctest1">
               <div class="comcourse" style="margin-left:80px;" id="type1">
                   <div class="text-center">
                     <p class="comcor1">Linux</p><br>
@@ -183,7 +183,7 @@ Combined Class | Linuxjobber
                   </div>
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4" class="ctest2">
               <div class="comcourse" style="margin-left:50px;" id="type2">
                   <div class="text-center">
                     <p class="comcor1">AWS</p><br>
@@ -213,7 +213,7 @@ Combined Class | Linuxjobber
                   </div>
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4" class="ctest3">
               <div class="comcourse" style="margin-left:5px;" id="type3">
                   <div class="text-center">
                     <p class="comcor1">DevOps</p><br>
