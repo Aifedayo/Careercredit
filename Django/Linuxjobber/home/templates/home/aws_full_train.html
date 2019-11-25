@@ -77,7 +77,11 @@ Full Training | Linuxjobber
         {%if expired %}
         <a href="/{{page.pay_url}}" class="btn awsnewbut" disabled>Enroll Now</a>
         {%else%}
-        <a href="/{{page.pay_url}}" class="btn awsnewbut">Enroll Now</a>
+            {% if request.user.is_authenticated %}
+            <a href="{% url 'home:complete_pay' page.id %}" class="btn awsnewbut2">Enroll Now</a>
+            {%else%}
+            <a href="{% url 'home:login' %}?next=/complete_pay/{{page.id}}"></a>
+            {%endif%}
         {%endif%}
     </div>
 </div>
@@ -216,7 +220,11 @@ Full Training | Linuxjobber
                 {%if expired %}
                 <a href="{% url 'home:complete_pay' page.id %}" class="btn awsnewbut2" disabled>Enroll Now</a>
                 {%else%}
+                {% if request.user.is_authenticated %}
                 <a href="{% url 'home:complete_pay' page.id %}" class="btn awsnewbut2">Enroll Now</a>
+                {%else%}
+                <a href="{% url 'home:login' %}?next=/complete_pay/{{page.id}}"></a>
+                {%endif%}
                 {%endif%}
             </div>
         </div>
