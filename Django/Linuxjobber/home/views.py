@@ -1967,7 +1967,7 @@ def pay_live_help(request):
 def in_person_training(request):
     return render(request, 'home/in_person_training.html', {'courses': get_courses(), 'tools': get_tools()})
 
-
+@login_required
 def full_train_pay(request, class_id):
     try:
         comclass = CompleteClass.objects.get(id=class_id)
