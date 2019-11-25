@@ -1973,7 +1973,7 @@ def full_train_pay(request, class_id):
         comclass = CompleteClass.objects.get(id=class_id)
     except CompleteClass.DoesNotExist:
         raise Http404
-    PAY_FOR = comclass.slug+" full training"
+    PAY_FOR = comclass.name
     PRICE = comclass.fee
     mode = "One Time Payment"
     stripeset = StripePayment.objects.all()
@@ -1993,7 +1993,7 @@ def full_train_pay(request, class_id):
                 amount=int(amt) * 100,
                 currency="usd",
                 source=token,
-                description=comclass.slug+" complete class"
+                description=comclass.name
             )
 
 
@@ -2007,13 +2007,13 @@ def full_train_pay(request, class_id):
                 user = request.user
                 user.role = 3
                 user.save()
-                send_mail('Linuxjobber '+ comclass.slug+' Full Training Subscription',
-                            'Hello, you have successfuly subscribed for our ' +comclass.slug+' Full Training Plan package.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
+                send_mail('Linuxjobber '+ comclass.name +' Subscription',
+                            'Hello, you have successfuly subscribed for our ' +comclass.name+' Plan package.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
                             settings.EMAIL_HOST_USER, [request.user.email])
-                return render(request, 'home/complete_pay_success.html', {'class': comclass.slug})
+                return render(request, 'home/complete_pay_success.html', {'class': comclass.name})
             except SMTPException as error:
                 print(error)
-                return render(request, 'home/complete_pay_success.html', {'class': comclass.slug})
+                return render(request, 'home/complete_pay_success.html', {'class': comclass.name})
             except Exception as error:
                 print(error)
                 return redirect("home:index")

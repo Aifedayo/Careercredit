@@ -406,7 +406,7 @@ bottom: 200px;
 								help</a></li>
 						<li><a href="{% url 'Projects:index' %}">Projects</a></li>
 						<li><a href="{% url 'Courses:userinterest' %}">Course Descriptions</a></li>
-						<li><a href="{% url 'home:linux_full_training' %}"> Linux Complete Class</a></li>
+						
 					</ul>
 				</div>
 
@@ -422,12 +422,13 @@ bottom: 200px;
 								<li><a href="{% url 'home:combined_class' %}">Combined Class</a></li>
 						<li><a href="{% url 'home:jobplacements' %}">Job
 								Placement Program</a></li>
-                        <li><a href="{% url 'home:completeclass' 'aws' %}"> AWS Complete Class</a></li>
-                        <li><a href="{% url 'home:devops_class' %}"> DevOps Complete Class </a></li>
+						{%for class in complitfoot %}
+							<li><a href="{% url 'home:completeclass' class.slug %}">{{class.name}}</a></li>
+						{%endfor%}
 						
 					</ul>
 				</div>
-				
+
 				<div class="col-md-3 col-sm-6">
 					<h2>Company</h2>
 					<ul class="quick-links2" style="margin-top: 26px; font-size: 16px;">
