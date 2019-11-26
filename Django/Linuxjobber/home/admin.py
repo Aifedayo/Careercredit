@@ -6,7 +6,8 @@ from django.conf import settings
 from .models import FAQ, Job, RHCSAOrder, FreeAccountClick, Campaign, Message, Unsubscriber, Internship, \
     InternshipDetail, MessageGroup, UserLocation, NewsLetterSubscribers, UserOrder, Document, MainModel, AwsCredential, \
     Jobplacement, Groupclass, BillingHistory, GroupClassRegister, StripePayment, UserPayment, wepeoples, wetask, werole, \
-    wework, wetype, PartTimeJob, TryFreeRecord, FullTimePostion, PartTimePostion, Resume, CareerSwitchApplication, Certificates, CompleteClass,\
+    wework, wetype, PartTimeJob, TryFreeRecord, FullTimePostion, PartTimePostion, Resume, CareerSwitchApplication, \
+    Certificates, EmailMessageType, EmailMessageLog,CompleteClass,\
     CompleteClassLearn, CompleteClassCertificate
 
 from datetime import timedelta
@@ -184,6 +185,33 @@ class FullTimeAdmin(admin.ModelAdmin):
     search_fields = ['interested','not_interested','skilled']
     form = CustomAdminFullTimeForm
 
+class EmailMessageTypeAdmin(admin.ModelAdmin):
+    list_display = ['type','is_default','header_format']
+
+
+class EmailMessageLogAdmin(admin.ModelAdmin):
+    list_display = ['subject','to_address','header_text','message_type','has_sent','timestamp']
+    actions = ['resend_message',]
+
+    def resend_message(self, request, queryset):
+        for message in queryset:
+            message.send_mail()
+            if message.has_sent:
+                self.message_user(request,"{} sent to {} successfully".format(
+                    message.subject,
+                    message.to_address
+                ))
+            else:
+                self.message_user(request,"Failed to send email {} to {} [ERROR: {}] ".format(
+                    message.subject,
+                    message.to_address,
+                    message.error_message
+                ), level=messages.ERROR)
+
+    resend_message.short_description = 'Resend Message'
+
+
+
 admin.site.register(FAQ)
 admin.site.register(Job, JobAdmin)
 admin.site.register(UserOrder)
@@ -221,3 +249,6 @@ admin.site.register(Certificates)
 admin.site.register(CompleteClass)
 admin.site.register(CompleteClassLearn)
 admin.site.register(CompleteClassCertificate)
+admin.site.register(EmailMessageType,EmailMessageTypeAdmin)
+admin.site.register(EmailMessageLog,EmailMessageLogAdmin)
+
