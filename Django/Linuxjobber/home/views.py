@@ -1967,6 +1967,67 @@ def pay_live_help(request):
 def in_person_training(request):
     return render(request, 'home/in_person_training.html', {'courses': get_courses(), 'tools': get_tools()})
 
+@login_required
+def full_train_pay(request, class_id):
+    try:
+        comclass = CompleteClass.objects.get(id=class_id)
+    except CompleteClass.DoesNotExist:
+        raise Http404
+    PAY_FOR = comclass.name
+    PRICE = comclass.fee
+    mode = "One Time Payment"
+    stripeset = StripePayment.objects.all()
+    stripe.api_key = stripeset[0].secretkey
+    DISCLMR = "Please note that you will be charged ${} upfront. However, you may cancel at any time within 14 days for a full refund. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ${}/Monthly".format(
+        PRICE, PRICE)
+
+
+    if request.method == "POST":
+        token = request.POST.get("stripeToken")
+        amt = PRICE.replace(',','')
+        amt = amt.split('.')[0]
+        
+        
+        try:
+            charge = stripe.Charge.create(
+                amount=int(amt) * 100,
+                currency="usd",
+                source=token,
+                description=comclass.name
+            )
+
+
+        except stripe.error.CardError as ce:
+            return False, ce
+        else:
+            try:
+                UserPayment.objects.create(user=request.user, amount=amt,
+                                            trans_id=charge.id, pay_for=charge.description,
+                                            )
+                user = request.user
+                user.role = 3
+                user.save()
+                send_mail('Linuxjobber '+ comclass.name +' Subscription',
+                            'Hello, you have successfuly subscribed for our ' +comclass.name+' Plan package.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
+                            settings.EMAIL_HOST_USER, [request.user.email])
+                return render(request, 'home/complete_pay_success.html', {'class': comclass.name})
+            except SMTPException as error:
+                print(error)
+                return render(request, 'home/complete_pay_success.html', {'class': comclass.name})
+            except Exception as error:
+                print(error)
+                return redirect("home:index")
+    else:
+        amt = PRICE.replace(',','')
+        amt = amt.split('.')[0]
+        context = {"stripe_key": stripeset[0].publickey,
+            'price': PRICE,
+            'amount': str(amt) + '00',
+            'mode': mode,
+            'PAY_FOR': PAY_FOR,
+            'DISCLMR': DISCLMR,
+        }
+        return render(request, 'home/complete_pay.html', context)
 
 @login_required
 def tryfree(request, sub_plan='standardPlan'):

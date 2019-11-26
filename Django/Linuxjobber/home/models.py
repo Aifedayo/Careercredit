@@ -57,12 +57,14 @@ class PartTimePostion(models.Model):
 class CompleteClass(models.Model):
     course = models.ForeignKey(Course,on_delete=models.CASCADE,null=True)
     title = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, default="-")
     slug = models.CharField(max_length=200)
     description = models.TextField()
     about = models.TextField()
     prerequisite = models.TextField()
     fee = models.CharField(max_length=200, default="1,225.00")
     pay_url = models.CharField(max_length=200)
+    show_on_footer = models.IntegerField(default=1, choices=((0, 'No'), (1, 'Yes')))
     due_date = models.DateTimeField(default=timezone.now)
 
     @property
