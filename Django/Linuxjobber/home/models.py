@@ -511,3 +511,100 @@ class Certificates(models.Model):
 
     def __str__(self):
         return self.graduate_name
+
+
+class EmailMessageType(models.Model):
+    """
+    Defines the type of message format
+
+    header_format: {} from Linuxjobber
+    """
+    type = models.CharField(max_length=255)
+    is_default = models.BooleanField()
+    header_format = models.CharField(max_length=255, default="",null=True)
+    def save(self,*args,**kwargs):
+        """
+        Sets default message format to be used
+        :param args:
+        :param kwargs:
+        :return:
+        """
+        if self.is_default:
+            type_list = type(self).objects.filter(is_default=True)
+            if self.pk:
+                type_list.exclude(self)
+            type_list.update(is_default = False)
+        super(type(self),self).save(*args,**kwargs)
+
+
+
+    def __str__(self):
+        return "{} - [{}]".format(
+            self.type,
+            self.header_format
+        )
+
+
+
+
+
+
+class EmailMessageLog(models.Model):
+    header_text = models.CharField(max_length=255,default="Linuxjobber")
+    message_type = models.ForeignKey(EmailMessageType,on_delete=models.CASCADE,null=True)
+    to_address = models.CharField(max_length=255,default="",blank=True)
+    subject = models.CharField(max_length=500,default="",blank=True)
+    content = models.TextField(default="",blank=True)
+    has_sent = models.BooleanField(default=False)
+    error_message =  models.TextField(blank=True,null=True)
+    timestamp = models.DateTimeField(default=timezone.now,null=True)
+
+    def __str__(self):
+        return "{} - [{}]".format(
+            self.subject,
+            self.to_address
+        )
+
+    def set_as_sent(self):
+        self.has_sent=True
+        self.error_message = ""
+        self.save()
+
+
+    def set_as_fail(self, error=""):
+        self.error_message = error
+        self.has_sent=False
+        self.save()
+
+
+    def send_mail(self):
+        if self.message_type:
+            header_format = self.message_type.header_format
+        else:
+            try:
+                if not self.header_text:
+                    self.message_type = EmailMessageType.objects.get(is_default=True)
+                    header_format = EmailMessageType.objects.get(is_default=True).header_format
+                else:
+                    self.message_type = EmailMessageType.objects.get(type='custom')
+                    header_format = self.message_type.header_format
+            except Exception as e:
+                print(e)
+                header_format = "{}"
+
+
+        from .mail_service import send_mail_with_client
+        self.header_text = header_format.format(self.header_text)
+        self.save()
+        try:
+            send_mail_with_client(self)
+            self.set_as_sent()
+        except Exception as error:
+            self.set_as_fail(error.__str__())
+
+
+
+
+
+
+

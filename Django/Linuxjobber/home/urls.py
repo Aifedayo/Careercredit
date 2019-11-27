@@ -51,7 +51,7 @@ urlpatterns = [
     path('accepted', views.accepted, name='accepted'),
     path('groupCourse/',views.group_list, name='group'),
     path('subscriptionstatus', views.check_subscription_status, name='check_subscription_status'),
-    # path('groupCourse', views.group, name='group'),
+   # path('groupCourse', views.group, name='group'),
     path('groupCourse/<int:pk>',views.group,name='group'),
     path('groupCourse/<int:pk>/pay/', views.group_pay, name='group_pay'),
     path('access_course', views.monthly_subscription, name='monthly_subscription'),
@@ -99,6 +99,7 @@ urlpatterns = [
     path('career_switch/',views.career_switch,name='career_switch'),
     path('obtain_position/',views.position_detail),
     path('jobs/submitted',views.job_submitted),
+    path('testmail/',views.test_mail),
 ]
 
 
