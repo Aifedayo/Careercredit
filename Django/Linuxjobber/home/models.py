@@ -59,6 +59,8 @@ class CompleteClass(models.Model):
     title = models.CharField(max_length=200)
     name = models.CharField(max_length=200, default="-")
     slug = models.CharField(max_length=200)
+    rating_point = models.IntegerField(default=5)
+    rating_total = models.CharField(default="2673", max_length=200)
     description = models.TextField()
     about = models.TextField()
     prerequisite = models.TextField()

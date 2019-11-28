@@ -60,6 +60,41 @@ Full Training | Linuxjobber
             margin-left: -20px;
             padding-right: 50px;
         }
+
+        }
+.startext{
+    color: gold;
+}
+   
+.awsleftp{
+    color: #000;
+}
+@charset "UTF-8";
+:root {
+  --star-size: 32px;
+  --star-color: #CDCDCD;
+  --star-background: #fc0;
+}
+
+.Stars {
+  --percent: calc(var(--rating) / 5 * 100%);
+  display: inline-block;
+  font-size: var(--star-size);
+
+  line-height: 1;
+}
+.Stars::before {
+  content: '★★★★★';
+  letter-spacing: 3px;
+  background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+    background-clip: text;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent; 
+}
+
+       
+  
+
     </style>
 <div class="groupblueban">
 </div>
@@ -68,14 +103,15 @@ Full Training | Linuxjobber
     <div class="container">
         <p class="aws_fullbanp">Full Training Course</p>
         <h1 class="aws_fullbanh1">{{page.title}}</h1>
-        <span class="awsrate"><img class="awsrateimg" style="padding-top: 10px;" src="{% static 'home/images/rating.png' %}">  <span class="aws_fullbanp-2">2307 Ratings</span></span><br><br>
+       
+        <div class="Stars" style="--rating: {{page.rating_point}};" aria-label="Rating of this product is 2.3 out of 5.">  <span style="color:gold; padding-top:-100px">{{page.rating_point}}</span> <span class="aws_fullbanp-2">{{page.rating_total}} Ratings</span><br><br>
         <div class="row">
         <div class="aws_fullbanpdiv col-md-6">
         <p class="aws_fullbanp1">{{page.description}}</p><br>
         </div>
         </div>
         {%if expired %}
-        <a href="/{{page.pay_url}}" class="btn awsnewbut" disabled>Enroll Now</a>
+        <a href="/{{page.pay_url}}" class="btn awsnewbut" disabled>Expired</a>
         {%else%}
             {% if request.user.is_authenticated %}
             <a href="{% url 'home:complete_pay' page.id %}" class="btn awsnewbut">Enroll Now</a>
@@ -84,6 +120,7 @@ Full Training | Linuxjobber
             {%endif%}
         {%endif%}
     </div>
+    <br><br><br><br><br>
 </div>
 <div class="container">
     <div class="row">
@@ -109,6 +146,7 @@ Full Training | Linuxjobber
                 
                    
                 <br>
+                
                 <p class="awsleftp">Course Prerequisite</p>
                 <p class="awspdef">{{page.prerequisite}}</p>
                 <br><br>
@@ -218,7 +256,7 @@ Full Training | Linuxjobber
                     <p class="awspdef awslista">One time fee</p>
                 </div>
                 {%if expired %}
-                <a href="{% url 'home:complete_pay' page.id %}" class="btn awsnewbut2" disabled>Enroll Now</a>
+                <a href="{% url 'home:complete_pay' page.id %}" class="btn awsnewbut2" disabled>Expired</a>
                 {%else%}
                 {% if request.user.is_authenticated %}
                 <a href="{% url 'home:complete_pay' page.id %}" class="btn awsnewbut2">Enroll Now</a>
