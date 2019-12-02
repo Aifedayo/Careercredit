@@ -74,9 +74,85 @@
 	height: 70px;
 	background-size: cover;
     background-repeat: no-repeat;
-    display:block;
+	display:block;
 }
 
+.navheadmid{
+	background-color: #1B539E;
+	height: 180px;
+	background-size: cover;
+    background-repeat: no-repeat;
+	display:block;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.navheadmidh{
+	font-size: 32px;
+}
+
+.navheadinner{
+	margin-left: -20px
+}
+
+.navheadmidh1{
+	font-size: 24px;
+	color: #FFFFFF;
+	font-weight: 700;
+}
+
+.navheadmidp{
+	font-size: 18px;
+	color: #FFFFFF;
+	font-weight: 500;
+}
+
+.navheadbody{
+	color: #808080;
+}
+
+.greybo{
+	background-color: #E5E5E5;
+	min-height: 150px;
+	border-radius: 10px;
+	margin-bottom: 30px;
+	padding-left: 20px;
+	padding-right: 10px;
+	padding-top: 5px;
+	margin-top: 30px;
+}
+
+.greybo2{
+	background: #F7F7F7;
+	border-radius: 10px;
+	min-height: 120px;
+	margin-bottom: 20px;
+	padding-bottom: 25px;
+}
+
+.greybo2h1{
+	font-size: 36px;
+	font-weight: 700;
+}
+
+.greybo2h2{
+	font-size: 40px;
+	font-weight: 700;
+}
+
+.greybo2rit{
+	text-align: right;
+}
+
+.rightgreybo{
+	padding-top: 50px;
+	text-align: right;
+	margin-left: -200px;
+}
+.greyboh1{
+	font-size: 18px;
+	font-weight: 600;
+}
 .homebanner{
 	background: url(../imgs/homebanner.png);
 	min-height: 530px;
