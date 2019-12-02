@@ -1,7 +1,7 @@
 {% extends 'home/base.html' %}
 {% load staticfiles%}
 {% block title %}
-Full Training | Linuxjobber
+{{page.name}} Complete Training | Linuxjobber
 {% endblock %}
 {% block content %}
 
@@ -101,7 +101,7 @@ Full Training | Linuxjobber
 
 <div class="aws_fullban">
     <div class="container">
-        <p class="aws_fullbanp">Full Training Course</p>
+        <p class="aws_fullbanp">Complete Training Course</p>
         <h1 class="aws_fullbanh1">{{page.title}}</h1>
        
         <div class="Stars" style="--rating: {{page.rating_point}};" aria-label="Rating of this product is 2.3 out of 5.">  <span style="color:gold; padding-top:-100px">{{page.rating_point}}</span> <span class="aws_fullbanp-2">{{page.rating_total}} Ratings</span><br><br>
