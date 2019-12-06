@@ -3,7 +3,7 @@ from django.urls import path, include, re_path
 from . import views
 from django.views.decorators.csrf import csrf_exempt
 import stripe
-
+from . import tests
 
 app_name='home'
 
@@ -24,11 +24,16 @@ wp_patterns = [
     path('faq/',views.workexpfaq, name='workexpfaq'),
 ]
 
+test_patterns = [
+    path('insert_installment_payment',tests.insert_installment_data, ),
+    path('delete_installment_payment',tests.delete_installment_record, ),
+]
 
 urlpatterns = [
     # path("stripe/", include("djstripe.urls", namespace="djstripe")),
     path('', views.index, name='index'),
     path('webhooks',  csrf_exempt(webhookview), name='my_webhook_view'),
+    path('alpha/',  include(test_patterns)),
     path('login/', views.log_in, name = 'login'),
     path('signup', views.signup, name='signup'),
     path('unsubscribe', views.unsubscribe, name='unsubscribe'),
@@ -99,7 +104,8 @@ urlpatterns = [
     path('career_switch/',views.career_switch,name='career_switch'),
     path('obtain_position/',views.position_detail),
     path('jobs/submitted',views.job_submitted),
-    path('testmail/',views.test_mail),
+    path('installments/',views.installments,name='installments'),
+    path('installments/pay',views.installment_pay, name="installments_pay"),
 ]
 
 

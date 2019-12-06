@@ -1,5 +1,7 @@
 from django.contrib import admin, messages
 from django import forms
+from django.shortcuts import redirect
+
 from . import models
 from django.core.mail import send_mail
 from django.conf import settings
@@ -7,8 +9,8 @@ from .models import FAQ, Job, RHCSAOrder, FreeAccountClick, Campaign, Message, U
     InternshipDetail, MessageGroup, UserLocation, NewsLetterSubscribers, UserOrder, Document, MainModel, AwsCredential, \
     Jobplacement, Groupclass, BillingHistory, GroupClassRegister, StripePayment, UserPayment, wepeoples, wetask, werole, \
     wework, wetype, PartTimeJob, TryFreeRecord, FullTimePostion, PartTimePostion, Resume, CareerSwitchApplication, \
-    Certificates, EmailMessageType, EmailMessageLog,CompleteClass,\
-    CompleteClassLearn, CompleteClassCertificate
+    Certificates, EmailMessageType, EmailMessageLog, CompleteClass, \
+    CompleteClassLearn, CompleteClassCertificate, SubPayment, InstallmentPlan, INSTALLMENT_PLAN_STATUS
 
 from datetime import timedelta
 import datetime
@@ -171,6 +173,10 @@ def get_urls():
         return []
     return ((choice, choice) for choice in urls)
 
+
+
+
+
 class CustomAdminFullTimeForm(forms.ModelForm):
 
     interested_page = forms.ChoiceField(choices=get_urls())
@@ -209,6 +215,42 @@ class EmailMessageLogAdmin(admin.ModelAdmin):
                 ), level=messages.ERROR)
 
     resend_message.short_description = 'Resend Message'
+
+class SubPaymentInline(admin.TabularInline):
+    model = SubPayment
+    verbose_name = "Sub Payment"
+    verbose_name_plural = "Sub Payments"
+    extra = 0
+    # radio_fields ={''}
+
+
+class CustomInstallmentAdminForm(forms.ModelForm):
+    # status = forms.ChoiceField(choices=INSTALLMENT_PLAN_STATUS)
+    class Meta:
+        model = InstallmentPlan
+        exclude = []
+
+class InstallmentPlanAdmin(admin.ModelAdmin):
+    list_display = ('user','total_amount','balance','total_installments')
+    search_fields = ('user',)
+    fieldsets = [
+        ['General Information', {
+            'fields': ['user', 'description', 'total_amount']
+        }],
+    ]
+    inlines =  (SubPaymentInline,)
+    list_select_related = True
+
+    raw_id_fields = ('user',)
+    # form = CustomInstallmentAdminForm
+
+    # def save_model(self, request, obj, form, change):
+    #     obj.user = request.user
+    #     if obj.subpayment_set.count() < 1:
+    #         self.message_user(request, 'Please add at least one payment',messages.ERROR)
+    #         return redirect(request.path)
+    #     super().save_model(request, obj, form, change)
+    # list_filter = ('pending', )
 
 
 
@@ -250,5 +292,7 @@ admin.site.register(CompleteClass)
 admin.site.register(CompleteClassLearn)
 admin.site.register(CompleteClassCertificate)
 admin.site.register(EmailMessageType,EmailMessageTypeAdmin)
-admin.site.register(EmailMessageLog,EmailMessageLogAdmin)
+admin.site.register(EmailMessageLog)
+admin.site.register(InstallmentPlan, InstallmentPlanAdmin)
+
 

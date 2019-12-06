@@ -342,10 +342,10 @@ bottom: 200px;
 												</ul>
 											</div>
 											<div class="col-md-4 col-sm-6">
-												<ul>							
+												<ul>
 													<li><a href="/users/orderlist"><span class="link-icon"><img src="{% static 'home/images/icon1.png' %}" alt="" /></span>Order List</a></li>
 												</ul>
-											</div>		
+											</div>
 											<div class="col-md-4 col-sm-6">
 												<ul>	
 													<li><a href="{% url 'home:logout' %}"><span class="link-icon"><img src="{% static 'home/images/logout1.png' %}" alt="" /></span>Logout</a></li>
@@ -358,6 +358,14 @@ bottom: 200px;
 												</ul>
 											</div>
 											{%endif%}
+                                            											<div class="col-md-4 col-sm-6">
+												<ul>
+													<li><a href="{% url 'home:installments' %}"><span class="link-icon">
+                                                        <img src="{% static 'home/images/icon1.png' %}" alt="" />
+                                                    </span>Installments</a>
+                                                    </li>
+												</ul>
+											</div>
 										</div>
 									</div>	
 								</li>

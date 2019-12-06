@@ -3044,7 +3044,7 @@ Linuxjobber
 
             mailer_applicant = LinuxjobberMailer(
                 subject="Career Switch Application Received",
-                to_address=request.user.email,
+                to_address=request.POST['email'],
                 header_text="Linuxjobber",
                 type=None,
                 message=applicant_template
@@ -3075,7 +3075,7 @@ Kindly review.
 
             mailer_admin = LinuxjobberMailer(
                 subject="New Career Switch Application Received",
-                to_address=request.user.email,
+                to_address=ADMIN_EMAIL,
                 header_text="Linuxjobber",
                 type=None,
                 message=admin_email_template
@@ -3089,3 +3089,98 @@ Kindly review.
 
 def job_submitted(request, type="fulltime"):
     return TemplateResponse(request, 'home/job_application_submitted.html')
+
+@login_required
+def installments(request):
+    installments = InstallmentPlan.objects.filter(user=request.user)
+    context = {
+        'installments':installments
+    }
+    return TemplateResponse(request,'home/installments.html',context)
+
+@login_required
+def installment_pay(request):
+    context = {}
+    context['installments'] = InstallmentPlan.objects.filter(user=request.user)
+    if request.POST.get('sub_payment_id',None) or request.POST.get("stripeToken",None):
+        payment_id = request.POST.get('sub_payment_id',None)
+        context['sub_payment_id'] = payment_id
+        try:
+            sub_payment = SubPayment.objects.get(pk=payment_id)
+        except SubPayment.DoesNotExist:
+            messages.error(request, 'An error occured, please try again')
+            return redirect('home:installments')
+        if sub_payment.is_paid:
+            messages.success('Double payment attempt detected, payment made previously')
+            return redirect('home:installments')
+        PRICE = int(sub_payment.amount)
+        mode = "One Time Payment"
+        PAY_FOR = "Installment payment for {}".format(sub_payment.installment.description.lower())
+        DISCLMR = "Please note that you will be charged ${}. However, you may cancel at any time within 14 days for a full refund. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ${} One Time".format(
+            PRICE, PRICE)
+        stripeset = StripePayment.objects.all()
+        stripe.api_key = stripeset[0].secretkey
+
+        if request.POST.get("stripeToken",None):
+            stripe.api_key = stripeset[0].secretkey
+            token = request.POST.get("stripeToken")
+            try:
+                charge = stripe.Charge.create(
+                    amount= PRICE * 100,
+                    # Stripe uses cent notation for amount: 10 USD = 10 * 100
+                    currency='usd',
+                    description='Installment for {installment}'.format(installment= sub_payment.installment.description),
+                    source=token,
+                )
+            except stripe.error.CardError as ce:
+                return False, ce
+            else:
+                sub_payment.approve_payment()
+                try:
+                    UserPayment.objects.create(user=request.user, amount=PRICE,
+                                               trans_id=charge.id, pay_for=charge.description)
+                    message_applicant = """
+Hello, 
+
+Your installment payment of {amount} has been received.
+
+Total installments left : {count}
+Balance : ${balance}
+
+Warm Regards,
+Linuxjobber
+
+                        """.format(
+                        balance=sub_payment.installment.get_balance(),
+                        count=sub_payment.installment.subpayment_set.count(),
+                        amount= sub_payment.amount
+                    )
+                    mailer_applicant = LinuxjobberMailer(
+                        subject="Installment Payment",
+                        to_address=request.user.email,
+                        header_text="Linuxjobber",
+                        type=None,
+                        message=message_applicant
+                    )
+                    mailer_applicant.send_mail()
+                    messages.success(request,'Installment Payment Successful!')
+                    return render(request, 'home/installment_pay.html')
+                except Exception as error:
+                    messages.success(request,'Installment Payment Successful!')
+                    return render(request, 'home/installment_pay.html')
+                finally:
+
+                    return redirect("home:installments")
+        else:
+            context.update({"stripe_key": stripeset[0].publickey,
+                       'price': PRICE,
+                       'amount': str( PRICE * 100 ),
+                       'mode': mode,
+                       'PAY_FOR': PAY_FOR,
+                       'DISCLMR': DISCLMR,
+                       'courses': get_courses(),
+                       'tools': get_tools()})
+            return render(request, 'home/installment_pay.html', context)
+    else:
+        messages.error(request,'Unable to validate installment, please select a valid installment plan')
+        return redirect('home:installments')
