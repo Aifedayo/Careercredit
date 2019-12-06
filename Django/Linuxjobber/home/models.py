@@ -1,7 +1,12 @@
+import datetime
+import enum
 import os
 
 from django.contrib.auth.models import User
+from django.contrib.humanize.templatetags import humanize
+from django.core.exceptions import ValidationError
 from django.db import connection, models
+from django.db.models import Sum
 from django.utils import timezone
 
 from Courses.models import Course
@@ -603,6 +608,187 @@ class EmailMessageLog(models.Model):
             self.set_as_sent()
         except Exception as error:
             self.set_as_fail(error.__str__())
+
+
+class SubPayment(models.Model):
+    amount = models.FloatField()
+    description = models.CharField(max_length=255,null=True)
+    installment = models.ForeignKey("InstallmentPlan",on_delete=models.DO_NOTHING,null=True)
+    due_in = models.IntegerField(default=1,)
+    is_initial = models.BooleanField(default=False,)
+    is_paid = models.BooleanField(default=False)
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
+    paid_on = models.DateTimeField(null=True,editable=False)
+
+
+    def __str__(self):
+        return "{description} at {amount} ".format(
+            amount = self.amount,
+            description=self.description
+        )
+    def set_as_paid(self):
+        self.is_paid = True
+        self.paid_on = timezone.now()
+        self.save()
+
+    def approve_payment(self):
+        self.set_as_paid()
+        self.installment.set_payment_status()
+
+    def get_initial_payment(self):
+        return self.installment.subpayment_set.get(is_initial=True)
+
+    def get_initial_payment_amount(self):
+        return self.get_initial_payment().amount
+
+    def initial_has_been_paid(self) -> bool:
+        return self.get_initial_payment().is_paid
+
+    def calculate_due_date(self):
+        return self.get_initial_payment().paid_on + datetime.timedelta(weeks=self.due_in)
+
+    def get_paid_date(self):
+        if self.is_paid:
+            return humanize.naturalday(self.paid_on)
+        else:
+            return None
+
+    def get_due_date(self):
+        if self.initial_has_been_paid():
+            return humanize.naturalday(self.calculate_due_date())
+        else:
+            return "Calculated {number_of_weeks} weeks from date of initial payment".format(
+                number_of_weeks = self.due_in
+            )
+
+    def get_due_date_pretty(self):
+        if self.initial_has_been_paid():
+            return humanize.naturaltime(self.calculate_due_date())
+        else:
+            return "Initial not paid".format(
+                number_of_weeks = self.due_in
+            )
+
+    def save(self,*args,**kwargs):
+        """
+        Sets paid_on date
+        :param args:
+        :param kwargs:
+        :return:
+        """
+        if self.is_paid:
+            self.paid_on = timezone.now()
+        else:
+            self.paid_on = None
+        super(type(self),self).save(*args, **kwargs)
+
+
+INSTALLMENT_PLAN_STATUS = (
+    ('is_unpaid','Unpaid'),
+    ('is_pending','Pending'),
+    ('is_settled','Settled'),
+    ('is_breached','Breached')
+)
+class PlanStatus(enum.Enum):
+    is_unpaid = 'is_unpaid'
+    is_pending = "is_pending"
+    is_settled = 'is_settled'
+    is_breached = 'is_breached'
+
+class InstallmentPlan(models.Model):
+    user = models.ForeignKey(CustomUser,on_delete=models.CASCADE)
+    description =  models.CharField(max_length=255,null=True)
+    total_amount = models.FloatField()
+    status = models.CharField(editable=False,max_length=15,default=PlanStatus.is_unpaid.value)
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
+
+    def clean(self):
+        if self.subpayment_set.count() < 0:
+            raise ValidationError('Please put atleast one payment')
+
+    def __str__(self):
+        return "{description} in ({installment_count}) installments for {user}  ".format(
+            installment_count = self.subpayment_set.count(),
+            description = self.description,
+            user = self.user.get_full_name()
+        )
+    def get_balance(self):
+        if not self.subpayment_set.all():
+            return 'No payment plan exists'
+        all_paid_subpayments = self.subpayment_set.filter(is_paid=True)
+        if all_paid_subpayments:
+            total_amount_paid = all_paid_subpayments.aggregate(total_amount=Sum('amount'))
+            total_amount_paid = total_amount_paid['total_amount']
+            return self.total_amount - total_amount_paid
+        else:
+            return self.total_amount
+    def total_installments(self):
+        return self.subpayment_set.count()
+
+    def get_initial_payment_amount(self):
+        return self.subpayment_set.get(is_initial=True).amount
+
+    def get_next_due_payment(self):
+        all_subpayments = self.subpayment_set.all()
+        initial_payment = all_subpayments.get(is_initial=True)
+
+        if initial_payment.is_paid:
+            # Removes all paid installments
+            left_over = all_subpayments.exclude(is_paid=True)
+            next_payment = left_over.order_by('due_in').first()
+            return next_payment
+        return initial_payment
+
+    def get_next_due_payment_id(self):
+
+        if self.get_next_due_payment():
+            return self.get_next_due_payment().pk
+        return None
+
+    def get_upcoming_payments(self):
+        all_upcoming = SubPayment.objects.filter(is_paid=False).order_by('due_in')
+        return all_upcoming
+
+
+
+    balance = property(get_balance)
+    total_installments.short_description = 'Total Installments'
+    get_balance.short_description = 'Balance Left'
+
+    def set_payment_status(self):
+        if self.get_balance() == 0:
+            self.status = PlanStatus.is_settled.value
+            self.save()
+
+        elif self.get_balance() < self.total_amount:
+            self.status = PlanStatus.is_pending.value
+            self.save()
+
+        else:
+            self.status = PlanStatus.is_unpaid.value
+            self.save()
+
+
+    # def save(self,*args,**kwargs):
+    #     """
+    #     Sets default message format to be used
+    #     :param args:
+    #     :param kwargs:
+    #     :return:
+    #     """
+    #     if self.subpayment_set.count() < 0 :
+    #         return
+    #     if self.is_default:
+    #         type_list = type(self).objects.filter(is_default=True)
+    #         if self.pk:
+    #             type_list.exclude(self)
+    #         type_list.update(is_default = False)
+    #     super(type(self),self).save(*args,**kwargs)
+
+
+
 
 
 
