@@ -11,7 +11,7 @@ def insert_installment_data(request):
     try:
         installment = InstallmentPlan.objects.create(
             user = request.user,
-            total_amount = 5000,
+            total_amount = 1000,
             description= 'Test Installment Plan'
         )
         SubPayment.objects.create(
