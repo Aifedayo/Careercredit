@@ -22,7 +22,6 @@ Installments | Linuxjobber
 
     <div class="row">
 
-      <!-- Blog Entries Column -->
       <div class="col-md-8">
 
         <h1 class="my-4">Installments
@@ -44,7 +43,7 @@ Installments | Linuxjobber
           {% endfor %}
         {% endif %}
 
-        <!-- Blog Post -->
+        {% if installments %}
           {% for installment in installments %}
             <div class="card">
           <div class="card-body">
@@ -139,6 +138,16 @@ Installments | Linuxjobber
           </div>
         </div>
           {% endfor %}
+            {% else %}
+            <div class="card">
+            <div class="card-body">
+                <div class="card-title">
+                    <h2> No Installment Record found</h2>
+                </div>
+            </div>
+            </div>
+
+        {% endif %}
         </div>
 
       <!-- Sidebar Widgets Column -->
