@@ -3044,7 +3044,7 @@ Linuxjobber
 
             mailer_applicant = LinuxjobberMailer(
                 subject="Career Switch Application Received",
-                to_address=request.user.email,
+                to_address=request.POST['email'],
                 header_text="Linuxjobber",
                 type=None,
                 message=applicant_template
@@ -3075,7 +3075,7 @@ Kindly review.
 
             mailer_admin = LinuxjobberMailer(
                 subject="New Career Switch Application Received",
-                to_address=request.user.email,
+                to_address=ADMIN_EMAIL,
                 header_text="Linuxjobber",
                 type=None,
                 message=admin_email_template
