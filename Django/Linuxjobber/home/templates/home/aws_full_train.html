@@ -1,7 +1,7 @@
 {% extends 'home/base.html' %}
 {% load staticfiles%}
 {% block title %}
-AWS Full Training | Linuxjobber
+{{page.name}} Complete Training | Linuxjobber
 {% endblock %}
 {% block content %}
 
@@ -60,26 +60,67 @@ AWS Full Training | Linuxjobber
             margin-left: -20px;
             padding-right: 50px;
         }
+
+        }
+.startext{
+    color: gold;
+}
+   
+.awsleftp{
+    color: #000;
+}
+@charset "UTF-8";
+:root {
+  --star-size: 32px;
+  --star-color: #CDCDCD;
+  --star-background: #fc0;
+}
+
+.Stars {
+  --percent: calc(var(--rating) / 5 * 100%);
+  display: inline-block;
+  font-size: var(--star-size);
+
+  line-height: 1;
+}
+.Stars::before {
+  content: '★★★★★';
+  letter-spacing: 3px;
+  background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+    background-clip: text;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent; 
+}
+
+       
+  
+
     </style>
 <div class="groupblueban">
 </div>
 
 <div class="aws_fullban">
     <div class="container">
-        <p class="aws_fullbanp">Full Training Course</p>
+        <p class="aws_fullbanp">Complete Training Course</p>
         <h1 class="aws_fullbanh1">{{page.title}}</h1>
-        <span class="awsrate"><img class="awsrateimg" style="padding-top: 10px;" src="{% static 'home/images/rating.png' %}">  <span class="aws_fullbanp-2">2307 Ratings</span></span><br><br>
+       
+        <div class="Stars" style="--rating: {{page.rating_point}};" aria-label="Rating of this product is 2.3 out of 5.">  <span style="color:gold; padding-top:-100px">{{page.rating_point}}</span> <span class="aws_fullbanp-2">{{page.rating_total}} Ratings</span><br><br>
         <div class="row">
         <div class="aws_fullbanpdiv col-md-6">
         <p class="aws_fullbanp1">{{page.description}}</p><br>
         </div>
         </div>
         {%if expired %}
-        <a href="/{{page.pay_url}}" class="btn awsnewbut" disabled>Enroll Now</a>
+        <a href="/{{page.pay_url}}" class="btn awsnewbut" disabled>Expired</a>
         {%else%}
-        <a href="/{{page.pay_url}}" class="btn awsnewbut">Enroll Now</a>
+            {% if request.user.is_authenticated %}
+            <a href="{% url 'home:complete_pay' page.id %}" class="btn awsnewbut">Enroll Now</a>
+            {%else%}
+            <a href="{% url 'home:login' %}?next=/full_training/pay/{{page.id}}" class="btn awsnewbut">Enroll Now</a>
+            {%endif%}
         {%endif%}
     </div>
+    <br><br><br><br><br>
 </div>
 <div class="container">
     <div class="row">
@@ -89,7 +130,7 @@ AWS Full Training | Linuxjobber
                 <p class="awspdef">{{page.about}}</p>
                 
                 <br><br>
-                <p class="awsleftp">What will you learn</p>
+                <p class="awsleftp">What Will You Learn</p>
                 <div class="row">
                     {%for led in learn%}
                     <div class="col-md-6">
@@ -105,20 +146,20 @@ AWS Full Training | Linuxjobber
                 
                    
                 <br>
+                
                 <p class="awsleftp">Course Prerequisite</p>
                 <p class="awspdef">{{page.prerequisite}}</p>
-
                 <br><br>
                 <p class="awsleftp">Course Outline</p>
                 {%for curse in curses%}
                 <div class="row">
                     <div class="col-md-1"><img  style=" margin-left: -15px;" src="{% static 'home/images/playbut.png' %}"></div>
-                    <div class="col-md-10"><p class="awspdef awslista" style=" margin-left: -40px;">{{curse.topic}}</p></div>
-                    <div class="col-md-1"><p class="awspdef awslista" style=" margin-left: -30px;">9 min</p></div>
+                    <div class="col-md-10"><p class="awspdef awslista" style=" margin-left: -45px;">{{curse.topic}}</p></div>
+                    <div class="col-md-1"><p class="awspdef awslista" style=" margin-left: -40px;">{{curse.duration}} min</p></div>
                 </div><br>
                 {%endfor%}
                 <br><br>
-                <p class="awsleftp">Past Student Certificate</p>
+                <p class="awsleftp">Past Student's Certificates</p>
                 <div class="row">
                     {%for img in cert%}
                         <div class="col-md-4"><img  style=" margin-left: -15px;" src="{{img.url_of_image}}"></div>
@@ -179,45 +220,49 @@ AWS Full Training | Linuxjobber
         <div class="col-md-3">
             <div class="awsright">
                 <div class="awsrightsec">
-                    <img src="{% static 'home/images/awsicon1.png' %}"><br> <br>                   
+                    <img src="{% static 'home/images/awsicon1.png' %}"><br>                  
                     <p class="awsrightp1">100% Online</p>
                     <p class="awspdef awslista">Start instantly without leaving the comfort of your home</p>
                 </div>
                 <div class="awsrightsec">
-                    <img src="{% static 'home/images/awsicon2.png' %}"><br> <br>  
+                    <img src="{% static 'home/images/awsicon2.png' %}"><br> 
                     <p class="awsrightp1">Beginner Level</p>
                     <p class="awspdef awslista">Easy for starters</p>
                 </div>
                 <div class="awsrightsec">
-                    <img src="{% static 'home/images/awsicon3.png' %}"><br> <br>  
+                    <img src="{% static 'home/images/awsicon3.png' %}"><br> 
                     <p class="awsrightp1">English</p>
                     <p class="awspdef awslista">Course is english language</p>
                 </div>
                 <div class="awsrightsec">
-                    <img src="{% static 'home/images/awsicon4.png' %}"><br> <br>  
+                    <img src="{% static 'home/images/awsicon4.png' %}"><br> 
                     <p class="awsrightp1">One-on-One with Live Instructor</p>
                     <p class="awspdef awslista">Step-by-step walk-through of the entire course with a live professional. 
                     Get the dedicated attention, schedule and time of an active professional going through the entire course materials with you..</p>
                 </div>
                 <div class="awsrightsec">
-                    <img src="{% static 'home/images/awsicon5.png' %}"><br> <br>  
+                    <img src="{% static 'home/images/awsicon5.png' %}"><br>  
                     <p class="awsrightp1">3 Times A Week</p>
                     <p class="awspdef awslista">Registration Due: {%if expired %} Expired {%elif today %} Today {%elif tomorrow %}Tomorrow {%else%}  {{page.due_date|date}} {%endif%}</p>
                 </div>
                 <div class="awsrightsec">
-                    <img src="{% static 'home/images/awsicon6.png' %}"><br> <br>  
+                    <img src="{% static 'home/images/awsicon6.png' %}"><br> 
                     <p class="awsrightp1">Get Certified</p>
                     <p class="awspdef awslista">Validate your skills and enhance your credibility with an industry-recognized credential.</p>
                 </div>
                 <div class="awsrightsec">
-                    <img src="{% static 'home/images/awsicon7.png' %}"><br> <br>  
+                    <img src="{% static 'home/images/awsicon7.png' %}"><br>  
                     <p class="awsrightp1">${{page.fee}}</p>
                     <p class="awspdef awslista">One time fee</p>
                 </div>
                 {%if expired %}
-                <a href="/{{page.pay_url}}" class="btn awsnewbut2" disabled>Enroll Now</a>
+                <a href="{% url 'home:complete_pay' page.id %}" class="btn awsnewbut2" disabled>Expired</a>
                 {%else%}
-                <a href="/{{page.pay_url}}" class="btn awsnewbut2">Enroll Now</a>
+                {% if request.user.is_authenticated %}
+                <a href="{% url 'home:complete_pay' page.id %}" class="btn awsnewbut2">Enroll Now</a>
+                {%else%}
+                <a href="{% url 'home:login' %}?next=/full_training/pay/{{page.id}}" class="btn awsnewbut2">Enroll Now</a>
+                {%endif%}
                 {%endif%}
             </div>
         </div>

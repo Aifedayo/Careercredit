@@ -53,6 +53,7 @@ class CourseTopic(models.Model):
     has_notes = models.IntegerField(default=1 ,choices=((0, 'No'), (1, 'Yes')))
     has_labs = models.IntegerField(default=1 ,choices=((0, 'No'), (1, 'Yes')))
     free = models.IntegerField(default=0 ,choices=((0, 'No'), (1, 'Yes')))
+    duration =  models.IntegerField(default=5)
     
     class Meta:
         verbose_name_plural = 'Course Topics'

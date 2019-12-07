@@ -9,7 +9,6 @@ import requests
 import datetime
 
 from smtplib import SMTPException
-from urllib.parse import urlparse
 from django.conf import settings
 from django.contrib.auth.hashers import check_password
 from django.core.files.storage import FileSystemStorage
@@ -37,8 +36,7 @@ from .forms import JobPlacementForm, JobApplicationForm, AWSCredUpload, Internsh
     ResumeForm, PartimeApplicationForm, WeForm, UnsubscribeForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from datetime import datetime
-
-
+from .mail_service import LinuxjobberMailer
 fs = FileSystemStorage(location=settings.MEDIA_ROOT + '/uploads')
 # stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -50,7 +48,7 @@ standard_logger = logging.getLogger(__name__)
 dbalogger = logging.getLogger('dba')
 utc = pytz.UTC
 
-
+ADMIN_EMAIL = 'joseph.showunmi@linuxjobber.com'
 # Using Django
 def my_webhook_view(request):
     # Retrieve the request's body and parse it as JSON:
@@ -72,6 +70,17 @@ def get_courses():
 def get_tools():
     return Tool.objects.all()
 
+def test_mail(request):
+
+    mailer = LinuxjobberMailer(
+        subject="SoZme",
+        to_address="azmayowa@gmail.com",
+        header_text="Some item",
+        type=None,
+        message="This is a needed necessity for living a good live"
+    )
+    mailer.send_mail()
+    return HttpResponse("Ok")
 
 # INDEX VIEW
 def index(request):
@@ -166,9 +175,34 @@ def signup(request):
                         user.username = username
                         user.save()
 
-                    send_mail('Account has been Created',
-                              'Hello ' + firstname + ' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + ' and your email is ' + email + '\n Follow this url to login with your username and password ' + settings.ENV_URL + 'login \n\n Thanks & Regards \n Admin. \n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
-                              settings.EMAIL_HOST_USER, [email])
+                    mail_message = """
+                    Hello {firstname} {lastname},
+                    Thank you for registering on Linuxjobber, your username is: {username}
+                    and your email is {email}
+                    
+                    Follow this url to login with your username and password {env_url}/login
+                    
+                    Best Regards
+                    Admin.
+                    
+                    """.format(
+                        username =  username,
+                        email = email,
+                        firstname = firstname,
+                        lastname = lastname,
+                        env_url =  settings.ENV_URL
+                    )
+                    mailer = LinuxjobberMailer(
+                        subject="Account has been created",
+                        to_address= email,
+                        header_text="Linuxjobber",
+                        type=None,
+                        message= mail_message
+                    )
+                    mailer.send_mail()
+                    # send_mail('Account has been Created',
+                    #           'Hello ' + firstname + ' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + ' and your email is ' + email + '\n Follow this url to login with your username and password ' + settings.ENV_URL + 'login \n\n Thanks & Regards \n Admin. \n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
+                    #           settings.EMAIL_HOST_USER, [email])
                     login(request, user)
                     if 'job_email' in request.session:
                         try:
@@ -261,9 +295,33 @@ def forgot_password(request):
             u.pwd_reset_token = ''.join(random.choice(string.ascii_lowercase) for x in range(64))
             u.save()
             password_reset_link = 'reset_password/' + str(u.pwd_reset_token)
-            send_mail('Linuxjobber Account Password Reset',
-                      'Hello, \n' + 'You are receiving this email because we received a request to reset your password,\n ignore this message if you did not initiate the request else click the link below to reset your password.\n' + settings.ENV_URL + '' + password_reset_link + '\n\n Thanks & Regards \n Linuxjobber. \n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
-                      settings.EMAIL_HOST_USER, [email])
+            mail_message = """
+                Hello,
+                
+                You are receiving this email because we received a request to reset your password,
+                ignore this message if you did not initiate the request else click the link below 
+                to reset your password.
+                
+                {env}{reset_link} 
+                
+                Warm Regards, 
+                Linuxjobber. 
+
+            """.format(
+                env = settings.ENV_URL,
+                reset_link = password_reset_link
+            )
+            mailer = LinuxjobberMailer(
+                subject="Account Password Reset",
+                to_address=email,
+                header_text="Linuxjobber",
+                type=None,
+                message=mail_message
+            )
+            mailer.send_mail()
+            # send_mail('Linuxjobber Account Password Reset',
+            #           'Hello, \n' + 'You are receiving this email because we received a request to reset your password,\n ignore this message if you did not initiate the request else click the link below to reset your password.\n' + settings.ENV_URL + '' + password_reset_link + '\n\n Thanks & Regards \n Linuxjobber. \n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
+            #           settings.EMAIL_HOST_USER, [email])
 
             return render(request, 'home/registration/forgot_password.html', {
                 'message': 'An email with password reset information has been sent to you. Check your email to proceede.'})
@@ -314,9 +372,28 @@ def internships(request):
             internform.save()
             messages.success(request, 'Thanks for applying for the internship which starts on ' + str(internsh.strftime(
                 '%b %d, %y')) + '. Please ensure you keep in touch with Linuxjobber latest updates on our various social media platform')
-            send_mail('Linuxjobber Internship',
-                      'Hello, you are receiving this email because you applied for an internship at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber.\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
-                      settings.EMAIL_HOST_USER, [request.POST['email']])
+
+            mail_message = """
+            Hello, 
+            
+            You are receiving this email because you applied for an internship at linuxjobber.com,
+            we would review your application and get back to you.
+
+            Best Regards,
+            Admin.
+
+            """
+            mailer = LinuxjobberMailer(
+                subject = "Linuxjobber Internship",
+                to_address = request.POST['email'],
+                header_text = "Linuxjobber",
+                type = None,
+                message=mail_message
+            )
+            mailer.send_mail()
+            # send_mail('Linuxjobber Internship',
+            #           'Hello, you are receiving this email because you applied for an internship at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber.\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
+            #           settings.EMAIL_HOST_USER, [request.POST['email']])
             return render(request, 'home/internships.html', {'form': form, })
     else:
         form = InternshipForm()
@@ -448,7 +525,7 @@ def partime(request):
             else:
                 high = 'No'
 
-            message = """Hello, you are receiving this email because you applied for a part-time role at linuxjobber.com.\n
+            message_applicant = """Hello, you are receiving this email because you applied for a part-time role at linuxjobber.com.\n
             Your resume was received with pleasure! Your background skills looks good! I hope you are doing okay.
             \n\nThis role is expected to fill a position in Linuxjobber,Inc.\n\n
             By the time you respond, we expect that you would have already visited our website at https://linuxjobber.com, 
@@ -463,13 +540,53 @@ def partime(request):
             \n\n If so visit this link to login, if you dont have an account, register here: """ + settings.ENV_URL + """  and click the yes button: """ + settings.ENV_URL + """jobs/challenge/ \n
             Best Regards,.\n\n Thanks & Regards \n Linuxjobber. \n\n\n\n\n\n\n\n To Unsubscribe go here \n""" + settings.ENV_URL + """unsubscribe"""
 
-            send_mail('Linuxjobber Newsletter', message, settings.EMAIL_HOST_USER, [request.POST['email']])
-            send_mail('Part-Time Job Application Alert',
-                      'Hello,\n' + request.POST['fullname'] + ' with email: ' + request.POST[
-                          'email'] + ' just applied for a part time role, ' + position.job_title + '.\nCV can be found here: ' + cv + '\n Phone number is: ' +
-                      request.POST[
-                          'phone'] + ' and high salary choice is: ' + high + '.\nplease kindly review.\n\n Thanks & Regards \n Linuxjobber. \n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
-                      settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
+
+            # send_mail('Linuxjobber Newsletter', message, settings.EMAIL_HOST_USER, [request.POST['email']])
+            message_admin = """
+            Hello,
+             
+            {fullname} with email: {email} just applied for a part time role, {title}
+            
+            CV can be found here: {cv}
+            Phone number is: {phone} 
+            High salary choice is: {salary}
+            
+            Please kindly review.
+            
+            Warm Regards
+
+            """.format(
+                fullname = request.POST['fullname'],
+                email =  request.POST['email'],
+                title = position.job_title,
+                cv = cv,
+                phone = request.POST['phone'],
+                salary = high
+            )
+
+            mailer_applicant = LinuxjobberMailer(
+                subject="Newsletter",
+                to_address=request.POST['email'],
+                header_text="Linuxjobber Jobs",
+                type=None,
+                message=message_applicant
+            )
+            mailer_applicant.send_mail()
+
+            mailer_admin = LinuxjobberMailer(
+                subject="Part-Time Job Application Alert",
+                to_address = ADMIN_EMAIL,
+                header_text="Linuxjobber Jobs",
+                type=None,
+                message=message_admin
+            )
+            mailer_admin.send_mail()
+            # send_mail('Part-Time Job Application Alert',
+            #           'Hello,\n' + request.POST['fullname'] + ' with email: ' + request.POST[
+            #               'email'] + ' just applied for a part time role, ' + position.job_title + '.\nCV can be found here: ' + cv + '\n Phone number is: ' +
+            #           request.POST[
+            #               'phone'] + ' and high salary choice is: ' + high + '.\nplease kindly review.\n\n Thanks & Regards \n Linuxjobber. \n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
+            #           settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
             return redirect("home:jobfeed")
         else:
             return render(request, 'home/job_application_parttime.html',
@@ -502,7 +619,15 @@ def jobchallenge(request, respon=None):
 
                 Best Regards,.\n\n Thanks & Regards \n Linuxjobber.\n\n\n\n\n\n\n\n To Unsubscribe go here \n""" + settings.ENV_URL + """unsubscribe"""
 
-        send_mail('Linuxjobber Job Challenge', message, settings.EMAIL_HOST_USER, [request.user.email])
+        mailer = LinuxjobberMailer(
+            subject="Job Challenge",
+            to_address = request.user.email,
+            header_text="Linuxjobber Johs",
+            type=None,
+            message=message
+        )
+        mailer.send_mail()
+        # send_mail('Linuxjobber Job Challenge', message, settings.EMAIL_HOST_USER, [request.user.email])
         return redirect("home:index")
     return render(request, 'home/jobchallenge.html')
 
@@ -601,15 +726,64 @@ def jobapplication(request, job):
             else:
                 cv = request.POST['cv_link']
 
-            send_mail('Linuxjobber Newsletter',
-                      'Hello, you are receiving this email because you applied for a full-time role at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
-                      settings.EMAIL_HOST_USER, [request.POST['email']])
-            send_mail('Full-Time Job Application Alert',
-                      'Hello,\n' + request.POST['fullname'] + ' with email: ' + request.POST[
-                          'email'] + 'just applied for a full time role, ' + posts.job_title + '. \nCV can be found here: ' + cv + '\n Phone number is:' +
-                      request.POST[
-                          'phone'] + '\nplease kindly review.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
-                      settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
+            # send_mail('Linuxjobber Newsletter',
+            #           'Hello, you are receiving this email because you applied for a full-time role at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
+            #           settings.EMAIL_HOST_USER, [request.POST['email']])
+
+
+            # send_mail('Full-Time Job Application Alert',
+            #           'Hello,\n' + request.POST['fullname'] + ' with email: ' + request.POST[
+            #               'email'] + 'just applied for a full time role, ' + posts.job_title + '. \nCV can be found here: ' + cv + '\n Phone number is:' +
+            #           request.POST[
+            #               'phone'] + '\nplease kindly review.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
+            #           settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
+            message_applicant = """
+                Hello, 
+                You are receiving this email because you applied for a full-time role at linuxjobber.com, we will review
+                 your application and get back to you.
+                 
+                 Warm Regards,
+                 Linuxjobber
+            
+            """
+            message_admin = """
+            Hello,
+
+            {fullname} with email: {email} just applied for a full time role, {title}
+
+            CV can be found here: {cv}
+            Phone number is: {phone} 
+
+            Kindly review.
+
+            Warm Regards
+
+            """.format(
+                fullname=request.POST['fullname'],
+                email=request.POST['email'],
+                title=posts.job_title,
+                cv=cv,
+                phone=request.POST['phone'],
+            )
+
+            mailer_applicant = LinuxjobberMailer(
+                subject="Newsletter",
+                to_address=request.POST['email'],
+                header_text="Linuxjobber Jobs",
+                type=None,
+                message=message_applicant
+            )
+            mailer_applicant.send_mail()
+
+            mailer_admin = LinuxjobberMailer(
+                subject="Full-Time Job Application Alert",
+                to_address=ADMIN_EMAIL,
+                header_text="Linuxjobber Jobs",
+                type=None,
+                message=message_admin
+            )
+            mailer_admin.send_mail()
+
             # Set job_picked to session so they are redirected accordingly after login
             request.session['selected_job_id'] = posts.pk
             return redirect("home:jobfeed", is_fulltime=1)
@@ -718,9 +892,26 @@ def linux_full_training(request):
         try:
             subscriber = NewsLetterSubscribers(email=email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter',
-                      'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
-                      settings.EMAIL_HOST_USER, [email])
+            message_applicant = """
+                Hello, 
+                
+                You are receiving this email because you have subscribed to our newsletter on linuxjobber.com.
+                
+                Warm Regards,
+                Linuxjobber
+
+            """
+            mailer_applicant = LinuxjobberMailer(
+                subject="Newsletter Subscription",
+                to_address= email,
+                header_text="Linuxjobber Newsletter",
+                type=None,
+                message=message_applicant
+            )
+            mailer_applicant.send_mail()
+            # send_mail('Linuxjobber Newsletter',
+            #           'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
+            #           settings.EMAIL_HOST_USER, [email])
             return render(request, 'home/linux_full_training.html',
                           {'news_letter_message': 'You have successfully subscribed to our news letter!',
                            'courses': get_courses(), 'tools': get_tools()})
@@ -765,10 +956,27 @@ def aws_full_training(request):
         try:
             subscriber = NewsLetterSubscribers(email=email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter',
-                      'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
-                      settings.EMAIL_HOST_USER, [email])
-            return render(request, 'home/aws_full_train.html',
+            message_applicant = """
+Hello, 
+
+You are receiving this email because you have subscribed to our newsletter on linuxjobber.com.
+
+Warm Regards,
+Linuxjobber
+
+            """
+            mailer_applicant = LinuxjobberMailer(
+                subject="Newsletter Subscription",
+                to_address=email,
+                header_text="Linuxjobber Newsletter",
+                type=None,
+                message=message_applicant
+            )
+            mailer_applicant.send_mail()
+            # send_mail('Linuxjobber Newsletter',
+            #           'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
+            #           settings.EMAIL_HOST_USER, [email])
+            return render(request, 'home/aws_full_training.html',
                           {'news_letter_message': 'You have successfully subscribed to our news letter!',
                            'courses': get_courses(), 'tools': get_tools()})
         except Exception as e:
@@ -788,9 +996,28 @@ def oracledb_full_training(request):
         try:
             subscriber = NewsLetterSubscribers(email=email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter',
-                      'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
-                      settings.EMAIL_HOST_USER, [email])
+
+            message_applicant = """
+Hello, 
+
+You are receiving this email because you have subscribed to our newsletter on linuxjobber.com.
+
+Warm Regards,
+Linuxjobber
+
+            """
+            mailer_applicant = LinuxjobberMailer(
+                subject="Newsletter Subscription",
+                to_address=email,
+                header_text="Linuxjobber Newsletter",
+                type=None,
+                message=message_applicant
+            )
+            mailer_applicant.send_mail()
+
+            # send_mail('Linuxjobber Newsletter',
+            #           'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
+            #           settings.EMAIL_HOST_USER, [email])
             return render(request, 'home/oracledb_full_training.html',
                           {'news_letter_message': 'You have successfully subscribed to our news letter!',
                            'courses': get_courses(), 'tools': get_tools()})
@@ -811,9 +1038,28 @@ def linux_certification(request):
         try:
             subscriber = NewsLetterSubscribers(email=email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter',
-                      'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
-                      settings.EMAIL_HOST_USER, [email])
+
+            message_applicant = """
+Hello, 
+
+You are receiving this email because you have subscribed to our newsletter on linuxjobber.com.
+
+Warm Regards,
+Linuxjobber
+
+            """
+            mailer_applicant = LinuxjobberMailer(
+                subject="Newsletter Subscription",
+                to_address=email,
+                header_text="Linuxjobber Newsletter",
+                type=None,
+                message=message_applicant
+            )
+            mailer_applicant.send_mail()
+
+            # send_mail('Linuxjobber Newsletter',
+            #           'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
+            #           settings.EMAIL_HOST_USER, [email])
             return render(request, 'home/linux_certification.html',
                           {'news_letter_message': 'You have successfully subscribed to our news letter!',
                            'courses': get_courses(), 'tools': get_tools()})
@@ -834,11 +1080,30 @@ def aws_certification(request):
         try:
             subscriber = NewsLetterSubscribers(email=email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter',
-                      'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
-                      settings.EMAIL_HOST_USER, [email])
+
+            message_applicant = """
+Hello, 
+
+You are receiving this email because you have subscribed to our newsletter on linuxjobber.com.
+
+Warm Regards,
+Linuxjobber
+
+            """
+            mailer_applicant = LinuxjobberMailer(
+                subject="Newsletter Subscription",
+                to_address=email,
+                header_text="Linuxjobber Newsletter",
+                type=None,
+                message=message_applicant
+            )
+            mailer_applicant.send_mail()
+
+            # send_mail('Linuxjobber Newsletter',
+            #           'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
+            #           settings.EMAIL_HOST_USER, [email])
             return render(request, 'home/aws_certification.html',
-                          {'news_letter_message': 'You have successfully subscribed to our news letter!',
+                          {'news_letter_message': 'You have successfully subscribed to our newsletter!',
                            'courses': get_courses(), 'tools': get_tools()})
         except Exception as e:
             standard_logger.error('error')
@@ -857,9 +1122,26 @@ def oracledb_certification(request):
         try:
             subscriber = NewsLetterSubscribers(email=email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter',
-                      'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
-                      settings.EMAIL_HOST_USER, [email])
+            message_applicant = """
+                Hello, 
+
+                You are receiving this email because you have subscribed to our newsletter on linuxjobber.com.
+
+                Warm Regards,
+                Linuxjobber
+
+            """
+            mailer_applicant = LinuxjobberMailer(
+                subject="Newsletter Subscription",
+                to_address=email,
+                header_text="Linuxjobber Newsletter",
+                type=None,
+                message=message_applicant
+            )
+            mailer_applicant.send_mail()
+            # send_mail('Linuxjobber Newsletter',
+            #           'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
+            #           settings.EMAIL_HOST_USER, [email])
             return render(request, 'home/oracledb_certification.html',
                           {'news_letter_message': 'You have successfully subscribed to our news letter!',
                            'courses': get_courses(), 'tools': get_tools()})
@@ -905,9 +1187,27 @@ def devops_pay(request):
                 UserPayment.objects.create(user=request.user, amount=PRICE,
                                            trans_id=charge.id, pay_for=charge.description, )
 
-                send_mail('Linuxjobber DevOps Course Subscription',
-                          'Hello, you have successfuly subscribed for our DevOps Course package.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
-                          settings.EMAIL_HOST_USER, [request.user.email])
+                # send_mail('Linuxjobber DevOps Course Subscription',
+                #           'Hello, you have successfuly subscribed for our DevOps Course package.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
+                #           settings.EMAIL_HOST_USER, [request.user.email])
+                message_applicant = """
+                    Hello, 
+
+                    You have successfuly subscribed for our DevOps Course package.
+
+                    Warm Regards,
+                    Linuxjobber
+
+                """
+                mailer_applicant = LinuxjobberMailer(
+                    subject="DevOps Course Subscription",
+                    to_address= request.user.email,
+                    header_text="Linuxjobber",
+                    type=None,
+                    message=message_applicant
+                )
+                mailer_applicant.send_mail()
+
                 return render(request, 'home/devops_pay_success.html')
             except SMTPException as error:
                 print(error)
@@ -1019,9 +1319,33 @@ def workexprofile(request):
 
             link = weps.Paystub.url
 
-            send_mail('Pay Stub verification needed',
-                      'Hello,\n ' + request.user.email + ' just uploaded is pay stub at: ' + link + '.\nPlease review and confirm last verification\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
-                      settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
+            # send_mail('Pay Stub verification needed',
+            #           'Hello,\n ' + request.user.email + ' just uploaded is pay stub at: ' + link + '.\nPlease review and confirm last verification\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
+            #           settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
+
+            message_applicant = """
+                Hello, 
+
+                {email} just uploaded his/her pay stub at: {link} 
+                
+                Please review and confirm last verification
+
+                Warm Regards,
+                Linuxjobber
+
+            """.format(
+                email =  request.user.email,
+                link = link
+            )
+            mailer_applicant = LinuxjobberMailer(
+                subject="Paystub Verification Needed",
+                to_address=ADMIN_EMAIL,
+                header_text="Linuxjobber Work Experience",
+                type=None,
+                message=message_applicant
+            )
+            mailer_applicant.send_mail()
+
             messages.success(request,
                              'Paystub uploaded successfully, Last verification would be confirmed as soon as Paystub is verified')
             return redirect("home:workexprofile")
@@ -1138,9 +1462,27 @@ def apply(request, level):
                         'level': level,
                     }
                     return render(request, 'home/failed_application.html', context)
-                send_mail('Linuxjobber Jobplacement Program',
-                          'Hello, you have succesfully signed up for Linuxjobber Jobplacement program,\n\nIf you havent signed the agreement, visit this link to do so: https://leif.org/commit?product_id=5b304639e59b74063647c484#/.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
-                          settings.EMAIL_HOST_USER, [request.user.email])
+                # send_mail('Linuxjobber Jobplacement Program',
+                #           'Hello, you have succesfully signed up for Linuxjobber Jobplacement program,\n\nIf you havent signed the agreement, visit this link to do so: https://leif.org/commit?product_id=5b304639e59b74063647c484#/.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
+                #           settings.EMAIL_HOST_USER, [request.user.email])
+                message_applicant = """
+                    Hello, 
+
+                    You are receiving this email because you have successfully signed up for Linuxjobber Jobplacement program
+
+                    Warm Regards,
+                    Linuxjobber
+
+                """
+                mailer_applicant = LinuxjobberMailer(
+                    subject="Subscription Success",
+                    to_address=request.user.email,
+                    header_text="Linuxjobber Job Placement",
+                    type=None,
+                    message=message_applicant
+                )
+                mailer_applicant.send_mail()
+
                 return render(request, 'home/jobaccepted.html')
             except Exception as error:
                 print(error)
@@ -1182,9 +1524,33 @@ def pay(request):
             wepeoples.objects.update_or_create(user=request.user, types=None, current_position=None,
                                                person=None, state=None, income=None, relocation=None,
                                                last_verification=None, Paystub=None, graduation_date=None)
-            send_mail('Linuxjobber Work-Experience Program',
-                      'Hello, you have succesfully paid for Linuxjobber work experience program,\n\nIf you havent signed the agreement, visit this link to do so: https://leif.org/commit?product_id=5b30461fe59b74063647c483#/.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
-                      settings.EMAIL_HOST_USER, [request.user.email])
+            # New mail implementation
+
+
+            # send_mail('Linuxjobber Work-Experience Program',
+            #           'Hello, you have succesfully paid for Linuxjobber work experience program,\n\nIf you havent signed the agreement, visit this link to do so: https://leif.org/commit?product_id=5b30461fe59b74063647c483#/.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
+            #           settings.EMAIL_HOST_USER, [request.user.email])
+            message_applicant = """
+                Hello, 
+
+                You have succesfully paid for Linuxjobber Work Experience Program.
+                
+                If you havent signed the agreement, visit this link to do so
+                https://leif.org/commit?product_id=5b30461fe59b74063647c483#/
+
+                Warm Regards,
+                Linuxjobber
+
+            """
+            mailer_applicant = LinuxjobberMailer(
+                subject="Payment Successful",
+                to_address=request.user.email,
+                header_text="Linuxjobber Work Experience",
+                type=None,
+                message=message_applicant
+            )
+            mailer_applicant.send_mail()
+
             return render(request, 'home/accepted.html')
         except Exception as error:
             messages.error(request, 'An error occurred while trying to pay please try again')
@@ -1486,8 +1852,21 @@ def contact_us(request):
         from_email = request.POST['email']
         subject = request.POST['subject']
         message = request.POST['message']
+        message+= """
+        \n
+        Mail address : {}       
+        """.format(from_email)
+
         try:
-            send_mail(message, subject, from_email, ['elena.edwards@linuxjobber.com'])
+            # send_mail(message, subject, from_email, ['elena.edwards@linuxjobber.com'])
+            mailer = LinuxjobberMailer(
+                subject=subject,
+                to_address=ADMIN_EMAIL,
+                header_text="{} via Linuxjobber Support".format(fname),
+                type=None,
+                message=message
+            )
+            mailer.send_mail()
             # contact_message = ContactMessages(full_name=fname, phone_no=phone, email=email, message_subject=subj, message=message)
             # contact_message.save()
         except Exception as e:
@@ -1875,9 +2254,27 @@ def students_packages(request):
         try:
             subscriber = NewsLetterSubscribers(email=email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter',
-                      'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
-                      settings.EMAIL_HOST_USER, [email])
+            # send_mail('Linuxjobber Newsletter',
+            #           'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
+            #           settings.EMAIL_HOST_USER, [email])
+            message_applicant = """
+                Hello, 
+
+                You are receiving this email because you have subscribed to our newsletter on linuxjobber.com.
+
+                Warm Regards,
+                Linuxjobber
+
+            """
+            mailer_applicant = LinuxjobberMailer(
+                subject="Newsletter Subscription",
+                to_address=email,
+                header_text="Linuxjobber Newsletter",
+                type=None,
+                message=message_applicant
+            )
+            mailer_applicant.send_mail()
+
             return render(request, 'home/students_packages.html',
                           {'news_letter_message': 'You have successfully subscribed to our news letter!',
                            'courses': get_courses(), 'tools': get_tools()})
@@ -1898,9 +2295,27 @@ def server_service(request):
         try:
             subscriber = NewsLetterSubscribers(email=email)
             subscriber.save()
-            send_mail('Linuxjobber Newsletter',
-                      'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
-                      settings.EMAIL_HOST_USER, [email])
+            # send_mail('Linuxjobber Newsletter',
+            #           'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
+            #           settings.EMAIL_HOST_USER, [email])
+            message_applicant = """
+                Hello, 
+
+                You are receiving this email because you have subscribed to our newsletter on linuxjobber.com.
+
+                Warm Regards,
+                Linuxjobber
+
+            """
+            mailer_applicant = LinuxjobberMailer(
+                subject="Newsletter Subscription",
+                to_address=email,
+                header_text="Linuxjobber Newsletter",
+                type=None,
+                message=message_applicant
+            )
+            mailer_applicant.send_mail()
+
             return render(request, 'home/server_service.html',
                           {'news_letter_message': 'You have successfully subscribed to our news letter!',
                            'courses': get_courses(), 'tools': get_tools()})
@@ -1944,9 +2359,27 @@ def pay_live_help(request):
                                            trans_id=charge.id, pay_for=charge.description,
                                            )
 
-                send_mail('Linuxjobber Live Help Subscription',
-                          'Hello, you have successfuly subscribed for Live Help on Linuxjobber.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
-                          settings.EMAIL_HOST_USER, [request.user.email])
+                # send_mail('Linuxjobber Live Help Subscription',
+                #           'Hello, you have successfuly subscribed for Live Help on Linuxjobber.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
+                #           settings.EMAIL_HOST_USER, [request.user.email])
+
+                message_applicant = """
+                    Hello, 
+
+                    You are receiving this email because you have successfuly subscribed for Live Help on Linuxjobber.
+
+                    Warm Regards,
+                    Linuxjobber
+
+                """
+                mailer_applicant = LinuxjobberMailer(
+                    subject="Live Help Subscription",
+                    to_address=request.user.email
+                ,header_text="Linuxjobber",
+                    type=None,
+                    message=message_applicant
+                )
+                mailer_applicant.send_mail()
                 return render(request, 'home/live_help_pay_success.html')
             except SMTPException as error:
                 print(error)
@@ -1967,6 +2400,67 @@ def pay_live_help(request):
 def in_person_training(request):
     return render(request, 'home/in_person_training.html', {'courses': get_courses(), 'tools': get_tools()})
 
+@login_required
+def full_train_pay(request, class_id):
+    try:
+        comclass = CompleteClass.objects.get(id=class_id)
+    except CompleteClass.DoesNotExist:
+        raise Http404
+    PAY_FOR = comclass.name
+    PRICE = comclass.fee
+    mode = "One Time Payment"
+    stripeset = StripePayment.objects.all()
+    stripe.api_key = stripeset[0].secretkey
+    DISCLMR = "Please note that you will be charged ${} upfront. However, you may cancel at any time within 14 days for a full refund. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ${}/Monthly".format(
+        PRICE, PRICE)
+
+
+    if request.method == "POST":
+        token = request.POST.get("stripeToken")
+        amt = PRICE.replace(',','')
+        amt = amt.split('.')[0]
+        
+        
+        try:
+            charge = stripe.Charge.create(
+                amount=int(amt) * 100,
+                currency="usd",
+                source=token,
+                description=comclass.name
+            )
+
+
+        except stripe.error.CardError as ce:
+            return False, ce
+        else:
+            try:
+                UserPayment.objects.create(user=request.user, amount=amt,
+                                            trans_id=charge.id, pay_for=charge.description,
+                                            )
+                user = request.user
+                user.role = 3
+                user.save()
+                send_mail('Linuxjobber '+ comclass.name +' Subscription',
+                            'Hello, you have successfuly subscribed for our ' +comclass.name+' Plan package.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
+                            settings.EMAIL_HOST_USER, [request.user.email])
+                return render(request, 'home/complete_pay_success.html', {'class': comclass.name})
+            except SMTPException as error:
+                print(error)
+                return render(request, 'home/complete_pay_success.html', {'class': comclass.name})
+            except Exception as error:
+                print(error)
+                return redirect("home:index")
+    else:
+        amt = PRICE.replace(',','')
+        amt = amt.split('.')[0]
+        context = {"stripe_key": stripeset[0].publickey,
+            'price': PRICE,
+            'amount': str(amt) + '00',
+            'mode': mode,
+            'PAY_FOR': PAY_FOR,
+            'DISCLMR': DISCLMR,
+        }
+        return render(request, 'home/complete_pay.html', context)
 
 @login_required
 def tryfree(request, sub_plan='standardPlan'):
@@ -1999,9 +2493,27 @@ def tryfree(request, sub_plan='standardPlan'):
                     user = request.user
                     user.role = 3
                     user.save()
-                    send_mail('Linuxjobber Standard Plan Subscription',
-                              'Hello, you have successfuly subscribed for our Standard Plan package.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
-                              settings.EMAIL_HOST_USER, [request.user.email])
+                    # send_mail('Linuxjobber Standard Plan Subscription',
+                    #           'Hello, you have successfuly subscribed for our Standard Plan package.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
+                    #           settings.EMAIL_HOST_USER, [request.user.email])
+                    message_applicant = """
+                        Hello, 
+
+                        You are receiving this email because you have successfuly subscribed for our Standard Plan package.
+
+                        Warm Regards,
+                        Linuxjobber
+
+                    """
+                    mailer_applicant = LinuxjobberMailer(
+                        subject="Standard Plan Subscription",
+                        to_address=request.user.email,
+                        header_text="Linuxjobber",
+                        type=None,
+                        message=message_applicant
+                    )
+                    mailer_applicant.send_mail()
+
                     return render(request, 'home/standardPlan_pay_success.html')
                 except SMTPException as error:
                     print(error)
@@ -2050,9 +2562,26 @@ def tryfree(request, sub_plan='standardPlan'):
                     user = request.user
                     user.role = 3
                     user.save()
-                    send_mail('Linuxjobber AWS Full Training Subscription',
-                              'Hello, you have successfuly subscribed for our AWS Full Training Plan package.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
-                              settings.EMAIL_HOST_USER, [request.user.email])
+                    # send_mail('Linuxjobber AWS Full Training Subscription',
+                    #           'Hello, you have successfuly subscribed for our AWS Full Training Plan package.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
+                    #           settings.EMAIL_HOST_USER, [request.user.email])
+                    message_applicant = """
+                        Hello, 
+
+                        You are receiving this email because you have successfuly subscribed for our AWS Full Training Plan package.
+
+                        Warm Regards,
+                        Linuxjobber
+
+                    """
+                    mailer_applicant = LinuxjobberMailer(
+                        subject="AWS Full Training Subscription",
+                        to_address=request.user.email,
+                        header_text="Linuxjobber",
+                        type=None,
+                        message=message_applicant
+                    )
+                    mailer_applicant.send_mail()
                     return render(request, 'home/awsFull_pay_success.html')
                 except SMTPException as error:
                     print(error)
@@ -2101,9 +2630,27 @@ def tryfree(request, sub_plan='standardPlan'):
                     user = request.user
                     user.role = 4
                     user.save()
-                    send_mail('Linuxjobber Premium Plan Subscription',
-                              'Hello, you have successfuly subscribed for our Premium Plan package.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
-                              settings.EMAIL_HOST_USER, [request.user.email])
+                    # send_mail('Linuxjobber Premium Plan Subscription',
+                    #           'Hello, you have successfuly subscribed for our Premium Plan package.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
+                    #           settings.EMAIL_HOST_USER, [request.user.email])
+
+                    message_applicant = """
+                        Hello, 
+
+                        You are receiving this email because you have successfuly subscribed for our Premium Plan package.
+
+                        Warm Regards,
+                        Linuxjobber
+
+                    """
+                    mailer_applicant = LinuxjobberMailer(
+                        subject="Premiun Plan Subscription",
+                        to_address=request.user.email,
+                        header_text="Linuxjobber",
+                        type=None,
+                        message=message_applicant
+                    )
+                    mailer_applicant.send_mail()
                     return render(request, 'home/premiumPlan_pay_success.html')
                 except SMTPException as error:
                     print(error)
@@ -2206,6 +2753,33 @@ def group_list(request):
                 user.first_name = firstname
                 user.last_name = lastname
                 user.save()
+
+                mail_message = """
+                                   Hello {firstname} {lastname},
+                                   Thank you for registering on Linuxjobber, your username is: {username}
+                                   and your email is {email}
+
+                                   Follow this url to login with your username and password {env_url}/login
+
+                                   Best Regards
+                                   Admin.
+
+                                   """.format(
+                    username=username,
+                    email=email,
+                    firstname=firstname,
+                    lastname=lastname,
+                    env_url=settings.ENV_URL
+                )
+                mailer = LinuxjobberMailer(
+                    subject="Account has been created",
+                    to_address=email,
+                    header_text="Linuxjobber",
+                    type=None,
+                    message=mail_message
+                )
+                mailer.send_mail()
+
                 # send_mail('Account has been Created', 'Hello '+ firstname +' ' + lastname + ',\n' + 'Thank you for registering on Linuxjobber, your username is: ' + username + ' and your email is ' +email + '\n Follow this url to login with your username and password '+settings.ENV_URL+'login \n\n Thanks & Regards \n Admin.\n\n\n\n\n\n\n\n To Unsubscribe go here \n' +settings.ENV_URL+'unsubscribe', settings.EMAIL_HOST_USER, [email])
 
                 groupreg = GroupClassRegister.objects.create(user=user, is_paid=0, amount=29,
@@ -2337,12 +2911,33 @@ def combined_class_pay(request):
                 wepeoples.objects.update_or_create(user=request.user, types=None, current_position=None,
                                                    person=None, state=None, income=None, relocation=None,
                                                    last_verification=None, Paystub=None, graduation_date=None)
-                send_mail('Linuxjobber Combined Class Payment',
-                          'Hello, you have successfuly beem enrolled in our Combined Class '
-                          'which gives you access to full technical training with Work Experience package included \n\n'
-                          'Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL
-                          + 'unsubscribe',
-                          settings.EMAIL_HOST_USER, [request.user.email])
+                # send_mail('Linuxjobber Combined Class Payment',
+                #           'Hello, you have successfuly beem enrolled in our Combined Class '
+                #           'which gives you access to full technical training with Work Experience package included \n\n'
+                #           'Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL
+                #           + 'unsubscribe',
+                #           settings.EMAIL_HOST_USER, [request.user.email])
+
+                message_applicant = """
+                    Hello, 
+
+                    You are receiving this email because you have successfuly beem enrolled in our Combined Class 
+                    which gives you access to full technical training with Work Experience package included.
+
+                    Warm Regards,
+                    Linuxjobber
+
+                """
+                mailer_applicant = LinuxjobberMailer(
+                    subject="Combined Class Payment Successful",
+                    to_address=request.user.email,
+                    header_text="Linuxjobber",
+                    type=None,
+                    message=message_applicant
+                )
+                mailer_applicant.send_mail()
+
+
                 return render(request, 'home/combined_class_pay_success.html')
             except SMTPException as error:
                 print(error)
@@ -2443,9 +3038,18 @@ Linuxjobber
                 unsubscribe_url=settings.ENV_URL + '/unsubscribe'
             )
 
-            send_mail('Your Career Switch application has been received - Linuxjobber',
-                      applicant_template, settings.EMAIL_HOST_USER,
-                      [request.POST['email']])
+            # send_mail('Your Career Switch application has been received - Linuxjobber',
+            #           applicant_template, settings.EMAIL_HOST_USER,
+            #           [request.POST['email']])
+
+            mailer_applicant = LinuxjobberMailer(
+                subject="Career Switch Application Received",
+                to_address=request.POST['email'],
+                header_text="Linuxjobber",
+                type=None,
+                message=applicant_template
+            )
+            mailer_applicant.send_mail()
 
             admin_email_template = """
 Hello,
@@ -2465,8 +3069,18 @@ Kindly review.
                 cv_url=cv,
                 email=jobform.email
             )
-            send_mail('Career Switch Application Received ', admin_email_template
-                      , settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com', ])
+            # send_mail('Career Switch Application Received ', admin_email_template
+            #           , settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com', ])
+
+
+            mailer_admin = LinuxjobberMailer(
+                subject="New Career Switch Application Received",
+                to_address=ADMIN_EMAIL,
+                header_text="Linuxjobber",
+                type=None,
+                message=admin_email_template
+            )
+            mailer_admin.send_mail()
             return redirect("home:jobfeed")
         else:
             return render(request, 'home/career_switch.html', {'form': form})
@@ -2475,3 +3089,98 @@ Kindly review.
 
 def job_submitted(request, type="fulltime"):
     return TemplateResponse(request, 'home/job_application_submitted.html')
+
+@login_required
+def installments(request):
+    installments = InstallmentPlan.objects.filter(user=request.user)
+    context = {
+        'installments':installments
+    }
+    return TemplateResponse(request,'home/installments.html',context)
+
+@login_required
+def installment_pay(request):
+    context = {}
+    context['installments'] = InstallmentPlan.objects.filter(user=request.user)
+    if request.POST.get('sub_payment_id',None) or request.POST.get("stripeToken",None):
+        payment_id = request.POST.get('sub_payment_id',None)
+        context['sub_payment_id'] = payment_id
+        try:
+            sub_payment = SubPayment.objects.get(pk=payment_id)
+        except SubPayment.DoesNotExist:
+            messages.error(request, 'An error occured, please try again')
+            return redirect('home:installments')
+        if sub_payment.is_paid:
+            messages.success('Double payment attempt detected, payment made previously')
+            return redirect('home:installments')
+        PRICE = int(sub_payment.amount)
+        mode = "One Time Payment"
+        PAY_FOR = "Installment payment for {}".format(sub_payment.installment.description.lower())
+        DISCLMR = "Please note that you will be charged ${}. However, you may cancel at any time within 14 days for a full refund. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ${} One Time".format(
+            PRICE, PRICE)
+        stripeset = StripePayment.objects.all()
+        stripe.api_key = stripeset[0].secretkey
+
+        if request.POST.get("stripeToken",None):
+            stripe.api_key = stripeset[0].secretkey
+            token = request.POST.get("stripeToken")
+            try:
+                charge = stripe.Charge.create(
+                    amount= PRICE * 100,
+                    # Stripe uses cent notation for amount: 10 USD = 10 * 100
+                    currency='usd',
+                    description='Installment for {installment}'.format(installment= sub_payment.installment.description),
+                    source=token,
+                )
+            except stripe.error.CardError as ce:
+                return False, ce
+            else:
+                sub_payment.approve_payment()
+                try:
+                    UserPayment.objects.create(user=request.user, amount=PRICE,
+                                               trans_id=charge.id, pay_for=charge.description)
+                    message_applicant = """
+Hello, 
+
+Your installment payment of {amount} has been received.
+
+Total installments left : {count}
+Balance : ${balance}
+
+Warm Regards,
+Linuxjobber
+
+                        """.format(
+                        balance=sub_payment.installment.get_balance(),
+                        count=sub_payment.installment.subpayment_set.count(),
+                        amount= sub_payment.amount
+                    )
+                    mailer_applicant = LinuxjobberMailer(
+                        subject="Installment Payment",
+                        to_address=request.user.email,
+                        header_text="Linuxjobber",
+                        type=None,
+                        message=message_applicant
+                    )
+                    mailer_applicant.send_mail()
+                    messages.success(request,'Installment Payment Successful!')
+                    return render(request, 'home/installment_pay.html')
+                except Exception as error:
+                    messages.success(request,'Installment Payment Successful!')
+                    return render(request, 'home/installment_pay.html')
+                finally:
+
+                    return redirect("home:installments")
+        else:
+            context.update({"stripe_key": stripeset[0].publickey,
+                       'price': PRICE,
+                       'amount': str( PRICE * 100 ),
+                       'mode': mode,
+                       'PAY_FOR': PAY_FOR,
+                       'DISCLMR': DISCLMR,
+                       'courses': get_courses(),
+                       'tools': get_tools()})
+            return render(request, 'home/installment_pay.html', context)
+    else:
+        messages.error(request,'Unable to validate installment, please select a valid installment plan')
+        return redirect('home:installments')
