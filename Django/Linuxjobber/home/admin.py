@@ -232,14 +232,15 @@ class CustomInstallmentAdminForm(forms.ModelForm):
 
 class InstallmentPlanAdmin(admin.ModelAdmin):
     list_display = ('user','total_amount','balance','total_installments')
-    search_fields = ('user',)
+    list_filter = ('status',)
+    search_fields = ('user__email',)
     fieldsets = [
         ['General Information', {
             'fields': ['user', 'description', 'total_amount']
         }],
     ]
     inlines =  (SubPaymentInline,)
-    list_select_related = True
+    save_as = True
 
     raw_id_fields = ('user',)
     # form = CustomInstallmentAdminForm

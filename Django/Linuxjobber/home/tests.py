@@ -34,7 +34,8 @@ def insert_installment_data(request):
 def delete_installment_record(request):
     if not settings.DEBUG:
         return Http404('Not found')
-    plan = InstallmentPlan.objects.get(user=request.user)
-    plan.subpayment_set.all().delete()
-    plan.delete()
+    plans = request.user.installmentplan_set.all() #InstallmentPlan.objects.filter(user=request.user)
+    for plan in plans:
+        plan.subpayment_set.all().delete()
+        plan.delete()
     return HttpResponse('Deleted')
