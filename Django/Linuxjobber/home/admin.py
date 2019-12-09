@@ -8,7 +8,7 @@ from .models import FAQ, Job, RHCSAOrder, FreeAccountClick, Campaign, Message, U
     Jobplacement, Groupclass, BillingHistory, GroupClassRegister, StripePayment, UserPayment, wepeoples, wetask, werole, \
     wework, wetype, PartTimeJob, TryFreeRecord, FullTimePostion, PartTimePostion, Resume, CareerSwitchApplication, \
     Certificates, EmailMessageType, EmailMessageLog,CompleteClass,\
-    CompleteClassLearn, CompleteClassCertificate
+    CompleteClassLearn, CompleteClassCertificate, workexpeligibility, workexpisa, workexppay
 
 from datetime import timedelta
 import datetime
@@ -212,6 +212,11 @@ class EmailMessageLogAdmin(admin.ModelAdmin):
 
 
 
+
+
+admin.site.register(workexpisa)
+admin.site.register(workexpeligibility)
+admin.site.register(workexppay)
 admin.site.register(FAQ)
 admin.site.register(Job, JobAdmin)
 admin.site.register(UserOrder)

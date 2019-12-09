@@ -1293,13 +1293,154 @@ def workexpform(request):
 
 
 @login_required
+def workexpeligible(request):
+
+    try:
+        details =  workexpeligibility.objects.get(user=request.user)
+        date = details.date_of_birth
+        date = date.strftime('%Y-%m-%d')
+        created = details.date_created
+        created = created.strftime('%Y-%m-%d')
+    except  workexpeligibility.DoesNotExist:
+        details = None
+        date = None
+        created = None
+
+   
+
+    if request.method == "POST":
+
+        firstname = request.POST['firstname']
+        lastname = request.POST['lastname']
+        middleinitial = request.POST['initial']
+        othername = request.POST['othername']
+        state = request.POST['state']
+        address = request.POST['address']
+        Apt = request.POST['aptno']
+        city = request.POST['city']
+        zipc = request.POST['zip']
+        dob = request.POST['dob']
+        ssn = request.POST['ssn']
+        email = request.POST['eadress']
+        eadress = request.POST['eadress']
+        tel = request.POST['tel']
+        i_am = request.POST['selector']
+        translator = request.POST['selectza']
+
+        if i_am == 2:
+            alien_no = request.POST['alien1']
+        else:
+            alien_no = None
+
+        if i_am == 3:
+            expiry_date = request.POST['alien']
+            form19 = request.POST['form19']
+            foreign = request.POST['foreign']
+        else:
+            expiry_date = None
+            form19 = None
+            foreign = None
+
+        try: 
+            det = workexpeligibility.objects.get(user=request.user)
+            det.first_name = firstname
+            det.last_name = lastname
+            det.middle_initial = middleinitial
+            det.middle_name = othername
+            det.address = address
+            det.apt_number = Apt
+            det.city = city
+            det.zip_code=zipc
+            det.date_of_birth = dob
+            det.SSN= ssn
+            det.state = state
+            det.employee_address = eadress
+            det.employee_email = email
+            det.employee_phone = tel
+            det.expiry_date = expiry_date
+            det.preparer_or_translator = translator
+            det.i_am_a = i_am
+            det.Alien_reg_num=alien_no
+            det.form_19_num=form19
+            det.foreign_pass_num=foreign
+
+            det.save()
+            return redirect("home:isa")
+        except workexpeligibility.DoesNotExist:
+            state = workexpeligibility.objects.create(user=request.user,first_name=firstname,last_name=lastname,middle_initial=middleinitial,middle_name=othername,state=state,address=address,apt_number=Apt,city=city,zip_code=zipc,date_of_birth=dob,SSN=ssn,employee_address=eadress,employee_email=email,employee_phone=tel,expiry_date=expiry_date,preparer_or_translator=translator,i_am_a=i_am,Alien_reg_num=alien_no,form_19_num=form19,foreign_pass_num=foreign)
+            state.save()
+
+        return redirect("home:isa")  
+    return render(request, 'home/workexpeligibility.html',{'details':details,'date':date,'created':created})
+
+@login_required
+def workexpisaz(request):
+    try:
+        details =  workexpeligibility.objects.get(user=request.user)
+        date = details.date_of_birth
+        date = date.strftime('%Y-%m-%d')
+    except  workexpeligibility.DoesNotExist:
+        details = None
+        date = None
+
+    try:
+        jot =  workexpisa.objects.get(user=request.user)
+        comp = jot.Estimated_date_of_program_completion
+        comp = comp.strftime('%Y-%m-%d')
+
+    except workexpisa.DoesNotExist:
+        jot = None
+        comp = None
+
+    if request.method == "POST":
+        email = request.POST['email']
+        income = request.POST['income']
+        pay = request.POST['payment']
+        edu = request.POST['edu']
+        status = request.POST['status']
+        completion = request.POST['date']
+
+        try:
+            det = workexpisa.objects.get(user=request.user)
+            det.Signed_isa=0
+            det.Current_Annual_Income=income
+            det.Monthly_House_Payment=pay
+            det.Highest_level_education=edu
+            det.Employment_status=status
+            det.Estimated_date_of_program_completion=completion
+            det.email = email
+            det.save()
+        except workexpisa.DoesNotExist:
+            state = workexpisa.objects.create(user=request.user,email=email,Signed_isa=0,Current_Annual_Income=income,Monthly_House_Payment=pay,Highest_level_education=edu,Employment_status=status,Estimated_date_of_program_completion=completion)
+            state.save()
+
+        return redirect("home:workexpisa2")
+    return render(request, 'home/workexpisa.html',{'details':details,'jot':jot,'date':date,'comp':comp})
+
+def workexpisa2(request):
+
+    if request.method == "POST":
+        sign = request.POST['fullname']
+
+        try:
+            jot = workexpisa.objects.get(user=request.user)
+            jot.Signed_isa = 1
+            jot.save()
+            return redirect("home:workexpform")
+        except workexpisa.DoesNotExist:
+            return redirect("home:isa")
+        
+    
+    return render(request, 'home/workexpisa2.html')
+
+@login_required
 def workexprofile(request):
     group = []
     try:
         weps = wepeoples.objects.get(user=request.user)
 
         if not weps.types:
-            return redirect("home:workexpform")
+            return redirect("home:eligibility")
     except wepeoples.DoesNotExist:
         return redirect("home:workexperience")
 
@@ -1509,6 +1650,8 @@ def pay(request):
         pass
     if request.method == "POST":
         token = request.POST.get("stripeToken")
+        jobplacement = request.POST.get("jobplacement")
+        
         try:
             charge = stripe.Charge.create(
                 amount=PRICE * 100,
@@ -1524,6 +1667,9 @@ def pay(request):
             wepeoples.objects.update_or_create(user=request.user, types=None, current_position=None,
                                                person=None, state=None, income=None, relocation=None,
                                                last_verification=None, Paystub=None, graduation_date=None)
+            state = workexppay.objects.create(user=request.user,paid=1,job_placement=jobplacement)
+            state.save()
+        
             # New mail implementation
 
 
@@ -1551,7 +1697,7 @@ def pay(request):
             )
             mailer_applicant.send_mail()
 
-            return render(request, 'home/accepted.html')
+            return redirect("home:eligibility")
         except Exception as error:
             messages.error(request, 'An error occurred while trying to pay please try again')
             return redirect("home:pay")
