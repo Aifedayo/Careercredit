@@ -4,6 +4,7 @@ import os
 
 from django.contrib.auth.models import User
 from django.contrib.humanize.templatetags import humanize
+from django.contrib import messages
 from django.core.exceptions import ValidationError
 from django.db import connection, models
 from django.db.models import Sum
@@ -629,12 +630,12 @@ class SubPayment(models.Model):
         )
     def set_as_paid(self):
         self.is_paid = True
-        self.paid_on = timezone.now()
+        # self.paid_on = timezone.now()
         self.save()
 
     def approve_payment(self):
         self.set_as_paid()
-        self.installment.set_payment_status()
+        # self.installment.set_payment_status()
 
     def get_initial_payment(self):
         return self.installment.subpayment_set.get(is_initial=True)
@@ -677,11 +678,13 @@ class SubPayment(models.Model):
         :param kwargs:
         :return:
         """
-        if self.is_paid:
+        if self.is_paid and not self.paid_on:
             self.paid_on = timezone.now()
         else:
             self.paid_on = None
         super(type(self),self).save(*args, **kwargs)
+        self.installment.set_payment_status()
+
 
 
 INSTALLMENT_PLAN_STATUS = (
