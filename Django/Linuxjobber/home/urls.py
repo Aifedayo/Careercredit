@@ -20,6 +20,9 @@ wp_patterns = [
     path('terms/', views.workterm, name='workterm'),
     path('pay/', views.pay, name='pay'),
     path('apply/', views.workexpform, name='workexpform'),
+    path('eligibility/', views.workexpeligible, name='eligibility'),
+    path('ISA/', views.workexpisaz, name='isa'),
+    path('sign/',views.workexpisa2, name='workexpisa2'),
     path('profile/',views.workexprofile, name='workexprofile'),
     path('faq/',views.workexpfaq, name='workexpfaq'),
 ]

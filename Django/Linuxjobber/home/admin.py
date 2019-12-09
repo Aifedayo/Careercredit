@@ -9,8 +9,9 @@ from .models import FAQ, Job, RHCSAOrder, FreeAccountClick, Campaign, Message, U
     InternshipDetail, MessageGroup, UserLocation, NewsLetterSubscribers, UserOrder, Document, MainModel, AwsCredential, \
     Jobplacement, Groupclass, BillingHistory, GroupClassRegister, StripePayment, UserPayment, wepeoples, wetask, werole, \
     wework, wetype, PartTimeJob, TryFreeRecord, FullTimePostion, PartTimePostion, Resume, CareerSwitchApplication, \
-    Certificates, EmailMessageType, EmailMessageLog, CompleteClass, \
-    CompleteClassLearn, CompleteClassCertificate, SubPayment, InstallmentPlan, INSTALLMENT_PLAN_STATUS
+    Certificates, EmailMessageType, EmailMessageLog,CompleteClass,\
+    CompleteClassLearn, CompleteClassCertificate, workexpeligibility, workexpisa, workexppay, SubPayment, InstallmentPlan, INSTALLMENT_PLAN_STATUS
+
 
 from datetime import timedelta
 import datetime
@@ -254,6 +255,11 @@ class InstallmentPlanAdmin(admin.ModelAdmin):
 
 
 
+
+
+admin.site.register(workexpisa)
+admin.site.register(workexpeligibility)
+admin.site.register(workexppay)
 admin.site.register(FAQ)
 admin.site.register(Job, JobAdmin)
 admin.site.register(UserOrder)
