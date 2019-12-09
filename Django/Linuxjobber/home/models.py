@@ -4,6 +4,7 @@ import os
 
 from django.contrib.auth.models import User
 from django.contrib.humanize.templatetags import humanize
+from django.contrib import messages
 from django.core.exceptions import ValidationError
 from django.db import connection, models
 from django.db.models import Sum
@@ -683,6 +684,7 @@ class SubPayment(models.Model):
             self.paid_on = None
         super(type(self),self).save(*args, **kwargs)
         self.installment.set_payment_status()
+
 
 
 INSTALLMENT_PLAN_STATUS = (

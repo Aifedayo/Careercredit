@@ -58,8 +58,11 @@ Installments | Linuxjobber
                     <form action="{% url 'home:installments_pay' %}" method="post">
                     {% csrf_token %}
                         <input name="sub_payment_id" value="{{ installment.get_next_due_payment_id }}" type="text" hidden>
-                        <button style="float:right;" type="submit" class="btn btn-primary ">
-                        Make Next Payment
+                        <button style="float:right;" type="submit" class="btn btn-primary "
+                                {% if not installment.get_next_due_payment_id %} disabled {% endif %} >
+                        {% if not installment.get_next_due_payment_id %} Contact admin to setup next payment
+                        {% else %} Make Next Payment
+                        {% endif %}
                     </button>
                     </form>
                   {% elif installment.total_installments == 0 %}
@@ -104,7 +107,11 @@ Installments | Linuxjobber
             <div class="row">
                 <div class="col-md">
                     {% if not payment.is_paid %}
+                        {% if not payment.is_initial %}
                     <p> Due date : {{ payment.get_due_date }} </p>
+                            {% else %}
+                            <p>Plan would be activated when initial payment is made</p>
+                            {% endif %}
                     {% else %}
                     <p> Payment made {{ payment.get_paid_date }} </p>
                     {% endif %}
@@ -113,10 +120,18 @@ Installments | Linuxjobber
                     {% if not payment.is_paid %}
                     <form action="{% url 'home:installments_pay' %}" method="post">
                     {% csrf_token %}
+                        {% if installment.get_next_due_payment == payment %}
                         <input name="sub_payment_id" value="{{ payment.pk }}" type="text" hidden>
                         <button type="submit" class="btn btn-primary">
                         Pay now
                     </button>
+                            {% else %}
+                            <input name="sub_payment_id" value="{{ installment.get_next_due_payment.id }}" type="text" hidden>
+                        <button type="submit" class="btn btn-primary">
+                        Pay next due payment
+                    </button>
+
+                            {% endif %}
                     </form>
                     {% else %}
 
