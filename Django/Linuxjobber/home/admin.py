@@ -228,7 +228,8 @@ class SubPaymentInlineFormset(forms.models.BaseInlineFormSet):
             try:
                 if form.cleaned_data:
                     count += 1
-                    total+=form.cleaned_data['amount']
+                    if not form.cleaned_data['is_disabled']:
+                        total+=form.cleaned_data['amount']
                     installment_plan = form.cleaned_data['installment']
                     initial_set.append(form.cleaned_data['is_initial'])
             except AttributeError:
