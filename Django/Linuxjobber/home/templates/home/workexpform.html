@@ -79,22 +79,22 @@ Work Experience Profile Form | Linuxjobber
         </div>
 		<span>Current Position <span style="color: red; font-size: 25px;">*</span></span>
         <div class="row" style="padding: 0px;">
-            <div class="col-md-10"><input class="form-control isaput" type="text" placeholder="Your current position" required /></div>
+            <div class="col-md-10"><input class="form-control isaput" name="current_position" type="text" placeholder="Your current position" required /></div>
             <div class="col-md-2"></div>
 		</div>
 		<span>State <span style="color: red; font-size: 25px;">*</span></span>
         <div class="row" style="padding: 0px;">
-            <div class="col-md-10"><input class="form-control isaput" type="text" placeholder="Your state of residence" required /></div>
+            <div class="col-md-10"><input class="form-control isaput" name="state" type="text" placeholder="Your state of residence" required /></div>
             <div class="col-md-2"></div>
 		</div>
 		<span>Total Income <span style="color: red; font-size: 25px;">*</span></span>
         <div class="row" style="padding: 0px;">
-            <div class="col-md-10"><input class="form-control isaput" type="text" placeholder="Your total monthly income" required /></div>
+            <div class="col-md-10"><input class="form-control isaput" name="income" type="text" placeholder="Your total monthly income" required /></div>
             <div class="col-md-2"></div>
 		</div>
 		<span>Are You Willing To Relocate<span style="color: red; font-size: 25px;">*</span></span>
         <div class="row" style="padding: 0px;">
-            <div class="col-md-10"><select name="state" class="form-control isaput">
+            <div class="col-md-10"><select name=relocate" class="form-control isaput">
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
             </select></div>
@@ -106,7 +106,7 @@ Work Experience Profile Form | Linuxjobber
 				{%if not student%}
 					{{form.date}}
 					{%else%}
-						<input type="text" name="type" class="form-control isaput" id="id_resume" value="Student" readonly required>
+						<input type="text" name="date" class="form-control isaput" id="id_resume" value="Student" readonly required>
 					{%endif%}
 			</div>
             <div class="col-md-2"></div>
