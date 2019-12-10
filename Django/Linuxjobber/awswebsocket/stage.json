@@ -1,0 +1,10 @@
+[   
+    {   
+        "parameterKey":"stage",
+        "parameterValue":"stage"
+    },
+    {   
+        "parameterKey":"baseUrl",
+        "parameterValue":"https://stage.linuxjobber.com"
+    }
+]
