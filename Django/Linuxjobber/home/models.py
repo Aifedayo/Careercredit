@@ -410,6 +410,60 @@ class werole(models.Model):
     def __str__(self):
         return self.roles
 
+class WorkExperiencePay(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    is_paid = models.BooleanField(default=False)
+    includes_job_placement = models.BooleanField(default=False)
+    date_created = models.DateTimeField(default=timezone.now, null=True)
+
+    def __str__(self):
+        return self.user.email
+
+WORKEXPERIENCE_OPTIONS = (
+    (0, 'A citizen of the united states'),
+    (1, 'A non national citizen of the united states'),
+    (2, 'A lawful permanent resident'),
+    (3, 'An alien authorized to work'),
+)
+
+class WorkExperienceEligibility(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    first_name =  models.CharField(max_length=200, null=True)
+    last_name = models.CharField(max_length=200, null=True)
+    middle_initial = models.CharField(max_length=200, null=True)
+    middle_name = models.CharField(max_length=200, null=True)
+    address = models.TextField()
+    apt_number = models.TextField()
+    city = models.CharField(max_length=20, null=True)
+    state = models.CharField(max_length=20, null=True)
+    zip_code = models.CharField(max_length=20, null=True)
+    date_of_birth = models.DateTimeField(default=timezone.now, null=True)
+    SSN =  models.TextField()
+    employee_address =  models.TextField()
+    employee_email =  models.TextField()
+    employee_phone =  models.CharField(max_length=50, null=True)
+    expiry_date = models.DateTimeField(default=timezone.now, null=True)
+    preparer_or_translator = models.BooleanField(default=False)
+    i_am_a = models.IntegerField(default=0, choices=WORKEXPERIENCE_OPTIONS)
+    Alien_reg_num = models.TextField(null=True)
+    form_19_num = models.TextField(null=True)
+    foreign_pass_num = models.TextField(null=True)
+    date_created = models.DateTimeField(default=timezone.now, null=True)
+
+    def __str__(self):
+        return self.user.email
+class WorkExperienceIsa(models.Model):
+    email = models.TextField(default='')
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    current_annual_income = models.TextField(null=True)
+    monthly_house_payment = models.TextField(null=True)
+    highest_level_education = models.TextField(null=True)
+    employment_status =  models.TextField(null=True)
+    estimated_date_of_program_completion = models.DateTimeField(default=timezone.now, null=True)
+    is_signed_isa = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.user.email
 
 class wepeoples(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
