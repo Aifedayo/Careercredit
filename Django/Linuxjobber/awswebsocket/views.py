@@ -12,9 +12,8 @@ from rest_framework.permissions import AllowAny
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.authtoken.models import Token
 
-# url = 'https://85zctiv75k.execute-api.us-east-2.amazonaws.com/test/'
-url = settings.AWS_WS_GATEWAY
 
+url = settings.AWS_WS_GATEWAY
 
 
 class AwsWebsocketGatewayView(APIView):
@@ -154,7 +153,7 @@ def get_recent_messages(request):
 #Helper
 def _send_to_connection(connection_id, data):
     gatewayapi = boto3.client(
-        "apigatewaymanagementapi",endpoint_url = url
+        "apigatewaymanagementapi",endpoint_url = str(url)
     )
     return gatewayapi.post_to_connection(
         ConnectionId=connection_id,

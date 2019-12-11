@@ -320,5 +320,5 @@ NEW_TOOLS_PATH = config('NEW_TOOLS_PATH', "/tools/campaigns/")
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
  
-AWS_WS_GATEWAY = config('AWS_WS_GATEWAY','')
+AWS_WS_GATEWAY = config('AWS_WS_GATEWAY','url')
 

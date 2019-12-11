@@ -2,6 +2,7 @@
 
 # deploy|remove dev|int|stage|pro|live region
 
+# DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 create(){
     echo -e "\nStack does not exist, creating ..."
     aws cloudformation create-stack \
@@ -85,6 +86,15 @@ stack_not_exits(){
     $stack_output == *"does not exist"* ]]
 }
 
+random_string(){
+  local random_str="$( \
+        cat /dev/urandom | \
+        tr -dc 'a-zA-Z0-9' | \
+        fold -w ${1:-32} | \
+        head -n 1 )"
+  echo "$random_str"
+}
+
 usage="Usage: $(basename "$0") deploy|remove dev|int|stage|pro|live region [aws-cli-opts]
 where:
   deploy       - deploy the api gateway
@@ -114,10 +124,15 @@ region=$3
 stack_name="groupclass-websocket-api-gateway-$stage"
 params="ParameterKey=Stage,ParameterValue=$stage"
 site_url="https://${stage}.linuxjobber.com"
+new_deployment_name="WebsocketsDeployment"
+new_deployment_name+="$( random_string 16 )"
 
 if [ "$stage" != "pro" ]; then
     params+=" ParameterKey=BaseUrl,ParameterValue=$site_url"
 fi
+
+#rename WebsocketsDeployment in cloudformation file
+sed -i "s/WebsocketsDeployment1/$new_deployment_name/g" cloudformation.json
 
 #install jq if not present on pc (&> redirect both std[out/err])
 if ! command -v jq &> /dev/null; then
@@ -150,3 +165,6 @@ if [ "$action" == "remove" ]; then
 
     exit 0   
 fi
+
+#rename WebsocketsDeployment back in cloudformation file
+sed -i "s/$new_deployment_name/WebsocketsDeployment1/g" cloudformation.json
