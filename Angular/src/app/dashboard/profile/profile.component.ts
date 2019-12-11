@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import {environment} from "../../../environments/environment";
 import {ApiService} from "../../share/api.service";
 import {UserModel} from "../../share/user-model";
-import * as $ from 'jquery';
+// import * as $ from 'jquery';
 import { DataService } from 'src/app/data.service';
 
 @Component({
@@ -15,8 +15,12 @@ export class ProfileComponent implements OnInit {
   public user = new UserModel();
   public attendance$;
   public environment = environment;
+  private fileName='';
 
-  constructor(private apiService:ApiService, private dataService:DataService) {} 
+  constructor(
+    private apiService:ApiService, 
+    private dataService:DataService
+  ) {} 
 
   ngOnInit() {
     this.apiService.getUserInfo(
@@ -41,7 +45,6 @@ export class ProfileComponent implements OnInit {
 
           const formData = new FormData();
           formData.append('file', file, file.name);
-
           this.apiService.uploadImage(formData)
             .subscribe(
                 data => {
@@ -58,6 +61,20 @@ export class ProfileComponent implements OnInit {
       }
   }
 
+  changeImage(e):void{
+    const file = e.dataTransfer ? 
+      e.dataTransfer.files[0] : e.target.files[0];
+    const pattern = /image-*/;
+    const reader = new FileReader();
+    if (!file.type.match(pattern)) {
+      alert('invalid format');
+      return;
+    }
+    this.fileName = file.name;
+    reader.onload = this._handleReaderLoaded.bind(this);
+    reader.readAsDataURL(file);
+  }
+
   updateInfo(event): void {
     this.apiService.updateUserInfo(this.user).subscribe(data=>{
       this.user.username=data['username'];
@@ -70,7 +87,39 @@ export class ProfileComponent implements OnInit {
   }
 
   getProfileImg(proImgUrl:string){
-    return this.dataService.profileImgIsSet()?
-        environment.API_URL + proImgUrl:proImgUrl;
+
+    var image_url = "";
+      if(
+        proImgUrl.startsWith("https://") || 
+        proImgUrl.startsWith("http://") 
+      ){
+        image_url =  proImgUrl
+      }
+      else {
+        image_url = environment.API_URL + proImgUrl
+      }
+    return image_url
+  }
+
+  _handleReaderLoaded(e) {
+    let reader = e.target;
+    const body = {
+      name:this.fileName,
+      file:reader.result
+    };
+    // console.log(body);
+    // this.apiService.uploadBase64Image(body)
+    //   .subscribe(
+    //       data => {
+    //         const new_img_url = data['profile_img']+"?r="+Math.random()
+    //         sessionStorage.setItem('profile_img', new_img_url);
+    //         this.user.profile_img=this.getProfileImg(new_img_url);
+    //         this.dataService.updatedImgUrl = this.getProfileImg(
+    //           new_img_url
+    //         )
+    //       },
+    //       error => console.log( error)
+    //   );
+    // console.log(reader.result)
   }
 }

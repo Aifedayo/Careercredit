@@ -324,7 +324,7 @@
                }
             }
          },
-         "WebsocketsDeployment1575090549999":{
+         "WebsocketsDeployment":{
             "Type":"AWS::ApiGatewayV2::Deployment",
             "DependsOn":[
                "SconnectWebsocketsRoute",
@@ -347,7 +347,7 @@
                   "Ref":"WebsocketsApi"
                },
                "DeploymentId":{
-                  "Ref":"WebsocketsDeployment1575090549999"
+                  "Ref":"WebsocketsDeployment"
                },
                "StageName":{ "Ref":"Stage" },
                "Description":"Api gateway Websockets"

@@ -2,39 +2,37 @@
 <div class="rectangle">
   <p>Edit Profile</p>
   <img src="{{ user.profile_img }}" name="profile_img" >
+  <!-- <img ng-src="data:image/jpeg;base64,{{unImage.image}}" class="images" /> -->
   <label for="file-input">
     <i class="btn btn-primary" style="display: inline;
     position: absolute;
     left: 300px; top: 170px;
     text-align: center;
     font-size: 12px;
-width: 127px;
-height: 31px;
-background: transparent;
-color:black;
-border: 1px solid rgba(0, 0, 0, 0.8);
-border-radius: 35px;
+    width: 127px;
+    height: 31px;
+    background: transparent;
+    color:black;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    border-radius: 35px;
 ">UPLOAD IMAGE</i>
 </label>
   <input class="f" id="file-input" (change)="fileChange($event)" type="file" ><br><br><br>
+  <!-- <input class="f" id="file-input" (change)="changeImage($event)" type="file" accept="image/*"><br><br><br> -->
   <div>
-    <form>
-    <label for="username" style="color:black;">Username</label><br>
-  <input style="
- width: 500px; height: 31px; background: #FFFFFF; border: 1px solid rgba(0, 0, 0, 0.727);border-radius: 5px; padding-left:5px;" class="fname" (change)="updateInfo($event)" [(ngModel)]="user.username" type="text"  class="validate" name="username"><br><br><br>
+      <form>
+        <label for="username" style="color:black;">Username</label><br>
+        <input style="width: 500px; height: 31px; background: #FFFFFF; border: 1px solid rgba(0, 0, 0, 0.727);border-radius: 5px; padding-left:5px;" class="fname" (change)="updateInfo($event)" [(ngModel)]="user.username" type="text"  class="validate" name="username"><br><br><br>
 
-  <label for="first_name" style="color:black;">First Name</label><br>
-  <input style="
-  width: 500px; height: 31px; background: #FFFFFF; border: 1px solid rgba(0, 0, 0, 0.727);border-radius: 5px; padding-left:5px;"  class="gname" (change)="updateInfo($event)" [(ngModel)]="user.first_name"  type="text" class="validate" name="first_name"><br><br><br>
+        <label for="first_name" style="color:black;">First Name</label><br>
+        <input style="width: 500px; height: 31px; background: #FFFFFF; border: 1px solid rgba(0, 0, 0, 0.727);border-radius: 5px; padding-left:5px;"  class="gname" (change)="updateInfo($event)" [(ngModel)]="user.first_name"  type="text" class="validate" name="first_name"><br><br><br>
 
-  <label for="last_name" style="color:black;">Last Name</label><br>
-  <input style="
- width: 500px; height: 31px; background: #FFFFFF; border: 1px solid rgba(0, 0, 0, 0.727);border-radius: 5px; padding-left:5px;"  class="unname" (change)="updateInfo($event)"  [(ngModel)]="user.last_name"  type="text" class="validate" name="last_name" ><br><br><br>
+        <label for="last_name" style="color:black;">Last Name</label><br>
+        <input style="width: 500px; height: 31px; background: #FFFFFF; border: 1px solid rgba(0, 0, 0, 0.727);border-radius: 5px; padding-left:5px;"  class="unname" (change)="updateInfo($event)"  [(ngModel)]="user.last_name"  type="text" class="validate" name="last_name" ><br><br><br>
 
-<input class="save" type="submit" value="SAVE">
-
-</form>
-</div>
+        <input class="save" type="submit" value="SAVE">
+    </form>
+  </div>
 </div>
 
 
