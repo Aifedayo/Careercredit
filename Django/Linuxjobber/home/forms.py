@@ -3,8 +3,8 @@ from django import forms
 from .models import *
 
 class WeForm(forms.Form):
-	types = forms.ModelChoiceField(queryset=wetype.objects.all(), empty_label="Select",widget = forms.Select(attrs = {'class':'form-control'}) )
-	date = forms.DateField(widget=forms.TextInput(attrs={'class':'datepicker form-control','placeholder': 'Enter date of graduation'}))
+	types = forms.ModelChoiceField(queryset=wetype.objects.all(), empty_label="Select",widget = forms.Select(attrs = {'class':'form-control isaput'}) )
+	date = forms.DateField(widget=forms.TextInput(attrs={'class':'datepicker form-control isaput','placeholder': 'Your graduation date'}))
 
 class JobApplicationForm(forms.ModelForm):
 	fullname = forms.CharField(label='First Name', widget = forms.TextInput(attrs = {'placeholder': 'Your full name', 'id' :'JobFname', 'class':'form-control jobfinput'}) )
