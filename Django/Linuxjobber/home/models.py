@@ -410,16 +410,23 @@ class werole(models.Model):
     def __str__(self):
         return self.roles
 
-class workexppay(models.Model):
+class WorkExperiencePay(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    paid = models.IntegerField(default=1, choices=((0, 'No'), (1, 'Yes')))
-    job_placement = models.IntegerField(default=0, choices=((0, 'No'), (1, 'Yes')))
+    is_paid = models.BooleanField(default=False)
+    includes_job_placement = models.BooleanField(default=False)
     date_created = models.DateTimeField(default=timezone.now, null=True)
 
     def __str__(self):
         return self.user.email
 
-class workexpeligibility(models.Model):
+WORKEXPERIENCE_OPTIONS = (
+    (0, 'A citizen of the united states'),
+    (1, 'A non national citizen of the united states'),
+    (2, 'A lawful permanent resident'),
+    (3, 'An alien authorized to work'),
+)
+
+class WorkExperienceEligibility(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     first_name =  models.CharField(max_length=200, null=True)
     last_name = models.CharField(max_length=200, null=True)
@@ -436,8 +443,8 @@ class workexpeligibility(models.Model):
     employee_email =  models.TextField()
     employee_phone =  models.CharField(max_length=50, null=True)
     expiry_date = models.DateTimeField(default=timezone.now, null=True)
-    preparer_or_translator = models.IntegerField(default=0, choices=((0, 'I do not user a preparer or translator'), (1, 'A preparer or translator assisted the employee in completing section 1')))
-    i_am_a = models.IntegerField(default=0, choices=((0, 'A citizen of the united states'), (1, 'A non national citizen of the united states'),(3,'A lawful permanent resident'),(4,'An alien authorized to work')))
+    preparer_or_translator = models.BooleanField(default=False)
+    i_am_a = models.IntegerField(default=0, choices=WORKEXPERIENCE_OPTIONS)
     Alien_reg_num = models.TextField(null=True)
     form_19_num = models.TextField(null=True)
     foreign_pass_num = models.TextField(null=True)
@@ -445,15 +452,15 @@ class workexpeligibility(models.Model):
 
     def __str__(self):
         return self.user.email
-class workexpisa(models.Model):
+class WorkExperienceIsa(models.Model):
     email = models.TextField(default='')
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    Current_Annual_Income = models.TextField(null=True)
-    Monthly_House_Payment = models.TextField(null=True)
-    Highest_level_education = models.TextField(null=True)
-    Employment_status =  models.TextField(null=True)
-    Estimated_date_of_program_completion = models.DateTimeField(default=timezone.now, null=True)
-    Signed_isa = models.IntegerField(default=0, choices=((0, 'No'), (1, 'Yes'))) 
+    current_annual_income = models.TextField(null=True)
+    monthly_house_payment = models.TextField(null=True)
+    highest_level_education = models.TextField(null=True)
+    employment_status =  models.TextField(null=True)
+    estimated_date_of_program_completion = models.DateTimeField(default=timezone.now, null=True)
+    is_signed_isa = models.BooleanField(default=False)
 
     def __str__(self):
         return self.user.email

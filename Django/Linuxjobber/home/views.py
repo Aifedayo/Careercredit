@@ -1293,15 +1293,15 @@ def workexpform(request):
 
 
 @login_required
-def workexpeligible(request):
+def work_experience_eligible(request):
 
     try:
-        details =  workexpeligibility.objects.get(user=request.user)
+        details =  WorkExperienceEligibility.objects.get(user=request.user)
         date = details.date_of_birth
         date = date.strftime('%Y-%m-%d')
         created = details.date_created
         created = created.strftime('%Y-%m-%d')
-    except  workexpeligibility.DoesNotExist:
+    except  WorkExperienceEligibility.DoesNotExist:
         details = None
         date = None
         created = None
@@ -1327,6 +1327,12 @@ def workexpeligible(request):
         i_am = request.POST['selector']
         translator = request.POST['selectza']
 
+
+        if translator == 1:
+            result = True
+        else:
+            result = False
+
         if i_am == 2:
             alien_no = request.POST['alien1']
         else:
@@ -1342,7 +1348,7 @@ def workexpeligible(request):
             foreign = None
 
         try: 
-            det = workexpeligibility.objects.get(user=request.user)
+            det = WorkExperienceEligibility.objects.get(user=request.user)
             det.first_name = firstname
             det.last_name = lastname
             det.middle_initial = middleinitial
@@ -1358,7 +1364,7 @@ def workexpeligible(request):
             det.employee_email = email
             det.employee_phone = tel
             det.expiry_date = expiry_date
-            det.preparer_or_translator = translator
+            det.preparer_or_translator = result
             det.i_am_a = i_am
             det.Alien_reg_num=alien_no
             det.form_19_num=form19
@@ -1366,29 +1372,29 @@ def workexpeligible(request):
 
             det.save()
             return redirect("home:isa")
-        except workexpeligibility.DoesNotExist:
-            state = workexpeligibility.objects.create(user=request.user,first_name=firstname,last_name=lastname,middle_initial=middleinitial,middle_name=othername,state=state,address=address,apt_number=Apt,city=city,zip_code=zipc,date_of_birth=dob,SSN=ssn,employee_address=eadress,employee_email=email,employee_phone=tel,expiry_date=expiry_date,preparer_or_translator=translator,i_am_a=i_am,Alien_reg_num=alien_no,form_19_num=form19,foreign_pass_num=foreign)
+        except WorkExperienceEligibility.DoesNotExist:
+            state = WorkExperienceEligibility.objects.create(user=request.user,first_name=firstname,last_name=lastname,middle_initial=middleinitial,middle_name=othername,state=state,address=address,apt_number=Apt,city=city,zip_code=zipc,date_of_birth=dob,SSN=ssn,employee_address=eadress,employee_email=email,employee_phone=tel,expiry_date=expiry_date,preparer_or_translator=translator,i_am_a=i_am,Alien_reg_num=alien_no,form_19_num=form19,foreign_pass_num=foreign)
             state.save()
 
         return redirect("home:isa")  
     return render(request, 'home/workexpeligibility.html',{'details':details,'date':date,'created':created})
 
 @login_required
-def workexpisaz(request):
+def work_experience_isa_part_1(request):
     try:
-        details =  workexpeligibility.objects.get(user=request.user)
+        details =  WorkExperienceEligibility.objects.get(user=request.user)
         date = details.date_of_birth
         date = date.strftime('%Y-%m-%d')
-    except  workexpeligibility.DoesNotExist:
+    except  WorkExperienceEligibility.DoesNotExist:
         details = None
         date = None
 
     try:
-        jot =  workexpisa.objects.get(user=request.user)
-        comp = jot.Estimated_date_of_program_completion
+        jot =  WorkExperienceIsa.objects.get(user=request.user)
+        comp = jot.estimated_date_of_program_completion
         comp = comp.strftime('%Y-%m-%d')
 
-    except workexpisa.DoesNotExist:
+    except WorkExperienceIsa.DoesNotExist:
         jot = None
         comp = None
 
@@ -1401,33 +1407,33 @@ def workexpisaz(request):
         completion = request.POST['date']
 
         try:
-            det = workexpisa.objects.get(user=request.user)
-            det.Signed_isa=0
-            det.Current_Annual_Income=income
-            det.Monthly_House_Payment=pay
-            det.Highest_level_education=edu
-            det.Employment_status=status
-            det.Estimated_date_of_program_completion=completion
+            det = WorkExperienceIsa.objects.get(user=request.user)
+            det.is_signed_isa=False
+            det.current_annual_income=income
+            det.monthly_House_payment=pay
+            det.highest_level_education=edu
+            det.employment_status=status
+            det.estimated_date_of_program_completion=completion
             det.email = email
             det.save()
-        except workexpisa.DoesNotExist:
-            state = workexpisa.objects.create(user=request.user,email=email,Signed_isa=0,Current_Annual_Income=income,Monthly_House_Payment=pay,Highest_level_education=edu,Employment_status=status,Estimated_date_of_program_completion=completion)
+        except WorkExperienceIsa.DoesNotExist:
+            state = WorkExperienceIsa.objects.create(user=request.user,email=email,is_signed_isa=False,current_annual_income=income,monthly_house_payment=pay,highest_level_education=edu,employment_status=status,estimated_date_of_program_completion=completion)
             state.save()
 
         return redirect("home:workexpisa2")
     return render(request, 'home/workexpisa.html',{'details':details,'jot':jot,'date':date,'comp':comp})
 
-def workexpisa2(request):
+def work_experience_isa_part_2(request):
 
     if request.method == "POST":
         sign = request.POST['fullname']
 
         try:
-            jot = workexpisa.objects.get(user=request.user)
-            jot.Signed_isa = 1
+            jot = WorkExperienceIsa.objects.get(user=request.user)
+            jot.is_signed_isa = True
             jot.save()
             return redirect("home:workexpform")
-        except workexpisa.DoesNotExist:
+        except WorkExperienceIsa.DoesNotExist:
             return redirect("home:isa")
         
     
@@ -1643,6 +1649,7 @@ def pay(request):
         PRICE, PRICE)
     stripeset = StripePayment.objects.all()
     stripe.api_key = stripeset[0].secretkey
+    option = False
     try:
         workexp = wepeoples.objects.get(user=request.user)
         return redirect("home:workexprofile")
@@ -1667,7 +1674,11 @@ def pay(request):
             wepeoples.objects.update_or_create(user=request.user, types=None, current_position=None,
                                                person=None, state=None, income=None, relocation=None,
                                                last_verification=None, Paystub=None, graduation_date=None)
-            state = workexppay.objects.create(user=request.user,paid=1,job_placement=jobplacement)
+            if jobplacement == 0:
+                option = False
+            else:
+                option = True
+            state = WorkExperiencePay.objects.create(user=request.user,is_paid=True,includes_job_placement=option)
             state.save()
         
             # New mail implementation
