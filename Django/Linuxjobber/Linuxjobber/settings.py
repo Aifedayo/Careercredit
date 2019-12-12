@@ -275,7 +275,7 @@ STATICFILES_FINDERS = (
 
 # EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 # EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
-ENV_URL = "http://127.0.0.1:8000/"
+ENV_URL = config('ENV_URL',"http://127.0.0.1:8000/")
 
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"

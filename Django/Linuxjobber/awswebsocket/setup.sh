@@ -19,6 +19,7 @@ create(){
         --stack-name $stack_name 
 
     aws cloudformation describe-stacks --stack-name $stack_name | jq '.'
+    echo '{"msg":"Stack successfully created"}' | jq '. |.msg'
 }
 
 update(){
@@ -34,7 +35,7 @@ update(){
     status=$?
     set -e
 
-    echo "$update_output"
+    echo "$update_output"| jq '.'
 
     if [ $status -ne 0 ] ; then
 
@@ -52,6 +53,7 @@ update(){
     aws cloudformation wait stack-update-complete \
         --region $region \
         --stack-name $stack_name 
+    aws cloudformation describe-stacks --stack-name $stack_name | jq '.'
     echo '{"msg":"Finished update successfully!"}' | jq '. |.msg'
 }
 
