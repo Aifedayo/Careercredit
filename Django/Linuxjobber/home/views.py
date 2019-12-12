@@ -3265,20 +3265,41 @@ def installments(request):
     context = {
         'installments':installments
     }
-    return TemplateResponse(request,'home/installments.html',context)
+    return TemplateResponse(request,'home/installments_new.html',context)
 
 @login_required
 def installment_pay(request):
     context = {}
+    payment_id = None
     context['installments'] = InstallmentPlan.objects.filter(user=request.user)
-    if request.POST.get('sub_payment_id',None) or request.POST.get("stripeToken",None):
-        payment_id = request.POST.get('sub_payment_id',None)
+    if request.POST.get('sub_payment_id',None) or request.POST.get("stripeToken",None)\
+            or request.POST.get('installment_id',None):
+        if request.POST.get('installment_id',None):
+            installment_id = request.POST.get('installment_id',None)
+            try:
+                installment = InstallmentPlan.objects.get(pk=installment_id)
+                unpaid = installment.subpayment_set.filter(is_paid=False)
+                unpaid.update(is_disabled=True)
+                item = SubPayment.objects.create(
+                    installment=installment,
+                    amount=installment.get_balance(),
+                    due_in=0,
+                    description='Total Balance Payment'
+                )
+                payment_id = item.pk
+            except InstallmentPlan.DoesNotExist:
+                messages.error(request, 'An error occured, please try again')
+                return redirect('home:installments')
+
+        else:
+            payment_id = request.POST.get('sub_payment_id',None)
         context['sub_payment_id'] = payment_id
         try:
             sub_payment = SubPayment.objects.get(pk=payment_id)
         except SubPayment.DoesNotExist:
             messages.error(request, 'An error occured, please try again')
             return redirect('home:installments')
+
         if sub_payment.is_paid:
             messages.success('Double payment attempt detected, payment made previously')
             return redirect('home:installments')
