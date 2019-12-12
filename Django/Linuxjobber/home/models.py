@@ -672,6 +672,7 @@ class SubPayment(models.Model):
     due_in = models.IntegerField(default=1,)
     is_initial = models.BooleanField(default=False,)
     is_paid = models.BooleanField(default=False)
+    is_disabled = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     paid_on = models.DateTimeField(null=True,editable=False)
@@ -709,11 +710,17 @@ class SubPayment(models.Model):
         else:
             return None
 
+    def payment_overdue(self)->bool:
+        if self.initial_has_been_paid():
+            return timezone.now() > self.calculate_due_date()
+        else:
+            return False
+
     def get_due_date(self):
         if self.initial_has_been_paid():
-            return humanize.naturalday(self.calculate_due_date())
+            return self.calculate_due_date()
         else:
-            return "Calculated {number_of_weeks} weeks from date of initial payment".format(
+            return "{number_of_weeks} weeks after initial payment".format(
                 number_of_weeks = self.due_in
             )
 
@@ -771,6 +778,12 @@ class InstallmentPlan(models.Model):
             description = self.description,
             user = self.user.get_full_name()
         )
+    def get_total_amount_paid(self):
+        if self.get_balance() != self.total_amount:
+            return self.total_amount - self.get_balance()
+        else:
+            return 0
+
     def get_balance(self):
         if not self.subpayment_set.all():
             return 'No payment plan exists'
@@ -782,14 +795,14 @@ class InstallmentPlan(models.Model):
         else:
             return self.total_amount
     def total_installments(self):
-        return self.subpayment_set.count()
+        return self.subpayment_set.filter(is_disabled=False).count()
 
     def get_initial_payment_amount(self):
-        return self.subpayment_set.get(is_initial=True).amount
+        return self.subpayment_set.get(is_initial=True,is_disabled=False).amount
 
     def get_next_due_payment(self):
         all_subpayments = self.subpayment_set.all()
-        initial_payment = all_subpayments.get(is_initial=True)
+        initial_payment = all_subpayments.get(is_initial=True, is_disabled = False)
 
         if initial_payment.is_paid:
             # Removes all paid installments
