@@ -1,11 +1,19 @@
+import datetime
+import enum
 import os
 
 from django.contrib.auth.models import User
+from django.contrib.humanize.templatetags import humanize
+from django.contrib import messages
+from django.core.exceptions import ValidationError
 from django.db import connection, models
+from django.db.models import Sum
 from django.utils import timezone
 
 from Courses.models import Course
 from users.models import CustomUser
+
+from datetime import date
 
 
 def due_time():
@@ -52,6 +60,46 @@ class PartTimePostion(models.Model):
     def __str__(self):
         return '%s' % self.job_title
 
+class CompleteClass(models.Model):
+    course = models.ForeignKey(Course,on_delete=models.CASCADE,null=True)
+    title = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, default="-")
+    slug = models.CharField(max_length=200)
+    rating_point = models.IntegerField(default=5)
+    rating_total = models.CharField(default="2673", max_length=200)
+    description = models.TextField()
+    about = models.TextField()
+    prerequisite = models.TextField()
+    fee = models.CharField(max_length=200, default="1,225.00")
+    pay_url = models.CharField(max_length=200)
+    show_on_footer = models.IntegerField(default=1, choices=((0, 'No'), (1, 'Yes')))
+    due_date = models.DateTimeField(default=timezone.now)
+
+    @property
+    def is_past_due(self):
+        return date.today() > self.due_date
+
+    def __str__(self):
+        return self.title
+
+class CompleteClassLearn(models.Model):
+    description = models.TextField()
+    weight = models.IntegerField()
+    completeclass = models.ForeignKey(CompleteClass, on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = (('weight','completeclass'),)
+
+class CompleteClassCertificate(models.Model):
+    url_of_image = models.TextField()
+    weight = models.IntegerField()
+    completeclass = models.ForeignKey(CompleteClass, on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = (('weight','completeclass'),)
+
+    def __str__(self):
+        return self.completeclass.title
 
 class Job(models.Model):
     fullname = models.CharField(max_length=200)
@@ -362,6 +410,60 @@ class werole(models.Model):
     def __str__(self):
         return self.roles
 
+class WorkExperiencePay(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    is_paid = models.BooleanField(default=False)
+    includes_job_placement = models.BooleanField(default=False)
+    date_created = models.DateTimeField(default=timezone.now, null=True)
+
+    def __str__(self):
+        return self.user.email
+
+WORKEXPERIENCE_OPTIONS = (
+    (0, 'A citizen of the united states'),
+    (1, 'A non national citizen of the united states'),
+    (2, 'A lawful permanent resident'),
+    (3, 'An alien authorized to work'),
+)
+
+class WorkExperienceEligibility(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    first_name =  models.CharField(max_length=200, null=True)
+    last_name = models.CharField(max_length=200, null=True)
+    middle_initial = models.CharField(max_length=200, null=True)
+    middle_name = models.CharField(max_length=200, null=True)
+    address = models.TextField()
+    apt_number = models.TextField()
+    city = models.CharField(max_length=20, null=True)
+    state = models.CharField(max_length=20, null=True)
+    zip_code = models.CharField(max_length=20, null=True)
+    date_of_birth = models.DateTimeField(default=timezone.now, null=True)
+    SSN =  models.TextField()
+    employee_address =  models.TextField()
+    employee_email =  models.TextField()
+    employee_phone =  models.CharField(max_length=50, null=True)
+    expiry_date = models.DateTimeField(default=timezone.now, null=True)
+    preparer_or_translator = models.BooleanField(default=False)
+    i_am_a = models.IntegerField(default=0, choices=WORKEXPERIENCE_OPTIONS)
+    Alien_reg_num = models.TextField(null=True)
+    form_19_num = models.TextField(null=True)
+    foreign_pass_num = models.TextField(null=True)
+    date_created = models.DateTimeField(default=timezone.now, null=True)
+
+    def __str__(self):
+        return self.user.email
+class WorkExperienceIsa(models.Model):
+    email = models.TextField(default='')
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    current_annual_income = models.TextField(null=True)
+    monthly_house_payment = models.TextField(null=True)
+    highest_level_education = models.TextField(null=True)
+    employment_status =  models.TextField(null=True)
+    estimated_date_of_program_completion = models.DateTimeField(default=timezone.now, null=True)
+    is_signed_isa = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.user.email
 
 class wepeoples(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
@@ -471,3 +573,296 @@ class Certificates(models.Model):
 
     def __str__(self):
         return self.graduate_name
+
+
+class EmailMessageType(models.Model):
+    """
+    Defines the type of message format
+
+    header_format: {} from Linuxjobber
+    """
+    type = models.CharField(max_length=255)
+    is_default = models.BooleanField()
+    header_format = models.CharField(max_length=255, default="",null=True)
+    def save(self,*args,**kwargs):
+        """
+        Sets default message format to be used
+        :param args:
+        :param kwargs:
+        :return:
+        """
+        if self.is_default:
+            type_list = type(self).objects.filter(is_default=True)
+            if self.pk:
+                type_list.exclude(self)
+            type_list.update(is_default = False)
+        super(type(self),self).save(*args,**kwargs)
+
+
+
+    def __str__(self):
+        return "{} - [{}]".format(
+            self.type,
+            self.header_format
+        )
+
+
+
+
+
+
+class EmailMessageLog(models.Model):
+    header_text = models.CharField(max_length=255,default="Linuxjobber")
+    message_type = models.ForeignKey(EmailMessageType,on_delete=models.CASCADE,null=True)
+    to_address = models.CharField(max_length=255,default="",blank=True)
+    subject = models.CharField(max_length=500,default="",blank=True)
+    content = models.TextField(default="",blank=True)
+    has_sent = models.BooleanField(default=False)
+    error_message =  models.TextField(blank=True,null=True)
+    timestamp = models.DateTimeField(default=timezone.now,null=True)
+
+    def __str__(self):
+        return "{} - [{}]".format(
+            self.subject,
+            self.to_address
+        )
+
+    def set_as_sent(self):
+        self.has_sent=True
+        self.error_message = ""
+        self.save()
+
+
+    def set_as_fail(self, error=""):
+        self.error_message = error
+        self.has_sent=False
+        self.save()
+
+
+    def send_mail(self):
+        if self.message_type:
+            header_format = self.message_type.header_format
+        else:
+            try:
+                if not self.header_text:
+                    self.message_type = EmailMessageType.objects.get(is_default=True)
+                    header_format = EmailMessageType.objects.get(is_default=True).header_format
+                else:
+                    self.message_type = EmailMessageType.objects.get(type='custom')
+                    header_format = self.message_type.header_format
+            except Exception as e:
+                print(e)
+                header_format = "{}"
+
+
+        from .mail_service import send_mail_with_client
+        self.header_text = header_format.format(self.header_text)
+        self.save()
+        try:
+            send_mail_with_client(self)
+            self.set_as_sent()
+        except Exception as error:
+            self.set_as_fail(error.__str__())
+
+
+class SubPayment(models.Model):
+    amount = models.FloatField()
+    description = models.CharField(max_length=255,null=True)
+    installment = models.ForeignKey("InstallmentPlan",on_delete=models.DO_NOTHING,null=True)
+    due_in = models.IntegerField(default=1,)
+    is_initial = models.BooleanField(default=False,)
+    is_paid = models.BooleanField(default=False)
+    is_disabled = models.BooleanField(default=False)
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
+    paid_on = models.DateTimeField(null=True,editable=False)
+
+
+    def __str__(self):
+        return "{description} at {amount} ".format(
+            amount = self.amount,
+            description=self.description
+        )
+    def set_as_paid(self):
+        self.is_paid = True
+        # self.paid_on = timezone.now()
+        self.save()
+
+    def approve_payment(self):
+        self.set_as_paid()
+        # self.installment.set_payment_status()
+
+    def get_initial_payment(self):
+        return self.installment.subpayment_set.get(is_initial=True)
+
+    def get_initial_payment_amount(self):
+        return self.get_initial_payment().amount
+
+    def initial_has_been_paid(self) -> bool:
+        return self.get_initial_payment().is_paid
+
+    def calculate_due_date(self):
+        return self.get_initial_payment().paid_on + datetime.timedelta(weeks=self.due_in)
+
+    def get_paid_date(self):
+        if self.is_paid:
+            return humanize.naturalday(self.paid_on)
+        else:
+            return None
+
+    def payment_overdue(self)->bool:
+        if self.initial_has_been_paid():
+            return timezone.now() > self.calculate_due_date()
+        else:
+            return False
+
+    def get_due_date(self):
+        if self.initial_has_been_paid():
+            return self.calculate_due_date()
+        else:
+            return "{number_of_weeks} weeks after initial payment".format(
+                number_of_weeks = self.due_in
+            )
+
+    def get_due_date_pretty(self):
+        if self.initial_has_been_paid():
+            return humanize.naturaltime(self.calculate_due_date())
+        else:
+            return "Initial not paid".format(
+                number_of_weeks = self.due_in
+            )
+
+    def save(self,*args,**kwargs):
+        """
+        Sets paid_on date
+        :param args:
+        :param kwargs:
+        :return:
+        """
+        if self.is_paid and not self.paid_on:
+            self.paid_on = timezone.now()
+        else:
+            self.paid_on = None
+        super(type(self),self).save(*args, **kwargs)
+        self.installment.set_payment_status()
+
+
+
+INSTALLMENT_PLAN_STATUS = (
+    ('is_unpaid','Unpaid'),
+    ('is_pending','Pending'),
+    ('is_settled','Settled'),
+    ('is_breached','Breached')
+)
+class PlanStatus(enum.Enum):
+    is_unpaid = 'is_unpaid'
+    is_pending = "is_pending"
+    is_settled = 'is_settled'
+    is_breached = 'is_breached'
+
+class InstallmentPlan(models.Model):
+    user = models.ForeignKey(CustomUser,on_delete=models.CASCADE)
+    description =  models.CharField(max_length=255,null=True)
+    total_amount = models.FloatField()
+    status = models.CharField(editable=False,max_length=15,default=PlanStatus.is_unpaid.value)
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
+
+    def clean(self):
+        if self.subpayment_set.count() < 0:
+            raise ValidationError('Please put atleast one payment')
+
+    def __str__(self):
+        return "{description} in ({installment_count}) installments for {user}  ".format(
+            installment_count = self.subpayment_set.count(),
+            description = self.description,
+            user = self.user.get_full_name()
+        )
+    def get_total_amount_paid(self):
+        if self.get_balance() != self.total_amount:
+            return self.total_amount - self.get_balance()
+        else:
+            return 0
+
+    def get_balance(self):
+        if not self.subpayment_set.all():
+            return 'No payment plan exists'
+        all_paid_subpayments = self.subpayment_set.filter(is_paid=True)
+        if all_paid_subpayments:
+            total_amount_paid = all_paid_subpayments.aggregate(total_amount=Sum('amount'))
+            total_amount_paid = total_amount_paid['total_amount']
+            return self.total_amount - total_amount_paid
+        else:
+            return self.total_amount
+    def total_installments(self):
+        return self.subpayment_set.filter(is_disabled=False).count()
+
+    def get_initial_payment_amount(self):
+        return self.subpayment_set.get(is_initial=True,is_disabled=False).amount
+
+    def get_next_due_payment(self):
+        all_subpayments = self.subpayment_set.all()
+        initial_payment = all_subpayments.get(is_initial=True, is_disabled = False)
+
+        if initial_payment.is_paid:
+            # Removes all paid installments
+            left_over = all_subpayments.exclude(is_paid=True)
+            next_payment = left_over.order_by('due_in').first()
+            return next_payment
+        return initial_payment
+
+    def get_next_due_payment_id(self):
+
+        if self.get_next_due_payment():
+            return self.get_next_due_payment().pk
+        return None
+
+    def get_upcoming_payments(self):
+        all_upcoming = SubPayment.objects.filter(is_paid=False).order_by('due_in')
+        return all_upcoming
+
+
+
+    balance = property(get_balance)
+    total_installments.short_description = 'Total Installments'
+    get_balance.short_description = 'Balance Left'
+
+    def set_payment_status(self):
+        if self.get_balance() == 0:
+            self.status = PlanStatus.is_settled.value
+            self.save()
+
+        elif self.get_balance() < self.total_amount:
+            self.status = PlanStatus.is_pending.value
+            self.save()
+
+        else:
+            self.status = PlanStatus.is_unpaid.value
+            self.save()
+
+
+    # def save(self,*args,**kwargs):
+    #     """
+    #     Sets default message format to be used
+    #     :param args:
+    #     :param kwargs:
+    #     :return:
+    #     """
+    #     if self.subpayment_set.count() < 0 :
+    #         return
+    #     if self.is_default:
+    #         type_list = type(self).objects.filter(is_default=True)
+    #         if self.pk:
+    #             type_list.exclude(self)
+    #         type_list.update(is_default = False)
+    #     super(type(self),self).save(*args,**kwargs)
+
+
+
+
+
+
+
+
+
+

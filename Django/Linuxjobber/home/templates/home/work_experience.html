@@ -561,17 +561,19 @@ Work Experience | Linuxjobber
             <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-4">
+                        <br>
                         <p class="blue-text"><a class="blue-text" href="{% url 'home:workexpfaq' %}">See All FAQ's &nbsp;         <i>
         <img src="{% static 'home/images/arrow-blue.png' %}" alt="/ur">
     </i> </a> </p>
                     </div>
                     <div class="col-md-4">
-                        <p class="blue-text">
-
-                            <a href="{% if request.user.is_authenticated %} #pricing {% else %} {% url 'home:login' %}?next=/workexperience#pricing{% endif %}"
-                               class="blue-text">See Details &nbsp;         <i>
-        <img src="{% static 'home/images/arrow-blue.png' %}" alt="/ur">
-    </i> </a>
+                        <p class="blue-text">                    
+                            {% if request.user.is_authenticated %}
+                                <a href="#pricing" class="btn btn-lg reg-sub">Sign Up</a>
+                            {%else%}
+                                <a href="{% url 'home:login' %}?next=/workexperience#pricing" class="btn btn-lg reg-sub">Sign Up</a>
+                                
+                            {%endif%}
                         </p>
                     </div>
                 </div>
@@ -596,10 +598,11 @@ Work Experience | Linuxjobber
                             </ul>
                             <div style="min-height: 40px"></div>
                             <p class="blue-text">
-                                <a href="{% if request.user.is_authenticated %} #pricing {% else %} {% url 'home:login' %}?next=/workexperience#pricing {% endif %}"
-                                    class="blue-text">See Details &nbsp;         
-                                    <i><img src="{% static 'home/images/arrow-blue.png' %}" alt="/ur"></i>
-                                </a> 
+                                    {% if request.user.is_authenticated %}
+                                        <a href="#pricing" class="btn btn-lg reg-sub">Sign Up</a>
+                                    {%else%}
+                                        <a href="{% url 'home:login' %}?next=/workexperience#pricing" class="btn btn-lg reg-sub">Sign Up</a>
+                                    {%endif%} 
                              </p>
                         </div>
                     </div>
@@ -617,10 +620,11 @@ Work Experience | Linuxjobber
                                 <li>- Training is totally remote</li>
                             </ul>
                             <div style="min-height: 40px"></div>
-                            <p class="blue-text"><a href="{% if request.user.is_authenticated %} #pricing {% else %} {% url 'home:login' %}?next=/workexperience#pricing  {% endif %}"
-                               class="blue-text">See Details &nbsp;         
-                               <i><img src="{% static 'home/images/arrow-blue.png' %}" alt="/ur"></i> 
-                                </a> 
+                            <p class="blue-text">{% if request.user.is_authenticated %}
+                                                    <a href="#pricing" class="btn btn-lg reg-sub">Sign Up</a>
+                                                {%else%}
+                                                    <a href="{% url 'home:login' %}?next=/workexperience#pricing" class="btn btn-lg reg-sub">Sign Up</a>
+                                                {%endif%}
                             </p>
                         </div>
                     </div>
@@ -790,10 +794,14 @@ Work Experience | Linuxjobber
                                 </div>
                                 <div class="col-md-5">
                                     <div class="container-colored">
-                                        <p class="top-50"><a href="{% if request.user.is_authenticated %} #pricing {% else %} {% url 'home:login' %}?next=/workexperience#pricing  {% endif %}"
-                               class="blue-text">See Details &nbsp;         <i>
-        <img src="{% static 'home/images/arrow-blue.png' %}" alt="/ur">
-    </i> </a> </p>
+                                        <p class="top-50">{% if request.user.is_authenticated %}
+                                            <a href="{% url 'home:workterm' %}" class="btn btn-lg reg-sub">Sign Up</a>
+                                        {%else%}
+                                            <a href=" {% url 'home:login' %}?next=/workexperience#pricing"
+                                                                class="blue-text">See Details &nbsp;         <i>
+                                            <img src="{% static 'home/images/arrow-blue.png' %}" alt="/ur">
+                                        </i> </a>
+                                        {%endif%} </p>
                                         <p class="top-50"><a href="{% url 'home:workterm' %}" class="blue-text">See terms and conditions for Work Experience &nbsp;         <i>
         <img src="{% static 'home/images/arrow-blue.png' %}" alt="/ur">
     </i> </a> </p>
@@ -805,20 +813,17 @@ Work Experience | Linuxjobber
                             </div>
                         </div>
                     </div>
-
                         {% else %}
                         <div class="container faq">
                     <div class="row height">
 
                         <div class="col-md-4">
                             <p class="text-center">
-                            <a href="{% if request.user.is_authenticated %} #pricing {% else %} {% url 'home:login' %}?next=/workexperience#pricing  {% endif %}"
-                               class="blue-text">See Details &nbsp;         <i>
-        <img src="{% static 'home/images/arrow-blue.png' %}" alt="/ur">
-    </i> </a>
+                            <a href="{% url 'home:login' %}?next=/workexperience#pricing" class="btn btn-lg reg-sub">Sign Up</a>
                             </p>
                         </div>
                         <div class="col-md-4">
+                        <br>
                             <p class="text-center">
                             <a href="{% url 'home:workterm' %}" class="blue-text">See terms and conditions for Work Experience &nbsp;         <i>
         <img src="{% static 'home/images/arrow-blue.png' %}" alt="/ur">
@@ -826,6 +831,7 @@ Work Experience | Linuxjobber
                             </p>
                         </div>
                         <div class="col-md-4">
+                        <br>
                             <p class="text-center"><a href="{% url 'home:workexpfaq' %}" class="blue-text">See FAQ’s &nbsp;         <i>
         <img src="{% static 'home/images/arrow-blue.png' %}" alt="/ur">
     </i> </a>

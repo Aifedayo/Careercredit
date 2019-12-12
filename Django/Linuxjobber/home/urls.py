@@ -3,7 +3,7 @@ from django.urls import path, include, re_path
 from . import views
 from django.views.decorators.csrf import csrf_exempt
 import stripe
-
+from . import tests
 
 app_name='home'
 
@@ -20,15 +20,23 @@ wp_patterns = [
     path('terms/', views.workterm, name='workterm'),
     path('pay/', views.pay, name='pay'),
     path('apply/', views.workexpform, name='workexpform'),
+    path('eligibility/', views.work_experience_eligible, name='eligibility'),
+    path('ISA/', views.work_experience_isa_part_1, name='isa'),
+    path('sign/',views.work_experience_isa_part_2, name='workexpisa2'),
     path('profile/',views.workexprofile, name='workexprofile'),
     path('faq/',views.workexpfaq, name='workexpfaq'),
 ]
 
+test_patterns = [
+    path('insert_installment_payment',tests.insert_installment_data, ),
+    path('delete_installment_payment',tests.delete_installment_record, ),
+]
 
 urlpatterns = [
     # path("stripe/", include("djstripe.urls", namespace="djstripe")),
     path('', views.index, name='index'),
     path('webhooks',  csrf_exempt(webhookview), name='my_webhook_view'),
+    path('alpha/',  include(test_patterns)),
     path('login/', views.log_in, name = 'login'),
     path('signup', views.signup, name='signup'),
     path('unsubscribe', views.unsubscribe, name='unsubscribe'),
@@ -41,6 +49,7 @@ urlpatterns = [
     path('devops/class/pay', views.devops_pay, name='devops_pay'),
     path('linux/full_training', views.linux_full_training, name='linux_full_training'),
     path('aws/full_training', views.aws_full_training, name='aws_full_training'),
+    path('complete_training/<slug:course>', views.completeclass, name='completeclass'),
     path('faq', views.faq, name='faq'),
     path('ulocation', views.ulocation, name='ulocation'),
     path('workexperience/', include(wp_patterns)),
@@ -50,7 +59,7 @@ urlpatterns = [
     path('accepted', views.accepted, name='accepted'),
     path('groupCourse/',views.group_list, name='group'),
     path('subscriptionstatus', views.check_subscription_status, name='check_subscription_status'),
-    # path('groupCourse', views.group, name='group'),
+   # path('groupCourse', views.group, name='group'),
     path('groupCourse/<int:pk>',views.group,name='group'),
     path('groupCourse/<int:pk>/pay/', views.group_pay, name='group_pay'),
     path('access_course', views.monthly_subscription, name='monthly_subscription'),
@@ -87,6 +96,7 @@ urlpatterns = [
     path('home/liveinstructor', views.in_person_training, name='in_person_training'),
     path('tryfree/', views.tryfree, name='tryfree'),
     path('tryfree/<slug:sub_plan>/', views.tryfree, name='tryfree'),
+    path('complete_training/pay/<int:class_id>/', views.full_train_pay, name='complete_pay'),
     path('user/RHCSA/order_details', views.rhcsa_order, name='rhcsa_order'),
     path('tutorials/userinterest', views.user_interest, name='user_interest'),
     path('profile_picture/update',views.upload_profile_pic,name='profile_img_upload'),
@@ -97,6 +107,8 @@ urlpatterns = [
     path('career_switch/',views.career_switch,name='career_switch'),
     path('obtain_position/',views.position_detail),
     path('jobs/submitted',views.job_submitted),
+    path('installments/',views.installments,name='installments'),
+    path('installments/pay',views.installment_pay, name="installments_pay"),
 ]
 
 

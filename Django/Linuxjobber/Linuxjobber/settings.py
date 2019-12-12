@@ -282,7 +282,7 @@ EMAIL_HOST = config('EMAIL_HOST', 'smtp.linuxjobber.com')
 EMAIL_PORT = config('EMAIL_PORT', '587')
 EMAIL_HOST_USER = config('EMAIL_HOST_USER', 'admin@linuxjobber.com')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', 'm4k3Aw!y')
-#EMAIL_USE_TLS = True
+EMAIL_USE_TLS = True
 
 
 

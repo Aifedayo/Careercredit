@@ -1,0 +1,410 @@
+{% extends 'home/base.html' %}
+{% load staticfiles %}
+{% block title %}
+    Installments | Linuxjobber
+{% endblock %}
+
+{% load staticfiles %}
+{% block external_header %}
+    <link href="https://fonts.googleapis.com/css?family=Caveat+Brush&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'home/css/jobs_new.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/installments.css' %}">
+{% endblock %}
+
+{% load staticfiles %}
+{% block content %}
+    <style>
+        .installment-header {
+            min-height: 91px;
+            height: 97px;
+            background-color: #1B539E;
+            padding: 15px 100px;
+            color: white;
+
+        }
+
+        h1.installment-header-text {
+            font-weight: bold;
+            font-size: 36px;
+            line-height: 42px;
+        }
+
+        h2.installment-header-subtitle {
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 16px;
+            color: white;
+        }
+
+        html body {
+            background-color: white;
+        }
+
+        .main {
+            min-height: 300px;
+            padding: 30px 100px;
+            margin-bottom: 40px;
+        }
+
+        .installments-nav {
+            border: 1px solid #1B539E;
+            border-radius: 5px;
+            padding: 20px;
+            min-height: 300px;
+        }
+
+        .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+            color: white;
+            background-color: #1B539E;
+            border: 1px solid #1B539E;
+            cursor: default
+        }
+
+        .nav-tabs {
+            border-bottom: 1px solid #1B539E;
+        }
+
+        .nav-tabs > li > a {
+            border-radius: 5px 5px 0 0;
+        }
+
+        .installment-overview {
+            background-image: url("{% static 'home/images/installments_bg.png' %}");
+            min-height: 216px;
+            height: 216px;
+            margin: 30px 0;
+            padding: 20px;
+            color: white;
+        }
+
+        .installment-label-blue {
+            font-weight: bold;
+            font-size: 10px;
+            line-height: 18px;
+            color: #2C86FF;
+        }
+
+        .installment-text {
+            font-size: 14px;
+            line-height: 16px;
+            color: #FFFFFF;
+        }
+
+        .bottom-section {
+            margin-top: 40px;
+        }
+
+        .text-top {
+            font-weight: bold;
+            font-size: 10px;
+            line-height: 20px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .text-bottom {
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 18px;
+            color: #FFFFFF;
+        }
+
+        .btn {
+            width: 137px;
+            height: 26px;
+            font-size: 10px;
+        }
+
+        .btn-primary {
+            background: #2C86FF;
+        }
+
+
+        .inline {
+            display: flex;
+            justify-content: flex-start;
+
+        }
+
+        .item {
+            width: 100px;
+
+        }
+
+        .sub-info {
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        table tr th {
+            background: #F2F2F2;
+            color: #808080;
+            text-align: left;
+            border: 0;
+        }
+
+        .panel-default > .panel-heading {
+            color: #fff;
+            background-color: #333333;
+            border-color: #333333;
+            text-align: center;
+        }
+
+        table tr th:first-child {
+            width: auto;
+        }
+
+        table tr td {
+            border: unset;
+            line-height: 2;
+        }
+
+        .table > thead > tr > td, .table > tbody > tr > td {
+            line-height: 1.7;
+        }
+
+        .panel {
+            border: unset;
+        }
+
+        .btn.btn-pay {
+            min-width: 74px;
+            width: 74px;
+            height: 26px;
+            border: 2px solid #1B539E;
+            box-sizing: border-box;
+            border-radius: 3px;
+            background: transparent;
+            line-height: 12px;
+        }
+
+        .flex-container {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .flex-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+    </style>
+    <section class="application-header-color"></section>
+    <section class="installment-header">
+
+        <h1 class="installment-header-text">
+            Installments Payments
+        </h1>
+        <h2 class="installment-header-subtitle">
+            Pay for services conveniently
+        </h2>
+    </section>
+
+    <section class="main">
+
+        {% if messages %}
+            {% for message in messages %}
+                {% if message.tags == "success" %}
+                    <br><br>
+                    <div class="alert alert-success" role="alert">
+                        <p style="color:#155724">{{ message }}</p>
+                    </div>
+                {% else %}
+                    <br><br>
+                    <div class="alert alert-danger" role="alert">
+                        <p style="color:#721c24">{{ message }}</p>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        <section class="installments-nav">
+            <ul class="nav nav-tabs">
+                {% for installment in installments|dictsort:'id' %}
+                    <li class="{% if forloop.first %} active {% endif %}">
+                        <a data-toggle="tab" href="#menu{{ installment.id }}">
+                            {{ installment.description|truncatechars:20 }}
+                            {% if installment.status == 'is_settled' %}
+                            <span> <i class="fa fa-check"></i></span>
+                            {% endif %}
+                        </a>
+                    </li>
+                {% endfor %}
+
+            </ul>
+
+            <div class="tab-content">
+                {% for installment in installments|dictsort:'id' %}
+                    <div id="menu{{ installment.id }}"
+                         class="tab-pane fade in {% if forloop.first %} active {% endif %}">
+                        <div class="installment-overview">
+                            <div class="top-section">
+                                <p class="installment-label-blue">
+                                    You are paying for
+                                </p>
+                                <p class="installment-text">
+                                    {{ installment.description }}
+                                </p>
+                            </div>
+                            <div class="bottom-section">
+                                <p class="installment-label-blue">
+                                    Payment Summary:
+                                </p>
+                                <div class="inline">
+                                    <div class="item">
+                                        <p class="text-top"> Total Cost: </p>
+
+                                        <p class="text-bottom"> ${{ installment.total_amount }} </p>
+                                    </div>
+                                    <div class="item">
+                                        <p class="text-top"> Total Paid: </p>
+
+                                        <p class="text-bottom"> ${{ installment.get_total_amount_paid }} </p>
+                                    </div>
+                                    <div class="item">
+                                        <p class="text-top"> Total Balance: </p>
+                                        <p class="text-bottom"> ${{ installment.get_balance }} </p>
+                                    </div>
+                                </div>
+
+
+                                <div style="margin-top: 15px" class="">
+                                    <form method="post" action="{% url 'home:installments_pay' %}">
+                                        {% csrf_token %}
+                                        <input hidden name="installment_id" value="{{ installment.pk }}">
+                                        {% if installment.get_balance == 0.0 %}
+                                            <button class="btn btn-success" disabled>
+                                            Payment Settled
+                                        </button>
+                                            {% else %}
+                                            <button type="submit" class="btn btn-primary">
+                                            Pay Total Balance Now
+                                        </button>
+                                        {% endif %}
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="sub-info">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Upcoming Payments</div>
+                                <table class="table">
+                                    <tr>
+                                        <th>Installments</th>
+                                        <th>Amount to be paid</th>
+                                        <th>Balance left</th>
+                                        <th>Payment to be made on or before</th>
+                                        <th>Payment</th>
+                                    </tr>
+
+                                    {% for subpayment in installment.subpayment_set.all|dictsort:'due_in' %}
+                                        {% if not subpayment.is_paid and not subpayment.is_disabled %}
+                                            <tr>
+
+                                                <td> {{ subpayment.description }}</td>
+                                                <td> {{ subpayment.amount }}</td>
+                                                <td> {{ subpayment.installment.get_balance }}</td>
+                                                <td>
+                                                    <div class="flex-container">
+                                                        <div class="flex-item">
+                                                            {% if "payment"  in subpayment.get_due_date %}
+                                                                {{ subpayment.get_due_date }}
+                                                            {% else %}
+                                                                {{ subpayment.get_due_date|date:"d - m - Y" }}
+                                                            {% endif %}
+                                                        </div>
+                                                        <div class="flex-item">
+                                                            {% if subpayment.payment_due %}
+                                                                &nbsp;
+                                                                &nbsp;
+                                                                <img src="{% static 'home/images/alert.png' %}"
+                                                                     title="Payment is overdue, pay now" alt="">
+
+                                                            {% endif %}
+                                                        </div>
+                                                    </div>
+
+
+                                                </td>
+                                                <td>
+                                                    <form action="{% url 'home:installments_pay' %}" method="post">
+                                                        {% csrf_token %}
+                                                        {% if subpayment == installment.get_next_due_payment %}
+                                                            <input type="text" value="{{ subpayment.id }}" hidden
+                                                                   name="sub_payment_id">
+                                                        {% else %}
+                                                            <input type="text"
+                                                                   value="{{ installment.get_next_due_payment.id }}"
+                                                                   hidden name="sub_payment_id">
+                                                        {% endif %}
+
+
+                                                        <div class="flex-container">
+                                                            <div class="flex-item">
+
+                                                                <button class="btn btn-pay" type="submit">
+                                                                    {% if subpayment == installment.get_next_due_payment %}
+                                                                        Pay Now
+                                                                    {% else %}
+                                                                        Pay Now
+                                                                    {% endif %}
+                                                                </button>
+
+                                                            </div>
+                                                            <div class="flex-item">
+                                                                {% if subpayment == installment.get_next_due_payment %}
+                                                                    <img src="{% static 'home/images/due.png' %}"
+                                                                         alt="">
+                                                                {% endif %}
+                                                            </div>
+                                                        </div>
+
+
+                                                    </form>
+
+                                                </td>
+                                            </tr>
+                                        {% endif %}
+                                    {% endfor %}
+
+
+                                </table>
+                            </div>
+                        </div>
+                        <div class="sub-info">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Completed Payments</div>
+                                <table class="table table-responsive-md">
+                                    <tr>
+                                        <th>Installments</th>
+                                        <th>Amount paid</th>
+                                        <th>Payment made on</th>
+                                    </tr>
+                                    {% for subpayment in installment.subpayment_set.all|dictsort:'due_in' %}
+                                        {% if subpayment.is_paid and not subpayment.is_disabled %}
+                                            <tr>
+                                                <td> {{ subpayment.description }}</td>
+                                                <td> {{ subpayment.amount }}</td>
+                                                <td> {{ subpayment.paid_on|date:"d - m - Y" }}</td>
+                                            </tr>
+                                        {% endif %}
+                                    {% endfor %}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+
+
+        </section>
+
+
+    </section>
+
+
+
+{% endblock %}

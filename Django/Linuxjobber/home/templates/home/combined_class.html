@@ -12,216 +12,290 @@ Combined Class | Linuxjobber
 {% load staticfiles %}
 {% block content %}
     <style>
-
+        .combi{
+          text-align: left;
+        }
 
     </style>
 
 
 <div class="combinedblueban"></div>
-    <div class="bgimage">
-        <div class="overlay-color">
-                <div class="col-md-8 col-md-offset-2">
-                    <h1>Combined Training</h1>
-                    <p>Pay once for "Technical Training" and <br> "Work Experience"</p>
-                       <div style="text-align: center; padding-top: 20px">
-                           {% if request.user.is_authenticated %}
-                           <a id="bgbtn" class="bgbtn">Let's begin </a>
-                           {% else %}
-                           <a class="bgbtn" href="{% url 'home:login' %}">Let's begin </a>
+    <div class="bgimagenew">
+        <div class="bgtopper container">
+            <div class="row">
+                <div class="col-md-4">
+                  <div class="combi combim">
+                      <svg width="300" height="130" viewBox="0 0 331 137" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M38.24 42.712L39.176 50.848C34.856 52.192 29.552 52.864 23.264 52.864C15.584 52.864 10.184 50.944 7.064 47.104C3.944 43.264 2.384 36.616 2.384 27.16C2.384 17.704 3.944 11.056 7.064 7.216C10.184 3.376 15.584 1.456 23.264 1.456C28.832 1.456 33.8 2.008 38.168 3.112L37.232 11.32C33.344 11.08 28.688 10.96 23.264 10.96C19.664 10.96 17.192 12.112 15.848 14.416C14.552 16.672 13.904 20.92 13.904 27.16C13.904 33.4 14.552 37.672 15.848 39.976C17.192 42.232 19.664 43.36 23.264 43.36C29.936 43.36 34.928 43.144 38.24 42.712ZM62.3555 15.496C68.9795 15.496 73.6595 16.936 76.3955 19.816C79.1795 22.648 80.5715 27.472 80.5715 34.288C80.5715 41.104 79.1795 45.928 76.3955 48.76C73.6595 51.544 68.9795 52.936 62.3555 52.936C55.6835 52.936 50.9555 51.544 48.1715 48.76C45.4355 45.928 44.0675 41.104 44.0675 34.288C44.0675 27.424 45.4355 22.576 48.1715 19.744C50.9555 16.912 55.6835 15.496 62.3555 15.496ZM62.3555 23.488C59.5235 23.488 57.6275 24.208 56.6675 25.648C55.7075 27.088 55.2275 29.968 55.2275 34.288C55.2275 38.512 55.7075 41.344 56.6675 42.784C57.6275 44.224 59.5235 44.944 62.3555 44.944C65.0915 44.944 66.9395 44.224 67.8995 42.784C68.9075 41.344 69.4115 38.512 69.4115 34.288C69.4115 30.016 68.9315 27.16 67.9715 25.72C67.0115 24.232 65.1395 23.488 62.3555 23.488ZM96.3333 16.504L97.0533 21.688C101.565 17.56 106.077 15.496 110.589 15.496C115.389 15.496 118.437 17.416 119.733 21.256C123.909 17.416 128.229 15.496 132.693 15.496C135.909 15.496 138.357 16.336 140.037 18.016C141.717 19.696 142.557 22.144 142.557 25.36V52H131.973V28.672C131.973 27.136 131.709 26.056 131.181 25.432C130.653 24.808 129.669 24.496 128.229 24.496C127.077 24.496 125.973 24.712 124.917 25.144C123.861 25.576 122.325 26.416 120.309 27.664V52H110.085V28.672C110.085 27.136 109.773 26.056 109.149 25.432C108.573 24.808 107.613 24.496 106.269 24.496C104.397 24.496 101.781 25.528 98.4213 27.592V52H87.8373V16.504H96.3333ZM161.632 1.6V12.904C161.632 16.216 161.32 19 160.696 21.256C164.44 17.416 168.64 15.496 173.296 15.496C177.904 15.496 181.216 16.936 183.232 19.816C185.296 22.648 186.328 27.352 186.328 33.928C186.328 40.024 185.08 44.704 182.584 47.968C180.088 51.232 175.552 52.864 168.976 52.864C166.096 52.864 162.856 52.624 159.256 52.144C155.704 51.664 152.92 50.992 150.904 50.128V1.6H161.632ZM161.56 27.016V44.296C164.008 44.824 166.408 45.04 168.76 44.944C171.208 44.848 172.912 44.032 173.872 42.496C174.88 40.96 175.384 38.128 175.384 34C175.384 30.064 174.976 27.424 174.16 26.08C173.344 24.688 171.64 23.992 169.048 23.992C167.08 23.992 164.584 25 161.56 27.016ZM196.826 0.807998H201.578C203.642 0.807998 204.674 1.84 204.674 3.904V7.792C204.674 9.856 203.642 10.888 201.578 10.888H196.826C194.762 10.888 193.73 9.856 193.73 7.792V3.904C193.73 1.84 194.762 0.807998 196.826 0.807998ZM204.53 52H193.946V16.504H204.53V52ZM222.196 16.504L222.988 21.76C228.124 17.584 233.188 15.496 238.18 15.496C241.396 15.496 243.844 16.336 245.524 18.016C247.252 19.696 248.116 22.144 248.116 25.36V52H237.532V28.672C237.532 27.088 237.268 26.008 236.74 25.432C236.26 24.808 235.372 24.496 234.076 24.496C231.82 24.496 228.532 25.576 224.212 27.736V52H213.556V16.504H222.196ZM279.266 37.816H266.45C266.786 40.408 267.554 42.16 268.754 43.072C270.002 43.936 272.042 44.368 274.874 44.368C278.666 44.368 283.082 44.104 288.122 43.576L289.13 50.2C285.434 51.976 280.274 52.864 273.65 52.864C266.978 52.864 262.226 51.424 259.394 48.544C256.562 45.664 255.146 40.912 255.146 34.288C255.146 27.328 256.514 22.456 259.25 19.672C262.034 16.888 266.69 15.496 273.218 15.496C279.122 15.496 283.394 16.528 286.034 18.592C288.674 20.608 290.018 23.704 290.066 27.88C290.066 31.192 289.202 33.688 287.474 35.368C285.794 37 283.058 37.816 279.266 37.816ZM266.234 31.408H276.314C277.61 31.408 278.474 31.096 278.906 30.472C279.386 29.848 279.626 28.936 279.626 27.736C279.626 26.056 279.194 24.904 278.33 24.28C277.466 23.608 275.882 23.272 273.578 23.272C270.842 23.272 268.97 23.824 267.962 24.928C266.954 25.984 266.378 28.144 266.234 31.408ZM330.931 1.6V52H322.507L321.643 46.816C318.235 50.848 313.723 52.864 308.107 52.864C303.691 52.864 300.475 51.28 298.459 48.112C296.491 44.896 295.507 40.168 295.507 33.928C295.507 27.112 296.611 22.336 298.819 19.6C301.027 16.864 304.459 15.496 309.115 15.496C313.675 15.496 317.515 16.552 320.635 18.664C320.395 16.024 320.275 13.552 320.275 11.248V1.6H330.931ZM320.275 41.2V24.784C317.059 23.872 314.539 23.416 312.715 23.416C310.315 23.416 308.659 24.088 307.747 25.432C306.883 26.776 306.451 29.584 306.451 33.856C306.451 37.936 306.883 40.672 307.747 42.064C308.611 43.408 310.147 44.08 312.355 44.08C313.843 44.08 315.115 43.888 316.171 43.504C317.227 43.072 318.595 42.304 320.275 41.2ZM40.976 82.248H26.144V123H15.128V82.248H0.296V73.32H40.976V82.248ZM66.7081 86.496L65.6281 96.36H62.7481C60.3961 96.36 56.7721 97.176 51.8761 98.808V123H41.2201V87.504H49.5001L50.4361 92.688C55.2841 88.56 60.0841 86.496 64.8361 86.496H66.7081ZM72.6014 95.424L71.5934 88.224C77.9774 87.072 84.1454 86.496 90.0974 86.496C94.8974 86.496 98.4254 87.48 100.681 89.448C102.937 91.368 104.065 94.728 104.065 99.528V123H95.6414L94.5614 117.6C91.0094 121.776 86.6414 123.864 81.4574 123.864C78.0494 123.864 75.2654 122.976 73.1054 121.2C70.9454 119.376 69.8654 116.856 69.8654 113.64V110.04C69.8654 107.208 70.8254 105 72.7454 103.416C74.6654 101.832 77.3294 101.04 80.7374 101.04H93.4094V99.456C93.3614 97.632 92.9294 96.408 92.1134 95.784C91.3454 95.16 89.8334 94.848 87.5774 94.848C83.6414 94.848 78.6494 95.04 72.6014 95.424ZM80.3774 110.832V112.2C80.3774 114.648 81.7694 115.872 84.5534 115.872C87.4334 115.872 90.3854 114.72 93.4094 112.416V107.448H83.8334C81.5294 107.496 80.3774 108.624 80.3774 110.832ZM115.685 71.808H120.437C122.501 71.808 123.533 72.84 123.533 74.904V78.792C123.533 80.856 122.501 81.888 120.437 81.888H115.685C113.621 81.888 112.589 80.856 112.589 78.792V74.904C112.589 72.84 113.621 71.808 115.685 71.808ZM123.389 123H112.805V87.504H123.389V123ZM141.055 87.504L141.847 92.76C146.983 88.584 152.047 86.496 157.039 86.496C160.255 86.496 162.703 87.336 164.383 89.016C166.111 90.696 166.975 93.144 166.975 96.36V123H156.391V99.672C156.391 98.088 156.127 97.008 155.599 96.432C155.119 95.808 154.231 95.496 152.935 95.496C150.679 95.496 147.391 96.576 143.071 98.736V123H132.415V87.504H141.055ZM178.685 71.808H183.437C185.501 71.808 186.533 72.84 186.533 74.904V78.792C186.533 80.856 185.501 81.888 183.437 81.888H178.685C176.621 81.888 175.589 80.856 175.589 78.792V74.904C175.589 72.84 176.621 71.808 178.685 71.808ZM186.389 123H175.805V87.504H186.389V123ZM204.055 87.504L204.847 92.76C209.983 88.584 215.047 86.496 220.039 86.496C223.255 86.496 225.703 87.336 227.383 89.016C229.111 90.696 229.975 93.144 229.975 96.36V123H219.391V99.672C219.391 98.088 219.127 97.008 218.599 96.432C218.119 95.808 217.231 95.496 215.935 95.496C213.679 95.496 210.391 96.576 206.071 98.736V123H195.415V87.504H204.055ZM274.373 92.184L269.909 92.76C270.485 94.104 270.773 95.808 270.773 97.872C270.773 102 269.525 104.928 267.029 106.656C264.581 108.384 260.261 109.248 254.069 109.248C252.005 109.248 249.965 109.128 247.949 108.888C247.373 109.656 247.253 110.52 247.589 111.48C247.973 112.44 248.789 112.992 250.037 113.136L262.925 114.648C266.573 115.08 269.189 116.136 270.773 117.816C272.405 119.496 273.221 121.968 273.221 125.232C273.221 129.744 271.853 132.792 269.117 134.376C266.429 135.96 261.581 136.752 254.573 136.752C247.277 136.752 242.333 135.984 239.741 134.448C237.149 132.96 235.853 130.2 235.853 126.168C235.853 124.344 236.261 122.856 237.077 121.704C237.941 120.504 239.405 119.424 241.469 118.464C239.837 116.88 239.165 114.936 239.453 112.632C239.789 110.28 240.845 108.576 242.621 107.52C239.117 105.888 237.365 102.696 237.365 97.944C237.365 93.768 238.613 90.816 241.109 89.088C243.605 87.36 247.949 86.496 254.141 86.496C257.885 86.496 260.981 86.832 263.429 87.504H274.877L274.373 92.184ZM254.069 102.48C256.661 102.48 258.437 102.144 259.397 101.472C260.405 100.8 260.909 99.6 260.909 97.872C260.909 96.096 260.429 94.896 259.469 94.272C258.509 93.648 256.709 93.336 254.069 93.336C251.429 93.336 249.605 93.648 248.597 94.272C247.637 94.896 247.157 96.096 247.157 97.872C247.157 99.6 247.637 100.8 248.597 101.472C249.605 102.144 251.429 102.48 254.069 102.48ZM257.237 121.632L248.309 120.696C246.773 121.944 246.005 123.312 246.005 124.8C246.005 126.528 246.533 127.632 247.589 128.112C248.645 128.592 250.925 128.832 254.429 128.832C257.933 128.832 260.237 128.568 261.341 128.04C262.493 127.56 263.069 126.528 263.069 124.944C263.069 123.696 262.709 122.904 261.989 122.568C261.269 122.232 259.685 121.92 257.237 121.632Z" fill="white"/>
+</svg>
 
-                           {% endif %}&nbsp;&nbsp;
-                           <span class="cir-white"></span>&nbsp;&nbsp;
-                           <a class="lmbtn">Learn more</a>
-                        </div>
-                    </div>
-
-        </div>
-      </div>
-
-      <div class="container text-2" id="info">
-        <h1>Combined Training</h1>
-         <p>offers both Technical Training and Work Experience</p>
-      </div>
-          <div class="slanteda">
-                <div class="row">
-                      <div class="col-md-6">
-                          <div class="c-img">
-                              <img class="c-img" src="{% static 'home/images/Group37.png' %}">
-                          </div>
-
-                </div>
-                                    <div class="v2 hidden-sm hidden-xs"></div>
-
-                <div class="col-md-6">
-                      <div class="icon2">
-                          <h1>Technical Training</h1>
-                         <b><span class="dark"> Choose between Linux, AWS and DevOps to learn </span> </b>
-                          <p class="courses"><strong>These courses cover everything from</strong></p>
-                          <ul style="padding-left: 0">
-                                   <li >  Command-line</li>
-                                   <li>  Shell scripting to setting up basic servers</li>
-                                   <li>  Touches the core areas of Linux Administration</li>
-                                   <li>  Amazon services such as computing, storage, networking, database,
-                                       analytics,application services, deployment, management, mobile, developer tools and tools for Internet of Things.</li>
-                          </ul>
-                           {% if request.user.is_authenticated %}
-                           <li><a class="btn btn-black apbtn">Apply Now</a></li>
-                           {% else %}
-                           <li><a class="btn btn-black" href="{% url 'home:login' %}">Apply Now</a></li>
-
-                           {% endif %}
-
-                          <ul>
-
-                          </ul>
+                      <div class="combi-but">
+                         {% if request.user.is_authenticated %}
+                          <a class="btn bgimagenewbut " id="bgbtn">Apply Now</a>
+                          {%else%}
+                          <a class="btn bgimagenewbut " href="{% url 'home:login' %}?next=/combined_class/">Apply Now</a>
+                          {%endif%}
                       </div>
-          </div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="row line2">
-
-            <div class="col-md-6">
-                  <div class="icon2">
-                      <h1>Get Work Experience</h1>
-                      <p>The Work Experience programme which is a 3 month program. You will engage with our team as if they work
-                          for our company and by so doing, understand the development process and work culture.  </p>
-                      <br>
-
-                      <ul style="font-size: 14px;">
-                             <li>  The programme is 100% online and our meetings are Mondays - Fridays, 20 minutes each day.</li>
-                             <li> You will be assigned a live instructor</li>
-  <li>  You will meet with your instructor 3 times per week</li>
-  <li>  Each session is 1 hr long</li>
-  <li>  You have 24/7 access to labs and hands-on practice materials</li>
-  <li>  Duration of the Linux training is 3 months</li>
-  <li>  You are automatically enrolled in the Work Experience program</li>
-                      </ul>
-                                                <ul>
-                           {% if request.user.is_authenticated %}
-                           <p><a class="btn btn-black apbtn">Apply Now</a></p>
-                           {% else %}
-                           <p><a class="btn btn-black" href="{% url 'home:login' %}">Apply Now</a></p>
-
-                           {% endif %}
-
-                          </ul>
-
                   </div>
+                    
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <div class="combisecleft">
+                    <p>Acquire both “Technical Training” <br>and “Work Experience” at a go!</p>
+                    <div class="combi-right">
+                      {% if request.user.is_authenticated %}
+                      <a class="btn bgimagenewbut " id="bgbtn2">Apply Now</a>
+                      {%else%}
+                      <a class="btn bgimagenewbut " href="{% url 'home:login' %}?next=/combined_class/">Apply Now</a>
+                      {%endif%}
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
       </div>
-                <div class="v2 hidden-sm hidden-xs"></div>
-                  <div class="col-md-6">
-                      <div class="c-img">
-                          <img src="{% static 'home/images/Group.png' %}">
-                      </div>
-
+    <div class="container">
+      <div class="com1">
+            <div class="text-center">
+                <h1 class="combinedh1">What is Combined Training?</h1>
+                <p class="combinedp1">Basically, this program allows you obtain two trainings, “<span class="combinedp1span">Technical Training</span>” and “<span class="combinedp1span">Work Experience</span>” under one package.</p>
             </div>
-
-
-        </div><br>
-        <div class="clearfix"></div>
-
-              {% if request.user.is_authenticated %}
-             <div class="row jar" id="payment">
-            <h3 class="text-center"><b>CHOOSE A COURSE</b></h3>
-            <div class="col-md-10 col-md-offset-1 col-xs-offset-3">
-            <div class="com col-md-4 col-sm-8 col-xs-6">
-                <div class="card" id="type1">
-                        <h4> Linux</h4>
-                        <p class="large"><span class="sup">$</span>798</p>
-                        <p class="lead">+ 14% of 2 years salary when you get a tech job</p>
-
-                        <hr>
-           <table class="cmb-table">
-
-                           <tr height="40">
-                             <td style="text-align: left" width="95%">Technical training </td>
-                           <td> $399 </td>
-                           </tr>
-                           <tr>
-                             <td style="text-align: left;">Work Experience</td>
-                             <td> $399 </td>
-                           </tr>
-                         </table>
+    
+            <div class="row combinedsec2">
+                <div class="col-md-5">
+                <div class="combinedsec2right">
+                    <p class="combinedp2">For Technical Training</p><br>
+                    <p style="color: #484848; font-size:12px;">Choose between Linux, AWS and DevOps to learn: These courses covers everything from:</p><br>
+                    <div class="icon3" dir="rtl">
+                      <ul>
+                      <li style="color: #484848">Command-line</li><br>
+                      <li style="color: #484848">Touches the core areas of Linux Administration</li><br>
+                      <li style="color: #484848">Shell scripting to setting up basic servers</li><br>
+                      <li style="color: #484848; margin-left:-5px;">Amazon services such as computing, storage, networking, database,analytics, application services, deployment, management, mobile, developer tools, and tools for the Internet of Things.</li><br>
+                      </ul>
+                    </div>
                 </div>
             </div>
-            <div class="com col-md-4 col-sm-8 col-xs-6">
-                <div class="card" id="type2">
-                        <h4> AWS</h4>
-                        <p class="large"><span class="sup">$</span>798</p>
-                        <p class="lead">+ 14% of 2 years salary when you get a tech job</p>
-
-                        <hr>
-                             <table class="cmb-table">
-
-                           <tr height="40">
-                             <td style="text-align: left" width="95%">Technical training </td>
-                             <td> $399 </td>
-                           </tr>
-                           <tr>
-                             <td style="text-align: left;">Work Experience</td>
-                             <td> $399 </td>
-                           </tr>
-                         </table>
+            <div class="col-md-2">
+              <div class="combimg text-center">
+                <img src="{% static 'home/images/chain.png' %}">
+              </div>
+            </div>
+            <div class="col-md-5">
+                <div>
+                    <p class="combinedp2">For Work Experience</p><br>
+                    <p  style="color: #484848; font-size:12px;">The Work experience programme which is a 3 month program. You will</p><br>
+                    <div class="icon2">
+                    <ul>
+                    <li style="color: #484848">Work closely with our experienced development team and build experience.</li><br>
+                    <li style="color: #484848">Learn with the most current technologies used in today’s workplace.</li><br>
+                    <li style="color: #484848">We maintain Work History Record for each trainee, as proof of tasks accomplished and tender for employment purposes.</li><br>
+                    <li style="color: #484848">The training is totally remote.</li><br>
+                    </ul>
+                    </div>
                 </div>
             </div>
-            <div class="com col-md-4 col-sm-8 col-xs-6">
-                <div class="card" id="type3">
-                   <h4> DevOps</h4>
-                   <p class="large"><span class="sup">$</span>798</p>
-                   <p class="lead">+ 14% of 2 years salary when you get a tech job</p>
-
-                   <hr>
-                             <table class="cmb-table">
-
-                           <tr height="40">
-                             <td style="text-align: left" width="95%">Technical training </td>
-<td> $399 </td>                           </tr>
-                           <tr>
-                             <td style="text-align: left;">Work Experience</td>
-                             <td> $399 </td>
-                           </tr>
-                         </table>
-                </div>
+            </div>
+            <div class="text-center">
+                <p class="combinedp1">Combination of the two programs into one is “<span class="combinedp1span">Combined Tranining</span>”</p>
+                {% if request.user.is_authenticated %}
+                <button class="btn-lg btn-blackbim" id="bgbtn4">Apply Now</button>
+                {%else%}
+                <a class="btn btn-blackbim2 " href="{% url 'home:login' %}?next=/combined_class/">Apply Now</a>
+                {%endif%}
             </div>
         </div>
-        <div class="col-md-12 last">
-            <form action="{% url 'home:combined_class_terms' %}">
+        <br><br>
+        <div class="com2">
+            <div class="text-center pastg">
+                <h1 class="combinedh1">Past Graduates</h1>
+                <p class="combinedp1">Photos and certificates from some of our previous graduates of <span class="combinedp1span">Combined Training</span></p>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                <div class="combcert1">
+                  <img class="combcert1" style="margin-left:-20px;" src="{% static 'home/images/samson.png' %}">
+                </div>
+                </div>
+                <div class="col-md-3">
+                <div class="combcert1">
+                  <img class="combcert1" style="margin-left:30px;" src="{% static 'home/images/ayocert.png' %}">
+                </div>
+                </div>
+                <div class="col-md-2">
+                <div class="combcert1">
+                  <img class="combcert1" style="margin-left:90px;" src="{% static 'home/images/adeniyi.png' %}">
+                </div>
+                </div>
+                <div class="col-md-4">
+                {% if request.user.is_authenticated %}
+                <a href="#payment">
+                {%else%}
+                <a href="{% url 'home:login' %}?next=/combined_class/#payment">
+                {%endif%}
+                <div class="combcert1">
+                  <img class="combcert1" style="margin-left:100px;" src="{% static 'home/images/joinsus.png' %}">
+                </div>
+                </a>
+                </div>
+            </div>
+            <div class="text-center">
+                {% if request.user.is_authenticated %}
+                  <button class="btn-lg btn-blackbim" id="bgbtn3">Apply Now</button>
+                {%else%}
+                  <a class="btn btn-blackbim2 " href="{% url 'home:login' %}?next=/combined_class/">Apply Now</a>
+                {%endif%}
+            </div>
+        </div>
+      <br><br>
+      
+      {% if request.user.is_authenticated %}
+      <div class="com3" id="payment">
+          <div class="text-center">
+            <p class="combinedh12">CHOOSE A COURSE</p>
+          </div>
+          <div class="row">
+            <div class="col-md-4" class="ctest1">
+              <div class="comcourse" style="margin-left:80px;" id="type1">
+                  <div class="text-center">
+                    <p class="comcor1">Linux</p><br>
+                   <span class="comprice"> <sup class="comprice1">$</sup>399</span>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-8"><p>Technical training</p></div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-2"><span class="glyphicon glyphicon-ok corr"></span> </div>
+                  </div>
+                  <br>
+                  <div class="text-center">
+                    <p class="combplus">+</p>
+                  </div>
+                  <br>
+                  <div class="text-center">
+                   <span class="comprice"> <sup class="comprice1">$</sup>399</span>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-8"><p>Work experience</p></div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-2"><span class="glyphicon glyphicon-ok corr"></span> </div>
+                  </div>
+                  <hr><br>
+                  <div class="text-center text-muted">
+                    <p>+ 14% of 2 years salary when<br>you get a tech job</p>
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-4" class="ctest2">
+              <div class="comcourse" style="margin-left:50px;" id="type2">
+                  <div class="text-center">
+                    <p class="comcor1">AWS</p><br>
+                   <span class="comprice"> <sup class="comprice1">$</sup>399</span>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-8"><p class="comcp1">Technical training</p></div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-2"><span class="glyphicon glyphicon-ok corr"></span> </div>
+                  </div>
+                  <br>
+                  <div class="text-center">
+                    <p class="combplus">+</p>
+                  </div>
+                  <br>
+                  <div class="text-center">
+                   <span class="comprice"> <sup class="comprice1">$</sup>399</span>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-8"><p>Work experience</p></div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-2"><span class="glyphicon glyphicon-ok corr"></span> </div>
+                  </div>
+                  <hr><br>
+                  <div class="text-center text-muted">
+                    <p>+ 14% of 2 years salary when<br>you get a tech job</p>
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-4" class="ctest3">
+              <div class="comcourse" style="margin-left:5px;" id="type3">
+                  <div class="text-center">
+                    <p class="comcor1">DevOps</p><br>
+                   <span class="comprice"> <sup class="comprice1">$</sup>399</span>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-8"><p>Technical training</p></div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-2"><span class="glyphicon glyphicon-ok corr"></span> </div>
+                  </div>
+                  <br>
+                  <div class="text-center">
+                    <p class="combplus">+</p>
+                  </div>
+                  <br>
+                  <div class="text-center">
+                   <span class="comprice"> <sup class="comprice1">$</sup>399</span>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-8"><p>Work experience</p></div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-2"><span class="glyphicon glyphicon-ok corr"></span> </div>
+                  </div>
+                  <hr><br>
+                  <div class="text-center text-muted">
+                    <p>+ 14% of 2 years salary when<br>you get a tech job</p>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center">
+                <form action="{% url 'home:combined_class_terms' %}">
                 <input hidden name="course_picked" id="course_picked">
-                <button id="proceedbtn" type="submit" class="bnbtn text-center">Apply now </button>
-            </form>
-
-        </div>
-        </div>
-                   {% endif %}
-
-
+                <button class="btn-lg btn-blackbim" id="proceedbtn">Apply Now</button>
+                </form>
             </div>
+            <br><br>
+        </div>
+        {%endif%}
+    </div>
 
 
+<script>
 
-    <script>
-
-
-  $('#proceedbtn').hide();
+ $('#proceedbtn').hide();
             $(".lmbtn").click(function() {
     $('html,body').animate({
         scrollTop: $("#info").offset().top},
         'slow');
 });
-            $("#bgbtn").click(function() {
+
+
+$("#bgbtn").click(function() {
     $('html,body').animate({
         scrollTop: $("#payment").offset().top},
         'slow');
 });
-            $(".apbtn").click(function() {
+
+$("#bgbtn2").click(function() {
+    $('html,body').animate({
+        scrollTop: $("#payment").offset().top},
+        'slow');
+});
+
+$("#bgbtn3").click(function() {
+    $('html,body').animate({
+        scrollTop: $("#payment").offset().top},
+        'slow');
+});
+
+$("#bgbtn4").click(function() {
     $('html,body').animate({
         scrollTop: $("#payment").offset().top},
         'slow');
 });
 
 
-              /**Subscription picked**/
-  $('#type1').click(function(){
+$('#type1').click(function(){
     $('#type1').css({
       'background': '#4975B1',
       'transition-delay': '0.1s',
@@ -242,7 +316,7 @@ Combined Class | Linuxjobber
     });
   });
 
-  var type2 =  $('#type2');
+var type2 =  $('#type2');
   type2.click(function(){
     $('#type2').css({
       'background': '#4975B1',
@@ -264,9 +338,7 @@ Combined Class | Linuxjobber
     });
   });
 
-
-
-  var type3= $('#type3');
+var type3= $('#type3');
   type3.click(function(){
     $('#type3').css({
       'background': '#4975B1',
@@ -291,6 +363,6 @@ Combined Class | Linuxjobber
 
 
 
-    </script>
 
+</script>
 {% endblock %}

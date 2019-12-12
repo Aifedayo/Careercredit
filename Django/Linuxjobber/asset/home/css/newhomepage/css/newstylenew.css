@@ -127,6 +127,267 @@
   height: 50px;
 }
 
+
+.elig{
+	margin-top: 20px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+
+.eligh1{
+	font-size: 24px;
+  color: #4975B1;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.eligp1{
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.eligsec{
+  background: #F2F2F2;
+  margin-top: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.eligsecp{
+  color:grey;
+  font-size: 16px;
+}
+
+.eligsech1{
+  color: #000000;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.eligqut{
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.eligqutin{
+  font-size: 14px;
+  color: grey;
+}
+
+.eligform{
+  margin-top: 10px;
+}
+
+.eligforminput{
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding-top: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  height: 90px;
+}
+
+.eligforminputp{
+  margin-top: 8px;
+}
+
+.eligformin::before{
+  border:white;
+}
+.eligformin{
+  margin-top: 15px;
+  border: white;
+  padding: 0px;
+  border-top: none;
+}
+
+
+.eligformin1::before{
+  border-bottom: 2px black;
+}
+.eligformin1{
+  margin-top: 15px;
+  border-bottom: 2px solid black;
+  padding: 0px;
+  border-top: none;
+  font-size: 14px;
+  line-height: 1.42857143;
+}
+
+.eliglabel{
+  margin-top: -10px;
+}
+
+.eligformcol{
+  padding-left: 3px;
+  padding-right: 3px;
+  margin-bottom: 10px;
+}
+
+.eligformwidth{
+  width: 28%;
+}
+
+.eligformwidth2{
+  width: 27.3%;
+}
+
+.eligformwidth3{
+  width: 33%;
+}
+
+.eligformwidth4{
+  width: 13.2%;
+}
+
+.eligformwidth5{
+  width: 25%;
+}
+
+.eligquter{
+  padding-left: 20px;
+}
+
+.eligformwidth6{
+  width: 36%;
+}
+
+.eligformwidth7{
+  width: 14%;
+}
+
+.btnelig{
+  background: #000000;
+  color: #FFFFFF;
+  width: 250px;
+  height: 50px;
+  font-weight: 600;
+}
+
+.eligqutergrey{
+  color: grey;
+  font-size: 14px;
+}
+
+.eligquterblak{
+  font-size: 13px;
+  color: #000000;
+  padding-left: 20px;
+}
+
+
+.isareview{
+  border: 5px solid #808080;
+  border-radius: 20px;
+  border-bottom: 40px solid  #252525;
+  height: 600px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 20px;
+  position: relative;
+  overflow:auto; 
+}
+
+.isareview::-webkit-scrollbar {
+  width: 5px;
+  background-color: rgba(0, 0, 0, 0.30);
+  scrollbar-width: thin;
+  padding-left: 5px;
+  padding-right: 5px;
+  height: 550px;
+}
+
+.isareview::-webkit-scrollbar-thumb {
+  border-radius: 10px; 
+  color: black;
+  background-color: grey;
+}
+
+.isareview::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px white; 
+  border-radius: 0px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.isareviewdown{
+  color: #FFFFFF;
+  font-size: 18px;
+  margin-top: -30px;
+  margin-left: 100px;
+}
+
+.isaget{
+  background: #f2f2f2;
+  padding-left: 35px;
+  padding-right: 35px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 5px;
+  font-size: 24px;
+  margin-left: -35px;
+}
+
+.isaput{
+  margin-left: -15px;
+  height: 45px;
+  margin-top: 3px;
+  margin-bottom: 10px;
+}
+
+.isah1{
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+.isah2{
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: 36px;
+}
+
+.isageh{
+  font-size: 24px;
+}
+
+.isageh2{
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.isapp{
+  font-size: 14px;
+}
+.isageH1{
+  font-size: 36px;
+}
+
+.isasign{
+  height: 500px;
+  background: #F2F2F2;
+  overflow: auto;
+  padding: 20px;
+}
+
+.isasignsec{
+  margin-top: 50px;
+}
+
+.issasinbod{
+  font-weight: 700;
+}
+
+.isasignh1{
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.isagesmall{
+  font-size: 16px;
+}
 /* work experience */
 .wkex{
     height: 100vh;
@@ -144,7 +405,105 @@
     margin-bottom: 200px;
   }
   
+ .awsrateimg{
+   padding-top: 10px;
+ }
+  .aws_fullban{
+    max-width:100%;
+    height: 475px;
+    background: url('../imgs/awsft.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+    background-color: rgba(27, 83, 158, 0.65);
+    padding-top: 50px;
+    color: #FFFFFF;
+    padding-bottom: 30px;
+  }
+  .aws_fullbanh1{
+    font-size: 40px;
+    font-weight: 500;
+    margin-top: 10px;
+    text-transform: uppercase;
+  }
 
+  .awsnewbut{
+    background: #FFFFFF;
+    border-radius: 5px;
+    font-size: 18px;
+    color: #1B539E;
+    min-width: 250px;
+    min-height: 66px;
+    padding-top: 20px;
+    font-weight: 600;
+}
+
+.awsnewbut2{
+  background: #1B539E;
+  border-radius: 5px;
+  font-size: 18px;
+  color: #FFFFFF;
+  min-width: 250px;
+  min-height: 66px;
+  padding-top: 20px;
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+.awslista{
+  font-size: 14px;
+  text-align: left;
+}
+
+.awsright{
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.awsrightp1{
+  font-size: 18px;
+}
+
+.awsrightsec{
+  margin-bottom: 30px;
+  margin-left: 10px;
+}
+
+.awsrate{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+  .aws_fullbanp1{
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 16px;
+  }
+
+  .aws_fullbanp-2{
+    margin-left: 50px;
+    font-size: 18px;
+    margin-top: -5px;
+  }
+
+  .aws_fullbanp{
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .awsleft{
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .awsleftp{
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .awspdef{
+    color: #808080;
+  }
   .jobplace-action {
     background-color: #f2f2f2;
     /*background-image: linear-gradient(#f2f2f2, transparent 350%), url(../img/getstart.jpg);*/
