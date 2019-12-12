@@ -5,7 +5,7 @@
           <mat-list class="chat-list" dense>
             <div *ngFor="let message of messages">
                 <mat-list-item *ngIf="message.user !== current_user" >
-                  <img mat-list-avatar [src]="message.profile_img" class="fix-size">
+                  <img mat-list-avatar [src]="getProfileImg(message.profile_img)" class="fix-size">
                   <h4 mat-line>
                       <b>{{message.user}}</b>
                       <i style="font-size: 12px; text-decoration: none;"> 

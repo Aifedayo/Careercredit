@@ -153,7 +153,11 @@ def get_recent_messages(request):
 #Helper
 def _send_to_connection(connection_id, data):
     gatewayapi = boto3.client(
-        "apigatewaymanagementapi",endpoint_url = str(url)
+        "apigatewaymanagementapi",
+        endpoint_url = str(url),
+        region_name="us-east-2",
+        aws_access_key_id="AKIA3TZ6IUIDQJSPSYN3",
+        aws_secret_access_key="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",
     )
     return gatewayapi.post_to_connection(
         ConnectionId=connection_id,

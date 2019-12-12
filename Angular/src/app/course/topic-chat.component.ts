@@ -114,10 +114,10 @@ export class TopicChatComponent implements OnInit {
       }
   }
 
-
   ngAfterViewInit(): void {
     this.mutableObserver();
   }
+
   callWebsocket(){
     this.websocket.onopen = (evt) => {
       const now=new Date();
@@ -163,6 +163,22 @@ export class TopicChatComponent implements OnInit {
         childList: true
     });
   }
+
+  getProfileImg(proImgUrl:string){
+
+    var image_url = "";
+      if(
+        proImgUrl.startsWith("https://") || 
+        proImgUrl.startsWith("http://") 
+      ){
+        image_url =  proImgUrl
+      }
+      else {
+        image_url = environment.API_URL + proImgUrl
+      }
+    return image_url
+  }
+
   // auto-scroll fix: inspired by this stack overflow post
   // https://stackoverflow.com/questions/35232731/angular2-scroll-to-bottom-chat-style
   private scrollToBottom(){
