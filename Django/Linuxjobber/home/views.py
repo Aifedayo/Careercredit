@@ -1246,6 +1246,12 @@ def workterm(request):
 @login_required
 def workexpform(request):
     form = WeForm()
+
+    try:
+        details =  WorkExperienceEligibility.objects.get(user=request.user)
+    except  WorkExperienceEligibility.DoesNotExist:
+        details = None
+
     if request.method == 'POST':
         trainee = request.POST['types']
         trainee = wetype.objects.get(id=trainee)
@@ -1258,6 +1264,8 @@ def workexpform(request):
         today = datetime.now().strftime("%Y-%m-%d")
         month6 = datetime.now() + timedelta(days=180)
         month6 = month6.strftime("%Y-%m-%d")
+
+            
 
         if date < today:
             person = werole.objects.get(roles='Trainee')
@@ -1289,7 +1297,7 @@ def workexpform(request):
             weps.save()
         return redirect("home:workexprofile")
     else:
-        return render(request, 'home/workexpform.html', {'form': form})
+        return render(request, 'home/workexpform.html', {'form': form,'details': details})
 
 
 @login_required
@@ -1306,7 +1314,8 @@ def work_experience_eligible(request):
         date = None
         created = None
 
-   
+    dater = datetime.now().strftime('%Y-%m-%d')
+
 
     if request.method == "POST":
 
@@ -1377,7 +1386,7 @@ def work_experience_eligible(request):
             state.save()
 
         return redirect("home:isa")  
-    return render(request, 'home/workexpeligibility.html',{'details':details,'date':date,'created':created})
+    return render(request, 'home/workexpeligibility.html',{'details':details,'date':date,'dater':dater,'created':created})
 
 @login_required
 def work_experience_isa_part_1(request):
@@ -1385,6 +1394,9 @@ def work_experience_isa_part_1(request):
         details =  WorkExperienceEligibility.objects.get(user=request.user)
         date = details.date_of_birth
         date = date.strftime('%Y-%m-%d')
+        ssn = details.SSN
+        ssn = ssn[-4:]
+        ssn = "••••••" + ssn
     except  WorkExperienceEligibility.DoesNotExist:
         details = None
         date = None
@@ -1421,7 +1433,7 @@ def work_experience_isa_part_1(request):
             state.save()
 
         return redirect("home:workexpisa2")
-    return render(request, 'home/workexpisa.html',{'details':details,'jot':jot,'date':date,'comp':comp})
+    return render(request, 'home/workexpisa.html',{'details':details,'ssn':ssn,'jot':jot,'date':date,'comp':comp})
 
 def work_experience_isa_part_2(request):
 
@@ -1526,7 +1538,7 @@ def workexprofile(request):
     if not weps.profile_picture:
         messages.error(
             request,
-            "!!! Note Admin can't create your task with out your profile image set"
+            "!!! Note Admin can't create your task without your profile image set"
         )
 
     return render(request, 'home/workexprofile.html',
