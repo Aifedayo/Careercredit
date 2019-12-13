@@ -4,6 +4,7 @@ import {ApiService} from "../../share/api.service";
 import {UserModel} from "../../share/user-model";
 // import * as $ from 'jquery';
 import { DataService } from 'src/app/data.service';
+import processHelper from './process.helper'
 
 @Component({
   selector: 'app-profile',
@@ -16,10 +17,11 @@ export class ProfileComponent implements OnInit {
   public attendance$;
   public environment = environment;
   private fileName='';
+  private isUploading:boolean=false
 
   constructor(
     private apiService:ApiService, 
-    private dataService:DataService
+    private dataService:DataService,
   ) {} 
 
   ngOnInit() {
@@ -45,6 +47,8 @@ export class ProfileComponent implements OnInit {
 
           const formData = new FormData();
           formData.append('file', file, file.name);
+          this.isUploading = true
+          this.user.profile_img=processHelper.loadingImage
           this.apiService.uploadImage(formData)
             .subscribe(
                 data => {
@@ -55,6 +59,7 @@ export class ProfileComponent implements OnInit {
                   this.dataService.updatedImgUrl = this.getProfileImg(
                     data['profile_img']
                   )
+                  this.isUploading = false
                 },
                 error => console.log( error)
             );
@@ -100,6 +105,8 @@ export class ProfileComponent implements OnInit {
       }
     return image_url
   }
+
+  
 
   _handleReaderLoaded(e) {
     let reader = e.target;

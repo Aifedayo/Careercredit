@@ -4,14 +4,15 @@
   <img src="{{ user.profile_img }}" name="profile_img" >
   <!-- <img ng-src="data:image/jpeg;base64,{{unImage.image}}" class="images" /> -->
   <label for="file-input">
-    <i class="btn btn-primary" style="display: inline;
+    <i [className]="isUploading ? 'spinner' : 'btn btn-primary'"
+    style="display: inline;
     position: absolute;
     left: 300px; top: 170px;
     text-align: center;
     font-size: 12px;
     width: 127px;
     height: 31px;
-    background: transparent;
+    background-color: transparent;
     color:black;
     border: 1px solid rgba(0, 0, 0, 0.8);
     border-radius: 35px;

@@ -165,7 +165,6 @@ export class TopicChatComponent implements OnInit {
   }
 
   getProfileImg(proImgUrl:string){
-
     var image_url = "";
       if(
         proImgUrl.startsWith("https://") || 
