@@ -244,7 +244,7 @@ USE_TZ = True
 
 AWS_DEFAULT_ACL = None
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID', '')
-S3DIRECT_REGION = 'us-west-2'
+S3DIRECT_REGION = config('S3DIRECT_REGION','us-west-2')
 AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY', '')
 AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME', '')
 AWS_QUERYSTRING_AUTH = False #This will make sure that the file URL does not have unnecessary parameters like your access key.

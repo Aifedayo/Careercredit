@@ -13,8 +13,6 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.authtoken.models import Token
 
 
-url = settings.AWS_WS_GATEWAY
-
 
 class AwsWebsocketGatewayView(APIView):
     permission_classes = [] 
@@ -154,10 +152,10 @@ def get_recent_messages(request):
 def _send_to_connection(connection_id, data):
     gatewayapi = boto3.client(
         "apigatewaymanagementapi",
-        endpoint_url = str(url),
-        region_name="us-east-2",
-        aws_access_key_id="AKIA3TZ6IUIDQJSPSYN3",
-        aws_secret_access_key="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",
+        endpoint_url = str( settings.AWS_WS_GATEWAY),
+        region_name=str(settings.S3DIRECT_REGION),
+        aws_access_key_id=str(settings.AWS_ACCESS_KEY_ID),
+        aws_secret_access_key=str(settings.AWS_SECRET_ACCESS_KEY),
     )
     return gatewayapi.post_to_connection(
         ConnectionId=connection_id,
