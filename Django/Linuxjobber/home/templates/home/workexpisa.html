@@ -193,7 +193,7 @@ Income Share Agreement Form | Linuxjobber
             {% csrf_token %}
         <span>Email <span style="color: red; font-size: 25px;">*</span></span>
         <div class="row" style="padding: 0px;">
-            <div class="col-md-10"><input class="form-control isaput" value="{{jot.email}}" type="text" name="email" placeholder="Your email" required/></div>
+            <div class="col-md-10"><input class="form-control isaput" value="{{details.employee_email}}" type="text" name="email" readonly placeholder="Your email" required/></div>
             <div class="col-md-2"></div>
         </div>
         <span>First Name <span style="color: red; font-size: 25px;">*</span></span>
@@ -213,12 +213,12 @@ Income Share Agreement Form | Linuxjobber
         </div>
         <span>Social Security Number (9 Digits) <span style="color: red; font-size: 25px;">*</span></span>
         <div class="row" style="padding: 0px;">
-            <div class="col-md-10"><input class="form-control isaput" type="text" value="{{details.SSN}}" readonly placeholder="Your SSN" /></div>
+            <div class="col-md-10"><input class="form-control isaput" type="text" value="{{ssn}}" readonly placeholder="Your SSN" /></div>
             <div class="col-md-2"></div>
         </div>
         <span>Re-enter Social Security Number (9 Digits) <span style="color: red; font-size: 25px;">*</span></span>
         <div class="row" style="padding: 0px;">
-            <div class="col-md-10"><input class="form-control isaput" type="text" value="{{details.SSN}}" readonly placeholder="Re-enter your SSN" /></div>
+            <div class="col-md-10"><input class="form-control isaput" type="text" value="{{ssn}}" readonly placeholder="Re-enter your SSN" /></div>
             <div class="col-md-2"></div>
         </div>
         <span>Date of Birth (mm/dd/yyyy)<span style="color: red; font-size: 25px;">*</span></span>
@@ -267,7 +267,7 @@ Income Share Agreement Form | Linuxjobber
                 <option {% if jot.highest_level_education == "Associate degree" %} selected {%endif%} value="Associate degree">Associate degree</option>
                 <option {% if jot.highest_level_education == "Bachelor's degree" %} selected {%endif%} value="Bachelor's degree">Bachelor's degree</option>
                 <option {% if jot.highest_level_education == "Masters degree" %} selected {%endif%} value="Masters degree">Masters degree</option>
-                <option {% if jot.highest_level_education == "Proffesional degree" %} selected {%endif%} value="Proffesional degree">Proffesional degree</option>
+                <option {% if jot.highest_level_education == "Professional degree" %} selected {%endif%} value="Professional degree">Professional degree</option>
                 <option {% if jot.highest_level_education == "Doctorate degree" %} selected {%endif%} value="Doctorate degree">Doctorate degree</option>
             </select></div>
             <div class="col-md-2"></div>
