@@ -11,7 +11,7 @@ from django.db.models import Sum
 from django.utils import timezone
 
 from Courses.models import Course
-from users.models import CustomUser
+from users.models import CustomUser,Role
 
 from datetime import date
 
@@ -840,22 +840,12 @@ class InstallmentPlan(models.Model):
             self.status = PlanStatus.is_unpaid.value
             self.save()
 
+class EmailGroup(models.Model):
+    name = models.CharField(max_length=255,)
+    description = models.CharField(max_length=255,)
+    members_by_role = models.ForeignKey(Role,on_delete=models.CASCADE,null=True,blank=True)
+    extra_members = models.ManyToManyField(CustomUser,blank=True)
 
-    # def save(self,*args,**kwargs):
-    #     """
-    #     Sets default message format to be used
-    #     :param args:
-    #     :param kwargs:
-    #     :return:
-    #     """
-    #     if self.subpayment_set.count() < 0 :
-    #         return
-    #     if self.is_default:
-    #         type_list = type(self).objects.filter(is_default=True)
-    #         if self.pk:
-    #             type_list.exclude(self)
-    #         type_list.update(is_default = False)
-    #     super(type(self),self).save(*args,**kwargs)
 
 
 
