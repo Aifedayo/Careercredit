@@ -56,7 +56,7 @@
                       </p>
                       <div style="text-align: right;margin: 30px 0px 15px 15px; width: 50px; height: 50px;" >
                         <img *ngIf="user$|async as i" class="img-responsive img-circle fix-size" 
-                          style="background: white" [src]="i.profile_img">
+                          style="background: white" [src]="getProfileImg(i.profile_img)">
                       </div>
                     </mat-list-item>
                     <br style="clear:both" />
