@@ -10,9 +10,9 @@ from .models import FAQ, Job, RHCSAOrder, FreeAccountClick, Campaign, Message, U
     InternshipDetail, MessageGroup, UserLocation, NewsLetterSubscribers, UserOrder, Document, MainModel, AwsCredential, \
     Jobplacement, Groupclass, BillingHistory, GroupClassRegister, StripePayment, UserPayment, wepeoples, wetask, werole, \
     wework, wetype, PartTimeJob, TryFreeRecord, FullTimePostion, PartTimePostion, Resume, CareerSwitchApplication, \
-    Certificates, EmailMessageType, EmailMessageLog,CompleteClass,\
-    CompleteClassLearn, CompleteClassCertificate, WorkExperienceEligibility, WorkExperienceIsa, WorkExperiencePay, SubPayment, InstallmentPlan, INSTALLMENT_PLAN_STATUS
-
+    Certificates, EmailMessageType, EmailMessageLog, CompleteClass, \
+    CompleteClassLearn, CompleteClassCertificate, WorkExperienceEligibility, WorkExperienceIsa, WorkExperiencePay, \
+    SubPayment, InstallmentPlan, INSTALLMENT_PLAN_STATUS, EmailGroup
 
 from datetime import timedelta
 import datetime
@@ -216,7 +216,7 @@ class EmailMessageLogAdmin(admin.ModelAdmin):
                     message.error_message
                 ), level=messages.ERROR)
 
-    resend_message.short_description = 'Resend Message'
+    resend_message.short_description = 'Send/resend selected messages'
 
 class SubPaymentInlineFormset(forms.models.BaseInlineFormSet):
     def clean(self):
@@ -318,8 +318,10 @@ class InstallmentPlanAdmin(admin.ModelAdmin):
     #                 obj.user,obj.description),messages.WARNING)
 
 
-
-
+class EmailGroupAdmin(admin.ModelAdmin):
+    list_display = ('name','description','members_by_role')
+    filter_horizontal = ('extra_members',)
+    search_fields = ('name',)
 
 admin.site.register(WorkExperienceIsa)
 admin.site.register(WorkExperienceEligibility)
@@ -364,5 +366,6 @@ admin.site.register(CompleteClassCertificate)
 admin.site.register(EmailMessageType,EmailMessageTypeAdmin)
 admin.site.register(EmailMessageLog)
 admin.site.register(InstallmentPlan, InstallmentPlanAdmin)
+admin.site.register(EmailGroup, EmailGroupAdmin)
 
 
