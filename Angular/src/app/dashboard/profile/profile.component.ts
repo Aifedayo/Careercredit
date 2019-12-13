@@ -17,7 +17,7 @@ export class ProfileComponent implements OnInit {
   public attendance$;
   public environment = environment;
   private fileName='';
-  private isUploading:boolean=false
+  public isUploading:boolean=false
 
   constructor(
     private apiService:ApiService, 
