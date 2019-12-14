@@ -1268,12 +1268,25 @@ def workexpform(request):
             
 
         if date < today:
-            person = werole.objects.get(roles='Trainee')
+            try:
+                person = werole.objects.get(roles='Trainee')
+            except werole.DoesNotExist:
+                person = werole.objects.create(roles='Trainee')
+                person.save()
+
         else:
             if today < date < month6:
-                person = werole.objects.get(roles='Graduant')
+                try:
+                    person = werole.objects.get(roles='Graduant')
+                except werole.DoesNotExist:
+                    person = werole.objects.create(roles='Graduant')
+                    person.save()
             else:
-                person = werole.objects.get(roles='Student')
+                try:
+                    person = werole.objects.get(roles='Student')
+                except werole.DoesNotExist:
+                    person = werole.objects.create(roles='Student')
+                    person.save() 
 
         try:
             weps = wepeoples.objects.get(user=request.user)
@@ -1309,10 +1322,12 @@ def work_experience_eligible(request):
         date = date.strftime('%Y-%m-%d')
         created = details.date_created
         created = created.strftime('%Y-%m-%d')
+        
     except  WorkExperienceEligibility.DoesNotExist:
         details = None
         date = None
         created = None
+        
 
     dater = datetime.now().strftime('%Y-%m-%d')
 
@@ -1396,10 +1411,17 @@ def work_experience_isa_part_1(request):
         date = date.strftime('%Y-%m-%d')
         ssn = details.SSN
         ssn = ssn[-4:]
-        ssn = "••••••" + ssn
+        ssn = "•••••" + ssn
+
     except  WorkExperienceEligibility.DoesNotExist:
         details = None
         date = None
+        ssn = None
+
+    try:
+        paid = WorkExperiencePay.objects.get(user=request.user)
+    except WorkExperiencePay.DoesNotExist:
+        return redirect("home:pay")
 
     try:
         jot =  WorkExperienceIsa.objects.get(user=request.user)
@@ -1433,9 +1455,15 @@ def work_experience_isa_part_1(request):
             state.save()
 
         return redirect("home:workexpisa2")
-    return render(request, 'home/workexpisa.html',{'details':details,'ssn':ssn,'jot':jot,'date':date,'comp':comp})
+    return render(request, 'home/workexpisa.html',{'details':details,'ssn':ssn,'paid':paid,'jot':jot,'date':date,'comp':comp})
 
 def work_experience_isa_part_2(request):
+
+    try:
+        details =  WorkExperienceEligibility.objects.get(user=request.user)
+    except  WorkExperienceEligibility.DoesNotExist:
+        details = None
+        
 
     if request.method == "POST":
         sign = request.POST['fullname']
@@ -1449,7 +1477,7 @@ def work_experience_isa_part_2(request):
             return redirect("home:isa")
         
     
-    return render(request, 'home/workexpisa2.html')
+    return render(request, 'home/workexpisa2.html', {'details':details})
 
 @login_required
 def workexprofile(request):
