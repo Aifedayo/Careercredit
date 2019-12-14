@@ -230,7 +230,7 @@ United State Employment Eligibility Form | Linuxjobber
             <div class="col-md-3 eligformcol eligformwidth5">
                 <div class="eligforminput" style="position: relative;">
                     <p><span class="eligqut">Date of Birth</span><span style="color: red; font-size: 25px;">*</span></p>
-                    <span><input class="form-control eligformin datepicker" value="{{date}}" required name="dob" type="date" placeholder="Any other name of yours"/>
+                    <span><input class="form-control eligformin datepicker"  id="dob" value="{{date}}" required name="dob" type="date" placeholder="Any other name of yours"/>
                     </span><span><svg style="position: absolute;bottom: 10px; right: 8px;" width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M18.5391 1.64062H17.5547V0H15.9141V1.64062H5.08594V0H3.44531V1.64062H2.46094C1.10398 1.64062 0 2.7446 0 4.10156V18.5391C0 19.896 1.10398 21 2.46094 21H18.5391C19.896 21 21 19.896 21 18.5391V4.10156C21 2.7446 19.896 1.64062 18.5391 1.64062ZM19.3594 18.5391C19.3594 18.9914 18.9914 19.3594 18.5391 19.3594H2.46094C2.00862 19.3594 1.64062 18.9914 1.64062 18.5391V7.71094H19.3594V18.5391ZM19.3594 6.07031H1.64062V4.10156C1.64062 3.64924 2.00862 3.28125 2.46094 3.28125H3.44531V4.92188H5.08594V3.28125H15.9141V4.92188H17.5547V3.28125H18.5391C18.9914 3.28125 19.3594 3.64924 19.3594 4.10156V6.07031Z" fill="black" fill-opacity="0.3"/>
                         <path d="M4.75781 9.43359H3.11719V11.0742H4.75781V9.43359Z" fill="black" fill-opacity="0.3"/>
@@ -254,7 +254,7 @@ United State Employment Eligibility Form | Linuxjobber
             <div class="col-md-3 eligformcol eligformwidth5">
                 <div class="eligforminput">
                     <p><span class="eligqut">U.S Social Security Number</span><span style="color: red; font-size: 25px;">*</span></p>
-                    <input class="form-control eligformin" required  value="{{details.SSN}}" name="ssn" type="number" placeholder="         __ __ __ - __ __ - __ __ __"/>
+                    <input id="ssn" class="form-control eligformin" required  value="{{details.SSN}}" name="ssn" type="text" placeholder="         __ __ __ - __ __ - __ __ __"/>
                 </div>
             </div>
             <div class="col-md-3 eligformcol eligformwidth5">
@@ -267,7 +267,7 @@ United State Employment Eligibility Form | Linuxjobber
                 <div class="eligforminput" style="display: block;
                 overflow: auto; padding-top: 8px; ">
                     <p><span class="eligqut">Employee's Telephone Number</span><span style="color: red; font-size: 25px;">*</span></p>
-                    <input class="form-control eligformin" required  name="tel" value="{{details.employee_phone}}" type="text" placeholder="Any other name of yours"/>
+                    <input class="form-control eligformin" required  name="tel" value="{{details.employee_phone}}" type="text" placeholder="Employee's Phone Number"/>
                 </div>
             </div>
         </div>
@@ -428,6 +428,54 @@ United State Employment Eligibility Form | Linuxjobber
 </div>
 
 <script>
+
+$( "#dob" ).datepicker({
+  yearRange: "1980:2019",
+  changeMonth: true,
+  changeYear: true,
+});
+
+var ssn = document.getElementById('ssn');
+    ssn.addEventListener('input', ssnMask, false);
+    var ssnFirstFive = "";
+    var secondHalf = "";
+    var fullSSN = "";
+
+    detectChanges();
+    secondHalf = ssn.value.substring(5);
+    ssn.type = 'text';
+    ssn.value = "•••••";
+    ssn.value += secondHalf;
+    fullSSN = ssnFirstFive + secondHalf;
+
+    $("form").submit(function() { 
+        $('input[name=ssn]').val(fullSSN);
+    });
+
+    function ssnMask(){
+        
+
+        if (ssn.value.length <= 5){
+            
+        }
+        else{
+            detectChanges();
+            secondHalf = ssn.value.substring(5);
+            ssn.type = 'text';
+            ssn.value = "•••••";
+            ssn.value += secondHalf;
+            fullSSN = ssnFirstFive + secondHalf;
+        }
+    }
+
+    function detectChanges() {
+        for (var i = 0; i < 5; i++){
+            if (ssn.value[i] != "•"){
+                ssnFirstFive = ssnFirstFive.substring(0, i) + ssn.value[i] + ssnFirstFive.substring(i+1);
+            }
+        }
+    }
+
     $("#fint").keyup(function(){
         $("#fint1").val($("#fint").val())
     });
