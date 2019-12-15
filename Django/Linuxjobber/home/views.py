@@ -22,7 +22,7 @@ from django.utils.datastructures import MultiValueDictKeyError
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
 # from django.core.mail import send_mail
-from django.http import HttpResponse, HttpResponseRedirect, Http404
+from django.http import HttpResponse, HttpResponseRedirect, Http404, JsonResponse
 from rest_framework.authtoken.models import Token
 from datetime import timedelta
 from django.views.decorators.csrf import csrf_protect
@@ -3374,3 +3374,14 @@ Linuxjobber
     else:
         messages.error(request,'Unable to validate installment, please select a valid installment plan')
         return redirect('home:installments')
+@csrf_exempt
+def mail_status(request):
+    if request.method == 'POST':
+        group_id = request.POST.get('group_id', None)
+        try:
+            group = EmailGroupMessageLog.objects.get(pk=group_id)
+            stats = group.get_mail_statistics()
+            return JsonResponse(stats)
+        except Exception as e:
+            print(e)
+            return JsonResponse({})

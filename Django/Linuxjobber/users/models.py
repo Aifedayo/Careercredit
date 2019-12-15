@@ -19,20 +19,21 @@ class CustomUser(AbstractUser):
     profile_img = models.TextField(
         default='https://res.cloudinary.com/louiseyoma/image/upload/v1546701687/profile_pic.png')
     pwd_reset_token = models.CharField(max_length=100, default='000011112222')
-    user_role = models.ForeignKey('Role', on_delete=models.CASCADE, null=True, blank=True)
+    # user_role = models.ForeignKey('Role', on_delete=models.CASCADE, null=True, blank=True)
+    available_roles = models.ForeignKey('Role', on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return self.email
 
     def update_role(self):
-        if not self.user_role:
-            if self.role:
-                role,created = Role.objects.get_or_create(role=self.role)
-                self.user_role = role
-            else:
-                role, created = Role.objects.get_or_create(role=6)
-                self.role = role
-            self.save()
+        if self.role:
+            role,created = Role.objects.get_or_create(role=self.role)
+            self.available_roles = role
+        else:
+            role, created = Role.objects.get_or_create(role=6)
+            self.role = role.role
+            self.available_roles = role
+
     def save(self,*args,**kwargs):
         """
         Sets user role from the role field

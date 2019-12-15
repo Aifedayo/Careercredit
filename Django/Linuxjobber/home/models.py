@@ -7,14 +7,15 @@ from django.contrib.humanize.templatetags import humanize
 from django.contrib import messages
 from django.core.exceptions import ValidationError
 from django.db import connection, models
-from django.db.models import Sum
+from django.db.models import Sum, Count
 from django.utils import timezone
 
 from Courses.models import Course
 from users.models import CustomUser,Role
 
 from datetime import date
-
+from Django.Linuxjobber.home.mail_service import LinuxjobberMassMailer, handle_failed_campaign
+from background_task.models_completed import *
 
 def due_time():
     return timezone.now() + timezone.timedelta(days=6)
@@ -330,6 +331,7 @@ class MessageGroup(models.Model):
 
 class Message(models.Model):
     title = models.CharField(max_length=250)
+    sender_name = models.CharField(max_length=255,null=True)
     message = models.TextField()
     slug = models.SlugField(max_length=40)
     group = models.ForeignKey(MessageGroup, default=1, on_delete=models.CASCADE)
@@ -618,6 +620,7 @@ class EmailMessageLog(models.Model):
     subject = models.CharField(max_length=500,default="",blank=True)
     content = models.TextField(default="",blank=True)
     has_sent = models.BooleanField(default=False)
+    group_log = models.ForeignKey('EmailGroupMessageLog',null=True,blank=True,on_delete=models.CASCADE)
     error_message =  models.TextField(blank=True,null=True)
     timestamp = models.DateTimeField(default=timezone.now,null=True)
 
@@ -638,8 +641,7 @@ class EmailMessageLog(models.Model):
         self.has_sent=False
         self.save()
 
-
-    def send_mail(self):
+    def format_mail(self):
         if self.message_type:
             header_format = self.message_type.header_format
         else:
@@ -653,22 +655,36 @@ class EmailMessageLog(models.Model):
             except Exception as e:
                 print(e)
                 header_format = "{}"
-
-
-        from .mail_service import send_mail_with_client
         self.header_text = header_format.format(self.header_text)
-        self.save()
+
+    def send_mail(self):
+        self.format_mail()
+        from .mail_service import send_mail_with_client
         try:
             send_mail_with_client(self)
             self.set_as_sent()
         except Exception as error:
             self.set_as_fail(error.__str__())
 
+    def save(self,*args,**kwargs):
+        """
+        Sets paid_on date
+        :param args:
+        :param kwargs:
+        :return:
+        """
+        self.format_mail()
+        super(type(self),self).save(*args, **kwargs)
+
+
+
+
+
 
 class SubPayment(models.Model):
     amount = models.FloatField()
     description = models.CharField(max_length=255,null=True)
-    installment = models.ForeignKey("InstallmentPlan",on_delete=models.DO_NOTHING,null=True)
+    installment = models.ForeignKey("InstallmentPlan",on_delete=models.CASCADE,null=True)
     due_in = models.IntegerField(default=1,)
     is_initial = models.BooleanField(default=False,)
     is_paid = models.BooleanField(default=False)
@@ -839,12 +855,100 @@ class InstallmentPlan(models.Model):
         else:
             self.status = PlanStatus.is_unpaid.value
             self.save()
+from django.db import connection
 
 class EmailGroup(models.Model):
     name = models.CharField(max_length=255,)
     description = models.CharField(max_length=255,)
-    members_by_role = models.ForeignKey(Role,on_delete=models.CASCADE,null=True,blank=True)
+    # members_by_role = models.ForeignKey(Role,on_delete=models.CASCADE,null=True,blank=True)
+    sql_query = models.TextField(null=True)
+    where_clause = models.TextField(null=True,blank=True)
+    exclude_clause = models.TextField(null=True,blank=True)
     extra_members = models.ManyToManyField(CustomUser,blank=True)
+
+    def run_query(self,*args):
+        if args:
+            with connection.cursor() as cursor:
+                cursor.execute("{} {} {}".format(args[0],
+                                            args[1] if args[1] else "",
+                                            args[2] if args[2] else ""
+                                                 ).strip('""'))
+                row = cursor.fetchall()
+            return row
+
+        if self.sql_query:
+            with connection.cursor() as cursor:
+                cursor.execute("{} {} {}".format(self.sql_query,
+                                            self.where_clause if self.where_clause else "",
+                                            self.exclude_clause if self.exclude_clause else ""
+                                                 ).strip('""'))
+                row = cursor.fetchall()
+                from functools import reduce
+                import operator
+                row = reduce(operator.concat,row)
+            return row
+        else:
+            return []
+
+
+    def members_count(self):
+        # return self.get_members_by_role().count() + self.extra_members.all().count()
+        # extra_members = self.extra_members.all().count()
+        # members_from_query = self.run_query()
+        return len(self.get_members_emails())
+
+    def get_members(self):
+        members = self.run_query()
+        total_members = CustomUser.objects.filter(email__in=members) | self.extra_members.all()
+        return total_members
+
+    def get_members_emails(self):
+        # Values are made distinct in here
+        return set(self.get_members().values_list('email',flat=True))
+
+class EmailGroupMessageLog(models.Model):
+    group = models.ForeignKey(EmailGroup,on_delete=models.DO_NOTHING)
+    message = models.ForeignKey(Message,on_delete=models.DO_NOTHING,blank=True,null=True)
+    is_instant = models.BooleanField(default=True)
+    delivery_time = models.DateTimeField(null=True)
+    is_completed = models.BooleanField(default=False)
+    created_by = models.ForeignKey(CustomUser,on_delete=models.DO_NOTHING)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def schedule_mail(self):
+        pass
+
+    def get_failed_messages(self):
+        return  self.emailmessagelog_set.filter(has_sent=False)
+
+    def handle_failed_messages(self):
+        handle_failed_campaign(self.id)
+
+    def get_mail_statistics(self):
+        try:
+            CompletedTask.objects.get(task_params__contains=self.pk)
+            self.is_completed=True
+            self.save()
+        except:
+            pass
+        context = {
+            'has_completed': self.is_completed,
+            'sent' : self.emailmessagelog_set.filter(has_sent=True).count(),
+            'failed':self.emailmessagelog_set.filter(has_sent=False).count(),
+            'total': self.emailmessagelog_set.count()
+        }
+        return context
+
+    def set_as_completed(self):
+        self.is_completed = True
+        self.save()
+
+    class Meta:
+        verbose_name = "Send Message"
+        verbose_name_plural = "Send Message"
+
+
+
 
 
 

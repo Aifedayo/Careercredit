@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'sso_api',
     'storages',
-    'livereload'
+    'livereload',
+    'background_task'
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -277,7 +278,7 @@ STATICFILES_FINDERS = (
 ENV_URL = "http://127.0.0.1:8000/"
 
 
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_BACKEND = "home.mail_service.CustomEmailBackend"
 EMAIL_HOST = config('EMAIL_HOST', 'smtp.linuxjobber.com')
 EMAIL_PORT = config('EMAIL_PORT', '587')
 EMAIL_HOST_USER = config('EMAIL_HOST_USER', 'admin@linuxjobber.com')
