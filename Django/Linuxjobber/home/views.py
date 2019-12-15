@@ -1252,6 +1252,16 @@ def workexpform(request):
     except  WorkExperienceEligibility.DoesNotExist:
         details = None
 
+    try:
+        jot =  WorkExperienceIsa.objects.get(user=request.user)
+        comp = jot.estimated_date_of_program_completion
+        comp = comp.strftime('%Y-%m-%d')
+
+    except WorkExperienceIsa.DoesNotExist:
+        jot = None
+        comp = None
+        
+
     if request.method == 'POST':
         trainee = request.POST['types']
         trainee = wetype.objects.get(id=trainee)
@@ -1310,7 +1320,7 @@ def workexpform(request):
             weps.save()
         return redirect("home:workexprofile")
     else:
-        return render(request, 'home/workexpform.html', {'form': form,'details': details})
+        return render(request, 'home/workexpform.html', {'form': form,'details': details,'comp':comp})
 
 
 @login_required
@@ -1417,6 +1427,7 @@ def work_experience_isa_part_1(request):
         details = None
         date = None
         ssn = None
+        
 
     try:
         paid = WorkExperiencePay.objects.get(user=request.user)
@@ -1427,10 +1438,13 @@ def work_experience_isa_part_1(request):
         jot =  WorkExperienceIsa.objects.get(user=request.user)
         comp = jot.estimated_date_of_program_completion
         comp = comp.strftime('%Y-%m-%d')
+        grad = None
 
     except WorkExperienceIsa.DoesNotExist:
         jot = None
         comp = None
+        grad = datetime.now() + timedelta(days=90)
+        grad = grad.strftime('%Y-%m-%d')
 
     if request.method == "POST":
         email = request.POST['email']
@@ -1455,7 +1469,7 @@ def work_experience_isa_part_1(request):
             state.save()
 
         return redirect("home:workexpisa2")
-    return render(request, 'home/workexpisa.html',{'details':details,'ssn':ssn,'paid':paid,'jot':jot,'date':date,'comp':comp})
+    return render(request, 'home/workexpisa.html',{'details':details,'ssn':ssn,'paid':paid,'grad':grad,'jot':jot,'date':date,'comp':comp})
 
 def work_experience_isa_part_2(request):
 
