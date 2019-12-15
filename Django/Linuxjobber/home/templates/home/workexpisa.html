@@ -760,7 +760,7 @@ body > div.navheadmid > div.container.elig > div:nth-child(6) > div.col-md-8 > d
         </div>
         <span>Estimated Date of Program Completion <span style="color: red; font-size: 25px;">*</span></span>
         <div class="row" style="padding: 0px;">
-            <div class="col-md-10"><input class="form-control isaput datepicker" required type="date" value="{{comp}}" name="date" placeholder="" /></div>
+            <div class="col-md-10"><input class="form-control isaput datepicker" readonly required type="date" {%if grad%}value="{{grad}}"{%else%} value="{{comp}}" {%endif%}  name="date" placeholder="" /></div>
             <div class="col-md-2"></div>
         </div>
         <br>

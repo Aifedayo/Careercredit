@@ -107,11 +107,9 @@ Work Experience Profile Form | Linuxjobber
 		<span>Graduation Information <span style="color: red; font-size: 25px;">*</span></span>
         <div class="row" style="padding: 0px;">
             <div class="col-md-10">
-				{%if not student%}
-					{{form.date}}
-					{%else%}
-						<input type="text" name="date" class="form-control isaput" id="id_resume" value="Student" readonly required>
-					{%endif%}
+				
+						<input type="text" name="date" class="form-control isaput" id="id_resume" value="{{comp}}" readonly required>
+					
 			</div>
             <div class="col-md-2"></div>
 		</div><br>
