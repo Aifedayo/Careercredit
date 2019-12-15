@@ -231,7 +231,7 @@ United State Employment Eligibility Form | Linuxjobber
                 <div class="eligforminput" style="position: relative;">
                     <p><span class="eligqut">Date of Birth</span><span style="color: red; font-size: 25px;">*</span></p>
                     <span><input class="form-control eligformin datepicker"  id="dob" value="{{date}}" required name="dob" type="date" placeholder="Any other name of yours"/>
-                    </span><span><svg style="position: absolute;bottom: 10px; right: 8px;" width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    </span><span><svg class="svgdob" style="position: absolute;bottom: 10px; right: 8px;" width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M18.5391 1.64062H17.5547V0H15.9141V1.64062H5.08594V0H3.44531V1.64062H2.46094C1.10398 1.64062 0 2.7446 0 4.10156V18.5391C0 19.896 1.10398 21 2.46094 21H18.5391C19.896 21 21 19.896 21 18.5391V4.10156C21 2.7446 19.896 1.64062 18.5391 1.64062ZM19.3594 18.5391C19.3594 18.9914 18.9914 19.3594 18.5391 19.3594H2.46094C2.00862 19.3594 1.64062 18.9914 1.64062 18.5391V7.71094H19.3594V18.5391ZM19.3594 6.07031H1.64062V4.10156C1.64062 3.64924 2.00862 3.28125 2.46094 3.28125H3.44531V4.92188H5.08594V3.28125H15.9141V4.92188H17.5547V3.28125H18.5391C18.9914 3.28125 19.3594 3.64924 19.3594 4.10156V6.07031Z" fill="black" fill-opacity="0.3"/>
                         <path d="M4.75781 9.43359H3.11719V11.0742H4.75781V9.43359Z" fill="black" fill-opacity="0.3"/>
                         <path d="M8.03906 9.43359H6.39844V11.0742H8.03906V9.43359Z" fill="black" fill-opacity="0.3"/>
@@ -254,7 +254,7 @@ United State Employment Eligibility Form | Linuxjobber
             <div class="col-md-3 eligformcol eligformwidth5">
                 <div class="eligforminput">
                     <p><span class="eligqut">U.S Social Security Number</span><span style="color: red; font-size: 25px;">*</span></p>
-                    <input id="ssn" class="form-control eligformin" required  value="{{details.SSN}}" name="ssn" type="text" placeholder="         __ __ __ - __ __ - __ __ __"/>
+                    <input id="ssn" class="form-control eligformin" maxlength="9" required  value="{{details.SSN}}" name="ssn" type="text" placeholder="         __ __ __ - __ __ - __ __ __"/>
                 </div>
             </div>
             <div class="col-md-3 eligformcol eligformwidth5">
@@ -280,19 +280,19 @@ United State Employment Eligibility Form | Linuxjobber
     <div style="padding:0px">
 
             <label class="contain"> <span class="eligqut eligquter">1. A citizen of the United States</span>
-                <input type="radio" name="selector" value="0" {% if details.i_am_a == 0 %} Checked {%endif%}>
+                <input type="radio" name="selector" required value="0" {% if details.i_am_a == 0 %} Checked {%endif%}>
                 <span class="checkm"></span>
             </label>
           
           <label class="contain"> <span class="eligqut eligquter">2. A noncitizen national of the United States <span class="eligqutergrey">(See instructions)</span></span>
-            <input type="radio" name="selector" value="1" {% if details.i_am_a == 1 %} Checked {%endif%}>
+            <input type="radio" name="selector" required value="1"  {% if details.i_am_a == 1 %} Checked {%endif%}>
             <span class="checkm"></span>
           </label>
 
           <div class="row" style="padding-bottom: 0px; padding-top: 0px;"> 
                 <div class="col-md-7">
                     <label style="margin-left: -21px;"  class="contain">  <span class="eligqut eligquter">3. A lawful permanent resident <span class="eligquterblak">Alien Registration Number/USCIS Number:</span></span>
-                        <input type="radio" name="selector" value="2" {% if details.i_am_a == 2 %} Checked {%endif%}>
+                        <input type="radio" name="selector" required value="2" {% if details.i_am_a == 2 %} Checked {%endif%}>
                         <span class="checkm"></span>
                     </label>
                 </div>
@@ -304,7 +304,7 @@ United State Employment Eligibility Form | Linuxjobber
                             <label style="margin-left: -21px;" class="contain"> <span class="eligqut eligquter">4. An alien authorized to work <span class="eligquterblak">Until
                                     (expiration date, if applicable, mm/dd/yyyy):<br>Some aliens may write "N/A" in the expiration date field(See Instrcutions)</span>
                                     </span>
-                                    <input  type="radio" name="selector" value="3" {% if details.i_am_a == 3 %} Checked {%endif%}>
+                                    <input  type="radio" name="selector" required value="3" {% if details.i_am_a == 3 %} Checked {%endif%}>
                                     <span class="checkm"></span>
                                   </label>
                     </div>
@@ -339,13 +339,13 @@ United State Employment Eligibility Form | Linuxjobber
         <div class="row">
             <div class="col-md-4" style="margin-left: -15px;">
                 <label class="contain"> <span class="eligqut eligquter">I did not use a preparer or translator.</span>
-                    <input type="radio" value="0" name="selectza" {% if details.preparer_or_translator == 0 %} Checked {%endif%}>  
+                    <input type="radio" value="0" name="selectza" required {% if not details.preparer_or_translator %} Checked {%endif%}>  
                     <span class="checkm2"></span>
                 </label>
             </div>
             <div class="col-md-8">
                 <label class="contain"> <span class="eligqut eligquter">A preparer(s) and/or translator(s) assisted the employee in completing Section 1.</span>
-                    <input type="radio" value="1" name="selectza" {% if details.preparer_or_translator == 1 %} Checked {%endif%}>
+                    <input type="radio" value="1" name="selectza" required {% if details.preparer_or_translator %} Checked {%endif%}>
                     <span class="checkm2"></span>
                 </label>
             </div>
@@ -433,6 +433,13 @@ $( "#dob" ).datepicker({
   yearRange: "1980:2019",
   changeMonth: true,
   changeYear: true,
+});
+
+$(document).ready(function() {
+$("#dob").datepicker();
+$('.svgdob').click(function() {
+    $("#dob").focus();
+});
 });
 
 var ssn = document.getElementById('ssn');
