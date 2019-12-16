@@ -1252,6 +1252,16 @@ def workexpform(request):
     except  WorkExperienceEligibility.DoesNotExist:
         details = None
 
+    try:
+        jot =  WorkExperienceIsa.objects.get(user=request.user)
+        comp = jot.estimated_date_of_program_completion
+        comp = comp.strftime('%Y-%m-%d')
+
+    except WorkExperienceIsa.DoesNotExist:
+        jot = None
+        comp = None
+        
+
     if request.method == 'POST':
         trainee = request.POST['types']
         trainee = wetype.objects.get(id=trainee)
@@ -1268,12 +1278,25 @@ def workexpform(request):
             
 
         if date < today:
-            person = werole.objects.get(roles='Trainee')
+            try:
+                person = werole.objects.get(roles='Trainee')
+            except werole.DoesNotExist:
+                person = werole.objects.create(roles='Trainee')
+                person.save()
+
         else:
             if today < date < month6:
-                person = werole.objects.get(roles='Graduant')
+                try:
+                    person = werole.objects.get(roles='Graduant')
+                except werole.DoesNotExist:
+                    person = werole.objects.create(roles='Graduant')
+                    person.save()
             else:
-                person = werole.objects.get(roles='Student')
+                try:
+                    person = werole.objects.get(roles='Student')
+                except werole.DoesNotExist:
+                    person = werole.objects.create(roles='Student')
+                    person.save() 
 
         try:
             weps = wepeoples.objects.get(user=request.user)
@@ -1297,7 +1320,7 @@ def workexpform(request):
             weps.save()
         return redirect("home:workexprofile")
     else:
-        return render(request, 'home/workexpform.html', {'form': form,'details': details})
+        return render(request, 'home/workexpform.html', {'form': form,'details': details,'comp':comp})
 
 
 @login_required
@@ -1309,10 +1332,12 @@ def work_experience_eligible(request):
         date = date.strftime('%Y-%m-%d')
         created = details.date_created
         created = created.strftime('%Y-%m-%d')
+        
     except  WorkExperienceEligibility.DoesNotExist:
         details = None
         date = None
         created = None
+        
 
     dater = datetime.now().strftime('%Y-%m-%d')
 
@@ -1396,19 +1421,30 @@ def work_experience_isa_part_1(request):
         date = date.strftime('%Y-%m-%d')
         ssn = details.SSN
         ssn = ssn[-4:]
-        ssn = "••••••" + ssn
+        ssn = "•••••" + ssn
+
     except  WorkExperienceEligibility.DoesNotExist:
         details = None
         date = None
+        ssn = None
+        
+
+    try:
+        paid = WorkExperiencePay.objects.get(user=request.user)
+    except WorkExperiencePay.DoesNotExist:
+        return redirect("home:pay")
 
     try:
         jot =  WorkExperienceIsa.objects.get(user=request.user)
         comp = jot.estimated_date_of_program_completion
         comp = comp.strftime('%Y-%m-%d')
+        grad = None
 
     except WorkExperienceIsa.DoesNotExist:
         jot = None
         comp = None
+        grad = datetime.now() + timedelta(days=90)
+        grad = grad.strftime('%Y-%m-%d')
 
     if request.method == "POST":
         email = request.POST['email']
@@ -1433,9 +1469,15 @@ def work_experience_isa_part_1(request):
             state.save()
 
         return redirect("home:workexpisa2")
-    return render(request, 'home/workexpisa.html',{'details':details,'ssn':ssn,'jot':jot,'date':date,'comp':comp})
+    return render(request, 'home/workexpisa.html',{'details':details,'ssn':ssn,'paid':paid,'grad':grad,'jot':jot,'date':date,'comp':comp})
 
 def work_experience_isa_part_2(request):
+
+    try:
+        details =  WorkExperienceEligibility.objects.get(user=request.user)
+    except  WorkExperienceEligibility.DoesNotExist:
+        details = None
+        
 
     if request.method == "POST":
         sign = request.POST['fullname']
@@ -1449,7 +1491,7 @@ def work_experience_isa_part_2(request):
             return redirect("home:isa")
         
     
-    return render(request, 'home/workexpisa2.html')
+    return render(request, 'home/workexpisa2.html', {'details':details})
 
 @login_required
 def workexprofile(request):
