@@ -1,9 +1,13 @@
-import { ActivatedRoute, Params } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, ParamMap } from '@angular/router';
+import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 import { DataService } from '../../data.service';
 import { HttpClient } from '@angular/common/http';
 import { AlertService } from './../_alert/alert.service';
+import { environment } from './../../../environments/environment';
+import { Subscription } from 'rxjs';
+import { WebSocketSubject, webSocket } from 'rxjs/webSocket';
 
+export enum TYPE {Plain='plain', Image='image', File='file'}
 
 @Component({
   selector: 'app-private-chat',
@@ -13,14 +17,19 @@ import { AlertService } from './../_alert/alert.service';
 
 export class PrivateChatComponent implements OnInit {
 
-    public URL = '54.244.162.68:8001';
-  // public URL = '127.0.0.1:8000';
   private users: Array<object> = [];
   public chat_text = '';
   public messages = [];
-  public websocket;
   public email;
   private user: {id: number, username: string};
+  private activeGroup:string;
+  private mutationObserver:MutationObserver;
+  private routeParamSub: Subscription;
+  public type=TYPE;
+  private websocket$:WebSocketSubject<any>
+  private token:string;
+
+  @ViewChild('chatList', { read: ElementRef }) chatlist: ElementRef;
 
   constructor( 
     public dataservice: DataService, 
@@ -28,42 +37,56 @@ export class PrivateChatComponent implements OnInit {
     private route: ActivatedRoute,
     private alertService:AlertService
   ) {
+    this.token = sessionStorage.getItem('token');
     this.dataservice.username = sessionStorage.getItem('username');
-    this.websocket = new WebSocket('ws://' + '54.244.162.68:8001');
-    this.websocket.onopen = (evt) => {
-      this.websocket.send(JSON.stringify({'user': this.dataservice.username, 'message': '!join room' + this.dataservice.id}));
-      };
-
-      this.websocket.onmessage = (evt) => {
-        const data = JSON.parse(evt.data);
-        if (data['messages'] !== undefined) {
-            this.messages = [];
-            for (let i = 0; i < data['messages']['length']; i++) {
-                this.messages.push(data['messages'][i]['user'] + ': ' + data['messages'][i]['message']);
-            }
-        } else {
-            this.messages.push(data['user'] + ': ' + data['message']);
-        }
-        const chat_scroll = document.getElementById('chat_div_space');
-        chat_scroll.scrollTop = chat_scroll.scrollHeight;
-    };
+    this.websocket$ = webSocket(environment.WS_URL+"?token="+this.token);
    }
+
   ngOnInit() {
-    // const id = +this.route.snapshot.params['id'];
-    // this.user = this.dataservice.getSingleStudent(id);
-    // this.route.params.subscribe((params: Params) => {
-    //   this.user = this.dataservice.getSingleStudent(+params[id]);
-    // });
+    this.callWebsocket();
+    this.routeParamSub = this.route.params.subscribe(params => {
+      this.changePartner(+params['id']);
+    });
   }
 
+  ngAfterViewInit(){
+    this.mutableObserver();
+  }
 
-  sendMessage(message) {
+  ngOnDestroy(): void {
+    this.routeParamSub.unsubscribe()
+  }
+
+  changePartner(partner){
+    this.messages = [];
+    const partner_id = partner;
+    const prepare_group = [
+      partner_id,
+      sessionStorage.getItem('user_id')
+    ];
+    this.activeGroup = prepare_group.sort().join('_');
+    
+    this.websocket$.next({
+      action:'getRecentMessages',
+      active_group:this.activeGroup,
+      token:this.token
+    });
+  }
+
+  sendMessage(message, type:string) {
     if(this.dataservice.profileImgIsSet()){
-      this.websocket.send(
-        JSON.stringify(
-          {'user': this.dataservice.username, 'message': this.chat_text}
-        )
-      );
+      if(message!==''){
+        const now = new Date();
+        this.websocket$.next({
+            action:'sendMessage',
+            active_group:this.activeGroup,
+            user: this.dataservice.username, 
+            content: message,
+            the_type:type,
+            timestamp:now.toLocaleDateString(),
+            token:this.token
+        });
+      }
       
       this.chat_text = '';
     }
@@ -73,6 +96,40 @@ export class PrivateChatComponent implements OnInit {
         'You need to set your profile image to continue'
       );
     }
+  }
+
+  callWebsocket(){
+    this.websocket$.subscribe((messages)=>{
+      if(messages['active_group'] == this.activeGroup){
+        if (messages['messages'] !== undefined) {
+          messages['messages'].forEach((message)=>{
+              const messg = message.user+': '+message.content;
+              this.messages.push(messg);
+            }
+          );
+        }
+      }
+    });
+  }
+
+  mutableObserver(){
+    this.mutationObserver = new MutationObserver((mutations) => {
+        this.scrollToBottom();
+      }
+    );
+
+    this.mutationObserver.observe(this.chatlist.nativeElement, {
+        childList: true
+    });
+  }
+
+  private scrollToBottom(){
+    try {
+      this.chatlist.nativeElement.scrollTop = 
+      this.chatlist.nativeElement.scrollHeight;
+      const chat_scroll = document.getElementById('chat_div_space');
+      chat_scroll.scrollTop = chat_scroll.scrollHeight;
+    } catch (err) {}
   }
 
 }
