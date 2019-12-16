@@ -1330,6 +1330,7 @@ def work_experience_eligible(request):
         details =  WorkExperienceEligibility.objects.get(user=request.user)
         date = details.date_of_birth
         date = date.strftime('%Y-%m-%d')
+        
         created = details.date_created
         created = created.strftime('%Y-%m-%d')
         
@@ -1354,6 +1355,7 @@ def work_experience_eligible(request):
         city = request.POST['city']
         zipc = request.POST['zip']
         dob = request.POST['dob']
+        dob = datetime.strptime(dob,'%m/%d/%Y').date()
         ssn = request.POST['ssn']
         email = request.POST['eadress']
         eadress = request.POST['eadress']
