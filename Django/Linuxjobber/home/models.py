@@ -1,20 +1,15 @@
 import datetime
 import enum
-import os
 
 from django.contrib.auth.models import User
 from django.contrib.humanize.templatetags import humanize
-from django.contrib import messages
 from django.core.exceptions import ValidationError
-from django.db import connection, models
-from django.db.models import Sum, Count
-from django.utils import timezone
+from django.db.models import Sum
 
 from Courses.models import Course
-from users.models import CustomUser,Role
+from users.models import CustomUser
 
 from datetime import date
-from Django.Linuxjobber.home.mail_service import LinuxjobberMassMailer, handle_failed_campaign
 from background_task.models_completed import *
 
 def due_time():
@@ -659,7 +654,7 @@ class EmailMessageLog(models.Model):
 
     def send_mail(self):
         self.format_mail()
-        from .mail_service import send_mail_with_client
+        from Django.Linuxjobber.home.mail_service import send_mail_with_client
         try:
             send_mail_with_client(self)
             self.set_as_sent()
@@ -866,6 +861,9 @@ class EmailGroup(models.Model):
     exclude_clause = models.TextField(null=True,blank=True)
     extra_members = models.ManyToManyField(CustomUser,blank=True)
 
+    def __str__(self):
+        return self.name + "({})".format(self.description)
+
     def run_query(self,*args):
         if args:
             with connection.cursor() as cursor:
@@ -922,7 +920,7 @@ class EmailGroupMessageLog(models.Model):
         return  self.emailmessagelog_set.filter(has_sent=False)
 
     def handle_failed_messages(self):
-        handle_failed_campaign(self.id)
+        pass
 
     def get_mail_statistics(self):
         try:

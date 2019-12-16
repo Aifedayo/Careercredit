@@ -7,10 +7,13 @@ from django.core.mail.backends.smtp import EmailBackend
 from django.core.mail.message import sanitize_address
 from django.db.models import QuerySet
 
-from Django.Linuxjobber.home.models import EmailMessageLog,EmailMessageType,EmailGroupMessageLog
+
+
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import get_template
 import  logging
+from .models import EmailMessageLog, EmailGroupMessageLog
+
 standard_logger = logging.getLogger(__name__)
 class EmailThread(threading.Thread):
     def __init__(self, mass_mailer):
@@ -84,12 +87,13 @@ class CustomEmailBackend(EmailBackend):
         return num_sent
 
 class LinuxjobberMailer:
+
     def __init__(self,
                  subject:str,
                  message:str,
                  to_address:str,
                  header_text:str = "",
-                 type:EmailMessageType = None,
+                 type = None,
                  group_id:int = None
                  ):
         # self.subject = subject,
@@ -152,6 +156,7 @@ class LinuxjobberMassMailer:
 
 @background(schedule=0)
 def handle_campaign(group_id):
+    from .models import  EmailGroupMessageLog
     message_template = EmailGroupMessageLog.objects.get(id=group_id)
     members = message_template.group.get_members_emails()
     transformed_members = [LinuxjobberMailer(
@@ -178,7 +183,7 @@ def handle_failed_campaign(group_id):
 
 
 
-def generate_message(message:EmailMessageLog):
+def generate_message(message):
     plaintext = get_template('home/email_template.txt')
     htmly = get_template('home/email_template.html')
     formatted_sender_name = message.header_text + " <{}>".format(settings.EMAIL_HOST_USER)
@@ -197,6 +202,6 @@ def generate_message(message:EmailMessageLog):
     return msg
 
 
-def send_mail_with_client(message: EmailMessageLog):
+def send_mail_with_client(message):
     message = generate_message(message)
     message.send()

@@ -24,8 +24,6 @@ def workexperience(request):
 			workex = True
 		except wepeoples.DoesNotExist:
 			workex = False
-
-		
 		return{
 			'workexp': workex
 		}

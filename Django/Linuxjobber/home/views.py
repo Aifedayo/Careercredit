@@ -1,22 +1,20 @@
 import stripe
 import csv, io
 import logging
-import subprocess, json, os
+import subprocess, json
 import random, string
-from datetime import datetime
 import pytz
 import requests
-import datetime
 
 from smtplib import SMTPException
 from django.conf import settings
 from django.contrib.auth.hashers import check_password
 from django.core.files.storage import FileSystemStorage
-from django.core.mail import send_mail, BadHeaderError
+from django.core.mail import send_mail
 from django.db import IntegrityError
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth.decorators import login_required
 from django.template.response import TemplateResponse
 from django.utils.datastructures import MultiValueDictKeyError
 from django.views.decorators.csrf import csrf_exempt
@@ -25,7 +23,6 @@ from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect, Http404, JsonResponse
 from rest_framework.authtoken.models import Token
 from datetime import timedelta
-from django.views.decorators.csrf import csrf_protect
 
 from .models import *
 from users.models import *
@@ -34,9 +31,9 @@ from ToolsApp.models import Tool
 from users.models import CustomUser
 from .forms import JobPlacementForm, JobApplicationForm, AWSCredUpload, InternshipForm, \
     ResumeForm, PartimeApplicationForm, WeForm, UnsubscribeForm
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from datetime import datetime
-from .mail_service import LinuxjobberMailer
+from .mail_service import LinuxjobberMailer, handle_failed_campaign
+
 fs = FileSystemStorage(location=settings.MEDIA_ROOT + '/uploads')
 # stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -3381,6 +3378,9 @@ def mail_status(request):
         try:
             group = EmailGroupMessageLog.objects.get(pk=group_id)
             stats = group.get_mail_statistics()
+            # if stats['has_completed'] and group.get_failed_messages():
+            #     handle_failed_campaign(group.id)
+            #     stats['has_completed'] = False
             return JsonResponse(stats)
         except Exception as e:
             print(e)

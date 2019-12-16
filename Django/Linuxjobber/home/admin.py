@@ -1,16 +1,14 @@
-from typing import List, Any
+from typing import List
 
+from background_task.models_completed import CompletedTask
 from django.contrib import admin, messages
 from django import forms
-from django.db.models import Sum, Count
 from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import redirect
 from django.template.response import TemplateResponse
 from django.urls import path
 
-from . import models
 from django.core.mail import send_mail
-from django.conf import settings
 from .mail_service import LinuxjobberMassMailer, handle_campaign
 from .models import FAQ, Job, RHCSAOrder, FreeAccountClick, Campaign, Message, Unsubscriber, Internship, \
     InternshipDetail, MessageGroup, UserLocation, NewsLetterSubscribers, UserOrder, Document, MainModel, AwsCredential, \
@@ -18,11 +16,11 @@ from .models import FAQ, Job, RHCSAOrder, FreeAccountClick, Campaign, Message, U
     wework, wetype, PartTimeJob, TryFreeRecord, FullTimePostion, PartTimePostion, Resume, CareerSwitchApplication, \
     Certificates, EmailMessageType, EmailMessageLog, CompleteClass, \
     CompleteClassLearn, CompleteClassCertificate, WorkExperienceEligibility, WorkExperienceIsa, WorkExperiencePay, \
-    SubPayment, InstallmentPlan, INSTALLMENT_PLAN_STATUS, EmailGroup, EmailGroupMessageLog
+    SubPayment, InstallmentPlan, EmailGroup, EmailGroupMessageLog
 
 from datetime import timedelta
 import datetime
-import subprocess, os
+import subprocess
 from django.conf import settings
 
 
@@ -374,6 +372,8 @@ class SendMessageAdmin(admin.ModelAdmin):
         Maps to the email message log model, this is just to enable the filed to show send message in model admin
     """
     change_list_template = 'admin/emailgroup_changelist.html'
+    list_display = ('message','group','get_mail_statistics')
+
 
 
     def get_urls(self):
@@ -395,6 +395,7 @@ class SendMessageAdmin(admin.ModelAdmin):
         return TemplateResponse(request,'admin/list_group_mail.html',context)
 
     def mail_activate(self,request):
+        context = {}
         if request.method == 'POST':
             email_group_id=request.POST.get('group',None)
             message=request.POST.get('message',None)
@@ -406,16 +407,33 @@ class SendMessageAdmin(admin.ModelAdmin):
                 try:
                     _message = Message.objects.get(id=message)
                     _email_group = EmailGroup.objects.get(id=email_group_id)
-                    created_group = EmailGroupMessageLog.objects.create(
-                        group=_email_group,
-                        message = _message,
-                        created_by=request.user,
-                        is_instant = is_instant
-                    )
-                    # members = created_group.group.get_members()
-                    context = {'group' : created_group}
-                    handle_campaign(group_id=created_group.id)
-                    return TemplateResponse(request,'admin/mail_pocessing.html',context)
+                    # Check for request duplication
+                    try:
+                        last = CompletedTask.objects.last()
+                        import re
+                        group_message_log_id = re.findall('\d+', last.task_params)[0]
+                        group_message_log = EmailGroupMessageLog.objects.get(pk=group_message_log_id)
+                        if group_message_log.message == _message and group_message_log.group == _email_group:
+                            context['group'] = group_message_log
+                            messages.error(
+                                request,' Multiple request detected, details of original request are as follows')
+
+                        else:
+                            raise
+
+                    except:
+                        # Means duplicate fount
+                        created_group = EmailGroupMessageLog.objects.create(
+                            group=_email_group,
+                            message = _message,
+                            created_by=request.user,
+                            is_instant = is_instant
+                        )
+                        # members = created_group.group.get_members()
+                        context['group'] = created_group
+                        handle_campaign(group_id=created_group.id)
+                    finally:
+                        return TemplateResponse(request,'admin/mail_pocessing.html',context)
                 except Exception as e:
                     print(e)
                     self.message_user(request,'Error in creating a message')

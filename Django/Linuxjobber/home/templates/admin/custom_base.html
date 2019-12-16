@@ -161,7 +161,7 @@ John Abraham</h5>
                                 <div id="submenu-1" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="index.html" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-2" aria-controls="submenu-1-2">Go to main Admin</a>
+                                            <a class="nav-link" href="{% url 'admin:index' %}">Go to main Admin</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -171,10 +171,10 @@ John Abraham</h5>
                                 <div id="submenu-2" class="collapse submenu" style="">
                                     <ul class="nav ">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="index.html" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-2" aria-controls="submenu-1-2">Create a mail group</a>
+                                            <a class="nav-link" href="{% url 'admin:home_emailgroup_add' %}">Create a mail group</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="index.html" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-2" aria-controls="submenu-1-2">Send Email</a>
+                                            <a class="nav-link" href="{% url 'admin:mail-compose' %}" >Send Email</a>
                                         </li>
                                     </ul>
                                 </div>
