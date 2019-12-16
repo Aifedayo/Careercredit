@@ -773,11 +773,13 @@ class PlanStatus(enum.Enum):
 
 class InstallmentPlan(models.Model):
     user = models.ForeignKey(CustomUser,on_delete=models.CASCADE)
-    description =  models.CharField(max_length=255,null=True)
+    description = models.CharField(max_length=255,null=True)
     total_amount = models.FloatField()
+    is_cancelled = models.BooleanField(default=False)
     status = models.CharField(editable=False,max_length=15,default=PlanStatus.is_unpaid.value)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
+
 
     def clean(self):
         if self.subpayment_set.count() < 0:

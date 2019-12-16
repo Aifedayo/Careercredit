@@ -299,12 +299,12 @@ class CustomSubPaymentAdminForm(forms.ModelForm):
 
 
 class InstallmentPlanAdmin(admin.ModelAdmin):
-    list_display = ('user','description','total_amount','balance','total_installments')
-    list_filter = ('status',)
+    list_display = ('user','description','total_amount','balance','total_installments','is_cancelled')
+    list_filter = ('status','is_cancelled')
     search_fields = ('user__email','description')
     fieldsets = [
         ['General Information', {
-            'fields': ['user', 'description', 'total_amount']
+            'fields': ['user', 'description', 'total_amount','is_cancelled']
         }],
     ]
     inlines =  (SubPaymentInline,)

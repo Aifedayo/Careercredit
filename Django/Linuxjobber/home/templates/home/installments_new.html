@@ -222,11 +222,22 @@
         <section class="installments-nav">
             <ul class="nav nav-tabs">
                 {% for installment in installments|dictsort:'id' %}
-                    <li class="{% if forloop.first %} active {% endif %}">
+                    <li class="{% if forloop.first %} active {% endif %}"
+                        title = "{% if installment.is_cancelled %}
+                                Cancelled Installment Plan
+                                {% elif installment.status == 'is_settled' %}
+                                Settled Completely
+                                {% else %}
+                                Active Installment
+                                 {% endif %}"
+                    >
                         <a data-toggle="tab" href="#menu{{ installment.id }}">
                             {{ installment.description|truncatechars:20 }}
                             {% if installment.status == 'is_settled' %}
                             <span> <i class="fa fa-check"></i></span>
+                            {% endif %}
+                            {% if installment.is_cancelled %}
+                            <span> <i class="fa fa-close" ></i></span>
                             {% endif %}
                         </a>
                     </li>
@@ -237,6 +248,7 @@
 
             <div class="tab-content">
                 {% for installment in installments|dictsort:'id' %}
+                    {% if not installment.is_cancelled %}
                     <div id="menu{{ installment.id }}"
                          class="tab-pane fade in {% if forloop.first %} active {% endif %}">
                         <div class="installment-overview">
@@ -396,8 +408,75 @@
                             </div>
                         </div>
                     </div>
+                    {% else %}
+                        <div id="menu{{ installment.id }}"
+                         class="tab-pane fade in {% if forloop.first %} active {% endif %}">
+                        <div class="installment-overview">
+                            <div class="top-section">
+                                <p class="installment-label-blue" style="color: red">
+                                    Cancelled Plan
+                                </p>
+                                <p class="installment-text">
+                                    {{ installment.description }}
+                                </p>
+                            </div>
+                            <div class="bottom-section">
+                                <p class="installment-label-blue">
+                                    Payment Summary:
+                                </p>
+                                <div class="inline">
+                                    <div class="item">
+                                        <p class="text-top"> Total Cost: </p>
 
-                                  {% empty %}
+                                        <p class="text-bottom"> ${{ installment.total_amount }} </p>
+                                    </div>
+                                    <div class="item">
+                                        <p class="text-top"> Total Paid: </p>
+
+                                        <p class="text-bottom"> CANCELLED </p>
+                                    </div>
+                                    <div class="item">
+                                        <p class="text-top"> Total Balance: </p>
+                                        <p class="text-bottom"> CANCELLED </p>
+                                    </div>
+                                </div>
+
+
+                                <div style="margin-top: 15px" class="">
+
+                                        {% csrf_token %}
+                                        <input hidden name="installment_id" value="{{ installment.pk }}">
+
+                                            <button class="btn btn-success" disabled>
+                                            CANCELLED
+                                        </button>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="sub-info">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">No Upcoming Payments</div>
+                                <table class="table">
+                                    <tr>
+                                        <th>Installments</th>
+                                        <th>Amount to be paid</th>
+                                        <th>Balance left</th>
+                                        <th>Payment to be made on or before</th>
+                                        <th>Payment</th>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    {% endif %}
+
+
+                {% empty %}
                     <h2>No Installment Plan found</h2>
                 {% endfor %}
 
