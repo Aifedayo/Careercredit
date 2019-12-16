@@ -13,8 +13,8 @@ class CustomUserAdmin(UserAdmin):
 	add_form = CustomUserCreationForm
 	form = CustomUserChangeForm
 	model = CustomUser
-	list_display = ['email', 'username', 'role', 'pwd_reset_token','user_role']
-	list_filter = ('user_role',)
+	list_display = ['email','username','role','pwd_reset_token','available_roles']
+	list_filter = ('available_roles',)
 	actions = ['update_role',]
 
 	def update_role(self, request, queryset):

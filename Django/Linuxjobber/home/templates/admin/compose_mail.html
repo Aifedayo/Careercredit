@@ -1,0 +1,83 @@
+{% extends 'admin/custom_base.html' %}
+
+{% block title %}
+Compose Mail
+{% endblock %}
+
+{% block content %}
+
+    <style>
+        .dashboard-main-wrapper .main-content {
+    margin-left: 0px;
+    width: auto;
+}
+.email-compose-fields label {
+    padding-top: 0px;
+}
+    </style>
+    <form method="post" action="{% url 'admin:mail-activate' %}">
+    {% csrf_token %}
+<div class="email-head">
+                        <div class="email-head-title">Compose new message for email group<span class="icon mdi mdi-edit"></span></div>
+                    </div>
+<div class="email-compose-fields">
+    <div class="to">
+        <div class="form-group row pt-0">
+            <label class="col-md-1 control-label">To:</label>
+            <div class="col-md-11">
+                <select name="group" class="js-example-basic-multiple" multiple="multiple" required>
+                    {% for group in groups %}
+                    <option value="{{ group.id }}">{{ group.description }} ({{ group.members_count }} users)</option>
+                    {% endfor %}
+                </select>
+                <small>You can choose more than one group to send to</small>
+            </div>
+        </div>
+    </div>
+    <div class="to cc">
+        <div class="form-group row pt-1">
+            <label class="col-md-1 control-label">Type</label>
+            <div class="col-md-11">
+                <label class="custom-control custom-radio">
+                    <input type="radio" checked value=1 name="is_instant" class="custom-control-input custom-control-inline">
+                    <span class="custom-control-label">Instant</span>
+                </label>
+                <label class="custom-control custom-radio">
+                    <input type="radio" value=0 name="is_instant" class="custom-control-input custom-control-inline">
+                    <span class="custom-control-label">Scheduled</span>
+                </label>
+                 <small>Instant mail is sent now or set a schedule for the mail to be sent (schedule not working)</small>
+
+            </div>
+        </div>
+    </div>
+    <div class="subject">
+        <div class="form-group row pt-2">
+            <label class="col-md-1 control-label">Available <br> Messages</label>
+            <div class="col-md-11">
+                             <select name="message" class="js-example-basic-multiple" required>
+                    {% for message in group_messages %}
+                    <option value="{{ message.id }}">{{ message.title }} ({{ message.group.group }})</option>
+                    {% endfor %}
+                </select>
+                <small>You can choose more than one group to send to</small>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="email editor">
+    <div class="col-md-12 p-0">
+    </div>
+    <div class="email action-send">
+        <div class="col-md-12 ">
+            <div class="form-group">
+                <button class="btn btn-primary btn-space" type="submit"><i class="icon s7-mail"></i> Send</button>
+                <button class="btn btn-secondary btn-space" type="reset"><i class="icon s7-close"></i> Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </form>
+{% endblock %}
