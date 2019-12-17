@@ -1246,6 +1246,22 @@ def workterm(request):
 @login_required
 def workexpform(request):
     form = WeForm()
+
+    try:
+        details =  WorkExperienceEligibility.objects.get(user=request.user)
+    except  WorkExperienceEligibility.DoesNotExist:
+        details = None
+
+    try:
+        jot =  WorkExperienceIsa.objects.get(user=request.user)
+        comp = jot.estimated_date_of_program_completion
+        comp = comp.strftime('%Y-%m-%d')
+
+    except WorkExperienceIsa.DoesNotExist:
+        jot = None
+        comp = None
+        
+
     if request.method == 'POST':
         trainee = request.POST['types']
         trainee = wetype.objects.get(id=trainee)
@@ -1259,13 +1275,28 @@ def workexpform(request):
         month6 = datetime.now() + timedelta(days=180)
         month6 = month6.strftime("%Y-%m-%d")
 
+            
+
         if date < today:
-            person = werole.objects.get(roles='Trainee')
+            try:
+                person = werole.objects.get(roles='Trainee')
+            except werole.DoesNotExist:
+                person = werole.objects.create(roles='Trainee')
+                person.save()
+
         else:
             if today < date < month6:
-                person = werole.objects.get(roles='Graduant')
+                try:
+                    person = werole.objects.get(roles='Graduant')
+                except werole.DoesNotExist:
+                    person = werole.objects.create(roles='Graduant')
+                    person.save()
             else:
-                person = werole.objects.get(roles='Student')
+                try:
+                    person = werole.objects.get(roles='Student')
+                except werole.DoesNotExist:
+                    person = werole.objects.create(roles='Student')
+                    person.save() 
 
         try:
             weps = wepeoples.objects.get(user=request.user)
@@ -1289,8 +1320,214 @@ def workexpform(request):
             weps.save()
         return redirect("home:workexprofile")
     else:
-        return render(request, 'home/workexpform.html', {'form': form})
+        return render(request, 'home/workexpform.html', {'form': form,'details': details,'comp':comp})
 
+
+@login_required
+def work_experience_eligible(request):
+
+    try:
+        details =  WorkExperienceEligibility.objects.get(user=request.user)
+        date = details.date_of_birth
+        date = date.strftime('%Y-%m-%d')
+        
+        created = details.date_created
+        created = created.strftime('%Y-%m-%d')
+        
+    except  WorkExperienceEligibility.DoesNotExist:
+        details = None
+        date = None
+        created = None
+        
+
+    dater = datetime.now().strftime('%Y-%m-%d')
+
+
+    if request.method == "POST":
+
+        firstname = request.POST['firstname']
+        lastname = request.POST['lastname']
+        middleinitial = request.POST['initial']
+        othername = request.POST['othername']
+        state = request.POST['state']
+        address = request.POST['address']
+        Apt = request.POST['aptno']
+        city = request.POST['city']
+        zipc = request.POST['zip']
+        dob = request.POST['dob']
+        dob = datetime.strptime(dob,'%m/%d/%Y').date()
+        ssn = request.POST['ssn']
+        email = request.POST['eadress']
+        eadress = request.POST['eadress']
+        tel = request.POST['tel']
+        i_am = request.POST['selector']
+        translator = request.POST['selectza']
+
+
+        if translator == 1:
+            result = True
+        else:
+            result = False
+
+        if i_am == 2:
+            alien_no = request.POST['alien1']
+        else:
+            alien_no = None
+
+        if i_am == 3:
+            expiry_date = request.POST['alien']
+            form19 = request.POST['form19']
+            foreign = request.POST['foreign']
+        else:
+            expiry_date = None
+            form19 = None
+            foreign = None
+
+        try: 
+            det = WorkExperienceEligibility.objects.get(user=request.user)
+            det.first_name = firstname
+            det.last_name = lastname
+            det.middle_initial = middleinitial
+            det.middle_name = othername
+            det.address = address
+            det.apt_number = Apt
+            det.city = city
+            det.zip_code=zipc
+            det.date_of_birth = dob
+            det.SSN= ssn
+            det.state = state
+            det.employee_address = eadress
+            det.employee_email = email
+            det.employee_phone = tel
+            det.expiry_date = expiry_date
+            det.preparer_or_translator = result
+            det.i_am_a = i_am
+            det.Alien_reg_num=alien_no
+            det.form_19_num=form19
+            det.foreign_pass_num=foreign
+
+            det.save()
+            return redirect("home:isa")
+        except WorkExperienceEligibility.DoesNotExist:
+            state = WorkExperienceEligibility.objects.create(user=request.user,first_name=firstname,last_name=lastname,middle_initial=middleinitial,middle_name=othername,state=state,address=address,apt_number=Apt,city=city,zip_code=zipc,date_of_birth=dob,SSN=ssn,employee_address=eadress,employee_email=email,employee_phone=tel,expiry_date=expiry_date,preparer_or_translator=translator,i_am_a=i_am,Alien_reg_num=alien_no,form_19_num=form19,foreign_pass_num=foreign)
+            state.save()
+        return redirect("home:isa")  
+    return render(request, 'home/workexpeligibility.html',{'details':details,'date':date,'dater':dater,'created':created})
+
+@login_required
+def work_experience_isa_part_1(request):
+    try:
+        details =  WorkExperienceEligibility.objects.get(user=request.user)
+        date = details.date_of_birth
+        date = date.strftime('%Y-%m-%d')
+        ssn = details.SSN
+        ssn = ssn[-4:]
+        ssn = "•••••" + ssn
+
+    except  WorkExperienceEligibility.DoesNotExist:
+        details = None
+        date = None
+        ssn = None
+        
+
+    try:
+        paid = WorkExperiencePay.objects.get(user=request.user)
+    except WorkExperiencePay.DoesNotExist:
+        return redirect("home:pay")
+
+    try:
+        jot =  WorkExperienceIsa.objects.get(user=request.user)
+        comp = jot.estimated_date_of_program_completion
+        comp = comp.strftime('%Y-%m-%d')
+        grad = None
+
+    except WorkExperienceIsa.DoesNotExist:
+        jot = None
+        comp = None
+        grad = datetime.now() + timedelta(days=90)
+        grad = grad.strftime('%Y-%m-%d')
+
+    if request.method == "POST":
+        email = request.POST['email']
+        income = request.POST['income']
+        pay = request.POST['payment']
+        edu = request.POST['edu']
+        status = request.POST['status']
+        completion = request.POST['date']
+
+        try:
+            det = WorkExperienceIsa.objects.get(user=request.user)
+            det.is_signed_isa=False
+            det.current_annual_income=income
+            det.monthly_House_payment=pay
+            det.highest_level_education=edu
+            det.employment_status=status
+            det.estimated_date_of_program_completion=completion
+            det.email = email
+            det.save()
+        except WorkExperienceIsa.DoesNotExist:
+            state = WorkExperienceIsa.objects.create(user=request.user,email=email,is_signed_isa=False,current_annual_income=income,monthly_house_payment=pay,highest_level_education=edu,employment_status=status,estimated_date_of_program_completion=completion)
+            state.save()
+
+        if paid.includes_job_placement:
+            message_applicant = """
+                Hello, 
+
+                You have succesfully signed the agreement for Linuxjobber Work Experience and Job Placement Program.
+                
+                
+
+                Warm Regards,
+                Linuxjobber
+
+            """
+        else:
+            message_applicant = """
+                Hello, 
+
+                You have succesfully signed the agreement for Linuxjobber Work Experience Program.
+                
+                
+
+                Warm Regards,
+                Linuxjobber
+
+            """
+
+        mailer_applicant = LinuxjobberMailer(
+            subject="Agreement Signed Successful",
+            to_address=request.user.email,
+            header_text="Linuxjobber Work Experience",
+            type=None,
+            message=message_applicant
+        )
+        mailer_applicant.send_mail()
+
+
+        return redirect("home:workexpisa2")
+    return render(request, 'home/workexpisa.html',{'details':details,'ssn':ssn,'paid':paid,'grad':grad,'jot':jot,'date':date,'comp':comp})
+
+def work_experience_isa_part_2(request):
+
+    try:
+        details =  WorkExperienceEligibility.objects.get(user=request.user)
+    except  WorkExperienceEligibility.DoesNotExist:
+        details = None
+        
+
+    if request.method == "POST":
+        sign = request.POST['fullname']
+
+        try:
+            jot = WorkExperienceIsa.objects.get(user=request.user)
+            jot.is_signed_isa = True
+            jot.save()
+            return redirect("home:workexpform")
+        except WorkExperienceIsa.DoesNotExist:
+            return redirect("home:isa")
+        
+    
+    return render(request, 'home/workexpisa2.html', {'details':details})
 
 @login_required
 def workexprofile(request):
@@ -1299,7 +1536,7 @@ def workexprofile(request):
         weps = wepeoples.objects.get(user=request.user)
 
         if not weps.types:
-            return redirect("home:workexpform")
+            return redirect("home:eligibility")
     except wepeoples.DoesNotExist:
         return redirect("home:workexperience")
 
@@ -1379,7 +1616,7 @@ def workexprofile(request):
     if not weps.profile_picture:
         messages.error(
             request,
-            "!!! Note Admin can't create your task with out your profile image set"
+            "!!! Note Admin can't create your task without your profile image set"
         )
 
     return render(request, 'home/workexprofile.html',
@@ -1493,6 +1730,7 @@ def apply(request, level):
                 return render(request, 'home/failed_application.html', context)
 
 
+
 @login_required
 def pay(request):
     PRICE = 399
@@ -1502,6 +1740,7 @@ def pay(request):
         PRICE, PRICE)
     stripeset = StripePayment.objects.all()
     stripe.api_key = stripeset[0].secretkey
+    optiona = False
     try:
         workexp = wepeoples.objects.get(user=request.user)
         return redirect("home:workexprofile")
@@ -1509,6 +1748,8 @@ def pay(request):
         pass
     if request.method == "POST":
         token = request.POST.get("stripeToken")
+        jobplacement = request.POST["workexperience"]
+        
         try:
             charge = stripe.Charge.create(
                 amount=PRICE * 100,
@@ -1519,11 +1760,24 @@ def pay(request):
         except stripe.error.CardError as ce:
             return False, ce
 
+        
+        if jobplacement == '1':
+            optiona = True
+        
+
+        
+        
+
+
         try:
             UserPayment.objects.create(user=request.user, amount=PRICE, trans_id=charge.id, pay_for=charge.description)
             wepeoples.objects.update_or_create(user=request.user, types=None, current_position=None,
                                                person=None, state=None, income=None, relocation=None,
                                                last_verification=None, Paystub=None, graduation_date=None)
+            
+            state = WorkExperiencePay.objects.create(user=request.user,is_paid=True,includes_job_placement=optiona)
+            
+        
             # New mail implementation
 
 
@@ -1535,8 +1789,6 @@ def pay(request):
 
                 You have succesfully paid for Linuxjobber Work Experience Program.
                 
-                If you havent signed the agreement, visit this link to do so
-                https://leif.org/commit?product_id=5b30461fe59b74063647c483#/
 
                 Warm Regards,
                 Linuxjobber
@@ -1551,7 +1803,7 @@ def pay(request):
             )
             mailer_applicant.send_mail()
 
-            return render(request, 'home/accepted.html')
+            return redirect("home:eligibility")
         except Exception as error:
             messages.error(request, 'An error occurred while trying to pay please try again')
             return redirect("home:pay")
@@ -3096,20 +3348,41 @@ def installments(request):
     context = {
         'installments':installments
     }
-    return TemplateResponse(request,'home/installments.html',context)
+    return TemplateResponse(request,'home/installments_new.html',context)
 
 @login_required
 def installment_pay(request):
     context = {}
+    payment_id = None
     context['installments'] = InstallmentPlan.objects.filter(user=request.user)
-    if request.POST.get('sub_payment_id',None) or request.POST.get("stripeToken",None):
-        payment_id = request.POST.get('sub_payment_id',None)
+    if request.POST.get('sub_payment_id',None) or request.POST.get("stripeToken",None)\
+            or request.POST.get('installment_id',None):
+        if request.POST.get('installment_id',None):
+            installment_id = request.POST.get('installment_id',None)
+            try:
+                installment = InstallmentPlan.objects.get(pk=installment_id)
+                unpaid = installment.subpayment_set.filter(is_paid=False)
+                unpaid.update(is_disabled=True)
+                item = SubPayment.objects.create(
+                    installment=installment,
+                    amount=installment.get_balance(),
+                    due_in=0,
+                    description='Total Balance Payment'
+                )
+                payment_id = item.pk
+            except InstallmentPlan.DoesNotExist:
+                messages.error(request, 'An error occured, please try again')
+                return redirect('home:installments')
+
+        else:
+            payment_id = request.POST.get('sub_payment_id',None)
         context['sub_payment_id'] = payment_id
         try:
             sub_payment = SubPayment.objects.get(pk=payment_id)
         except SubPayment.DoesNotExist:
             messages.error(request, 'An error occured, please try again')
             return redirect('home:installments')
+
         if sub_payment.is_paid:
             messages.success('Double payment attempt detected, payment made previously')
             return redirect('home:installments')

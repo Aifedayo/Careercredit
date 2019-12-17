@@ -4,13 +4,14 @@ import os
 
 from django.contrib.auth.models import User
 from django.contrib.humanize.templatetags import humanize
+from django.contrib import messages
 from django.core.exceptions import ValidationError
 from django.db import connection, models
 from django.db.models import Sum
 from django.utils import timezone
 
 from Courses.models import Course
-from users.models import CustomUser
+from users.models import CustomUser,Role
 
 from datetime import date
 
@@ -409,6 +410,60 @@ class werole(models.Model):
     def __str__(self):
         return self.roles
 
+class WorkExperiencePay(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    is_paid = models.BooleanField(default=False)
+    includes_job_placement = models.BooleanField(default=False)
+    date_created = models.DateTimeField(default=timezone.now, null=True)
+
+    def __str__(self):
+        return self.user.email
+
+WORKEXPERIENCE_OPTIONS = (
+    (0, 'A citizen of the united states'),
+    (1, 'A non national citizen of the united states'),
+    (2, 'A lawful permanent resident'),
+    (3, 'An alien authorized to work'),
+)
+
+class WorkExperienceEligibility(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    first_name =  models.CharField(max_length=200, null=True)
+    last_name = models.CharField(max_length=200, null=True)
+    middle_initial = models.CharField(max_length=200, null=True)
+    middle_name = models.CharField(max_length=200, null=True)
+    address = models.TextField()
+    apt_number = models.TextField()
+    city = models.CharField(max_length=20, null=True)
+    state = models.CharField(max_length=20, null=True)
+    zip_code = models.CharField(max_length=20, null=True)
+    date_of_birth = models.DateTimeField(default=timezone.now, null=True)
+    SSN =  models.TextField()
+    employee_address =  models.TextField()
+    employee_email =  models.TextField()
+    employee_phone =  models.CharField(max_length=50, null=True)
+    expiry_date = models.DateTimeField(default=timezone.now, null=True)
+    preparer_or_translator = models.BooleanField(default=False)
+    i_am_a = models.IntegerField(default=0, choices=WORKEXPERIENCE_OPTIONS)
+    Alien_reg_num = models.TextField(null=True)
+    form_19_num = models.TextField(null=True)
+    foreign_pass_num = models.TextField(null=True)
+    date_created = models.DateTimeField(default=timezone.now, null=True)
+
+    def __str__(self):
+        return self.user.email
+class WorkExperienceIsa(models.Model):
+    email = models.TextField(default='')
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    current_annual_income = models.TextField(null=True)
+    monthly_house_payment = models.TextField(null=True)
+    highest_level_education = models.TextField(null=True)
+    employment_status =  models.TextField(null=True)
+    estimated_date_of_program_completion = models.DateTimeField(default=timezone.now, null=True)
+    is_signed_isa = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.user.email
 
 class wepeoples(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
@@ -617,6 +672,7 @@ class SubPayment(models.Model):
     due_in = models.IntegerField(default=1,)
     is_initial = models.BooleanField(default=False,)
     is_paid = models.BooleanField(default=False)
+    is_disabled = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     paid_on = models.DateTimeField(null=True,editable=False)
@@ -629,12 +685,12 @@ class SubPayment(models.Model):
         )
     def set_as_paid(self):
         self.is_paid = True
-        self.paid_on = timezone.now()
+        # self.paid_on = timezone.now()
         self.save()
 
     def approve_payment(self):
         self.set_as_paid()
-        self.installment.set_payment_status()
+        # self.installment.set_payment_status()
 
     def get_initial_payment(self):
         return self.installment.subpayment_set.get(is_initial=True)
@@ -654,11 +710,17 @@ class SubPayment(models.Model):
         else:
             return None
 
+    def payment_overdue(self)->bool:
+        if self.initial_has_been_paid():
+            return timezone.now() > self.calculate_due_date()
+        else:
+            return False
+
     def get_due_date(self):
         if self.initial_has_been_paid():
-            return humanize.naturalday(self.calculate_due_date())
+            return self.calculate_due_date()
         else:
-            return "Calculated {number_of_weeks} weeks from date of initial payment".format(
+            return "{number_of_weeks} weeks after initial payment".format(
                 number_of_weeks = self.due_in
             )
 
@@ -677,11 +739,13 @@ class SubPayment(models.Model):
         :param kwargs:
         :return:
         """
-        if self.is_paid:
+        if self.is_paid and not self.paid_on:
             self.paid_on = timezone.now()
         else:
             self.paid_on = None
         super(type(self),self).save(*args, **kwargs)
+        self.installment.set_payment_status()
+
 
 
 INSTALLMENT_PLAN_STATUS = (
@@ -714,6 +778,12 @@ class InstallmentPlan(models.Model):
             description = self.description,
             user = self.user.get_full_name()
         )
+    def get_total_amount_paid(self):
+        if self.get_balance() != self.total_amount:
+            return self.total_amount - self.get_balance()
+        else:
+            return 0
+
     def get_balance(self):
         if not self.subpayment_set.all():
             return 'No payment plan exists'
@@ -725,14 +795,14 @@ class InstallmentPlan(models.Model):
         else:
             return self.total_amount
     def total_installments(self):
-        return self.subpayment_set.count()
+        return self.subpayment_set.filter(is_disabled=False).count()
 
     def get_initial_payment_amount(self):
-        return self.subpayment_set.get(is_initial=True).amount
+        return self.subpayment_set.get(is_initial=True,is_disabled=False).amount
 
     def get_next_due_payment(self):
         all_subpayments = self.subpayment_set.all()
-        initial_payment = all_subpayments.get(is_initial=True)
+        initial_payment = all_subpayments.get(is_initial=True, is_disabled = False)
 
         if initial_payment.is_paid:
             # Removes all paid installments
@@ -770,22 +840,12 @@ class InstallmentPlan(models.Model):
             self.status = PlanStatus.is_unpaid.value
             self.save()
 
+class EmailGroup(models.Model):
+    name = models.CharField(max_length=255,)
+    description = models.CharField(max_length=255,)
+    members_by_role = models.ForeignKey(Role,on_delete=models.CASCADE,null=True,blank=True)
+    extra_members = models.ManyToManyField(CustomUser,blank=True)
 
-    # def save(self,*args,**kwargs):
-    #     """
-    #     Sets default message format to be used
-    #     :param args:
-    #     :param kwargs:
-    #     :return:
-    #     """
-    #     if self.subpayment_set.count() < 0 :
-    #         return
-    #     if self.is_default:
-    #         type_list = type(self).objects.filter(is_default=True)
-    #         if self.pk:
-    #             type_list.exclude(self)
-    #         type_list.update(is_default = False)
-    #     super(type(self),self).save(*args,**kwargs)
 
 
 

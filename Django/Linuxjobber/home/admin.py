@@ -1,5 +1,6 @@
 from django.contrib import admin, messages
 from django import forms
+from django.db.models import Sum
 from django.shortcuts import redirect
 
 from . import models
@@ -10,7 +11,8 @@ from .models import FAQ, Job, RHCSAOrder, FreeAccountClick, Campaign, Message, U
     Jobplacement, Groupclass, BillingHistory, GroupClassRegister, StripePayment, UserPayment, wepeoples, wetask, werole, \
     wework, wetype, PartTimeJob, TryFreeRecord, FullTimePostion, PartTimePostion, Resume, CareerSwitchApplication, \
     Certificates, EmailMessageType, EmailMessageLog, CompleteClass, \
-    CompleteClassLearn, CompleteClassCertificate, SubPayment, InstallmentPlan, INSTALLMENT_PLAN_STATUS
+    CompleteClassLearn, CompleteClassCertificate, WorkExperienceEligibility, WorkExperienceIsa, WorkExperiencePay, \
+    SubPayment, InstallmentPlan, INSTALLMENT_PLAN_STATUS, EmailGroup
 
 from datetime import timedelta
 import datetime
@@ -214,7 +216,44 @@ class EmailMessageLogAdmin(admin.ModelAdmin):
                     message.error_message
                 ), level=messages.ERROR)
 
-    resend_message.short_description = 'Resend Message'
+    resend_message.short_description = 'Send/resend selected messages'
+
+class SubPaymentInlineFormset(forms.models.BaseInlineFormSet):
+    def clean(self):
+        # get forms that actually have valid data
+        count = 0
+        total = 0
+        installment_plan = None
+        initial_set = []
+        for form in self.forms:
+            try:
+                if form.cleaned_data:
+                    count += 1
+                    if not form.cleaned_data['is_disabled']:
+                        total+=form.cleaned_data['amount']
+                    installment_plan = form.cleaned_data['installment']
+                    initial_set.append(form.cleaned_data['is_initial'])
+            except AttributeError:
+                # annoyingly, if a subform is invalid Django explicity raises
+                # an AttributeError for cleaned_data
+                pass
+        initial_count = initial_set.count(True)
+        if count < 1:
+            raise forms.ValidationError('You must have at least one sub payment')
+        if initial_count == 0:
+            raise forms.ValidationError('Please set an initial payment')
+        if  initial_count > 1:
+            raise forms.ValidationError('You can only set one payment as initial payment')
+        if installment_plan:
+            difference = installment_plan.total_amount - total
+            if difference < 0:
+                raise forms.ValidationError(' Sum of total sub payments is {} greater than the plan amount'.format(
+                    abs(difference)
+                ))
+            elif difference > 0 :
+                raise forms.ValidationError(' Sum of total sub payments is {} lesser than the plan amount'.format(
+                    abs(difference))
+                )
 
 class SubPaymentInline(admin.TabularInline):
     model = SubPayment
@@ -222,6 +261,10 @@ class SubPaymentInline(admin.TabularInline):
     verbose_name_plural = "Sub Payments"
     extra = 0
     # radio_fields ={''}
+    formset = SubPaymentInlineFormset
+
+
+
 
 
 class CustomInstallmentAdminForm(forms.ModelForm):
@@ -229,31 +272,60 @@ class CustomInstallmentAdminForm(forms.ModelForm):
     class Meta:
         model = InstallmentPlan
         exclude = []
+class CustomSubPaymentAdminForm(forms.ModelForm):
+    # status = forms.ChoiceField(choices=INSTALLMENT_PLAN_STATUS)
+
+    def clean(self):
+        pass
+
+    class Meta:
+        model = SubPayment
+        exclude = []
+
+
+
 
 class InstallmentPlanAdmin(admin.ModelAdmin):
-    list_display = ('user','total_amount','balance','total_installments')
-    search_fields = ('user',)
+    list_display = ('user','description','total_amount','balance','total_installments')
+    list_filter = ('status',)
+    search_fields = ('user__email','description')
     fieldsets = [
         ['General Information', {
             'fields': ['user', 'description', 'total_amount']
         }],
     ]
     inlines =  (SubPaymentInline,)
-    list_select_related = True
 
     raw_id_fields = ('user',)
     # form = CustomInstallmentAdminForm
 
     # def save_model(self, request, obj, form, change):
     #     obj.user = request.user
-    #     if obj.subpayment_set.count() < 1:
-    #         self.message_user(request, 'Please add at least one payment',messages.ERROR)
-    #         return redirect(request.path)
     #     super().save_model(request, obj, form, change)
-    # list_filter = ('pending', )
+    #     all_subpayments = obj.subpayment_set.all()
+    #     if all_subpayments:
+    #         subpayments_total_amount = all_subpayments.aggregate(total_amount=Sum('amount'))
+    #         difference = obj.total_amount - subpayments_total_amount['total_amount']
+    #         if difference > 0:
+    #             self.message_user(request, "Total amount of sub payments lesser than plan total amount for {}'s {}".format(
+    #                 obj.user,obj.description),messages.WARNING)
+    #
+    #         elif difference < 0 :
+    #             self.message_user(request, "Total amount of sub payments greater than plan total amount for {}'s {}".format(
+    #                 obj.user,obj.description),messages.WARNING)
+    #     else:
+    #         self.message_user(request, "Please add at least one payment for {}'s {}".format(
+    #                 obj.user,obj.description),messages.WARNING)
 
 
+class EmailGroupAdmin(admin.ModelAdmin):
+    list_display = ('name','description','members_by_role')
+    filter_horizontal = ('extra_members',)
+    search_fields = ('name',)
 
+admin.site.register(WorkExperienceIsa)
+admin.site.register(WorkExperienceEligibility)
+admin.site.register(WorkExperiencePay)
 admin.site.register(FAQ)
 admin.site.register(Job, JobAdmin)
 admin.site.register(UserOrder)
@@ -294,5 +366,6 @@ admin.site.register(CompleteClassCertificate)
 admin.site.register(EmailMessageType,EmailMessageTypeAdmin)
 admin.site.register(EmailMessageLog)
 admin.site.register(InstallmentPlan, InstallmentPlanAdmin)
+admin.site.register(EmailGroup, EmailGroupAdmin)
 
 
