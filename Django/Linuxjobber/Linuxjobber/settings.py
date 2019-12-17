@@ -52,7 +52,8 @@ INSTALLED_APPS = [
     'sso_api',
     'storages',
     'livereload',
-    'background_task'
+    'background_task',
+    'awswebsocket'
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -244,7 +245,7 @@ USE_TZ = True
 
 AWS_DEFAULT_ACL = None
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID', '')
-S3DIRECT_REGION = 'us-west-2'
+S3DIRECT_REGION = config('S3DIRECT_REGION','us-west-2')
 AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY', '')
 AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME', '')
 AWS_QUERYSTRING_AUTH = False #This will make sure that the file URL does not have unnecessary parameters like your access key.
@@ -275,7 +276,7 @@ STATICFILES_FINDERS = (
 
 # EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 # EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
-ENV_URL = "http://127.0.0.1:8000/"
+ENV_URL = config('ENV_URL',"http://127.0.0.1:8000/")
 
 
 EMAIL_BACKEND = "home.mail_service.CustomEmailBackend"
@@ -319,5 +320,6 @@ NEW_TOOLS_PATH = config('NEW_TOOLS_PATH', "/tools/campaigns/")
 
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
-
+ 
+AWS_WS_GATEWAY = config('AWS_WS_GATEWAY','url')
 

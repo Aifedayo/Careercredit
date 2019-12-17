@@ -1,11 +1,11 @@
-import {Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
+import {Component, ElementRef, OnInit,  ViewChild} from '@angular/core';
 import { DataService } from '../data.service';
 import { HttpClient } from '@angular/common/http';
 
 import {ApiService} from "../share/api.service";
 import {ChatMessage} from "../share/chat-message";
 import {Observable} from "rxjs/index";
-import {MatList, MatListItem} from "@angular/material";
+import {MatList} from "@angular/material";
 import {environment} from "../../environments/environment";
 import {UserModel} from "../share/user-model";
 import { AlertService } from './_alert/alert.service';
@@ -23,9 +23,8 @@ export enum TYPE {Plain='plain', Image='image', File='file'}
 
 export class TopicChatComponent implements OnInit {
 
-
-
   private mutationObserver: MutationObserver;
+  private activeGroup:string;
 
   public current_user:string;
   public users: Array<object> = [];
@@ -35,13 +34,13 @@ export class TopicChatComponent implements OnInit {
   public websocket;
   public email;
   public type=TYPE;
-  public avatar:string ;
+  public avatar:string;
+  private token:string;
+
 
       // getting a reference to the overall list, which is the parent container of the list items
   @ViewChild(MatList, { read: ElementRef }) matList: ElementRef;
 
-  // getting a reference to the items/messages within the list
-  @ViewChildren(MatListItem, { read: ElementRef }) matListItems: QueryList<MatListItem>;
   private user$: Observable<UserModel>;
   public environment = environment;
   
@@ -51,75 +50,37 @@ export class TopicChatComponent implements OnInit {
     private alertService: AlertService,
     private dataService: DataService,
   ) {
-
+    this.token = sessionStorage.getItem('token');
     this.user$=this.apiService.getUserInfo();
     this.current_user = sessionStorage.getItem('username');
     // this.avatar=environment.API_URL + `media/avatar.png`;
     this.avatar=this.dataService.profileImgIsSet()?
       environment.API_URL + sessionStorage.getItem('profile_img'):
       environment.API_URL + `media/avatar.png`;
-    this.websocket = new WebSocket(environment.WS_URL);
-    this.websocket.onopen = (evt) => {
-      const now=new Date();
-      const m= new ChatMessage();
-      m.user=sessionStorage.getItem('username');
-      m.the_type = 'plain';
-      m.message="!join Djangoclass";
-      m.timestamp= now.toString();
-      this.websocket.send(JSON.stringify(m));
-      };
-
-      this.websocket.onmessage = (evt) => {
-        const data = JSON.parse(evt.data);
-        if (data['messages'] !== undefined) {
-            for (let i = 0; i < data['messages']['length']; i++) {
-              this.the_message=new ChatMessage();
-              this.the_message.user = data['messages'][i]['user'];
-              this.the_message.message = data['messages'][i]['message'];
-              this.the_message.timestamp = data['messages'][i]['timestamp'];
-              this.the_message.the_type = data['messages'][i]['the_type'];
-              this.messages.push(this.the_message);
-              const chat_scroll = document.getElementById('chat_div_space');
-              chat_scroll.scrollTop = chat_scroll.scrollHeight;
-            }
-        }
-        else {
-            this.the_message=new ChatMessage();
-            this.the_message.user = data['user'];
-            this.the_message.message = data['message'];
-            this.the_message.the_type = data['the_type'];
-            this.the_message.timestamp = data['timestamp'];
-            this.messages.push(this.the_message);
-            const chat_scroll = document.getElementById('chat_div_space');
-            chat_scroll.scrollTop = chat_scroll.scrollHeight;
-         }
-    };
+    this.websocket = new WebSocket(environment.WS_URL+"?token="+this.token);
+    this.activeGroup = sessionStorage.getItem('active_group');
    }
 
   ngOnInit() {
-    this.mutationObserver = new MutationObserver((mutations) => {
-        this.scrollToBottom();
-        const chat_scroll = document.getElementById('chat_div_space');
-        chat_scroll.scrollTop = chat_scroll.scrollHeight ;
-      }
-    );
-
-    this.mutationObserver.observe(this.matList.nativeElement, {
-        childList: true
-    });
+    this.callWebsocket()
   }
 
   sendMessage(message,type:string) {
      if(this.dataService.profileImgIsSet()){
        if (message!==""){
          const now = new Date();
-         const m = new ChatMessage();
-         m.user=sessionStorage.getItem('username');
-         m.message= message;
-         m.the_type = type;
-         m.timestamp= now.toLocaleString();
+         const context = {
+           action:'sendMessage',
+           active_group:this.activeGroup,
+           user:sessionStorage.getItem('username'),
+           content:message,
+           the_type:type,
+           timestamp:now.toLocaleDateString(),
+           token:this.token
+         };
+
          this.websocket.send(
-            JSON.stringify(m)
+            JSON.stringify(context)
           );
           this.chat_text = '';
         } 
@@ -143,32 +104,89 @@ export class TopicChatComponent implements OnInit {
           formData.append('file', file, file.name);
 
           this.apiService.uploadFile(formData)
-                .subscribe(
-                    data => {
-                      const url=environment.API_URL + data['url'];
-                      this.sendMessage(url,data['type'])
-                    },
-                    error => console.log( error)
-                );
+            .subscribe(
+                data => {
+                  const url=environment.API_URL + data['url'];
+                  this.sendMessage(url,data['type'])
+                },
+                error => console.log( error)
+            );
       }
   }
 
-
   ngAfterViewInit(): void {
-    // subscribing to any changes in the list of items / messages
+    this.mutableObserver();
+  }
+
+  callWebsocket(){
+    this.websocket.onopen = (evt) => {
+      const now=new Date();
+      const context ={
+        action:'getRecentMessages',
+        active_group:this.activeGroup,
+        token:this.token
+      };
+      // console.log(context)
+      this.websocket.send(JSON.stringify(context));
+    };
+
+    this.websocket.onmessage = (evt) => {
+      // console.log(evt.data);
+      const data = JSON.parse(evt.data);
+      if(data['active_group'] == this.activeGroup){
+        if (data['messages'] !== undefined) {
+          data['messages'].forEach((message)=>{
+              const messg = {
+                user:message.user.username,
+                profile_img:message.user.profile_img,
+                content:message.content,
+                the_type:message.the_type,
+                timestamp:message.timestamp,
+              };
+              
+              this.messages.push(messg);
+            }
+          );
+        }
+      }
+    };
+
+  }
+
+  mutableObserver(){
+    this.mutationObserver = new MutationObserver((mutations) => {
+        this.scrollToBottom();
+      }
+    );
+
+    this.mutationObserver.observe(this.matList.nativeElement, {
+        childList: true
+    });
+  }
+
+  getProfileImg(proImgUrl:string){
+    var image_url = "";
+      if(
+        proImgUrl.startsWith("https://") || 
+        proImgUrl.startsWith("http://") 
+      ){
+        image_url =  proImgUrl
+      }
+      else {
+        image_url = environment.API_URL + proImgUrl
+      }
+    return image_url
   }
 
   // auto-scroll fix: inspired by this stack overflow post
   // https://stackoverflow.com/questions/35232731/angular2-scroll-to-bottom-chat-style
-  private scrollToBottom(): void {
+  private scrollToBottom(){
     try {
-      this.matList.nativeElement.scrollTop = this.matList.nativeElement.scrollHeight;
+      this.matList.nativeElement.scrollTop = 
+      this.matList.nativeElement.scrollHeight;
+      const chat_scroll = document.getElementById('chat_div_space');
+      chat_scroll.scrollTop = chat_scroll.scrollHeight;
     } catch (err) {}
   }
-
-
-
-
-
 
 }
