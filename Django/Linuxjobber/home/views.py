@@ -1469,6 +1469,41 @@ def work_experience_isa_part_1(request):
             state = WorkExperienceIsa.objects.create(user=request.user,email=email,is_signed_isa=False,current_annual_income=income,monthly_house_payment=pay,highest_level_education=edu,employment_status=status,estimated_date_of_program_completion=completion)
             state.save()
 
+        if paid.includes_job_placement:
+            message_applicant = """
+                Hello, 
+
+                You have succesfully signed the agreement for Linuxjobber Work Experience and Job Placement Program.
+                
+                
+
+                Warm Regards,
+                Linuxjobber
+
+            """
+        else:
+            message_applicant = """
+                Hello, 
+
+                You have succesfully signed the agreement for Linuxjobber Work Experience Program.
+                
+                
+
+                Warm Regards,
+                Linuxjobber
+
+            """
+
+        mailer_applicant = LinuxjobberMailer(
+            subject="Agreement Signed Successful",
+            to_address=request.user.email,
+            header_text="Linuxjobber Work Experience",
+            type=None,
+            message=message_applicant
+        )
+        mailer_applicant.send_mail()
+
+
         return redirect("home:workexpisa2")
     return render(request, 'home/workexpisa.html',{'details':details,'ssn':ssn,'paid':paid,'grad':grad,'jot':jot,'date':date,'comp':comp})
 
@@ -1754,8 +1789,6 @@ def pay(request):
 
                 You have succesfully paid for Linuxjobber Work Experience Program.
                 
-                If you havent signed the agreement, visit this link to do so
-                https://leif.org/commit?product_id=5b30461fe59b74063647c483#/
 
                 Warm Regards,
                 Linuxjobber
