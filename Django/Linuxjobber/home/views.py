@@ -1411,7 +1411,6 @@ def work_experience_eligible(request):
         except WorkExperienceEligibility.DoesNotExist:
             state = WorkExperienceEligibility.objects.create(user=request.user,first_name=firstname,last_name=lastname,middle_initial=middleinitial,middle_name=othername,state=state,address=address,apt_number=Apt,city=city,zip_code=zipc,date_of_birth=dob,SSN=ssn,employee_address=eadress,employee_email=email,employee_phone=tel,expiry_date=expiry_date,preparer_or_translator=translator,i_am_a=i_am,Alien_reg_num=alien_no,form_19_num=form19,foreign_pass_num=foreign)
             state.save()
-
         return redirect("home:isa")  
     return render(request, 'home/workexpeligibility.html',{'details':details,'date':date,'dater':dater,'created':created})
 
@@ -1696,6 +1695,7 @@ def apply(request, level):
                 return render(request, 'home/failed_application.html', context)
 
 
+
 @login_required
 def pay(request):
     PRICE = 399
@@ -1705,7 +1705,7 @@ def pay(request):
         PRICE, PRICE)
     stripeset = StripePayment.objects.all()
     stripe.api_key = stripeset[0].secretkey
-    option = False
+    optiona = False
     try:
         workexp = wepeoples.objects.get(user=request.user)
         return redirect("home:workexprofile")
@@ -1713,7 +1713,7 @@ def pay(request):
         pass
     if request.method == "POST":
         token = request.POST.get("stripeToken")
-        jobplacement = request.POST.get("jobplacement")
+        jobplacement = request.POST["workexperience"]
         
         try:
             charge = stripe.Charge.create(
@@ -1725,17 +1725,23 @@ def pay(request):
         except stripe.error.CardError as ce:
             return False, ce
 
+        
+        if jobplacement == '1':
+            optiona = True
+        
+
+        
+        
+
+
         try:
             UserPayment.objects.create(user=request.user, amount=PRICE, trans_id=charge.id, pay_for=charge.description)
             wepeoples.objects.update_or_create(user=request.user, types=None, current_position=None,
                                                person=None, state=None, income=None, relocation=None,
                                                last_verification=None, Paystub=None, graduation_date=None)
-            if jobplacement == 0:
-                option = False
-            else:
-                option = True
-            state = WorkExperiencePay.objects.create(user=request.user,is_paid=True,includes_job_placement=option)
-            state.save()
+            
+            state = WorkExperiencePay.objects.create(user=request.user,is_paid=True,includes_job_placement=optiona)
+            
         
             # New mail implementation
 
