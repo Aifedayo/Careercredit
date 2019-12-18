@@ -654,7 +654,7 @@ class EmailMessageLog(models.Model):
 
     def send_mail(self):
         self.format_mail()
-        from Django.Linuxjobber.home.mail_service import send_mail_with_client
+        from .mail_service import send_mail_with_client
         try:
             send_mail_with_client(self)
             self.set_as_sent()
