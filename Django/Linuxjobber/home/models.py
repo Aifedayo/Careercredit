@@ -654,7 +654,7 @@ class EmailMessageLog(models.Model):
 
     def send_mail(self):
         self.format_mail()
-        from Django.Linuxjobber.home.mail_service import send_mail_with_client
+        from .mail_service import send_mail_with_client
         try:
             send_mail_with_client(self)
             self.set_as_sent()
@@ -703,6 +703,9 @@ class SubPayment(models.Model):
         self.set_as_paid()
         # self.installment.set_payment_status()
 
+    def get_previously_completed_payment(self):
+        return
+
     def get_initial_payment(self):
         return self.installment.subpayment_set.get(is_initial=True)
 
@@ -731,7 +734,9 @@ class SubPayment(models.Model):
         if self.initial_has_been_paid():
             return self.calculate_due_date()
         else:
-            return "{number_of_weeks} weeks after initial payment".format(
+            if self.is_initial:
+                return "Due now"
+            return "Waiting to be activated".format(
                 number_of_weeks = self.due_in
             )
 
@@ -742,6 +747,19 @@ class SubPayment(models.Model):
             return "Initial not paid".format(
                 number_of_weeks = self.due_in
             )
+
+    def get_balance_after_payment(self):
+        if self.is_initial:
+            return self.installment.get_balance()
+        all_payments = self.installment.get_paid_subpayments()
+        if all_payments:
+            # Checks for initial payment
+            amount= all_payments.filter(paid_on__lte=self.paid_on).aggregate(sum=Sum('amount'))
+            return self.installment.total_amount - amount['sum']
+        else:
+            return self.installment.total_amount
+
+
 
     def save(self,*args,**kwargs):
         """
@@ -763,6 +781,7 @@ INSTALLMENT_PLAN_STATUS = (
     ('is_unpaid','Unpaid'),
     ('is_pending','Pending'),
     ('is_settled','Settled'),
+    ('is_cancelled','Cancelled'),
     ('is_breached','Breached')
 )
 class PlanStatus(enum.Enum):
@@ -770,6 +789,7 @@ class PlanStatus(enum.Enum):
     is_pending = "is_pending"
     is_settled = 'is_settled'
     is_breached = 'is_breached'
+    is_cancelled = 'is_cancelled'
 
 class InstallmentPlan(models.Model):
     user = models.ForeignKey(CustomUser,on_delete=models.CASCADE)
@@ -783,7 +803,7 @@ class InstallmentPlan(models.Model):
 
     def clean(self):
         if self.subpayment_set.count() < 0:
-            raise ValidationError('Please put atleast one payment')
+            raise ValidationError('Please put at least one payment')
 
     def __str__(self):
         return "{description} in ({installment_count}) installments for {user}  ".format(
@@ -796,6 +816,9 @@ class InstallmentPlan(models.Model):
             return self.total_amount - self.get_balance()
         else:
             return 0
+
+    def get_paid_subpayments(self):
+        return self.subpayment_set.filter(is_paid=True).order_by('-paid_on')
 
     def get_balance(self):
         if not self.subpayment_set.all():
@@ -852,6 +875,11 @@ class InstallmentPlan(models.Model):
         else:
             self.status = PlanStatus.is_unpaid.value
             self.save()
+
+        if self.is_cancelled:
+            self.status = PlanStatus.is_cancelled.value
+            self.save()
+
 from django.db import connection
 
 class EmailGroup(models.Model):
@@ -885,8 +913,11 @@ class EmailGroup(models.Model):
                 row = cursor.fetchall()
                 from functools import reduce
                 import operator
-                row = reduce(operator.concat,row)
-            return row
+                if row:
+                    row = reduce(operator.concat,row)
+                else:
+                    row = []
+                return row
         else:
             return []
 
@@ -917,6 +948,9 @@ class EmailGroupMessageLog(models.Model):
 
     def schedule_mail(self):
         pass
+
+    def __str__(self):
+        return self.message.slug + "({})".format(self.group.name)
 
     def get_failed_messages(self):
         return  self.emailmessagelog_set.filter(has_sent=False)

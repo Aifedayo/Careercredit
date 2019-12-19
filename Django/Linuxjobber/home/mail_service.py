@@ -12,7 +12,7 @@ from django.db.models import QuerySet
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import get_template
 import  logging
-from .models import EmailMessageLog, EmailGroupMessageLog
+from home.models import EmailMessageLog, EmailGroupMessageLog
 
 standard_logger = logging.getLogger(__name__)
 class EmailThread(threading.Thread):
@@ -101,11 +101,11 @@ class LinuxjobberMailer:
         # self.header_text = header_text,
         # self.type = type,
         # self.content = message
-        if group_id:
-            try:
-                group_log = EmailGroupMessageLog.objects.get(pk=group_id)
-            except:
-                group_log = None
+
+        try:
+            group_log = EmailGroupMessageLog.objects.get(pk=group_id)
+        except:
+            group_log = None
 
 
 
@@ -115,7 +115,7 @@ class LinuxjobberMailer:
             header_text =  header_text,
             message_type = type,
             content = message,
-            group_log= group_log
+            group_log = group_log
         )
 
     def send_mail(self):
@@ -154,7 +154,7 @@ class LinuxjobberMassMailer:
         # We need to manually close the connection.
         connection.close()
 
-@background(schedule=0)
+@background(schedule=1)
 def handle_campaign(group_id):
     from .models import  EmailGroupMessageLog
     message_template = EmailGroupMessageLog.objects.get(id=group_id)
@@ -171,7 +171,7 @@ def handle_campaign(group_id):
     mailer.send()
 
 
-@background(schedule=0)
+@background(schedule=1)
 def handle_failed_campaign(group_id):
     try:
         group = EmailGroupMessageLog.objects.get(pk=group_id)
@@ -205,3 +205,8 @@ def generate_message(message):
 def send_mail_with_client(message):
     message = generate_message(message)
     message.send()
+
+
+
+if __name__ == '__main__':
+    print('Done')
