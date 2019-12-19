@@ -781,6 +781,7 @@ INSTALLMENT_PLAN_STATUS = (
     ('is_unpaid','Unpaid'),
     ('is_pending','Pending'),
     ('is_settled','Settled'),
+    ('is_cancelled','Cancelled'),
     ('is_breached','Breached')
 )
 class PlanStatus(enum.Enum):
@@ -788,6 +789,7 @@ class PlanStatus(enum.Enum):
     is_pending = "is_pending"
     is_settled = 'is_settled'
     is_breached = 'is_breached'
+    is_cancelled = 'is_cancelled'
 
 class InstallmentPlan(models.Model):
     user = models.ForeignKey(CustomUser,on_delete=models.CASCADE)
@@ -873,6 +875,11 @@ class InstallmentPlan(models.Model):
         else:
             self.status = PlanStatus.is_unpaid.value
             self.save()
+
+        if self.is_cancelled:
+            self.status = PlanStatus.is_cancelled.value
+            self.save()
+
 from django.db import connection
 
 class EmailGroup(models.Model):
