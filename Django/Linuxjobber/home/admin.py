@@ -422,7 +422,7 @@ class SendMessageAdmin(admin.ModelAdmin):
                             raise
 
                     except:
-                        # Means duplicate fount
+                        # Means duplicate found
                         created_group = EmailGroupMessageLog.objects.create(
                             group=_email_group,
                             message = _message,

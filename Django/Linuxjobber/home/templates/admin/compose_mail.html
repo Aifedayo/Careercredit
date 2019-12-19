@@ -57,7 +57,7 @@ Compose Mail
             <div class="col-md-11">
                              <select name="message" class="js-example-basic-multiple" required>
                     {% for message in group_messages %}
-                    <option value="{{ message.id }}">{{ message.title }} ({{ message.group.group }})</option>
+                    <option value="{{ message.id }}">{{ message.slug }} ({{ message.group.group }})</option>
                     {% endfor %}
                 </select>
                 <small>You can choose more than one group to send to</small>

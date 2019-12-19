@@ -322,7 +322,9 @@
                                                 <td>
                                                     <div class="flex-container">
                                                         <div class="flex-item">
-                                                            {% if "payment"  in subpayment.get_due_date %}
+                                                            {% if "now"  in subpayment.get_due_date %}
+                                                                {{ subpayment.get_due_date }}
+                                                            {% elif "activated"  in subpayment.get_due_date %}
                                                                 {{ subpayment.get_due_date }}
                                                             {% else %}
                                                                 {{ subpayment.get_due_date|date:"d - m - Y" }}
@@ -393,6 +395,7 @@
                                     <tr>
                                         <th>Installments</th>
                                         <th>Amount paid</th>
+                                        <th>Balance left</th>
                                         <th>Payment made on</th>
                                     </tr>
                                     {% for subpayment in installment.subpayment_set.all|dictsort:'due_in' %}
@@ -400,6 +403,7 @@
                                             <tr>
                                                 <td> {{ subpayment.description }}</td>
                                                 <td> {{ subpayment.amount }}</td>
+                                                <td> {{ subpayment.get_balance_after_payment }}</td>
                                                 <td> {{ subpayment.paid_on|date:"d - m - Y" }}</td>
                                             </tr>
                                         {% endif %}
@@ -472,7 +476,6 @@
                         </div>
 
                     </div>
-
                     {% endif %}
 
 
