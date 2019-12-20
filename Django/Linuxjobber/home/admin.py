@@ -12,7 +12,7 @@ from .models import FAQ, Job, RHCSAOrder, FreeAccountClick, Campaign, Message, U
     wework, wetype, PartTimeJob, TryFreeRecord, FullTimePostion, PartTimePostion, Resume, CareerSwitchApplication, \
     Certificates, EmailMessageType, EmailMessageLog, CompleteClass, \
     CompleteClassLearn, CompleteClassCertificate, WorkExperienceEligibility, WorkExperienceIsa, WorkExperiencePay, \
-    SubPayment, InstallmentPlan, INSTALLMENT_PLAN_STATUS, EmailGroup
+    SubPayment, InstallmentPlan, INSTALLMENT_PLAN_STATUS, EmailGroup, WorkExperiencePriceWaiver
 
 from datetime import timedelta
 import datetime
@@ -326,6 +326,7 @@ class EmailGroupAdmin(admin.ModelAdmin):
 admin.site.register(WorkExperienceIsa)
 admin.site.register(WorkExperienceEligibility)
 admin.site.register(WorkExperiencePay)
+admin.site.register(WorkExperiencePriceWaiver)
 admin.site.register(FAQ)
 admin.site.register(Job, JobAdmin)
 admin.site.register(UserOrder)
