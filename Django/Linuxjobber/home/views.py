@@ -1827,7 +1827,6 @@ def pay(request):
                    'DISCLMR': DISCLMR}
         return render(request, 'home/pay.html', context)
 
-
 def accepted(request):
     return render(request, 'home/accepted.html')
 
