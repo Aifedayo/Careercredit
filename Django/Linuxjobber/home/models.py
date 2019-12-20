@@ -749,12 +749,9 @@ class SubPayment(models.Model):
             )
 
     def get_balance_after_payment(self):
-        if self.is_initial:
-            return self.installment.get_balance()
         all_payments = self.installment.get_paid_subpayments()
         if all_payments:
-            # Checks for initial payment
-            amount= all_payments.filter(paid_on__lte=self.paid_on).aggregate(sum=Sum('amount'))
+            amount=all_payments.filter(paid_on__lte=self.paid_on).aggregate(sum=Sum('amount'))
             return self.installment.total_amount - amount['sum']
         else:
             return self.installment.total_amount

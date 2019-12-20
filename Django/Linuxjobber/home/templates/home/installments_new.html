@@ -398,7 +398,7 @@
                                         <th>Balance left</th>
                                         <th>Payment made on</th>
                                     </tr>
-                                    {% for subpayment in installment.subpayment_set.all|dictsort:'due_in' %}
+                                    {% for subpayment in installment.subpayment_set.all|dictsortreversed:'due_in' %}
                                         {% if subpayment.is_paid and not subpayment.is_disabled %}
                                             <tr>
                                                 <td> {{ subpayment.description }}</td>
