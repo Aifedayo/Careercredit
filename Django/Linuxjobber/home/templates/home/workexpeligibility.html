@@ -210,7 +210,7 @@ United State Employment Eligibility Form | Linuxjobber
             <div class="col-md-3 eligformcol eligformwidth2">
                 <div class="eligforminput">
                     <p><span class="eligqut">City or Town</span><span style="color: red; font-size: 25px;">*</span></p>
-                    <input class="form-control eligformin" id="city1" value="{{details.city}}" required  type="text" name="city" placeholder="Any other name of yours"/>
+                    <input class="form-control eligformin" id="city1" value="{{details.city}}" required  type="text" name="city" placeholder="Your city or town of residence"/>
                 </div>
             </div>
             <div class="col-md-2 eligformcol eligformwidth4">
@@ -252,9 +252,9 @@ United State Employment Eligibility Form | Linuxjobber
                 </div>
             </div>
             <div class="col-md-3 eligformcol eligformwidth5">
-                <div class="eligforminput">
+                <div class="eligforminput jsy">
                     <p><span class="eligqut">U.S Social Security Number</span><span style="color: red; font-size: 25px;">*</span></p>
-                    <input id="ssn" class="form-control eligformin" maxlength="9" required  value="{{details.SSN}}" name="ssn" type="number" placeholder="Your SSN"/>
+                    <input id="ssn" class="form-control eligformin" minlength="9" maxlength="9" required  value="{{details.SSN}}" name="ssn" type="text" placeholder="Your SSN"/>
                 </div>
             </div>
             <div class="col-md-3 eligformcol eligformwidth5">
@@ -461,6 +461,14 @@ var ssn = document.getElementById('ssn');
 
     $("form").submit(function() { 
         $('input[name=ssn]').val(fullSSN);
+        if($('input[name=ssn]').val().length !== 9){
+            $('html, body').animate({
+                scrollTop: $(".jsy").offset().top
+            }, 500);
+            $('input[name=ssn]').focus();
+            return false;
+            
+        }
     });
 
     function ssnMask(){
@@ -487,51 +495,51 @@ var ssn = document.getElementById('ssn');
         }
     }
 
-    $("#fint").keyup(function(){
+    $("#fint").on('input', function() {
         $("#fint1").val($("#fint").val())
     });
 
-    $("#fint1").keyup(function(){
+    $("#fint1").on('input', function() {
         $("#fint").val($("#fint1").val())
     });
 
-    $("#laint1").keyup(function(){
+    $("#laint1").on('input', function() {
         $("#laint").val($("#laint1").val())
     });
 
-    $("#laint").keyup(function(){
+    $("#laint").on('input', function() {
         $("#laint1").val($("#laint").val())
     });
 
-    $("#add").keyup(function(){
+    $("#add").on('input', function() {
         $("#add1").val($("#add").val())
     });
 
-    $("#add1").keyup(function(){
+    $("#add1").on('input', function() {
         $("#add").val($("#add1").val())
     });
 
-    $("#city1").keyup(function(){
+    $("#city1").on('input', function() {
         $("#city").val($("#city1").val())
     });
 
-    $("#city").keyup(function(){
+    $("#city").on('input', function() {
         $("#city1").val($("#city").val())
     });
 
-    $("#zip").keyup(function(){
+    $("#zip").on('input', function() {
         $("#zip1").val($("#zip").val())
     });
 
-    $("#zip1").keyup(function(){
+    $("#zip1").on('input', function() {
         $("#zip").val($("#zip1").val())
     });
 
-    $('#stat').on('change', function(){
+    $('#stat').on('input', function() {
         $('#stat1').val($(this).val());
     })
 
-    $('#stat1').on('change', function(){
+    $('#stat1').on('input', function() {
         $('#stat').val($(this).val());
     })
 
