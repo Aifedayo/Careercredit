@@ -1,22 +1,26 @@
+from typing import List
+
+from background_task.models_completed import CompletedTask
 from django.contrib import admin, messages
 from django import forms
-from django.db.models import Sum
+from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import redirect
+from django.template.response import TemplateResponse
+from django.urls import path
 
-from . import models
 from django.core.mail import send_mail
-from django.conf import settings
+from .mail_service import LinuxjobberMassMailer, handle_campaign
 from .models import FAQ, Job, RHCSAOrder, FreeAccountClick, Campaign, Message, Unsubscriber, Internship, \
     InternshipDetail, MessageGroup, UserLocation, NewsLetterSubscribers, UserOrder, Document, MainModel, AwsCredential, \
     Jobplacement, Groupclass, BillingHistory, GroupClassRegister, StripePayment, UserPayment, wepeoples, wetask, werole, \
     wework, wetype, PartTimeJob, TryFreeRecord, FullTimePostion, PartTimePostion, Resume, CareerSwitchApplication, \
     Certificates, EmailMessageType, EmailMessageLog, CompleteClass, \
     CompleteClassLearn, CompleteClassCertificate, WorkExperienceEligibility, WorkExperienceIsa, WorkExperiencePay, \
-    SubPayment, InstallmentPlan, INSTALLMENT_PLAN_STATUS, EmailGroup
+    SubPayment, InstallmentPlan, EmailGroup, EmailGroupMessageLog
 
 from datetime import timedelta
 import datetime
-import subprocess, os
+import subprocess
 from django.conf import settings
 
 
@@ -198,25 +202,34 @@ class EmailMessageTypeAdmin(admin.ModelAdmin):
 
 
 class EmailMessageLogAdmin(admin.ModelAdmin):
-    list_display = ['subject','to_address','header_text','message_type','has_sent','timestamp']
-    actions = ['resend_message',]
+    list_display = ['subject','to_address','header_text','message_type','has_sent','group_log','timestamp']
+    actions = ['resend_message','unsent']
+    list_filter = ('has_sent',)
+
+
+    def unsent(self, request, queryset):
+        for message in queryset:
+            message.set_as_fail('Custom ')
 
     def resend_message(self, request, queryset):
-        for message in queryset:
-            message.send_mail()
-            if message.has_sent:
+        mailer = LinuxjobberMassMailer(queryset,is_queryset = True)
+        mailer.send()
+
+        for message in mailer.messages:
+            if message.message_obj.has_sent:
                 self.message_user(request,"{} sent to {} successfully".format(
                     message.subject,
-                    message.to_address
+                    message.to
                 ))
             else:
                 self.message_user(request,"Failed to send email {} to {} [ERROR: {}] ".format(
                     message.subject,
-                    message.to_address,
-                    message.error_message
+                    message.message_obj.to_address,
+                    message.message_obj.error_message
                 ), level=messages.ERROR)
 
-    resend_message.short_description = 'Send/resend selected messages'
+    resend_message.short_description = 'Send/Resend selected messages'
+    unsent.short_description = 'Set selected messages as unsent'
 
 class SubPaymentInlineFormset(forms.models.BaseInlineFormSet):
     def clean(self):
@@ -286,12 +299,12 @@ class CustomSubPaymentAdminForm(forms.ModelForm):
 
 
 class InstallmentPlanAdmin(admin.ModelAdmin):
-    list_display = ('user','description','total_amount','balance','total_installments')
-    list_filter = ('status',)
+    list_display = ('user','description','total_amount','balance','total_installments','is_cancelled')
+    list_filter = ('status','is_cancelled')
     search_fields = ('user__email','description')
     fieldsets = [
         ['General Information', {
-            'fields': ['user', 'description', 'total_amount']
+            'fields': ['user', 'description', 'total_amount','is_cancelled']
         }],
     ]
     inlines =  (SubPaymentInline,)
@@ -317,11 +330,127 @@ class InstallmentPlanAdmin(admin.ModelAdmin):
     #         self.message_user(request, "Please add at least one payment for {}'s {}".format(
     #                 obj.user,obj.description),messages.WARNING)
 
+class EmailGroupForm(forms.ModelForm):
+    class Meta:
+        model = EmailGroup
+        exclude =[]
+
+    def clean(self):
+        if self.cleaned_data:
+            try:
+                EmailGroup.run_query(None,self.cleaned_data['sql_query'],
+                                     self.cleaned_data['where_clause'],
+                                     self.cleaned_data['exclude_clause'])
+            except Exception as e:
+                raise forms.ValidationError('Error in query : {}'.format(e))
+
+
+
 
 class EmailGroupAdmin(admin.ModelAdmin):
-    list_display = ('name','description','members_by_role')
+    list_display = ('name','description',)
+    form = EmailGroupForm
     filter_horizontal = ('extra_members',)
     search_fields = ('name',)
+    fieldsets = [
+        ['Basic Information', {
+            'fields': ['name', 'description']
+        }],['Query Builder',{
+            'fields' : ['sql_query',('where_clause','exclude_clause')]
+        }],['Extra',{
+            'fields' : ['extra_members']
+        }],
+    ]
+
+
+
+
+
+
+class SendMessageAdmin(admin.ModelAdmin):
+    """
+        Maps to the email message log model, this is just to enable the filed to show send message in model admin
+    """
+    change_list_template = 'admin/emailgroup_changelist.html'
+    list_display = ('message','group','get_mail_statistics')
+
+
+
+    def get_urls(self):
+        urls = super().get_urls()
+        my_urls = [
+            path('mail/compose', self.compose_mail, name= 'mail-compose'),
+            path('mail/activate', self.mail_activate, name= 'mail-activate'),
+            path('mail/logs', self.mail_logs, name= 'mail-logs'),
+            path('mail/status', self.check_mail_status, name= 'mail-status'),
+        ]  # type: List[path]
+        return my_urls + urls
+
+    def compose_mail(self,request,is_sent=False):
+        context = {'groups': EmailGroup.objects.all(),'group_messages':Message.objects.all()}
+        return TemplateResponse(request,'admin/compose_mail.html',context)
+
+    def mail_logs(self,request):
+        context = {'groups': EmailGroup.objects.all()}
+        return TemplateResponse(request,'admin/list_group_mail.html',context)
+
+    def mail_activate(self,request):
+        context = {}
+        if request.method == 'POST':
+            email_group_id=request.POST.get('group',None)
+            message=request.POST.get('message',None)
+            is_instant=request.POST.get('is_instant',True)
+            # Implementation for scheduled messages
+            if is_instant:
+                pass
+            if email_group_id and message:
+                try:
+                    _message = Message.objects.get(id=message)
+                    _email_group = EmailGroup.objects.get(id=email_group_id)
+                    # Check for request duplication
+                    try:
+                        last = CompletedTask.objects.last()
+                        import re
+                        group_message_log_id = re.findall('\d+', last.task_params)[0]
+                        group_message_log = EmailGroupMessageLog.objects.get(pk=group_message_log_id)
+                        if group_message_log.message == _message and group_message_log.group == _email_group:
+                            context['group'] = group_message_log
+                            messages.error(
+                                request,' Multiple request detected, details of original request are as follows')
+
+                        else:
+                            raise
+
+                    except:
+                        # Means duplicate found
+                        created_group = EmailGroupMessageLog.objects.create(
+                            group=_email_group,
+                            message = _message,
+                            created_by=request.user,
+                            is_instant = is_instant
+                        )
+                        # members = created_group.group.get_members()
+                        context['group'] = created_group
+                        handle_campaign(group_id=created_group.id)
+                    finally:
+                        return TemplateResponse(request,'admin/mail_pocessing.html',context)
+                except Exception as e:
+                    print(e)
+                    self.message_user(request,'Error in creating a message')
+                    return HttpResponseRedirect('../')
+            return TemplateResponse(request,'admin/mail_pocessing.html')
+        else:
+            self.message_user(request,'Cannot validate request, try again',messages.WARNING)
+            return redirect('admin:index')
+
+    def check_mail_status(self,request):
+        if request.method == 'POST':
+            group_id = request.POST.get('group_id',None)
+            try:
+                group = EmailGroupMessageLog.objects.get(pk=group_id)
+                return JsonResponse(group.get_mail_statistics())
+            except:
+                return JsonResponse({})
 
 admin.site.register(WorkExperienceIsa)
 admin.site.register(WorkExperienceEligibility)
@@ -364,8 +493,10 @@ admin.site.register(CompleteClass)
 admin.site.register(CompleteClassLearn)
 admin.site.register(CompleteClassCertificate)
 admin.site.register(EmailMessageType,EmailMessageTypeAdmin)
-admin.site.register(EmailMessageLog)
+admin.site.register(EmailMessageLog,EmailMessageLogAdmin)
 admin.site.register(InstallmentPlan, InstallmentPlanAdmin)
 admin.site.register(EmailGroup, EmailGroupAdmin)
+admin.site.register(EmailGroupMessageLog, SendMessageAdmin)
+
 
 
