@@ -462,6 +462,14 @@ class WorkExperienceIsa(models.Model):
     def __str__(self):
         return self.user.email
 
+class WorkExperiencePriceWaiver(models.Model):
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+    price = models.CharField(max_length=200, default="0")
+    is_enabled = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.user.email
+
 class wepeoples(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     profile_picture = models.ImageField(upload_to='resume', null=True)
