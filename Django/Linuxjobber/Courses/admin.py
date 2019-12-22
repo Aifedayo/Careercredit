@@ -45,7 +45,7 @@ class CourseSectionAdmin(admin.ModelAdmin):
 	list_display = ('course', 'name')
 
 class CourseFeedbackAdmin(admin.ModelAdmin):
-	list_display = ('course', 'user' , 'rating', 'created_on','updated_on')
+	list_display = ('course', 'user' , 'rating','comment', 'created_on','updated_on')
 
 admin.site.register(Course)
 admin.site.register(CourseTopic, CourseTopicAdmin)
