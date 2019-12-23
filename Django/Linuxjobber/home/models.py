@@ -332,7 +332,7 @@ class Message(models.Model):
     group = models.ForeignKey(MessageGroup, default=1, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.title
+        return self.slug
 
 
 TARGETS = (
@@ -897,7 +897,7 @@ class EmailGroup(models.Model):
     extra_members = models.ManyToManyField(CustomUser,blank=True)
 
     def __str__(self):
-        return self.name + "({})".format(self.description)
+        return self.name + "".format(self.description)
 
     def run_query(self,*args):
         if args:
@@ -955,7 +955,7 @@ class EmailGroupMessageLog(models.Model):
         pass
 
     def __str__(self):
-        return self.message.slug + "({})".format(self.group.name)
+        return self.group.name + "({})".format(self.message.slug)
 
     def get_failed_messages(self):
         return  self.emailmessagelog_set.filter(has_sent=False)

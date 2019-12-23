@@ -162,7 +162,7 @@ def handle_campaign(group_id):
     transformed_members = [LinuxjobberMailer(
         subject= message_template.message.title,
         to_address= email,
-        header_text="",
+        header_text=message_template.message.sender_name,
         type=None,
         group_id = group_id,
         message=message_template.message.message
