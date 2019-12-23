@@ -1,20 +1,20 @@
 
  <!-- Chat View -->
  <div class="card medium" style="max-height: 500px;">
-  <div class="card-content" style="overflow:auto" id="chat_div_space">
-
+  <div class="card-content" style="overflow:auto" id="chat_div_space" #chatList>
     <ul>
       <li *ngFor="let message of messages" [innerText]="message"><br></li>
-  </ul>
+    </ul>
   </div>
 </div>
 
 
  <div class="form-group" style="display:flex">
-  <!-- <input (keyup.enter)="sendMessage(chat_text)" class="form-control" type="text" id="message_box" name="chat_text" [(ngModel)]="chat_text" placeholder="Type Your Message Here"> -->
-  <input class="form-control" type="text" id="message_box" name="chat_text" [(ngModel)]="chat_text" placeholder="Type Your Message Here">
-  <button class="btn btn-default send" (click)="sendMessage(chat_text)" id="submit">
-    <i class="material-icons right" id="send_icon">send</i>
-  </button>
+    <input class="form-control" type="text" id="message_box" 
+      name="chat_text" [(ngModel)]="chat_text" placeholder="Type Your Message Here"
+      (keyup.enter)="sendMessage(chat_text,'plain')">
+    <button class="btn btn-default send" (click)="sendMessage(chat_text,'plain')" id="submit">
+      <i class="material-icons right" id="send_icon">send</i>
+    </button>
 </div>
 
