@@ -23,7 +23,6 @@ export class TopicVideoComponent implements OnInit {
 
 
   ngOnInit() {
-
     this.data$ = this.apiService.data$
      // this.route.params.subscribe(params => {
      //    const selectedClass = + params["group_id"];
