@@ -1,20 +1,16 @@
 import datetime
 import enum
-import os
 
 from django.contrib.auth.models import User
 from django.contrib.humanize.templatetags import humanize
-from django.contrib import messages
 from django.core.exceptions import ValidationError
-from django.db import connection, models
 from django.db.models import Sum
-from django.utils import timezone
 
 from Courses.models import Course
-from users.models import CustomUser,Role
+from users.models import CustomUser
 
 from datetime import date
-
+from background_task.models_completed import *
 
 def due_time():
     return timezone.now() + timezone.timedelta(days=6)
@@ -330,6 +326,7 @@ class MessageGroup(models.Model):
 
 class Message(models.Model):
     title = models.CharField(max_length=250)
+    sender_name = models.CharField(max_length=255,null=True)
     message = models.TextField()
     slug = models.SlugField(max_length=40)
     group = models.ForeignKey(MessageGroup, default=1, on_delete=models.CASCADE)
@@ -461,6 +458,14 @@ class WorkExperienceIsa(models.Model):
     employment_status =  models.TextField(null=True)
     estimated_date_of_program_completion = models.DateTimeField(default=timezone.now, null=True)
     is_signed_isa = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.user.email
+
+class WorkExperiencePriceWaiver(models.Model):
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+    price = models.CharField(max_length=200, default="0")
+    is_enabled = models.BooleanField(default=False)
 
     def __str__(self):
         return self.user.email
@@ -618,6 +623,7 @@ class EmailMessageLog(models.Model):
     subject = models.CharField(max_length=500,default="",blank=True)
     content = models.TextField(default="",blank=True)
     has_sent = models.BooleanField(default=False)
+    group_log = models.ForeignKey('EmailGroupMessageLog',null=True,blank=True,on_delete=models.CASCADE)
     error_message =  models.TextField(blank=True,null=True)
     timestamp = models.DateTimeField(default=timezone.now,null=True)
 
@@ -638,8 +644,7 @@ class EmailMessageLog(models.Model):
         self.has_sent=False
         self.save()
 
-
-    def send_mail(self):
+    def format_mail(self):
         if self.message_type:
             header_format = self.message_type.header_format
         else:
@@ -653,22 +658,36 @@ class EmailMessageLog(models.Model):
             except Exception as e:
                 print(e)
                 header_format = "{}"
-
-
-        from .mail_service import send_mail_with_client
         self.header_text = header_format.format(self.header_text)
-        self.save()
+
+    def send_mail(self):
+        self.format_mail()
+        from .mail_service import send_mail_with_client
         try:
             send_mail_with_client(self)
             self.set_as_sent()
         except Exception as error:
             self.set_as_fail(error.__str__())
 
+    def save(self,*args,**kwargs):
+        """
+        Sets paid_on date
+        :param args:
+        :param kwargs:
+        :return:
+        """
+        self.format_mail()
+        super(type(self),self).save(*args, **kwargs)
+
+
+
+
+
 
 class SubPayment(models.Model):
     amount = models.FloatField()
     description = models.CharField(max_length=255,null=True)
-    installment = models.ForeignKey("InstallmentPlan",on_delete=models.DO_NOTHING,null=True)
+    installment = models.ForeignKey("InstallmentPlan",on_delete=models.CASCADE,null=True)
     due_in = models.IntegerField(default=1,)
     is_initial = models.BooleanField(default=False,)
     is_paid = models.BooleanField(default=False)
@@ -691,6 +710,9 @@ class SubPayment(models.Model):
     def approve_payment(self):
         self.set_as_paid()
         # self.installment.set_payment_status()
+
+    def get_previously_completed_payment(self):
+        return
 
     def get_initial_payment(self):
         return self.installment.subpayment_set.get(is_initial=True)
@@ -720,7 +742,9 @@ class SubPayment(models.Model):
         if self.initial_has_been_paid():
             return self.calculate_due_date()
         else:
-            return "{number_of_weeks} weeks after initial payment".format(
+            if self.is_initial:
+                return "Due now"
+            return "Waiting to be activated".format(
                 number_of_weeks = self.due_in
             )
 
@@ -731,6 +755,16 @@ class SubPayment(models.Model):
             return "Initial not paid".format(
                 number_of_weeks = self.due_in
             )
+
+    def get_balance_after_payment(self):
+        all_payments = self.installment.get_paid_subpayments()
+        if all_payments:
+            amount=all_payments.filter(paid_on__lte=self.paid_on).aggregate(sum=Sum('amount'))
+            return self.installment.total_amount - amount['sum']
+        else:
+            return self.installment.total_amount
+
+
 
     def save(self,*args,**kwargs):
         """
@@ -752,6 +786,7 @@ INSTALLMENT_PLAN_STATUS = (
     ('is_unpaid','Unpaid'),
     ('is_pending','Pending'),
     ('is_settled','Settled'),
+    ('is_cancelled','Cancelled'),
     ('is_breached','Breached')
 )
 class PlanStatus(enum.Enum):
@@ -759,18 +794,21 @@ class PlanStatus(enum.Enum):
     is_pending = "is_pending"
     is_settled = 'is_settled'
     is_breached = 'is_breached'
+    is_cancelled = 'is_cancelled'
 
 class InstallmentPlan(models.Model):
     user = models.ForeignKey(CustomUser,on_delete=models.CASCADE)
-    description =  models.CharField(max_length=255,null=True)
+    description = models.CharField(max_length=255,null=True)
     total_amount = models.FloatField()
+    is_cancelled = models.BooleanField(default=False)
     status = models.CharField(editable=False,max_length=15,default=PlanStatus.is_unpaid.value)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
 
+
     def clean(self):
         if self.subpayment_set.count() < 0:
-            raise ValidationError('Please put atleast one payment')
+            raise ValidationError('Please put at least one payment')
 
     def __str__(self):
         return "{description} in ({installment_count}) installments for {user}  ".format(
@@ -783,6 +821,9 @@ class InstallmentPlan(models.Model):
             return self.total_amount - self.get_balance()
         else:
             return 0
+
+    def get_paid_subpayments(self):
+        return self.subpayment_set.filter(is_paid=True).order_by('-paid_on')
 
     def get_balance(self):
         if not self.subpayment_set.all():
@@ -840,11 +881,113 @@ class InstallmentPlan(models.Model):
             self.status = PlanStatus.is_unpaid.value
             self.save()
 
+        if self.is_cancelled:
+            self.status = PlanStatus.is_cancelled.value
+            self.save()
+
+from django.db import connection
+
 class EmailGroup(models.Model):
     name = models.CharField(max_length=255,)
     description = models.CharField(max_length=255,)
-    members_by_role = models.ForeignKey(Role,on_delete=models.CASCADE,null=True,blank=True)
+    # members_by_role = models.ForeignKey(Role,on_delete=models.CASCADE,null=True,blank=True)
+    sql_query = models.TextField(null=True)
+    where_clause = models.TextField(null=True,blank=True)
+    exclude_clause = models.TextField(null=True,blank=True)
     extra_members = models.ManyToManyField(CustomUser,blank=True)
+
+    def __str__(self):
+        return self.name + "({})".format(self.description)
+
+    def run_query(self,*args):
+        if args:
+            with connection.cursor() as cursor:
+                cursor.execute("{} {} {}".format(args[0],
+                                            args[1] if args[1] else "",
+                                            args[2] if args[2] else ""
+                                                 ).strip('""'))
+                row = cursor.fetchall()
+            return row
+
+        if self.sql_query:
+            with connection.cursor() as cursor:
+                cursor.execute("{} {} {}".format(self.sql_query,
+                                            self.where_clause if self.where_clause else "",
+                                            self.exclude_clause if self.exclude_clause else ""
+                                                 ).strip('""'))
+                row = cursor.fetchall()
+                from functools import reduce
+                import operator
+                if row:
+                    row = reduce(operator.concat,row)
+                else:
+                    row = []
+                return row
+        else:
+            return []
+
+
+    def members_count(self):
+        # return self.get_members_by_role().count() + self.extra_members.all().count()
+        # extra_members = self.extra_members.all().count()
+        # members_from_query = self.run_query()
+        return len(self.get_members_emails())
+
+    def get_members(self):
+        members = self.run_query()
+        total_members = CustomUser.objects.filter(email__in=members) | self.extra_members.all()
+        return total_members
+
+    def get_members_emails(self):
+        # Values are made distinct in here
+        return set(self.get_members().values_list('email',flat=True))
+
+class EmailGroupMessageLog(models.Model):
+    group = models.ForeignKey(EmailGroup,on_delete=models.DO_NOTHING)
+    message = models.ForeignKey(Message,on_delete=models.DO_NOTHING,blank=True,null=True)
+    is_instant = models.BooleanField(default=True)
+    delivery_time = models.DateTimeField(null=True)
+    is_completed = models.BooleanField(default=False)
+    created_by = models.ForeignKey(CustomUser,on_delete=models.DO_NOTHING)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def schedule_mail(self):
+        pass
+
+    def __str__(self):
+        return self.message.slug + "({})".format(self.group.name)
+
+    def get_failed_messages(self):
+        return  self.emailmessagelog_set.filter(has_sent=False)
+
+    def handle_failed_messages(self):
+        pass
+
+    def get_mail_statistics(self):
+        try:
+            CompletedTask.objects.get(task_params__contains=self.pk)
+            self.is_completed=True
+            self.save()
+        except:
+            pass
+        context = {
+            'has_completed': self.is_completed,
+            'sent' : self.emailmessagelog_set.filter(has_sent=True).count(),
+            'failed':self.emailmessagelog_set.filter(has_sent=False).count(),
+            'total': self.emailmessagelog_set.count()
+        }
+        return context
+
+    def set_as_completed(self):
+        self.is_completed = True
+        self.save()
+
+    class Meta:
+        verbose_name = "Send Message"
+        verbose_name_plural = "Send Message"
+
+
+
 
 
 

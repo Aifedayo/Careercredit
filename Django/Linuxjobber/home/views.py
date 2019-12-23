@@ -1,31 +1,28 @@
 import stripe
 import csv, io
 import logging
-import subprocess, json, os
+import subprocess, json
 import random, string
-from datetime import datetime
 import pytz
 import requests
-import datetime
 
 from smtplib import SMTPException
 from django.conf import settings
 from django.contrib.auth.hashers import check_password
 from django.core.files.storage import FileSystemStorage
-from django.core.mail import send_mail, BadHeaderError
+from django.core.mail import send_mail
 from django.db import IntegrityError
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth.decorators import login_required
 from django.template.response import TemplateResponse
 from django.utils.datastructures import MultiValueDictKeyError
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
 # from django.core.mail import send_mail
-from django.http import HttpResponse, HttpResponseRedirect, Http404
+from django.http import HttpResponse, HttpResponseRedirect, Http404, JsonResponse
 from rest_framework.authtoken.models import Token
 from datetime import timedelta
-from django.views.decorators.csrf import csrf_protect
 
 from .models import *
 from users.models import *
@@ -34,9 +31,9 @@ from ToolsApp.models import Tool
 from users.models import CustomUser
 from .forms import JobPlacementForm, JobApplicationForm, AWSCredUpload, InternshipForm, \
     ResumeForm, PartimeApplicationForm, WeForm, UnsubscribeForm
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from datetime import datetime
-from .mail_service import LinuxjobberMailer
+from .mail_service import LinuxjobberMailer, handle_failed_campaign
+
 fs = FileSystemStorage(location=settings.MEDIA_ROOT + '/uploads')
 # stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -1228,15 +1225,24 @@ def devops_pay(request):
 
 
 def workexperience(request):
+    PRICE=None
     if request.user.is_authenticated:
         try:
             workexp = wepeoples.objects.get(user=request.user)
             return redirect("home:workexprofile")
         except wepeoples.DoesNotExist:
             pass
+        try:
+            wav = WorkExperiencePriceWaiver.objects.get(user=request.user)
+            if wav.is_enabled:
+                PRICE = wav.price
+                PRICE = PRICE.replace(',','')
+                PRICE = PRICE.split('.')[0]
+        except WorkExperiencePriceWaiver.DoesNotExist:
+            PRICE = None
     else:
         pass
-    return render(request, 'home/work_experience.html')
+    return render(request, 'home/work_experience.html', {'PRICE':PRICE})
 
 
 def workterm(request):
@@ -1329,8 +1335,7 @@ def work_experience_eligible(request):
     try:
         details =  WorkExperienceEligibility.objects.get(user=request.user)
         date = details.date_of_birth
-        date = date.strftime('%Y-%m-%d')
-        
+        date = date.strftime('%m/%d/%Y')
         created = details.date_created
         created = created.strftime('%Y-%m-%d')
         
@@ -1428,7 +1433,6 @@ def work_experience_isa_part_1(request):
         details = None
         date = None
         ssn = None
-        
 
     try:
         paid = WorkExperiencePay.objects.get(user=request.user)
@@ -1746,13 +1750,24 @@ def pay(request):
         return redirect("home:workexprofile")
     except wepeoples.DoesNotExist:
         pass
+
+    try:
+        wav = WorkExperiencePriceWaiver.objects.get(user=request.user)
+        if wav.is_enabled:
+            PRICE = wav.price
+            PRICE = PRICE.replace(',','')
+            PRICE = PRICE.split('.')[0]
+    except WorkExperiencePriceWaiver.DoesNotExist:
+        PRICE = 399
+        pass
+
     if request.method == "POST":
         token = request.POST.get("stripeToken")
         jobplacement = request.POST["workexperience"]
         
         try:
             charge = stripe.Charge.create(
-                amount=PRICE * 100,
+                amount=int(PRICE) * 100,
                 currency="usd",
                 source=token,
                 description=PAY_FOR
@@ -1761,52 +1776,48 @@ def pay(request):
             return False, ce
 
         
-        if jobplacement == '1':
-            optiona = True
         
-
-        
-        
-
-
-        try:
-            UserPayment.objects.create(user=request.user, amount=PRICE, trans_id=charge.id, pay_for=charge.description)
-            wepeoples.objects.update_or_create(user=request.user, types=None, current_position=None,
-                                               person=None, state=None, income=None, relocation=None,
-                                               last_verification=None, Paystub=None, graduation_date=None)
-            
-            state = WorkExperiencePay.objects.create(user=request.user,is_paid=True,includes_job_placement=optiona)
-            
-        
-            # New mail implementation
-
-
-            # send_mail('Linuxjobber Work-Experience Program',
-            #           'Hello, you have succesfully paid for Linuxjobber work experience program,\n\nIf you havent signed the agreement, visit this link to do so: https://leif.org/commit?product_id=5b30461fe59b74063647c483#/.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
-            #           settings.EMAIL_HOST_USER, [request.user.email])
-            message_applicant = """
-                Hello, 
-
-                You have succesfully paid for Linuxjobber Work Experience Program.
+        else:
+            if jobplacement == '1':
+                optiona = True
+            try:
+                UserPayment.objects.create(user=request.user, amount=PRICE, trans_id=charge.id, pay_for=charge.description)
+                wepeoples.objects.update_or_create(user=request.user, types=None, current_position=None,
+                                                person=None, state=None, income=None, relocation=None,
+                                                last_verification=None, Paystub=None, graduation_date=None)
                 
+                state = WorkExperiencePay.objects.create(user=request.user,is_paid=True,includes_job_placement=optiona)
+                
+            
+                # New mail implementation
 
-                Warm Regards,
-                Linuxjobber
 
-            """
-            mailer_applicant = LinuxjobberMailer(
-                subject="Payment Successful",
-                to_address=request.user.email,
-                header_text="Linuxjobber Work Experience",
-                type=None,
-                message=message_applicant
-            )
-            mailer_applicant.send_mail()
+                # send_mail('Linuxjobber Work-Experience Program',
+                #           'Hello, you have succesfully paid for Linuxjobber work experience program,\n\nIf you havent signed the agreement, visit this link to do so: https://leif.org/commit?product_id=5b30461fe59b74063647c483#/.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
+                #           settings.EMAIL_HOST_USER, [request.user.email])
+                message_applicant = """
+                    Hello, 
 
-            return redirect("home:eligibility")
-        except Exception as error:
-            messages.error(request, 'An error occurred while trying to pay please try again')
-            return redirect("home:pay")
+                    You have succesfully paid for Linuxjobber Work Experience Program.
+                    
+
+                    Warm Regards,
+                    Linuxjobber
+
+                """
+                mailer_applicant = LinuxjobberMailer(
+                    subject="Payment Successful",
+                    to_address=request.user.email,
+                    header_text="Linuxjobber Work Experience",
+                    type=None,
+                    message=message_applicant
+                )
+                mailer_applicant.send_mail()
+
+                return redirect("home:eligibility")
+            except Exception as error:
+                messages.error(request, 'An error occurred while trying to pay please try again')
+                return redirect("home:pay")
     else:
         context = {"stripe_key": stripeset[0].publickey,
                    'price': PRICE,
@@ -1815,7 +1826,6 @@ def pay(request):
                    'PAY_FOR': PAY_FOR,
                    'DISCLMR': DISCLMR}
         return render(request, 'home/pay.html', context)
-
 
 def accepted(request):
     return render(request, 'home/accepted.html')
@@ -2696,11 +2706,8 @@ def full_train_pay(request, class_id):
                             'Hello, you have successfuly subscribed for our ' +comclass.name+' Plan package.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
                             settings.EMAIL_HOST_USER, [request.user.email])
                 return render(request, 'home/complete_pay_success.html', {'class': comclass.name})
-            except SMTPException as error:
-                print(error)
-                return render(request, 'home/complete_pay_success.html', {'class': comclass.name})
             except Exception as error:
-                print(error)
+                messages.error(request, 'An error occurred while trying to pay please try again')
                 return redirect("home:index")
     else:
         amt = PRICE.replace(',','')
@@ -3457,3 +3464,17 @@ Linuxjobber
     else:
         messages.error(request,'Unable to validate installment, please select a valid installment plan')
         return redirect('home:installments')
+@csrf_exempt
+def mail_status(request):
+    if request.method == 'POST':
+        group_id = request.POST.get('group_id', None)
+        try:
+            group = EmailGroupMessageLog.objects.get(pk=group_id)
+            stats = group.get_mail_statistics()
+            # if stats['has_completed'] and group.get_failed_messages():
+            #     handle_failed_campaign(group.id)
+            #     stats['has_completed'] = False
+            return JsonResponse(stats)
+        except Exception as e:
+            print(e)
+            return JsonResponse({})
