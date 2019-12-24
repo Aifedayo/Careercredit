@@ -3,12 +3,15 @@ from typing import List
 from background_task.models_completed import CompletedTask
 from django.contrib import admin, messages
 from django import forms
+from django.contrib.admin.views.main import ChangeList
 from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import redirect
 from django.template.response import TemplateResponse
 from django.urls import path
 
 from django.core.mail import send_mail
+from django.utils import timezone
+
 from .mail_service import LinuxjobberMassMailer, handle_campaign
 from .models import FAQ, Job, RHCSAOrder, FreeAccountClick, Campaign, Message, Unsubscriber, Internship, \
     InternshipDetail, MessageGroup, UserLocation, NewsLetterSubscribers, UserOrder, Document, MainModel, AwsCredential, \
@@ -16,7 +19,7 @@ from .models import FAQ, Job, RHCSAOrder, FreeAccountClick, Campaign, Message, U
     wework, wetype, PartTimeJob, TryFreeRecord, FullTimePostion, PartTimePostion, Resume, CareerSwitchApplication, \
     Certificates, EmailMessageType, EmailMessageLog, CompleteClass, \
     CompleteClassLearn, CompleteClassCertificate, WorkExperienceEligibility, WorkExperienceIsa, WorkExperiencePay, \
-    SubPayment, InstallmentPlan, EmailGroup, EmailGroupMessageLog
+    SubPayment, InstallmentPlan, EmailGroup, EmailGroupMessageLog, WorkExperiencePriceWaiver
 
 from datetime import timedelta
 import datetime
@@ -204,12 +207,39 @@ class EmailMessageTypeAdmin(admin.ModelAdmin):
 class EmailMessageLogAdmin(admin.ModelAdmin):
     list_display = ['subject','to_address','header_text','message_type','has_sent','group_log','timestamp']
     actions = ['resend_message','unsent']
-    list_filter = ('has_sent',)
+    list_filter = ('has_sent','group_log')
+    change_list_template = 'admin/emailmessage_log_changelist.html'
 
+
+    def get_urls(self):
+        urls = super().get_urls()
+        my_urls = [
+            path('mail/delete', self.clean_mail, name= 'clean-mail-log'),
+        ]  # type: List[path]
+        return my_urls + urls
+
+    def clean_mail(self,request):
+        if request.method == "POST":
+            message_count = 0
+            amount_of_days = request.POST.get('amount_of_days',None)
+            if amount_of_days:
+                amount_of_days = int(amount_of_days)
+                logs = EmailMessageLog.objects.filter(timestamp__lte=timezone.now() - timedelta(days=amount_of_days))
+                message_count = logs.count()
+
+                logs.delete()
+                self.message_user(request,'{message_count} total messages from {days} days have been deleted'.format(
+                    message_count = message_count,
+                    days = amount_of_days,
+                ),messages.SUCCESS)
+            else:
+                self.message_user(request,'Error, cannot use a value less than 1 ')
+        return HttpResponseRedirect('../')
 
     def unsent(self, request, queryset):
         for message in queryset:
             message.set_as_fail('Custom ')
+
 
     def resend_message(self, request, queryset):
         mailer = LinuxjobberMassMailer(queryset,is_queryset = True)
@@ -373,7 +403,17 @@ class SendMessageAdmin(admin.ModelAdmin):
     """
     change_list_template = 'admin/emailgroup_changelist.html'
     list_display = ('message','group','get_mail_statistics')
+    search_fields = ('message','group')
+    list_filter = ('group',)
 
+    class CustomChangeList(ChangeList):
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            self.title = 'Emails Sent Via Email Groups'
+
+
+    def get_changelist(self, request, **kwargs):
+        return self.CustomChangeList
 
 
     def get_urls(self):
@@ -385,6 +425,9 @@ class SendMessageAdmin(admin.ModelAdmin):
             path('mail/status', self.check_mail_status, name= 'mail-status'),
         ]  # type: List[path]
         return my_urls + urls
+
+    def has_add_permission(self, request, obj=None):
+        return False
 
     def compose_mail(self,request,is_sent=False):
         context = {'groups': EmailGroup.objects.all(),'group_messages':Message.objects.all()}
@@ -455,6 +498,7 @@ class SendMessageAdmin(admin.ModelAdmin):
 admin.site.register(WorkExperienceIsa)
 admin.site.register(WorkExperienceEligibility)
 admin.site.register(WorkExperiencePay)
+admin.site.register(WorkExperiencePriceWaiver)
 admin.site.register(FAQ)
 admin.site.register(Job, JobAdmin)
 admin.site.register(UserOrder)

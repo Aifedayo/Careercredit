@@ -1,0 +1,28 @@
+{% extends 'admin/change_list.html' %}
+{% block object-tools %}
+<div>
+<form action="{% url 'admin:clean-mail-log' %}" method="POST">
+        {% load static %}
+    <link rel="stylesheet" href="{% static "admin/assets/vendor/bootstrap/css/bootstrap.min.css" %}">
+    <fieldset>
+        {% csrf_token %}
+        <h4>Clean Old Messages</h4>
+        <p>
+            <label for="amount_of_days">
+                Enter amount of days of email to delete
+                <input type="number" name="amount_of_days" required>
+
+                </input>
+            </label>
+        </p>
+<button class="btn btn-primary" type="submit">
+    Delete
+</button>
+    </fieldset>
+
+</form>
+
+</div>
+<br />
+{{ block.super }}
+{% endblock %}
