@@ -9,7 +9,7 @@ from django.template.response import TemplateResponse
 from django.urls import path
 
 from django.core.mail import send_mail
-from .mail_service import LinuxjobberMassMailer, handle_campaign
+from .mail_service import LinuxjobberMassMailer, handle_campaign, LinuxjobberMailer
 from .models import FAQ, Job, RHCSAOrder, FreeAccountClick, Campaign, Message, Unsubscriber, Internship, \
     InternshipDetail, MessageGroup, UserLocation, NewsLetterSubscribers, UserOrder, Document, MainModel, AwsCredential, \
     Jobplacement, Groupclass, BillingHistory, GroupClassRegister, StripePayment, UserPayment, wepeoples, wetask, werole, \
@@ -85,8 +85,14 @@ class weworkAdmin(admin.ModelAdmin):
             if obj.send_task == 1:
                 task = wetask.objects.get(pk=form.cleaned_data['task'].id)
                 template = get_send_task_mail_template(obj, task)
-                send_mail('New Work Experience Task Assigned - Linuxjobber', template, settings.EMAIL_HOST_USER, [obj.we_people.user.email])
-
+                mailer = LinuxjobberMailer(
+                    subject="New Work Experience Task Assigned - Linuxjobber",
+                    to_address=obj.we_people.user.email,
+                    header_text="Linuxjobber",
+                    type=None,
+                    message=template
+                )
+                mailer.send_mail()
             super().save_model(request, obj, form, change)
 
 
