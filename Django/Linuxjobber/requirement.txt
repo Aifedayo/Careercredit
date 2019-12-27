@@ -5,8 +5,8 @@ attrs==18.2.0
 autobahn==18.11.2
 Automat==0.7.0
 beautifulsoup4==4.8.0
-boto3==1.10.36
-botocore==1.13.36
+boto3==1.9.50
+botocore==1.12.50
 certifi==2018.1.18
 channels==2.3.0
 channels-redis==2.4.0
@@ -60,4 +60,3 @@ update==0.0.1
 urllib3==1.22
 webservices==0.7
 zope.interface==4.6.0
-django-background-tasks

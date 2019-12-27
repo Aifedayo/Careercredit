@@ -109,7 +109,6 @@ urlpatterns = [
     path('jobs/submitted',views.job_submitted),
     path('installments/',views.installments,name='installments'),
     path('installments/pay',views.installment_pay, name="installments_pay"),
-    path('mail/status',views.mail_status, name="mail-status"),
 ]
 
 

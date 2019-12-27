@@ -252,7 +252,7 @@ Pay | {{ PAY_FOR }} | Linuxjobber
         <div class="col-md-8">
             <div class="greybo">
                 <div class="checkbox">
-                    <input type="checkbox" id="checkbox" name="workexperience" value="0" checked readonly>
+                    <input type="checkbox" id="checkbox" name="workexperience" value="1" checked readonly>
                     <label for="checkbox"><span class="included">included</span></label>
                 </div>
                 <p class="greyboh1">Work Experience Program</p>
@@ -346,17 +346,16 @@ Pay | {{ PAY_FOR }} | Linuxjobber
 $("#checkbox").on("click", function() {
   $(this).prop('checked', true).attr("readonly")
 });
-
 $('#checkbox1').click(function(){
             if($(this).prop("checked") == true){
                 $(".di1").text("included");
                 $(".tots").text("17")
-                $('#checkbox').val(1);
+                $('#checkbox1').val(1);
             }
             else if($(this).prop("checked") == false){
                 $(".di1").text("not included");
                 $(".tots").text("14");
-                $('#checkbox').val(0);
+                $('#checkbox1').val(0);
             }
         });
 </script>
