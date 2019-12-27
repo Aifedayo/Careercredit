@@ -19,7 +19,6 @@ urlpatterns = [
     path('accounts/login/', log_in, name="login" ),
     path('accounts/', include('django.contrib.auth.urls')),
     path('sso_api/', include('sso_api.urls')),
-    path('awsgateway/', include('awswebsocket.urls')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
