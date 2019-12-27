@@ -339,6 +339,7 @@ rel="stylesheet">
         var modal = $('#modal');
         var successModal = $('#successModal');
         var rating ;
+        var comment = "";
         var submitButton = $('#submit-button');
 
 
@@ -394,16 +395,13 @@ rel="stylesheet">
             }
 
 /** code by webdevtrick ( https://webdevtrick.com ) **/
-$('#rating-form').on('change','[name="rating"]',function(){
+$('#rating-form').on('change','[name="rating"],[name="comment"]',function(){
     rating = $('[name="rating"]:checked').val();
-    var comment = $('[name="comment"]').val();
-    var user_id = '{{ request.user.pk }}'
-    submitButton.removeClass('is-static')
-
-
+    comment = $('[name="comment"]').val();
+    user_id = '{{ request.user.pk }}';
+    if(comment !=="" && rating!=null)
+        submitButton.removeClass('is-static')
 });
-
-
         });
 </script>
 
