@@ -1,16 +1,18 @@
 import datetime
 import enum
 
+from background_task.models import CompletedTask
 from django.contrib.auth.models import User
 from django.contrib.humanize.templatetags import humanize
 from django.core.exceptions import ValidationError
+from django.db import models
 from django.db.models import Sum
 
 from Courses.models import Course
+from django.utils import timezone
 from users.models import CustomUser
 
 from datetime import date
-from background_task.models_completed import *
 
 def due_time():
     return timezone.now() + timezone.timedelta(days=6)
@@ -885,7 +887,8 @@ class InstallmentPlan(models.Model):
             self.status = PlanStatus.is_cancelled.value
             self.save()
 
-from django.db import connection
+from django.db import connection, models
+
 
 class EmailGroup(models.Model):
     name = models.CharField(max_length=255,)
@@ -964,15 +967,22 @@ class EmailGroupMessageLog(models.Model):
         pass
 
     def get_mail_statistics(self):
-        try:
-            CompletedTask.objects.get(task_params__contains=self.pk)
-            self.is_completed=True
+        failed_flag = False
+        # try:
+        #     CompletedTask.objects.get(task_params__contains=self.pk)
+        #     self.is_completed=True
+        #
+        #     self.save()
+        # except:
+        #     pass
+        if not self.get_failed_messages():
+            self.is_completed = True
             self.save()
-        except:
-            pass
+
         context = {
             'has_completed': self.is_completed,
             'sent' : self.emailmessagelog_set.filter(has_sent=True).count(),
+            'pending':self.emailmessagelog_set.filter(has_sent=False).count(),
             'failed':self.emailmessagelog_set.filter(has_sent=False).count(),
             'total': self.emailmessagelog_set.count()
         }
