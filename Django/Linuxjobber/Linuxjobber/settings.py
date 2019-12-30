@@ -324,3 +324,4 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
  
 AWS_WS_GATEWAY = config('AWS_WS_GATEWAY','url')
 
+SES_EMAIL = config('SES_EMAIL','no@test.com')
