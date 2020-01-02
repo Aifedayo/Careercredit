@@ -965,7 +965,10 @@ Go to https://linuxjobber.com/installments to make payment.
             )
 
         from .mail_service import handle_bulk_mail
-        handle_bulk_mail(bulk_data)
+        if bulk_data:
+            handle_bulk_mail(bulk_data)
+            return
+        print('No payment found')
 
     @staticmethod
     def send_all_users_notification_on_overdue_payments():
@@ -999,7 +1002,10 @@ Go to https://linuxjobber.com/installments to make payment now.
                 )
             )
         from .mail_service import handle_bulk_mail
-        handle_bulk_mail(bulk_data)
+        if bulk_data:
+            handle_bulk_mail(bulk_data)
+            return
+        print('No payment found')
 
 
 class EmailGroup(models.Model):

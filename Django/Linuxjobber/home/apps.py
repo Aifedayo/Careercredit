@@ -35,6 +35,18 @@ class HomeConfig(AppConfig):
 
         # Background tasks are activated here
 
-        from .background_tasks import activate_service,set_installment_upcoming_payment_notification_service
+        from .background_tasks import activate_service,set_installment_upcoming_payment_notification_service,\
+            UPCOMING_PAYMENT_NOTIFICATION_SERVICE_LABEL
+        from background_task.models import Task
+        from .utilities import set_upcoming_payment_notification_schedule
+        import calendar
+
+        # Upcoming payments notification
+        activate_service(
+            label=UPCOMING_PAYMENT_NOTIFICATION_SERVICE_LABEL,
+            background_function=set_installment_upcoming_payment_notification_service,
+            task_repeat=Task.WEEKLY,
+        )
+        set_upcoming_payment_notification_schedule(calendar.SUNDAY,'00,00')
 
 
