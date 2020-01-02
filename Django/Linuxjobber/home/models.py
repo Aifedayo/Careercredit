@@ -6,13 +6,15 @@ from django.contrib.auth.models import User
 from django.contrib.humanize.templatetags import humanize
 from django.core.exceptions import ValidationError
 from django.db import models
-from django.db.models import Sum
+from django.db.models import Sum, Q
+from django.db import connection, models
 
 from Courses.models import Course
 from django.utils import timezone
 from users.models import CustomUser
 
 from datetime import date
+
 
 def due_time():
     return timezone.now() + timezone.timedelta(days=6)
@@ -23,7 +25,7 @@ class FAQ(models.Model):
     response = models.CharField(max_length=5000)
     is_wefaq = models.BooleanField(default=False)
     is_fifty_percent_faq = models.BooleanField(default=False)
-    
+
     @classmethod
     def wefaq_is_visible_for(cls, user, weps):
         if user.is_authenticated:
@@ -39,18 +41,20 @@ class FAQ(models.Model):
     def __str__(self):
         return self.question
 
+
 class FullTimePostion(models.Model):
     job_title = models.CharField(max_length=200)
     requirement = models.CharField(max_length=500)
     responsibility = models.TextField()
-    required_technology = models.ForeignKey(Course,on_delete=models.DO_NOTHING,null=True)
+    required_technology = models.ForeignKey(Course, on_delete=models.DO_NOTHING, null=True)
     weight = models.IntegerField(unique=True, null=True)
-    interested_page = models.CharField(max_length=500,default="home:userinterest")
-    not_interested_page = models.CharField(max_length=500,default="home:jobfeed")
-    skilled_page = models.CharField(max_length=500,default="home:workexperience")
+    interested_page = models.CharField(max_length=500, default="home:userinterest")
+    not_interested_page = models.CharField(max_length=500, default="home:jobfeed")
+    skilled_page = models.CharField(max_length=500, default="home:workexperience")
 
     def __str__(self):
         return '%s' % self.job_title
+
 
 class PartTimePostion(models.Model):
     job_title = models.CharField(max_length=200)
@@ -58,8 +62,9 @@ class PartTimePostion(models.Model):
     def __str__(self):
         return '%s' % self.job_title
 
+
 class CompleteClass(models.Model):
-    course = models.ForeignKey(Course,on_delete=models.CASCADE,null=True)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, null=True)
     title = models.CharField(max_length=200)
     name = models.CharField(max_length=200, default="-")
     slug = models.CharField(max_length=200)
@@ -80,13 +85,15 @@ class CompleteClass(models.Model):
     def __str__(self):
         return self.title
 
+
 class CompleteClassLearn(models.Model):
     description = models.TextField()
     weight = models.IntegerField()
     completeclass = models.ForeignKey(CompleteClass, on_delete=models.CASCADE)
 
     class Meta:
-        unique_together = (('weight','completeclass'),)
+        unique_together = (('weight', 'completeclass'),)
+
 
 class CompleteClassCertificate(models.Model):
     url_of_image = models.TextField()
@@ -94,10 +101,11 @@ class CompleteClassCertificate(models.Model):
     completeclass = models.ForeignKey(CompleteClass, on_delete=models.CASCADE)
 
     class Meta:
-        unique_together = (('weight','completeclass'),)
+        unique_together = (('weight', 'completeclass'),)
 
     def __str__(self):
         return self.completeclass.title
+
 
 class Job(models.Model):
     fullname = models.CharField(max_length=200)
@@ -106,7 +114,7 @@ class Job(models.Model):
     position = models.ForeignKey(FullTimePostion, on_delete=models.CASCADE)
     resume = models.FileField(upload_to='resume', null=True)
     cv_link = models.CharField(max_length=200, null=True)
-    interest = models.CharField(max_length=200,null=True,blank=True,default="")
+    interest = models.CharField(max_length=200, null=True, blank=True, default="")
     application_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
@@ -328,7 +336,7 @@ class MessageGroup(models.Model):
 
 class Message(models.Model):
     title = models.CharField(max_length=250)
-    sender_name = models.CharField(max_length=255,null=True)
+    sender_name = models.CharField(max_length=255, null=True)
     message = models.TextField()
     slug = models.SlugField(max_length=40)
     group = models.ForeignKey(MessageGroup, default=1, on_delete=models.CASCADE)
@@ -409,6 +417,7 @@ class werole(models.Model):
     def __str__(self):
         return self.roles
 
+
 class WorkExperiencePay(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     is_paid = models.BooleanField(default=False)
@@ -418,6 +427,7 @@ class WorkExperiencePay(models.Model):
     def __str__(self):
         return self.user.email
 
+
 WORKEXPERIENCE_OPTIONS = (
     (0, 'A citizen of the united states'),
     (1, 'A non national citizen of the united states'),
@@ -425,9 +435,10 @@ WORKEXPERIENCE_OPTIONS = (
     (3, 'An alien authorized to work'),
 )
 
+
 class WorkExperienceEligibility(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    first_name =  models.CharField(max_length=200, null=True)
+    first_name = models.CharField(max_length=200, null=True)
     last_name = models.CharField(max_length=200, null=True)
     middle_initial = models.CharField(max_length=200, null=True)
     middle_name = models.CharField(max_length=200, null=True)
@@ -437,10 +448,10 @@ class WorkExperienceEligibility(models.Model):
     state = models.CharField(max_length=20, null=True)
     zip_code = models.CharField(max_length=20, null=True)
     date_of_birth = models.DateTimeField(default=timezone.now, null=True)
-    SSN =  models.TextField()
-    employee_address =  models.TextField()
-    employee_email =  models.TextField()
-    employee_phone =  models.CharField(max_length=50, null=True)
+    SSN = models.TextField()
+    employee_address = models.TextField()
+    employee_email = models.TextField()
+    employee_phone = models.CharField(max_length=50, null=True)
     expiry_date = models.DateTimeField(default=timezone.now, null=True)
     preparer_or_translator = models.BooleanField(default=False)
     i_am_a = models.IntegerField(default=0, choices=WORKEXPERIENCE_OPTIONS)
@@ -451,18 +462,21 @@ class WorkExperienceEligibility(models.Model):
 
     def __str__(self):
         return self.user.email
+
+
 class WorkExperienceIsa(models.Model):
     email = models.TextField(default='')
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     current_annual_income = models.TextField(null=True)
     monthly_house_payment = models.TextField(null=True)
     highest_level_education = models.TextField(null=True)
-    employment_status =  models.TextField(null=True)
+    employment_status = models.TextField(null=True)
     estimated_date_of_program_completion = models.DateTimeField(default=timezone.now, null=True)
     is_signed_isa = models.BooleanField(default=False)
 
     def __str__(self):
         return self.user.email
+
 
 class WorkExperiencePriceWaiver(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
@@ -471,6 +485,7 @@ class WorkExperiencePriceWaiver(models.Model):
 
     def __str__(self):
         return self.user.email
+
 
 class wepeoples(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
@@ -510,13 +525,13 @@ class wetask(models.Model):
 
 class wework(models.Model):
     weight = models.IntegerField(null=True)
-    we_people = models.ForeignKey(wepeoples, on_delete = models.CASCADE)
-    task = models.ForeignKey(wetask, on_delete = models.CASCADE)
-    status = models.IntegerField(default=0 ,choices=((0, 'Pending'), (1, 'Done')))
+    we_people = models.ForeignKey(wepeoples, on_delete=models.CASCADE)
+    task = models.ForeignKey(wetask, on_delete=models.CASCADE)
+    status = models.IntegerField(default=0, choices=((0, 'Pending'), (1, 'Done')))
     created = models.DateTimeField(default=timezone.now, null=True)
-    send_task = models.IntegerField(default=0 ,choices=((0, 'No'), (1, 'Yes')))
+    send_task = models.IntegerField(default=0, choices=((0, 'No'), (1, 'Yes')))
     due = models.DateTimeField(default=due_time)
-    
+
     class Meta:
         unique_together = (('we_people', 'weight'),)
         ordering = (('we_people', 'weight'))
@@ -561,7 +576,7 @@ class CareerSwitchApplication(models.Model):
     fullname = models.CharField(max_length=200)
     email = models.CharField(max_length=200)
     phone = models.CharField(max_length=12)
-    old_career =  models.CharField(max_length=255)
+    old_career = models.CharField(max_length=255)
     new_career = models.ForeignKey(FullTimePostion, on_delete=models.CASCADE)
     resume = models.FileField(upload_to='resume', null=True)
     cv_link = models.CharField(max_length=200, null=True)
@@ -569,6 +584,7 @@ class CareerSwitchApplication(models.Model):
 
     def __str__(self):
         return self.fullname
+
 
 class Certificates(models.Model):
     graduate_id = models.CharField(max_length=200, unique=True)
@@ -590,8 +606,9 @@ class EmailMessageType(models.Model):
     """
     type = models.CharField(max_length=255)
     is_default = models.BooleanField()
-    header_format = models.CharField(max_length=255, default="",null=True)
-    def save(self,*args,**kwargs):
+    header_format = models.CharField(max_length=255, default="", null=True)
+
+    def save(self, *args, **kwargs):
         """
         Sets default message format to be used
         :param args:
@@ -602,10 +619,8 @@ class EmailMessageType(models.Model):
             type_list = type(self).objects.filter(is_default=True)
             if self.pk:
                 type_list.exclude(self)
-            type_list.update(is_default = False)
-        super(type(self),self).save(*args,**kwargs)
-
-
+            type_list.update(is_default=False)
+        super(type(self), self).save(*args, **kwargs)
 
     def __str__(self):
         return "{} - [{}]".format(
@@ -614,20 +629,16 @@ class EmailMessageType(models.Model):
         )
 
 
-
-
-
-
 class EmailMessageLog(models.Model):
-    header_text = models.CharField(max_length=255,default="Linuxjobber")
-    message_type = models.ForeignKey(EmailMessageType,on_delete=models.CASCADE,null=True)
-    to_address = models.CharField(max_length=255,default="",blank=True)
-    subject = models.CharField(max_length=500,default="",blank=True)
-    content = models.TextField(default="",blank=True)
+    header_text = models.CharField(max_length=255, default="Linuxjobber")
+    message_type = models.ForeignKey(EmailMessageType, on_delete=models.CASCADE, null=True)
+    to_address = models.CharField(max_length=255, default="", blank=True)
+    subject = models.CharField(max_length=500, default="", blank=True)
+    content = models.TextField(default="", blank=True)
     has_sent = models.BooleanField(default=False)
-    group_log = models.ForeignKey('EmailGroupMessageLog',null=True,blank=True,on_delete=models.CASCADE)
-    error_message =  models.TextField(blank=True,null=True)
-    timestamp = models.DateTimeField(default=timezone.now,null=True)
+    group_log = models.ForeignKey('EmailGroupMessageLog', null=True, blank=True, on_delete=models.CASCADE)
+    error_message = models.TextField(blank=True, null=True)
+    timestamp = models.DateTimeField(default=timezone.now, null=True)
 
     def __str__(self):
         return "{} - [{}]".format(
@@ -636,14 +647,13 @@ class EmailMessageLog(models.Model):
         )
 
     def set_as_sent(self):
-        self.has_sent=True
+        self.has_sent = True
         self.error_message = ""
         self.save()
 
-
     def set_as_fail(self, error=""):
         self.error_message = error
-        self.has_sent=False
+        self.has_sent = False
         self.save()
 
     def format_mail(self):
@@ -671,7 +681,7 @@ class EmailMessageLog(models.Model):
         except Exception as error:
             self.set_as_fail(error.__str__())
 
-    def save(self,*args,**kwargs):
+    def save(self, *args, **kwargs):
         """
         Sets paid_on date
         :param args:
@@ -679,31 +689,27 @@ class EmailMessageLog(models.Model):
         :return:
         """
         self.format_mail()
-        super(type(self),self).save(*args, **kwargs)
-
-
-
-
+        super(type(self), self).save(*args, **kwargs)
 
 
 class SubPayment(models.Model):
     amount = models.FloatField()
-    description = models.CharField(max_length=255,null=True)
-    installment = models.ForeignKey("InstallmentPlan",on_delete=models.CASCADE,null=True)
-    due_in = models.IntegerField(default=1,)
-    is_initial = models.BooleanField(default=False,)
+    description = models.CharField(max_length=255, null=True)
+    installment = models.ForeignKey("InstallmentPlan", on_delete=models.CASCADE, null=True)
+    due_in = models.IntegerField(default=1, )
+    is_initial = models.BooleanField(default=False, )
     is_paid = models.BooleanField(default=False)
     is_disabled = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-    paid_on = models.DateTimeField(null=True,editable=False)
-
+    paid_on = models.DateTimeField(null=True, editable=False)
 
     def __str__(self):
         return "{description} at {amount} ".format(
-            amount = self.amount,
+            amount=self.amount,
             description=self.description
         )
+
     def set_as_paid(self):
         self.is_paid = True
         # self.paid_on = timezone.now()
@@ -728,13 +734,17 @@ class SubPayment(models.Model):
     def calculate_due_date(self):
         return self.get_initial_payment().paid_on + datetime.timedelta(weeks=self.due_in)
 
+    def calculate_due_date_pretty(self):
+        if self.is_initial:
+            return 'Due now'
+
     def get_paid_date(self):
         if self.is_paid:
             return humanize.naturalday(self.paid_on)
         else:
             return None
 
-    def payment_overdue(self)->bool:
+    def payment_overdue(self) -> bool:
         if self.initial_has_been_paid():
             return timezone.now() > self.calculate_due_date()
         else:
@@ -745,30 +755,30 @@ class SubPayment(models.Model):
             return self.calculate_due_date()
         else:
             if self.is_initial:
-                return "Due now"
+                return timezone.now()
             return "Waiting to be activated".format(
-                number_of_weeks = self.due_in
+                number_of_weeks=self.due_in
             )
 
     def get_due_date_pretty(self):
         if self.initial_has_been_paid():
             return humanize.naturaltime(self.calculate_due_date())
         else:
-            return "Initial not paid".format(
-                number_of_weeks = self.due_in
+            if self.is_initial:
+                return timezone.now()
+            return "Waiting to be activated".format(
+                number_of_weeks=self.due_in
             )
 
     def get_balance_after_payment(self):
         all_payments = self.installment.get_paid_subpayments()
         if all_payments:
-            amount=all_payments.filter(paid_on__lte=self.paid_on).aggregate(sum=Sum('amount'))
+            amount = all_payments.filter(paid_on__lte=self.paid_on).aggregate(sum=Sum('amount'))
             return self.installment.total_amount - amount['sum']
         else:
             return self.installment.total_amount
 
-
-
-    def save(self,*args,**kwargs):
+    def save(self, *args, **kwargs):
         """
         Sets paid_on date
         :param args:
@@ -779,18 +789,19 @@ class SubPayment(models.Model):
             self.paid_on = timezone.now()
         else:
             self.paid_on = None
-        super(type(self),self).save(*args, **kwargs)
+        super(type(self), self).save(*args, **kwargs)
         self.installment.set_payment_status()
 
 
-
 INSTALLMENT_PLAN_STATUS = (
-    ('is_unpaid','Unpaid'),
-    ('is_pending','Pending'),
-    ('is_settled','Settled'),
-    ('is_cancelled','Cancelled'),
-    ('is_breached','Breached')
+    ('is_unpaid', 'Unpaid'),
+    ('is_pending', 'Pending'),
+    ('is_settled', 'Settled'),
+    ('is_cancelled', 'Cancelled'),
+    ('is_breached', 'Breached')
 )
+
+
 class PlanStatus(enum.Enum):
     is_unpaid = 'is_unpaid'
     is_pending = "is_pending"
@@ -798,15 +809,23 @@ class PlanStatus(enum.Enum):
     is_breached = 'is_breached'
     is_cancelled = 'is_cancelled'
 
+
+class BulkData:
+    def __init__(self, subject, header_text, message, email):
+        self.subject = subject
+        self.header_text = header_text
+        self.message = message
+        self.email = email
+
+
 class InstallmentPlan(models.Model):
-    user = models.ForeignKey(CustomUser,on_delete=models.CASCADE)
-    description = models.CharField(max_length=255,null=True)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    description = models.CharField(max_length=255, null=True)
     total_amount = models.FloatField()
     is_cancelled = models.BooleanField(default=False)
-    status = models.CharField(editable=False,max_length=15,default=PlanStatus.is_unpaid.value)
+    status = models.CharField(editable=False, max_length=15, default=PlanStatus.is_unpaid.value)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-
 
     def clean(self):
         if self.subpayment_set.count() < 0:
@@ -814,10 +833,11 @@ class InstallmentPlan(models.Model):
 
     def __str__(self):
         return "{description} in ({installment_count}) installments for {user}  ".format(
-            installment_count = self.subpayment_set.count(),
-            description = self.description,
-            user = self.user.get_full_name()
+            installment_count=self.subpayment_set.count(),
+            description=self.description,
+            user=self.user.get_full_name()
         )
+
     def get_total_amount_paid(self):
         if self.get_balance() != self.total_amount:
             return self.total_amount - self.get_balance()
@@ -837,15 +857,16 @@ class InstallmentPlan(models.Model):
             return self.total_amount - total_amount_paid
         else:
             return self.total_amount
+
     def total_installments(self):
         return self.subpayment_set.filter(is_disabled=False).count()
 
     def get_initial_payment_amount(self):
-        return self.subpayment_set.get(is_initial=True,is_disabled=False).amount
+        return self.subpayment_set.get(is_initial=True, is_disabled=False).amount
 
     def get_next_due_payment(self):
         all_subpayments = self.subpayment_set.all()
-        initial_payment = all_subpayments.get(is_initial=True, is_disabled = False)
+        initial_payment = all_subpayments.get(is_initial=True, is_disabled=False)
 
         if initial_payment.is_paid:
             # Removes all paid installments
@@ -864,13 +885,16 @@ class InstallmentPlan(models.Model):
         all_upcoming = SubPayment.objects.filter(is_paid=False).order_by('due_in')
         return all_upcoming
 
-
-
     balance = property(get_balance)
     total_installments.short_description = 'Total Installments'
     get_balance.short_description = 'Balance Left'
 
     def set_payment_status(self):
+        if self.is_cancelled:
+            self.status = PlanStatus.is_cancelled.value
+            self.save()
+            return
+
         if self.get_balance() == 0:
             self.status = PlanStatus.is_settled.value
             self.save()
@@ -879,35 +903,123 @@ class InstallmentPlan(models.Model):
             self.status = PlanStatus.is_pending.value
             self.save()
 
+            # Set status appropriately
+            next_payment = self.get_next_due_payment()
+            if next_payment.payment_overdue():
+                self.status = PlanStatus.is_breached.value
+                self.save()
+
         else:
             self.status = PlanStatus.is_unpaid.value
             self.save()
 
-        if self.is_cancelled:
-            self.status = PlanStatus.is_cancelled.value
-            self.save()
+    @staticmethod
+    def get_upcoming_plans():
+        InstallmentPlan.refresh_all_plan_status()
+        return InstallmentPlan.objects.filter(~Q(status=PlanStatus.is_settled.value)) \
+               | InstallmentPlan.objects.filter(~Q(status=PlanStatus.is_cancelled.value))
 
-from django.db import connection, models
+    @staticmethod
+    def get_overdue_plans():
+        InstallmentPlan.refresh_all_plan_status()
+        return InstallmentPlan.objects.filter(status=PlanStatus.is_breached.value)
+
+    @staticmethod
+    def refresh_all_plan_status():
+        for plan in InstallmentPlan.objects.all():
+            print('Setting ', plan)
+            plan.set_payment_status()
+            print('Plan status:', plan.status)
+        return True
+
+    @staticmethod
+    def send_all_users_notification_on_upcoming_payments():
+        plans = InstallmentPlan.get_upcoming_plans()
+        message_template = """
+Hello {name}
+
+This is a notification for an upcoming payment for {plan_name}
+
+Details are as follows
+Plan - {plan_name}.
+Amount Due - ${amount}
+Payment Due Date - {payment_date} ({payment_date_pretty})
+
+Go to https://linuxjobber.com/installments to make payment.
+"""
+        bulk_data = []
+        for plan in plans:
+            bulk_data.append(
+                BulkData(
+                    subject='Upcoming Installment Payment',
+                    header_text='Linuxjobber Installments',
+                    email=plan.user.email,
+                    message=message_template.format(
+                        payment_date=plan.get_next_due_payment().get_due_date().strftime('%d-%m-%Y'),
+                        payment_date_pretty=plan.get_next_due_payment().get_due_date_pretty(),
+                        amount=plan.get_next_due_payment().amount,
+                        plan_name=plan.description,
+                        name=plan.user.first_name
+                    )
+                )
+            )
+
+        from .mail_service import handle_bulk_mail
+        handle_bulk_mail(bulk_data)
+
+    @staticmethod
+    def send_all_users_notification_on_overdue_payments():
+        plans = InstallmentPlan.get_overdue_plans()
+        message_template = """
+Hello {name}
+
+You have an installment payment for {plan_name} that is overdue. 
+
+Details are as follows
+Plan - {plan_name}.
+Amount Due - ${amount}
+Payment Due Date - {payment_date} ({payment_date_pretty})
+
+Go to https://linuxjobber.com/installments to make payment now.
+"""
+        bulk_data = []
+        for plan in plans:
+            bulk_data.append(
+                BulkData(
+                    subject='Installment Payment Overdue',
+                    header_text='Linuxjobber Installments',
+                    email=plan.user.email,
+                    message=message_template.format(
+                        payment_date=plan.get_next_due_payment().get_due_date().strftime('%d-%m-%Y'),
+                        payment_date_pretty=plan.get_next_due_payment().get_due_date_pretty(),
+                        amount=plan.get_next_due_payment().amount,
+                        plan_name=plan.description,
+                        name=plan.user.first_name
+                    )
+                )
+            )
+        from .mail_service import handle_bulk_mail
+        handle_bulk_mail(bulk_data)
 
 
 class EmailGroup(models.Model):
-    name = models.CharField(max_length=255,)
-    description = models.CharField(max_length=255,)
+    name = models.CharField(max_length=255, )
+    description = models.CharField(max_length=255, )
     # members_by_role = models.ForeignKey(Role,on_delete=models.CASCADE,null=True,blank=True)
     sql_query = models.TextField(null=True)
-    where_clause = models.TextField(null=True,blank=True)
-    exclude_clause = models.TextField(null=True,blank=True)
-    extra_members = models.ManyToManyField(CustomUser,blank=True)
+    where_clause = models.TextField(null=True, blank=True)
+    exclude_clause = models.TextField(null=True, blank=True)
+    extra_members = models.ManyToManyField(CustomUser, blank=True)
 
     def __str__(self):
         return self.name + "".format(self.description)
 
-    def run_query(self,*args):
+    def run_query(self, *args):
         if args:
             with connection.cursor() as cursor:
                 cursor.execute("{} {} {}".format(args[0],
-                                            args[1] if args[1] else "",
-                                            args[2] if args[2] else ""
+                                                 args[1] if args[1] else "",
+                                                 args[2] if args[2] else ""
                                                  ).strip('""'))
                 row = cursor.fetchall()
             return row
@@ -915,20 +1027,19 @@ class EmailGroup(models.Model):
         if self.sql_query:
             with connection.cursor() as cursor:
                 cursor.execute("{} {} {}".format(self.sql_query,
-                                            self.where_clause if self.where_clause else "",
-                                            self.exclude_clause if self.exclude_clause else ""
+                                                 self.where_clause if self.where_clause else "",
+                                                 self.exclude_clause if self.exclude_clause else ""
                                                  ).strip('""'))
                 row = cursor.fetchall()
                 from functools import reduce
                 import operator
                 if row:
-                    row = reduce(operator.concat,row)
+                    row = reduce(operator.concat, row)
                 else:
                     row = []
                 return row
         else:
             return []
-
 
     def members_count(self):
         # return self.get_members_by_role().count() + self.extra_members.all().count()
@@ -943,15 +1054,16 @@ class EmailGroup(models.Model):
 
     def get_members_emails(self):
         # Values are made distinct in here
-        return set(self.get_members().values_list('email',flat=True))
+        return set(self.get_members().values_list('email', flat=True))
+
 
 class EmailGroupMessageLog(models.Model):
-    group = models.ForeignKey(EmailGroup,on_delete=models.DO_NOTHING)
-    message = models.ForeignKey(Message,on_delete=models.DO_NOTHING,blank=True,null=True)
+    group = models.ForeignKey(EmailGroup, on_delete=models.DO_NOTHING)
+    message = models.ForeignKey(Message, on_delete=models.DO_NOTHING, blank=True, null=True)
     is_instant = models.BooleanField(default=True)
     delivery_time = models.DateTimeField(null=True)
     is_completed = models.BooleanField(default=False)
-    created_by = models.ForeignKey(CustomUser,on_delete=models.DO_NOTHING)
+    created_by = models.ForeignKey(CustomUser, on_delete=models.DO_NOTHING)
     created_on = models.DateTimeField(auto_now_add=True)
 
     def schedule_mail(self):
@@ -961,7 +1073,7 @@ class EmailGroupMessageLog(models.Model):
         return self.group.name + "({})".format(self.message.slug)
 
     def get_failed_messages(self):
-        return  self.emailmessagelog_set.filter(has_sent=False)
+        return self.emailmessagelog_set.filter(has_sent=False)
 
     def handle_failed_messages(self):
         pass
@@ -981,9 +1093,9 @@ class EmailGroupMessageLog(models.Model):
 
         context = {
             'has_completed': self.is_completed,
-            'sent' : self.emailmessagelog_set.filter(has_sent=True).count(),
-            'pending':self.emailmessagelog_set.filter(has_sent=False).count(),
-            'failed':self.emailmessagelog_set.filter(has_sent=False).count(),
+            'sent': self.emailmessagelog_set.filter(has_sent=True).count(),
+            'pending': self.emailmessagelog_set.filter(has_sent=False).count(),
+            'failed': self.emailmessagelog_set.filter(has_sent=False).count(),
             'total': self.emailmessagelog_set.count()
         }
         return context
@@ -997,15 +1109,24 @@ class EmailGroupMessageLog(models.Model):
         verbose_name_plural = "Send Message"
 
 
+class Variables(models.Model):
+    key = models.CharField(max_length=200, unique=True)
+    value = models.CharField(max_length=500)
 
+    def save(self, *args, **kwargs):
+        """
+        Checks for duplicates and rewrites old value
+        :param args:
+        :param kwargs:
+        :return:
 
+     """
+        # changes to upper_case by default
+        self.key = str(self.key.upper())
+        try:
+            old = Variables.objects.get(key=self.key)
+            old.value = self.value
+            old.save()
 
-
-
-
-
-
-
-
-
-
+        except Variables.DoesNotExist:
+            super(type(self), self).save(*args, **kwargs)

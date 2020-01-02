@@ -32,3 +32,9 @@ class HomeConfig(AppConfig):
             # Remove admin routes
             items = [url for url in self.get_urls(urlpatterns) if not url.startswith('admin')]
             pickle.dump(items, url_tmp)
+
+        # Background tasks are activated here
+
+        from .background_tasks import activate_service,set_installment_upcoming_payment_notification_service
+
+

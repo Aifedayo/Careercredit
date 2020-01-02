@@ -46,7 +46,7 @@ standard_logger = logging.getLogger(__name__)
 dbalogger = logging.getLogger('dba')
 utc = pytz.UTC
 
-ADMIN_EMAIL = 'joseph.showunmi@linuxjobber.com'
+ADMIN_EMAIL = 'joseph.showunmi@linuxjobber.com' if not settings.SES_EMAIL else settings.SES_EMAIL
 # Using Django
 def my_webhook_view(request):
     # Retrieve the request's body and parse it as JSON:

@@ -1,3 +1,4 @@
+from background_task.models import Task
 from django.contrib import admin
 from django.urls import path, include, re_path
 from . import views
@@ -111,5 +112,6 @@ urlpatterns = [
     path('installments/pay',views.installment_pay, name="installments_pay"),
     path('mail/status',views.mail_status, name="mail-status"),
 ]
+
 
 
