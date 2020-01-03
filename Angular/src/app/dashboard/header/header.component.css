@@ -20,35 +20,35 @@ img.img-responsive{
 
 .img-container{
   position: absolute;
-width: 166px;
-height: 42px;
-left: calc(50% - 166px/2 - 587px);
-top: 18px;
+  width: 166px;
+  height: 42px;
+  left: calc(50% - 166px/2 - 587px);
+  top: 18px;
 }
 
 .text-course{
   position: absolute;
-width: 141px;
-height: 29px;
-left: 649px;
-top: 24px;
+  width: 141px;
+  height: 29px;
+  left: 649px;
+  top: 24px;
 
-font-family:'Roboto',sans-serif;
-font-style: normal;
-font-weight: 500;
-font-size: 24px;
-line-height: normal;
+  font-family:'Roboto',sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: normal;
 
-color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .panel{
-    margin-right: 0;
+  margin-right: 0;
 }
 
 .panel-body > .foot{
- position: absolute;
-        bottom: 0;
+  position: absolute;
+  bottom: 0;
 }
 
 #foot > .col-md-3{
@@ -112,13 +112,13 @@ color: rgba(255, 255, 255, 0.8);
  
  
    .rite{
-  font-family:'Roboto',sans-serif;
-  font-style: normal;
-  font-size: 18px;
-  line-height: 21px;
-  text-align: center;
-  color: rgba(0, 0, 0, 0.8);
-}
+      font-family:'Roboto',sans-serif;
+      font-style: normal;
+      font-size: 18px;
+      line-height: 21px;
+      text-align: center;
+      color: rgba(0, 0, 0, 0.8);
+    }
 .ellipse{
   width: 118px;
   height: 118px;
@@ -158,6 +158,9 @@ color: rgba(255, 255, 255, 0.8);
   margin-bottom: 20px;
 }
 
+.username{
+  margin-left: -2em;
+}
 /* a .fas:active{
   display: block;
 } */

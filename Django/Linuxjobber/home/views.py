@@ -1621,7 +1621,7 @@ def workexprofile(request):
     if not weps.profile_picture:
         messages.error(
             request,
-            "!!! Note Admin can't create your task without your profile image set"
+            "!!! Profile picture is required. Please upload it now"
         )
 
     return render(request, 'home/workexprofile.html',
