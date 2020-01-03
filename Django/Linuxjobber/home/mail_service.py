@@ -171,7 +171,7 @@ def handle_campaign(group_id):
     mailer.send()
 
 
-@background(schedule=1)
+@background(schedule=0)
 def handle_failed_campaign(group_id):
     try:
         group = EmailGroupMessageLog.objects.get(pk=group_id)
@@ -186,7 +186,13 @@ def handle_failed_campaign(group_id):
 def generate_message(message):
     plaintext = get_template('home/email_template.txt')
     htmly = get_template('home/email_template.html')
-    formatted_sender_name = message.header_text + " <{}>".format(settings.EMAIL_HOST_USER)
+
+    # Checks if host user is an email address
+    if '.com' in settings.EMAIL_HOST_USER:
+        formatted_sender_name = message.header_text + " <{}>".format(settings.EMAIL_HOST_USER)
+    else:
+        formatted_sender_name = message.header_text + '<{}>'.format(settings.SES_EMAIL)
+
 
     context = {
         'sender_name': message.header_text,
