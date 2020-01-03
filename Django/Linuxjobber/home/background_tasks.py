@@ -7,6 +7,7 @@ from home.models import InstallmentPlan
 from background_task.models import Task
 
 UPCOMING_PAYMENT_NOTIFICATION_SERVICE_LABEL = 'upcoming_payment_notification_service'
+OVERDUE_PAYMENT_NOTIFICATION_SERVICE_LABEL = 'overdue_payment_notification_service'
 
 
 def clear_old_task(match_string):
@@ -34,6 +35,25 @@ def set_installment_upcoming_payment_notification_service(param):
     except:
         pass
 
+@background()
+def set_installment_overdue_payment_notification_service(param):
+
+    """
+    The time of the week the notification should be sent is saved Variables model as
+
+    OVERDUE_NOTIFICATION_DELIVERY_DAY = [ Sunday| Monday| Tuesday...]
+    OVERDUE_NOTIFICATION_DELIVERY_TIME = [ 00:00| 01:00| 02:00...]
+
+    :param param:
+    :return:
+    """
+
+    # Update the status before sending notification
+    try:
+        InstallmentPlan.send_all_users_notification_on_overdue_payments()
+    except:
+        pass
+
 
 
 
@@ -47,9 +67,9 @@ def set_installment_upcoming_payment_notification_service(param):
 # #     except:
 # #         return None
 
-def get_process(label) -> Task:
+def get_process(label):
     try:
-        Task.objects.get(task_params__contains=label)
+        return Task.objects.get(task_params__contains=label)
     except:
         return None
 

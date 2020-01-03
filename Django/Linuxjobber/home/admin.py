@@ -19,7 +19,7 @@ from .models import FAQ, Job, RHCSAOrder, FreeAccountClick, Campaign, Message, U
     wework, wetype, PartTimeJob, TryFreeRecord, FullTimePostion, PartTimePostion, Resume, CareerSwitchApplication, \
     Certificates, EmailMessageType, EmailMessageLog, CompleteClass, \
     CompleteClassLearn, CompleteClassCertificate, WorkExperienceEligibility, WorkExperienceIsa, WorkExperiencePay, \
-    SubPayment, InstallmentPlan, EmailGroup, EmailGroupMessageLog, WorkExperiencePriceWaiver
+    SubPayment, InstallmentPlan, EmailGroup, EmailGroupMessageLog, WorkExperiencePriceWaiver, Variables
 
 from datetime import timedelta
 import datetime
@@ -548,5 +548,11 @@ admin.site.register(InstallmentPlan, InstallmentPlanAdmin)
 admin.site.register(EmailGroup, EmailGroupAdmin)
 admin.site.register(EmailGroupMessageLog, SendMessageAdmin)
 
+
+class VariablesAdmin(admin.ModelAdmin):
+    list_display = ('key','value')
+
+
+admin.site.register(Variables,VariablesAdmin)
 
 

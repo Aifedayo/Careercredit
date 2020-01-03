@@ -1,13 +1,16 @@
 from django.utils import timezone
 
-from .background_tasks import get_process, UPCOMING_PAYMENT_NOTIFICATION_SERVICE_LABEL
+from .background_tasks import get_process, UPCOMING_PAYMENT_NOTIFICATION_SERVICE_LABEL,\
+    OVERDUE_PAYMENT_NOTIFICATION_SERVICE_LABEL
 from .models import Variables
 import calendar
 import datetime
 
 context = {
-    'upcoming_notification_day': 'UPCOMING_NOTIFICATION_SERVICE_DELIVERY_DAY',
-    'upcoming_notification_time': 'UPCOMING_NOTIFICATION_SERVICE_DELIVERY_TIME',
+    'upcoming_notification_day': 'UPCOMING_NOTIFICATION_DELIVERY_DAY',
+    'upcoming_notification_time': 'UPCOMING_NOTIFICATION_DELIVERY_TIME',
+    'overdue_notification_day': 'OVERDUE_NOTIFICATION_DELIVERY_DAY',
+    'overdue_notification_time': 'OVERDUE_NOTIFICATION_DELIVERY_TIME',
 }
 
 
@@ -28,23 +31,37 @@ def get_upcoming_payment_notification_day():
         return calendar.SUNDAY
 
 
-def set_upcoming_payment_notification_schedule(notification_day, notification_time):
-    day_variable, created = Variables.objects.get_or_create(key=context['upcoming_notification_day'])
+def set_payment_notification_schedule(notification_day,notification_time,on_load = False,key=None):
+    key_auto_created = False
+    if key is None:
+        key = 'upcoming_notification'
+        key_auto_created = True
+    day_variable, created = Variables.objects.get_or_create(key=context['{}_day'.format(key)])
     day_variable.value = notification_day
-    day_variable.save()
-    time_variable, created = Variables.objects.get_or_create(key=context['upcoming_notification_time'])
-    time_variable.value = notification_day
-    time_variable.save()
+    time_variable, created = Variables.objects.get_or_create(key=context['{}_time'.format(key)])
+    time_variable.value = notification_time
     notification_service = get_process(
-        label=UPCOMING_PAYMENT_NOTIFICATION_SERVICE_LABEL
+        label=UPCOMING_PAYMENT_NOTIFICATION_SERVICE_LABEL if key == 'upcoming_notification' else
+        OVERDUE_PAYMENT_NOTIFICATION_SERVICE_LABEL
     )
+
     if notification_service:
         new_day = next_weekday(notification_day)
         hour, minute = notification_time.split(',')
         new_day = new_day.replace(hour=int(hour), minute=int(minute))
         notification_service.run_at = new_day
-        notification_service.save()
 
+        # If service doesnt exist, or variable is being updated it creates it
+        if not on_load or created:
+            notification_service.save()
+            time_variable.save()
+            day_variable.save()
+
+    # Auto sets the value for overdue payment at once
+    if key_auto_created:
+        set_payment_notification_schedule(
+            notification_day,notification_time,on_load=True,key='overdue_notification'
+        )
 
 if __name__ == '__main__':
     pass

@@ -36,17 +36,26 @@ class HomeConfig(AppConfig):
         # Background tasks are activated here
 
         from .background_tasks import activate_service,set_installment_upcoming_payment_notification_service,\
-            UPCOMING_PAYMENT_NOTIFICATION_SERVICE_LABEL
+            UPCOMING_PAYMENT_NOTIFICATION_SERVICE_LABEL,OVERDUE_PAYMENT_NOTIFICATION_SERVICE_LABEL,\
+            set_installment_overdue_payment_notification_service
         from background_task.models import Task
-        from .utilities import set_upcoming_payment_notification_schedule
+        from .utilities import set_payment_notification_schedule
         import calendar
 
-        # Upcoming payments notification
+        # Upcoming payments notification activation
         activate_service(
             label=UPCOMING_PAYMENT_NOTIFICATION_SERVICE_LABEL,
             background_function=set_installment_upcoming_payment_notification_service,
-            task_repeat=Task.WEEKLY,
+            task_repeat=Task.WEEKLY
         )
-        set_upcoming_payment_notification_schedule(calendar.SUNDAY,'00,00')
+        # Overdue payments notification activation
+        activate_service(
+            label=OVERDUE_PAYMENT_NOTIFICATION_SERVICE_LABEL,
+            background_function=set_installment_overdue_payment_notification_service,
+            task_repeat=Task.WEEKLY
+        )
+
+        # Trigger the automatic inclusion of variables
+        set_payment_notification_schedule(calendar.SUNDAY,'00,00',on_load=True)
 
 

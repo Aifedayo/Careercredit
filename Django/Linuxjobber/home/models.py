@@ -1119,7 +1119,11 @@ class Variables(models.Model):
     key = models.CharField(max_length=200, unique=True)
     value = models.CharField(max_length=500)
 
-    def save(self, *args, **kwargs):
+    class Meta:
+        verbose_name = 'Variables'
+        verbose_name_plural = 'Variables'
+
+    # def save(self, *args, **kwargs):
         """
         Checks for duplicates and rewrites old value
         :param args:
@@ -1127,12 +1131,12 @@ class Variables(models.Model):
         :return:
 
      """
-        # changes to upper_case by default
-        self.key = str(self.key.upper())
-        try:
-            old = Variables.objects.get(key=self.key)
-            old.value = self.value
-            old.save()
-
-        except Variables.DoesNotExist:
-            super(type(self), self).save(*args, **kwargs)
+        # # changes to upper_case by default
+        # self.key = str(self.key.upper())
+        # try:
+        #     old = Variables.objects.get(key=self.key)
+        #     old.value = self.value
+        #     if not kwargs.get('halt',None):
+        #         old.save(halt=True)
+        # except Variables.DoesNotExist:
+        #     super(type(self), self).save(*args, **kwargs)
