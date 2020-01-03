@@ -38,6 +38,7 @@ fs = FileSystemStorage(location=settings.MEDIA_ROOT + '/uploads')
 # stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
+
 # Error Logging Instances
 '''Log database errors with the dbalogger instance. example dblogger.level_of_error()
 Log non database errors with the standard_logger instance'''
