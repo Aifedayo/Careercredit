@@ -16,6 +16,8 @@ context = {
 def convert_to_day(day:int):
     if day:
         return calendar.day_name[int(day)]
+
+
     return 'Invalid'
 def convert_to_time(time):
     hour,minute = time.split(',')
