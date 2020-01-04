@@ -4,6 +4,7 @@ from background_task.models import CompletedTask
 from django.contrib import admin, messages
 from django import forms
 from django.contrib.admin.views.main import ChangeList
+from django.db.models import Sum
 from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import redirect
 from django.template.response import TemplateResponse
@@ -12,6 +13,7 @@ from django.urls import path
 from django.core.mail import send_mail
 from django.utils import timezone
 
+from .forms import  UpcomingScheduleForm
 from .mail_service import LinuxjobberMassMailer, handle_campaign, LinuxjobberMailer
 from .models import FAQ, Job, RHCSAOrder, FreeAccountClick, Campaign, Message, Unsubscriber, Internship, \
     InternshipDetail, MessageGroup, UserLocation, NewsLetterSubscribers, UserOrder, Document, MainModel, AwsCredential, \
@@ -344,10 +346,104 @@ class InstallmentPlanAdmin(admin.ModelAdmin):
         }],
     ]
     inlines =  (SubPaymentInline,)
+    change_list_template = 'admin/installmentplan_changelist.html'
 
     raw_id_fields = ('user',)
-    # form = CustomInstallmentAdminForm
 
+    class CustomChangeList(ChangeList):
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            self.title = ""
+
+
+    def get_changelist(self, request, **kwargs):
+        return self.CustomChangeList
+
+
+    def changelist_view(self, request, extra_context=None):
+        extra_context = extra_context or {}
+
+        extra_context['form'] = UpcomingScheduleForm(request.POST or None)
+        try:
+            from .utilities import context,convert_to_day,convert_to_time
+            upcoming_day =  Variables.objects.get(key=context['upcoming_notification_day']).value
+            upcoming_time =  Variables.objects.get(key=context['upcoming_notification_time']).value
+            overdue_day =  Variables.objects.get(key=context['overdue_notification_day']).value
+            overdue_time =  Variables.objects.get(key=context['overdue_notification_time']).value
+            extra_context['form'] = UpcomingScheduleForm(request.POST or None)
+            extra_context['upcoming_day'] = convert_to_day(upcoming_day)
+            extra_context['upcoming_time'] = convert_to_time(upcoming_time)
+            extra_context['overdue_day'] = convert_to_day(overdue_day)
+            extra_context['overdue_time'] = convert_to_time(overdue_time)
+
+        except:
+            raise Exception
+
+
+        return super(InstallmentPlanAdmin, self).changelist_view(request, extra_context=extra_context)
+
+    def get_urls(self):
+        urls = super().get_urls()
+        my_urls = [
+            path('set_upcoming', self.set_upcoming_schedule, name= 'set-upcoming-payment-notification'),
+            path('ser_overdue', self.set_overdue_schedule, name= 'set-overdue-payment-notification'),
+        ]  # type: List[path]
+        return my_urls + urls
+
+    def set_upcoming_schedule(self,request):
+        if request.method == 'POST':
+            form = UpcomingScheduleForm(request.POST or None)
+            if form.is_valid():
+                time = form.cleaned_data['time']
+                day = int(form.cleaned_data['day'])
+                # time = "{},{}".format(time.hour,time.minute)
+                from .utilities import set_payment_notification_schedule
+                try:
+                    set_payment_notification_schedule(
+                        day,
+                        time.hour,
+                        time.minute,
+                        key = 'upcoming_notification',
+                    )
+                    self.message_user(request,'Upcoming Payment Notification Updated ',messages.SUCCESS)
+
+                except Exception as e:
+                    self.message_user(request,e,messages.ERROR)
+                    return HttpResponseRedirect('./')
+        return HttpResponseRedirect('./')
+
+    def set_overdue_schedule(self,request):
+        if request.method == 'POST':
+            form = UpcomingScheduleForm(request.POST or None)
+            if form.is_valid():
+                time = form.cleaned_data['time']
+                day = int(form.cleaned_data['day'])
+                # time = "{},{}".format(time.hour,time.minute)
+                from .utilities import set_payment_notification_schedule
+                try:
+                    set_payment_notification_schedule(
+                        day,
+                        time.hour,
+                        time.minute,
+                        key = 'overdue_notification',
+                    )
+                    self.message_user(request,'Overdue Payment Notification Updated ',messages.SUCCESS)
+
+                except Exception as e:
+                    self.message_user(request,e,messages.ERROR)
+                    return HttpResponseRedirect('./')
+
+            else:
+                self.message_user(request,"Error",messages.ERROR)
+        return HttpResponseRedirect('./')
+
+
+
+    class Media:
+        js = ('admin/js/bootstrap-formhelpers.min.js',)
+    #
+    # form = CustomInstallmentAdminForm
+    #
     # def save_model(self, request, obj, form, change):
     #     obj.user = request.user
     #     super().save_model(request, obj, form, change)

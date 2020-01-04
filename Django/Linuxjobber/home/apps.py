@@ -56,6 +56,6 @@ class HomeConfig(AppConfig):
         )
 
         # Trigger the automatic inclusion of variables
-        set_payment_notification_schedule(calendar.SUNDAY,'00,00',on_load=True)
+        set_payment_notification_schedule(calendar.SUNDAY,0,0,on_load=True)
 
 

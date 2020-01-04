@@ -787,6 +787,8 @@ class SubPayment(models.Model):
         """
         if self.is_paid and not self.paid_on:
             self.paid_on = timezone.now()
+        elif self.paid_on:
+            pass
         else:
             self.paid_on = None
         super(type(self), self).save(*args, **kwargs)
@@ -945,7 +947,7 @@ Plan - {plan_name}.
 Amount Due - ${amount}
 Payment Due Date - {payment_date} ({payment_date_pretty})
 
-Go to https://linuxjobber.com/installments to make payment.
+Kindly go to https://linuxjobber.com/installments to make payment.
 """
         bulk_data = []
         for plan in plans:
@@ -983,7 +985,7 @@ Plan - {plan_name}.
 Amount Due - ${amount}
 Payment Due Date - {payment_date} ({payment_date_pretty})
 
-Go to https://linuxjobber.com/installments to make payment now.
+Kindly go to https://linuxjobber.com/installments to make payment now.
 """
         bulk_data = []
         for plan in plans:

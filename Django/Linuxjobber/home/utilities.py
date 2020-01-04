@@ -13,7 +13,13 @@ context = {
     'overdue_notification_time': 'OVERDUE_NOTIFICATION_DELIVERY_TIME',
 }
 
-
+def convert_to_day(day:int):
+    if day:
+        return calendar.day_name[int(day)]
+    return 'Invalid'
+def convert_to_time(time):
+    hour,minute = time.split(',')
+    return "{}:{}".format(hour,minute)
 def next_weekday(weekday):
     now = timezone.now()
     days_ahead = weekday - now.weekday()
@@ -31,7 +37,7 @@ def get_upcoming_payment_notification_day():
         return calendar.SUNDAY
 
 
-def set_payment_notification_schedule(notification_day,notification_time,on_load = False,key=None):
+def set_payment_notification_schedule(notification_day,notification_hour,notification_minute,on_load = False,key=None):
     key_auto_created = False
     if key is None:
         key = 'upcoming_notification'
@@ -39,7 +45,7 @@ def set_payment_notification_schedule(notification_day,notification_time,on_load
     day_variable, created = Variables.objects.get_or_create(key=context['{}_day'.format(key)])
     day_variable.value = notification_day
     time_variable, created = Variables.objects.get_or_create(key=context['{}_time'.format(key)])
-    time_variable.value = notification_time
+    time_variable.value = "{},{}".format(notification_hour,notification_minute)
     notification_service = get_process(
         label=UPCOMING_PAYMENT_NOTIFICATION_SERVICE_LABEL if key == 'upcoming_notification' else
         OVERDUE_PAYMENT_NOTIFICATION_SERVICE_LABEL
@@ -47,11 +53,11 @@ def set_payment_notification_schedule(notification_day,notification_time,on_load
 
     if notification_service:
         new_day = next_weekday(notification_day)
-        hour, minute = notification_time.split(',')
-        new_day = new_day.replace(hour=int(hour), minute=int(minute))
+
+        new_day = new_day.replace(hour=int(notification_hour), minute=int(notification_minute))
         notification_service.run_at = new_day
 
-        # If service doesnt exist, or variable is being updated it creates it
+        # If service doesnt exist, or variable is being updated it creates/updates it
         if not on_load or created:
             notification_service.save()
             time_variable.save()
@@ -60,7 +66,7 @@ def set_payment_notification_schedule(notification_day,notification_time,on_load
     # Auto sets the value for overdue payment at once
     if key_auto_created:
         set_payment_notification_schedule(
-            notification_day,notification_time,on_load=True,key='overdue_notification'
+            notification_day,notification_hour,notification_minute,on_load=True,key='overdue_notification'
         )
 
 if __name__ == '__main__':
