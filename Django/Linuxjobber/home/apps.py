@@ -43,19 +43,23 @@ class HomeConfig(AppConfig):
         import calendar
 
         # Upcoming payments notification activation
-        activate_service(
-            label=UPCOMING_PAYMENT_NOTIFICATION_SERVICE_LABEL,
-            background_function=set_installment_upcoming_payment_notification_service,
-            task_repeat=Task.WEEKLY
-        )
-        # Overdue payments notification activation
-        activate_service(
-            label=OVERDUE_PAYMENT_NOTIFICATION_SERVICE_LABEL,
-            background_function=set_installment_overdue_payment_notification_service,
-            task_repeat=Task.WEEKLY
-        )
+        try:
 
-        # Trigger the automatic inclusion of variables
-        set_payment_notification_schedule(calendar.SUNDAY,0,0,on_load=True)
+            activate_service(
+                label=UPCOMING_PAYMENT_NOTIFICATION_SERVICE_LABEL,
+                background_function=set_installment_upcoming_payment_notification_service,
+                task_repeat=Task.WEEKLY
+            )
+            # Overdue payments notification activation
+            activate_service(
+                label=OVERDUE_PAYMENT_NOTIFICATION_SERVICE_LABEL,
+                background_function=set_installment_overdue_payment_notification_service,
+                task_repeat=Task.WEEKLY
+            )
+
+            # Trigger the automatic inclusion of variables
+            set_payment_notification_schedule(calendar.SUNDAY,0,0,on_load=True)
+        except:
+            pass
 
 
