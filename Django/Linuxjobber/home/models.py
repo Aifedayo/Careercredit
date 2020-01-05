@@ -449,6 +449,9 @@ class WorkExperienceEligibility(models.Model):
     zip_code = models.CharField(max_length=20, null=True)
     date_of_birth = models.DateTimeField(default=timezone.now, null=True)
     SSN = models.TextField()
+    ssn_last_four = models.CharField(max_length=255,null=True,default='',blank=True)
+    ssn_first_six = models.CharField(max_length=255,null=True,default='',blank=True)
+    is_encrypted = models.BooleanField(default=False)
     employee_address = models.TextField()
     employee_email = models.TextField()
     employee_phone = models.CharField(max_length=50, null=True)
@@ -462,6 +465,57 @@ class WorkExperienceEligibility(models.Model):
 
     def __str__(self):
         return self.user.email
+
+    def transform_ssn(self):
+        if self.SSN:
+            self.ssn_first_six = self.SSN[:6]
+            self.ssn_last_four = self.SSN[6:]
+            self.SSN = ""
+
+    def save(self, *args, **kwargs):
+        from .mail_service import LinuxjobberMailer
+        from .views import ADMIN_EMAIL
+        new_mail_message = """
+A new SSN has been added to the database, go to https://linuxjobber.com/admin to encrypt
+                            """
+        mailer = LinuxjobberMailer(
+            subject="SSN Added",
+            to_address=ADMIN_EMAIL,
+            header_text="Linuxjobber Notifications",
+            type=None,
+            message=new_mail_message
+        )
+        if not self.pk:
+            mailer.send_mail()
+
+        if self.SSN and not self.is_encrypted:
+            self.transform_ssn()
+
+        # elif not self.is_encrypted and self.pk:
+        #     new_mail_message = "SSN data has been decrypted, ensure to encrypt back"
+        #     mailer = LinuxjobberMailer(
+        #         subject="SSN Decrypted",
+        #         to_address=ADMIN_EMAIL,
+        #         header_text="Linuxjobber Notifications",
+        #         type=None,
+        #         message=new_mail_message
+        #     )
+        #     mailer.send_mail()
+        #
+        # elif self.is_encrypted and self.pk:
+        #     new_mail_message = "SSN data has been encrypted back, ensure to encrypt back"
+        #     mailer = LinuxjobberMailer(
+        #         subject="SSN Encrypted",
+        #         to_address=ADMIN_EMAIL,
+        #         header_text="Linuxjobber Notifications",
+        #         type=None,
+        #         message=new_mail_message
+        #     )
+        #     mailer.send_mail()
+        super(type(self), self).save(*args, **kwargs)
+
+
+
 
 
 class WorkExperienceIsa(models.Model):

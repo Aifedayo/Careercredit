@@ -12,6 +12,7 @@ from django.urls import path
 
 from django.core.mail import send_mail
 from django.utils import timezone
+from .utilities import encrypt,decrypt
 
 from .forms import  UpcomingScheduleForm
 from .mail_service import LinuxjobberMassMailer, handle_campaign, LinuxjobberMailer
@@ -597,8 +598,138 @@ class SendMessageAdmin(admin.ModelAdmin):
             except:
                 return JsonResponse({})
 
+
+class WorkExperienceEligibilityAdmin(admin.ModelAdmin):
+    list_display = ('user','first_name','state','ssn_first_six','ssn_last_four')
+    search_fields = ('first_name','user__email','last_name')
+    change_list_template = 'admin/workexperienceeligibility_change_list.html'
+    class CustomChangeList(ChangeList):
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            self.title = ''
+
+
+    def get_changelist(self, request, **kwargs):
+        return self.CustomChangeList
+
+
+    def get_urls(self):
+        urls = super().get_urls()
+        my_urls = [
+            path('ssn/handle', self.handle_encryption, name= 'transform-ssn'),
+        ]  # type: List[path]
+        return my_urls + urls
+
+    def handle_encryption(self,request):
+        if request.method == 'POST':
+            if request.POST.get('action') == 'encrypt':
+                self.encrypt_all(request)
+            else:
+                self.decrypt_all(request)
+        return redirect('../')
+
+
+    def encrypt_all(self,request):
+        if request.method == 'POST':
+
+            from  .views import ADMIN_EMAIL
+            log = []
+            is_valid = False
+            password = request.POST.get('password', None)
+            try:
+                for obj in WorkExperienceEligibility.objects.all():
+                    if not obj.is_encrypted:
+                        # Confirm if it is the same password used previously
+                        if not is_valid:
+                            try:
+                                old = WorkExperienceEligibility.objects.filter(is_encrypted=True)
+                                if old:
+                                    random_test = old[0]
+                                    if decrypt(random_test.ssn_first_six,password):
+                                        is_valid = True
+                                    else:
+                                        raise
+                                else:
+                                    is_valid = True
+
+                            except:
+                                self.message_user(request, 'Records could not be updated, password doesnt match previously '
+                                                           'used one', messages.ERROR)
+                                return
+
+                        obj.transform_ssn()
+
+                        encrypted_data = encrypt(obj.ssn_first_six,password)
+                        obj.ssn_first_six = encrypted_data
+                        obj.is_encrypted = True
+                        obj.save()
+                        log.append(True)
+
+                if True in log:
+                    self.message_user(request, 'Records updated', messages.SUCCESS)
+                    new_mail_message = "SSN data has been encrypted by {}".format(request.user)
+                    mailer = LinuxjobberMailer(
+                        subject="SSN Encrypted",
+                        to_address=ADMIN_EMAIL,
+                        header_text="Linuxjobber Notifications",
+                        type=None,
+                        message=new_mail_message
+                    )
+                    mailer.send_mail()
+                else:
+                    self.message_user(request, 'All Records already updated', messages.SUCCESS)
+            except:
+                self.message_user(request, 'Records could not be updated', messages.ERROR)
+
+
+
+    def decrypt_all(self,request):
+        if request.method == 'POST':
+            from .utilities import decrypt
+            from .views import ADMIN_EMAIL
+            log = []
+            try:
+                for obj in WorkExperienceEligibility.objects.all():
+                    if obj.is_encrypted:
+                        obj.transform_ssn()
+                        password = request.POST.get('password', None)
+                        if password:
+                            decrypted_data = decrypt(obj.ssn_first_six, password)
+                            if not decrypted_data:
+                                raise
+                            obj.ssn_first_six = decrypted_data
+                            obj.is_encrypted = False
+                            obj.save()
+                            log.append(True)
+
+                if True in log:
+                    new_mail_message = "SSN data has been decrypted by {}, ensure to encrypt back".format(request.user)
+                    mailer = LinuxjobberMailer(
+                        subject="SSN Decrypted",
+                        to_address=ADMIN_EMAIL,
+                        header_text="Linuxjobber Notifications",
+                        type=None,
+                        message=new_mail_message
+                    )
+                    mailer.send_mail()
+                    self.message_user(request, 'Records updated', messages.SUCCESS)
+                else:
+                    self.message_user(request, 'All Records already updated', messages.SUCCESS)
+            except:
+                new_mail_message = "SSN data was tried to be decrypted by {}".format(request.user)
+                mailer = LinuxjobberMailer(
+                    subject="SSN Decryption Failed",
+                    to_address=ADMIN_EMAIL,
+                    header_text="Linuxjobber Notifications",
+                    type=None,
+                    message=new_mail_message
+                )
+                mailer.send_mail()
+                self.message_user(request, 'Records could not be updated, Invalid password', messages.ERROR)
+
+
 admin.site.register(WorkExperienceIsa)
-admin.site.register(WorkExperienceEligibility)
+admin.site.register(WorkExperienceEligibility,WorkExperienceEligibilityAdmin)
 admin.site.register(WorkExperiencePay)
 admin.site.register(WorkExperiencePriceWaiver)
 admin.site.register(FAQ)
