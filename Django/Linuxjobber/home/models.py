@@ -499,6 +499,7 @@ A new SSN has been added to the database, go to https://linuxjobber.com/admin to
         #         to_address=ADMIN_EMAIL,
         #         header_text="Linuxjobber Notifications",
         #         type=None,
+
         #         message=new_mail_message
         #     )
         #     mailer.send_mail()
