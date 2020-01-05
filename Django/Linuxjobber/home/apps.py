@@ -32,3 +32,34 @@ class HomeConfig(AppConfig):
             # Remove admin routes
             items = [url for url in self.get_urls(urlpatterns) if not url.startswith('admin')]
             pickle.dump(items, url_tmp)
+
+        # Background tasks are activated here
+
+        from .background_tasks import activate_service,set_installment_upcoming_payment_notification_service,\
+            UPCOMING_PAYMENT_NOTIFICATION_SERVICE_LABEL,OVERDUE_PAYMENT_NOTIFICATION_SERVICE_LABEL,\
+            set_installment_overdue_payment_notification_service
+        from background_task.models import Task
+        from .utilities import set_payment_notification_schedule
+        import calendar
+
+        # Upcoming payments notification activation
+        try:
+
+            activate_service(
+                label=UPCOMING_PAYMENT_NOTIFICATION_SERVICE_LABEL,
+                background_function=set_installment_upcoming_payment_notification_service,
+                task_repeat=Task.WEEKLY
+            )
+            # Overdue payments notification activation
+            activate_service(
+                label=OVERDUE_PAYMENT_NOTIFICATION_SERVICE_LABEL,
+                background_function=set_installment_overdue_payment_notification_service,
+                task_repeat=Task.WEEKLY
+            )
+
+            # Trigger the automatic inclusion of variables
+            set_payment_notification_schedule(calendar.SUNDAY,0,0,on_load=True)
+        except:
+            pass
+
+

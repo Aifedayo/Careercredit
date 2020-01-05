@@ -4,6 +4,7 @@ from background_task.models import CompletedTask
 from django.contrib import admin, messages
 from django import forms
 from django.contrib.admin.views.main import ChangeList
+from django.db.models import Sum
 from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import redirect
 from django.template.response import TemplateResponse
@@ -11,7 +12,9 @@ from django.urls import path
 
 from django.core.mail import send_mail
 from django.utils import timezone
+from .utilities import encrypt,decrypt
 
+from .forms import  UpcomingScheduleForm
 from .mail_service import LinuxjobberMassMailer, handle_campaign, LinuxjobberMailer
 from .models import FAQ, Job, RHCSAOrder, FreeAccountClick, Campaign, Message, Unsubscriber, Internship, \
     InternshipDetail, MessageGroup, UserLocation, NewsLetterSubscribers, UserOrder, Document, MainModel, AwsCredential, \
@@ -19,7 +22,7 @@ from .models import FAQ, Job, RHCSAOrder, FreeAccountClick, Campaign, Message, U
     wework, wetype, PartTimeJob, TryFreeRecord, FullTimePostion, PartTimePostion, Resume, CareerSwitchApplication, \
     Certificates, EmailMessageType, EmailMessageLog, CompleteClass, \
     CompleteClassLearn, CompleteClassCertificate, WorkExperienceEligibility, WorkExperienceIsa, WorkExperiencePay, \
-    SubPayment, InstallmentPlan, EmailGroup, EmailGroupMessageLog, WorkExperiencePriceWaiver
+    SubPayment, InstallmentPlan, EmailGroup, EmailGroupMessageLog, WorkExperiencePriceWaiver, Variables
 
 from datetime import timedelta
 import datetime
@@ -344,10 +347,104 @@ class InstallmentPlanAdmin(admin.ModelAdmin):
         }],
     ]
     inlines =  (SubPaymentInline,)
+    change_list_template = 'admin/installmentplan_changelist.html'
 
     raw_id_fields = ('user',)
-    # form = CustomInstallmentAdminForm
 
+    class CustomChangeList(ChangeList):
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            self.title = ""
+
+
+    def get_changelist(self, request, **kwargs):
+        return self.CustomChangeList
+
+
+    def changelist_view(self, request, extra_context=None):
+        extra_context = extra_context or {}
+
+        extra_context['form'] = UpcomingScheduleForm(request.POST or None)
+        try:
+            from .utilities import context,convert_to_day,convert_to_time
+            upcoming_day =  Variables.objects.get(key=context['upcoming_notification_day']).value
+            upcoming_time =  Variables.objects.get(key=context['upcoming_notification_time']).value
+            overdue_day =  Variables.objects.get(key=context['overdue_notification_day']).value
+            overdue_time =  Variables.objects.get(key=context['overdue_notification_time']).value
+            extra_context['form'] = UpcomingScheduleForm(request.POST or None)
+            extra_context['upcoming_day'] = convert_to_day(upcoming_day)
+            extra_context['upcoming_time'] = convert_to_time(upcoming_time)
+            extra_context['overdue_day'] = convert_to_day(overdue_day)
+            extra_context['overdue_time'] = convert_to_time(overdue_time)
+
+        except:
+            raise Exception
+
+
+        return super(InstallmentPlanAdmin, self).changelist_view(request, extra_context=extra_context)
+
+    def get_urls(self):
+        urls = super().get_urls()
+        my_urls = [
+            path('set_upcoming', self.set_upcoming_schedule, name= 'set-upcoming-payment-notification'),
+            path('ser_overdue', self.set_overdue_schedule, name= 'set-overdue-payment-notification'),
+        ]  # type: List[path]
+        return my_urls + urls
+
+    def set_upcoming_schedule(self,request):
+        if request.method == 'POST':
+            form = UpcomingScheduleForm(request.POST or None)
+            if form.is_valid():
+                time = form.cleaned_data['time']
+                day = int(form.cleaned_data['day'])
+                # time = "{},{}".format(time.hour,time.minute)
+                from .utilities import set_payment_notification_schedule
+                try:
+                    set_payment_notification_schedule(
+                        day,
+                        time.hour,
+                        time.minute,
+                        key = 'upcoming_notification',
+                    )
+                    self.message_user(request,'Upcoming Payment Notification Updated ',messages.SUCCESS)
+
+                except Exception as e:
+                    self.message_user(request,e,messages.ERROR)
+                    return HttpResponseRedirect('./')
+        return HttpResponseRedirect('./')
+
+    def set_overdue_schedule(self,request):
+        if request.method == 'POST':
+            form = UpcomingScheduleForm(request.POST or None)
+            if form.is_valid():
+                time = form.cleaned_data['time']
+                day = int(form.cleaned_data['day'])
+                # time = "{},{}".format(time.hour,time.minute)
+                from .utilities import set_payment_notification_schedule
+                try:
+                    set_payment_notification_schedule(
+                        day,
+                        time.hour,
+                        time.minute,
+                        key = 'overdue_notification',
+                    )
+                    self.message_user(request,'Overdue Payment Notification Updated ',messages.SUCCESS)
+
+                except Exception as e:
+                    self.message_user(request,e,messages.ERROR)
+                    return HttpResponseRedirect('./')
+
+            else:
+                self.message_user(request,"Error",messages.ERROR)
+        return HttpResponseRedirect('./')
+
+
+
+    class Media:
+        js = ('admin/js/bootstrap-formhelpers.min.js',)
+    #
+    # form = CustomInstallmentAdminForm
+    #
     # def save_model(self, request, obj, form, change):
     #     obj.user = request.user
     #     super().save_model(request, obj, form, change)
@@ -501,8 +598,141 @@ class SendMessageAdmin(admin.ModelAdmin):
             except:
                 return JsonResponse({})
 
+
+class WorkExperienceEligibilityAdmin(admin.ModelAdmin):
+    list_display = ('user','first_name','state','SSN','ssn_last_four','is_encrypted')
+    search_fields = ('first_name','user__email','last_name')
+    change_list_template = 'admin/workexperienceeligibility_change_list.html'
+    ordering = ('is_encrypted',)
+    list_filter = ('is_encrypted',)
+
+    class CustomChangeList(ChangeList):
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            self.title = ''
+
+
+    def get_changelist(self, request, **kwargs):
+        return self.CustomChangeList
+
+
+    def get_urls(self):
+        urls = super().get_urls()
+        my_urls = [
+            path('ssn/handle', self.handle_encryption, name= 'transform-ssn'),
+        ]  # type: List[path]
+        return my_urls + urls
+
+    def handle_encryption(self,request):
+        if request.method == 'POST':
+            if request.POST.get('action') == 'encrypt':
+                self.encrypt_all(request)
+            else:
+                self.decrypt_all(request)
+        return redirect('../')
+
+
+    def encrypt_all(self,request):
+        if request.method == 'POST':
+
+            from  .views import ADMIN_EMAIL
+            log = []
+            is_valid = False
+            password = request.POST.get('password', None)
+            try:
+                for obj in WorkExperienceEligibility.objects.all():
+                    if not obj.is_encrypted:
+                        # Confirm if it is the same password used previously
+                        if not is_valid:
+                            try:
+                                old = WorkExperienceEligibility.objects.filter(is_encrypted=True)
+                                if old:
+                                    random_test = old[0]
+                                    if decrypt(random_test.SSN,password):
+                                        is_valid = True
+                                    else:
+                                        raise
+                                else:
+                                    is_valid = True
+
+                            except:
+                                self.message_user(request, 'Records could not be updated, password doesnt match previously '
+                                                           'used one', messages.ERROR)
+                                return
+
+                        obj.transform_ssn()
+
+                        encrypted_data = encrypt(obj.SSN,password)
+                        obj.SSN = encrypted_data
+                        obj.is_encrypted = True
+                        obj.save()
+                        log.append(True)
+
+                if True in log:
+                    self.message_user(request, 'Records updated', messages.SUCCESS)
+                    new_mail_message = "SSN data has been encrypted by {}".format(request.user)
+                    mailer = LinuxjobberMailer(
+                        subject="SSN Encrypted",
+                        to_address=ADMIN_EMAIL,
+                        header_text="Linuxjobber Notifications",
+                        type=None,
+                        message=new_mail_message
+                    )
+                    mailer.send_mail()
+                else:
+                    self.message_user(request, 'All Records already updated', messages.SUCCESS)
+            except:
+                self.message_user(request, 'Records could not be updated', messages.ERROR)
+
+
+
+    def decrypt_all(self,request):
+        if request.method == 'POST':
+            from .utilities import decrypt
+            from .views import ADMIN_EMAIL
+            log = []
+            try:
+                for obj in WorkExperienceEligibility.objects.all():
+                    if obj.is_encrypted:
+                        obj.transform_ssn()
+                        password = request.POST.get('password', None)
+                        if password:
+                            decrypted_data = decrypt(obj.SSN, password)
+                            if not decrypted_data:
+                                raise
+                            obj.SSN = decrypted_data
+                            obj.is_encrypted = False
+                            obj.save()
+                            log.append(True)
+
+                if True in log:
+                    new_mail_message = "SSN data has been decrypted by {}, ensure to encrypt back".format(request.user)
+                    mailer = LinuxjobberMailer(
+                        subject="SSN Decrypted",
+                        to_address=ADMIN_EMAIL,
+                        header_text="Linuxjobber Notifications",
+                        type=None,
+                        message=new_mail_message
+                    )
+                    mailer.send_mail()
+                    self.message_user(request, 'Records updated', messages.SUCCESS)
+                else:
+                    self.message_user(request, 'All Records already updated', messages.SUCCESS)
+            except:
+                new_mail_message = "SSN data was tried to be decrypted by {}".format(request.user)
+                mailer = LinuxjobberMailer(
+                    subject="SSN Decryption Failed",
+                    to_address=ADMIN_EMAIL,
+                    header_text="Linuxjobber Notifications",
+                    type=None,
+                    message=new_mail_message
+                )
+                mailer.send_mail()
+                self.message_user(request, 'Records could not be updated, Invalid password', messages.ERROR)
+
+
 admin.site.register(WorkExperienceIsa)
-admin.site.register(WorkExperienceEligibility)
+admin.site.register(WorkExperienceEligibility,WorkExperienceEligibilityAdmin)
 admin.site.register(WorkExperiencePay)
 admin.site.register(WorkExperiencePriceWaiver)
 admin.site.register(FAQ)
@@ -548,5 +778,11 @@ admin.site.register(InstallmentPlan, InstallmentPlanAdmin)
 admin.site.register(EmailGroup, EmailGroupAdmin)
 admin.site.register(EmailGroupMessageLog, SendMessageAdmin)
 
+
+class VariablesAdmin(admin.ModelAdmin):
+    list_display = ('key','value')
+
+
+admin.site.register(Variables,VariablesAdmin)
 
 

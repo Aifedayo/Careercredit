@@ -107,3 +107,13 @@ class CareerSwitchApplicationForm(forms.ModelForm):
 	class Meta:
 		model = CareerSwitchApplication
 		exclude = ['application_date']
+
+from django.contrib.admin import widgets
+import calendar
+
+DAYS = ((day, calendar.day_name[day]) for day in range(7))
+class UpcomingScheduleForm(forms.Form):
+
+	day = forms.ChoiceField(choices=DAYS)
+	time = forms.TimeField(label='Time',widget =widgets.AdminTimeWidget())
+
