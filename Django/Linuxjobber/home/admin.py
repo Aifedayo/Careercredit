@@ -600,9 +600,12 @@ class SendMessageAdmin(admin.ModelAdmin):
 
 
 class WorkExperienceEligibilityAdmin(admin.ModelAdmin):
-    list_display = ('user','first_name','state','ssn_first_six','ssn_last_four')
+    list_display = ('user','first_name','state','ssn_first_five','ssn_last_four','is_encrypted')
     search_fields = ('first_name','user__email','last_name')
     change_list_template = 'admin/workexperienceeligibility_change_list.html'
+    ordering = ('is_encrypted',)
+    list_filter = ('is_encrypted',)
+
     class CustomChangeList(ChangeList):
         def __init__(self, *args, **kwargs):
             super().__init__(*args, **kwargs)
@@ -645,7 +648,7 @@ class WorkExperienceEligibilityAdmin(admin.ModelAdmin):
                                 old = WorkExperienceEligibility.objects.filter(is_encrypted=True)
                                 if old:
                                     random_test = old[0]
-                                    if decrypt(random_test.ssn_first_six,password):
+                                    if decrypt(random_test.ssn_first_five,password):
                                         is_valid = True
                                     else:
                                         raise
@@ -659,8 +662,8 @@ class WorkExperienceEligibilityAdmin(admin.ModelAdmin):
 
                         obj.transform_ssn()
 
-                        encrypted_data = encrypt(obj.ssn_first_six,password)
-                        obj.ssn_first_six = encrypted_data
+                        encrypted_data = encrypt(obj.ssn_first_five,password)
+                        obj.ssn_first_five = encrypted_data
                         obj.is_encrypted = True
                         obj.save()
                         log.append(True)
@@ -694,10 +697,10 @@ class WorkExperienceEligibilityAdmin(admin.ModelAdmin):
                         obj.transform_ssn()
                         password = request.POST.get('password', None)
                         if password:
-                            decrypted_data = decrypt(obj.ssn_first_six, password)
+                            decrypted_data = decrypt(obj.ssn_first_five, password)
                             if not decrypted_data:
                                 raise
-                            obj.ssn_first_six = decrypted_data
+                            obj.ssn_first_five = decrypted_data
                             obj.is_encrypted = False
                             obj.save()
                             log.append(True)

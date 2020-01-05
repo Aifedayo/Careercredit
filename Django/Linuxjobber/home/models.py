@@ -450,7 +450,7 @@ class WorkExperienceEligibility(models.Model):
     date_of_birth = models.DateTimeField(default=timezone.now, null=True)
     SSN = models.TextField()
     ssn_last_four = models.CharField(max_length=255,null=True,default='',blank=True)
-    ssn_first_six = models.CharField(max_length=255,null=True,default='',blank=True)
+    ssn_first_five = models.CharField(max_length=255,null=True,default='',blank=True)
     is_encrypted = models.BooleanField(default=False)
     employee_address = models.TextField()
     employee_email = models.TextField()
@@ -468,8 +468,8 @@ class WorkExperienceEligibility(models.Model):
 
     def transform_ssn(self):
         if self.SSN:
-            self.ssn_first_six = self.SSN[:6]
-            self.ssn_last_four = self.SSN[6:]
+            self.ssn_first_five = self.SSN[:5]
+            self.ssn_last_four = self.SSN[5:]
             self.SSN = ""
 
     def save(self, *args, **kwargs):
