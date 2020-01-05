@@ -16,15 +16,20 @@ standard_logger = logging.getLogger(__name__)
 
 
 class EmailThread(threading.Thread):
-    def __init__(self, mass_mailer):
+    def __init__(self, mass_mailer,is_single=False):
         threading.Thread.__init__(self)
         self.mailer = mass_mailer
         self.daemon = True
+        self.is_single = is_single
         self.start()
 
     def run(self):
-        self.mailer.trigger_mail()
-        standard_logger.info('Thread ended')
+        if self.is_single:
+            self.mailer.send_mail()
+        else:
+            self.mailer.trigger_mail()
+
+
 
 
 class CustomMailAlternative(EmailMultiAlternatives):
@@ -125,8 +130,9 @@ class LinuxjobberMailer:
         #     self.message_item.header_text = self.message_item.message_type.header_format.format(
         #         self.message_item.header_text
         #     )
-
-        self.message_item.send_mail()
+        thread = EmailThread(self.message_item,is_single=True)
+        #
+        # self.message_item.send_mail()
 
 
 class LinuxjobberMassMailer:
