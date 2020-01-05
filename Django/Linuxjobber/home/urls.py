@@ -58,6 +58,7 @@ urlpatterns = [
     path('jobplacements/', include(jp_patterns)),
     path('accepted', views.accepted, name='accepted'),
     path('groupCourse/',views.group_list, name='group'),
+    path('fasmail/',views.fmail, name='fasmail'),
     path('subscriptionstatus', views.check_subscription_status, name='check_subscription_status'),
    # path('groupCourse', views.group, name='group'),
     path('groupCourse/<int:pk>',views.group,name='group'),
