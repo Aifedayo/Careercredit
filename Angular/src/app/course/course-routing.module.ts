@@ -20,6 +20,7 @@ const courseRoutes: Routes = [
       path: 'classroom/:group_id',
       component: CourseComponent, canActivate: [AuthGuard],
       children: [
+        { path: '', component: TopicVideoComponent},
         { path: 'topic-chat', component: TopicChatComponent },
         { path: 'topic/:topic_id', component: TopicVideoComponent},
         { path: 'topic/:topic_id/video', component: TopicVideoComponent},

@@ -30,16 +30,15 @@
 <div class="setup">
     <img src="{{getImgUrl(user.profile_img)}}" 
       class="ellipse"  alt="" [routerLink]="['./profile']" >
-<p class="rite" style="font-weight:bold;">{{ user.first_name }} {{ user.last_name }}</p>
-<p class="rite" style="font-size: 13px;">{{ user.email }}</p>
-<a (click)="logout()">LOGOUT</a><br><br><br>
-<a class="link"   [routerLink]="['./list']"     routerLinkActive="['active']"><i  class="fas fa-caret-right"></i>Courses</a><br>
-<a  class="link"  [routerLink]="['./profile']"     routerLinkActive="['active']" ><i class="fas fa-caret-right"></i>Profile</a><br>
-<a class="link"   [routerLink]="['./attendance']"   routerLinkActive="['active']"><i class="fas fa-caret-right"></i>Attendance</a>
-<!--- <a  class="link"  [routerLink]="['./students']"   routerLinkActive="['active']"><i class="fas fa-caret-right"></i>Students</a> -->
+    <p class="rite username" style="font-weight:bold;">{{ user.first_name }} {{ user.last_name }}</p>
+    <p class="rite" style="font-size: 13px;">{{ user.email }}</p>
+    <a (click)="logout()">LOGOUT</a><br><br><br>
+    <a class="link"   [routerLink]="['./list']"     routerLinkActive="['active']"><i  class="fas fa-caret-right"></i>Courses</a><br>
+    <a  class="link"  [routerLink]="['./profile']"     routerLinkActive="['active']" ><i class="fas fa-caret-right"></i>Profile</a><br>
+    <a class="link"   [routerLink]="['./attendance']"   routerLinkActive="['active']"><i class="fas fa-caret-right"></i>Attendance</a>
+    <!--- <a  class="link"  [routerLink]="['./students']"   routerLinkActive="['active']"><i class="fas fa-caret-right"></i>Students</a> -->
 </div>
 <div class="rectangle">
-
 </div>
 
 

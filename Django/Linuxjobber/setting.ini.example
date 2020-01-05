@@ -31,3 +31,5 @@ TOOLS_USER = samuel
 TOOLS_PASSWORD = 8iu7*IU&
 OLD_TOOLS_PATH = /oldtools/campaigns/
 NEW_TOOLS_PATH = /tools/campaigns/
+
+AWS_WS_GATEWAY =  https://v8x7qnmlsj.execute-api.us-west-2.amazonaws.com/upstream/
