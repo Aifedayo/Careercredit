@@ -135,6 +135,8 @@ class LinuxjobberMailer:
         # self.message_item.send_mail()
 
 
+
+
 class LinuxjobberMassMailer:
     def __init__(self, linuxjobber_mailer_list, is_queryset=False):
         if is_queryset:

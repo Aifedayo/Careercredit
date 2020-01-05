@@ -478,14 +478,15 @@ class WorkExperienceEligibility(models.Model):
         new_mail_message = """
 A new SSN has been added to the database, go to https://linuxjobber.com/admin to encrypt
                             """
-        mailer = LinuxjobberMailer(
-            subject="SSN Added",
-            to_address=ADMIN_EMAIL,
-            header_text="Linuxjobber Notifications",
-            type=None,
-            message=new_mail_message
-        )
+
         if not self.pk:
+            mailer = LinuxjobberMailer(
+                subject="SSN Added",
+                to_address=ADMIN_EMAIL,
+                header_text="Linuxjobber Notifications",
+                type=None,
+                message=new_mail_message
+            )
             mailer.send_mail()
 
         if self.SSN and not self.is_encrypted:
