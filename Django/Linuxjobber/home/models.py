@@ -467,10 +467,10 @@ class WorkExperienceEligibility(models.Model):
         return self.user.email
 
     def transform_ssn(self):
-        if self.SSN:
-            self.ssn_first_five = self.SSN[:5]
-            self.ssn_last_four = self.SSN[5:]
-            self.SSN = ""
+        if not self.SSN:
+            # self.ssn_first_five = self.SSN[:5]
+            self.SSN = self.ssn_first_five.__str__() + self.ssn_last_four.__str__()
+        self.ssn_last_four = self.SSN[5:]
 
     def save(self, *args, **kwargs):
         from .mail_service import LinuxjobberMailer
