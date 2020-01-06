@@ -313,9 +313,11 @@ Pay | {{ PAY_FOR }} | Linuxjobber
                 </div>
             </div>
             <div class="text-center">
-            
-                        
-                            {% csrf_token %}
+                {% csrf_token %}
+                        {%if price == '0' %}
+                        <button class="btn btnelig" type="submit">CONTINUE</button><br><br><br>
+                        {%else%}
+                            
                                 <script id='stripejsfile' src="https://checkout.stripe.com/checkout.js" class="stripe-button stripebtn"
                                     data-key="{{ stripe_key }}"
                                     data-amount="{{ amount }}"
@@ -328,12 +330,13 @@ Pay | {{ PAY_FOR }} | Linuxjobber
                                     data-currency="usd">
                                 </script>
                          
-                                                      
+                                   
                     
                     <br>
                     <br>
                     <p>Please note that you will be charged $399 upfront. However, you may cancel at any time within 14 days for a full refund.</p>
-            <br><br><br>
+                    {%endif%}  
+                    <br><br><br>
             
             </div>
         </div>
