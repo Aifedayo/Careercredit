@@ -602,7 +602,7 @@ class SendMessageAdmin(admin.ModelAdmin):
 class WorkExperienceEligibilityAdmin(admin.ModelAdmin):
     list_display = ('user','first_name','state','SSN','ssn_last_four','is_encrypted')
     search_fields = ('first_name','user__email','last_name')
-    change_list_template = 'admin/workexperienceeligibility_change_list.html'
+    change_form_template = 'admin/workexperienceeligibility_change_list.html'
     ordering = ('is_encrypted',)
     list_filter = ('is_encrypted',)
 
@@ -611,6 +611,12 @@ class WorkExperienceEligibilityAdmin(admin.ModelAdmin):
             super().__init__(*args, **kwargs)
             self.title = ''
 
+    def change_view(self, request, object_id, form_url='', extra_context=None):
+        extra_context = extra_context or {}
+        extra_context['osm_data'] = ""
+        return super(WorkExperienceEligibilityAdmin, self).change_view(
+            request, object_id, form_url, extra_context=extra_context,
+        )
 
     def get_changelist(self, request, **kwargs):
         return self.CustomChangeList
@@ -626,9 +632,9 @@ class WorkExperienceEligibilityAdmin(admin.ModelAdmin):
     def handle_encryption(self,request):
         if request.method == 'POST':
             if request.POST.get('action') == 'encrypt':
-                self.encrypt_all(request)
+                self.encrypt_one(request)
             else:
-                self.decrypt_all(request)
+                self.decrypt_one(request)
         return redirect('../')
 
 
@@ -684,8 +690,73 @@ class WorkExperienceEligibilityAdmin(admin.ModelAdmin):
             except:
                 self.message_user(request, 'Records could not be updated', messages.ERROR)
 
-
-
+    def encrypt_one(self,request):
+        if request.method == 'POST':
+            from  .views import ADMIN_EMAIL
+            password = request.POST.get('password', None)
+            object_id = request.POST.get('object_id', None)
+            try:
+                obj = WorkExperienceEligibility.objects.get(pk = object_id)
+                if not obj.is_encrypted:
+                    obj.transform_ssn()
+                    encrypted_data = encrypt(obj.SSN, password)
+                    obj.SSN = encrypted_data
+                    obj.is_encrypted = True
+                    obj.save()
+                    self.message_user(request, 'Records updated', messages.SUCCESS)
+                    new_mail_message = "SSN data for {} has been encrypted by {}".format(obj.user.email,request.user)
+                    mailer = LinuxjobberMailer(
+                        subject="SSN Encrypted",
+                        to_address=ADMIN_EMAIL,
+                        header_text="Linuxjobber Notifications",
+                        type=None,
+                        message=new_mail_message
+                    )
+                    mailer.send_mail()
+                else:
+                    self.message_user(request, 'All Records already updated', messages.SUCCESS)
+            except:
+                self.message_user(request, 'SSN cannot be encrypted', messages.ERROR)
+    def decrypt_one(self,request):
+        if request.method == 'POST':
+            from .utilities import decrypt
+            from .views import ADMIN_EMAIL
+            password = request.POST.get('password', None)
+            object_id = request.POST.get('object_id', None)
+            decrypted_data = ""
+            try:
+                obj = WorkExperienceEligibility.objects.get(pk = object_id)
+                if obj.is_encrypted:
+                    if password:
+                        decrypted_data = decrypt(obj.SSN, password)
+                        if not decrypted_data:
+                            raise
+                        obj.SSN = decrypted_data
+                        obj.is_encrypted = False
+                        obj.save()
+                    new_mail_message = "SSN data for {} has been decrypted by {}".format(obj.user.email,request.user)
+                    mailer = LinuxjobberMailer(
+                        subject="SSN Decrypted",
+                        to_address=ADMIN_EMAIL,
+                        header_text="Linuxjobber Notifications",
+                        type=None,
+                        message=new_mail_message
+                    )
+                    mailer.send_mail()
+                    self.message_user(request, 'Decrypted SSN is {}'.format(decrypted_data), messages.SUCCESS)
+                else:
+                    self.message_user(request, 'All Records already updated', messages.SUCCESS)
+            except:
+                new_mail_message = "SSN data was tried to be decrypted by {}".format(request.user)
+                mailer = LinuxjobberMailer(
+                    subject="SSN Decryption Failed",
+                    to_address=ADMIN_EMAIL,
+                    header_text="Linuxjobber Notifications",
+                    type=None,
+                    message=new_mail_message
+                )
+                mailer.send_mail()
+                self.message_user(request, 'SSN cannot be decrypted, Invalid password', messages.ERROR)
     def decrypt_all(self,request):
         if request.method == 'POST':
             from .utilities import decrypt

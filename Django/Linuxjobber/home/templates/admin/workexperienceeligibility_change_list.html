@@ -1,27 +1,46 @@
-{% extends 'admin/change_list.html' %}
+{% extends 'admin/change_form.html' %}
 {% block object-tools %}
 <div>
 <form action="{% url 'admin:transform-ssn' %}" method="POST">
         {% load static %}
     <link rel="stylesheet" href="{% static "admin/assets/vendor/bootstrap/css/bootstrap.min.css" %}">
-    <fieldset>
+    <div class="row">
+        <div class="col-md-4">
+            <fieldset>
         {% csrf_token %}
         <h5>Encrypt/Decrypt SSN</h5>
-        <p>
-            <label for="amount_of_days">
-                Enter Master Password
-                <input type="password" name="password" required>
 
-                </input>
+
+        <p>
+            <label  class="label" for="amount_of_days">
+                Enter Encryption Password
+                <input class="form-control" type="password" name="password" required/>
+                <input name="object_id" type="text" hidden value="{{ original.pk }}">
             </label>
         </p>
+
+                {% if not original.is_encrypted %}
 <button class="btn btn-primary" type="submit" name="action" value="encrypt">
     Encrypt
 </button>
+                {% else %}
 <button class="btn btn-primary" type="submit" name="action" value="decrypt">
     Decrypt
 </button>
+                {% endif %}
     </fieldset>
+        </div>
+        <div class="col-md-4">
+            {% if original.is_encrypted %}
+            <p> SSN is encrypted</p>
+            {% else %}
+                <p> SSN is not encrypted</p>
+
+            {% endif %}
+
+        </div>
+    </div>
+
 
 </form>
 
