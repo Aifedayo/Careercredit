@@ -1,10 +1,11 @@
 <main>
 <div class="rectangle">
+  <app-alert></app-alert>
   <p>Edit Profile</p>
   <img src="{{ user.profile_img }}" name="profile_img" >
   <!-- <img ng-src="data:image/jpeg;base64,{{unImage.image}}" class="images" /> -->
   <label for="file-input">
-    <i [className]="isUploading ? 'spinner' : 'btn btn-primary'"
+    <i class="btn btn-primary"
     style="display: inline;
     position: absolute;
     left: 300px; top: 170px;
@@ -35,24 +36,6 @@
     </form>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

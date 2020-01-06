@@ -1,6 +1,6 @@
 from django.utils import timezone
 
-from .background_tasks import get_process, UPCOMING_PAYMENT_NOTIFICATION_SERVICE_LABEL,\
+from .background_tasks import get_process, UPCOMING_PAYMENT_NOTIFICATION_SERVICE_LABEL, \
     OVERDUE_PAYMENT_NOTIFICATION_SERVICE_LABEL
 from .models import Variables
 import calendar
@@ -13,13 +13,19 @@ context = {
     'overdue_notification_time': 'OVERDUE_NOTIFICATION_DELIVERY_TIME',
 }
 
-def convert_to_day(day:int):
+
+def convert_to_day(day: int):
     if day:
         return calendar.day_name[int(day)]
+
     return 'Invalid'
+
+
 def convert_to_time(time):
-    hour,minute = time.split(',')
-    return "{}:{}".format(hour,minute)
+    hour, minute = time.split(',')
+    return "{}:{}".format(hour, minute)
+
+
 def next_weekday(weekday):
     now = timezone.now()
     days_ahead = weekday - now.weekday()
@@ -37,7 +43,8 @@ def get_upcoming_payment_notification_day():
         return calendar.SUNDAY
 
 
-def set_payment_notification_schedule(notification_day,notification_hour,notification_minute,on_load = False,key=None):
+def set_payment_notification_schedule(notification_day, notification_hour, notification_minute, on_load=False,
+                                      key=None):
     key_auto_created = False
     if key is None:
         key = 'upcoming_notification'
@@ -45,7 +52,7 @@ def set_payment_notification_schedule(notification_day,notification_hour,notific
     day_variable, created = Variables.objects.get_or_create(key=context['{}_day'.format(key)])
     day_variable.value = notification_day
     time_variable, created = Variables.objects.get_or_create(key=context['{}_time'.format(key)])
-    time_variable.value = "{},{}".format(notification_hour,notification_minute)
+    time_variable.value = "{},{}".format(notification_hour, notification_minute)
     notification_service = get_process(
         label=UPCOMING_PAYMENT_NOTIFICATION_SERVICE_LABEL if key == 'upcoming_notification' else
         OVERDUE_PAYMENT_NOTIFICATION_SERVICE_LABEL
@@ -66,8 +73,46 @@ def set_payment_notification_schedule(notification_day,notification_hour,notific
     # Auto sets the value for overdue payment at once
     if key_auto_created:
         set_payment_notification_schedule(
-            notification_day,notification_hour,notification_minute,on_load=True,key='overdue_notification'
+            notification_day, notification_hour, notification_minute, on_load=True, key='overdue_notification'
         )
+
+
+import base64
+from Crypto.Cipher import AES
+from Crypto import Random
+from Crypto.Protocol.KDF import PBKDF2
+
+BLOCK_SIZE = 16
+pad = lambda s: s + (BLOCK_SIZE - len(s) % BLOCK_SIZE) * chr(BLOCK_SIZE - len(s) % BLOCK_SIZE)
+unpad = lambda s: s[:-ord(s[len(s) - 1:])]
+
+
+def get_private_key(password):
+    salt = bytes(password,'utf8')
+    kdf = PBKDF2(password, salt, 64, 1000)
+    key = kdf[:32]
+    return key
+
+
+def encrypt(raw, password):
+    raw=str(raw)
+    private_key = get_private_key(password)
+    raw = pad(raw)
+    iv = Random.new().read(AES.block_size)
+    cipher = AES.new(private_key, AES.MODE_CBC, iv)
+    data = base64.b64encode(iv + cipher.encrypt(raw))
+    return data.decode('utf-8')
+
+
+def decrypt(enc, password):
+    enc = str(enc)
+    private_key = get_private_key(password)
+    enc = base64.b64decode(enc)
+    iv = enc[:16]
+    cipher = AES.new(private_key, AES.MODE_CBC, iv)
+    data = unpad(cipher.decrypt(enc[16:]))
+    return  data.decode('utf-8')
+
 
 if __name__ == '__main__':
     pass

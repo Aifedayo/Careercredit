@@ -1,0 +1,31 @@
+{% extends 'admin/change_list.html' %}
+{% block object-tools %}
+<div>
+<form action="{% url 'admin:transform-ssn' %}" method="POST">
+        {% load static %}
+    <link rel="stylesheet" href="{% static "admin/assets/vendor/bootstrap/css/bootstrap.min.css" %}">
+    <fieldset>
+        {% csrf_token %}
+        <h5>Encrypt/Decrypt SSN</h5>
+        <p>
+            <label for="amount_of_days">
+                Enter Master Password
+                <input type="password" name="password" required>
+
+                </input>
+            </label>
+        </p>
+<button class="btn btn-primary" type="submit" name="action" value="encrypt">
+    Encrypt
+</button>
+<button class="btn btn-primary" type="submit" name="action" value="decrypt">
+    Decrypt
+</button>
+    </fieldset>
+
+</form>
+
+</div>
+<br />
+{{ block.super }}
+{% endblock %}

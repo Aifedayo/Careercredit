@@ -18,11 +18,10 @@ export class ListComponent implements OnInit {
     this.username=sessionStorage.getItem('username');
   }
 
-
   ngOnInit() {
       this.courses$=this.apiService.getAvailableClasses();
-  
   }
+
   addcourse(){
     this.dataservice.addcourse();
   }

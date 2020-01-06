@@ -2,9 +2,6 @@
   <div class="" *ngIf="data$|async as the_topic">
    <h6 style="text-align: center" >{{ the_topic.topic }}</h6>
     <mat-video  [preload]="true" [download]="false" [src]="the_topic.video |safe">
-
-
     </mat-video>
   </div>
-
 </div>
