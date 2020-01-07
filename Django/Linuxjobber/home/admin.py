@@ -731,9 +731,9 @@ class WorkExperienceEligibilityAdmin(admin.ModelAdmin):
                         decrypted_data = decrypt(obj.SSN, password)
                         if not decrypted_data:
                             raise
-                        obj.SSN = decrypted_data
-                        obj.is_encrypted = False
-                        obj.save()
+                        # obj.SSN = decrypted_data
+                        # obj.is_encrypted = False
+                        # obj.save()
                     new_mail_message = "SSN data for {} has been decrypted by {}".format(obj.user.email,request.user)
                     mailer = LinuxjobberMailer(
                         subject="SSN Decrypted",
