@@ -17,7 +17,6 @@ from rest_framework.authtoken.models import Token
 class AwsWebsocketGatewayView(APIView):
     permission_classes = [] 
 
-    #get_recent_message
     def get(self,request):
         return Response(
             {'message':'get worked.'},

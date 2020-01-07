@@ -5,6 +5,7 @@ import {UserModel} from "../../share/user-model";
 // import * as $ from 'jquery';
 import { DataService } from 'src/app/data.service';
 import processHelper from './process.helper'
+import { AlertService } from './../../course/_alert/alert.service';
 
 @Component({
   selector: 'app-profile',
@@ -22,6 +23,7 @@ export class ProfileComponent implements OnInit {
   constructor(
     private apiService:ApiService, 
     private dataService:DataService,
+    private alertService: AlertService
   ) {} 
 
   ngOnInit() {
@@ -82,17 +84,19 @@ export class ProfileComponent implements OnInit {
 
   updateInfo(event): void {
     this.apiService.updateUserInfo(this.user).subscribe(data=>{
-      this.user.username=data['username'];
-      this.user.first_name=data['first_name']
-      this.user.last_name=data['last_name']
-      // this.user.profile_img=data['profile_img']
-      this.user.id=data['id']
+        this.user.username=data['username'];
+        this.user.first_name=data['first_name']
+        this.user.last_name=data['last_name']
+        // this.user.profile_img=data['profile_img']
+        this.user.id=data['id']
+        this.alertService.success(
+          'Profile successfully updated'
+        );
       }
     );
   }
 
   getProfileImg(proImgUrl:string){
-
     var image_url = "";
       if(
         proImgUrl.startsWith("https://") || 

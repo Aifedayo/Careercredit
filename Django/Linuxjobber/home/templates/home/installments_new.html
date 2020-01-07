@@ -331,12 +331,9 @@
                                                             {% endif %}
                                                         </div>
                                                         <div class="flex-item">
-                                                            {% if subpayment.payment_due %}
-                                                                &nbsp;
-                                                                &nbsp;
+                                                            {% if subpayment.payment_overdue %}
                                                                 <img src="{% static 'home/images/alert.png' %}"
                                                                      title="Payment is overdue, pay now" alt="">
-
                                                             {% endif %}
                                                         </div>
                                                     </div>
