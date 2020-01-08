@@ -1,0 +1,48 @@
+{% extends 'home/base.html' %}
+{% load staticfiles%}
+{% block title %}
+Policies | Linuxjobber
+{% endblock %}
+{% block content %}
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+              
+        </div>      
+    </div>      
+</div>
+
+<style>
+p{ font-size:22px;} 
+.fadeInUp li { font-size:15px;} 
+</style>
+
+<section class="col-xs-12 aboutusmain animate-box">
+    <div class="row raise-to-banner2">
+        <div class="col-md-8 col-md-offset-2 text-center">
+            <div class="display-t">
+                <div class="display-tc animate-box h1-bg" data-animate-effect="fadeIn">
+                    <h1>Login to fasmail</h1> 
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+<section class="col-xs-12 aboutusmain animate-box">
+    <div class="container">
+        <img src="{% static '/home/css/newhomepage/imgs/mail2.jpg' %}" alt=""r width="30%" style="display: block; margin-left: auto; margin-right: auto; ">
+        {% if user.is_authenticated %}
+<p class="text-center enroll-btn"><a class="btn btn-primary btn-lg" href="{{ FMAIL_URL }}mail?hash={{token}} " role="button" style="padding:9px 27px !important; border-radius:20px;">Go to Mail App </a></p>
+{%else%}
+<p class="text-center enroll-btn"><a class="btn btn-primary btn-lg" href="{% url 'home:login' %}?next=/fasmail"  role="button" style="padding:9px 27px !important; border-radius:20px;">Go to Mail App</a></p>
+{%endif%}
+    </div>
+</section>
+
+
+
+
+{%endblock%}

@@ -2055,6 +2055,17 @@ def group(request, pk):
     return render(request, 'home/group_class_item.html',
                   {'group': group_item, 'user': user, 'GROUP_URL': settings.GROUP_CLASS_URL, 'token': user_token})
 
+def fmail(request):
+    user = None
+    if request.user.is_authenticated:
+        user = CustomUser.objects.get(email=request.user)
+
+    user_token = None
+    if request.user.is_authenticated:
+        user_token, _ = Token.objects.get_or_create(user=request.user)
+
+    return TemplateResponse(request, 'home/fasmail.html', {'FMAIL_URL': settings.FASMAIL_URL,
+                                                               'token': user_token})
 
 @login_required
 def group_pay(request, pk):
