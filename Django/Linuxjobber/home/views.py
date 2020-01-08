@@ -1765,60 +1765,64 @@ def pay(request):
     if request.method == "POST":
         token = request.POST.get("stripeToken")
         jobplacement = request.POST["workexperience"]
-        
-        try:
-            charge = stripe.Charge.create(
-                amount=int(PRICE) * 100,
-                currency="usd",
-                source=token,
-                description=PAY_FOR
-            )
-        except stripe.error.CardError as ce:
-            return False, ce
 
-        
-        
+
+        if PRICE == '0':
+            UserPayment.objects.create(user=request.user, amount=PRICE, trans_id='-', pay_for=PAY_FOR)
         else:
-            if jobplacement == '1':
-                optiona = True
             try:
-                UserPayment.objects.create(user=request.user, amount=PRICE, trans_id=charge.id, pay_for=charge.description)
-                wepeoples.objects.update_or_create(user=request.user, types=None, current_position=None,
-                                                person=None, state=None, income=None, relocation=None,
-                                                last_verification=None, Paystub=None, graduation_date=None)
-                
-                state = WorkExperiencePay.objects.create(user=request.user,is_paid=True,includes_job_placement=optiona)
-                
-            
-                # New mail implementation
-
-
-                # send_mail('Linuxjobber Work-Experience Program',
-                #           'Hello, you have succesfully paid for Linuxjobber work experience program,\n\nIf you havent signed the agreement, visit this link to do so: https://leif.org/commit?product_id=5b30461fe59b74063647c483#/.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
-                #           settings.EMAIL_HOST_USER, [request.user.email])
-                message_applicant = """
-                    Hello, 
-
-                    You have succesfully paid for Linuxjobber Work Experience Program.
-                    
-
-                    Warm Regards,
-                    Linuxjobber
-
-                """
-                mailer_applicant = LinuxjobberMailer(
-                    subject="Payment Successful",
-                    to_address=request.user.email,
-                    header_text="Linuxjobber Work Experience",
-                    type=None,
-                    message=message_applicant
+                charge = stripe.Charge.create(
+                    amount=int(PRICE) * 100,
+                    currency="usd",
+                    source=token,
+                    description=PAY_FOR
                 )
-                mailer_applicant.send_mail()
 
-                return redirect("home:eligibility")
-            except Exception as error:
-                messages.error(request, 'An error occurred while trying to pay please try again')
-                return redirect("home:pay")
+                UserPayment.objects.create(user=request.user, amount=PRICE, trans_id=charge.id, pay_for=charge.description)
+            except stripe.error.CardError as ce:
+                return False, ce
+
+            
+        
+        if jobplacement == '1':
+            optiona = True
+        try:
+            wepeoples.objects.update_or_create(user=request.user, types=None, current_position=None,
+                                            person=None, state=None, income=None, relocation=None,
+                                            last_verification=None, Paystub=None, graduation_date=None)
+            
+            state = WorkExperiencePay.objects.create(user=request.user,is_paid=True,includes_job_placement=optiona)
+            
+        
+            # New mail implementation
+
+
+            # send_mail('Linuxjobber Work-Experience Program',
+            #           'Hello, you have succesfully paid for Linuxjobber work experience program,\n\nIf you havent signed the agreement, visit this link to do so: https://leif.org/commit?product_id=5b30461fe59b74063647c483#/.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
+            #           settings.EMAIL_HOST_USER, [request.user.email])
+            message_applicant = """
+                Hello, 
+
+                You have succesfully paid for Linuxjobber Work Experience Program.
+                
+
+                Warm Regards,
+                Linuxjobber
+
+            """
+            mailer_applicant = LinuxjobberMailer(
+                subject="Payment Successful",
+                to_address=request.user.email,
+                header_text="Linuxjobber Work Experience",
+                type=None,
+                message=message_applicant
+            )
+            mailer_applicant.send_mail()
+
+            return redirect("home:eligibility")
+        except Exception as error:
+            messages.error(request, 'An error occurred while trying to pay please try again')
+            return redirect("home:pay")
     else:
         context = {"stripe_key": stripeset[0].publickey,
                    'price': PRICE,
