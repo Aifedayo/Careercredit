@@ -282,12 +282,12 @@ class UserView(APIView):
             a=ChatUpload.objects.create(upload=file)
             type=""
             extention = a.upload.url.split(".")[-1]
-            extention=extention.lower()
+            extention = extention.lower()
             if extention not in ['jpg','jpeg','png','ico']:
                 a.delete()
                 return Response({},status.HTTP_400_BAD_REQUEST)
             b=CustomUser.objects.get(email=request.user)
-            b.profile_img = a.upload.url[1:]
+            b.profile_img = a.upload.url[1:] if settings.debug else a.upload.url
             b.save()
             return Response(UserSerializer(b).data,status=status.HTTP_201_CREATED)
         else:

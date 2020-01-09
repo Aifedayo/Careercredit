@@ -99,8 +99,7 @@ export class ProfileComponent implements OnInit {
   getProfileImg(proImgUrl:string){
     var image_url = "";
       if(
-        proImgUrl.startsWith("https://") || 
-        proImgUrl.startsWith("http://") 
+        proImgUrl.startsWith("http")
       ){
         image_url =  proImgUrl
       }
