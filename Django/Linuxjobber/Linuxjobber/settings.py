@@ -313,6 +313,7 @@ SERVER_IP = config('SERVER_IP', "192.168.122.1")
 SERVER_USER = config('SERVER_USER', "sysadmin")
 SERVER_PASSWORD = config('SERVER_PASSWORD', "8iu7*IU&")
 GROUP_CLASS_URL = config('GROUP_CLASS_URL', 'http://localhost:4200/classroom/')
+FASMAIL_URL = config('GROUP_CLASS_URL', 'http://localhost:4300/')
 
 TOOLS_USER = config('TOOLS_USER', "samuel")
 TOOLS_PASSWORD = config('TOOLS_PASSWORD', "8iu7*IU&")
