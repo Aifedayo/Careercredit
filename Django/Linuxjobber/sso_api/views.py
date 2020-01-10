@@ -22,7 +22,7 @@ from classroom.models import ChatUpload
 
 from classroom.models import AttendanceLog
 
-from Linuxjobber import settings
+from django.conf import settings
 from .serializers import GroupClassSerializer, UserSerializer, CourseSerializer, CourseTopicSerializer, \
     AttendanceSerializer, TopicLabSerializer, NoteSerializer
 from Courses.models import Course,CourseTopic,LabTask,Note
@@ -287,7 +287,7 @@ class UserView(APIView):
                 a.delete()
                 return Response({},status.HTTP_400_BAD_REQUEST)
             b=CustomUser.objects.get(email=request.user)
-            b.profile_img = a.upload.url[1:] if settings.debug else a.upload.url
+            b.profile_img = a.upload.url[1:] if settings.DEBUG else a.upload.url
             b.save()
             return Response(UserSerializer(b).data,status=status.HTTP_201_CREATED)
         else:
