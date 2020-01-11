@@ -1810,6 +1810,20 @@ def pay(request):
                 Linuxjobber
 
             """
+
+            message_admin = """
+                Hello, 
+                {email}
+                just succesfully paid for Linuxjobber Work Experience Program.
+                
+
+                Warm Regards,
+                Linuxjobber
+
+            """.format(
+                request.user.email
+            )
+
             mailer_applicant = LinuxjobberMailer(
                 subject="Payment Successful",
                 to_address=request.user.email,
@@ -1818,6 +1832,16 @@ def pay(request):
                 message=message_applicant
             )
             mailer_applicant.send_mail()
+
+            mailer_admin = LinuxjobberMailer(
+                subject="Workexperience Payment Alert",
+                to_address=ADMIN_EMAIL,
+                header_text="Linuxjobber Jobs",
+                type=None,
+                message=message_admin
+            )
+            mailer_admin.send_mail()
+
 
             return redirect("home:eligibility")
         except Exception as error:
