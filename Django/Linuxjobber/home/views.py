@@ -1256,8 +1256,24 @@ def workexpform(request):
 
     try:
         details =  WorkExperienceEligibility.objects.get(user=request.user)
+        try:
+            deta = WorkExperienceIsa.objects.get(user=request.user)
+            
+            try:
+                eta = WorkExperienceIsa.objects.get(user=request.user)
+                if eta.is_signed_isa == True:
+                    pass
+                else:
+                    return redirect("home:workexpisa2")
+
+
+            except WorkExperienceIsa.DoesNotExist:
+                return redirect("home:isa")
+        except WorkExperienceIsa.DoesNotExist:
+            return redirect("home:isa")
+
     except  WorkExperienceEligibility.DoesNotExist:
-        details = None
+        return redirect("home:eligibility")
 
     try:
         jot =  WorkExperienceIsa.objects.get(user=request.user)
@@ -1431,6 +1447,7 @@ def work_experience_isa_part_1(request):
         ssn = "•••••" + ssn
 
     except  WorkExperienceEligibility.DoesNotExist:
+        return redirect("home:eligibilty")
         details = None
         date = None
         ssn = None
@@ -1518,6 +1535,11 @@ def work_experience_isa_part_2(request):
         details =  WorkExperienceEligibility.objects.get(user=request.user)
     except  WorkExperienceEligibility.DoesNotExist:
         details = None
+
+    try:
+        jot = WorkExperienceIsa.objects.get(user=request.user)
+    except WorkExperienceIsa.DoesNotExist:
+        return redirect("home:isa")
         
 
     if request.method == "POST":
@@ -1541,7 +1563,22 @@ def workexprofile(request):
         weps = wepeoples.objects.get(user=request.user)
 
         if not weps.types:
-            return redirect("home:eligibility")
+            try:
+                details =  WorkExperienceEligibility.objects.get(user=request.user)
+                try:
+                    deta = WorkExperienceIsa.objects.get(user=request.user)
+                    try:
+                        eta = WorkExperienceIsa.objects.get(user=request.user)
+                        if eta.is_signed_isa == True:
+                            return redirect("home:workexpform")
+                        else:
+                            return redirect("home:workexpisa2")
+                    except WorkExperienceIsa.DoesNotExist:
+                        return redirect("home:isa")
+                except WorkExperienceIsa.DoesNotExist:
+                    return redirect("home:isa")
+            except  WorkExperienceEligibility.DoesNotExist:
+                return redirect("home:eligibility")
     except wepeoples.DoesNotExist:
         return redirect("home:workexperience")
 
@@ -1725,6 +1762,15 @@ def apply(request, level):
                 )
                 mailer_applicant.send_mail()
 
+                mailer = LinuxjobberMailer(
+                        subject="Account has been created",
+                        to_address= email,
+                        header_text="Linuxjobber",
+                        type=None,
+                        message= mail_message
+                    )
+                mailer.send_mail()
+
                 return render(request, 'home/jobaccepted.html')
             except Exception as error:
                 print(error)
@@ -1810,6 +1856,20 @@ def pay(request):
                 Linuxjobber
 
             """
+
+            message_admin = """
+                Hello, 
+                {email}
+                just succesfully paid for Linuxjobber Work Experience Program.
+                
+
+                Warm Regards,
+                Linuxjobber
+
+            """.format(
+                email =  request.user.email
+            )
+
             mailer_applicant = LinuxjobberMailer(
                 subject="Payment Successful",
                 to_address=request.user.email,
@@ -1819,10 +1879,19 @@ def pay(request):
             )
             mailer_applicant.send_mail()
 
+            mailer_admin = LinuxjobberMailer(
+                subject="Workexperience Payment Alert",
+                to_address=ADMIN_EMAIL,
+                header_text="Linuxjobber Jobs",
+                type=None,
+                message=message_admin
+            )
+            mailer_admin.send_mail()
+
+
             return redirect("home:eligibility")
-        except Exception as error:
-            messages.error(request, 'An error occurred while trying to pay please try again')
-            return redirect("home:pay")
+        except stripe.error.CardError as ce:
+            return False, ce
     else:
         context = {"stripe_key": stripeset[0].publickey,
                    'price': PRICE,
