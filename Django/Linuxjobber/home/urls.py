@@ -1,3 +1,4 @@
+from background_task.models import Task
 from django.contrib import admin
 from django.urls import path, include, re_path
 from . import views
@@ -29,6 +30,7 @@ wp_patterns = [
 
 test_patterns = [
     path('insert_installment_payment',tests.insert_installment_data, ),
+    path('insert_installment_payment/<int:breached>',tests.insert_installment_data, ),
     path('delete_installment_payment',tests.delete_installment_record, ),
 ]
 
@@ -58,6 +60,7 @@ urlpatterns = [
     path('jobplacements/', include(jp_patterns)),
     path('accepted', views.accepted, name='accepted'),
     path('groupCourse/',views.group_list, name='group'),
+    path('fasmail/',views.fmail, name='fasmail'),
     path('subscriptionstatus', views.check_subscription_status, name='check_subscription_status'),
    # path('groupCourse', views.group, name='group'),
     path('groupCourse/<int:pk>',views.group,name='group'),
@@ -111,5 +114,6 @@ urlpatterns = [
     path('installments/pay',views.installment_pay, name="installments_pay"),
     path('mail/status',views.mail_status, name="mail-status"),
 ]
+
 
 

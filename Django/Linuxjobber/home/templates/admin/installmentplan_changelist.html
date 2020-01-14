@@ -1,0 +1,70 @@
+{% extends 'admin/change_list.html' %}
+{% block object-tools %}
+<div>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static "admin/assets/vendor/bootstrap/css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "admin/css/bootstrap-formhelpers.min.css" %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    {{ form.media }}
+    <div class="row">
+        {{ form.errors }}
+
+        <div class="col-md-6">
+            <div style="background: lightgrey;min-width:100%;padding: 30px" >
+
+                  <h5> Current Notification Schedule</h5>
+                <p>Upcoming Payment : Every {{ upcoming_day }} at  {{ upcoming_time }} </p>
+                <p>Overdue Payment : Every {{ overdue_day }} at  {{ overdue_time }} </p>
+
+
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <form action="{% url 'admin:set-upcoming-payment-notification' %}" method="POST">
+            <fieldset>
+                {% csrf_token %}
+                <h5> Set Upcoming Payment Notification Schedule </h5>
+                  <div class="form-group">
+                <label for="day">{{ form.day.label }}</label>
+                      {{ form.day }}
+                </div>
+                  <div class="form-group">
+                <label for="time">{{ form.time.label }}</label>
+                      {{ form.time }}
+                </div>
+
+                <button class="btn btn-primary" type="submit">
+                    Change
+                </button>
+            </fieldset>
+            </form>
+        </div>
+        <div class="col-md-3">
+            <form action="{% url 'admin:set-overdue-payment-notification' %}" method="POST">
+            <fieldset>
+                {% csrf_token %}
+                <h5> Set Overdue Payment Notification Schedule </h5>
+                  <div class="form-group">
+                <label for="day">{{ form.day.label }}</label>
+                      {{ form.day }}
+                </div>
+                  <div class="form-group">
+                <label for="time">{{ form.time.label }}</label>
+                      {{ form.time }}
+                </div>
+
+                <button class="btn btn-primary" type="submit">
+                    Change
+                </button>
+            </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+<br />
+{{ block.super }}
+    	<!-- Bootstrap -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="{% static "admin/js/bootstrap-formhelpers.min.js" %}"></script>
+{% endblock %}

@@ -6,8 +6,8 @@ export const environment = {
  // API_URL:`http://34.215.123.78:4000/`,
  //  API_URL:`http://stage.linuxjobber.com:4000/`,
   // WS_URL:`ws://stage.linuxjobber.com:4000`,
-  WS_URL:`wss://e1s0jb46bg.execute-api.us-east-2.amazonaws.com/test`,
-  // WS_URL:`wss://85zctiv75k.execute-api.us-east-2.amazonaws.com/test`,
+  // WS_URL:`wss://e1s0jb46bg.execute-api.us-east-2.amazonaws.com/test`,
+    WS_URL:`wss://85zctiv75k.execute-api.us-east-2.amazonaws.com/test`,
   // API_URL:`http://34.213.31.144:4000/`,
   API_URL:`http://localhost:8000/`,
 

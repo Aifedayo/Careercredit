@@ -46,7 +46,7 @@ standard_logger = logging.getLogger(__name__)
 dbalogger = logging.getLogger('dba')
 utc = pytz.UTC
 
-ADMIN_EMAIL = 'joseph.showunmi@linuxjobber.com'
+ADMIN_EMAIL = 'joseph.showunmi@linuxjobber.com' if not settings.SES_EMAIL else settings.SES_EMAIL
 # Using Django
 def my_webhook_view(request):
     # Retrieve the request's body and parse it as JSON:
@@ -1256,8 +1256,24 @@ def workexpform(request):
 
     try:
         details =  WorkExperienceEligibility.objects.get(user=request.user)
+        try:
+            deta = WorkExperienceIsa.objects.get(user=request.user)
+            
+            try:
+                eta = WorkExperienceIsa.objects.get(user=request.user)
+                if eta.is_signed_isa == True:
+                    pass
+                else:
+                    return redirect("home:workexpisa2")
+
+
+            except WorkExperienceIsa.DoesNotExist:
+                return redirect("home:isa")
+        except WorkExperienceIsa.DoesNotExist:
+            return redirect("home:isa")
+
     except  WorkExperienceEligibility.DoesNotExist:
-        details = None
+        return redirect("home:eligibility")
 
     try:
         jot =  WorkExperienceIsa.objects.get(user=request.user)
@@ -1431,6 +1447,7 @@ def work_experience_isa_part_1(request):
         ssn = "•••••" + ssn
 
     except  WorkExperienceEligibility.DoesNotExist:
+        return redirect("home:eligibilty")
         details = None
         date = None
         ssn = None
@@ -1518,6 +1535,11 @@ def work_experience_isa_part_2(request):
         details =  WorkExperienceEligibility.objects.get(user=request.user)
     except  WorkExperienceEligibility.DoesNotExist:
         details = None
+
+    try:
+        jot = WorkExperienceIsa.objects.get(user=request.user)
+    except WorkExperienceIsa.DoesNotExist:
+        return redirect("home:isa")
         
 
     if request.method == "POST":
@@ -1541,7 +1563,22 @@ def workexprofile(request):
         weps = wepeoples.objects.get(user=request.user)
 
         if not weps.types:
-            return redirect("home:eligibility")
+            try:
+                details =  WorkExperienceEligibility.objects.get(user=request.user)
+                try:
+                    deta = WorkExperienceIsa.objects.get(user=request.user)
+                    try:
+                        eta = WorkExperienceIsa.objects.get(user=request.user)
+                        if eta.is_signed_isa == True:
+                            return redirect("home:workexpform")
+                        else:
+                            return redirect("home:workexpisa2")
+                    except WorkExperienceIsa.DoesNotExist:
+                        return redirect("home:isa")
+                except WorkExperienceIsa.DoesNotExist:
+                    return redirect("home:isa")
+            except  WorkExperienceEligibility.DoesNotExist:
+                return redirect("home:eligibility")
     except wepeoples.DoesNotExist:
         return redirect("home:workexperience")
 
@@ -1621,7 +1658,7 @@ def workexprofile(request):
     if not weps.profile_picture:
         messages.error(
             request,
-            "!!! Note Admin can't create your task without your profile image set"
+            "!!! Profile picture is required. Please upload it now"
         )
 
     return render(request, 'home/workexprofile.html',
@@ -1725,6 +1762,15 @@ def apply(request, level):
                 )
                 mailer_applicant.send_mail()
 
+                mailer = LinuxjobberMailer(
+                        subject="Account has been created",
+                        to_address= email,
+                        header_text="Linuxjobber",
+                        type=None,
+                        message= mail_message
+                    )
+                mailer.send_mail()
+
                 return render(request, 'home/jobaccepted.html')
             except Exception as error:
                 print(error)
@@ -1765,60 +1811,87 @@ def pay(request):
     if request.method == "POST":
         token = request.POST.get("stripeToken")
         jobplacement = request.POST["workexperience"]
+
+
+        if PRICE == '0':
+            UserPayment.objects.create(user=request.user, amount=PRICE, trans_id='-', pay_for=PAY_FOR)
+        else:
+            try:
+                charge = stripe.Charge.create(
+                    amount=int(PRICE) * 100,
+                    currency="usd",
+                    source=token,
+                    description=PAY_FOR
+                )
+
+                UserPayment.objects.create(user=request.user, amount=PRICE, trans_id=charge.id, pay_for=charge.description)
+            except stripe.error.CardError as ce:
+                return False, ce
+
+            
         
+        if jobplacement == '1':
+            optiona = True
         try:
-            charge = stripe.Charge.create(
-                amount=int(PRICE) * 100,
-                currency="usd",
-                source=token,
-                description=PAY_FOR
+            wepeoples.objects.update_or_create(user=request.user, types=None, current_position=None,
+                                            person=None, state=None, income=None, relocation=None,
+                                            last_verification=None, Paystub=None, graduation_date=None)
+            
+            state = WorkExperiencePay.objects.create(user=request.user,is_paid=True,includes_job_placement=optiona)
+            
+        
+            # New mail implementation
+
+
+            # send_mail('Linuxjobber Work-Experience Program',
+            #           'Hello, you have succesfully paid for Linuxjobber work experience program,\n\nIf you havent signed the agreement, visit this link to do so: https://leif.org/commit?product_id=5b30461fe59b74063647c483#/.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
+            #           settings.EMAIL_HOST_USER, [request.user.email])
+            message_applicant = """
+                Hello, 
+
+                You have succesfully paid for Linuxjobber Work Experience Program.
+                
+
+                Warm Regards,
+                Linuxjobber
+
+            """
+
+            message_admin = """
+                Hello, 
+                {email}
+                just succesfully paid for Linuxjobber Work Experience Program.
+                
+
+                Warm Regards,
+                Linuxjobber
+
+            """.format(
+                email =  request.user.email
             )
+
+            mailer_applicant = LinuxjobberMailer(
+                subject="Payment Successful",
+                to_address=request.user.email,
+                header_text="Linuxjobber Work Experience",
+                type=None,
+                message=message_applicant
+            )
+            mailer_applicant.send_mail()
+
+            mailer_admin = LinuxjobberMailer(
+                subject="Workexperience Payment Alert",
+                to_address=ADMIN_EMAIL,
+                header_text="Linuxjobber Jobs",
+                type=None,
+                message=message_admin
+            )
+            mailer_admin.send_mail()
+
+
+            return redirect("home:eligibility")
         except stripe.error.CardError as ce:
             return False, ce
-
-        
-        
-        else:
-            if jobplacement == '1':
-                optiona = True
-            try:
-                UserPayment.objects.create(user=request.user, amount=PRICE, trans_id=charge.id, pay_for=charge.description)
-                wepeoples.objects.update_or_create(user=request.user, types=None, current_position=None,
-                                                person=None, state=None, income=None, relocation=None,
-                                                last_verification=None, Paystub=None, graduation_date=None)
-                
-                state = WorkExperiencePay.objects.create(user=request.user,is_paid=True,includes_job_placement=optiona)
-                
-            
-                # New mail implementation
-
-
-                # send_mail('Linuxjobber Work-Experience Program',
-                #           'Hello, you have succesfully paid for Linuxjobber work experience program,\n\nIf you havent signed the agreement, visit this link to do so: https://leif.org/commit?product_id=5b30461fe59b74063647c483#/.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
-                #           settings.EMAIL_HOST_USER, [request.user.email])
-                message_applicant = """
-                    Hello, 
-
-                    You have succesfully paid for Linuxjobber Work Experience Program.
-                    
-
-                    Warm Regards,
-                    Linuxjobber
-
-                """
-                mailer_applicant = LinuxjobberMailer(
-                    subject="Payment Successful",
-                    to_address=request.user.email,
-                    header_text="Linuxjobber Work Experience",
-                    type=None,
-                    message=message_applicant
-                )
-                mailer_applicant.send_mail()
-
-                return redirect("home:eligibility")
-            except Exception as error:
-                messages.error(request, 'An error occurred while trying to pay please try again')
-                return redirect("home:pay")
     else:
         context = {"stripe_key": stripeset[0].publickey,
                    'price': PRICE,
@@ -2051,6 +2124,17 @@ def group(request, pk):
     return render(request, 'home/group_class_item.html',
                   {'group': group_item, 'user': user, 'GROUP_URL': settings.GROUP_CLASS_URL, 'token': user_token})
 
+def fmail(request):
+    user = None
+    if request.user.is_authenticated:
+        user = CustomUser.objects.get(email=request.user)
+
+    user_token = None
+    if request.user.is_authenticated:
+        user_token, _ = Token.objects.get_or_create(user=request.user)
+
+    return TemplateResponse(request, 'home/fasmail.html', {'FMAIL_URL': settings.FASMAIL_URL,
+                                                               'token': user_token})
 
 @login_required
 def group_pay(request, pk):
