@@ -32,6 +32,7 @@ test_patterns = [
     path('insert_installment_payment',tests.insert_installment_data, ),
     path('insert_installment_payment/<int:breached>',tests.insert_installment_data, ),
     path('delete_installment_payment',tests.delete_installment_record, ),
+    path('f',tests.check_file, ),
 ]
 
 urlpatterns = [
