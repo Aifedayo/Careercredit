@@ -75,7 +75,7 @@ class GraduateCertificateAdmin(admin.ModelAdmin):
         }],
     ]
 
-    list_display = ('certificate_id', 'user', 'alternate_email', 'certificate_type', 'graduation_date')
+    list_display = ('certificate_id', 'user', 'alternate_email', 'certificate_type', 'graduation_date','is_sent')
     readonly_fields = ['certificate_id']
     search_fields = ('alternate_email', 'user__email')
     change_form_template = 'admin/certificate_change.html'
