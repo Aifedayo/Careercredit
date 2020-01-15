@@ -1,7 +1,7 @@
 import datetime
 
 from django.conf import settings
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, FileResponse
 # Create your tests here.
 from django.utils import timezone
 from home.models import InstallmentPlan, SubPayment
@@ -70,3 +70,15 @@ def delete_installment_record(request):
         plan.subpayment_set.all().delete()
         plan.delete()
     return HttpResponse('Deleted')
+
+
+def check_file(request):
+    from django.utils.encoding import smart_str
+
+    response = HttpResponse(content_type='application/force-download')  # mimetype is replaced by content_type for django 1.7
+    response['Content-Disposition'] = 'attachment; filename=%s' % smart_str('test.pdf')
+
+    response['X-Sendfile'] = smart_str('test.pdf')
+    # It's usually a good idea to set the 'Content-Length' header too.
+    # You can also set any other required headers: Cache-Control, etc.
+    return response

@@ -1,0 +1,44 @@
+{% extends 'admin/change_form.html' %}
+{% block object-tools %}
+<div>
+
+        {% load static %}
+    <link rel="stylesheet" href="{% static "admin/assets/vendor/bootstrap/css/bootstrap.min.css" %}">
+    <div class="row">
+        {% if original.pk %}
+        <div class="col-md-6">
+
+
+
+
+
+
+     <form action="{% url 'admin:handle-certificate' original.certificate_id %}" method="POST">
+         {% csrf_token %}
+         <button type="submit" name="action" value="preview" class="btn btn-info" >
+    Preview Certificate
+</button>
+<button class="btn btn-success" type="submit" name="action" value="send_mail">
+    Email Certificate to student
+</button>
+     </form>
+
+
+        </div>
+        <div class="col-md-6">
+
+            {% if original.is_sent %}
+
+            <button disabled class="btn btn-success">Sent <i class="fa fa-check"></i> </button>
+            {% else %}
+                <button disabled class="btn btn-danger">Not Sent <i class="fa fa-close"></i> </button>
+
+            {% endif %}
+        </div>
+{% endif %}
+    </div>
+
+</div>
+<br />
+{{ block.super }}
+{% endblock %}
