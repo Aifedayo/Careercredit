@@ -30,7 +30,7 @@ html{
 }
 
 header{
-    background-image: url({% static 'certificates/images/linux-bg.jpg' %});
+    background-image: url('{{ env_url }}/certificates/images/linux-bg.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -154,11 +154,11 @@ header{
 <body>
     <header>
         <div class="linuxjobberlogo">
-            <img src="{% static 'certificates/images/Linuxjobber-logo-red.svg'  %}" alt="linuxjobberlogo">
+            <img src="{{ env_url }}/certificates/images/Linuxjobber-logo-red.svg" alt="linuxjobberlogo">
         </div>
 
         <div class="certificate">
-            <img src="{% static 'certificates/images/Certificate-of-completion.svg' %}" alt="Certificate-of-completion">
+            <img src="{{ env_url }}/certificates/images/Certificate-of-completion.svg" alt="Certificate-of-completion">
         </div>
 
 
@@ -168,7 +168,7 @@ header{
 
         <div class="cert-text">
             <h4>This acknowledges that</h4>
-            <h2>John Doe</h2>
+            <h2>{{ graduate_name }}</h2>
             <h4>has successfully completed the {{ certificate_name }} by</h4>
             <h4>Linuxjobber</h4>
         </div>

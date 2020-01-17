@@ -84,14 +84,31 @@ class GraduateCertificates(models.Model):
             return self.user.profile_img
         return self.alternate_graduate_image.url
 
+    def convert_to_fqn(self, url):
+
+        return "{}{}".format(
+                settings.ENV_URL.rstrip('/'),
+                url
+            )
+
+    def convert_to_media_fqn(self,url):
+        if settings.DEBUG:
+            return "{}{}".format(
+                settings.ENV_URL.rstrip('/'),
+                url
+            )
+        return url
+
+
     def generate_certificate(self):
         template = get_template('certificates/certificate_format.html')
+        certificate_logo = self.convert_to_media_fqn(self.certificate_type.logo.url)
+        instructor_signature = self.convert_to_media_fqn(self.certificate_type.instructor_signature.url)
 
-        certificate_logo = self.certificate_type.logo.url
-        instructor_signature = self.certificate_type.instructor_signature.url
 
-        context = {
+        context={
             'certificate_logo': certificate_logo,
+            'env_url': settings.ENV_URL.rstrip('/'),
             'certificate_name': self.certificate_type.name,
             'instructor_signature': instructor_signature,
             'instructor_name': self.certificate_type.instructor_name,
@@ -102,7 +119,7 @@ class GraduateCertificates(models.Model):
             'graduate_image': self.get_graduate_image(),
         }
         formatted_file = template.render(context)
-        filename_pdf= 'Certificate-{}-{}.pdf'.format(
+        filename_pdf = 'Certificate-{}-{}.pdf'.format(
             self.get_fullname(),
             self.certificate_type
         )
