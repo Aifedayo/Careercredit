@@ -94,6 +94,7 @@ urlpatterns = [
     path('users/orderlist', views.order_list, name='orderlist'),
     path('home/packages', views.students_packages, name='students_packages'),
     path('home/livehelp', views.live_help, name='live_help'),
+    path('noobaid/', views.noobaid, name='noobaid'),
     path('home/pay/livehelp', views.pay_live_help, name='pay_live_help'),
     path('home/server/service', views.server_service, name='server_service'),
     path('home/liveinstructor', views.in_person_training, name='in_person_training'),

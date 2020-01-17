@@ -3048,6 +3048,45 @@ def upload_profile_pic(request):
         return render(request, 'home/upload_profile_pic.html')
 
 
+def noobaid(request):
+    if request.method == "POST":
+        name = request.POST['name']
+        email = request.POST['email']
+        location = request.POST['location']
+        availability = request.POST['availability']
+        requesta = request.POST['request']
+
+        mail_message = """
+                        Hello Admin,
+                        {name} just made a request for noobaid product,
+                        with email: {email}, location is: {location}, availability: {availability}, 
+                        request: {requesta}.
+                        
+
+                        Best Regards
+                        Admin.
+
+                        """.format(
+                    name=name,
+                    email=email,
+                    location=location,
+                    availability=availability,
+                    requesta=requesta
+                )
+        mailer = LinuxjobberMailer(
+            subject="Noobaid Demo Request",
+            to_address=email,
+            header_text="Linuxjobber",
+            type=None,
+            message=mail_message
+        )
+        mailer.send_mail()
+
+        messages.success(request,'Your request has been made successfully, you will get a response from us shortly')
+
+    return render(request, 'home/noobaid.html')
+
+
 def group_list(request):
     user = None
     ans = None
