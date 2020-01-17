@@ -1,0 +1,65 @@
+{% extends 'home/base.html' %}
+{% load staticfiles%}
+{% block title %}
+Part-Time Application| Linuxjobber
+{% endblock %}
+
+{% load staticfiles %}
+{% block external_header %}
+    <link href="https://fonts.googleapis.com/css?family=Caveat+Brush&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'home/css/jobs_new.css' %}">
+
+{% endblock %}
+
+{% load staticfiles %}
+{% block content %}
+    <style>
+        html body{
+        background-color:white
+    }
+        .homebanbut{
+        width: 250px;
+    }
+
+    </style>
+    <section class="application-header-color"></section>
+
+<section class="job-application-banner">
+
+<div class="job-application-text">
+Preview Certificate
+</div>
+</section>
+
+
+    <section class="application">
+        {% if certificate %}
+
+            <div class="row">
+
+            <div class="container">
+                <img src="{{ image_url }}" alt="">
+            </div>
+            <p>
+                <a href="{{ image_url }}" class="btn btn-primary">
+                    Download PNG
+                </a>
+                &nbsp;
+                <a href="{{ pdf_url }}" class="btn btn-primary">
+                    Download PDF
+                </a>
+            </p>
+
+            </div>
+
+
+            {% else %}
+            <h3>Certificate not found</h3>
+    {% endif %}
+
+
+
+
+    </section>
+
+{% endblock %}

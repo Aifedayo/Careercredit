@@ -101,41 +101,47 @@ class GraduateCertificates(models.Model):
 
 
     def generate_certificate(self):
-        template = get_template('certificates/certificate_format.html')
-        certificate_logo = self.convert_to_media_fqn(self.certificate_type.logo.url)
-        instructor_signature = self.convert_to_media_fqn(self.certificate_type.instructor_signature.url)
+        try:
 
+            template = get_template('certificates/certificate_format.html')
+            certificate_logo = self.convert_to_media_fqn(self.certificate_type.logo.url)
+            instructor_signature = self.convert_to_media_fqn(self.certificate_type.instructor_signature.url)
+            context={
+                'certificate_logo': certificate_logo,
+                'env_url': settings.ENV_URL.rstrip('/'),
+                'certificate_name': self.certificate_type.name,
+                'instructor_signature': instructor_signature,
+                'instructor_name': self.certificate_type.instructor_name,
+                'instructor_role': self.certificate_type.instructor_role,
+                'graduate_name': self.get_fullname(),
+                'certificate_id': self.certificate_id,
+                'issue_date': self.graduation_date,
+                'graduate_image': self.get_graduate_image(),
+            }
+            formatted_file = template.render(context)
+            from .utils import generate_certificate_name
+            filename_pdf = "media/" + generate_certificate_name(self) + ".pdf"
+            filename_html = filename_pdf.replace('pdf', 'html')
+            filename_png = filename_pdf.replace('pdf', 'png')
 
-        context={
-            'certificate_logo': certificate_logo,
-            'env_url': settings.ENV_URL.rstrip('/'),
-            'certificate_name': self.certificate_type.name,
-            'instructor_signature': instructor_signature,
-            'instructor_name': self.certificate_type.instructor_name,
-            'instructor_role': self.certificate_type.instructor_role,
-            'graduate_name': self.get_fullname(),
-            'certificate_id': self.certificate_id,
-            'issue_date': self.graduation_date,
-            'graduate_image': self.get_graduate_image(),
-        }
-        formatted_file = template.render(context)
-        filename_pdf = 'Certificate-{}-{}.pdf'.format(
-            self.get_fullname(),
-            self.certificate_type
-        )
+            with open(filename_html, 'w') as certificate_file:
+                certificate_file.write(formatted_file)
 
-        filename_html = filename_pdf.replace('pdf', 'html')
-
-        with open(filename_html, 'w') as certificate_file:
-            certificate_file.write(formatted_file)
-
-        from weasyprint import HTML, CSS
-        html_file = HTML(filename_html)
-        css = CSS(string='@page { size: A3; width: 40cm; align: center; margin-left: 2cm; margin-right: 0 }')
-        html_file.write_pdf(
-          filename_pdf, stylesheets=[css]
-        )
-        return filename_pdf
+            from weasyprint import HTML, CSS
+            html_file = HTML(filename_html)
+            css = CSS(string='@page { size: A3; width: 40cm; align: center; margin-left: 2cm; margin-right: 0 }')
+            import os
+            if filename_pdf not in os.listdir('media'):
+                html_file.write_pdf(
+                  filename_pdf, stylesheets=[css]
+                )
+                html_file.write_png(
+                  filename_png, stylesheets=[css]
+                )
+            return True
+        except Exception as e:
+            print(e)
+            return False
 
 
 

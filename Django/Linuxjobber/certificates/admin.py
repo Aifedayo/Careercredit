@@ -112,9 +112,10 @@ class GraduateCertificateAdmin(admin.ModelAdmin):
         except:
             return Http404(request,'Not found')
         if request.POST.get('action', None) == 'send_mail':
-
-            return self.mail_certificate(request, certificate)
-
+            certificate.mail_certificate()
+            certificate.set_as_sent()
+            self.message_user(request, 'Certificate sent to user', messages.SUCCESS)
+            return redirect('./')
         else:
             return self.preview_certificate(request, certificate)
 

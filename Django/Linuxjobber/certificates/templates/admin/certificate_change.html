@@ -15,9 +15,9 @@
 
      <form action="{% url 'admin:handle-certificate' original.certificate_id %}" method="POST">
          {% csrf_token %}
-         <button type="submit" name="action" value="preview" class="btn btn-info" >
+         <a href="{% url 'certificates:preview-certificate' %}" class="btn btn-info" >
     Preview Certificate
-</button>
+</a>
 <button class="btn btn-success" type="submit" name="action" value="send_mail">
     Email Certificate to student
 </button>
