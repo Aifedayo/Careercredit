@@ -35,12 +35,7 @@ Preview Certificate
     <section class="application">
         {% if certificate %}
 
-            <div class="row">
-
-            <div class="container">
-                <img src="{{ image_url }}" alt="">
-            </div>
-            <p>
+             <p>
                 <a href="{{ image_url }}" class="btn btn-primary">
                     Download PNG
                 </a>
@@ -50,7 +45,11 @@ Preview Certificate
                 </a>
             </p>
 
+            <div class="container">
+                <img src="{{ image_url }}" alt="">
             </div>
+
+
 
 
             {% else %}
