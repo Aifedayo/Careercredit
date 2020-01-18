@@ -51,7 +51,11 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'sso_api',
     'storages',
-    'livereload'
+    'livereload',
+    'background_task',
+    'certificates',
+
+    'awswebsocket'
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -115,7 +119,7 @@ DATABASES = {
         'ENGINE': config('DATABASE_ENGINE', 'django.db.backends.mysql'), 
         'NAME': config('DATABASE_NAME', 'linuxjobber'),  # linuxjb
         'USER': config('DATABASE_USER', 'root'),  # linuxjobber
-        'PASSWORD': config('DATABASE_PASSWORD', '8iu7*IU&'),  # linuxjobber
+        'PASSWORD': config('DATABASE_PASSWORD', 'samjam1989'),  # linuxjobber
         'HOST': config('DATABASE_HOST', 'localhost'),
         'PORT': config('DATABASE_PORT', ''),
 
@@ -243,7 +247,7 @@ USE_TZ = True
 
 AWS_DEFAULT_ACL = None
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID', '')
-S3DIRECT_REGION = 'us-west-2'
+S3DIRECT_REGION = config('S3DIRECT_REGION','us-west-2')
 AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY', '')
 AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME', '')
 AWS_QUERYSTRING_AUTH = False #This will make sure that the file URL does not have unnecessary parameters like your access key.
@@ -274,15 +278,15 @@ STATICFILES_FINDERS = (
 
 # EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 # EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
-ENV_URL = "http://127.0.0.1:8000/"
+ENV_URL = config('ENV_URL',"http://127.0.0.1:8000/")
 
 
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_BACKEND = "home.mail_service.CustomEmailBackend"
 EMAIL_HOST = config('EMAIL_HOST', 'smtp.linuxjobber.com')
 EMAIL_PORT = config('EMAIL_PORT', '587')
 EMAIL_HOST_USER = config('EMAIL_HOST_USER', 'admin@linuxjobber.com')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', 'm4k3Aw!y')
-#EMAIL_USE_TLS = True
+EMAIL_USE_TLS = True
 
 
 
@@ -310,6 +314,7 @@ SERVER_IP = config('SERVER_IP', "192.168.122.1")
 SERVER_USER = config('SERVER_USER', "sysadmin")
 SERVER_PASSWORD = config('SERVER_PASSWORD', "8iu7*IU&")
 GROUP_CLASS_URL = config('GROUP_CLASS_URL', 'http://localhost:4200/classroom/')
+FASMAIL_URL = config('GROUP_CLASS_URL', 'http://localhost:4300/')
 
 TOOLS_USER = config('TOOLS_USER', "samuel")
 TOOLS_PASSWORD = config('TOOLS_PASSWORD', "8iu7*IU&")
@@ -318,5 +323,7 @@ NEW_TOOLS_PATH = config('NEW_TOOLS_PATH', "/tools/campaigns/")
 
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+ 
+AWS_WS_GATEWAY = config('AWS_WS_GATEWAY','url')
 
-
+SES_EMAIL = config('SES_EMAIL','no@test.com')

@@ -1,0 +1,17 @@
+{% extends 'admin/change_list.html' %}
+{% block object-tools %}
+<div>
+<form action="{% url 'admin:mail-compose' %}" method="POST">
+{% csrf_token %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static "admin/assets/vendor/bootstrap/css/bootstrap.min.css" %}">
+    <div>
+        <button class="btn btn-primary" type="submit">Find/Schedule Email Message</button>
+    </div>
+
+</form>
+
+</div>
+<br />
+{{ block.super }}
+{% endblock %}

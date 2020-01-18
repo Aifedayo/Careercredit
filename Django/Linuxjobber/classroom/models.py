@@ -56,6 +56,9 @@ class ChatMessage(models.Model):
     timestamp=models.CharField(max_length=100,null=True)
     room = models.ForeignKey(ChatRoom, on_delete=models.CASCADE, null = True)
 
+    def save(self, *args, **kwargs):
+        super(ChatMessage, self).save(*args, **kwargs)
+        return self
 
 class ChatUpload(models.Model):
   upload = models.FileField(upload_to='chat_uploads')
@@ -66,4 +69,7 @@ class AttendanceLog(models.Model):
     user=models.ForeignKey(CustomUser,on_delete=models.CASCADE,related_query_name='group_attendance')
     timestamp=models.CharField(max_length=100)
     video_url=models.URLField(null=True,blank=True)
+
+class Connection(models.Model):
+    connection_id = models.CharField(max_length=255)
 

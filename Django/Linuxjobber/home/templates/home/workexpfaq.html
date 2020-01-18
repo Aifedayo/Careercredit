@@ -1,0 +1,148 @@
+{% extends 'home/base.html' %}
+{% load staticfiles%}
+{% block title %}
+FAQs | workexperience
+{% endblock %}
+{% block content %}
+<style>
+  h3 {
+      font-size: 14px;
+      text-transform: uppercase;
+      margin: 18px 0;
+  }
+  .server_services{ background:#EEEEEE;}
+  h2 {
+    color: #17406b;
+    font-size: 2em;
+    font-weight: 300;
+    line-height: 1.4;
+    margin-bottom: 0.6em;
+    text-align: center;
+  }
+  .panel-group .panel {
+    border-radius: 4px;
+    margin-bottom: 0;
+  }
+  .faq-panel .panel-heading {
+    padding: 20px 25px;
+  }
+  .faq-panel .panel-title a.collapsed::after {
+    content: "";
+  }
+
+  .faq-panel .panel-title a::after {
+    color: inherit;
+    content: "";
+    float: right;
+    font-family: "FontAwesome";
+    font-size: 20px;
+  }
+  .our-benefits{
+    border-bottom:none
+  }
+</style>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <div class="carousel-inner" role="listbox" style="padding:201px 0 9px;">
+    <div class="item active">
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>Work Experience FAQs</h1>          
+        </div>
+      </div>
+    </div>
+  </div>     
+</div>
+{%if faq_above_fifty_is_visible %}
+  <div class="server_services">   
+    <div class="our-benefits">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12" style="margin:12px 0;">
+            <h2>JOB PREPARATION TIPS</h2>  
+            <div class="main-container inner-page">
+              <div class="container">
+                <div class="section-content">
+                  <div class="row ">
+                    <hr class="center-block small text-hr">
+                  </div>
+                  <div class="faq-content">
+                    <div aria-multiselectable="true" role="tablist" id="accordio" 
+                      class="panel-group faq-panel">
+                      {%for faq in above_fifty_percent %}
+                          <div class="panel">
+                            <div id="heading{{faq.id}}" role="tab" class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a style="color:#333333; font-weight:bold;"  
+                                      aria-controls="collapse{{faq.id}}" aria-expanded="false" 
+                                      href="#collapse{{faq.id}}" data-parent="#accordion" 
+                                      data-toggle="collapse" class="collapsed">
+                                       {{ forloop.counter }}. {{faq.question}}
+                                    </a>
+                                </h4>
+                            </div>
+                            <div aria-labelledby="heading{{faq.id}}" role="tabpanel" 
+                                class="panel-collapse collapse" id="collapse{{faq.id}}">
+                                <div class="panel-body">
+                                    {{faq.response|safe|escape}}
+                                </div>
+                            </div>
+                          </div> 
+                      {%endfor%}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>        
+          </div>
+        </div>
+      </div>
+    </div><!--our-benefits-->
+  </div>
+{% endif %}
+<div class="server_services">   
+  <div class="our-benefits">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12" style="margin:12px 0;">
+          <h2> FAQs</h2>  
+          <div class="main-container inner-page">
+            <div class="container">
+              <div class="section-content">
+                <div class="row ">
+                  <hr class="center-block small text-hr">
+                </div>
+                <div class="faq-content">
+                  <div aria-multiselectable="true" role="tablist" id="accordio" 
+                    class="panel-group faq-panel">
+                    {%for faq in below_fifty_percent %}
+                        <div class="panel">
+                          <div id="heading{{faq.id}}" role="tab" class="panel-heading">
+                              <h4 class="panel-title">
+                                  <a style="color:#333333; font-weight:bold;"  
+                                    aria-controls="collapse{{faq.id}}" aria-expanded="false" 
+                                    href="#collapse{{faq.id}}" data-parent="#accordion" 
+                                    data-toggle="collapse" class="collapsed">
+                                      {{ forloop.counter }}. {{faq.question}}
+                                  </a>
+                              </h4>
+                          </div>
+                          <div aria-labelledby="heading{{faq.id}}" role="tabpanel" 
+                              class="panel-collapse collapse" id="collapse{{faq.id}}">
+                              <div class="panel-body">
+                                  {{faq.response|safe|escape}}
+                              </div>
+                          </div>
+                        </div> 
+                    {%endfor%}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>        
+        </div>
+      </div>
+    </div>
+  </div><!--our-benefits-->
+</div>
+{%endblock%}

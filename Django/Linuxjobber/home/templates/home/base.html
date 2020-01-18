@@ -343,10 +343,13 @@ bottom: 200px;
 												</ul>
 											</div>
 											<div class="col-md-4 col-sm-6">
-												<ul>							
+												<ul>
 													<li><a href="/users/orderlist"><span class="link-icon"><img src="{% static 'home/images/icon1.png' %}" alt="" /></span>Order List</a></li>
 												</ul>
-											</div>		
+												<ul>
+													<li><a href="{% url 'home:fasmail' %}"><span class="link-icon"><img src="{% static 'home/images/icon1.png' %}" alt="" /></span>Fasmail</a></li>
+												</ul>
+											</div>
 											<div class="col-md-4 col-sm-6">
 												<ul>	
 													<li><a href="{% url 'home:logout' %}"><span class="link-icon"><img src="{% static 'home/images/logout1.png' %}" alt="" /></span>Logout</a></li>
@@ -359,6 +362,14 @@ bottom: 200px;
 												</ul>
 											</div>
 											{%endif%}
+                                            											<div class="col-md-4 col-sm-6">
+												<ul>
+													<li><a href="{% url 'home:installments' %}"><span class="link-icon">
+                                                        <img src="{% static 'home/images/icon1.png' %}" alt="" />
+                                                    </span>Installments</a>
+                                                    </li>
+												</ul>
+											</div>
 										</div>
 									</div>	
 								</li>
@@ -407,7 +418,7 @@ bottom: 200px;
 								help</a></li>
 						<li><a href="{% url 'Projects:index' %}">Projects</a></li>
 						<li><a href="{% url 'Courses:userinterest' %}">Course Descriptions</a></li>
-						<li><a href="{% url 'home:linux_full_training' %}"> Linux Complete Class</a></li>
+						<li><a href="{% url 'home:linux_full_training' %}">Linux+DevOps</a></li>
 					</ul>
 				</div>
 
@@ -418,21 +429,17 @@ bottom: 200px;
 						<li><a href="{% url 'home:faq' %}">FAQ</a></li>
 						<li><a href="{% url 'home:partime' %}">Part-Time Jobs</a></li>
 						<li><a href="{% url 'home:group' %}">Group Class</a></li>
-						<li><a href="{% url 'home:in_person_training' %}">In-Person
-								Training</a></li>
 						<li><a href="{% url 'home:workexperience' %}">Work
 								Experience</a></li>
 								<li><a href="{% url 'home:combined_class' %}">Combined Class</a></li>
-						<li><a href="{% url 'home:gainexperience' %}">Gain
-								Experience</a></li>
 						<li><a href="{% url 'home:jobplacements' %}">Job
 								Placement Program</a></li>
-                        <li><a href="{% url 'home:aws_full_training' %}"> AWS Complete Class</a></li>
-                        <li><a href="{% url 'home:devops_class' %}"> DevOps Complete Class </a></li>
+						{%for class in complitfoot %}
+							<li><a href="{% url 'home:completeclass' class.slug %}">{{class.name}}</a></li>
+						{%endfor%}
 						<li><a href="{% url 'home:it_partnership' %}">IT Partner</a></li>
 					</ul>
 				</div>
-
 
 				<div class="col-md-3 col-sm-6">
 					<h2>Company</h2>

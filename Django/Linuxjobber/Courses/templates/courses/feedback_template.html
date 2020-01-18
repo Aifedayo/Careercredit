@@ -1,0 +1,107 @@
+<div id="modal" class="modal is-active">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+      <form id="rating-form" method="post" action="{% url 'Courses:feedback-add' %}">
+          {% csrf_token %}
+          <div class="card">
+  <header class="card-header">
+    <p class="card-header-title ">
+      Leave a review
+
+    </p>
+      <span class="has-text-right">
+              <button> X </button>
+        </span>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <p>Tell us what you think about the {{ course.data }} course</p>
+        <div class="control">
+            <label for="comment" class="label">
+            Rating
+        </label>
+            <p class="has-text-centered">
+                <span class="rating-star">
+<input type="radio" name="rating" value="5"><span class="star"></span>
+
+    <input type="radio" name="rating" value="4"><span class="star"></span>
+
+    <input type="radio" name="rating" value="3"><span class="star"></span>
+
+    <input type="radio" name="rating" value="2"><span class="star"></span>
+
+    <input type="radio" name="rating" value="1"><span class="star"></span>
+</span>
+            </p>
+        </div>
+        <input name="course_id" hidden value="{{ course.data.pk }}" >
+        <div class="control">
+            <label for="comment" class="label">
+            Comment
+            <textarea name="comment" id="" class="textarea" placeholder="Tell us what you think" value=""  required></textarea>
+        </label>
+        </div>
+
+
+    </div>
+  </div>
+  <footer class="card-footer">
+      <div class="card-footer-item">
+          <button type="submit" class="button is-success">Submit</button>
+      </div>
+      <div class="card-footer-item">
+          <a id="close"  class="button is-danger">Cancel</a>
+      </div>
+  </footer>
+</div>
+      </form>
+
+  </div>
+  <button id="close-button" class="modal-close is-large" aria-label="close"></button>
+</div>
+
+<style>
+
+.rating-star {
+    direction: rtl;
+    font-size: 40px;
+    unicode-bidi: bidi-override;
+    display: inline-block;
+}
+.rating-star input {
+    opacity: 0;
+    position: relative;
+    left: -30px;
+    z-index: 2;
+    cursor: pointer;
+}
+.rating-star span.star:before {
+    color: #777777;
+
+}
+.rating-star span.star {
+    display: inline-block;
+    font-style: normal;
+    font-weight: normal;
+    position: relative;
+    z-index: 1;
+
+}
+.rating-star span {
+    margin-left: -30px;
+}
+.rating-star span.star:before {
+    color: #777777;
+    content:"\f006";
+}
+.rating-star input:hover + span.star:before, .rating-star input:hover + span.star ~ span.star:before, .rating-star input:checked + span.star:before, .rating-star input:checked + span.star ~ span.star:before {
+    color: #ffd100;
+    content:"\f005";
+}
+
+.selected-rating{
+    color: #ffd100;
+    font-weight: bold;
+    font-size: 42px;
+}
+</style>

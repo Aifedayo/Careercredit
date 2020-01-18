@@ -1,0 +1,223 @@
+{% extends 'home/base.html' %}
+{% load staticfiles%}
+{% block title %}
+Installments | Linuxjobber
+{% endblock %}
+
+{% load staticfiles %}
+{% block external_header %}
+        <link href="https://fonts.googleapis.com/css?family=Caveat+Brush&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'home/css/jobs_new.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/installments.css' %}">
+{% endblock %}
+
+{% load staticfiles %}
+{% block content %}
+
+    <section class="application-header-color"></section>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-md-8">
+
+        <h1 class="my-4">Installments
+          <small>(Pay for services conveniently)</small>
+        </h1>
+        {% if messages %}
+          {% for message in messages %}
+            {% if message.tags == "success" %}
+            <br><br>
+            <div class="alert alert-success" role="alert">
+            <p style="color:#155724">{{message}}</p>
+            </div>
+            {%else%}
+            <br><br>
+            <div class="alert alert-danger" role="alert">
+            <p style="color:#721c24">{{message}}</p>
+            </div>
+            {%endif%}
+          {% endfor %}
+        {% endif %}
+
+        {% if installments %}
+          {% for installment in installments %}
+            <div class="card">
+          <div class="card-body">
+            <h2 class="card-title">{{ installment.description }} </h2>
+              <p class="right"> Total Amount : ${{ installment.total_amount }}</p>
+          {% if installment.total_installments != 0 %}
+              <p class="right"> Balance : ${{ installment.get_balance }}</p>
+<p class="" > Initial Payment : ${{ installment.get_initial_payment_amount }} </p>
+<p class="" > Upcoming Payment : {{ installment.get_next_due_payment }} </p>
+{% endif %}
+              {% if installment.get_balance > 0 %}
+                    <form action="{% url 'home:installments_pay' %}" method="post">
+                    {% csrf_token %}
+                        <input name="sub_payment_id" value="{{ installment.get_next_due_payment_id }}" type="text" hidden>
+                        <button style="float:right;" type="submit" class="btn btn-primary "
+                                {% if not installment.get_next_due_payment_id %} disabled {% endif %} >
+                        {% if not installment.get_next_due_payment_id %} Contact admin to setup next payment
+                        {% else %} Make Next Payment
+                        {% endif %}
+                    </button>
+                    </form>
+                  {% elif installment.total_installments == 0 %}
+
+                        <a  class="btn btn-danger" disabled>
+                            Not Active
+                        </a>
+                    {% else %}
+
+                        <a  class="btn btn-success" disabled>
+                            All Settled
+                        </a>
+              {% endif %}
+
+          </div>
+          <div class="card-footer text-muted">
+          	<p>Total Installments - {{ installment.total_installments }}</p>
+              {% if installment.total_installments %}
+              <small> (Click to view more details)</small>
+                  {% for payment in installment.subpayment_set.all|dictsort:'due_in' %}
+              <div class = "panel-group" id="accordion">
+   <div class = "panel {% if payment.is_paid %} panel-success {% else %} panel-default {% endif %}">
+
+      <div class = "panel-heading">
+         <h4 class = "panel-title">
+            <a data-toggle = "collapse" data-parent = "#accordion" href = "#collapse{{ payment.pk }}">
+               {{ payment.description }} @ ${{ payment.amount }}
+                <span style="float: right">
+                    {% if payment.is_paid %}
+                    Paid
+                    <i class="fa fa-check"></i>
+                    {% else %}
+                    {{ payment.get_due_date_pretty }}
+                    {% endif %}
+                </span>
+            </a>
+         </h4>
+      </div>
+
+      <div id = "collapse{{ payment.pk }}" class = "panel-collapse collapse">
+         <div class = "panel-body">
+            <div class="row">
+                <div class="col-md">
+                    {% if not payment.is_paid %}
+                        {% if not payment.is_initial %}
+                    <p> Due date : {{ payment.get_due_date }} </p>
+                            {% else %}
+                            <p>Plan would be activated when initial payment is made</p>
+                            {% endif %}
+                    {% else %}
+                    <p> Payment made {{ payment.get_paid_date }} </p>
+                    {% endif %}
+                </div>
+                <div class="col-md">
+                    {% if not payment.is_paid %}
+                    <form action="{% url 'home:installments_pay' %}" method="post">
+                    {% csrf_token %}
+                        {% if installment.get_next_due_payment == payment %}
+                        <input name="sub_payment_id" value="{{ payment.pk }}" type="text" hidden>
+                        <button type="submit" class="btn btn-primary">
+                        Pay now
+                    </button>
+                            {% else %}
+                            <input name="sub_payment_id" value="{{ installment.get_next_due_payment.id }}" type="text" hidden>
+                        <button type="submit" class="btn btn-primary">
+                        Pay next due payment
+                    </button>
+
+                            {% endif %}
+                    </form>
+                    {% else %}
+
+                        <a  class="btn btn-success" disabled>
+                            Paid
+                        </a>
+                    {% endif %}
+
+                </div>
+            </div>
+         </div>
+      </div>
+
+   </div>
+
+</div>
+                  {% endfor %}
+              {% endif %}
+          </div>
+        </div>
+          {% endfor %}
+            {% else %}
+            <div class="card">
+            <div class="card-body">
+                <div class="card-title">
+                    <h2> No Installment Record found</h2>
+                </div>
+            </div>
+            </div>
+
+        {% endif %}
+        </div>
+
+      <!-- Sidebar Widgets Column -->
+      <div class="col-md-4">
+
+        <!-- Search Widget -->
+        <!-- Categories Widget -->
+
+
+        <!-- Side Widget -->
+        <div class="card ">
+          <h5 class="card-header">Upcoming Payments</h5>
+
+            
+          <div class="card-body">
+          <ul class="list-group">
+        {% for installment in installments %}
+                {% if installment.get_next_due_payment%}
+                   <li class="list-group-item">
+                       ${{ installment.get_next_due_payment.amount }}
+                       {{ installment.get_next_due_payment.description }}
+                       for {{ installment.get_next_due_payment.installment.description|lower }}
+                       <br>
+                    <small class="text-danger">
+                        {{ installment.get_next_due_payment.get_due_date_pretty }}
+
+                        <form action="{% url 'home:installments_pay' %}" method="post">
+                    {% csrf_token %}
+                        <input name="sub_payment_id" value="{{installment.get_next_due_payment.id}}" type="text" hidden>
+                        <button type="submit" class="btn btn-primary">
+                        Pay now
+                    </button>
+                    </form>
+                    </small>
+
+
+                   </li>
+                {% endif %}
+            {% endfor %}
+          </ul>
+          </div>
+        </div>
+        <div class="card ">
+          <h5 class="card-header">Overdue Payments</h5>
+          <div class="card-body">
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+{% endblock %}

@@ -105,7 +105,7 @@
     <div class="col-md-9">
       <ul style="display:flex;" class="con-list">
         <li  [class.active]="videoTab">
-          <a [routerLink]="['./video']" routerLinkActive="active" id="video"
+          <a [routerLink]="['./topic/49/video']" routerLinkActive="active" id="video"
             >Video</a
           >
         </li>
@@ -135,6 +135,7 @@
       </ul>
       <hr />
       <div>
+        <app-alert></app-alert>
         <router-outlet></router-outlet>
       </div>
     </div>

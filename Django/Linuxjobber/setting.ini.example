@@ -1,6 +1,8 @@
 [settings]
 DJANGO_DEBUG = True
 
+
+#
 DATABASE_ENGINE = mysql.connector.django
 DATABASE_NAME = linuxjobber
 DATABASE_USER = root
@@ -24,8 +26,11 @@ SERVER_IP = 192.168.122.1
 SERVER_USER = sysadmin
 SERVER_PASSWORD = 8iu7*IU&
 GROUP_CLASS_URL = http://localhost:4200/classroom/
+FASMAIL_URL = config('GROUP_CLASS_URL', 'http://localhost:4300/')
 
 TOOLS_USER = samuel
 TOOLS_PASSWORD = 8iu7*IU&
 OLD_TOOLS_PATH = /oldtools/campaigns/
 NEW_TOOLS_PATH = /tools/campaigns/
+
+AWS_WS_GATEWAY =  https://v8x7qnmlsj.execute-api.us-west-2.amazonaws.com/upstream/

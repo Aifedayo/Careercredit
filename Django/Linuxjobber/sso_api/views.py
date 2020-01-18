@@ -22,7 +22,7 @@ from classroom.models import ChatUpload
 
 from classroom.models import AttendanceLog
 
-from Linuxjobber import settings
+from django.conf import settings
 from .serializers import GroupClassSerializer, UserSerializer, CourseSerializer, CourseTopicSerializer, \
     AttendanceSerializer, TopicLabSerializer, NoteSerializer
 from Courses.models import Course,CourseTopic,LabTask,Note
@@ -80,7 +80,9 @@ def confirm_api(request,group_id):
                          'id':token.user.pk,
                          'role':token.user.role,
                          'video_required':video_required,
-                         'uploaded':uploaded
+                         'uploaded':uploaded,
+                         'profile_img':token.user.profile_img,
+                         'email':token.user.email
                          },status=status.HTTP_202_ACCEPTED)
     except Token.DoesNotExist:
         return Response("Nothing",status=status.HTTP_403_FORBIDDEN)
@@ -280,12 +282,12 @@ class UserView(APIView):
             a=ChatUpload.objects.create(upload=file)
             type=""
             extention = a.upload.url.split(".")[-1]
-            extention=extention.lower()
+            extention = extention.lower()
             if extention not in ['jpg','jpeg','png','ico']:
                 a.delete()
                 return Response({},status.HTTP_400_BAD_REQUEST)
             b=CustomUser.objects.get(email=request.user)
-            b.profile_img = a.upload.url[1:]
+            b.profile_img = a.upload.url[1:] if settings.DEBUG else a.upload.url
             b.save()
             return Response(UserSerializer(b).data,status=status.HTTP_201_CREATED)
         else:

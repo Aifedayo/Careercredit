@@ -1,12 +1,14 @@
 {% extends 'home/base.html' %}
 {% load staticfiles%}
-
+{% block title %}
+  Group Class | Linuxjobber
+{% endblock %}
 
 {% block content %}
 <style type="text/css">
 .groupschedh{
-  font-size: 500px;
-  display: flex;
+    font-size: 500px;
+    display: flex;
     width: 100%;
     justify-content: center;
     align-items: center;
@@ -31,10 +33,33 @@
   letter-spacing: 0.25em;
 }
  
-sup{
-  font-size: 35px;
-} 
+  sup{
+    font-size: 35px;
+  } 
+  .mouse-overlay{
+    position: absolute;
+    top:0px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    border:2px solid rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+  
+  .groupcard span.icon{
+    font-size:40px;
+    margin-left: 20px;
+    visibility:hidden;
+  }
+
+  .groupdate {
+    margin-top: 20px;
+  }
+  .groupdate .starts{
+    margin-top:-2em;
+  }
 </style>
+
 <div class="groupblueban">
 </div>
 <div class="groupblueban2">
@@ -88,13 +113,20 @@ sup{
           <div class="groupcard1 groupcard">
           {%endif%}
             <br><b>class:</b><br>
-            <b><span>{{group.name}}</span></b><br>
-            <div class="groupdate">
+            <b><span>{{group.name}}</span></b><br><br>
+            {% if request.user not in group.users.all %}
+                <span  class="icon title{{group.id}}">
+                  <i class="fa fa-check"></i>
+                </span>
+            {% endif %}
+            <div class="groupdate" style="">
               {% if request.user not in group.users.all %}
-              starts:<br>
-              <b>{{group.start_date}}</b>
+                <div class="starts">
+                  starts:<br>
+                  <b>{{group.start_date}}</b>
+                </div>
               {%else%}
-              {{group.class_meet}}<br>
+                {{group.class_meet}}<br>
                 <a href="{{ GROUP_URL }}{{ group.id }}?hash={{token}}" class="btn groupclabut2">Go To Class</a>
               {%endif%}
             </div>
@@ -103,16 +135,14 @@ sup{
             <br><b><span>{{group.name}}</span></b><br>Description of course and some other info
             <div class="text-muted">{{group.start_date}}<br>{{group.duration}}<br>{{group.class_meet}}<br>{{group.type_of_class}}</div>
             <div class="pull-right"><button type="button" class="btn butg groupclabut2 but{{group.id}}">Enroll Now</button></div>
-            <br>
+            {% comment %} <br> {% endcomment %}
+            <span class="icon description{{group.id}}">
+              <i class="fa fa-check"></i>
+            </span>
           </div>
-
-          
         </div>
         {%endfor%}
       </div>
-      
-      
-    
   </div>
   <div class="grouppaytype">
     <div>
@@ -129,6 +159,8 @@ sup{
       <div class="col-md-3"></div>
       <div class="col-md-3">
         <div class="grouppaycard" id="g1">
+          <div class="show-click hidden">
+          </div>
           <div class="text-center">
             <span>Monthly</span><br>
             <span class="groupamount"><sup>$</sup>29</span><br><br>
@@ -141,6 +173,8 @@ sup{
       </div>
       <div class="col-md-3">
         <div class="grouppaycard" id="g2">
+          <div class="show-click hidden">
+          </div>
           <div class="text-center">
             <span>One-Time</span><br>
             <span class="groupamount"><sup>$</sup><span id="amount"> </span> </span><br><br>
@@ -174,7 +208,7 @@ sup{
          <div class="alert-danger grouppay"><br>Please choose payment plan above.<br><br></div>
           </div>
         </div>
-                                <div class="col-md-4"></div>
+        <div class="col-md-4"></div>
       </div>
   </div>
 </form>
@@ -306,6 +340,7 @@ sup{
     
   });
 
+  let iconIsActive = null
   {%for group in groups%}
 
   $('.nothover{{group.id}}').hover(
@@ -313,10 +348,10 @@ sup{
         var $this = $(this); // caching $(this)
         $this.data('initialText', $this.html());
         $this.html($('.hover{{group.id}}').html());
+        
         $('.but{{group.id}}').click(function(){
           $('.butg').text('Enroll Now');
           $('.but{{group.id}}').text('Selected');
-
 
           var item  = $('#amount');
             item.text({{ group.price }});
@@ -334,11 +369,23 @@ sup{
           $('#grouptype').val('{{group.id}}');
 
           $('.grouppaytype').show();
+
+          iconIsActive = '{{group.id}}';
+          $('span.icon').css({visibility:'hidden'})
+          $('span.icon.description{{group.id}}').css({visibility:'visible'})
+          $('span.icon.title{{group.id}}').css({visibility:'visible'})
         })
         },
       function() {
         var $this = $(this); // caching $(this)
         $this.html($this.data('initialText'));
+
+        const gId = $('#grouptype').val()
+        if(iconIsActive != null && gId == '{{group.id}}'){
+          $('span.icon').css({visibility:'hidden'})
+          $('span.icon.description{{group.id}}').css({visibility:'visible'})
+          $('span.icon.title{{group.id}}').css({visibility:'visible'})
+        }
       }
    );
 
@@ -361,6 +408,11 @@ sup{
       'background': '#FFFFFF',
       'color': 'black',
     });
+
+    $(this).find($('.show-click'))
+      .css({visibility:'hidden'});
+    $('#g2').find($('.show-click'))
+      .css({visibility: 'visible'});
   });
 
   $('#g2').click(function(){
@@ -377,8 +429,25 @@ sup{
       'background': '#FFFFFF',
       'color': 'black',
     });
+
+    $(this).find($('.show-click'))
+      .css({visibility:'hidden'});
+    $('#g1').find($('.show-click'))
+      .css({visibility:'visible'});
   });
 
-
+    $(".grouppaycard").hover(function(){
+      $(this).css({position:'relative'})
+      //$(this).find($('svg')).css(
+      //  {width:'20%', color:'#fff'}
+      //)
+      $(this).find($('.show-click'))
+        .removeClass('hidden')
+        .addClass('mouse-overlay');
+      },function(){
+        $(this).find($('.show-click'))
+          .removeClass('mouse-overlay')
+          .addClass('hidden');
+    });
 </script>
 {% endblock%}

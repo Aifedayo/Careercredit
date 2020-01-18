@@ -1,23 +1,12 @@
 """Linuxjobber URL Configuration
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/2.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from home.views import log_in
 
 urlpatterns = [
     path('', include('home.urls')),
@@ -27,17 +16,23 @@ urlpatterns = [
     path('projects/', include("Projects.urls")),
     path('tools/', include("ToolsApp.urls")),
     path('classroom/', include("classroom.urls")),
+    path('accounts/login/', log_in, name="login" ),
     path('accounts/', include('django.contrib.auth.urls')),
     path('sso_api/', include('sso_api.urls')),
-
+    path('awsgateway/', include('awswebsocket.urls')),
+    path('certificates/', include('certificates.urls')),
 
 ]
 
 urlpatterns += staticfiles_urlpatterns()
 
+admin.site.site_header = "Dashboard"
+admin.site.site_title = "Linuxjobber Admin Portal"
+admin.site.index_title = "Welcome to Linuxjobber Admin Portal"
+
 from home.views import handler_404, handler_500, handler_401
-handler404 = handler_404
-handler500 = handler_500
+#handler404 = handler_404
+#handler500 = handler_500
 # handler401 = handler_401
 
 

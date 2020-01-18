@@ -1,0 +1,383 @@
+{
+    "AWSTemplateFormatVersion":"2010-09-09",
+    "Description":"The AWS CloudFormation template for websocket api gateway application",
+    "Parameters": {
+         "Stage":{
+            "Description" : "Websocket api stage name",
+            "Type" : "String",
+            "Default" : "pro",
+            "ConstraintDescription":"must be a valid url string"
+         },
+        "BaseUrl":{
+            "Description" : "Domain for websocket endpoint",
+            "Type" : "String",
+            "Default" : "https://linuxjobber.com",
+            "ConstraintDescription":"must be a valid url string"
+        }
+    },
+    "Resources":{
+        "WebsocketsApi":{
+            "Type":"AWS::ApiGatewayV2::Api",
+            "Properties":{
+               "Name":{
+                  "Fn::Join": [
+                      "",
+                      [
+                          {
+                              "Ref": "Stage"
+                          },
+                          "-groupclass-websockets-api-gateway"
+                      ]
+                  ]
+              },
+               "RouteSelectionExpression":"$request.body.action",
+               "Description":"Websockets api gateway",
+               "ProtocolType":"WEBSOCKET"
+            }
+         },
+         "ConnectionManagerWebsocketsIntegration":{
+            "Type":"AWS::ApiGatewayV2::Integration",
+            "Properties":{
+               "ApiId":{
+                  "Ref":"WebsocketsApi"
+               },
+               "IntegrationType":"HTTP",
+               "IntegrationMethod": "POST",
+               "IntegrationUri": {
+                    "Fn::Join": [
+                        "",
+                        [
+                            {
+                                "Ref": "BaseUrl"
+                            },
+                            "/awsgateway/"
+                        ]
+                    ]
+                },
+               "TemplateSelectionExpression":"\\$default",
+               "RequestTemplates":{
+                  "\\$default":{
+                     "Fn::Join":[
+                        "",
+                        [
+                           "{\"connectionId\": \"$context.connectionId\"}"
+                        ]
+                     ]
+                  }
+               }
+            }
+         },
+         "ConnectionManagerWebsocketsRouteResponse":{
+            "Type":"AWS::ApiGatewayV2::RouteResponse",
+            "Properties":{
+               "RouteId":{
+                  "Ref": "SconnectWebsocketsRoute"
+               },
+               "ApiId":{
+                  "Ref":"WebsocketsApi"
+               },
+               "RouteResponseKey":"$default"
+            }
+         },
+         "ConnectionManagerWebsocketsIntegrationResponse":{
+            "Type":"AWS::ApiGatewayV2::IntegrationResponse",
+            "Properties":{
+               "IntegrationId":{
+                  "Ref": "ConnectionManagerWebsocketsIntegration"
+               },
+               "IntegrationResponseKey":"$default",
+               "ApiId":{
+                  "Ref": "WebsocketsApi"
+               },
+               "TemplateSelectionExpression":"\\$default",
+               "ResponseTemplates":{
+                  "application/json":{
+                     "Fn::Join":[
+                        "",
+                        [
+                           "{\"body\": $integration.response.body}"
+                        ]
+                     ]
+                  }
+               }
+            }
+         },
+         "DisconnectManagerWebsocketsIntegration":{
+            "Type":"AWS::ApiGatewayV2::Integration",
+            "Properties":{
+               "ApiId":{
+                  "Ref":"WebsocketsApi"
+               },
+               "IntegrationType":"HTTP",
+               "IntegrationMethod": "DELETE",
+               "IntegrationUri": {
+                    "Fn::Join": [
+                        "",
+                        [
+                            {
+                                "Ref": "BaseUrl"
+                            },
+                            "/awsgateway/"
+                        ]
+                    ]
+                },
+               "TemplateSelectionExpression":"\\$default",
+               "RequestTemplates":{
+                  "\\$default": {
+                      "Fn::Join": [
+                          "",
+                          [
+                              "{\"connectionId\": \"$context.connectionId\"}"
+                          ]
+                      ]
+                  }
+              }
+            }
+         },
+         "DefaultMessageWebsocketsIntegration":{
+            "Type":"AWS::ApiGatewayV2::Integration",
+            "Properties":{
+               "ApiId":{
+                  "Ref":"WebsocketsApi"
+               },
+               "IntegrationType":"HTTP",
+               "IntegrationMethod":"PATCH",
+               "IntegrationUri": {
+                    "Fn::Join": [
+                        "",
+                        [
+                            {
+                                "Ref": "BaseUrl"
+                            },
+                            "/awsgateway/"
+                        ]
+                    ]
+                }
+            }
+         },
+         "GetRecentMessagesWebsocketsIntegration":{
+            "Type":"AWS::ApiGatewayV2::Integration",
+            "Properties":{
+               "ApiId":{
+                  "Ref":"WebsocketsApi"
+               },
+               "IntegrationType":"HTTP",
+               "IntegrationMethod":"POST",
+               "IntegrationUri": {
+                    "Fn::Join": [
+                        "",
+                        [
+                            {
+                                "Ref": "BaseUrl"
+                            },
+                            "/awsgateway/get_recent_messages/"
+                        ]
+                    ]
+                },
+               "TemplateSelectionExpression":"\\$default",
+               "RequestTemplates":{
+                  "\\$default": {
+                      "Fn::Join": [
+                          "",
+                          [
+                              "{\"connectionId\": \"$context.connectionId\", \"body\": $input.body}"
+                          ]
+                      ]
+                  }
+              }
+            }
+         },
+         "SendMessageWebsocketsIntegration":{
+            "Type":"AWS::ApiGatewayV2::Integration",
+            "Properties":{
+               "ApiId":{
+                  "Ref":"WebsocketsApi"
+               },
+               "IntegrationType":"HTTP",
+               "IntegrationMethod": "PUT",
+               "IntegrationUri": {
+                    "Fn::Join": [
+                        "",
+                        [
+                            {
+                                "Ref": "BaseUrl"
+                            },
+                            "/awsgateway/"
+                        ]
+                    ]
+                },
+               "TemplateSelectionExpression":"\\$default",
+               "RequestTemplates":{
+                  "\\$default": {
+                      "Fn::Join": [
+                          "",
+                          [
+                              "{\"connectionId\": \"$context.connectionId\", \"body\": $input.body}"
+                          ]
+                      ]
+                  }
+              }
+            }
+         },
+        "SconnectWebsocketsRoute":{
+            "Type":"AWS::ApiGatewayV2::Route",
+            "Properties":{
+               "ApiId":{
+                  "Ref":"WebsocketsApi"
+               },
+               "RouteKey":"$connect",
+               "AuthorizationType":"NONE",
+               "Target":{
+                  "Fn::Join":[
+                     "/",
+                     [
+                        "integrations",
+                        {
+                           "Ref":"ConnectionManagerWebsocketsIntegration"
+                        }
+                     ]
+                  ]
+               }
+            }
+         },
+         "SdisconnectWebsocketsRoute":{
+            "Type":"AWS::ApiGatewayV2::Route",
+            "Properties":{
+               "ApiId":{
+                  "Ref":"WebsocketsApi"
+               },
+               "RouteKey":"$disconnect",
+               "AuthorizationType":"NONE",
+               "Target":{
+                  "Fn::Join":[
+                     "/",
+                     [
+                        "integrations",
+                        {
+                           "Ref":"DisconnectManagerWebsocketsIntegration"
+                        }
+                     ]
+                  ]
+               }
+            }
+         },
+         "SdefaultWebsocketsRoute":{
+            "Type":"AWS::ApiGatewayV2::Route",
+            "Properties":{
+               "ApiId":{
+                  "Ref":"WebsocketsApi"
+               },
+               "RouteKey":"$default",
+               "AuthorizationType":"NONE",
+               "Target":{
+                  "Fn::Join":[
+                     "/",
+                     [
+                        "integrations",
+                        {
+                           "Ref":"DefaultMessageWebsocketsIntegration"
+                        }
+                     ]
+                  ]
+               }
+            }
+         },
+         "getRecentMessagesWebsocketsRoute":{
+            "Type":"AWS::ApiGatewayV2::Route",
+            "Properties":{
+               "ApiId":{
+                  "Ref":"WebsocketsApi"
+               },
+               "RouteKey":"getRecentMessages",
+               "AuthorizationType":"NONE",
+               "Target":{
+                  "Fn::Join":[
+                     "/",
+                     [
+                        "integrations",
+                        {
+                           "Ref":"GetRecentMessagesWebsocketsIntegration"
+                        }
+                     ]
+                  ]
+               }
+            }
+         },
+         "sendMessageWebsocketsRoute":{
+            "Type":"AWS::ApiGatewayV2::Route",
+            "Properties":{
+               "ApiId":{
+                  "Ref":"WebsocketsApi"
+               },
+               "RouteKey":"sendMessage",
+               "AuthorizationType":"NONE",
+               "Target":{
+                  "Fn::Join":[
+                     "/",
+                     [
+                        "integrations",
+                        {
+                           "Ref":"SendMessageWebsocketsIntegration"
+                        }
+                     ]
+                  ]
+               }
+            }
+         },
+         "WebsocketsDeployment1":{
+            "Type":"AWS::ApiGatewayV2::Deployment",
+            "DependsOn":[
+               "SconnectWebsocketsRoute",
+               "SdisconnectWebsocketsRoute",
+               "SdefaultWebsocketsRoute",
+               "getRecentMessagesWebsocketsRoute",
+               "sendMessageWebsocketsRoute"
+            ],
+            "Properties":{
+               "ApiId":{
+                  "Ref":"WebsocketsApi"
+               },
+               "Description":"Api gatway Websockets"
+            }
+         },
+         "WebsocketsDeploymentStage":{
+            "Type":"AWS::ApiGatewayV2::Stage",
+            "Properties":{
+               "ApiId":{
+                  "Ref":"WebsocketsApi"
+               },
+               "DeploymentId":{
+                  "Ref":"WebsocketsDeployment1"
+               },
+               "StageName":{ "Ref":"Stage" },
+               "Description":"Api gateway Websockets"
+            }
+         }
+    },
+    "Outputs":{
+      "ServiceEndpointWebsocket":{
+         "Description":"URL of the service endpoint",
+         "Value":{
+            "Fn::Join":[
+               "",
+               [
+                  "wss://",
+                  {
+                     "Ref":"WebsocketsApi"
+                  },
+                  ".execute-api.",
+                  {
+                     "Ref":"AWS::Region"
+                  },
+                  ".",
+                  {
+                     "Ref":"AWS::URLSuffix"
+                  },
+                  "/",
+                  { "Ref":"Stage" }
+               ]
+            ]
+         }
+      }
+    }
+}

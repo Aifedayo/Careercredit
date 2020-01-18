@@ -1,11 +1,12 @@
 from Courses.models import Course
 from ToolsApp.models import Tool
-from home.models import wepeoples
+from home.models import wepeoples, CompleteClass
 from Projects.models import Project, ProjectCourse
 
 def courses(request):
     return {
-        'courses': Course.objects.all()
+        'courses': Course.objects.all(),
+		'complitfoot': CompleteClass.objects.filter(show_on_footer=1),
     }
 
 def tools(request):
@@ -14,6 +15,7 @@ def tools(request):
 		'procourse': ProjectCourse.objects.all()
 	}
 
+		
 
 def workexperience(request):
 	if request.user.is_authenticated:
@@ -22,8 +24,6 @@ def workexperience(request):
 			workex = True
 		except wepeoples.DoesNotExist:
 			workex = False
-
-		
 		return{
 			'workexp': workex
 		}

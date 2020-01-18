@@ -1,0 +1,10 @@
+[
+    {   
+        "parameterKey": "Stage",
+        "parameterValue": "test"
+    },
+    {   
+        "parameterKey": "BaseUrl",
+        "parameterValue": "http://f21d3183.ngrok.io"
+    }
+]
