@@ -96,6 +96,7 @@ urlpatterns = [
     path('career_switch/',views.career_switch,name='career_switch'),
     path('obtain_position/',views.position_detail),
     path('jobs/submitted',views.job_submitted),
+    path('it_partnership/',views.it_partnership, name="it_partnership"),
 ]
 
 

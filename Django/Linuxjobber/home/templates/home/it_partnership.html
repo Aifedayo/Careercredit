@@ -1,0 +1,129 @@
+{% extends 'home/base.html' %}
+{% load staticfiles%}
+{% block title %}
+IT | partnership
+{% endblock %}
+{% block style %}
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"> 
+    <link href="{% static 'home/css/it-partner.css' %}" rel="stylesheet">
+    <style>
+        .card{
+            background:url({% static 'home/images/service-item-bg.png' %});
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <section class="professional">
+        <span></span>
+        <img src="{% static 'home/images/group-member.png' %}" />
+        <div class="over">
+            <div class="message">
+                <h2>We Are Professional Cofounders. We Will Work For Equity + Commitment</h2>
+                <p>Looking for technical cofounder? We will handle all your technical needs including server and programming so that you can focus on the idea.</p>
+                <a class="btn" href="#idea-form">Apply Now<a>
+            </div>
+        </div>
+        <div class="learn-more">
+            <span>Learn More</span>
+            <a href="#our-goal"><img src="{% static 'home/images/pointer.png' %}"/></a>
+        </div>
+    </section>
+    <section class="our-goal" id="our-goal">
+        <div class="content">
+            <div class="description">
+                <h3>Our Goal</h3>
+                <p>To help great founders bring their ideas to life</p>
+                <p>The startup world is filled with lots of people with great ideas that are never executed due to lack of technical know-how. Often times, the search for technical founders are fruitless. We are now putting our engineering brains behind great ideas to see them come to life.</p>
+                <a class="btn" href="#idea-form">Apply Now</a>
+            </div>
+            <div class="image">
+                <img src="{% static 'home/images/vector_img.png' %}"/> 
+            </div>
+        </div>
+    </section>
+    <section class="our-service">
+        <h3>Our Services</h3>
+        <p>This is what we are offerring</p>
+        <div class="card-section">
+            <div class="card">
+                <div class="card-content">
+                    <img src="{% static 'home/images/card-vector.png' %}"/>
+                    <p>200 hours of work per month</p>
+                </div>
+                <span><span>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <img src="{% static 'home/images/code-icon.png' %}"/>
+                    <p>Supply Developers</p>
+                </div>
+                <span><span>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <img src="{% static 'home/images/server-icon.png' %}"/>
+                    <p>Provide Servers</p>
+                </div>
+                <span><span>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <img src="{% static 'home/images/cloud-icon.png' %}"/>
+                    <p>Manage Servers</p>
+                </div>
+                <span><span>
+            </div>
+        </div>
+        <a href="#idea-form" class="btn" href="#idea-form">Apply Now</a>
+    </section>
+    <section class="pricing">
+        <div class="content">
+            <h3>pricing</h3>
+            <p>The cost of our services will be</p>
+            <div>
+                <div class="value">
+                    <span>$499</span><span>/Month</span>
+                    <p>5% business equity per contract year</p>
+                </div>
+            </div>
+            <a href="#" class="btn">Apply Now</a>
+        </div>
+    </section>
+    <section class="idea-form" id="idea-form">
+        <h3>Apply Here</h3>
+        <p>Tell Us a little about your idea</p>
+        <form class="content">
+            <div class="form-row">
+                <div class="form-item">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="enter your full name" />
+                </div>
+                <div class="form-item">
+                    <label>Company </label>
+                    <input type="text" placeholder="enter your company name" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-item">
+                    <label>Email Address </label>
+                    <input type="text" placeholder="enter your email address" />
+                </div>
+                <div class="form-item">
+                    <label>Idea Title </label>
+                    <input type="text" placeholder="enter your title for this idea" />
+                </div>
+            </div>
+             <div class="form-row">
+                <div class="form-item">
+                    <label>Idea Detail</label>
+                    <textarea placeholder="explain your idea to us"></textarea>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-item">
+                    <button type="submit" class="btn">Send Message</button>
+                </div>
+            </div>
+        </form>
+    </section>
+{%endblock%}
