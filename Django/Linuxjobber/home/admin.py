@@ -629,6 +629,8 @@ class WorkExperienceEligibilityAdmin(admin.ModelAdmin):
         ]  # type: List[path]
         return my_urls + urls
 
+
+
     def handle_encryption(self,request):
         if request.method == 'POST':
             if request.POST.get('action') == 'encrypt':
@@ -800,6 +802,7 @@ class WorkExperienceEligibilityAdmin(admin.ModelAdmin):
                 )
                 mailer.send_mail()
                 self.message_user(request, 'Records could not be updated, Invalid password', messages.ERROR)
+
 
 
 admin.site.register(WorkExperienceIsa)

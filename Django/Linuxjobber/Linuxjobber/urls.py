@@ -20,6 +20,8 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('sso_api/', include('sso_api.urls')),
     path('awsgateway/', include('awswebsocket.urls')),
+    path('certificates/', include('certificates.urls')),
+
 ]
 
 urlpatterns += staticfiles_urlpatterns()
