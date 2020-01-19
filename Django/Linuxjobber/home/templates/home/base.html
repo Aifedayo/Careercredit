@@ -48,6 +48,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'Projects/custom/css/projects.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css' %}">
 <script src="{% static 'home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js' %}"></script>
+{% block style %} {% endblock %}
 <style>
 
 .tool-sub{
@@ -436,7 +437,7 @@ bottom: 200px;
 						{%for class in complitfoot %}
 							<li><a href="{% url 'home:completeclass' class.slug %}">{{class.name}}</a></li>
 						{%endfor%}
-						
+						<li><a href="{% url 'home:it_partnership' %}">IT Partner</a></li>
 					</ul>
 				</div>
 

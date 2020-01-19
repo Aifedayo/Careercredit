@@ -114,6 +114,7 @@ urlpatterns = [
     path('installments/',views.installments,name='installments'),
     path('installments/pay',views.installment_pay, name="installments_pay"),
     path('mail/status',views.mail_status, name="mail-status"),
+    path('it_partnership/',views.it_partnership, name="it_partnership"),
 ]
 
 

@@ -1,0 +1,315 @@
+
+
+
+html{
+    font-size: 62.5%;
+}
+
+html body *{
+    font-family: 'Roboto', "Helvetica Neue", sans-serif;
+}
+
+h3{
+    margin: 0px;
+    padding: 0px;
+}
+
+.content {
+    max-width: 1100px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 2rem;
+}
+
+section{
+    padding: 5rem 0rem;
+}
+
+section.our-goal,section.pricing,section.idea-form{
+    margin-top: 8rem;
+}
+
+/**professional**/
+section.professional{
+    position:relative;
+    padding:0rem;
+}
+
+.professional img{
+    width:100%;
+    height:100%;
+}
+
+.professional > span{
+    display:block;
+    background-color:#194c90;
+    content:" ";
+    width:100%;
+    height: 7.2rem;
+}
+
+.professional .over{
+    position: absolute;
+    top: 0rem;
+    right: 0rem;
+    bottom: 0rem;
+    left: 0rem;
+}
+
+.professional .over{
+    display:flex;
+    justify-content:flex-end;
+    height:100%;
+    align-items: center;
+    font-style: normal;
+    color: #FFFFFF;
+}
+
+.professional .over .message{
+    flex-basis: 46%;
+    margin-right: calc(47% + 5px);
+}
+
+.professional .over .message h2{
+    font-family: 'Open Sans';
+    font-weight: bold;
+    font-size: 4.8rem;
+    line-height: 6.5rem;
+    color: #FFFFFF; 
+}
+
+.professional .over .message p{
+    padding: 2rem 0rem;
+    font-weight: normal;
+    font-size: 1.8rem;
+    line-height: 2.1rem;
+}
+
+.professional .over .message a.btn{
+    background: #2D87FF;
+    color:#FFFFFF;
+}
+
+.professional .learn-more{
+    position:absolute;
+    bottom:5%;
+    right:50%;
+    text-align:center;
+}
+
+.professional .learn-more span{
+    display:block;
+    font-weight:500;
+    font-size: 1.4rem;
+    line-height:1.6rem;
+    padding:.5rem;
+    color:#FFFFFF;
+}
+
+.professional .learn-more img{
+    width:3rem;
+    height:1.3rem;
+}
+
+/**Our Goal**/
+.our-goal .content{
+    display:flex;
+    justify-content: space-between;
+}
+
+.our-goal .content > div{
+    flex-basis: 45%;
+}
+
+.our-goal .content h3{
+    text-align: left;
+}
+
+.our-goal .content .description{
+    align-self: center;
+    color: #333333;
+}
+
+.our-goal .content .description p{
+    padding-bottom: 3rem;
+}
+
+.our-goal .content .description p:nth-child(2){
+    font-weight: 300;
+    font-size: 3.6rem;
+    line-height: 4.2rem;
+}
+
+.our-goal .content .description p:nth-child(3){
+    font-weight: normal;
+    font-size: 1.8rem;
+    line-height: 2.1rem;
+}
+
+.our-goal .image img{
+    width:100%;
+} 
+
+/**card section**/
+.card-section{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 2rem 0rem;
+}
+
+.card{
+    flex-basis: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 32.5rem; 
+    border-bottom-right-radius: 3rem;
+    border-top-right-radius: 3rem;
+    position: relative;
+}
+
+.card span{
+    display: block;
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    border: white solid 0.2rem;
+}
+
+
+.card .card-content img{
+    width: 8.495rem;
+    height: 12.0rem;
+    padding-bottom: 4rem;
+}
+
+.card p{
+    font-weight: normal;
+    font-size: 1.8rem;
+    line-height: 2.1rem;
+    padding-bottom: 2rem;
+}
+
+
+/** pricing**/
+.pricing .content{
+    font-family: 'Roboto';
+    font-style: normal;
+    text-align:center;
+}
+
+.pricing .content .value p{
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    color: #1C549F;
+    padding: 2rem 0rem;
+}
+
+.pricing .content .value{
+    display:inline-block;
+    padding: 10px 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 4.0rem 0rem
+}
+
+.pricing .content .value span:first-child{
+    font-weight: 500;
+    font-size: 6.4rem;
+    line-height: 7.5rem;
+    color: #000000;
+}
+
+.pricing .content .value span:last-child{
+    font-size: 2.4rem;
+    line-height: 2.8rem;
+    color: #000000;
+}
+
+
+/** form**/
+.idea-form{
+    text-align:center;
+    background: #F4F6FA;
+}
+
+.idea-form input,.idea-form textarea{
+    width:100%;
+    padding:10px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 0.5rem;
+}
+
+.idea-form textarea{
+    min-height:20rem;
+    border: 0rem;
+}
+
+.idea-form .form-row{
+    display:flex;
+    margin:1rem 0rem
+    
+}
+
+.idea-form .form-row .form-item{
+    flex:1;
+}
+
+.idea-form .form-row .form-item label{
+    display:block;
+    font-weight: 500;
+    font-size: 1.8rem;
+    line-height: 2.1rem;
+    color: #333333;
+    text-align:left;
+    padding-bottom:0.1rem
+}
+
+.idea-form .form-row .form-item button[type='submit']{
+    background:white;
+}
+
+/* Helpers */
+.card-content,.our-service{
+    text-align: center;
+}
+
+.pricing .content h3,.idea-form h3,.our-service h3,.our-goal h3{
+    font-weight: bold;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #1B539E;
+    padding-bottom: 1rem;
+}
+
+.pricing .content p,.idea-form p,.our-service > p{
+    font-weight: 300;
+    font-size: 3.6rem;
+    line-height: 4.2rem;
+    text-align: center;
+    color: #333333;
+    padding-bottom: 3rem;
+}
+
+
+.btn {
+    display: inline-block;
+    font-weight: 500;
+    line-height: 1.6rem;
+    color: #1B539E;
+    padding: 1.7rem 6.6rem;
+    border: none;
+    cursor: pointer;
+    font-size: 1.4rem;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+}
+
+.debug{
+    border: #333333 solid;
+}

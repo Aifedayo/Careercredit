@@ -3565,5 +3565,6 @@ def mail_status(request):
             return JsonResponse({})
 
 
-
+def it_partnership(request):
+    return TemplateResponse(request, 'home/it_partnership.html') 
 
