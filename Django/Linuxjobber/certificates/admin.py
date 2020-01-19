@@ -29,7 +29,7 @@ class GraduateCertificateForm(forms.ModelForm):
         if not user and not alternate_full_name:
             raise forms.ValidationError("Supply either an alternate student name or select an existing user")
 
-        if not user.profile_img and not alternate_graduate_image:
+        if not user and not alternate_graduate_image:
             raise forms.ValidationError(
                 "Supply either an alternate graduate image name or update user profile with image")
 
