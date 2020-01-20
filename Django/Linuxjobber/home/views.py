@@ -3059,7 +3059,7 @@ def noobaid(request):
         mail_message = """
                         Hello Admin,
                         {name} just made a request for noobaid product,
-                        with email: {email}, location is: {location}, availability: {availability}, 
+                        with email: {email}, institute is: {location}, phone: {availability}, 
                         request: {requesta}.
                         
 

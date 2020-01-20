@@ -1,7 +1,7 @@
 import datetime
 import enum
 
-from background_task.models import CompletedTask
+#from background_task.models import CompletedTask
 from django.contrib.auth.models import User
 from django.contrib.humanize.templatetags import humanize
 from django.core.exceptions import ValidationError
