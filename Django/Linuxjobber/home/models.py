@@ -15,7 +15,6 @@ from users.models import CustomUser
 
 from datetime import date
 
-
 def due_time():
     return timezone.now() + timezone.timedelta(days=6)
 
