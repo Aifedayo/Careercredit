@@ -3075,7 +3075,7 @@ def noobaid(request):
                 )
         mailer = LinuxjobberMailer(
             subject="Noobaid Demo Request",
-            to_address=email,
+            to_address=ADMIN_EMAIL,
             header_text="Linuxjobber",
             type=None,
             message=mail_message
