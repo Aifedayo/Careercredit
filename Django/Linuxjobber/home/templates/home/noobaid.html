@@ -1,0 +1,354 @@
+{% load static %}
+<style>
+.ErrorField{ border-color:red !important; }
+.container{
+    font-family: Roboto;
+}
+
+    .noobnav{
+        background: url(../static/home/css/newhomepage/imgs/nav.png) top;
+        height: 65px;
+    }
+
+    .leftnobem{
+        font-weight:bolder;
+    }
+
+    .nbanner{
+        background: url(../static/home/css/newhomepage/imgs/noobanner.png) top;
+        height: 500px;
+        padding-top: 80px;
+        margin-bottom: 150px;
+    }
+
+    .leftnoob{
+        padding-top: 100px;
+        padding-left: 20px;
+    }
+
+    .leftnoobh1{
+        font-size: 39px;
+        line-height: 1.3em;
+    }
+
+    .leftnoobp{
+        margin-top: 25px;
+        font-size: 21.4px;
+        line-height: 1.2em;
+        margin-bottom: 20px;
+    }
+
+    .noobtn{
+        color: white;
+        background-color: #14CCB9;
+        width: 279px;
+        height: 46px;
+    }
+
+    .rightnoob{
+    }
+
+    .hownoob{
+        padding-top: 100px;
+    }
+
+    .noobmidh{
+        font-weight: 700;
+        font-size: 36px;
+    }
+
+    .noobmidp{
+        font-size: 24px;
+        margin-top: 20px;
+        font-weight: 500;
+    }
+
+    .howp{
+        font-size: 18px;
+        margin-bottom: 55px;
+    }
+
+    .btnoob2{
+        color: white;
+        background: #3F3D56;
+        width: 178px;
+        height: 40px;
+    }
+
+    .whynoob{
+        margin-top: 100px;
+    }
+
+    .whyp1{
+        font-size: 20px;
+        margin-top: 15px;
+        font-weight: 700;
+    }
+
+    .request{
+        margin-top: 30px;
+        padding-top: 40px;
+        background: #FDFDFD;
+        padding-bottom: 50px;
+    }
+
+    .formd{
+        margin-bottom: 35px;
+    }
+
+    .form-control {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid black;
+}
+
+.footer{
+    height: 95px;
+    background: #3F3D56;
+}
+</style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" >
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+<link rel="shortcut icon" type="image/png" href="{% static 'favicon2.png' %}"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+<script src="{% static 'home/css/newdesigner/js/validation/jquery.validate.js' %}"></script>
+ <nav class="navbar navbar-toggleable-md noobnav">
+    <div class = "container">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <img src="{% static 'home/images/noobaid.png' %}" alt="logo">
+  </div>
+</nav>
+<div class="nbanner">
+<div class="container">
+    {% if messages %}
+          {% for message in messages %}
+            {% if message.tags == "success" %}
+            <div class="alert alert-success" role="alert">
+            <p style="color:#155724">{{message}}</p>
+        	</div>
+            {%else%}
+            <div class="alert alert-danger" role="alert">
+            <p style="color:#721c24">{{message}}</p>
+            </div>
+            {%endif%}
+          {% endfor %}
+        {% endif %}
+        <div class="row">
+            <div class="col-md-5">
+                <div class="leftnoob">
+                    <h1 class="leftnoobh1"><span class="leftnobem">Helping College Career Centers Place More </span><span class="leftnobem">Students</span></h1>
+                    <p class="leftnoobp">Using our application will help your<br>organization increase placement rate by 50%</p>
+                    <br>
+                    <button class="btn noobtn" style="font-weight: 700;" id="talker">Let's Talk</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="rightnoob">
+                    <img src="{% static 'home/images/ilus1.png' %}" alt="illustration">
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+<div class="hownoob">
+    <div class="text-center">
+        <h2 class="noobmidh">How It Works</h2>
+        <p class="noobmidp">we are a technology startup. Our application helps college students<br> build early relationships with employers before graduation</p>
+    </div>
+    <br><br>
+    <div class="row">
+        <div class="col-md-7">
+            <div class="row">
+                <div class="col-md-2">
+                    <svg width="48" height="287" viewBox="0 0 48 287" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g filter="url(#filter0_d)">
+                        <circle cx="24" cy="20" r="20" fill="#14CCB9"/>
+                        <circle cx="24" cy="20" r="15" stroke="white" stroke-width="10"/>
+                        </g>
+                        <line x1="23.5" y1="41.9978" x2="24.4353" y2="258.998" stroke="#E5E5E5"/>
+                        <g filter="url(#filter1_d)">
+                        <circle cx="24" cy="102" r="20" fill="#14CCB9"/>
+                        <circle cx="24" cy="102" r="15" stroke="white" stroke-width="10"/>
+                        </g>
+                        <g filter="url(#filter2_d)">
+                        <circle cx="24" cy="180" r="20" fill="#14CCB9"/>
+                        <circle cx="24" cy="180" r="15" stroke="white" stroke-width="10"/>
+                        </g>
+                        <g filter="url(#filter3_d)">
+                        <circle cx="24" cy="259" r="20" fill="#14CCB9"/>
+                        <circle cx="24" cy="259" r="15" stroke="white" stroke-width="10"/>
+                        </g>
+                        <defs>
+                        <filter id="filter0_d" x="0" y="0" width="48" height="48" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+                        <feOffset dy="4"/>
+                        <feGaussianBlur stdDeviation="2"/>
+                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+                        </filter>
+                        <filter id="filter1_d" x="0" y="82" width="48" height="48" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+                        <feOffset dy="4"/>
+                        <feGaussianBlur stdDeviation="2"/>
+                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+                        </filter>
+                        <filter id="filter2_d" x="0" y="160" width="48" height="48" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+                        <feOffset dy="4"/>
+                        <feGaussianBlur stdDeviation="2"/>
+                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+                        </filter>
+                        <filter id="filter3_d" x="0" y="239" width="48" height="48" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+                        <feOffset dy="4"/>
+                        <feGaussianBlur stdDeviation="2"/>
+                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+                        </filter>
+                        </defs>
+                        </svg>
+                        
+                </div>
+                <div class="col-md-10">
+                    <p class="howp">student learn some technology from school</p>
+                    <p class="howp">we find companies who are looking for that technology                    </p>
+                    <p class="howp">we connect the student with the employers                     </p>
+                    <p class="howp">you monitor student progress in gaining experience</p>
+                    <button class="btn btnoob2"  style="font-weight: 700;" id="gets">Get Started</button>
+                </div>
+            </div>
+            </div>
+        <div class="col-md-5">
+            <img src="{% static 'home/images/noobillus2.png' %}" alt="illustration">
+        </div>
+    </div><br><br>
+</div>
+<div class="whynoob">
+    <div class="text-center">
+        <h2 class="noobmidh">Why Noobaid?</h2>
+        <p class="noobmidp">because noobaid solves the problem of fresh grad rejection by employers due to lack of work experience. Noobaid ensures that students gain work experience by building relationship with employers while going through college.
+        </p>
+    </div>
+    <br><br>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="text-center">
+                <img src="{% static 'home/images/tv.png' %}" alt="illustration">
+                <p class="whyp1">Monitor Every Progress</p>
+                <p>monitor the process of gaining work experience from enrollment to completion.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="text-center">
+                <img src="{% static 'home/images/pad.png' %}" alt="illustration">
+                <p class="whyp1">Trusted Service</p>
+                <p>secure service protected by secure socket layer encryption from end to end
+                </p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="text-center">
+                <img src="{% static 'home/images/hap.png' %}" alt="illustration">
+                <p class="whyp1">Gain Work Experience</p>
+                <p>students get the best learning experience while 
+                    working on real life applications in the industry </p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="request" id="req">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="noobmidh">Request A Demo</h2>
+            <br>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <p class="noobmidp">Are you interested in placing students or<br>
+                    need a little more information about our<br>
+                    product?</p>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <svg width="30" height="151" viewBox="0 0 30 151" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="15" cy="15" r="15" fill="#E5F9F7"/>
+                                <circle cx="15" cy="70" r="15" fill="#E5F9F7"/>
+                                <circle cx="15" cy="125" r="15" fill="#E5F9F7"/>
+                                </svg>
+                                
+                        </div>
+                        <div class="col-md-11">
+                            <p class="formd">kindly fill out the from with your request</p>
+                            <p class="formd">we respond to all requests</p>
+                            <p class="formd">if needed, we will come to your location to demo our product.</p>
+                        </div>
+                    </div>
+            </div>
+            <div class="col-md-6">
+                <p class="noobmidp">Send us a Message</p>
+                <br>
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <input class="noobint form-control" style="border: 0; padding-left: 0px; border-radius: 0px;  outline: 0;background: transparent;border-bottom: 1px solid #BFBFBF;" placeholder="Name" type="text" name="name" required/>
+                    <br>
+                    <input class="noobint form-control" style="border: 0; padding-left: 0px; border-radius: 0px;  outline: 0;background: transparent;border-bottom: 1px solid #BFBFBF;" placeholder="Email" type="email" name="email" required/>
+                    <br>
+                    <input class="noobint form-control" style="border: 0; padding-left: 0px; border-radius: 0px;  outline: 0;background: transparent;border-bottom: 1px solid #BFBFBF;" placeholder="Institute" type="text" name="location" required/>
+                   <br>
+                    <input class="noobint form-control" style="border: 0; padding-left: 0px; border-radius: 0px;  outline: 0;background: transparent;border-bottom: 1px solid #BFBFBF;" placeholder="Phone" type="text" name="availability" required/>
+                    <br>
+                    <textarea class="noobint form-control" style="border: 0; padding-left: 0px; border-radius: 0px;  outline: 0;background: transparent;border-bottom: 1px solid #BFBFBF;" placeholder="Request" type="text" name="request" required></textarea>
+                    <br>
+                    <button class="btn btnoob2"  style="font-weight: 700;" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="text-center">
+        <img src="{% static 'home/images/noobaid.png' %}" alt="logo">
+    </div>
+</div>
+
+		
+
+
+<script>
+    $(document).ready(function (){
+        $("#talker").click(function (){
+            $('html, body').animate({
+                scrollTop: $("#req").offset().top
+            }, 2000);
+        });
+    });
+
+    $(document).ready(function (){
+        $("#gets").click(function (){
+            $('html, body').animate({
+                scrollTop: $("#req").offset().top
+            }, 2000);
+        });
+    });
+</script>
+{% block content %} {% endblock %}
