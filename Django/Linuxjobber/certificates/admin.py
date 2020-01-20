@@ -39,7 +39,7 @@ class GraduateCertificateForm(forms.ModelForm):
         if alternate_graduate_image:
             w, h = get_image_dimensions(alternate_graduate_image)
             if w > 180 and h > 192:
-                raise forms.ValidationError("The image too large. It's supposed to be atmost 180 X 192 pixels" % w)
+                raise forms.ValidationError("The image too large. It's supposed to be atmost 180 X 192 pixels")
 
 
 class CertificateTypeForm(forms.ModelForm):
