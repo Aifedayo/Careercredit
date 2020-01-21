@@ -29,6 +29,18 @@ section.our-goal,section.pricing,section.idea-form{
     margin-top: 8rem;
 }
 
+.message.content{
+    text-align: center;
+}
+
+.alert-success p{
+    color:#155724
+}
+
+.alert-danger p{
+    color:#721c24
+}
+
 /**professional**/
 section.professional{
     position:relative;

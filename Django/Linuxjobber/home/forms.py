@@ -117,3 +117,7 @@ class UpcomingScheduleForm(forms.Form):
 	day = forms.ChoiceField(choices=DAYS)
 	time = forms.TimeField(label='Time',widget =widgets.AdminTimeWidget())
 
+class ItPartnershipForm(forms.ModelForm):
+	class Meta:
+		model = ItPartnership
+		fields = '__all__'	

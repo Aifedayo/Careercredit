@@ -30,7 +30,7 @@ from Courses.models import Course, CoursePermission, UserInterest, CourseTopic
 from ToolsApp.models import Tool
 from users.models import CustomUser
 from .forms import JobPlacementForm, JobApplicationForm, AWSCredUpload, InternshipForm, \
-    ResumeForm, PartimeApplicationForm, WeForm, UnsubscribeForm
+    ResumeForm, PartimeApplicationForm, WeForm, UnsubscribeForm, ItPartnershipForm
 from datetime import datetime
 from .mail_service import LinuxjobberMailer, handle_failed_campaign
 
@@ -3566,5 +3566,18 @@ def mail_status(request):
 
 
 def it_partnership(request):
+    if request.method == 'POST':
+        it_partner = ItPartnershipForm(request.POST)
+        if it_partner.is_valid():
+            it_partner.save()
+            messages.success(request,'Information Successful saved!')
+            return redirect('home:it_partnership')
+        else:
+            # messages.error(request, message = form_errors,extra_tags="validation")
+            return render(
+                request, 
+                'home/it_partnership.html', 
+                {'form':it_partner}
+            )
     return TemplateResponse(request, 'home/it_partnership.html') 
 
