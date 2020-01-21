@@ -1198,3 +1198,13 @@ class Variables(models.Model):
         #         old.save(halt=True)
         # except Variables.DoesNotExist:
         #     super(type(self), self).save(*args, **kwargs)
+
+class ItPartnership(models.Model):
+    full_name = models.CharField(max_length=200)
+    company = models.CharField(max_length=200)
+    email = models.CharField(max_length=200,unique=True)
+    idea_title = models.CharField(max_length=500)
+    idea_detail = models.TextField()
+
+    def __str__(self):
+        return self.full_name

@@ -22,7 +22,7 @@ from .models import FAQ, Job, RHCSAOrder, FreeAccountClick, Campaign, Message, U
     wework, wetype, PartTimeJob, TryFreeRecord, FullTimePostion, PartTimePostion, Resume, CareerSwitchApplication, \
     Certificates, EmailMessageType, EmailMessageLog, CompleteClass, \
     CompleteClassLearn, CompleteClassCertificate, WorkExperienceEligibility, WorkExperienceIsa, WorkExperiencePay, \
-    SubPayment, InstallmentPlan, EmailGroup, EmailGroupMessageLog, WorkExperiencePriceWaiver, Variables
+    SubPayment, InstallmentPlan, EmailGroup, EmailGroupMessageLog, WorkExperiencePriceWaiver, Variables, ItPartnership
 
 from datetime import timedelta
 import datetime
@@ -804,6 +804,9 @@ class WorkExperienceEligibilityAdmin(admin.ModelAdmin):
                 self.message_user(request, 'Records could not be updated, Invalid password', messages.ERROR)
 
 
+class ItPartnershipAdmin(admin.ModelAdmin):
+    list_display = ('full_name','company','email','idea_title','idea_detail')
+    # list_display = ItPartnership._meta.get_fields()
 
 admin.site.register(WorkExperienceIsa)
 admin.site.register(WorkExperienceEligibility,WorkExperienceEligibilityAdmin)
@@ -851,6 +854,7 @@ admin.site.register(EmailMessageLog,EmailMessageLogAdmin)
 admin.site.register(InstallmentPlan, InstallmentPlanAdmin)
 admin.site.register(EmailGroup, EmailGroupAdmin)
 admin.site.register(EmailGroupMessageLog, SendMessageAdmin)
+admin.site.register(ItPartnership, ItPartnershipAdmin)
 
 
 class VariablesAdmin(admin.ModelAdmin):

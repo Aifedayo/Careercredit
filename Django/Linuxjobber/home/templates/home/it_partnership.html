@@ -1,7 +1,7 @@
 {% extends 'home/base.html' %}
 {% load staticfiles%}
 {% block title %}
-IT | partnership
+IT | Partnership
 {% endblock %}
 {% block style %}
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"> 
@@ -28,6 +28,30 @@ IT | partnership
             <a href="#our-goal"><img src="{% static 'home/images/pointer.png' %}"/></a>
         </div>
     </section>
+    {% if messages %}
+        <div class="message content">
+            {% for message in messages %}
+                {% if message.tags == "success" %}
+                    <br><br>
+                    <div class="alert alert-success" role="alert">
+                        <p>{{ message }}</p>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% if form.errors %}
+        <div class="message content">
+            <div class="alert alert-danger" role="alert">
+                <p>
+                    <i class="fa fa-times-circle"></i>
+                    {% for key, value in form.errors.items %}
+                        {{ key }}:{{ value.as_text|slice:"2:" }}
+                    {% endfor %}
+                </p>
+            </div> 
+        </div>
+    {% endif %}
     <section class="our-goal" id="our-goal">
         <div class="content">
             <div class="description">
@@ -92,31 +116,32 @@ IT | partnership
     <section class="idea-form" id="idea-form">
         <h3>Apply Here</h3>
         <p>Tell Us a little about your idea</p>
-        <form class="content">
+        <form class="content" method="post" action=".">
+            {% csrf_token %}
             <div class="form-row">
                 <div class="form-item">
                     <label>Full Name</label>
-                    <input type="text" placeholder="enter your full name" />
+                    <input type="text" name="full_name" placeholder="enter your full name" />
                 </div>
                 <div class="form-item">
                     <label>Company </label>
-                    <input type="text" placeholder="enter your company name" />
+                    <input type="text" name="company" placeholder="enter your company name"  />
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-item">
                     <label>Email Address </label>
-                    <input type="text" placeholder="enter your email address" />
+                    <input type="text" name="email" placeholder="enter your email address" required />
                 </div>
                 <div class="form-item">
                     <label>Idea Title </label>
-                    <input type="text" placeholder="enter your title for this idea" />
+                    <input type="text" name="idea_title" placeholder="enter your title for this idea"  required/>
                 </div>
             </div>
              <div class="form-row">
                 <div class="form-item">
                     <label>Idea Detail</label>
-                    <textarea placeholder="explain your idea to us"></textarea>
+                    <textarea name="idea_detail" placeholder="explain your idea to us" required></textarea>
                 </div>
             </div>
             <div class="form-row">
