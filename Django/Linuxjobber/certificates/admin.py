@@ -29,7 +29,7 @@ class GraduateCertificateForm(forms.ModelForm):
         if not user and not alternate_full_name:
             raise forms.ValidationError("Supply either an alternate student name or select an existing user")
 
-        if not user.profile_img and not alternate_graduate_image:
+        if not user and not alternate_graduate_image:
             raise forms.ValidationError(
                 "Supply either an alternate graduate image name or update user profile with image")
 
@@ -39,7 +39,7 @@ class GraduateCertificateForm(forms.ModelForm):
         if alternate_graduate_image:
             w, h = get_image_dimensions(alternate_graduate_image)
             if w > 180 and h > 192:
-                raise forms.ValidationError("The image too large. It's supposed to be atmost 180 X 192 pixels" % w)
+                raise forms.ValidationError("The image too large. It's supposed to be atmost 180 X 192 pixels")
 
 
 class CertificateTypeForm(forms.ModelForm):

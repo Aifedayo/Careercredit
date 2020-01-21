@@ -109,6 +109,7 @@ class GraduateCertificates(models.Model):
             context={
                 'certificate_logo': certificate_logo,
                 'env_url': settings.ENV_URL.rstrip('/'),
+                'static_url': settings.STATIC_URL,
                 'certificate_name': self.certificate_type.name,
                 'instructor_signature': instructor_signature,
                 'instructor_name': self.certificate_type.instructor_name,
