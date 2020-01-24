@@ -12,15 +12,18 @@
           <a class="navbar-brand" href="#" style="margin-left: -150px;margin-top: -10px">
               <img style="width: 166px;height: 42px;" src="/assets/image/Final-Logo.png" alt="no image" >
           </a>
-            <span class="head-text" *ngIf="group$ |async as course" style="
-            padding-left: 70px;
-
-
-"> {{ course.name }}  <span style="font-size: 12px;">{{ course.start_date}} - {{course.end_date}}</span> </span>
+            <span class="head-text" *ngIf="group$ |async as course" 
+              style="padding-left: 70px;"> {{ course.name }}  
+              <span style="font-size: 12px;">{{ course.start_date}} - {{course.end_date}}</span> 
+            </span>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right" style="margin-right: -100px">
-            <li><a [routerLink]="['/dashboard/list']"class="head-text" style="margin-right: -100px">{{ username }}</a></li>
+            <li>
+              <a [routerLink]="['/dashboard/list']" class="head-text" 
+                style="margin-right: -100px">{{ username }}
+              </a>
+            </li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -53,16 +56,12 @@
         </ul>
         <div class="tab-content course_topic_area scroll-hide">
           <div id="topics" class="tab-pane fade in active">
-            <div
-              class="course_topic_area scroll-hide"
-              style="max-height: 80vmin;overflow: auto;"
-            >
+            <div class="course_topic_area scroll-hide"
+              style="max-height: 80vmin;overflow: auto;">
               <ul class="collection-list" style="padding: 16px 0;">
-                <li
-                  class="video-list"
-                  *ngFor="let topic of (topicsSub | async)"
-                >
-                  <a class (click)="setTopic(topic.id)" id="vid">
+                <li [class.active-link]="isCurrentRoute(topic.id)" class="video-list"
+                  *ngFor="let topic of (topicsSub | async)">
+                  <a class (click)="setTopic(topic.id)"  id="vid">
                     <i class="material-icons play-icon">play_arrow</i>
                     <p class="vid-title">{{ topic.topic }}</p>
                   </a>
@@ -72,28 +71,20 @@
           </div>
           <div id="students" class="tab-pane fade">
             <div *ngIf="(groupMembers$ | async) as members" class="scroll-hide">
-              <ul
-                style="padding: 8px 0;"
-                *ngIf="(members | keyvalue) as m"
-                class="student-list"
-              >
-                <li
-                  id="students"
+              <ul style="padding: 8px 0;" *ngIf="(members | keyvalue) as m"
+                class="student-list">
+                <li id="students"
                   style="color:darkgrey; font-weight: bolder; font-size: 15px; padding: 8px 0;"
-                  *ngFor="let day of (m | orderBy: m.key:false)"
-                >
+                  *ngFor="let day of (m | orderBy: m.key:false)">
                   {{ day.key }}
                   <Hr />
                   <ul>
                     <li *ngFor="let i of day.value">
-                      <a
-                        style="color:#fff;"
-                        [routerLink]="['./private-chat', i.id]"
-                        routerLinkActive="active"
-                      >
+                      <a style="color:#fff;" [routerLink]="['./private-chat', i.id]"
+                        routerLinkActive="active">
                         {{ i.username }}
                       </a>
-                    </li>
+                    </li> 
                   </ul>
                 </li>
               </ul>
@@ -104,33 +95,17 @@
     </div>
     <div class="col-md-9">
       <ul style="display:flex;" class="con-list">
-        <li  [class.active]="videoTab">
-          <a [routerLink]="['./topic/49/video']" routerLinkActive="active" id="video"
-            >Video</a
-          >
+        <li  [class.active]="isCureentTab('/video')" *ngIf="selectedTopic">
+          <a  (click)="tabToVideo(selectedTopic)" id="video">Video</a>
         </li>
-        <li
-
-          [class.active]="labTab"
-          *ngIf="selectedTopic"
-        >
+        <li [class.active]="isCureentTab('/lab')" *ngIf="selectedTopic">
           <a (click)="goToLab()"> Lab </a>
         </li>
-        <li
-
-          [class.active]="noteTab"
-          *ngIf="selectedTopic"
-        >
+        <li [class.active]="isCureentTab('/notes')" *ngIf="selectedTopic">
           <a (click)="goToNote()"> Note </a>
         </li>
-        <li  [class.active]="chatTab">
-          <a
-            [routerLink]="['./topic-chat']"
-            routerLinkActive="active"
-            id="chat"
-          >
-            Chat</a
-          >
+        <li  [class.active]="isCureentTab('/topic-chat')">
+          <a [routerLink]="['./topic-chat']"  id="chat">Chat</a>
         </li>
       </ul>
       <hr />
