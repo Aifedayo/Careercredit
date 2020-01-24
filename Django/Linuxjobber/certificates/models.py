@@ -106,6 +106,7 @@ class GraduateCertificates(models.Model):
             template = get_template('certificates/certificate_format.html')
             certificate_logo = self.convert_to_media_fqn(self.certificate_type.logo.url)
             instructor_signature = self.convert_to_media_fqn(self.certificate_type.instructor_signature.url)
+            graduate_image= self.convert_to_media_fqn(self.get_graduate_image())
             context={
                 'certificate_logo': certificate_logo,
                 'env_url': settings.ENV_URL.rstrip('/'),
@@ -117,7 +118,7 @@ class GraduateCertificates(models.Model):
                 'graduate_name': self.get_fullname(),
                 'certificate_id': self.certificate_id,
                 'issue_date': self.graduation_date,
-                'graduate_image': self.get_graduate_image(),
+                'graduate_image': graduate_image,
             }
             formatted_file = template.render(context)
             from .utils import generate_certificate_name
