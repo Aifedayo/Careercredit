@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>{% block title %} {% endblock %}</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+
+
+
+
+<link href="{% static 'home/css/newdesigner/css/bootstrap.min.css' %}"
+	rel="stylesheet">
+<!-- Main Style -->
+
+<link href="{% static 'home/css/newdesigner/css/style.css' %}"
+	rel="stylesheet">
+<link href="{% static 'home/css/newhomepage/css/stylenew.css' %}"
+	rel="stylesheet}">
+<link href="{% static 'home/css/newhomepage/css/newstyle2.css' %}"
+	rel="stylesheet">
+<link href="{% static 'home/css/newhomepage/css/main.css' %}"
+	rel="stylesheet">
+<link href="{% static 'home/css/newhomepage/css/newstylenew.css' %}"
+	rel="stylesheet">
+
+{% block style %} {% endblock %}
+
+{#Load external files#}
+{% block external_header %}
+
+{% endblock %}
+</head>
+
+<body>
+
+
+	{% block content %} {% endblock %}
+
+
+
+
+</body>
+</html>

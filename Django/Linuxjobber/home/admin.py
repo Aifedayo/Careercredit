@@ -1,6 +1,6 @@
 from typing import List
 
-from background_task.models import CompletedTask
+#from background_task.models import CompletedTask
 from django.contrib import admin, messages
 from django import forms
 from django.contrib.admin.views.main import ChangeList
