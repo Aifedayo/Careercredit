@@ -1352,7 +1352,7 @@ def workexpform(request):
 
 def work_experience_eligible_pdf(user):
     try:
-        details =  WorkExperienceEligibility.objects.get(user=user.user)
+        details =  WorkExperienceEligibility.objects.get(user=user)
         date = details.date_of_birth
         date = date.strftime('%m/%d/%Y')
         created = details.date_created
@@ -1380,7 +1380,7 @@ def work_experience_eligible_pdf(user):
 def work_experience_term_pdf(user):
     #return render(request, 'home/workexptermpdf.html')
     try:
-        details =  WorkExperienceEligibility.objects.get(user=user.user)
+        details =  WorkExperienceEligibility.objects.get(user=user)
         
     except  WorkExperienceEligibility.DoesNotExist:
         details = None
@@ -1484,8 +1484,8 @@ def work_experience_eligible(request):
         except WorkExperienceEligibility.DoesNotExist:
             state = WorkExperienceEligibility.objects.create(user=request.user,first_name=firstname,last_name=lastname,middle_initial=middleinitial,middle_name=othername,state=state,address=address,apt_number=Apt,city=city,zip_code=zipc,date_of_birth=dob,SSN=ssn,employee_address=eadress,employee_email=email,employee_phone=tel,expiry_date=expiry_date,preparer_or_translator=translator,i_am_a=i_am,Alien_reg_num=alien_no,form_19_num=form19,foreign_pass_num=foreign)
             state.save()
-            work_experience_eligible_pdf(state.user)
-            work_experience_term_pdf(state.user)
+            work_experience_eligible_pdf(request.user)
+            work_experience_term_pdf(request.user)
         return redirect("home:isa")  
     return render(request, 'home/workexpeligibility.html',{'details':details,'date':date,'dater':dater,'created':created})
 
@@ -1721,8 +1721,8 @@ def workexprofile(request):
     
     url = settings.ENV_URL
 
-    work_experience_eligible_pdf(details)
-    work_experience_term_pdf(details)
+    work_experience_eligible_pdf(details.user)
+    work_experience_term_pdf(details.user)
     pdf = details.pdf.url
     pdf = pdf[1:]
     pdf2 = details.terms.url
