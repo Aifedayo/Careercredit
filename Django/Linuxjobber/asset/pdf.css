@@ -1,0 +1,205 @@
+.form-control{
+    -webkit-box-shadow: none;
+}
+
+/*! CSS Used from: http://127.0.0.1:8000/static/home/css/newdesigner/css/bootstrap.min.css */
+body{margin:0px;padding:0px;}
+svg:not(:root){overflow:hidden;}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0;}
+input,select{color:inherit;font:inherit;margin:0;}
+select{text-transform:none;}
+input::-moz-focus-inner{border:0;padding:0;}
+input{line-height:normal;}
+input[type=radio]{box-sizing:border-box;padding:0;}
+@media print{
+*{text-shadow:none!important;color:#000!important;background:transparent!important;box-shadow:none!important;}
+p{orphans:3;widows:3;}
+select{background:#fff!important;}
+}
+*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+:before,:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+body{font-size:14px;line-height:1.42857143;color:#333;background-color:#fff;}
+input,select{font-family:inherit;font-size:inherit;line-height:inherit;}
+hr{margin-top:20px;margin-bottom:20px;border:0;border-top:1px solid #eee;}
+p{margin:0 0 10px;}
+.container{margin-right:auto;margin-left:auto;padding-left:15px;padding-right:15px;}
+@media (min-width:768px){
+.container{width:750px;}
+}
+@media (min-width:992px){
+.container{width:970px;}
+}
+@media (min-width:1200px){
+.container{width:1170px;}
+}
+.row{margin-left:-15px;margin-right:-15px;}
+.col-md-2,.col-md-3,.col-md-4,.col-md-5,.col-md-7,.col-md-8{position:relative;min-height:1px;padding-left:15px;padding-right:15px;}
+@media (min-width:992px){
+.col-md-2,.col-md-3,.col-md-4,.col-md-5,.col-md-7,.col-md-8{float:left;}
+.col-md-8{width:66.66666667%;}
+.col-md-7{width:58.33333333%;}
+.col-md-5{width:41.66666667%;}
+.col-md-4{width:33.33333333%;}
+.col-md-3{width:25%;}
+.col-md-2{width:16.66666667%;}
+}
+label{display:inline-block;margin-bottom:5px;font-weight:700;}
+input[type=radio]{margin:4px 0 0;margin-top:1px \9;line-height:normal;}
+input[type=radio]:focus{outline:thin dotted;outline:5px auto -webkit-focus-ring-color;outline-offset:-2px;}
+.form-control{display:block;width:100%;height:34px;padding:6px 12px;font-size:14px;line-height:1.42857143;color:#555;background-color:#fff;background-image:none;border:1px solid #ccc;border-radius:4px;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);box-shadow:inset 0 1px 1px rgba(0,0,0,.075);-webkit-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;}
+.form-control:focus{border-color:#66afe9;outline:0;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);}
+.form-control::-moz-placeholder{color:#999;opacity:1;}
+.form-control:-ms-input-placeholder{color:#999;}
+.form-control::-webkit-input-placeholder{color:#999;}
+.form-control[readonly]{cursor:not-allowed;background-color:#eee;opacity:1;}
+input[type=date]{line-height:34px;}
+.form-group{margin-bottom:15px;}
+.container:before,.container:after,.row:before,.row:after{content:" ";display:table;}
+.container:after,.row:after{clear:both;}
+/*! CSS Used from: http://127.0.0.1:8000/static/home/css/newdesigner/css/style.css */
+.row{margin-left:0!important;margin-right:0!important;}
+.form-group label{width:50%;font-size:16px;}
+/*! CSS Used from: http://127.0.0.1:8000/static/home/css/newhomepage/css/newstyle2.css */
+body,div,span,p,i,form,label{margin:0;padding:0;border:0;outline:0;vertical-align:baseline;font-family:'Alegreya Sans', sans-serif;font-weight:400;}
+*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;outline:0!important;}
+hr{display:block;height:1px;border:0;border-top:1px solid #cccccc;margin:1em 0;padding:0;}
+input,select{vertical-align:middle;border:0;margin:0;}
+input{outline:0!important;}
+body{background:#fff;font-size:13px;font-weight:normal;overflow-x:hidden;margin:0;font-family:'Open Sans', sans-serif;}
+form div{clear:none!important;}
+form div{clear:both;padding:2px .5em;vertical-align:text-top;}
+.form-control{border:4;}
+span{font-size:18px;}
+/*! CSS Used from: http://127.0.0.1:8000/static/home/css/newhomepage/css/newstylenew.css */
+.elig{margin-top:20px;padding-top:25px;padding-bottom:25px;}
+.eligh1{font-size:24px;color:#4975B1;margin-bottom:30px;font-weight:600;}
+.eligp1{font-weight:600;font-size:14px;}
+.eligsec{background:#F2F2F2;margin-top:50px;padding-top:20px;padding-bottom:20px;padding-left:10px;padding-right:10px;}
+.eligsecp{color:grey;font-size:16px;}
+.eligsech1{color:#000000;font-size:24px;font-weight:600;}
+.eligqut{font-size:16px;font-weight:600;}
+.eligqutin{font-size:14px;color:grey;}
+.eligform{margin-top:10px;}
+.eligforminput{border:1px solid rgba(0, 0, 0, 0.3);box-sizing:border-box;border-radius:5px;padding-top:0px;padding-left:10px;padding-right:10px;padding-bottom:10px;height:90px;}
+.eligforminputp{margin-top:8px;}
+.eligformin::before{border:white;}
+.eligformin{margin-top:15px;border:white;padding:0px;border-top:none;}
+.eligformin1::before{border-bottom:2px black;}
+.eligformin1{margin-top:15px;border-bottom:2px solid black;padding:0px;border-top:none;font-size:14px;line-height:1.42857143;}
+.eliglabel{margin-top:-10px;}
+.eligformcol{padding-left:3px;padding-right:3px;margin-bottom:10px;}
+.eligformwidth{width:28%;}
+.eligformwidth2{width:27.3%;}
+.eligformwidth3{width:33%;}
+.eligformwidth4{width:13.2%;}
+.eligformwidth5{width:25%;}
+.eligquter{padding-left:20px;}
+.eligformwidth6{width:36%;}
+.eligformwidth7{width:14%;}
+.eligqutergrey{color:grey;font-size:14px;}
+.eligquterblak{font-size:13px;color:#000000;padding-left:20px;}
+/*! CSS Used from: Embedded */
+.form-control{-webkit-box-shadow:none;}
+.contain{display:block;position:relative;padding-left:35px;margin-bottom:12px;cursor:pointer;font-size:22px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
+.contain input{position:absolute;opacity:0;cursor:pointer;height:0;width:0;}
+.checkm{position:absolute;top:0;left:0;height:35px;width:35px;background-color:#FFFFFF;border-radius:20%;border:2px solid grey;}
+.checkm2{position:absolute;top:0;left:0;height:35px;width:35px;background-color:#F2F2F2;border-radius:20%;border:2px solid grey;}
+.contain:hover input ~ .checkm{background-color:#ccc;}
+.contain:hover input ~ .checkm2{background-color:#ccc;}
+.contain input[type=radio]:checked ~ .checkm{background-color:#599D2F;border:2px solid #599D2F;}
+.contain input:checked ~ .checkm2{background-color:#599D2F;border:2px solid #599D2F;}
+.checkm:after{content:"";position:absolute;display:none;}
+.checkm2:after{content:"";position:absolute;display:none;}
+.contain input[type=radio]:checked ~ .checkm:after{display:block;}
+.contain input:checked ~ .checkm2:after{display:block;}
+
+
+/* Customize the label (the container) */
+.contain {
+display: block;
+position: relative;
+padding-left: 35px;
+margin-bottom: 12px;
+cursor: pointer;
+font-size: 22px;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.contain input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+height: 0;
+width: 0;
+}
+
+/* Create a custom radio button */
+.checkm {
+position: absolute;
+top: 0;
+left: 0;
+height: 35px;
+width: 35px;
+background-color: #FFFFFF;
+border-radius: 20%;
+border: 2px solid grey;
+}
+
+/* Create a custom radio button */
+.checkm2 {
+position: absolute;
+top: 0;
+left: 0;
+height: 35px;
+width: 35px;
+background-color: #F2F2F2;
+border-radius: 20%;
+border: 2px solid grey;
+}
+
+/* On mouse-over, add a grey background color */
+.contain:hover input ~ .checkm{
+background-color: #ccc;
+}
+
+.contain:hover input ~ .checkm2{
+background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.contain input[type=radio]:checked ~ .checkm{
+background-color: #599D2F;
+border: 2px solid #599D2F;;
+}
+
+.contain input:checked ~ .checkm2{
+background-color: #599D2F;
+border: 2px solid #599D2F;;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkm:after {
+content: "";
+position: absolute;
+display: none;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkm2:after {
+content: "";
+position: absolute;
+display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.contain input[type=radio]:checked ~ .checkm:after {
+display: block;
+}
+
+.contain input:checked ~ .checkm2:after {
+display: block;
+}
