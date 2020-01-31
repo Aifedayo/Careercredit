@@ -8,447 +8,28 @@ Work Experience | Linuxjobber
 {% block external_header %}
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'home/css/we_new.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/workexperience.css' %}">
+    <style>
+        .header-color{
+            background-image: url("{% static 'home/images/bg2.png' %}");
+        }
+
+        .left-badge{
+            background-image: url("{% static 'home/images/cup.png' %}");
+        }
+
+        .dot-list li::before{
+            content: url("{% static 'home/images/el.png' %}");
+        }
+        
+        .alumni-network{
+            background-image: url("{% static 'home/images/alumni-bg.png' %}");
+        }
+    </style>
 {% endblock %}
 
 {% load staticfiles %}
 {% block content %}
-    <style>
-    section{
-        font-family: Roboto, "Helvetica Neue", sans-serif;
-    }
-
-    section a{
-
-        color: #3B97D3;
-    }
-    section a:hover{
-
-        color: #3B97D367;
-    }
-    .header-color{
-        height: 665px;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-        background-image: url('{% static 'home/images/bg2.png' %}');
-        background-size: contain;
-        background-repeat: no-repeat;
-    }
-        .header-text{
-               padding: 150px 200px 0 200px;
-            font-size: 55px;
-            font-family: 'Montserrat', cursive;
-            line-height: 60px;
-            color: white;
-            font-weight: 700;
-            margin-bottom: 50px;
-        }
-    .header-subtitle{
-           padding: 0 200px;
-        font-size: 24px;
-        color: white;
-        font-weight: 100;
-
-    }
-    .header-subtitle > span{
-        font-size: 24px;
-        font-weight: 600;
-    }
-    .color-white{
-        color: white;
-        font-size: 18px;
-        line-height: 50px;
-    }
-
-    .left-badge{
-        margin-top: 20px;
-        padding-top: 40px;
-        margin-left: 40px;
-        text-align: left;
-        height: 40px;
-        width: 240px;
-        background-image: url("{% static 'home/images/cup.png' %}");
-        background-repeat: no-repeat;
-        color: white;
-        font-size: 14px;
-        line-height: 16px;
-    }
-    .blue-line{
-        background-color:#1B539E;
-        border-radius: 18px;
-        height: 5px;
-        width: 100px;
-    }
-    .text-header{
-        text-transform: uppercase;
-        font-size: 24px;
-        line-height: 26px;
-        padding-top: 20px;
-        padding-bottom: 40px ;
-        color: rgba(0, 0, 0, 0.8);
-    }
-    .note{
-        margin-bottom: 20px;
-        width: 100%;
-    }
-    .title{
-        font-size: 16px;
-        color: rgba(0, 0, 0, 0.5);
-        font-weight: bold;
-        line-height: 18px;
-    }
-    .subtitle{
-        line-height: 16px;
-        font-size: 14px;
-        color: rgba(0, 0, 0, 0.5);
-    }
-    .right-section{
-        padding-top: 30px;
-    }
-    .tile{
-        width: 100%;
-        margin-bottom: 50px;
-    }
-    .tile-image{
-        height: 40px;
-        width: 40px;
-        text-align: left;
-
-    }
-    .tile-text{
-        margin-top: 20px;
-        font-size: 14px;
-        color: rgba(0, 0, 0, 0.8);
-        line-height: 16px;
-    }
-    main{
-        margin-top: 20px;
-        padding: 0 30px;
-    }
-    .blue-text{
-        font-weight: bold;
-        line-height: 21px;
-        font-size: 18px;
-        color:#1B539E;
-    }
-    .rounded-container{
-        background: rgba(0, 0, 0, 0.1);
-        border-radius: 50px;
-        padding: 100px;
-        height: 529px;
-    }
-    #rounded{
-        margin: 100px 50px 0;
-    }
-    .dot-list li{
-        line-height: 30px;
-        color:rgba(0, 0, 0, 0.5);
-        font-size: 14px;
-
-    }
-    .dot-list li::before{
-        content: url("{% static 'home/images/el.png' %}");
-        height: 10px;
-        width: 100px;
-        margin-right: 10px;
-        border-radius: 10px;
-    }
-    #facilitators{
-        margin: 100px 50px;
-        padding: 0 50px;
-
-    }
-    .facilitator{
-        margin-bottom: 40px;
-        width:241px;
-        height:241px;
-        border-radius:50%;
-        background-size: cover;
-        border:5px solid #1b539E;
-        box-shadow: 0 0 0 5px #ffffff,0 0 0 15px #e8eef5,0 0 0 5px #e8eef5 inset;
-        background-repeat: no-repeat;
-        object-fit: contain;
-    }
-
-    .facilitator.three{
-        height: 241px;
-        width: 241px;
-        background-image: url("https://opentogeneralpublic.s3-us-west-2.amazonaws.com/Selected/IMG_20171206_113651.jpg");
-    }
-
-    .info{
-        line-height: 30px;
-        font-size: 14px;
-        color:rgba(0, 0, 0, 0.8);
-        justify-items: center;
-        align-items: center;
-        text-align: center;
-    }
-    .instructor-name{
-        font-size: 18px;
-        line-height: 21px;
-
-    }
-    .alumni-network{
-        background-color: #1B539E;
-        width: 100%;
-        padding: 110px 50px 50px 50px;
-        background-image: url("{% static 'home/images/alumni-bg.png' %}");
-        
-    }
-    .alumni-network p{
-        color:white;
-        line-height: 30px;
-    }
-    .alumni-network .info{
-        text-align: left;
-        padding-left: 0;
-    }
-    .alumni-header{
-        margin-top: 27px;
-        text-align: center;
-        color: white;
-        font-size: 24px;
-        font-weight: bold;
-    }
-    .alumni-image {
-        background-color: #aaaaaa78;
-        margin-top: 40px;
-        position:relative;
-        border-radius: 10px;
-        height:274px;
-        width:221px;
-        padding:10px;
-    }
-.alumni-image p {
-    position: absolute;
-        width:27px;
-        height:27px;
-        border-radius:50%;
-        border: 5px solid #1b539E;
-        background-color: transparent;
-        background-repeat: no-repeat;
-    color: #1b539E;
-
-}
-.alumni-image p:before{
-    position: absolute;
-    top:-5.9px;
-    left: 1.4px;
-    height: 10px;
-    width: 10px;
-    content: '•';
-    color: #1b539E;
-    font-size: 40px;
-}
-.alumni-image p:nth-child(1) {
-    top:5px;
-    left:5px;
-}
-.alumni-image p:nth-child(2) {
-    top:5px;
-    right:5px;
-}
-.alumni-image p:nth-child(3) {
-    bottom:5px;
-    left:5px;
-}
-.alumni-image p:nth-child(4) {
-    bottom:5px;
-    right:5px;
-}
-
-    {# Specify alumni images here #}
-
-    .alumni-image.one {
-        background-image: url("https://s3.amazonaws.com/assets.prod.linuxjobber.com/media/aaron_testimonial.jpeg");
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-    .alumni-image.two {
-        background-image: url("https://s3.amazonaws.com/assets.prod.linuxjobber.com/media/senai_testimonial.jpg");
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-
-    .alumni-image.three {
-        background-image: url("https://s3.amazonaws.com/assets.prod.linuxjobber.com/media/chidi_testimonial2.jpg");
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-
-    .alumni-image.four {
-        background-image: url("https://s3.amazonaws.com/assets.prod.linuxjobber.com/media/ndzoh_testimonial.jpg");
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-
-
-    .alumni-image.five {
-        background-image: url("https://ljtestimonials.s3-us-west-2.amazonaws.com/azeem_testimonial.png");
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-
-
-    .alumni-name{
-        font-size: 18px;
-        font-weight: bold;
-    }
-    .container.faq{
-        height: 225px;
-        background-color: white;
-        justify-items: center;
-        align-items: center;
-    }
-
-    .authenticated-user-faq{
-        padding: 100px 50px;
-        background-color: white;
-        height: 618px;
-    }
-    .price-container{
-        background: rgba(0, 0, 0, 0.8);
-        border-radius: 50px;
-        height: 416px;
-        width: 100%;
-        padding: 50px 125px;
-        color: white;
-        font-size: 18px;
-        line-height: 30px;
-    }
-    .big-price{
-        font-size: 64px;
-        color: #3B97D3;
-        margin-top: 50px;
-        line-height: 80px;
-    }
-
-    .container-colored{
-        width: 100%;
-        min-height: 315px;
-        border-left: 5px solid #3B97D3;
-        border-radius: 2px;
-        box-shadow: 0 0 0 0 #3B97D3 inset;
-    }
-
-    .top-50{
-        padding-top: 80px;
-        padding-left: 55px;
-    }
-    .top-50:nth-child(1){
-        padding-top: 40px;
-    }
-    .center-badge{
-        display: none;
-    }
-    .row.height{
-        margin-top: 100px;
-    }
-    .price-container a.blue-text{
-        color:#3B97D3;
-    }
-
-    {#Responsiveness#}
-    @media only screen and (max-width: 760px) {
-        .header-color{
-            height:190px;
-        }
-
-        .rounded-container{
-            height: 100%;
-        }
-
-        .header-text{
-            font-size: 24px;
-            padding: 50px 30px 0 30px;
-            line-height: 25px;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-        .header-subtitle{
-            font-size: 12px;
-            padding: 0 30px;
-        }
-        .header-subtitle > span{
-            font-size: 12px;
-        }
-
-        .color-white{
-            font-size: 12px;
-            line-height: 14px;
-        }
-        .left-badge{
-            display: none;
-        }
-        .center-badge{
-            display: block;
-            padding: 30px;
-            margin-bottom: 40px;
-        }
-        .rounded-container{
-            padding: 50px 20px;
-        }
-        .blue-text{
-            font-size: 10px;
-        }
-        #facilitators{
-            margin: 50px 10px;
-            padding: 10px;
-        }
-        .blue-line{
-            width: 70px;
-        }
-
-        .bottom-faq .col-md-4 .text-center{
-            text-align: right;
-            line-height: 30px;
-        }
-        .row.height{
-            margin-top: 70px;
-        }
-        .authenticated-user-faq{
-            padding: 100px 10px;
-            height: 740px;
-        }
-        .price-container{
-            padding: 50px 10px;
-            height: 100%;
-        }
-        .big-price{
-            margin-top: 0;
-        }
-        .container-colored{
-            border: 0;
-            height: unset;
-        }
-        .top-50{
-            padding: 0;
-            text-align: center;
-        }
-        .top-50:nth-child(1){
-            margin-top: 50px;
-            border-top: 5px solid #3B97D3;
-            padding-top: 5px;
-            text-align: center;
-        }
-        main{
-            padding: 0;
-        }
-
-    }
-    @media (min-width: 992px){
-    .col-md-3 {
-    width: 20%;
-    }
-}
-    .bottom-text{
-        font-size: 14px;
-        font-weight: 600;
-        line-height: 10px;
-    }
-
-    </style>
     <section class="header-color">
 
     <p class="header-text">
@@ -560,13 +141,13 @@ Work Experience | Linuxjobber
         <section class="row">
             <div class="col-md-6">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-4 wrap-frame">
                         <br>
                         <p class="blue-text"><a class="blue-text" href="{% url 'home:workexpfaq' %}">See All FAQ's &nbsp;         <i>
         <img src="{% static 'home/images/arrow-blue.png' %}" alt="/ur">
     </i> </a> </p>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 wrap-frame">
                         <p class="blue-text">                    
                             {% if request.user.is_authenticated %}
                                 <a href="#pricing" class="btn btn-lg reg-sub">Sign Up</a>
@@ -620,11 +201,12 @@ Work Experience | Linuxjobber
                                 <li>- Training is totally remote</li>
                             </ul>
                             <div style="min-height: 40px"></div>
-                            <p class="blue-text">{% if request.user.is_authenticated %}
-                                                    <a href="#pricing" class="btn btn-lg reg-sub">Sign Up</a>
-                                                {%else%}
-                                                    <a href="{% url 'home:login' %}?next=/workexperience#pricing" class="btn btn-lg reg-sub">Sign Up</a>
-                                                {%endif%}
+                            <p class="blue-text">
+                                {% if request.user.is_authenticated %}
+                                    <a href="#pricing" class="btn btn-lg reg-sub">Sign Up</a>
+                                {%else%}
+                                    <a href="{% url 'home:login' %}?next=/workexperience#pricing" class="btn btn-lg reg-sub">Sign Up</a>
+                                {%endif%}
                             </p>
                         </div>
                     </div>
@@ -636,7 +218,7 @@ Work Experience | Linuxjobber
             <p class="text-header"> Our facilitators</p>
             <div class="container-fluid">
                 <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 wrap-frame">
                     <div class="info">
                         <p class="text-center">
                             <img class="facilitator" src="https://s3.amazonaws.com/assets.prod.linuxjobber.com/media/Louis.jpg" alt="">
@@ -647,7 +229,7 @@ Work Experience | Linuxjobber
                     </div>
 
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 wrap-frame">
                     <div class="info">
                         <p class="text-center">
                             <img class="facilitator" src="https://s3.amazonaws.com/assets.prod.linuxjobber.com/media/Mary.jpg" alt="">
@@ -658,7 +240,7 @@ Work Experience | Linuxjobber
                     </div>
 
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 wrap-frame">
                     <div class="info">
                         <p class="text-center">
                            <img class="facilitator" src="https://s3.amazonaws.com/assets.prod.linuxjobber.com/media/azeem_tut.jpg" alt="">
@@ -673,7 +255,6 @@ Work Experience | Linuxjobber
             </div>
             </div>
         </section>
-
     </main>
         <section class="alumni-network">
             <p class="text-center">
@@ -682,7 +263,21 @@ Work Experience | Linuxjobber
             <p class="alumni-header">THE ALUMNI</p>
 
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-4 wrap-frame">
+                    <div class="alumni-image six">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                      <div class="info">
+                 <p class="alumni-name"> Emmanuel A.</p>
+                    <p class="alumni-role"> Linux Administrator</p>
+                    <p class="alumni-role">Prince Georges County, MD</p>
+                    <p class="alumni-role"><a href="https://twitter.com/linuxjobber"> Message on Twitter <i class="fa fa-twitter"></i></a> </p>
+                    </div>
+                </div>
+                <div class="col-md-4 wrap-frame">
                     <div class="alumni-image one">
                         <p></p>
                         <p></p>
@@ -690,13 +285,13 @@ Work Experience | Linuxjobber
                         <p></p>
                     </div>
                      <div class="info">
-                     <p class="alumni-name"> Aaron M.</p>
+                         <p class="alumni-name"> Aaron M.</p>
                          <p class="alumni-role"> DevOps Engineer</p>
                          <p class="alumni-role"> Baltimore, MD</p>
                          <p class="alumni-role"> <a href="https://twitter.com/linuxjobber"> Message on Twitter <i class="fa fa-twitter"></i></a></p>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4 wrap-frame">
 
                     <div class="alumni-image two">
                         <p></p>
@@ -712,7 +307,9 @@ Work Experience | Linuxjobber
                     </div>
 
                 </div>
-                <div class="col-md-3">
+            </div>
+            <div class="row">
+                <div class="col-md-4 wrap-frame">
                     <div class="alumni-image three">
                         <p></p>
                         <p></p>
@@ -726,7 +323,7 @@ Work Experience | Linuxjobber
                     <p class="alumni-role"><a href="https://twitter.com/linuxjobber"> Message on Twitter <i class="fa fa-twitter"></i></a> </p>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4 wrap-frame">
                     <div class="alumni-image four">
                         <p></p>
                         <p></p>
@@ -740,7 +337,7 @@ Work Experience | Linuxjobber
                     <p class="alumni-role"><a href="https://twitter.com/linuxjobber"> Message on Twitter <i class="fa fa-twitter"></i></a> </p>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4 wrap-frame">
                     <div class="alumni-image five">
                         <p></p>
                         <p></p>
@@ -754,9 +351,8 @@ Work Experience | Linuxjobber
                     <p class="alumni-role"><a href="https://twitter.com/linuxjobber"> Message on Twitter <i class="fa fa-twitter"></i></a> </p>
                     </div>
                 </div>
-
             </div>
-            <div style="min-height:100px "></div>
+            <div style="min-height:100px"></div>
             <div class="row">
                 <div class="col-md-5">
                     <p style="line-height:50px; background-repeat: no-repeat; background-image: url({% static 'home/images/thmbs.png' %})">&nbsp;</p>
@@ -765,7 +361,6 @@ Work Experience | Linuxjobber
                         improves our graduates chances of getting jobs and also more more quickly.</p>
                 </div>
             </div>
-
         </section>
         <section class="bottom-faq">
 
@@ -817,12 +412,12 @@ Work Experience | Linuxjobber
                         <div class="container faq">
                     <div class="row height">
 
-                        <div class="col-md-4">
+                        <div class="col-md-4 wrap-frame">
                             <p class="text-center">
                             <a href="{% url 'home:login' %}?next=/workexperience#pricing" class="btn btn-lg reg-sub">Sign Up</a>
                             </p>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 wrap-frame">
                         <br>
                             <p class="text-center">
                             <a href="{% url 'home:workterm' %}" class="blue-text">See terms and conditions for Work Experience &nbsp;         <i>
@@ -830,7 +425,7 @@ Work Experience | Linuxjobber
     </i> </a>
                             </p>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 wrap-frame">
                         <br>
                             <p class="text-center"><a href="{% url 'home:workexpfaq' %}" class="blue-text">See FAQ’s &nbsp;         <i>
         <img src="{% static 'home/images/arrow-blue.png' %}" alt="/ur">

@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<style>
+
+    @page {
+        size: "Tabloid";
+        margin: 2.5cm 1.5cm 3.5cm 1.5cm;
+    }
+    /*! CSS Used from: http://127.0.0.1:8000/static/home/css/newdesigner/css/bootstrap.min.css */
+svg:not(:root){overflow:hidden;}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0;}
+input,select{color:inherit;font:inherit;margin:0;}
+select{text-transform:none;}
+input::-moz-focus-inner{border:0;padding:0;}
+input{line-height:normal;}
+input[type=radio]{box-sizing:border-box;padding:0;}
+@media print{
+*{text-shadow:none!important;color:#000!important;background:transparent!important;box-shadow:none!important;}
+p{orphans:3;widows:3;}
+select{background:#fff!important;}
+}
+*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+:before,:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+input,select{font-family:inherit;font-size:inherit;line-height:inherit;}
+hr{margin-top:20px;margin-bottom:20px;border:0;border-top:1px solid #eee;}
+p{margin:0 0 10px;}
+.row{margin-left:-15px;margin-right:-15px;}
+.col-md-2,.col-md-3,.col-md-4,.col-md-5,.col-md-7,.col-md-8{position:relative;min-height:1px;padding-left:15px;padding-right:15px;}
+@media (min-width:992px){
+.col-md-2,.col-md-3,.col-md-4,.col-md-5,.col-md-7,.col-md-8{float:left;}
+.col-md-8{width:66.66666667%;}
+.col-md-7{width:58.33333333%;}
+.col-md-5{width:41.66666667%;}
+.col-md-4{width:33.33333333%;}
+.col-md-3{width:25%;}
+.col-md-2{width:16.66666667%;}
+}
+label{display:inline-block;margin-bottom:5px;font-weight:700;}
+input[type=radio]{margin:4px 0 0;margin-top:1px \9;line-height:normal;}
+input[type=radio]:focus{outline:thin dotted;outline:5px auto -webkit-focus-ring-color;outline-offset:-2px;}
+.form-control{display:block;width:100%;height:34px;padding:6px 12px;font-size:14px;line-height:1.42857143;color:#555;background-color:#fff;background-image:none;border:1px solid #ccc;border-radius:4px;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);box-shadow:inset 0 1px 1px rgba(0,0,0,.075);-webkit-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;}
+.form-control:focus{border-color:#66afe9;outline:0;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);}
+.form-control::-moz-placeholder{color:#999;opacity:1;}
+.form-control:-ms-input-placeholder{color:#999;}
+.form-control::-webkit-input-placeholder{color:#999;}
+.form-control[readonly]{cursor:not-allowed;background-color:#eee;opacity:1;}
+input[type=date]{line-height:34px;}
+.form-group{margin-bottom:15px;}
+.row:before,.row:after{content:" ";display:table;}
+.row:after{clear:both;}
+/*! CSS Used from: http://127.0.0.1:8000/static/home/css/newdesigner/css/style.css */
+.row{margin-left:0!important;margin-right:0!important;}
+.form-group label{width:50%;font-size:16px;}
+/*! CSS Used from: http://127.0.0.1:8000/static/home/css/newhomepage/css/newstyle2.css */
+div,span,p,i,form,label{margin:0;padding:0;border:0;outline:0;vertical-align:baseline;font-family:'Alegreya Sans', sans-serif;font-weight:400;}
+*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;outline:0!important;}
+hr{display:block;height:1px;border:0;border-top:1px solid #cccccc;margin:1em 0;padding:0;}
+input,select{vertical-align:middle;border:0;margin:0;}
+input{outline:0!important;}
+form div{clear:none!important;}
+form div{clear:both;padding:2px .5em;vertical-align:text-top;}
+.form-control{border:4;}
+span{font-size:18px;}
+/*! CSS Used from: http://127.0.0.1:8000/static/home/css/newhomepage/css/newstylenew.css */
+.eligh1{font-size:24px;color:#4975B1;margin-bottom:30px;font-weight:600;}
+.eligp1{font-weight:600;font-size:14px;}
+.eligsec{background:#F2F2F2;margin-top:50px;padding-top:20px;padding-bottom:20px;padding-left:10px;padding-right:10px;}
+.eligsecp{color:grey;font-size:16px;}
+.eligsech1{color:#000000;font-size:24px;font-weight:600;}
+.eligqut{font-size:16px;font-weight:600;}
+.eligqutin{font-size:14px;color:grey;}
+.eligform{margin-top:10px;}
+.eligforminput{border:1px solid rgba(0, 0, 0, 0.3);box-sizing:border-box;border-radius:5px;padding-top:0px;padding-left:10px;padding-right:10px;padding-bottom:10px;height:90px;overflow: hidden;}
+.eligforminputp{margin-top:8px;}
+.eligformin::before{border:white;}
+.eligformin{margin-top:15px;border:white;padding:0px;border-top:none;}
+.eligformin1::before{border-bottom:2px black;}
+.eligformin1{margin-top:15px;border-bottom:2px solid black;padding:0px;border-top:none;font-size:14px;line-height:1.42857143;}
+.eliglabel{margin-top:-10px;}
+.eligformcol{padding-left:3px;padding-right:3px;margin-bottom:10px;}
+.eligformwidth{width:28%;}
+.eligformwidth2{width:24.3%;}
+.eligformwidth10{width:28.3%;}
+.eligformwidth3{width:33%;}
+.eligformwidth4{width:13.2%;}
+.eligformwidth5{width:24.3%;}
+.eligquter{padding-left:20px;}
+.eligformwidth6{width:34%;}
+.eligformwidth7{width:14%;}
+.eligqutergrey{color:grey;font-size:14px;}
+.eligquterblak{font-size:13px;color:#000000;padding-left:20px;}
+/*! CSS Used from: Embedded */
+.form-control{-webkit-box-shadow:none;}
+.contain{display:block;position:relative;padding-left:35px;margin-bottom:12px;cursor:pointer;font-size:22px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
+.contain input{position:absolute;opacity:0;cursor:pointer;height:0;width:0;}
+.checkm{position:absolute;top:0;left:0;height:35px;width:35px;background-color:#FFFFFF;border-radius:20%;border:2px solid grey;}
+.checkm2{position:absolute;top:0;left:0;height:35px;width:35px;background-color:#F2F2F2;border-radius:20%;border:2px solid grey;}
+.contain:hover input ~ .checkm{background-color:#ccc;}
+.contain:hover input ~ .checkm2{background-color:#ccc;}
+.contain input[type=radio]:checked ~ .checkm{background-color:#599D2F;border:2px solid #599D2F;}
+.contain input:checked ~ .checkm2{background-color:#599D2F;border:2px solid #599D2F;}
+.checkm:after{content:"";position:absolute;display:none;}
+.checkm2:after{content:"";position:absolute;display:none;}
+.contain input[type=radio]:checked ~ .checkm:after{display:block;}
+.contain input:checked ~ .checkm2:after{display:block;}
+
+    .form-control{
+        -webkit-box-shadow: none;
+    }
+
+
+    /* Customize the label (the container) */
+.contain {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.contain input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom radio button */
+.checkm {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 35px;
+  width: 35px;
+  background-color: #FFFFFF;
+  border-radius: 20%;
+  border: 2px solid grey;
+}
+
+/* Create a custom radio button */
+.checkm2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 35px;
+  width: 35px;
+  background-color: #F2F2F2;
+  border-radius: 20%;
+  border: 2px solid grey;
+}
+
+/* On mouse-over, add a grey background color */
+.contain:hover input ~ .checkm{
+  background-color: #ccc;
+}
+
+.contain:hover input ~ .checkm2{
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.contain input[type=radio]:checked ~ .checkm{
+  background-color: #599D2F;
+  border: 2px solid #599D2F;;
+}
+
+.contain input:checked ~ .checkm2{
+  background-color: #599D2F;
+  border: 2px solid #599D2F;;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkm:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkm2:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.contain input[type=radio]:checked ~ .checkm:after {
+  display: block;
+}
+
+.contain input:checked ~ .checkm2:after {
+  display: block;
+}
+</style>
+</head>
+<body>
+<div class="container elig">
+        <form method="post" action="" enctype="multipart/form-data" accept-charset="utf-8">
+            {% csrf_token %}
+            <br>
+    <p class="eligh1">United States Employment Eligibility Form</p>
+
+    <hr>
+    <p class="eligp1">START HERE: Read instructions carefully before completing this form. The instructions must be available, either in paper or electronically, during completion of this form. Employers are liable for errors in the completion of this form.</p><br>
+
+    <p><span class="eligp1">ANTI-DISCRIMINATION NOTICE:</span> It is illegal to discriminate against work-authorized individuals. Employers CANNOT specify which document(s) an employee may present to establish employment authorization and identity. The refusal to hire or continue to employ an individual because the documentation presented has a future expiration date may also constitute illegal discrimination.</p>
+
+    <div class="eligsec">
+        <p class="eligsecp"><span class="eligsech1">Employee Information and Attestation</span> (Employees must complete and sign this Form I-9 no later than the first day of employment, but not before accepting a job offer.)</p>
+    </div>
+
+    <div class="eligform" style="padding:0px">
+        <div class="row" style="padding:0px">
+            <div class="col-md-3 eligformcol eligformwidth">
+                <div class="eligforminput">
+                    <p><span class="eligqut">Last Name </span><i>(family name)</i><span style="color: red; font-size: 25px;">*</span></p>
+                    <br><p>{{details.last_name}}</p>
+                     </div>
+            </div>
+            <div class="col-md-3 eligformcol eligformwidth">
+                <div class="eligforminput">
+                    <p><span class="eligqut">First Name </span><i>(given name)</i><span style="color: red; font-size: 25px;">*</span></p>
+                    <br><p>{{details.first_name}}</p></div>
+            </div>
+            <div class="col-md-2 eligformcol eligformwidth4">
+                <div class="eligforminput">
+                    <p class="eligforminputp"><span class="eligqut">Middle Initial </span></p>
+                    <p>{{details.middle_initial}}</p></div>
+                    
+            </div>
+            <div class="col-md-3 eligformcol eligformwidth10">
+                <div class="eligforminput">
+                    <p style="margin-bottom:5px;" class="eligforminputp"><span class="eligqut">Other Last Name Used </span><i>(if any)</i></p>
+                    <p>{{details.middle_name}}</p></div>
+                    
+            </div>
+        </div>
+        <div class="row" style="padding:0px">
+            <div class="col-md-3 eligformcol eligformwidth3">
+                <div class="eligforminput">
+                    <p><span class="eligqut">Address </span><i>(street number and name)</i><span style="color: red; font-size: 25px;">*</span></p>
+                    
+                    <p>{{details.address}}</p></div>
+               
+            </div>
+            <div class="col-md-2 eligformcol eligformwidth4">
+                <div class="eligforminput">
+                    <p class="eligforminputp"  style="margin-bottom:20px;"><span class="eligqut">Apt. Number </span></p>
+                    <p>{{details.apt_number}}</p></div>
+                
+            </div>
+            <div class="col-md-3 eligformcol eligformwidth2">
+                <div class="eligforminput">
+                    <p><span class="eligqut">City or Town</span><span style="color: red; font-size: 25px;">*</span></p>
+                    <br>
+                    <p>{{details.city}}</p></div>
+            </div>
+            <div class="col-md-2 eligformcol eligformwidth4">
+                <div class="eligforminput">
+                    <p style="margin-bottom:20px;" class="eligforminputp"><span class="eligqut">State </span></p>
+                    
+                    <p>{{details.state}}</p></div>
+            </div>
+            <div class="col-md-2 eligformcol eligformwidth4">
+                <div class="eligforminput">
+                    <p style="margin-bottom:20px;" class="eligforminputp"><span class="eligqut">ZIP Code </span></p>
+                    <p>{{details.zip_code}}</p></div>
+            </div>
+            <div class="col-md-3 eligformcol eligformwidth5">
+                <div class="eligforminput" style="position: relative;">
+                    <p><span class="eligqut">Date of Birth</span><span style="color: red; font-size: 25px;">*</span></p>
+                    <span><br>
+                        {{date}}
+                    </span><span><svg class="svgdob" style="position: absolute;bottom: 10px; right: 8px;" width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.5391 1.64062H17.5547V0H15.9141V1.64062H5.08594V0H3.44531V1.64062H2.46094C1.10398 1.64062 0 2.7446 0 4.10156V18.5391C0 19.896 1.10398 21 2.46094 21H18.5391C19.896 21 21 19.896 21 18.5391V4.10156C21 2.7446 19.896 1.64062 18.5391 1.64062ZM19.3594 18.5391C19.3594 18.9914 18.9914 19.3594 18.5391 19.3594H2.46094C2.00862 19.3594 1.64062 18.9914 1.64062 18.5391V7.71094H19.3594V18.5391ZM19.3594 6.07031H1.64062V4.10156C1.64062 3.64924 2.00862 3.28125 2.46094 3.28125H3.44531V4.92188H5.08594V3.28125H15.9141V4.92188H17.5547V3.28125H18.5391C18.9914 3.28125 19.3594 3.64924 19.3594 4.10156V6.07031Z" fill="black" fill-opacity="0.3"/>
+                        <path d="M4.75781 9.43359H3.11719V11.0742H4.75781V9.43359Z" fill="black" fill-opacity="0.3"/>
+                        <path d="M8.03906 9.43359H6.39844V11.0742H8.03906V9.43359Z" fill="black" fill-opacity="0.3"/>
+                        <path d="M11.3203 9.43359H9.67969V11.0742H11.3203V9.43359Z" fill="black" fill-opacity="0.3"/>
+                        <path d="M14.6016 9.43359H12.9609V11.0742H14.6016V9.43359Z" fill="black" fill-opacity="0.3"/>
+                        <path d="M17.8828 9.43359H16.2422V11.0742H17.8828V9.43359Z" fill="black" fill-opacity="0.3"/>
+                        <path d="M4.75781 12.7148H3.11719V14.3555H4.75781V12.7148Z" fill="black" fill-opacity="0.3"/>
+                        <path d="M8.03906 12.7148H6.39844V14.3555H8.03906V12.7148Z" fill="black" fill-opacity="0.3"/>
+                        <path d="M11.3203 12.7148H9.67969V14.3555H11.3203V12.7148Z" fill="black" fill-opacity="0.3"/>
+                        <path d="M14.6016 12.7148H12.9609V14.3555H14.6016V12.7148Z" fill="black" fill-opacity="0.3"/>
+                        <path d="M4.75781 15.9961H3.11719V17.6367H4.75781V15.9961Z" fill="black" fill-opacity="0.3"/>
+                        <path d="M8.03906 15.9961H6.39844V17.6367H8.03906V15.9961Z" fill="black" fill-opacity="0.3"/>
+                        <path d="M11.3203 15.9961H9.67969V17.6367H11.3203V15.9961Z" fill="black" fill-opacity="0.3"/>
+                        <path d="M14.6016 15.9961H12.9609V17.6367H14.6016V15.9961Z" fill="black" fill-opacity="0.3"/>
+                        <path d="M17.8828 12.7148H16.2422V14.3555H17.8828V12.7148Z" fill="black" fill-opacity="0.3"/>
+                        </svg>
+                        </span>
+                </div>
+            </div>
+            <div class="col-md-3 eligformcol eligformwidth5">
+                <div class="eligforminput jsy">
+                    <p><span class="eligqut">U.S Social Security Number</span><span style="color: red; font-size: 25px;">*</span></p>
+                    <p>{{ssn}}</p>
+                    </div>
+            </div>
+            <div class="col-md-3 eligformcol eligformwidth5">
+                <div class="eligforminput">
+                    <p><span class="eligqut">Employee's Email Address</span><span style="color: red; font-size: 25px;">*</span></p>
+                    <p>{{details.employee_email}}</p></div>
+            </div>
+            <div class="col-md-3 eligformcol eligformwidth5" >
+                <div class="eligforminput" style="display: block;
+                overflow: hidden; padding-top: 0px; ">
+                    <p><span class="eligqut">Employee's Telephone Number</span><span style="color: red; font-size: 25px;">*</span></p>
+                    <p>{{details.employee_phone}}</p></div>
+            </div>
+        </div>
+    </div><br>
+    <span class="eligqut">I am aware that federal law provides for imprisonment and/or fines for false statements or use of false documents in connection with the completion of this form.</span><br><br><br>
+
+    <p class="eligqut">I attest, under penalty of perjury, that I am <span class="eligqutin">(check one of the following boxes)</span>:</p>
+    <br>
+    
+    <div style="padding:0px">
+
+            <label class="contain"> <span class="eligqut eligquter">1. A citizen of the United States</span>
+                <input type="radio" name="selector" required value="0" {% if details.i_am_a == 0 %} Checked {%endif%}>
+                <span class="checkm"></span>
+            </label>
+          
+          <label class="contain"> <span class="eligqut eligquter">2. A noncitizen national of the United States <span class="eligqutergrey">(See instructions)</span></span>
+            <input type="radio" name="selector" required value="1"  {% if details.i_am_a == 1 %} Checked {%endif%}>
+            <span class="checkm"></span>
+          </label>
+
+          <div class="row" style="padding-bottom: 0px; padding-top: 0px;"> 
+                <div class="col-md-7">
+                    <label style="margin-left: -21px;"  class="contain">  <span class="eligqut eligquter">3. A lawful permanent resident <span class="eligquterblak">Alien Registration Number/USCIS Number:</span></span>
+                        <input type="radio" name="selector" required value="2" {% if details.i_am_a == 2 %} Checked {%endif%}>
+                        <span class="checkm"></span>
+                    </label>
+                </div>
+                <div class="col-md-5">{%if details.Alien_reg_num %} value="{{details.Alien_reg_num}}" {%endif%}</div>
+            </div>
+
+            <div class="row"  style="padding-top: 0px;">
+                    <div class="col-md-7" >
+                            <label style="margin-left: -21px;" class="contain"> <span class="eligqut eligquter">4. An alien authorized to work <span class="eligquterblak">Until
+                                    (expiration date, if applicable, mm/dd/yyyy):<br>Some aliens may write "N/A" in the expiration date field(See Instrcutions)</span>
+                                    </span>
+                                    <input  type="radio" name="selector" required value="3" {% if details.i_am_a == 3 %} Checked {%endif%}>
+                                    <span class="checkm"></span>
+                                  </label>
+                    </div>
+                    <div class="col-md-5"><input style="margin-left: -80px; margin-top: 2px;" class="eligformin1 eliglabel" name="alien" type="text"/></div>
+                </div>
+          
+          
+          
+          
+    </div>
+
+    <br><br>
+    <span class="eligqut">Aliens authorized to work must provide only one of the following document numbers to complete Form I-9:  An Alien Registration Number/USCIS Number OR Form I-94 Admission Number OR Foreign Passport Number.</span><br><br>
+    <div class="form-group" style="margin-bottom: 5px;">
+        <label for="alien" class="eligqut" style="width: 50%;">1.  Alien Registration Number/USCIS Number:</label>
+         {%if details.Alien_reg_num %} value="{{details.Alien_reg_num}}" {%endif%} 
+    </div>
+    <p class="eligqut" style="margin-bottom: 5px;"  >OR</p>
+    <div class="form-group"  style="margin-bottom: 5px;">
+        <label for="alien" class="eligqut" style="width: 30%;">2.  Form I-94 Admission Number:</label>
+         {%if details.form_19_num %} value="{{details.form_19_num}}" {%endif%} 
+    </div>
+    <p class="eligqut" style="margin-bottom: 5px;">OR</p>
+    <div class="form-group" style="margin-bottom: 5px;">
+        <label for="alien" class="eligqut" style="width: 30%;">3.  Foreign Passport Number:</label>
+        {%if details.foreign_pass_num%} value="{{details.foreign_pass_num}}" {%endif%}  
+    </div>
+
+    <div class="eligsec">
+        <p class="eligsecp"><span class="eligsech1">Preparer and/or Translator Certification (check one):</span></p>
+        <br>
+        <div class="row">
+            <div class="col-md-4">
+                <label class="contain"> <span class="eligqut eligquter">I did not use a preparer or translator.</span>
+                    <input type="radio" value="0" name="selectza" required {% if not details.preparer_or_translator %} Checked {%endif%}>  
+                    <span class="checkm2"></span>
+                </label>
+            </div>
+            <div class="col-md-8">
+                <label class="contain"> <span class="eligqut eligquter">A preparer(s) and/or translator(s) assisted the employee in completing Section 1.</span>
+                    <input type="radio" value="1" name="selectza" required {% if details.preparer_or_translator %} Checked {%endif%}>
+                    <span class="checkm2"></span>
+                </label>
+            </div>
+        </div>
+        <span class="eligqut">Fields below must be completed and signed when preparers and/or translators assist an employee in completing this form</span>
+    </div><br>
+    <span class="eligqut">I attest, under penalty of perjury, that I have assisted in the completion of Section 1 of this form and that to the best of my knowledge the information is true and correct</span>
+    <br><br>
+    <div class="row" style="padding:0px">
+        <div class="col-md-3 eligformcol eligformwidth">
+            <div class="eligforminput" style="position: relative;">
+                <p><span class="eligqut">Today's Date </span><i>(mm/dd/yyyy)</i><span style="color: red; font-size: 25px;">*</span></p>
+                <br><p>{{created}}</p>
+                     
+                <svg style="position: absolute;bottom: 10px; right: 10px;" width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.5391 1.64062H17.5547V0H15.9141V1.64062H5.08594V0H3.44531V1.64062H2.46094C1.10398 1.64062 0 2.7446 0 4.10156V18.5391C0 19.896 1.10398 21 2.46094 21H18.5391C19.896 21 21 19.896 21 18.5391V4.10156C21 2.7446 19.896 1.64062 18.5391 1.64062ZM19.3594 18.5391C19.3594 18.9914 18.9914 19.3594 18.5391 19.3594H2.46094C2.00862 19.3594 1.64062 18.9914 1.64062 18.5391V7.71094H19.3594V18.5391ZM19.3594 6.07031H1.64062V4.10156C1.64062 3.64924 2.00862 3.28125 2.46094 3.28125H3.44531V4.92188H5.08594V3.28125H15.9141V4.92188H17.5547V3.28125H18.5391C18.9914 3.28125 19.3594 3.64924 19.3594 4.10156V6.07031Z" fill="black" fill-opacity="0.3"/>
+                    <path d="M4.75781 9.43359H3.11719V11.0742H4.75781V9.43359Z" fill="black" fill-opacity="0.3"/>
+                    <path d="M8.03906 9.43359H6.39844V11.0742H8.03906V9.43359Z" fill="black" fill-opacity="0.3"/>
+                    <path d="M11.3203 9.43359H9.67969V11.0742H11.3203V9.43359Z" fill="black" fill-opacity="0.3"/>
+                    <path d="M14.6016 9.43359H12.9609V11.0742H14.6016V9.43359Z" fill="black" fill-opacity="0.3"/>
+                    <path d="M17.8828 9.43359H16.2422V11.0742H17.8828V9.43359Z" fill="black" fill-opacity="0.3"/>
+                    <path d="M4.75781 12.7148H3.11719V14.3555H4.75781V12.7148Z" fill="black" fill-opacity="0.3"/>
+                    <path d="M8.03906 12.7148H6.39844V14.3555H8.03906V12.7148Z" fill="black" fill-opacity="0.3"/>
+                    <path d="M11.3203 12.7148H9.67969V14.3555H11.3203V12.7148Z" fill="black" fill-opacity="0.3"/>
+                    <path d="M14.6016 12.7148H12.9609V14.3555H14.6016V12.7148Z" fill="black" fill-opacity="0.3"/>
+                    <path d="M4.75781 15.9961H3.11719V17.6367H4.75781V15.9961Z" fill="black" fill-opacity="0.3"/>
+                    <path d="M8.03906 15.9961H6.39844V17.6367H8.03906V15.9961Z" fill="black" fill-opacity="0.3"/>
+                    <path d="M11.3203 15.9961H9.67969V17.6367H11.3203V15.9961Z" fill="black" fill-opacity="0.3"/>
+                    <path d="M14.6016 15.9961H12.9609V17.6367H14.6016V15.9961Z" fill="black" fill-opacity="0.3"/>
+                    <path d="M17.8828 12.7148H16.2422V14.3555H17.8828V12.7148Z" fill="black" fill-opacity="0.3"/>
+                    </svg>
+            </div>
+        </div>
+        <div class="col-md-4 eligformcol eligformwidth6">
+            <div class="eligforminput">
+                <p><span class="eligqut">Last Name </span><i>(family name)</i><span style="color: red; font-size: 25px;">*</span></p>
+                <br><p>{{details.last_name}}</p>
+                     </div>
+        </div>
+        <div class="col-md-4 eligformcol eligformwidth6">
+            <div class="eligforminput">
+                <p><span class="eligqut">First Name </span><i>(given name)</i><span style="color: red; font-size: 25px;">*</span></p>
+                <br><p>{{details.first_name}}</p>
+                     </div>
+        </div>
+        <div class="col-md-4 eligformcol eligformwidth6">
+            <div class="eligforminput">
+                <p><span class="eligqut">Address </span><i>(Street Number and Name)</i><span style="color: red; font-size: 25px;">*</span></p>
+                <br><p>{{details.address}}</p>
+            </div>
+        </div>
+        <div class="col-md-4 eligformcol eligformwidth6">
+            <div class="eligforminput">
+                <p><span class="eligqut">City Or Town </span><i><span style="color: red; font-size: 25px;">*</span></i></p>
+                <br><p>{{details.city}}</p>
+                     </div>
+        </div>
+        <div class="col-md-2 eligformcol eligformwidth7">
+            <div class="eligforminput">
+                <p style="margin-bottom:10px;" class="eligforminputp"><span class="eligqut">State </span></p>
+                <br><p>{{details.state}}</p>
+            
+            </div>
+        </div>
+        <div class="col-md-2 eligformcol eligformwidth7">
+            <div class="eligforminput">
+                <p style="margin-bottom:10px;" class="eligforminputp"><span class="eligqut">ZIP Code</span></p>
+                <br><p>{{details.zip_code}}</p>
+                     </div>
+        </div>
+    </div>
+    <hr>
+    <span class="eligqut">I {{details.first_name|upper}} {{details.last_name|upper}} AGREE TO HAVE READ, UNDERSTOOD AND ACEPTED OUR STUDENT ENROLLMENT AGREEMENT</span>
+    <br>
+</form>
+</div>
+
+<script>
+
+
+
+$(document).ready(function() {
+    $( "#dob" ).datepicker({
+  yearRange: "1980:2019",
+  changeMonth: true,
+  changeYear: true,
+});
+$('.svgdob').click(function() {
+    $("#dob").focus();
+    
+});
+});
+
+var ssn = document.getElementById('ssn');
+    ssn.addEventListener('input', ssnMask, false);
+    var ssnFirstFive = "";
+    var secondHalf = "";
+    var fullSSN = "";
+
+    if ($('input[name=ssn]').val().length > 0 ){
+        detectChanges();
+        secondHalf = ssn.value.substring(5);
+        ssn.type = 'text';
+        ssn.value = "•••••";
+        ssn.value += secondHalf;
+        fullSSN = ssnFirstFive + secondHalf;   
+    }
+     
+
+    $("form").submit(function() { 
+        $('input[name=ssn]').val(fullSSN);
+        if($('input[name=ssn]').val().length !== 9){
+            $('html, body').animate({
+                scrollTop: $(".jsy").offset().top
+            }, 500);
+            $('input[name=ssn]').focus();
+            return false;
+            
+        }
+    });
+
+    function ssnMask(){
+        
+
+        if (ssn.value.length <= 5){
+            
+        }
+        else{
+            detectChanges();
+            secondHalf = ssn.value.substring(5);
+            ssn.type = 'text';
+            ssn.value = "•••••";
+            ssn.value += secondHalf;
+            fullSSN = ssnFirstFive + secondHalf;
+        }
+    }
+
+    function detectChanges() {
+        for (var i = 0; i < 5; i++){
+            if (ssn.value[i] != "•"){
+                ssnFirstFive = ssnFirstFive.substring(0, i) + ssn.value[i] + ssnFirstFive.substring(i+1);
+            }
+        }
+    }
+
+    $("#fint").on('input', function() {
+        $("#fint1").val($("#fint").val())
+    });
+
+    $("#fint1").on('input', function() {
+        $("#fint").val($("#fint1").val())
+    });
+
+    $("#laint1").on('input', function() {
+        $("#laint").val($("#laint1").val())
+    });
+
+    $("#laint").on('input', function() {
+        $("#laint1").val($("#laint").val())
+    });
+
+    $("#add").on('input', function() {
+        $("#add1").val($("#add").val())
+    });
+
+    $("#add1").on('input', function() {
+        $("#add").val($("#add1").val())
+    });
+
+    $("#city1").on('input', function() {
+        $("#city").val($("#city1").val())
+    });
+
+    $("#city").on('input', function() {
+        $("#city1").val($("#city").val())
+    });
+
+    $("#zip").on('input', function() {
+        $("#zip1").val($("#zip").val())
+    });
+
+    $("#zip1").on('input', function() {
+        $("#zip").val($("#zip1").val())
+    });
+
+    $('#stat').on('input', function() {
+        $('#stat1').val($(this).val());
+    })
+
+    $('#stat1').on('input', function() {
+        $('#stat').val($(this).val());
+    })
+
+    
+</script>
+
+</body>
+</html>

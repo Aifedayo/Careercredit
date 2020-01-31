@@ -1,0 +1,456 @@
+<html>
+
+<body>
+    
+    <style type="text/css">
+    /*! CSS Used from: https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css */
+.fa{display:inline-block;font:normal normal normal 14px/1 FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+.fa-2x{font-size:2em;}
+.fa-fw{width:1.28571429em;text-align:center;}
+.fa-lock:before{content:"\f023";}
+.fa-cogs:before{content:"\f085";}
+.fa-twitter:before{content:"\f099";}
+.fa-facebook:before{content:"\f09a";}
+.fa-certificate:before{content:"\f0a3";}
+.fa-cloud:before{content:"\f0c2";}
+.fa-google-plus:before{content:"\f0d5";}
+.fa-linkedin:before{content:"\f0e1";}
+.fa-suitcase:before{content:"\f0f2";}
+.fa-terminal:before{content:"\f120";}
+.fa-instagram:before{content:"\f16d";}
+.fa-linux:before{content:"\f17c";}
+.fa-file-code-o:before{content:"\f1c9";}
+.fa-line-chart:before{content:"\f201";}
+.fa-server:before{content:"\f233";}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);border:0;}
+/*! CSS Used from: http://127.0.0.1:8000/static/home/css/newdesigner/css/bootstrap.min.css */
+body{margin:0px;padding:0px;}
+footer,header,nav,section{display:block;}
+a{background:0 0;}
+a:active,a:hover{outline:0;}
+h1{font-size:2em;margin:.67em 0;}
+img{border:0;}
+svg:not(:root){overflow:hidden;}
+button{color:inherit;font:inherit;margin:0;}
+button{overflow:visible;}
+button{text-transform:none;}
+button{-webkit-appearance:button;cursor:pointer;}
+button::-moz-focus-inner{border:0;padding:0;}
+@media print{
+*{text-shadow:none!important;color:#000!important;background:transparent!important;box-shadow:none!important;}
+a,a:visited{text-decoration:underline;}
+a[href]:after{content:" (" attr(href) ")";}
+a[href^="javascript:"]:after{content:"";}
+img{page-break-inside:avoid;}
+img{max-width:100%!important;}
+p,h2{orphans:3;widows:3;}
+h2{page-break-after:avoid;}
+}
+*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+:before,:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+body{font-size:14px;line-height:1.42857143;color:#333;background-color:#fff;}
+button{font-family:inherit;font-size:inherit;line-height:inherit;}
+a{color:#003d4c ;text-decoration:none;}
+a:hover,a:focus{color:#003d4c ;text-decoration:underline;}
+a:focus{outline:thin dotted;outline:5px auto -webkit-focus-ring-color;outline-offset:-2px;}
+img{vertical-align:middle;}
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);border:0;}
+h1,h2,h5{font-family:inherit;font-weight:500;line-height:1.1;color:inherit;}
+h1,h2{margin-top:20px;margin-bottom:10px;}
+h5{margin-top:10px;margin-bottom:10px;}
+h1{font-size:36px;}
+h2{font-size:30px;}
+h5{font-size:14px;}
+p{margin:0 0 10px;}
+.text-center{text-align:center;}
+ul{margin-top:0;margin-bottom:10px;}
+ul ul{margin-bottom:0;}
+.container{margin-right:auto;margin-left:auto;padding-left:15px;padding-right:15px;}
+@media (min-width:768px){
+.container{width:750px;}
+}
+@media (min-width:992px){
+.container{width:970px;}
+}
+@media (min-width:1200px){
+.container{width:1170px;}
+}
+.row{margin-left:-15px;margin-right:-15px;}
+.col-md-1,.col-sm-3,.col-md-3,.col-sm-4,.col-md-4,.col-md-5,.col-xs-6,.col-sm-6,.col-md-6,.col-md-7,.col-md-8,.col-xs-12{position:relative;min-height:1px;padding-left:15px;padding-right:15px;}
+.col-xs-6,.col-xs-12{float:left;}
+.col-xs-12{width:100%;}
+.col-xs-6{width:50%;}
+@media (min-width:768px){
+.col-sm-3,.col-sm-4,.col-sm-6{float:left;}
+.col-sm-6{width:50%;}
+.col-sm-4{width:33.33333333%;}
+.col-sm-3{width:25%;}
+}
+@media (min-width:992px){
+.col-md-1,.col-md-3,.col-md-4,.col-md-5,.col-md-6,.col-md-7,.col-md-8{float:left;}
+.col-md-8{width:66.66666667%;}
+.col-md-7{width:58.33333333%;}
+.col-md-6{width:50%;}
+.col-md-5{width:41.66666667%;}
+.col-md-4{width:33.33333333%;}
+.col-md-3{width:25%;}
+.col-md-1{width:8.33333333%;}
+}
+.btn{display:inline-block;margin-bottom:0;font-weight:400;text-align:center;vertical-align:middle;cursor:pointer;background-image:none;border:1px solid transparent;white-space:nowrap;padding:6px 12px;font-size:14px;line-height:1.42857143;border-radius:4px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
+.btn:focus,.btn:active:focus{outline:thin dotted;outline:5px auto -webkit-focus-ring-color;outline-offset:-2px;}
+.btn:hover,.btn:focus{color:#333;text-decoration:none;}
+.btn:active{outline:0;background-image:none;-webkit-box-shadow:inset 0 3px 5px rgba(0,0,0,.125);box-shadow:inset 0 3px 5px rgba(0,0,0,.125);}
+.collapse{display:none;}
+.nav{margin-bottom:0;padding-left:0;list-style:none;}
+.nav>li{position:relative;display:block;}
+.nav>li>a{position:relative;display:block;padding:10px 15px;}
+.nav>li>a:hover,.nav>li>a:focus{text-decoration:none;background-color:#eee;}
+.navbar-collapse{max-height:340px;overflow-x:visible;padding-right:15px;padding-left:15px;border-top:1px solid transparent;box-shadow:inset 0 1px 0 rgba(255,255,255,.1);-webkit-overflow-scrolling:touch;}
+@media (min-width:768px){
+.navbar-collapse{width:auto;border-top:0;box-shadow:none;}
+.navbar-collapse.collapse{display:block!important;height:auto!important;padding-bottom:0;overflow:visible!important;}
+}
+.navbar-brand{float:left;padding:15px;font-size:18px;line-height:20px;height:50px;}
+.navbar-brand:hover,.navbar-brand:focus{text-decoration:none;}
+.navbar-toggle{position:relative;float:right;margin-right:15px;padding:9px 10px;margin-top:8px;margin-bottom:8px;background-color:transparent;background-image:none;border:1px solid transparent;border-radius:4px;}
+.navbar-toggle:focus{outline:0;}
+.navbar-toggle .icon-bar{display:block;width:22px;height:2px;border-radius:1px;}
+.navbar-toggle .icon-bar+.icon-bar{margin-top:4px;}
+@media (min-width:768px){
+.navbar-toggle{display:none;}
+}
+.navbar-nav{margin:7.5px -15px;}
+.navbar-nav>li>a{padding-top:10px;padding-bottom:10px;line-height:20px;}
+@media (min-width:768px){
+.navbar-nav{float:left;margin:0;}
+.navbar-nav>li{float:left;}
+.navbar-nav>li>a{padding-top:15px;padding-bottom:15px;}
+.navbar-nav.navbar-right:last-child{margin-right:-15px;}
+}
+@media (min-width:768px){
+.navbar-right{float:right!important;}
+}
+.container:before,.container:after,.row:before,.row:after,.nav:before,.nav:after,.navbar-collapse:before,.navbar-collapse:after{content:" ";display:table;}
+.container:after,.row:after,.nav:after,.navbar-collapse:after{clear:both;}
+/*! CSS Used from: http://127.0.0.1:8000/static/home/css/style.css */
+body{font-family:'Open Sans', sans-serif;}
+h2{color:#000;font-weight:700;}
+.social-links{display:flex;list-style:none;justify-content:center;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,0.2);}
+.social-links li{margin:0px 30px 0px 30px;}
+.blue{color:#1472C8;}
+.link-icon{clear:both;line-height:9px;width:auto;height:34px;}
+.text-1{text-align:center;}
+/*! CSS Used from: http://127.0.0.1:8000/static/home/css/newdesigner/css/style.css */
+.row{margin-left:0!important;margin-right:0!important;}
+nav{position:relative;}
+#header{background:rgba(0, 0, 0, 0) none repeat scroll 0 0;float:left;height:auto;padding:6px 0 14px;position:absolute;top:0;width:100%;z-index:99;}
+.logo .navbar-brand{height:auto;padding:0;}
+.mainmnu{margin:19px 0 0;}
+.navbar-right{float:right!important;margin:0!important;}
+.mainmnu .nav li a{color:#c3c3c3;float:none;font-family:helvetica;margin:0;padding:0 15px;}
+.mainmnu .nav li a{color:#c3c3c3;float:none;font-family:open sans;font-weight:bold;margin:0;padding:0 15px;text-transform:uppercase;}
+.mainmnu .nav li a:hover{background:none;color:#fff;}
+@media (max-width:1200px){
+.mainmnu .nav li a{padding:0 10px;}
+}
+@media (max-width:767px){
+.mainmnu{display:none;}
+#header{background:rgba(0, 0, 0, 0) none repeat scroll 0 0!important;padding:4px 0;position:absolute;top:0;z-index:999;}
+}
+@media (max-width:500px){
+.logo .navbar-brand > img{width:100%;}
+}
+/*! CSS Used from: http://127.0.0.1:8000/static/home/css/newhomepage/css/newstyle2.css */
+body,div,span,h1,h2,h5,p,img,i,ul,li,footer,header,nav,section{margin:0;padding:0;border:0;outline:0;vertical-align:baseline;font-family:'Alegreya Sans', sans-serif;font-weight:400;}
+*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;outline:0!important;}
+footer,header,nav,section{display:block;}
+nav ul{list-style:none;}
+li{list-style:none;}
+a{font-size:100%;vertical-align:baseline;background:transparent;outline:0!important;text-decoration:none;}
+a:hover{text-decoration:none;}
+h1,h2,h5{margin:0;}
+button{border:0;}
+body{background:#fff;font-size:13px;font-weight:normal;overflow-x:hidden;margin:0;font-family:'Open Sans', sans-serif;}
+footer{background:#818181;padding:84px 0 90px;float:left;width:100%;}
+#header.r-header{transition:opacity 1s ease-in-out;-moz-transition:opacity 1s ease-in-out;-webkit-transition:opacity 1s ease-in-out;}
+nav{position:unset!important;}
+.mainmnu{margin:0!important;position:initial;}
+.nav>li{position:initial;margin:0 2px;}
+.text-1{text-align:center;}
+.link-icon{clear:both;display:block;line-height:9px;width:auto;height:34px;}
+.link-icon img{height:30px;}
+li.sub-menu a.b-n::after,li.sub-menu a.b-n:focus::after,li.sub-menu a.b-n:hover::after{content:'';display:inline-block;width:9px;height:9px;overflow:hidden;border:1px solid #fff;border-top:1px solid transparent;border-left:1px solid transparent;opacity:.75;position:relative;left:6px;top:0;-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-o-transform:rotate(-45deg);-ms-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transition:all .3s ease-out;-moz-transition:all .3s ease-out;-ms-transition:all .3s ease-out;-o-transition:all .3s ease-out;transition:all .3s ease-out;box-sizing:border-box;z-index:-1;}
+li.sub-menu a.b-n::after,li.sub-menu a.b-n:focus::after,li.sub-menu a.b-n:hover::after{top:-4px;transform:rotate(45deg);}
+li.sub-menu:hover a.b-n::after{top:2px;transform:rotate(-135deg);}
+.header-bottom{border-bottom:1px solid #cccccc;}
+.nav>li>a:hover,.nav>li>a:focus{background:rgba(0, 0, 0, 0) none repeat scroll 0 0;}
+.mainmnu .nav li a{color:#f3f3ff!important;font-family:'Alegreya Sans', sans-serif!important;font-size:14px!important;font-weight:700!important;padding:18px 17px 24px!important;text-transform:uppercase;}
+.mainmnu .nav li a.b-n:hover{border-bottom:2px solid #ffffff;}
+.transparent-style{background-color:transparent #7d7e7e!important;display:none;}
+.mainmnu .nav li li a{display:inline-block;font-weight:normal!important;letter-spacing:1px;line-height:15px;list-style:outside none none!important;padding:15px 0!important;text-transform:capitalize!important;}
+.dropdowns{background-color:#005ea6;border-radius:0;border-top:1px solid #cccccc;left:0;list-style:outside none none!important;margin-left:0!important;min-height:150px;position:absolute!important;right:0;top:70px;width:100%;position:relative;}
+.padd{padding:0!important;}
+#header{padding:6px 0 14px;}
+@media only screen and (max-width:1200px){
+.mainmnu .nav li a{padding:22px 6px 22px!important;}
+}
+@media only screen and (max-width:1030px){
+.mainmnu .nav li a{padding:22px 7px 22px!important;}
+}
+@media only screen and (max-width:991px){
+footer{padding:60px 0;}
+.navbar-brand>img{width:100%;}
+.mainmnu .nav li a{padding:0 0px 23px!important;}
+.mainmnu{margin:10px 0 0!important;padding:0!important;}
+}
+@media only screen and (max-width: 767px){
+.header-bottom{border-bottom:none;}
+}
+@media only screen and (max-width:480px){
+footer{padding:20px 0 30px;}
+}
+i.fa.fa-certificate{margin-right:10px;}
+i.fa.fa-certificate{margin-right:10px;}
+@media (min-width: 20px) and (max-width: 450px){
+.fa.fa-suitcase{font-size:18px;}
+.footer .social-links li{margin:0 5px 25px;}
+}
+h2,h5{margin-bottom:20px;font-weight:600;}
+h1{font-size:45px;padding-bottom:10px;font-weight:bold;}
+span{font-size:18px;}
+h1{font-size:45px;font-weight:bold;}
+.workxterm{margin-top:50px;}
+.workxbottom{padding-top:30px;padding-bottom:30px;box-shadow:0px 0px 10px rgba(0, 0, 0, 0.25);}
+/*! CSS Used from: http://127.0.0.1:8000/static/home/css/newhomepage/css/main.css */
+.footer{padding:50px;background:#313328;color:#fff;}
+.footer h2{color:#c4c4c4;font-size:30px;}
+.footer li{list-style:none;color:#fff;}
+.footer a{color:#fff;}
+.footer{margin:0;}
+.navhead{background:url(http://127.0.0.1:8000/static/home/css/newhomepage/imgs/jobban2.png);height:70px;background-size:cover;background-repeat:no-repeat;display:block;}
+.navheadmid{background-color:#1B539E;height:180px;background-size:cover;background-repeat:no-repeat;display:block;padding-top:30px;padding-bottom:30px;}
+.navheadmidh{font-size:32px;}
+.navheadinner{margin-left:-20px;}
+.navheadmidh1{font-size:24px;color:#FFFFFF;font-weight:700;}
+.navheadmidp{font-size:18px;color:#FFFFFF;font-weight:500;}
+.navheadbody{color:#808080;}
+.homebanbut{color:#FFFFFF;background:rgba(0, 0, 0, 0.8);box-shadow:0px 0px 4px rgba(255, 255, 255, 0.25);border-radius:10px;padding:10px 30px 10px 30px;font-weight:bold;}
+@media (min-height: 1024px) and (min-width: 1366px){
+.navhead{min-height:70px;display:block;}
+}
+@media (device-width: 768px) and (device-height: 1024px) and (orientation:portrait){
+.navhead{height:60px;}
+}
+@media (device-height: 768px) and (device-width: 1024px) and (orientation:landscape){
+.navhead{height:70px;}
+}
+@media (min-height: 1366px) and (min-width: 1024px){
+.navhead{height:70px;}
+}
+/*! CSS Used from: http://127.0.0.1:8000/static/Projects/custom/css/projects.css */
+@media (min-width: 768px) and (max-width: 1024px){
+img{margin-right:10px;width:100%;}
+}
+/*! CSS Used from: Embedded */
+a{font-weight:500;}
+@media (max-width:767px){
+.mainmnu{display:block!important;}
+}
+li.sub-menu a.b-n::after,li.sub-menu a.b-n:focus::after,li.sub-menu a.b-n:hover::after{z-index:0;}
+.navbar-toggle{background:transparent;}
+.icon-bar{background-color:#fff;}
+.navbar-collapse{padding:0;}
+@media (max-width: 640px) and (min-width: 360px){
+.navbar-right{padding:0 16px;float:none!important;}
+}
+
+@media screen and (max-width: 600px){
+.load_svg{visibility:hidden;clear:both;float:left;margin:10px auto 5px 20px;width:28%;display:none;}
+}
+.top-text{font-weight:500;font-size:14px;line-height:16px;color:rgba(0, 0, 0, 0.8);margin-bottom:20px;}
+h5{font-weight:bold;font-size:14px;line-height:14px;color:#333333;margin-top:15px;}
+.navheadbody{margin-top:5px;}
+.blue{margin-top:10px;margin-bottom:50px;font-size:24px;font-weight:500;color:#4975B1;line-height:28px;}
+.effective{margin-top:60px;font-weight:500;font-size:18px;line-height:21px;color:rgba(0, 0, 0, 0.8);margin-bottom:20px;}
+
+        .workxtermdiv {
+            min-height: 430px;
+            color: black;
+            padding: 50px 25px;
+        }
+
+        
+
+
+        .top-text {
+
+            font-weight: 500;
+font-size: 14px;
+line-height: 16px;
+
+color: rgba(0, 0, 0, 0.8);
+            margin-bottom: 20px;
+        }
+
+        h5 {
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 14px;
+            color: #333333;
+            margin-top: 15px;
+
+
+        }
+
+        .navheadbody {
+            margin-top: 5px;
+
+        }
+    .blue{
+        margin-top: 10px;
+        margin-bottom: 50px;
+        font-size: 24px;
+        font-weight: 500;
+        color: #4975B1;
+line-height: 28px;
+/* identical to box height */
+
+    }
+    .effective{
+        margin-top: 60px;
+        font-weight: 500;
+font-size: 18px;
+line-height: 21px;
+color: rgba(0, 0, 0, 0.8);
+        margin-bottom: 20px;
+    }
+
+    </style>
+    
+    
+    <div class="workxterm">
+        <div class="container">
+
+            <div class="workxtermdiv">
+
+                <h1 class="navheadmidh">Terms and conditions for Work Experience</h1>
+                <p class="effective">Effective date: February 20, 2019</p>
+                <p class="top-text">This Student Enrollment Agreement (this “Agreement”), is a binding agreement between
+                    you, the Student
+                    (the “Student”), and Linuxjobber, Inc. with regard to a single enrollment in an Advanced Career
+                    Training program that may consist of a single or multiple programs. This Agreement becomes binding
+                    and effective upon the Student’s acceptance, indicated by online acknowledgement of receipt of, and
+                    agreement to, the provisions of this Agreement.
+                </p>
+                <p class="top-text">The parties here to agree as follows:</p>
+                <h5>ADMISSIONS CRITERIA</h5>
+                <p class="navheadbody">The Student has completed technical training in the area of interest and is
+                    seeking “hands-on” field experience to better understand the daily responsibilities of a working
+                    professional in that area.</p>
+                <h5>TUITION</h5>
+                <p class="navheadbody">
+                    The Student agrees to pay a one-time, non-refundable registration payment of $399 and additional 14%
+                    of the Student’s one-year salary when the Student gains employment in any field related to the area
+                    of interest.
+                </p>
+                <h5>COMPLETION REQUIREMENTS</h5>
+                <p class="navheadbody">
+                    In order to receive a Certificate of Completion, the Student must successfully complete the program
+                    by the date indicated on the Stduent’s Linuxjobber profile following the date on which the Student
+                    enrolls in the program, and tuition must be paid in full before the Student can receive a
+                    Certificate of Completion.
+                </p>
+                <h5>SCHEDULE</h5>
+                <p class="navheadbody">
+                    The duration of the program is 3 months and the Student is required to attend daily online meetings
+                    (Mondays through Friday) for the entire duration of the program. It is the responsibility of the
+                    Student to attend the meeting and to meet privately with instructors to cover materials for missed
+                    classes.
+                </p>
+                <h5>PROGRAM CANCELLATION POLICY</h5>
+                <p class="navheadbody">
+                    The Student may request the Student's enrollment be canceled at any time before the Student is
+                    registered for and granted access to the program.
+                </p>
+                <h5>REFUND POLICY</h5>
+                <p class="navheadbody">
+                    For refunds requested within ten (7) calendar days commencement of the Work Experience training, as
+                    shown on Student’s Linuxjobber profile, one hundred percent (100%) of the tuition amount shall be
+
+                    For refund requests within Eight (8) to twenty-four (24) calendar days of commencement of the Work
+                    Experience training, as shown on Student’s Linuxjobber profile, fifty percent (50%) of the tuition
+                    amount shall be refunded.
+                </p>
+                <h5>TRANSFER POLICY</h5>
+                <p class="navheadbody">
+                    The Student may transfer from one program to another within sixty (60) days following the Student’s
+                    registration date. There is a transfer fee of one hundred twenty-five dollars ($125), plus any
+                    applicable taxes, if the transfer takes place after the first ten (10) calendar days of the Start
+                    Date listed in the Student’s Linuxjobber profile. If the program to which the Student wishes to
+                    transfer costs less than the original program in which the Student is registered, the Student shall
+                    be credited the difference, minus the transfer fee. If the program to which the Student wishes to
+                    transfer costs more than the original program in which the Student is registered, the Student shall
+                    be charged the difference, plus the transfer fee and any applicable taxes.
+                </p>
+                <h5>HOLD POLICY</h5>
+                <p class="navheadbody">
+                    A “hold” is a permitted suspension of the Student’s participation in the program without penalty.
+                    The Student may request a hold of up to thirty (30) days and holds will only be granted for those
+                    with extenuating circumstances, at Linuxjobber’s discretion, such as military deployment or
+                    documented medical concerns. Some program holds may incur a fee and the student shall be made aware
+                    of this before the hold is initiated. If the Student has used a loan, they are still responsible for
+                    the regular loan payments throughout the hold period. If the Student remains on hold for more than
+                    thirty (30) days, the Student shall be dropped from the program without a refund and the Student’s
+                    grade shall be shown as Incomplete on the school’s records.
+                </p>
+                <h5>STUDENT CONSENT TO RELEASE OF DATA</h5>
+                <p class="navheadbody">
+                    The Student hereby authorizes (a) Linuxjobber and its authorized testing provider(s) to release the
+                    Student’s name and certification result (“Student Results”) to employers and third party requesters
+                    (b) Linuxjobber to collect, use, store, and transfer Student Results in connection with:
+                    researching, developing, or improving its products or services; public aggregated reporting of
+                    pass/fail rates; and compliance reporting. The Student also hereby authorizes Linuxjobber to provide
+                    Student Results to third parties if: (x) Linuxjobber believes in good faith the disclosure is
+                    required by law, such as to comply with a subpoena, warrant, court order, or similar legal or
+                    administrative process; and (z) a third party purchases or otherwise acquires Linuxjobber, in which
+                    case Student Results will likely be among the assets transferred.
+                </p>
+                <h5>GROUNDS FOR TERMINATION</h5>
+                <p class="navheadbody">
+                    The Student’s enrollment may be terminated for several reasons, upon Linuxjobber’s decision,
+                    including failure of the Student to comply with Linuxjobber’s rules and policies, or failure to
+                    comply with the terms and conditions set forth herein. Linuxjobber may terminate the Student’s
+                    enrollment at any time for such violations. Linuxjobber further reserves the right to modify the
+                    rules and policies. In addition, if the Student owes any amount on a loan and is delinquent on the
+                    Student’s loan payments or installments for more than thirty (30) days, Linuxjobber reserves the
+                    right to terminate the student’s access to the program without a refund.
+                </p>
+                <h5>NO GUARANTEE</h5>
+                <p class="navheadbody">
+                    The student understands and agrees that completion of the program is not a guarantee of employment
+                    or of obtaining an internship or externship. Linuxjobber has not made any promise to the student,
+                    express or implied, regarding any opportunities for the student following completion of the
+                    program.  the student agrees to release, indemnify, defend and hold harmless linuxjobber inc., their
+                    shareholders, officers, directors, employees, agents and assigns from any such claim.
+                </p>
+                <h5>GOVERNING LAW AND JURISDICTION FOR DISPUTES</h5>
+                <p class="navheadbody">
+                    This Agreement shall be construed and enforced in accordance with all United States Laws, without
+                    regard to its conflict of law provisions which would require the application of the laws of another
+                    jurisdiction. Any suit, action or proceeding arising out of or relating to this Agreement may be
+                    commenced and maintained only in a Maryland state court of competent subject matter jurisdiction in
+                    Howard County, MD, and each Party waives objection to such jurisdiction and venue.  The Parties
+                    expressly, knowingly and voluntarily waive any right to a trial by jury in any proceeding arising
+                    out of or relating to, and/or to enforce this Agreement.
+                </p>
+                <br>
+                <h5>I {{user.first_name|upper}} {{user.last_name|upper}} AGREE TO HAVE READ, UNDERSTOOD AND ACEPTED OUR STUDENT ENROLLMENT AGREEMENT </h5>
+            </div>
+
+
+        </div>
+    </div>
+    
+
+</body>
+</html>

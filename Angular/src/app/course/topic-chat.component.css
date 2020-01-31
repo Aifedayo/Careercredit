@@ -117,3 +117,14 @@ button {
   height: 36px;
   width: 36px;
 }
+
+.mat-list[dense] .mat-list-item.mat-2-line{
+  height: auto;
+  max-height: 500px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+html body app-root app-course div.container-fluid.all-field div.row div.col-md-9 div app-topic-chat mat-card.card.medium.mat-card div#chat_div_space.card-content.scroll-hide mat-card.main-card.mat-card mat-list.chat-list.mat-list div div.me mat-list-item.mat-list-item.mat-2-line div.mat-list-item-content div{
+  margin: 10px 0px 15px 10px;
+}

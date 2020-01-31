@@ -297,24 +297,37 @@ color: rgba(255, 255, 255, 0.8);
 
 .head-text{
   font-style: normal;
-font-weight: 500;
-font-size: 18px;
-line-height: normal;
-text-align: center;
-color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: normal;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
 }
 a.head-text{
     font-style: normal;
-font-weight: 500;
-font-size: 18px;
-line-height: normal;
-text-align: center;
-color: rgba(255, 255, 255, 0.8);
-
+  font-weight: 500;
+  font-size: 18px;
+  line-height: normal;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 a:focus{
   background:  #333333;;
   color: rgba(255, 255, 255, 0.8);
   font-size: 14px;
+}
+
+a.head-text:hover{
+  background-color:#666666;
+  font-weight: 400;
+  border-radius: 10px;
+  border-bottom: none;
+}
+
+.active-link{
+  background:#5c5c5c;
+  border-radius: 10px;
+  font-weight: bold;
+  padding-top: 5px;
 }

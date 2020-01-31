@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'storages',
     'livereload',
     'background_task',
+    'certificates',
 
     'awswebsocket'
 ]

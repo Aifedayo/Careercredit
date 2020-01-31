@@ -3,172 +3,170 @@
 <html lang="en">
 <head>
 
-<title>{% block title %} {% endblock %}</title>
+	<title>{% block title %} {% endblock %}</title>
 
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script
-	src="{% static 'home/css/newdesigner/js/validation/jquery.validation.functions.js' %}"></script>
-<script
-	src="{% static 'home/css/newdesigner/js/validation/jquery.validate.js' %}"></script>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script
+		src="{% static 'home/css/newdesigner/js/validation/jquery.validation.functions.js' %}"></script>
+	<script
+		src="{% static 'home/css/newdesigner/js/validation/jquery.validate.js' %}"></script>
 
-<link
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
-	rel="stylesheet">
-<link
-	href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800"
-	rel="stylesheet">
-<link
-	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700"
-	rel="stylesheet">
-<link rel="shortcut icon" href="{% static 'favicon.ico' %}">
-<!-- Bootstrap -->
-<link href="{% static 'home/css/newdesigner/css/bootstrap.min.css' %}"
-	rel="stylesheet">
-<!-- Main Style -->
-<link rel="stylesheet" href="{% static 'home/css/style.css' %}">
-<link href="{% static 'home/css/newdesigner/css/style.css' %}"
-	rel="stylesheet">
-<link href="{% static 'home/css/newhomepage/css/stylenew.css' %}"
-	rel="stylesheet}">
-<link href="{% static 'home/css/newhomepage/css/newstyle2.css' %}"
-	rel="stylesheet">
-<link href="{% static 'home/css/newhomepage/css/main.css' %}"
-	rel="stylesheet">
-<link href="{% static 'home/css/newhomepage/css/newstylenew.css' %}"
-	rel="stylesheet">
-<!-- <link href="{% static 'home/css/newhomepage/css/my-style.css' %}" rel="stylesheet"> -->
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400"
-	rel="stylesheet">
-<!-- PROJECTS APPLICATION CUSTOM STYLESHEET -->
-<link rel="stylesheet" type="text/css" href="{% static 'Projects/custom/css/projects.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css' %}">
-<script src="{% static 'home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js' %}"></script>
-<style>
+	<link
+		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
+		rel="stylesheet">
+	<link
+		href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800"
+		rel="stylesheet">
+	<link
+		href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700"
+		rel="stylesheet">
+	<link rel="shortcut icon" href="{% static 'favicon.ico' %}">
+	<!-- Bootstrap -->
+	<link href="{% static 'home/css/newdesigner/css/bootstrap.min.css' %}"
+		rel="stylesheet">
+	<!-- Main Style -->
+	<link rel="stylesheet" href="{% static 'home/css/style.css' %}">
+	<link href="{% static 'home/css/newdesigner/css/style.css' %}"
+		rel="stylesheet">
+	<link href="{% static 'home/css/newhomepage/css/stylenew.css' %}"
+		rel="stylesheet}">
+	<link href="{% static 'home/css/newhomepage/css/newstyle2.css' %}"
+		rel="stylesheet">
+	<link href="{% static 'home/css/newhomepage/css/main.css' %}"
+		rel="stylesheet">
+	<link href="{% static 'home/css/newhomepage/css/newstylenew.css' %}"
+		rel="stylesheet">
+	<!-- <link href="{% static 'home/css/newhomepage/css/my-style.css' %}" rel="stylesheet"> -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400"
+		rel="stylesheet">
+	<!-- PROJECTS APPLICATION CUSTOM STYLESHEET -->
+	<link rel="stylesheet" type="text/css" href="{% static 'Projects/custom/css/projects.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css' %}">
+	<script src="{% static 'home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js' %}"></script>
+	<style> 
+		.tool-sub{
+			position: relative;
+		}
 
-.tool-sub{
-	position: relative;
-}
+		.tool-sub .tool-sond{
+			top: 10;
+			left: 70%;
+			margin-top: -1px;
+			width: 100%;
+			padding-top: 20px;
+		}
 
-.tool-sub .tool-sond{
-	top: 10;
-	left: 70%;
-	margin-top: -1px;
-	width: 100%;
-	padding-top: 20px;
-}
+		.tool-sond
+		{
+			top: 0;
+			right: -150px;
+			width: 150px;
+			padding: 0;
+			margin: 10px;
+			display: none;
+		}
 
+		.tool-sond > li
+		{
+			position: relative;
+			height: 50px;
+			padding-bottom: 25px;
+		}
 
-.tool-sond
-{
-    top: 0;
-    right: -150px;
-    width: 150px;
-    padding: 0;
-    margin: 10px;
-    display: none;
-}
+		.tool-sond > li:hover{
+			background-color: #468ac6;
+		}
 
-.tool-sond > li
-{
-	position: relative;
-    height: 50px;
-	padding-bottom: 25px;
-}
+		.progress{
+				margin-top:5px;
+				margin-bottom:0px;
+		}
 
-.tool-sond > li:hover{
-	background-color: #468ac6;
-}
+		.fh5co-cover.fh5co-cover-sm {
+				height: 245px !important;
+		}
 
+		.lab-details {
+				margin-top: 10px;
+				margin-bottom: 40px;
+		}
 
-	     .progress{
-                margin-top:5px;
-                margin-bottom:0px;
-        }
-        .fh5co-cover.fh5co-cover-sm {
-                height: 245px !important;
-        }
-        .lab-details {
-                margin-top: 10px;
-                margin-bottom: 40px;
-        }
-        .fa.fa-check  {  padding: 3px !important;  border-radius: 14px; line-height: 14px; }
-        .fa.fa-remove {  padding: 5px !important; border-radius: 10px; line-height: 10px; }
-        a{ font-weight:500 ; }
+		.fa.fa-check  {  padding: 3px !important;  border-radius: 14px; line-height: 14px; }
+		.fa.fa-remove {  padding: 5px !important; border-radius: 10px; line-height: 10px; }
+		a{ font-weight:500 ; }
 
-        @media (max-width:767px) {
+		@media (max-width:767px) {
+			.mainmnu { display: block !important; }
+		}
 
-.mainmnu { display: block !important; }
-}
-li.sub-menu a.b-n::after,
-li.sub-menu a.b-n:focus::after,
-li.sub-menu a.b-n:hover::after,
-li.sub-menu a.b-n::after {
-        z-index: 0;
-}
-.navbar-toggle {
-        background: transparent;
-}
-.navbar-collapse.in {
-    text-align: left;
-        background: #1b539e;
-        width: 100%;
-}
+		li.sub-menu a.b-n::after,
+		li.sub-menu a.b-n:focus::after,
+		li.sub-menu a.b-n:hover::after,
+		li.sub-menu a.b-n::after {
+				z-index: 0;
+		}
 
-.icon-bar {
-        background-color: #fff;
-}
-.inner-box.category-content {
-    height:200px;
-  }
-.navbar-collapse {
-	padding: 0;
-}
+		.navbar-toggle {
+				background: transparent;
+		}
 
-@media (max-width: 640px) and (min-width: 360px) {
-        #puppet {
-bottom: 200px;
-}
-.navbar-right {
-        padding: 0 16px;
-        float: none !important;
-}
-.header-login {
-        padding: 0  16px;
-        float: left;
-}
-.header-login>a {
-        margin: 5px 6px;
-}
-.inner-box.category-content {
-    height: 300px;
-  }
-  h2.title-4{
-    padding-right: 16px;
-}
-}
-@media (max-width: 400px) {
-  .inner-box.category-content {
-    height: 300px;
-  }
-}
+		.navbar-collapse.in {
+			text-align: left;
+			background: #1b539e;
+			width: 100%;
+		}
 
-    
-    
-</style>
+		.icon-bar {
+			background-color: #fff;
+		}
 
-{#Load external files#}
-{% block external_header %}
+		.inner-box.category-content {
+			height:200px;
+		}
 
-{% endblock %}
+		.navbar-collapse {
+			padding: 0;
+		}
+
+		@media (max-width: 640px) and (min-width: 360px) {
+			#puppet {
+				bottom: 200px;
+			}
+			.navbar-right {
+					padding: 0 16px;
+					float: none !important;
+			}
+			.header-login {
+					padding: 0  16px;
+					float: left;
+			}
+			.header-login>a {
+					margin: 5px 6px;
+			}
+			.inner-box.category-content {
+				height: 300px;
+			}
+			h2.title-4{
+				padding-right: 16px;
+			}
+		}
+
+		@media (max-width: 400px) {
+			.inner-box.category-content {
+				height: 300px;
+			}
+		}
+	</style>
+
+	{#Load external files#}
+	{% block external_header %}{% endblock %}
 </head>
-
 <body>
-
 	<header class="r-header" id="header">
 		<!-- header bottom -->
 		<div class="header-bottom">
@@ -192,8 +190,7 @@ bottom: 200px;
 									href="javascript:void(0);">Work</a>
 
 									<div class="dropdowns transparent-style" id="work">
-										<div class="container text-1">
-											
+										<div class="container text-1">											
 											<div class="col-md-4 col-sm-6">
 												<ul>
 													<li><a href="{% url 'home:workexperience' %}"><span
@@ -222,13 +219,9 @@ bottom: 200px;
 									</div></li>
 								<li class="has-dropdown sub-menu tool"><a class="b-n"
 									href="javascript:void(0);">Projects</a>
-
 									<div class="dropdowns transparent-style multi-level" id="tool">
-										  
 										<div class="container text-1">
 											{% if tools %} {% for tool in tools %} {% with count_min_one=forloop.counter|add:"-1"|divisibleby:1 %} {% if forloop.counter == 1 or count_min_one %}
-
-											
 											<div class="col-md-3 col-sm-3 ">
 												<ul>
 													{% endif %}
@@ -436,7 +429,7 @@ bottom: 200px;
 						{%for class in complitfoot %}
 							<li><a href="{% url 'home:completeclass' class.slug %}">{{class.name}}</a></li>
 						{%endfor%}
-						
+						<li><a href="{% url 'home:it_partnership' %}">StartUp Partnership</a></li>
 					</ul>
 				</div>
 
