@@ -679,7 +679,8 @@ def jobfeed(request, is_fulltime=0):
                     return redirect('home:jobfeed')
                 elif selected_option == JobAnswers.skilled.value:  # Send to Work Experience
                     request.session['job_submission_next_page'] = selected_job.skilled_page
-                    return redirect(selected_job.skilled_page)
+                    return redirect('home:jobfeed')
+                    # return redirect(selected_job.skilled_page)
             return TemplateResponse(request, 'home/job_application_submitted.html',
                                     {'is_fulltime': True, 'job': selected_job})
 

@@ -75,9 +75,9 @@ export class TopicChatComponent implements OnInit {
            user:sessionStorage.getItem('username'),
            content:message,
            the_type:type,
-           timestamp:now.toLocaleDateString(),
+           timestamp:now.toUTCString(),
            token:this.token
-         };
+         };  
 
          this.websocket.send(
             JSON.stringify(context)
