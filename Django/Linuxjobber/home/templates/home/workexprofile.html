@@ -90,7 +90,21 @@ Work Experience Profile | Linuxjobber
                 <div class="col-md-3"><div class="workcard text-muted non">Person Type<br><br><span class="jobfinputp wsp">{{weps.person}}</span></div></div>
 
                 <div class="col-md-3"><div class="workcard text-muted non">Relocation <br><br><span class="jobfinputp wsp">{{weps.relocation}}</span></div></div>
+                <div class="col-md-3"><div id="btnShow2" class="workcard text-muted non">Terms and Conditions <br><br><span class="jobfinputp wsp">view</span></div></div>
+               <div class="col-md-3"><div id="btnShow" class="workcard text-muted non">1-9 Eligibility Form <br><br><span class="jobfinputp wsp">view</span></div></div>
+              
               </div>
+              <div id="dialog" title="1-9 Eligibility Form" style="display: none;" >
+                <div class="row-fluid align-center">
+                    <iframe id="frame" style="width:800px;height:500px" ></iframe>
+                </div>
+            </div>
+
+            <div id="jad1" title="Terms and Conditions" style="display: none;" >
+              <div class="row-fluid align-center">
+                  <iframe id="frame1" style="width:800px;height:500px" ></iframe>
+              </div>
+            </div>
               <br><br>
               <span class="jobinfoh">Tap on card to edit your information</span>
             </div>
@@ -205,10 +219,60 @@ Work Experience Profile | Linuxjobber
             </form>
           </div>
   </div>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#btnShow').click(function(){
+            $("#dialog").dialog({
+              modal: true,
+              width: "60%",
+              maxWidth: "600px",
+              buttons: [
+                {
+                  text: "Ok",
+                  icon: "ui-icon-heart",
+                  click: function() {
+                    $( this ).dialog( "close" );
+                  }
+                }
+              ]
+            });
+            $("#frame").attr("src", "{{url}}{{pdf}}");
+        }); 
+
+
+        $('#btnShow2').click(function(){
+            $("#jad1").dialog({
+              modal: true,
+              width: "60%",
+              maxWidth: "600px",
+              buttons: [
+                {
+                  text: "Ok",
+                  icon: "ui-icon-heart",
+                  click: function() {
+                    $( this ).dialog( "close" );
+                  }
+                }
+              ]
+            });
+            $("#frame1").attr("src", "{{url}}{{pdf2}}");
+        }); 
+    });
+
+    $("#btnShow").on("click", function(e) { //with event now
+    e.stopPropagation(); //stopping propagation here
+    var modalId = $(this).data("modal");
+    var $modal = $("#" + modalId);
+    $modal.show();
+
     
+});
+</script>
 
 
 <script>
+
 var height = $('.workright').height();
 $('.workleft').css('min-height', height+'px');
 function changeimage(input){

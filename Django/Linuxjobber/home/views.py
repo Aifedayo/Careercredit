@@ -6,6 +6,7 @@ import random, string
 import pytz
 import requests
 
+
 from smtplib import SMTPException
 from django.conf import settings
 from django.contrib.auth.hashers import check_password
@@ -18,11 +19,15 @@ from django.contrib.auth.decorators import login_required
 from django.template.response import TemplateResponse
 from django.utils.datastructures import MultiValueDictKeyError
 from django.views.decorators.csrf import csrf_exempt
+from django.template.loader import get_template
+from django.template import RequestContext
 from django.contrib import messages
 # from django.core.mail import send_mail
 from django.http import HttpResponse, HttpResponseRedirect, Http404, JsonResponse
 from rest_framework.authtoken.models import Token
 from datetime import timedelta
+from weasyprint import HTML, CSS
+from django.core.files.uploadedfile import SimpleUploadedFile
 
 from .models import *
 from users.models import *
@@ -1346,6 +1351,50 @@ def workexpform(request):
     else:
         return render(request, 'home/workexpform.html', {'form': form,'details': details,'comp':comp})
 
+def work_experience_eligible_pdf(user):
+    try:
+        details =  WorkExperienceEligibility.objects.get(user=user)
+        date = details.date_of_birth
+        date = date.strftime('%m/%d/%Y')
+        created = details.date_created
+        created = created.strftime('%Y/%m/%d')
+        ssn = details.SSN
+        ssn = ssn[-4:]
+        ssn = "•••••" + ssn
+        
+    except  WorkExperienceEligibility.DoesNotExist:
+        details = None
+        date = None
+        created = None
+    #return render(request, 'home/workexpeligibilitypdf.html')
+    html_template = get_template('home/workexpeligibilitypdf.html').render({'details':details,'date':date,'ssn':ssn,'created':created})
+
+
+    pdf_file = HTML(string=html_template).write_pdf( stylesheets=[CSS("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")],presentational_hints=True)
+    details.pdf = SimpleUploadedFile('Work-Experience-Eligibility-'+ details.user.first_name +' '+details.user.last_name +'.pdf', pdf_file, content_type='application/pdf')
+    details.save()
+    http_response = HttpResponse(pdf_file, content_type='application/pdf')
+    http_response['Content-Disposition'] = 'filename="report.pdf"'
+
+    return True
+
+def work_experience_term_pdf(user):
+    #return render(request, 'home/workexptermpdf.html')
+    try:
+        details =  WorkExperienceEligibility.objects.get(user=user)
+        
+    except  WorkExperienceEligibility.DoesNotExist:
+        details = None
+    html_template = get_template('home/workexptermpdf.html').render({'user':details})
+
+
+    pdf_file = HTML(string=html_template).write_pdf( stylesheets=[CSS("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")],presentational_hints=True)
+    details.terms = SimpleUploadedFile('Work-Experience-Terms-'+ details.user.first_name +' '+details.user.last_name +'.pdf', pdf_file, content_type='application/pdf')
+    details.save()
+    http_response = HttpResponse(pdf_file, content_type='application/pdf')
+    http_response['Content-Disposition'] = 'filename="report.pdf"'
+
+    return True
 
 @login_required
 def work_experience_eligible(request):
@@ -1430,10 +1479,14 @@ def work_experience_eligible(request):
             det.foreign_pass_num=foreign
 
             det.save()
+            work_experience_eligible_pdf(det.user)
+            work_experience_term_pdf(det.user)
             return redirect("home:isa")
         except WorkExperienceEligibility.DoesNotExist:
             state = WorkExperienceEligibility.objects.create(user=request.user,first_name=firstname,last_name=lastname,middle_initial=middleinitial,middle_name=othername,state=state,address=address,apt_number=Apt,city=city,zip_code=zipc,date_of_birth=dob,SSN=ssn,employee_address=eadress,employee_email=email,employee_phone=tel,expiry_date=expiry_date,preparer_or_translator=translator,i_am_a=i_am,Alien_reg_num=alien_no,form_19_num=form19,foreign_pass_num=foreign)
             state.save()
+            work_experience_eligible_pdf(request.user)
+            work_experience_term_pdf(request.user)
         return redirect("home:isa")  
     return render(request, 'home/workexpeligibility.html',{'details':details,'date':date,'dater':dater,'created':created})
 
@@ -1662,8 +1715,24 @@ def workexprofile(request):
             "!!! Profile picture is required. Please upload it now"
         )
 
+    try:
+        details =  WorkExperienceEligibility.objects.get(user=request.user)
+    except  WorkExperienceEligibility.DoesNotExist:
+        return redirect("home:eligibility")
+    
+    url = settings.ENV_URL
+
+    work_experience_eligible_pdf(details.user)
+    work_experience_term_pdf(details.user)
+    pdf = details.pdf.url
+    pdf = pdf[1:]
+    pdf2 = details.terms.url
+    pdf2 = pdf2[1:]
+    
+
+
     return render(request, 'home/workexprofile.html',
-                  {'weps': weps, 'status': status, 'group': group, 'listask': listask})
+                  {'weps': weps, 'status': status, 'group': group, 'listask': listask, 'details':details, 'url':url, 'pdf':pdf, 'pdf2':pdf2})
 
 
 def workexpfaq(request):
