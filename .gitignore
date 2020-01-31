@@ -8,6 +8,7 @@ db.sqlite3
 **.ini
 **/node_modules*
 **.log
+\Django/Linuxjobber/django_dev.log
 **/**/django_dev.log
 
 !logging.ini

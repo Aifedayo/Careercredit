@@ -1205,7 +1205,7 @@ class Variables(models.Model):
 class ItPartnership(models.Model):
     full_name = models.CharField(max_length=200)
     company = models.CharField(max_length=200)
-    email = models.CharField(max_length=200,unique=True)
+    email = models.CharField(max_length=200)
     idea_title = models.CharField(max_length=500)
     idea_detail = models.TextField()
 
