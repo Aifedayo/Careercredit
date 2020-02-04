@@ -1,0 +1,12 @@
+"""
+    Hello, 
+
+    Your installment payment of {amount} has been received.
+
+    Total installments left : {count}
+    Balance : ${balance}
+
+    Warm Regards,
+    Linuxjobber
+
+"""

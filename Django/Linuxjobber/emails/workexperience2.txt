@@ -1,0 +1,11 @@
+"""
+    Hello, 
+
+    You have succesfully signed the agreement for Linuxjobber Work Experience Program.
+    
+    
+
+    Warm Regards,
+    Linuxjobber
+
+"""

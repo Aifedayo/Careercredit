@@ -1,0 +1,11 @@
+"""
+    Hello,
+
+    {fullname} with {email} just submitted a career switch application for the {new_career}.
+
+    Old career : {old_career}
+    Phone : {phone}          
+    CV can be found here : {cv_url} 
+
+    Kindly review.   
+"""

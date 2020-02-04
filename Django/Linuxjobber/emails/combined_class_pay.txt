@@ -1,0 +1,10 @@
+"""
+    Hello, 
+
+    You are receiving this email because you have successfuly beem enrolled in our Combined Class 
+    which gives you access to full technical training with Work Experience package included.
+
+    Warm Regards,
+    Linuxjobber
+
+"""

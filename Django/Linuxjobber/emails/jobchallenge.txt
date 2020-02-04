@@ -1,0 +1,17 @@
+""" 
+    Thanks for responding.\n
+    Here is the preparation you need for the interview:\n\n
+
+    1. Watch and practice: {env}tutorials/lab_video/1/1\n
+    2. Watch and practice: https://www.youtube.com/watch?v=0PtBREh74r4\n
+    3. Make a video of your own (3 mins or more) performing and explaining
+    the actual tasks you are doing based on the two videos above.\n\n
+
+    Here is a video recording application that you can use for free:
+    https://screencast-o-matic.com/ \n\n
+
+    Done!\n
+
+    Upload video to google drive and send link to joseph.showunmi@linuxjobber.com .\n
+
+    Best Regards,.\n\n Thanks & Regards \n Linuxjobber.\n\n\n\n\n\n\n\n To Unsubscribe go here \n {env}unsubscribe"""
