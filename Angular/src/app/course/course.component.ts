@@ -1,4 +1,4 @@
-import {ActivatedRoute, Params, Router} from '@angular/router';
+import {ActivatedRoute, Params, Router, NavigationEnd} from '@angular/router';
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { DataService } from '../data.service';
 import { MaterializeModule } from 'angular2-materialize';
@@ -20,14 +20,15 @@ import { OrderPipe } from 'ngx-order-pipe';
 export class CourseComponent implements OnInit {
   items: ClassModel[];
   course:ClassModel;
-  public chatTab;
-  public videoTab;
+  // public chatTab;
+  // public videoTab;
   topicsSub:any;
   classes: Observable<ClassModel[]>;
   topics = [];
   public  selectedTopic:number = 0;
   username:string;
   public  selectedGroup:number = 0;
+  currentUrl : string;
 
   // public groupMembers$: Observable<UserModel[]>;
   public groupMembers$: Observable<GroupMember[]>;
@@ -44,7 +45,7 @@ export class CourseComponent implements OnInit {
 
   {
     this.username=sessionStorage.getItem('username');
-
+    this.currentUrl = ''
   }
 
   ngOnInit() {
@@ -60,8 +61,7 @@ export class CourseComponent implements OnInit {
         this.apiService.LoadData(selectedClass);
         this.topicsSub=this.apiService._allTopics$;
 
-        this.noOfUsers$ = this.apiService.getMembers(selectedClass);
-        
+        this.noOfUsers$ = this.apiService.getMembers(selectedClass);        
       }
 
       if(this.selectedTopic){
@@ -69,7 +69,15 @@ export class CourseComponent implements OnInit {
       }
     })
 
-    this.groupMembers$ = this.apiService.getGroupMembers(sessionStorage.getItem('active_group'));
+    this.router.events.subscribe((event) => {
+        if(event instanceof NavigationEnd){
+          this.currentUrl = event.url;
+        }
+    });
+
+    this.groupMembers$ = this.apiService.getGroupMembers(
+      sessionStorage.getItem('active_group')
+    );
 
   }
 
@@ -79,6 +87,7 @@ export class CourseComponent implements OnInit {
         sessionStorage.setItem('active_topic',topics[0].id);
         this.selectedTopic=topics[0].id;
         this.apiService.setActiveTopic(topics[0].id);
+        this.currentUrl = '/classroom/'+ this.selectedGroup +'/topic/'+topics[0].id;
       });
     }
   }
@@ -101,10 +110,10 @@ export class CourseComponent implements OnInit {
     return c;
   }
 
-  goToVideo(){
+  goToVideo(end=''){
     this.reset();
     this.apiService.setActiveTopic(this.selectedTopic);
-    this.router.navigate([ '/classroom/'+ this.selectedGroup +'/topic/'+this.selectedTopic+''])
+    this.router.navigate([ '/classroom/'+ this.selectedGroup +'/topic/'+this.selectedTopic+end])
   }
 
   goToLab(id){
@@ -136,6 +145,26 @@ export class CourseComponent implements OnInit {
   logout() {
     this.dataservice.logout();
   }
+
+  tabToVideo(id){
+    sessionStorage.setItem('active_topic',id);
+    this.selectedTopic=id;
+    this.apiService.setActiveTopic(id);
+    this.goToVideo('/video');
+  }
+
+  isCureentTab(tab){
+    return this.currentUrl.indexOf(tab) !== -1;
+  }
+
+  isCurrentRoute(topic_id): boolean {
+    const path  = '/classroom/'+ this.selectedGroup +'/topic/'+topic_id;
+    return path === this.currentUrl || 
+    path+'/video' === this.currentUrl ||
+    path+'/lab' === this.currentUrl ||
+    path+'/notes' === this.currentUrl;
+  } 
+
 }
 
 

@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.utils import timezone
 
 from .background_tasks import get_process, UPCOMING_PAYMENT_NOTIFICATION_SERVICE_LABEL, \
@@ -78,9 +79,9 @@ def set_payment_notification_schedule(notification_day, notification_hour, notif
 
 
 import base64
-from Crypto.Cipher import AES
-from Crypto import Random
-from Crypto.Protocol.KDF import PBKDF2
+#from Crypto.Cipher import AES
+#from Crypto import Random
+#from Crypto.Protocol.KDF import PBKDF2
 
 BLOCK_SIZE = 16
 pad = lambda s: s + (BLOCK_SIZE - len(s) % BLOCK_SIZE) * chr(BLOCK_SIZE - len(s) % BLOCK_SIZE)
@@ -112,6 +113,25 @@ def decrypt(enc, password):
     cipher = AES.new(private_key, AES.MODE_CBC, iv)
     data = unpad(cipher.decrypt(enc[16:]))
     return  data.decode('utf-8')
+
+
+def get_variable(variable_name,default=None):
+    try:
+        return Variables.objects.get(key=variable_name)
+    except:
+        return default
+
+
+def initiate_file_download(filename):
+    from django.utils.encoding import smart_str
+    response = HttpResponse(
+        content_type='application/force-download')
+    response['Content-Disposition'] = 'attachment; filename=%s' % smart_str(filename)
+
+    response['X-Sendfile'] = smart_str(filename)
+    # It's usually a good idea to set the 'Content-Length' header too.
+    # You can also set any other required headers: Cache-Control, etc.
+    return response
 
 
 if __name__ == '__main__':

@@ -210,7 +210,7 @@ United State Employment Eligibility Form | Linuxjobber
             <div class="col-md-3 eligformcol eligformwidth2">
                 <div class="eligforminput">
                     <p><span class="eligqut">City or Town</span><span style="color: red; font-size: 25px;">*</span></p>
-                    <input class="form-control eligformin" id="city1" value="{{details.city}}" required  type="text" name="city" placeholder="Your city or town of residence"/>
+                    <input class="form-control eligformin" id="city1" value="{{details.city}}" required maxlength="20" type="text" name="city" placeholder="Your city or town of residence"/>
                 </div>
             </div>
             <div class="col-md-2 eligformcol eligformwidth4">
@@ -224,7 +224,7 @@ United State Employment Eligibility Form | Linuxjobber
             <div class="col-md-2 eligformcol eligformwidth4">
                 <div class="eligforminput">
                     <p style="margin-bottom:20px;" class="eligforminputp"><span class="eligqut">ZIP Code </span></p>
-                    <input class="form-control eligformin" id="zip" value="{{details.zip_code}}" name="zip" type="text" placeholder="Your ZIP code"/>
+                    <input class="form-control eligformin" id="zip" value="{{details.zip_code}}" name="zip" maxlength="20" type="text" placeholder="Your ZIP code"/>
                 </div>
             </div>
             <div class="col-md-3 eligformcol eligformwidth5">
@@ -267,7 +267,7 @@ United State Employment Eligibility Form | Linuxjobber
                 <div class="eligforminput" style="display: block;
                 overflow: auto; padding-top: 8px; ">
                     <p><span class="eligqut">Employee's Telephone Number</span><span style="color: red; font-size: 25px;">*</span></p>
-                    <input class="form-control eligformin" required  name="tel" value="{{details.employee_phone}}" type="text" placeholder="Employee's Phone Number"/>
+                    <input class="form-control eligformin" required  name="tel" value="{{details.employee_phone}}" maxlength="50" type="text" placeholder="Employee's Phone Number"/>
                 </div>
             </div>
         </div>

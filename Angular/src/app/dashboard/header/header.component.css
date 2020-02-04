@@ -105,7 +105,7 @@ img.img-responsive{
 .setup a:first-of-type
    {
      font-size: 10px;
-    margin-left: 35%;
+    /* margin-left: 35%; */
     text-align: center;
    padding: 0px 7px 3px 7px;
    border-bottom: 2px black solid;}
@@ -120,16 +120,17 @@ img.img-responsive{
       color: rgba(0, 0, 0, 0.8);
     }
 .ellipse{
-  width: 118px;
-  height: 118px;
-  border-radius: 118px;
-  align-self: center;
-  margin-left: 10%;
-  margin-bottom: 20px;
-  border: 1px rgb(15, 15, 15) solid;
-  background: #FFFFFF;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
-  }
+    width: 118px;
+    height: 118px;
+    border-radius: 118px;
+    align-self: center;
+    margin-left: 10%;
+    margin-bottom: 20px;
+    border: 1px rgb(15, 15, 15) solid;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+}
+
 .rectangle{/* position: absolute; */
   width: inherit;
   height: inherit;
@@ -150,19 +151,34 @@ img.img-responsive{
   color:white;
   margin-right: 3px;
 }
+
 .fas:active{
   color: black;
   /* margin-right: 3px; */
 }
+
 .setup .link{
   margin-bottom: 20px;
 }
 
-.username{
+/* .username{
   margin-left: -2em;
-}
+} */
 /* a .fas:active{
   display: block;
 } */
 /* i:active{
   display: block;} */
+
+  .nav.navbar-nav.navbar-right li>a:hover{
+    background-color:#666666;
+    font-weight: 600;
+    border-radius: 10px;
+    border-bottom: none;
+  }
+
+  .setup{
+    max-width:250px;
+    margin-left: 20px;
+    text-align: center;
+  }

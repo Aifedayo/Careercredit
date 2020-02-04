@@ -26,12 +26,15 @@ wp_patterns = [
     path('sign/',views.work_experience_isa_part_2, name='workexpisa2'),
     path('profile/',views.workexprofile, name='workexprofile'),
     path('faq/',views.workexpfaq, name='workexpfaq'),
+    path('profile/pdf/',views.work_experience_eligible_pdf, name='workexppdf'),
+    path('termpdf/',views.work_experience_term_pdf, name='workexppdf1'),
 ]
 
 test_patterns = [
     path('insert_installment_payment',tests.insert_installment_data, ),
     path('insert_installment_payment/<int:breached>',tests.insert_installment_data, ),
     path('delete_installment_payment',tests.delete_installment_record, ),
+    path('f',tests.check_file, ),
 ]
 
 urlpatterns = [
@@ -94,6 +97,7 @@ urlpatterns = [
     path('users/orderlist', views.order_list, name='orderlist'),
     path('home/packages', views.students_packages, name='students_packages'),
     path('home/livehelp', views.live_help, name='live_help'),
+    path('noobaid/', views.noobaid, name='noobaid'),
     path('home/pay/livehelp', views.pay_live_help, name='pay_live_help'),
     path('home/server/service', views.server_service, name='server_service'),
     path('home/liveinstructor', views.in_person_training, name='in_person_training'),
@@ -113,7 +117,7 @@ urlpatterns = [
     path('installments/',views.installments,name='installments'),
     path('installments/pay',views.installment_pay, name="installments_pay"),
     path('mail/status',views.mail_status, name="mail-status"),
+    path('it_partnership/',views.it_partnership, name="it_partnership"),
 ]
-
 
 

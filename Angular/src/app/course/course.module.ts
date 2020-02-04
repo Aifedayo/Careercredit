@@ -20,6 +20,7 @@ import {AuthGuard} from "../auth.guard";
 import {VerificationGuard} from "../verification.guard";
 import { CourseListComponent } from './course-list/course-list.component';
 import { AlertModule } from './_alert/alert.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -31,7 +32,8 @@ import { AlertModule } from './_alert/alert.module';
     FormsModule,
     OrderModule,
     SharedModule,
-    AlertModule
+    AlertModule,
+    RouterModule
 
   ],
   declarations: [
