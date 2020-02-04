@@ -1,0 +1,9 @@
+"""
+    Hello, 
+
+    You are receiving this email because you have successfully signed up for Linuxjobber Jobplacement program
+
+    Warm Regards,
+    Linuxjobber
+
+"""

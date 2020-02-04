@@ -1,0 +1,14 @@
+""" Hello, you are receiving this email because you applied for a part-time role at linuxjobber.com.\n
+    Your resume was received with pleasure! Your background skills looks good! I hope you are doing okay.
+    \n\nThis role is expected to fill a position in Linuxjobber,Inc.\n\n
+    By the time you respond, we expect that you would have already visited our website at {env}, 
+    and seen that we are a training company that is focused on helping job seekers get their junior and mid-level positions.
+    \n\nTo achieve this, our company builds applications as well as training materials, including videos.
+
+    \nIf you are accepted into this Part-time role, you will mostly handle
+    programming tasks.
+
+    \n\nDo you understand our mission and is this a challenge that you are willing to take on? Are you still interested in this role?
+
+    \n\n If so visit this link to login, if you dont have an account, register here: {env}  and click the yes button: {env}jobs/challenge/ \n
+    Best Regards,.\n\n Thanks & Regards \n Linuxjobber. \n\n\n\n\n\n\n\n To Unsubscribe go here \n {env}unsubscribe"""

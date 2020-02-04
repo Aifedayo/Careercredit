@@ -1,0 +1,9 @@
+"""
+    Hello, 
+
+    You are receiving this email because you have successfuly subscribed for our AWS Full Training Plan package.
+
+    Warm Regards,
+    Linuxjobber
+
+"""

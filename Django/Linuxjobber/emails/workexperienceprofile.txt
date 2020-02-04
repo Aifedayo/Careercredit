@@ -1,0 +1,11 @@
+"""
+    Hello, 
+
+    {email} just uploaded his/her pay stub at: {link} 
+    
+    Please review and confirm last verification
+
+    Warm Regards,
+    Linuxjobber
+
+"""

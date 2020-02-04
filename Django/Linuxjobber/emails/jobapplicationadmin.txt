@@ -1,0 +1,13 @@
+"""
+    Hello,
+
+    {fullname} with email: {email} just applied for a full time role, {title}
+
+    CV can be found here: {cv}
+    Phone number is: {phone} 
+
+    Kindly review.
+
+    Warm Regards
+
+"""
