@@ -1,4 +1,4 @@
-"""
+
     Hi {fullname},
 
     We are happy you are interested to switch to a {new_career} role.
@@ -11,4 +11,3 @@
     Linuxjobber
             
             
-"""

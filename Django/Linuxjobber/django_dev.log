@@ -1,0 +1,301 @@
+[2020-02-05 10:03:02] WARNING [django.request.get_response:93] Not Found: /robots.txt
+[2020-02-05 10:03:02] WARNING [django.channels.server.log_action:149] HTTP GET /robots.txt 404 [0.02, 127.0.0.1:2128]
+[2020-02-05 10:03:02] INFO [django.channels.server.log_action:141] HTTP GET / 200 [0.61, 127.0.0.1:2127]
+[2020-02-05 10:03:03] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js 200 [0.07, 127.0.0.1:2127]
+[2020-02-05 10:03:03] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validate.js 200 [0.05, 127.0.0.1:2128]
+[2020-02-05 10:03:03] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/css/bootstrap.min.css 200 [0.05, 127.0.0.1:2137]
+[2020-02-05 10:03:03] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/newstyle2.css 200 [0.05, 127.0.0.1:2140]
+[2020-02-05 10:03:03] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/main.css 200 [0.05, 127.0.0.1:2127]
+[2020-02-05 10:03:03] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/style.css 200 [0.08, 127.0.0.1:2138]
+[2020-02-05 10:03:03] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/css/style.css 200 [0.10, 127.0.0.1:2139]
+[2020-02-05 10:03:03] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/newstylenew.css 200 [0.08, 127.0.0.1:2128]
+[2020-02-05 10:03:03] INFO [django.channels.server.log_action:141] HTTP GET /static/Projects/custom/css/projects.css 200 [0.07, 127.0.0.1:2137]
+[2020-02-05 10:03:03] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js 200 [0.04, 127.0.0.1:2138]
+[2020-02-05 10:03:03] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css 200 [0.07, 127.0.0.1:2140]
+[2020-02-05 10:03:03] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/testimonial-timeline.css 200 [0.06, 127.0.0.1:2127]
+[2020-02-05 10:03:03] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/fonts/fontsstylesheet.css 200 [0.03, 127.0.0.1:2137]
+[2020-02-05 10:03:03] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/logo.png 200 [0.02, 127.0.0.1:2127]
+[2020-02-05 10:03:03] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/LaptopBook.png 200 [0.03, 127.0.0.1:2138]
+[2020-02-05 10:03:03] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/bootstrap.min.js 200 [0.02, 127.0.0.1:2138]
+[2020-02-05 10:03:03] INFO [django.channels.server.log_action:141] HTTP GET /static/faq/js/jquery.mobile.custom.min.js 200 [0.02, 127.0.0.1:2127]
+[2020-02-05 10:03:03] INFO [django.channels.server.log_action:141] HTTP GET /static/faq/js/main.js 200 [0.02, 127.0.0.1:2138]
+[2020-02-05 10:03:03] INFO [django.channels.server.log_action:141] HTTP GET /static/js/waterbubble.js 200 [0.03, 127.0.0.1:2127]
+[2020-02-05 10:03:03] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/jobphone.png 200 [0.03, 127.0.0.1:2138]
+[2020-02-05 10:03:03] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/homelive.png 200 [0.02, 127.0.0.1:2127]
+[2020-02-05 10:03:03] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/get2.png 200 [0.02, 127.0.0.1:2138]
+[2020-02-05 10:03:03] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/get3.png 200 [0.03, 127.0.0.1:2127]
+[2020-02-05 10:03:03] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/get1.png 200 [0.02, 127.0.0.1:2138]
+[2020-02-05 10:03:03] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/adekunle.png 200 [0.03, 127.0.0.1:2127]
+[2020-02-05 10:03:03] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/kenna.png 200 [0.03, 127.0.0.1:2138]
+[2020-02-05 10:03:03] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/fetigue.png 200 [0.02, 127.0.0.1:2127]
+[2020-02-05 10:03:04] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/jobban2.png 200 [0.06, 127.0.0.1:2127]
+[2020-02-05 10:03:04] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/homebanner.png 200 [0.07, 127.0.0.1:2138]
+[2020-02-05 10:03:06] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.01, 127.0.0.1:2138]
+[2020-02-05 10:07:05] INFO [django.channels.server.log_action:141] HTTP GET /signup 200 [0.34, 127.0.0.1:2296]
+[2020-02-05 10:07:05] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/styles.css 200 [0.02, 127.0.0.1:2296]
+[2020-02-05 10:07:07] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/imgback.jpg 200 [0.08, 127.0.0.1:2296]
+[2020-02-05 10:07:07] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2020-02-05 10:07:07] WARNING [django.channels.server.log_action:149] HTTP GET /favicon.ico 404 [0.04, 127.0.0.1:2296]
+[2020-02-05 10:07:24] INFO [django.channels.server.log_action:141] HTTP POST /signup 200 [0.44, 127.0.0.1:2296]
+[2020-02-05 10:07:24] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/checkers.png 200 [0.02, 127.0.0.1:2296]
+[2020-02-05 10:07:25] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/signupbg.png 200 [0.06, 127.0.0.1:2296]
+[2020-02-05 10:08:49] INFO [django.channels.server.log_action:147] HTTP GET /admin/ 302 [0.11, 127.0.0.1:1096]
+[2020-02-05 10:08:49] INFO [django.channels.server.log_action:141] HTTP GET /admin/login/?next=/admin/ 200 [0.06, 127.0.0.1:1096]
+[2020-02-05 10:08:50] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/responsive.css 304 [0.01, 127.0.0.1:1105]
+[2020-02-05 10:08:50] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/login.css 200 [0.35, 127.0.0.1:1104]
+[2020-02-05 10:08:50] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/base.css 200 [0.36, 127.0.0.1:1096]
+[2020-02-05 10:08:50] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/fonts.css 304 [0.01, 127.0.0.1:1104]
+[2020-02-05 10:08:53] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/fonts/Roboto-Light-webfont.woff 200 [0.06, 127.0.0.1:1105]
+[2020-02-05 10:08:53] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/fonts/Roboto-Regular-webfont.woff 200 [0.07, 127.0.0.1:1104]
+[2020-02-05 10:08:53] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2020-02-05 10:08:53] WARNING [django.channels.server.log_action:149] HTTP GET /favicon.ico 404 [0.02, 127.0.0.1:1105]
+[2020-02-05 10:09:06] INFO [django.channels.server.log_action:147] HTTP POST /admin/login/?next=/admin/ 302 [0.32, 127.0.0.1:1105]
+[2020-02-05 10:09:06] INFO [django.channels.server.log_action:141] HTTP GET /admin/ 200 [0.25, 127.0.0.1:1105]
+[2020-02-05 10:09:06] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/base.css 304 [0.01, 127.0.0.1:1105]
+[2020-02-05 10:09:06] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/dashboard.css 304 [0.01, 127.0.0.1:1104]
+[2020-02-05 10:09:09] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/icon-addlink.svg 304 [0.03, 127.0.0.1:1104]
+[2020-02-05 10:09:09] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/icon-changelink.svg 304 [0.04, 127.0.0.1:1096]
+[2020-02-05 10:09:09] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Bold-webfont.woff 304 [0.04, 127.0.0.1:1144]
+[2020-02-05 10:09:09] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2020-02-05 10:09:09] WARNING [django.channels.server.log_action:149] HTTP GET /favicon.ico 404 [0.14, 127.0.0.1:1105]
+[2020-02-05 10:13:51] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/emailmessagelog/ 200 [0.73, 127.0.0.1:1300]
+[2020-02-05 10:13:51] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/changelists.css 304 [0.01, 127.0.0.1:1300]
+[2020-02-05 10:13:51] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.02, 127.0.0.1:1311]
+[2020-02-05 10:13:51] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/jquery.init.js 304 [0.03, 127.0.0.1:1312]
+[2020-02-05 10:13:51] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/core.js 304 [0.03, 127.0.0.1:1313]
+[2020-02-05 10:13:51] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/actions.js 304 [0.03, 127.0.0.1:1300]
+[2020-02-05 10:13:51] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.03, 127.0.0.1:1314]
+[2020-02-05 10:13:51] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/urlify.js 304 [0.03, 127.0.0.1:1311]
+[2020-02-05 10:13:51] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.07, 127.0.0.1:1310]
+[2020-02-05 10:13:51] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.03, 127.0.0.1:1313]
+[2020-02-05 10:13:51] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/prepopulate.js 304 [0.03, 127.0.0.1:1312]
+[2020-02-05 10:13:51] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/assets/vendor/bootstrap/css/bootstrap.min.css 200 [0.05, 127.0.0.1:1300]
+[2020-02-05 10:13:54] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/icon-no.svg 200 [0.01, 127.0.0.1:1310]
+[2020-02-05 10:13:54] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/tooltag-add.svg 200 [0.01, 127.0.0.1:1310]
+[2020-02-05 10:13:54] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/icon-yes.svg 200 [0.06, 127.0.0.1:1314]
+[2020-02-05 10:27:50] INFO [django.channels.server.log_action:141] HTTP GET / 200 [0.53, 127.0.0.1:2038]
+[2020-02-05 10:27:50] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/icon1.png 200 [0.03, 127.0.0.1:2038]
+[2020-02-05 10:27:50] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/logout1.png 200 [0.01, 127.0.0.1:2038]
+[2020-02-05 10:27:54] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.11, 127.0.0.1:2053]
+[2020-02-05 10:27:58] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/ 200 [0.20, 127.0.0.1:2053]
+[2020-02-05 10:27:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/we_new.css 200 [0.02, 127.0.0.1:2053]
+[2020-02-05 10:27:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/workexperience.css 200 [0.02, 127.0.0.1:2057]
+[2020-02-05 10:27:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/arrow-right.png 200 [0.04, 127.0.0.1:2053]
+[2020-02-05 10:27:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/cup.png 200 [0.05, 127.0.0.1:2057]
+[2020-02-05 10:27:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/tap.png 200 [0.02, 127.0.0.1:2057]
+[2020-02-05 10:27:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/number.png 200 [0.04, 127.0.0.1:2053]
+[2020-02-05 10:27:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/accept.png 200 [0.05, 127.0.0.1:2057]
+[2020-02-05 10:27:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/arrow-blue.png 200 [0.01, 127.0.0.1:2053]
+[2020-02-05 10:27:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/join.png 200 [0.04, 127.0.0.1:2057]
+[2020-02-05 10:27:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/graph.svg 200 [0.03, 127.0.0.1:2053]
+[2020-02-05 10:27:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/list%20_checked.png 200 [0.03, 127.0.0.1:2057]
+[2020-02-05 10:27:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/cap.png 200 [0.02, 127.0.0.1:2057]
+[2020-02-05 10:27:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/wallet.png 200 [0.03, 127.0.0.1:2053]
+[2020-02-05 10:28:00] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/el.png 200 [0.04, 127.0.0.1:2057]
+[2020-02-05 10:28:00] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/bg2.png 200 [0.05, 127.0.0.1:2053]
+[2020-02-05 10:28:00] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/alumni-bg.png 200 [0.05, 127.0.0.1:2063]
+[2020-02-05 10:28:00] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/thmbs.png 200 [0.04, 127.0.0.1:2067]
+[2020-02-05 10:28:06] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/terms/ 200 [0.19, 127.0.0.1:2077]
+[2020-02-05 10:28:10] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/pay/ 200 [0.15, 127.0.0.1:2077]
+[2020-02-05 10:28:17] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/linuxlogo.png 200 [0.04, 127.0.0.1:2113]
+[2020-02-05 10:28:32] INFO [django.channels.server.log_action:147] HTTP POST /workexperience/pay/ 302 [1.75, 127.0.0.1:2123]
+[2020-02-05 10:28:33] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/eligibility/ 200 [0.23, 127.0.0.1:2123]
+[2020-02-05 10:33:13] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/images/ui-icons_444444_256x240.png 200 [0.06, 127.0.0.1:2385]
+[2020-02-05 10:33:44] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /workexperience/eligibility/
+Traceback (most recent call last):
+  File "E:\Documents\Web\linux-contract\Django\Linuxjobber\home\views.py", line 1397, in work_experience_eligible
+    det = WorkExperienceEligibility.objects.get(user=request.user)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\db\models\query.py", line 403, in get
+    self.model._meta.object_name
+home.models.DoesNotExist: WorkExperienceEligibility matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 1317, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1229, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1275, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1224, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1016, in _send_output
+    self.send(msg)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 956, in send
+    self.connect()
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1384, in connect
+    super().connect()
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 928, in connect
+    (self.host,self.port), self.timeout, self.source_address)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\socket.py", line 707, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\socket.py", line 748, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\urls.py", line 284, in fetch
+    result = url_fetcher(url)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\urls.py", line 248, in default_url_fetcher
+    timeout=timeout, context=ssl_context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 525, in open
+    response = self._open(req, data)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 543, in _open
+    '_open', req)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 503, in _call_chain
+    result = func(*args)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 1360, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 1319, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno 11001] getaddrinfo failed>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "E:\Documents\Web\linux-contract\Django\Linuxjobber\home\views.py", line 1426, in work_experience_eligible
+    work_experience_eligible_pdf(request.user)
+  File "E:\Documents\Web\linux-contract\Django\Linuxjobber\home\views.py", line 1284, in work_experience_eligible_pdf
+    pdf_file = HTML(string=html_template).write_pdf( stylesheets=[CSS("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")],presentational_hints=True)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\__init__.py", line 322, in __init__
+    with result as (source_type, source, base_url, protocol_encoding):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\__init__.py", line 396, in _select_source
+    with result as result:
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\__init__.py", line 406, in _select_source
+    with fetch(url_fetcher, url) as result:
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\urls.py", line 286, in fetch
+    raise URLFetchingError('%s: %s' % (type(exc).__name__, str(exc)))
+weasyprint.urls.URLFetchingError: URLError: <urlopen error [Errno 11001] getaddrinfo failed>
+[2020-02-05 10:33:44] ERROR [django.channels.server.log_action:154] HTTP POST /workexperience/eligibility/ 500 [12.25, 127.0.0.1:2405]
+[2020-02-05 10:33:55] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/eligibility/ 200 [0.22, 127.0.0.1:2435]
+[2020-02-05 10:34:12] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /workexperience/eligibility/
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 1317, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1229, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1275, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1224, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1016, in _send_output
+    self.send(msg)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 956, in send
+    self.connect()
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1384, in connect
+    super().connect()
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 928, in connect
+    (self.host,self.port), self.timeout, self.source_address)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\socket.py", line 707, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\socket.py", line 748, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\urls.py", line 284, in fetch
+    result = url_fetcher(url)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\urls.py", line 248, in default_url_fetcher
+    timeout=timeout, context=ssl_context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 525, in open
+    response = self._open(req, data)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 543, in _open
+    '_open', req)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 503, in _call_chain
+    result = func(*args)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 1360, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 1319, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno 11001] getaddrinfo failed>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "E:\Documents\Web\linux-contract\Django\Linuxjobber\home\views.py", line 1420, in work_experience_eligible
+    work_experience_eligible_pdf(det.user)
+  File "E:\Documents\Web\linux-contract\Django\Linuxjobber\home\views.py", line 1284, in work_experience_eligible_pdf
+    pdf_file = HTML(string=html_template).write_pdf( stylesheets=[CSS("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")],presentational_hints=True)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\__init__.py", line 322, in __init__
+    with result as (source_type, source, base_url, protocol_encoding):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\__init__.py", line 396, in _select_source
+    with result as result:
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\__init__.py", line 406, in _select_source
+    with fetch(url_fetcher, url) as result:
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\urls.py", line 286, in fetch
+    raise URLFetchingError('%s: %s' % (type(exc).__name__, str(exc)))
+weasyprint.urls.URLFetchingError: URLError: <urlopen error [Errno 11001] getaddrinfo failed>
+[2020-02-05 10:34:12] ERROR [django.channels.server.log_action:154] HTTP POST /workexperience/eligibility/ 500 [12.10, 127.0.0.1:2435]
+[2020-02-05 10:35:16] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/eligibility/ 200 [0.16, 127.0.0.1:2537]
+[2020-02-05 10:35:29] INFO [django.channels.server.log_action:147] HTTP POST /workexperience/eligibility/ 302 [7.34, 127.0.0.1:2556]
+[2020-02-05 10:35:29] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/ISA/ 200 [0.21, 127.0.0.1:2556]
+[2020-02-05 11:48:40] INFO [django.channels.server.log_action:147] HTTP GET /noobaid 301 [0.03, 127.0.0.1:2815]
+[2020-02-05 11:48:40] INFO [django.channels.server.log_action:147] HTTP GET /noobaid/ 302 [0.08, 127.0.0.1:2815]
+[2020-02-05 11:48:40] INFO [django.channels.server.log_action:141] HTTP GET /timeout 200 [0.11, 127.0.0.1:2815]
+[2020-02-05 11:48:42] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/proj-list.png 200 [0.10, 127.0.0.1:2815]
+[2020-02-05 11:48:47] INFO [django.channels.server.log_action:147] HTTP POST /timeout 302 [0.27, 127.0.0.1:2837]
+[2020-02-05 11:48:47] INFO [django.channels.server.log_action:141] HTTP GET /noobaid/ 200 [0.08, 127.0.0.1:2837]
+[2020-02-05 11:48:47] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/noobaid.png 200 [0.04, 127.0.0.1:2837]
+[2020-02-05 11:48:47] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/ilus1.png 200 [0.04, 127.0.0.1:2838]
+[2020-02-05 11:48:47] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/noobillus2.png 200 [0.01, 127.0.0.1:2837]
+[2020-02-05 11:48:47] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/tv.png 200 [0.01, 127.0.0.1:2838]
+[2020-02-05 11:48:47] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/pad.png 200 [0.04, 127.0.0.1:2838]
+[2020-02-05 11:48:47] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/hap.png 200 [0.04, 127.0.0.1:2837]
+[2020-02-05 11:48:48] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/noobanner.png 200 [0.07, 127.0.0.1:2838]
+[2020-02-05 11:48:48] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/nav.png 200 [0.08, 127.0.0.1:2837]
+[2020-02-05 11:48:49] INFO [django.channels.server.log_action:141] HTTP GET /static/favicon2.png 200 [0.03, 127.0.0.1:2837]
+[2020-02-05 11:59:25] INFO [django.channels.server.log_action:141] HTTP GET / 200 [0.17, 127.0.0.1:1039]
+[2020-02-05 11:59:28] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.02, 127.0.0.1:1039]
+[2020-02-05 12:00:01] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /internships
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Documents\Web\linux-contract\Django\Linuxjobber\home\views.py", line 357, in internships
+    internsh = InternshipDetail.objects.all()[0].date
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\db\models\query.py", line 307, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+[2020-02-05 12:00:01] ERROR [django.channels.server.log_action:154] HTTP GET /internships 500 [0.12, 127.0.0.1:1039]

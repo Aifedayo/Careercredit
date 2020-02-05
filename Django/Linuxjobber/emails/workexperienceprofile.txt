@@ -1,4 +1,4 @@
-"""
+
     Hello, 
 
     {email} just uploaded his/her pay stub at: {link} 
@@ -8,4 +8,3 @@
     Warm Regards,
     Linuxjobber
 
-"""

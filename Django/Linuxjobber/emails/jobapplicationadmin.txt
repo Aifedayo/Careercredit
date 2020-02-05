@@ -1,4 +1,4 @@
-"""
+
     Hello,
 
     {fullname} with email: {email} just applied for a full time role, {title}
@@ -10,4 +10,3 @@
 
     Warm Regards
 
-"""

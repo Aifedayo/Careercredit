@@ -1,4 +1,4 @@
-"""
+
     Hello, 
 
     You are receiving this email because you have successfuly beem enrolled in our Combined Class 
@@ -7,4 +7,3 @@
     Warm Regards,
     Linuxjobber
 
-"""

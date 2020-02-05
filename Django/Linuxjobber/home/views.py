@@ -513,7 +513,7 @@ def partime(request):
             with open(file_path, 'r') as f:
                 file_content = f.read()
 
-            file_path = os.path.join(settings.BASE_DIR, 'emails', 'parttimeapdmin.txt')
+            file_path = os.path.join(settings.BASE_DIR, 'emails', 'parttimeadmin.txt')
             with open(file_path, 'r') as f:
                 file_content2 = f.read()
 
@@ -702,7 +702,7 @@ def jobapplication(request, job):
             with open(file_path, 'r') as f:
                 file_content = f.read()
 
-            file_path = os.path.join(settings.BASE_DIR, 'emails', 'jobapplicationapplication.txt')
+            file_path = os.path.join(settings.BASE_DIR, 'emails', 'jobapplicationapplicant.txt')
             with open(file_path, 'r') as f:
                 file_content2 = f.read()
             
@@ -1343,8 +1343,7 @@ def work_experience_eligible(request):
         date = details.date_of_birth
         date = date.strftime('%m/%d/%Y')
         created = details.date_created
-        created = created.strftime('%Y-%m-%d')
-        
+        created = created.strftime('%Y-%m-%d') 
     except  WorkExperienceEligibility.DoesNotExist:
         details = None
         date = None

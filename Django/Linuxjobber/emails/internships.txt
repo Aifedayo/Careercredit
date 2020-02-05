@@ -1,4 +1,4 @@
-"""
+
     Hello, 
     
     You are receiving this email because you applied for an internship at linuxjobber.com,
@@ -7,4 +7,3 @@
     Best Regards,
     Admin.
 
-"""

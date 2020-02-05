@@ -1,4 +1,4 @@
-"""
+
     Hello, 
 
     Your installment payment of {amount} has been received.
@@ -8,5 +8,3 @@
 
     Warm Regards,
     Linuxjobber
-
-"""

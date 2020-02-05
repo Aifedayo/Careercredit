@@ -1,4 +1,4 @@
-"""
+
     Hello,
 
     {fullname} with {email} just submitted a career switch application for the {new_career}.
@@ -8,4 +8,3 @@
     CV can be found here : {cv_url} 
 
     Kindly review.   
-"""

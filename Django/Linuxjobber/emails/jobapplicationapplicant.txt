@@ -1,4 +1,4 @@
-"""
+
     Hello, 
     You are receiving this email because you applied for a full-time role at linuxjobber.com, we will review
         your application and get back to you.
@@ -6,4 +6,3 @@
         Warm Regards,
         Linuxjobber
 
-"""

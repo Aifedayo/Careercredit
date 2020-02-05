@@ -1,4 +1,4 @@
-""" 
+
     Thanks for responding.\n
     Here is the preparation you need for the interview:\n\n
 
@@ -14,4 +14,4 @@
 
     Upload video to google drive and send link to joseph.showunmi@linuxjobber.com .\n
 
-    Best Regards,.\n\n Thanks & Regards \n Linuxjobber.\n\n\n\n\n\n\n\n To Unsubscribe go here \n {env}unsubscribe"""
+    Best Regards,.\n\n Thanks & Regards \n Linuxjobber.\n\n\n\n\n\n\n\n To Unsubscribe go here \n {env}unsubscribe

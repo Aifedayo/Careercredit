@@ -1,4 +1,4 @@
-"""
+
     Hello, 
 
     You have successfuly subscribed for our DevOps Course package.
@@ -6,4 +6,3 @@
     Warm Regards,
     Linuxjobber
 
-"""

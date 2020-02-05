@@ -1,4 +1,4 @@
-"""
+
     Hello, 
 
     You have succesfully paid for Linuxjobber Work Experience Program.
@@ -7,4 +7,3 @@
     Warm Regards,
     Linuxjobber
 
-"""

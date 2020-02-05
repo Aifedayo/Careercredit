@@ -1,4 +1,4 @@
-"""
+
     Hello, 
     
     You are receiving this email because you have subscribed to our newsletter on linuxjobber.com.
@@ -6,4 +6,3 @@
     Warm Regards,
     Linuxjobber
 
-"""

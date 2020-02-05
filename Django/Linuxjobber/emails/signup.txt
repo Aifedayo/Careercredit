@@ -1,4 +1,4 @@
-"""
+
     Hello {firstname} {lastname},
     Thank you for registering on Linuxjobber, your username is: {username}
     and your email is {email}
@@ -8,4 +8,3 @@
     Best Regards
     Admin.
     
-"""

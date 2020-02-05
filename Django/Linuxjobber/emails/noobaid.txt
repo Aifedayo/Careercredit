@@ -1,4 +1,4 @@
-"""
+
     Hello Admin,
     {name} just made a request for noobaid product,
     with email: {email}, institute is: {location}, phone: {availability}, 
@@ -8,4 +8,3 @@
     Best Regards
     Admin.
 
-"""
