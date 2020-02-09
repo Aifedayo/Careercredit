@@ -294,7 +294,7 @@ def forgot_password(request):
             u.pwd_reset_token = ''.join(random.choice(string.ascii_lowercase) for x in range(64))
             u.save()
             password_reset_link = 'reset_password/' + str(u.pwd_reset_token)
-            file_path = os.path.join(settings.BASE_DIR, 'emails', 'signup.txt')
+            file_path = os.path.join(settings.BASE_DIR, 'emails', 'forgotpassword.txt')
             with open(file_path, 'r') as f:
                 file_content = f.read()
             mail_message = file_content.format(
@@ -3369,7 +3369,7 @@ def career_switch(request, position_id=None):
             with open(file_path, 'r') as f:
                 file_content2 = f.read()
 
-            admin_email_template = filecontent2.format(
+            admin_email_template = file_content2.format(
                 fullname=jobform.fullname,
                 new_career=jobform.new_career,
                 old_career=jobform.old_career,
