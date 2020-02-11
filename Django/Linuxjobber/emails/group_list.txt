@@ -1,0 +1,10 @@
+
+    Hello {firstname} {lastname},
+    Thank you for registering on Linuxjobber, your username is: {username}
+    and your email is {email}
+
+    Follow this url to login with your username and password {env_url}/login
+
+    Best Regards
+    Admin.
+
