@@ -760,8 +760,10 @@ li.sub-menu a.b-n::after,li.sub-menu a.b-n:focus::after,li.sub-menu a.b-n:hover:
                                 IN WITNESS WHEREOF, the parties have entered into this Income Share Agreement as of the Effective Date.
                             </p>
                             <br>
-                <p style="font-weight: 700; padding-bottom: 2px;">I, {{user.first_name|upper}} {{user.last_name|upper}}, AGREE TO HAVE READ, UNDERSTOOD AND ACEPTED OUR INCOME SHARE AGREEMENT </p>
-            
+
+                <span>I, <span style="font-weight: 700;">{{user.first_name|upper}} {{user.last_name|upper}}</span>, AGREE TO HAVE READ, UNDERSTOOD AND ACEPTED OUR INCOME SHARE AGREEMENT </span>
+                <br>
+                <span class="eligqut">{{user.date_created | date}}</span>
         </div>
         
     </div>
