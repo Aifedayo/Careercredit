@@ -136,7 +136,7 @@ class PartTimeJob(models.Model):
 
 
 def content_file_name(instance, filename):
-    return os.path.join('uploads', 'resumes', instance.user.username + '_' + filename)
+    return os.path.join('uploads','pdfs', 'resumes', instance.user.username + '_' + filename)
 
 
 class Jobplacement(models.Model):
@@ -462,8 +462,8 @@ class WorkExperienceEligibility(models.Model):
     form_19_num = models.TextField(null=True)
     foreign_pass_num = models.TextField(null=True)
     date_created = models.DateTimeField(default=timezone.now, null=True)
-    pdf = models.FileField(upload_to='uploads/', null=True)
-    terms = models.FileField(upload_to='uploads/', null=True)
+    pdf = models.FileField(upload_to='pdfs/', null=True)
+    terms = models.FileField(upload_to='pdfs/', null=True)
 
     def __str__(self):
         return self.user.email
@@ -531,7 +531,7 @@ class WorkExperienceIsa(models.Model):
     employment_status = models.TextField(null=True)
     estimated_date_of_program_completion = models.DateTimeField(default=timezone.now, null=True)
     is_signed_isa = models.BooleanField(default=False)
-    pdf = models.FileField(upload_to='uploads/', null=True)
+    pdf = models.FileField(upload_to='pdfs', null=True)
 
     def __str__(self):
         return self.user.email
