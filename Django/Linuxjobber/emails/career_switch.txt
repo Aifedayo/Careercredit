@@ -1,0 +1,13 @@
+
+    Hi {fullname},
+
+    We are happy you are interested to switch to a {new_career} role.
+
+    This mail is to confirm we have received your details, and would be reviewing it accordingly.
+
+    In addition, you would also be informed occasionally on open roles, you can unsubscribe from these notifications here {unsubscribe_url}
+
+    Warm Regards,
+    Linuxjobber
+            
+            

@@ -1,0 +1,303 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>{% block title %} {% endblock %}</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="{% static 'home/css/newdesigner/js/validation/jquery.validation.functions.js' %}"></script>
+<script
+	src="{% static 'home/css/newdesigner/js/validation/jquery.validate.js' %}"></script>
+
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
+	rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800"
+	rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700"
+	rel="stylesheet">
+<link rel="shortcut icon" href="{% static 'favicon.ico' %}">
+<!-- Bootstrap -->
+<link href="{% static 'home/css/newdesigner/css/bootstrap.min.css' %}"
+	rel="stylesheet">
+<!-- Main Style -->
+<link rel="stylesheet" href="{% static 'home/css/style.css' %}">
+<link href="{% static 'home/css/newdesigner/css/style.css' %}"
+	rel="stylesheet">
+<link href="{% static 'home/css/newhomepage/css/stylenew.css' %}"
+	rel="stylesheet}">
+<link href="{% static 'home/css/newhomepage/css/newstyle2.css' %}"
+	rel="stylesheet">
+<link href="{% static 'home/css/newhomepage/css/main.css' %}"
+	rel="stylesheet">
+<link href="{% static 'home/css/newhomepage/css/newstylenew.css' %}"
+	rel="stylesheet">
+<!-- <link href="{% static 'home/css/newhomepage/css/my-style.css' %}" rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400"
+	rel="stylesheet">
+<!-- PROJECTS APPLICATION CUSTOM STYLESHEET -->
+<link rel="stylesheet" type="text/css" href="{% static 'Projects/custom/css/projects.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css' %}">
+<script src="{% static 'home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js' %}"></script>
+{% block style %} {% endblock %}
+<style>
+
+.tool-sub{
+	position: relative;
+}
+
+.tool-sub .tool-sond{
+	top: 10;
+	left: 70%;
+	margin-top: -1px;
+	width: 100%;
+	padding-top: 20px;
+}
+
+
+.tool-sond
+{
+    top: 0;
+    right: -150px;
+    width: 150px;
+    padding: 0;
+    margin: 10px;
+    display: none;
+}
+
+.tool-sond > li
+{
+	position: relative;
+    height: 50px;
+	padding-bottom: 25px;
+}
+
+.tool-sond > li:hover{
+	background-color: #468ac6;
+}
+
+
+	     .progress{
+                margin-top:5px;
+                margin-bottom:0px;
+        }
+        .fh5co-cover.fh5co-cover-sm {
+                height: 245px !important;
+        }
+        .lab-details {
+                margin-top: 10px;
+                margin-bottom: 40px;
+        }
+        .fa.fa-check  {  padding: 3px !important;  border-radius: 14px; line-height: 14px; }
+        .fa.fa-remove {  padding: 5px !important; border-radius: 10px; line-height: 10px; }
+        a{ font-weight:500 ; }
+
+        @media (max-width:767px) {
+
+.mainmnu { display: block !important; }
+}
+li.sub-menu a.b-n::after,
+li.sub-menu a.b-n:focus::after,
+li.sub-menu a.b-n:hover::after,
+li.sub-menu a.b-n::after {
+        z-index: 0;
+}
+.navbar-toggle {
+        background: transparent;
+}
+.navbar-collapse.in {
+    text-align: left;
+        background: #1b539e;
+        width: 100%;
+}
+
+.icon-bar {
+        background-color: #fff;
+}
+.inner-box.category-content {
+    height:200px;
+  }
+.navbar-collapse {
+	padding: 0;
+}
+
+@media (max-width: 640px) and (min-width: 360px) {
+        #puppet {
+bottom: 200px;
+}
+.navbar-right {
+        padding: 0 16px;
+        float: none !important;
+}
+.header-login {
+        padding: 0  16px;
+        float: left;
+}
+.header-login>a {
+        margin: 5px 6px;
+}
+.inner-box.category-content {
+    height: 300px;
+  }
+  h2.title-4{
+    padding-right: 16px;
+}
+}
+@media (max-width: 400px) {
+  .inner-box.category-content {
+    height: 300px;
+  }
+}
+
+    
+    
+</style>
+
+{#Load external files#}
+{% block external_header %}
+
+{% endblock %}
+</head>
+
+<body>
+
+	<header class="r-header" id="header">
+		<!-- header bottom -->
+		<div class="header-bottom">
+			<div class="container padd">
+				<div class="row">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<div class="col-md-3 col-sm-3 col-xs-6 logo padd">
+						<a class="navbar-brand"><img
+							src="{% static 'home/images/Small-Final.png' %}" alt="logo"></a>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</header>
+
+
+	{% block content %} {% endblock %}
+
+
+	<!--Footer-->
+	<footer id="footer" class="footer">
+		<section id="footer-lniks">
+			<div class="row" id="footer-row">
+				<div class="col-md-3 col-sm-6">
+					<img src="{% static 'home/images/Small-Final.png' %}">
+				</div>
+
+				
+
+
+		</section>
+		
+	</footer>
+	<!--/ Footer-->
+
+
+	<script src="{% static 'home/css/newdesigner/js/bootstrap.min.js' %}"></script>
+	<script async
+		src="https://www.googletagmanager.com/gtag/js?id=UA-114043971-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-114043971-1');
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var flag = 0;
+
+			$(".transparent-child").hide();
+			$(".sub-menu").hover(function() {
+				$(".transparent-style").hide();
+				$("#header").removeClass("result_hover");
+			});
+			$(".work").click(function() {
+
+				$("#header").toggleClass("result_hover");
+				$("#work").toggle();
+			});
+
+			$(".course").click(function() {
+
+				$("#header").toggleClass("result_hover");
+				$("#course").toggle();
+			});
+			
+			$(".tool").click(function() {
+
+				$("#header").toggleClass("result_hover");
+				$("#tool").toggle();
+			});
+
+			{% if tools %} 
+				{% for tool in tools %}
+					$(".tool-sub-menu"+"{{tool.id}}").click(function(){
+						$("#header").toggleClass("result_hover");
+						$(".transparent-style").hide();
+						//$("#tool-son").hide();
+						$(".tool-sond").toggle();
+						$(".tool-son").hide();
+						$(".tool-son"+"{{tool.id}}").show();
+					})
+				{%endfor%}
+			{%endif%}
+
+			$(".company").click(function() {
+
+				$("#header").toggleClass("result_hover");
+				$("#company").toggle();
+			});
+
+			$(".profile").click(function() {
+
+				$("#header").toggleClass("result_hover");
+				$("#profile").toggle();
+			});
+
+			$(".admin").click(function() {
+
+				$("#header").toggleClass("result_hover");
+				$("#admin").toggle();
+			});
+
+		});
+	</script>
+	
+	<script src="{% static 'faq/js/jquery.mobile.custom.min.js' %} "></script>
+	<script src="{% static 'faq/js/main.js' %} "></script>
+	
+<script src="{% static 'js/waterbubble.js' %}"></script>
+<script>
+  $( function() {
+    $( ".datepicker" ).datepicker({
+    	changeMonth: true,
+      changeYear: true,
+      dateFormat: "yy-mm-dd",
+    });
+  });
+  </script>
+
+</body>
+</html>
