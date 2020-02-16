@@ -761,9 +761,9 @@ li.sub-menu a.b-n::after,li.sub-menu a.b-n:focus::after,li.sub-menu a.b-n:hover:
                             </p>
                             <br>
 
-                <span>I, <span style="font-weight: 700;">{{user.first_name|upper}} {{user.last_name|upper}}</span>, AGREE TO HAVE READ, UNDERSTOOD AND ACEPTED OUR INCOME SHARE AGREEMENT </span>
+                <span>I, <span style="font-weight: 700; font-style: italic;">{{user.first_name|upper}} {{user.last_name|upper}}</span>, AGREE TO HAVE READ, UNDERSTOOD AND ACEPTED OUR INCOME SHARE AGREEMENT </span>
                 <br>
-                <span class="eligqut">{{user.date_created | date}}</span>
+                <span class="eligqut" style="font-style: italic;">{{user.date_created | date}}</span>
         </div>
         
     </div>

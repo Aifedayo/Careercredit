@@ -714,3 +714,956 @@ IndexError: list index out of range
 [2020-02-13 21:08:12] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.10, 127.0.0.1:22943]
 [2020-02-13 21:08:22] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/70/change/ 200 [0.55, 127.0.0.1:22957]
 [2020-02-13 21:08:22] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:22957]
+[2020-02-14 18:59:06] INFO [django.channels.server.log_action:141] HTTP GET / 200 [0.63, 127.0.0.1:2061]
+[2020-02-14 18:59:07] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js 200 [0.04, 127.0.0.1:2061]
+[2020-02-14 18:59:07] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validate.js 200 [0.05, 127.0.0.1:2062]
+[2020-02-14 18:59:07] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/css/bootstrap.min.css 200 [0.04, 127.0.0.1:2067]
+[2020-02-14 18:59:07] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/main.css 200 [0.05, 127.0.0.1:2061]
+[2020-02-14 18:59:07] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/newstyle2.css 200 [0.08, 127.0.0.1:2070]
+[2020-02-14 18:59:07] INFO [django.channels.server.log_action:141] HTTP GET /static/Projects/custom/css/projects.css 200 [0.06, 127.0.0.1:2067]
+[2020-02-14 18:59:07] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/css/style.css 200 [0.12, 127.0.0.1:2069]
+[2020-02-14 18:59:07] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css 200 [0.05, 127.0.0.1:2061]
+[2020-02-14 18:59:07] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/newstylenew.css 200 [0.11, 127.0.0.1:2062]
+[2020-02-14 18:59:07] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/style.css 200 [0.15, 127.0.0.1:2068]
+[2020-02-14 18:59:07] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/testimonial-timeline.css 200 [0.06, 127.0.0.1:2070]
+[2020-02-14 18:59:07] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js 200 [0.07, 127.0.0.1:2067]
+[2020-02-14 18:59:17] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/logo.png 200 [0.04, 127.0.0.1:2067]
+[2020-02-14 18:59:17] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/LaptopBook.png 200 [0.05, 127.0.0.1:2070]
+[2020-02-14 18:59:17] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/bootstrap.min.js 200 [0.02, 127.0.0.1:2067]
+[2020-02-14 18:59:17] INFO [django.channels.server.log_action:141] HTTP GET /static/faq/js/jquery.mobile.custom.min.js 200 [0.03, 127.0.0.1:2070]
+[2020-02-14 18:59:17] INFO [django.channels.server.log_action:141] HTTP GET /static/faq/js/main.js 200 [0.03, 127.0.0.1:2070]
+[2020-02-14 18:59:17] INFO [django.channels.server.log_action:141] HTTP GET /static/js/waterbubble.js 200 [0.07, 127.0.0.1:2067]
+[2020-02-14 18:59:17] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/jobphone.png 200 [0.05, 127.0.0.1:2070]
+[2020-02-14 18:59:17] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/homelive.png 200 [0.05, 127.0.0.1:2070]
+[2020-02-14 18:59:17] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/get3.png 200 [0.06, 127.0.0.1:2067]
+[2020-02-14 18:59:17] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/get1.png 200 [0.01, 127.0.0.1:2070]
+[2020-02-14 18:59:17] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/get2.png 200 [0.03, 127.0.0.1:2067]
+[2020-02-14 18:59:17] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/kenna.png 200 [0.03, 127.0.0.1:2067]
+[2020-02-14 18:59:17] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/adekunle.png 200 [0.04, 127.0.0.1:2070]
+[2020-02-14 18:59:17] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/fetigue.png 200 [0.02, 127.0.0.1:2067]
+[2020-02-14 18:59:21] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/fonts/fontsstylesheet.css 200 [0.04, 127.0.0.1:2067]
+[2020-02-14 18:59:21] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/jobban2.png 200 [0.05, 127.0.0.1:2067]
+[2020-02-14 18:59:21] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/homebanner.png 200 [0.06, 127.0.0.1:2070]
+[2020-02-14 18:59:35] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.01, 127.0.0.1:2070]
+[2020-02-14 21:13:20] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [3.03, 127.0.0.1:2472]
+[2020-02-14 21:28:50] INFO [django.channels.server.log_action:141] HTTP GET /login/ 200 [0.85, 127.0.0.1:3108]
+[2020-02-14 21:28:50] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/styles.css 200 [0.03, 127.0.0.1:3108]
+[2020-02-14 21:28:51] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/imgback.jpg 200 [0.11, 127.0.0.1:3124]
+[2020-02-14 21:28:51] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2020-02-14 21:28:51] WARNING [django.channels.server.log_action:149] HTTP GET /favicon.ico 404 [0.03, 127.0.0.1:3124]
+[2020-02-14 21:28:57] INFO [django.channels.server.log_action:147] HTTP POST /login/ 302 [0.76, 127.0.0.1:3124]
+[2020-02-14 21:28:57] INFO [django.channels.server.log_action:141] HTTP GET /courses/userinterest 200 [0.18, 127.0.0.1:3124]
+[2020-02-14 21:28:57] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/icon1.png 200 [0.06, 127.0.0.1:3124]
+[2020-02-14 21:28:57] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/logout1.png 200 [0.04, 127.0.0.1:3127]
+[2020-02-14 21:28:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/lin-logo.png 200 [0.07, 127.0.0.1:3127]
+[2020-02-14 21:28:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/button-left.png 200 [0.08, 127.0.0.1:3124]
+[2020-02-14 21:28:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/amazons.png 200 [0.04, 127.0.0.1:3124]
+[2020-02-14 21:28:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/ppt.png 200 [0.05, 127.0.0.1:3127]
+[2020-02-14 21:28:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/jjava.png 200 [0.05, 127.0.0.1:3124]
+[2020-02-14 21:28:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/rchsaa.png 200 [0.04, 127.0.0.1:3127]
+[2020-02-14 21:28:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/ajs.png 200 [0.04, 127.0.0.1:3127]
+[2020-02-14 21:28:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/csecurity.png 200 [0.04, 127.0.0.1:3124]
+[2020-02-14 21:28:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/dba.png 200 [0.02, 127.0.0.1:3124]
+[2020-02-14 21:28:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/biz.png 200 [0.05, 127.0.0.1:3127]
+[2020-02-14 21:28:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/py.png 200 [0.04, 127.0.0.1:3124]
+[2020-02-14 21:28:58] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs//list-bg.png 200 [0.10, 127.0.0.1:3124]
+[2020-02-14 21:29:00] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.08, 127.0.0.1:3124]
+[2020-02-14 21:30:04] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [62.25, 127.0.0.1:3152]
+[2020-02-14 21:30:04] INFO [django.channels.server.log_action:141] HTTP GET /media/resume/1.jpg 200 [0.11, 127.0.0.1:3152]
+[2020-02-14 21:33:57] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [63.61, 127.0.0.1:3293]
+[2020-02-14 21:37:12] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/images/ui-icons_444444_256x240.png 200 [0.36, 127.0.0.1:1040]
+[2020-02-14 21:37:12] INFO [django.channels.server.log_action:141] HTTP GET /media/pdfs/Work-Experience-Eligibility-mololuwa_olufeko_oLeDHrW.pdf 200 [0.34, 127.0.0.1:1041]
+[2020-02-14 21:38:05] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [40.99, 127.0.0.1:1046]
+[2020-02-14 21:38:10] INFO [django.channels.server.log_action:141] HTTP GET /static/favicon.ico 200 [0.10, 127.0.0.1:1046]
+[2020-02-14 21:43:10] INFO [django.channels.server.log_action:141] HTTP GET /media/pdfs/Work-Experience-Eligibility-mololuwa_olufeko_OEFsCd6.pdf 200 [0.29, 127.0.0.1:1419]
+[2020-02-14 21:43:23] INFO [django.channels.server.log_action:141] HTTP GET /media/pdfs/Work-Experience-ISA-mololuwa_olufeko_HtYLntO.pdf 200 [0.12, 127.0.0.1:1419]
+[2020-02-14 21:43:31] INFO [django.channels.server.log_action:141] HTTP GET /media/pdfs/Work-Experience-Terms-mololuwa_olufeko_qLFWGEq.pdf 200 [0.11, 127.0.0.1:1419]
+[2020-02-16 21:51:40] INFO [django.channels.server.log_action:147] HTTP GET /admin 301 [0.26, 127.0.0.1:3255]
+[2020-02-16 21:51:40] INFO [django.channels.server.log_action:147] HTTP GET /robots.txt 302 [0.31, 127.0.0.1:3256]
+[2020-02-16 21:51:40] INFO [django.channels.server.log_action:147] HTTP GET /admin/ 302 [0.29, 127.0.0.1:3255]
+[2020-02-16 21:51:40] INFO [django.channels.server.log_action:141] HTTP GET /timeout 200 [0.25, 127.0.0.1:3256]
+[2020-02-16 21:51:40] INFO [django.channels.server.log_action:141] HTTP GET /timeout 200 [0.08, 127.0.0.1:3255]
+[2020-02-16 21:51:41] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validate.js 200 [0.10, 127.0.0.1:3256]
+[2020-02-16 21:51:41] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js 200 [0.11, 127.0.0.1:3255]
+[2020-02-16 21:51:41] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/css/bootstrap.min.css 200 [0.12, 127.0.0.1:3269]
+[2020-02-16 21:51:41] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/css/style.css 200 [0.13, 127.0.0.1:3271]
+[2020-02-16 21:51:41] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/main.css 200 [0.07, 127.0.0.1:3255]
+[2020-02-16 21:51:41] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/style.css 200 [0.15, 127.0.0.1:3270]
+[2020-02-16 21:51:41] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/newstyle2.css 200 [0.18, 127.0.0.1:3272]
+[2020-02-16 21:51:41] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/newstylenew.css 200 [0.10, 127.0.0.1:3256]
+[2020-02-16 21:51:41] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/fonts/fontsstylesheet.css 200 [0.06, 127.0.0.1:3255]
+[2020-02-16 21:51:41] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css 200 [0.08, 127.0.0.1:3271]
+[2020-02-16 21:51:41] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js 200 [0.07, 127.0.0.1:3270]
+[2020-02-16 21:51:41] INFO [django.channels.server.log_action:141] HTTP GET /static/Projects/custom/css/projects.css 200 [0.15, 127.0.0.1:3269]
+[2020-02-16 21:51:41] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/icon1.png 200 [0.06, 127.0.0.1:3271]
+[2020-02-16 21:51:41] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/logo.png 200 [0.07, 127.0.0.1:3270]
+[2020-02-16 21:51:41] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/bootstrap.min.js 200 [0.04, 127.0.0.1:3270]
+[2020-02-16 21:51:41] INFO [django.channels.server.log_action:141] HTTP GET /static/faq/js/jquery.mobile.custom.min.js 200 [0.04, 127.0.0.1:3271]
+[2020-02-16 21:51:41] INFO [django.channels.server.log_action:141] HTTP GET /static/faq/js/main.js 200 [0.03, 127.0.0.1:3270]
+[2020-02-16 21:51:41] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/logout1.png 200 [0.01, 127.0.0.1:3270]
+[2020-02-16 21:51:41] INFO [django.channels.server.log_action:141] HTTP GET /static/js/waterbubble.js 200 [0.04, 127.0.0.1:3271]
+[2020-02-16 21:51:42] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/proj-list.png 200 [0.07, 127.0.0.1:3271]
+[2020-02-16 21:51:47] INFO [django.channels.server.log_action:147] HTTP POST /timeout 302 [0.23, 127.0.0.1:3286]
+[2020-02-16 21:51:47] INFO [django.channels.server.log_action:141] HTTP GET /admin/ 200 [0.30, 127.0.0.1:3286]
+[2020-02-16 21:51:47] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/dashboard.css 200 [0.02, 127.0.0.1:3287]
+[2020-02-16 21:51:47] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/responsive.css 200 [0.05, 127.0.0.1:3295]
+[2020-02-16 21:51:47] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/base.css 200 [0.07, 127.0.0.1:3286]
+[2020-02-16 21:51:47] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/fonts.css 200 [0.02, 127.0.0.1:3286]
+[2020-02-16 21:51:48] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/icon-addlink.svg 200 [0.01, 127.0.0.1:3286]
+[2020-02-16 21:51:48] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/icon-changelink.svg 200 [0.02, 127.0.0.1:3295]
+[2020-02-16 21:51:49] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/fonts/Roboto-Light-webfont.woff 200 [0.06, 127.0.0.1:3295]
+[2020-02-16 21:51:49] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/fonts/Roboto-Regular-webfont.woff 200 [0.06, 127.0.0.1:3287]
+[2020-02-16 21:51:49] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/fonts/Roboto-Bold-webfont.woff 200 [0.06, 127.0.0.1:3286]
+[2020-02-16 21:51:49] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2020-02-16 21:51:49] WARNING [django.channels.server.log_action:149] HTTP GET /favicon.ico 404 [0.07, 127.0.0.1:3286]
+[2020-02-16 21:52:48] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/ 200 [0.68, 127.0.0.1:3312]
+[2020-02-16 21:52:48] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/jquery.init.js 200 [0.05, 127.0.0.1:3320]
+[2020-02-16 21:52:48] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/changelists.css 200 [0.08, 127.0.0.1:3312]
+[2020-02-16 21:52:48] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.08, 127.0.0.1:3313]
+[2020-02-16 21:52:48] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 200 [0.07, 127.0.0.1:3322]
+[2020-02-16 21:52:48] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/core.js 200 [0.08, 127.0.0.1:3321]
+[2020-02-16 21:52:48] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/actions.js 200 [0.04, 127.0.0.1:3320]
+[2020-02-16 21:52:48] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/vendor/jquery/jquery.js 200 [0.11, 127.0.0.1:3319]
+[2020-02-16 21:52:48] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/urlify.js 200 [0.05, 127.0.0.1:3312]
+[2020-02-16 21:52:48] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/prepopulate.js 200 [0.03, 127.0.0.1:3322]
+[2020-02-16 21:52:48] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 200 [0.03, 127.0.0.1:3321]
+[2020-02-16 21:52:48] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/search.svg 200 [0.02, 127.0.0.1:3322]
+[2020-02-16 21:52:48] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/icon-no.svg 200 [0.03, 127.0.0.1:3319]
+[2020-02-16 21:52:49] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/sorting-icons.svg 200 [0.01, 127.0.0.1:3322]
+[2020-02-16 21:52:49] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/tooltag-add.svg 200 [0.06, 127.0.0.1:3319]
+[2020-02-16 21:52:52] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/70/change/ 200 [0.43, 127.0.0.1:3319]
+[2020-02-16 21:52:52] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/forms.css 200 [0.05, 127.0.0.1:3319]
+[2020-02-16 21:52:52] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/calendar.js 200 [0.06, 127.0.0.1:3322]
+[2020-02-16 21:52:52] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/admin/DateTimeShortcuts.js 200 [0.05, 127.0.0.1:3312]
+[2020-02-16 21:52:52] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/assets/vendor/bootstrap/css/bootstrap.min.css 200 [0.07, 127.0.0.1:3320]
+[2020-02-16 21:52:52] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/widgets.css 200 [0.02, 127.0.0.1:3322]
+[2020-02-16 21:52:52] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.08, 127.0.0.1:3321]
+[2020-02-16 21:52:52] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/prepopulate_init.js 200 [0.01, 127.0.0.1:3322]
+[2020-02-16 21:52:52] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/change_form.js 200 [0.03, 127.0.0.1:3321]
+[2020-02-16 21:52:54] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/icon-clock.svg 200 [0.02, 127.0.0.1:3344]
+[2020-02-16 21:52:54] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/icon-calendar.svg 200 [0.02, 127.0.0.1:3343]
+[2020-02-16 21:52:58] INFO [django.channels.server.log_action:141] HTTP POST /admin/home/workexperienceeligibility/70/change/ 200 [0.42, 127.0.0.1:3343]
+[2020-02-16 21:52:58] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.07, 127.0.0.1:3343]
+[2020-02-16 21:53:19] INFO [django.channels.server.log_action:141] HTTP POST /admin/home/workexperienceeligibility/70/change/ 200 [0.36, 127.0.0.1:3359]
+[2020-02-16 21:53:19] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:3359]
+[2020-02-16 21:53:32] INFO [django.channels.server.log_action:147] HTTP POST /admin/home/workexperienceeligibility/70/change/ 302 [0.11, 127.0.0.1:3374]
+[2020-02-16 21:53:32] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/ 200 [0.33, 127.0.0.1:3374]
+[2020-02-16 21:53:33] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.11, 127.0.0.1:3374]
+[2020-02-16 21:53:34] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/icon-yes.svg 200 [0.02, 127.0.0.1:3386]
+[2020-02-16 21:53:46] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/70/change/ 200 [0.35, 127.0.0.1:3399]
+[2020-02-16 21:53:46] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.06, 127.0.0.1:3399]
+[2020-02-16 21:54:06] INFO [django.channels.server.log_action:141] HTTP POST /admin/home/workexperienceeligibility/70/change/ 200 [0.37, 127.0.0.1:3418]
+[2020-02-16 21:54:06] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:3418]
+[2020-02-16 21:55:37] INFO [django.channels.server.log_action:147] HTTP POST /admin/home/workexperienceeligibility/70/change/ 302 [0.39, 127.0.0.1:3488]
+[2020-02-16 21:55:38] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/ 200 [0.37, 127.0.0.1:3488]
+[2020-02-16 21:55:38] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.06, 127.0.0.1:3488]
+[2020-02-16 21:58:37] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/70/change/ 200 [0.81, 127.0.0.1:3560]
+[2020-02-16 21:58:37] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.08, 127.0.0.1:3560]
+[2020-02-16 21:58:47] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /admin/home/workexperienceeligibility/70/change/
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 575, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "E:\Documents\Web\linux-contract\Django\Linuxjobber\home\admin.py", line 619, in change_view
+    request, object_id, form_url, extra_context=extra_context,
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1557, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1451, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1491, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "E:\Documents\Web\linux-contract\Django\Linuxjobber\home\admin.py", line 835, in save_model
+    print(obj.message.slug)
+AttributeError: 'WorkExperienceEligibility' object has no attribute 'message'
+[2020-02-16 21:58:47] ERROR [django.channels.server.log_action:154] HTTP POST /admin/home/workexperienceeligibility/70/change/ 500 [0.13, 127.0.0.1:3581]
+[2020-02-16 21:59:31] INFO [django.channels.server.log_action:147] HTTP POST /admin/home/workexperienceeligibility/70/change/ 302 [0.45, 127.0.0.1:3618]
+[2020-02-16 21:59:31] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/ 200 [0.35, 127.0.0.1:3618]
+[2020-02-16 21:59:31] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.08, 127.0.0.1:3618]
+[2020-02-16 21:59:35] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/70/change/ 200 [0.34, 127.0.0.1:3631]
+[2020-02-16 21:59:35] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:3631]
+[2020-02-16 21:59:42] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /admin/home/workexperienceeligibility/70/change/
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 575, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "E:\Documents\Web\linux-contract\Django\Linuxjobber\home\admin.py", line 619, in change_view
+    request, object_id, form_url, extra_context=extra_context,
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1557, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1451, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1491, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "E:\Documents\Web\linux-contract\Django\Linuxjobber\home\admin.py", line 824, in save_model
+    html_template = get_template('home/workexpeligibilitypdf.html').render({'details':details,'date':date,'ssn':ssn,'created':created})
+NameError: name 'get_template' is not defined
+[2020-02-16 21:59:42] ERROR [django.channels.server.log_action:154] HTTP POST /admin/home/workexperienceeligibility/70/change/ 500 [0.12, 127.0.0.1:3631]
+[2020-02-16 22:00:27] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /admin/home/workexperienceeligibility/70/change/
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 575, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "E:\Documents\Web\linux-contract\Django\Linuxjobber\home\admin.py", line 620, in change_view
+    request, object_id, form_url, extra_context=extra_context,
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1557, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1451, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1491, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "E:\Documents\Web\linux-contract\Django\Linuxjobber\home\admin.py", line 828, in save_model
+    pdf_file = HTML(string=html_template).write_pdf( stylesheets=[CSS("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")],presentational_hints=True)
+NameError: name 'HTML' is not defined
+[2020-02-16 22:00:27] ERROR [django.channels.server.log_action:154] HTTP POST /admin/home/workexperienceeligibility/70/change/ 500 [0.36, 127.0.0.1:3661]
+[2020-02-16 22:01:10] INFO [django.channels.server.log_action:147] HTTP POST /admin/home/workexperienceeligibility/70/change/ 302 [6.68, 127.0.0.1:3693]
+[2020-02-16 22:01:10] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/ 200 [0.34, 127.0.0.1:3693]
+[2020-02-16 22:01:10] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.09, 127.0.0.1:3693]
+[2020-02-16 22:02:14] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/69/change/ 200 [0.36, 127.0.0.1:3722]
+[2020-02-16 22:02:14] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.08, 127.0.0.1:3722]
+[2020-02-16 22:02:21] INFO [django.channels.server.log_action:141] HTTP POST /admin/home/workexperienceeligibility/69/change/ 200 [0.44, 127.0.0.1:3722]
+[2020-02-16 22:02:21] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.06, 127.0.0.1:3722]
+[2020-02-16 22:03:28] INFO [django.channels.server.log_action:141] HTTP POST /admin/home/workexperienceeligibility/69/change/ 200 [0.70, 127.0.0.1:3795]
+[2020-02-16 22:03:28] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.04, 127.0.0.1:3795]
+[2020-02-16 22:04:43] INFO [django.channels.server.log_action:141] HTTP POST /admin/home/workexperienceeligibility/69/change/ 200 [0.67, 127.0.0.1:3868]
+[2020-02-16 22:04:43] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.08, 127.0.0.1:3868]
+[2020-02-16 22:05:41] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/69/change/ 200 [0.67, 127.0.0.1:3941]
+[2020-02-16 22:05:41] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:3941]
+[2020-02-16 22:05:53] INFO [django.channels.server.log_action:147] HTTP POST /admin/home/workexperienceeligibility/69/change/ 302 [5.14, 127.0.0.1:3941]
+[2020-02-16 22:05:54] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/ 200 [0.34, 127.0.0.1:3941]
+[2020-02-16 22:05:54] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:3941]
+[2020-02-16 22:06:12] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/59/change/ 200 [0.35, 127.0.0.1:3984]
+[2020-02-16 22:06:12] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.07, 127.0.0.1:3984]
+[2020-02-16 22:06:21] INFO [django.channels.server.log_action:141] HTTP POST /admin/home/workexperienceeligibility/59/change/ 200 [0.34, 127.0.0.1:3997]
+[2020-02-16 22:06:21] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:3997]
+[2020-02-16 22:07:17] INFO [django.channels.server.log_action:147] HTTP POST /admin/home/workexperienceeligibility/59/change/ 302 [2.81, 127.0.0.1:4050]
+[2020-02-16 22:07:18] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/ 200 [0.34, 127.0.0.1:4050]
+[2020-02-16 22:07:18] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:4050]
+[2020-02-16 22:07:49] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/62/change/ 200 [0.35, 127.0.0.1:4076]
+[2020-02-16 22:07:49] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:4076]
+[2020-02-16 22:07:59] INFO [django.channels.server.log_action:147] HTTP POST /admin/home/workexperienceeligibility/62/change/ 302 [3.25, 127.0.0.1:4088]
+[2020-02-16 22:08:00] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/ 200 [0.40, 127.0.0.1:4088]
+[2020-02-16 22:08:00] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:4088]
+[2020-02-16 22:08:05] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/62/change/ 200 [0.37, 127.0.0.1:4109]
+[2020-02-16 22:08:05] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.06, 127.0.0.1:4109]
+[2020-02-16 22:08:50] INFO [django.channels.server.log_action:147] HTTP POST /admin/home/workexperienceeligibility/62/change/ 302 [3.73, 127.0.0.1:4124]
+[2020-02-16 22:08:50] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/ 200 [0.31, 127.0.0.1:4124]
+[2020-02-16 22:08:50] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.04, 127.0.0.1:4124]
+[2020-02-16 22:08:56] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/62/change/ 200 [0.33, 127.0.0.1:4148]
+[2020-02-16 22:08:56] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:4148]
+[2020-02-16 22:10:19] INFO [django.channels.server.log_action:147] HTTP POST /admin/home/workexperienceeligibility/62/change/ 302 [7.69, 127.0.0.1:4191]
+[2020-02-16 22:10:19] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/ 200 [0.36, 127.0.0.1:4191]
+[2020-02-16 22:10:19] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:4191]
+[2020-02-16 22:10:26] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/62/change/ 200 [0.33, 127.0.0.1:4218]
+[2020-02-16 22:10:26] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:4218]
+[2020-02-16 22:11:56] INFO [django.channels.server.log_action:147] HTTP POST /admin/home/workexperienceeligibility/62/change/ 302 [2.88, 127.0.0.1:4260]
+[2020-02-16 22:11:57] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/ 200 [0.34, 127.0.0.1:4260]
+[2020-02-16 22:11:57] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.06, 127.0.0.1:4260]
+[2020-02-16 22:12:02] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/62/change/ 200 [0.34, 127.0.0.1:4260]
+[2020-02-16 22:12:02] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:4260]
+[2020-02-16 22:12:16] INFO [django.channels.server.log_action:141] HTTP GET /media/pdfs/Work-Experience-Eligibility-Karim_Tamara_v61yD5U.pdf 200 [0.04, 127.0.0.1:4291]
+[2020-02-16 22:12:21] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/62/change/ 200 [0.39, 127.0.0.1:4291]
+[2020-02-16 22:31:55] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /admin/home/workexperienceeligibility/62/change/
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 1317, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1229, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1275, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1224, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1016, in _send_output
+    self.send(msg)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 956, in send
+    self.connect()
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1384, in connect
+    super().connect()
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 928, in connect
+    (self.host,self.port), self.timeout, self.source_address)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\socket.py", line 707, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\socket.py", line 748, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\urls.py", line 284, in fetch
+    result = url_fetcher(url)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\urls.py", line 248, in default_url_fetcher
+    timeout=timeout, context=ssl_context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 525, in open
+    response = self._open(req, data)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 543, in _open
+    '_open', req)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 503, in _call_chain
+    result = func(*args)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 1360, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 1319, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno 11001] getaddrinfo failed>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 575, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "E:\Documents\Web\linux-contract\Django\Linuxjobber\home\admin.py", line 622, in change_view
+    request, object_id, form_url, extra_context=extra_context,
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1557, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1451, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1491, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "E:\Documents\Web\linux-contract\Django\Linuxjobber\home\admin.py", line 831, in save_model
+    pdf_file = HTML(string=html_template).write_pdf( stylesheets=[CSS("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")],presentational_hints=True)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\__init__.py", line 322, in __init__
+    with result as (source_type, source, base_url, protocol_encoding):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\__init__.py", line 396, in _select_source
+    with result as result:
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\__init__.py", line 406, in _select_source
+    with fetch(url_fetcher, url) as result:
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\urls.py", line 286, in fetch
+    raise URLFetchingError('%s: %s' % (type(exc).__name__, str(exc)))
+weasyprint.urls.URLFetchingError: URLError: <urlopen error [Errno 11001] getaddrinfo failed>
+[2020-02-16 22:31:55] ERROR [django.channels.server.log_action:154] HTTP POST /admin/home/workexperienceeligibility/62/change/ 500 [0.39, 127.0.0.1:1077]
+[2020-02-16 22:34:44] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/62/change/ 200 [0.52, 127.0.0.1:1108]
+[2020-02-16 22:34:44] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.11, 127.0.0.1:1108]
+[2020-02-16 22:35:01] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /admin/home/workexperienceeligibility/62/change/
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 1317, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1229, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1275, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1224, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1016, in _send_output
+    self.send(msg)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 956, in send
+    self.connect()
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1384, in connect
+    super().connect()
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 928, in connect
+    (self.host,self.port), self.timeout, self.source_address)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\socket.py", line 707, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\socket.py", line 748, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\urls.py", line 284, in fetch
+    result = url_fetcher(url)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\urls.py", line 248, in default_url_fetcher
+    timeout=timeout, context=ssl_context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 525, in open
+    response = self._open(req, data)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 543, in _open
+    '_open', req)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 503, in _call_chain
+    result = func(*args)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 1360, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 1319, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno 11001] getaddrinfo failed>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 575, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "E:\Documents\Web\linux-contract\Django\Linuxjobber\home\admin.py", line 622, in change_view
+    request, object_id, form_url, extra_context=extra_context,
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1557, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1451, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1491, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "E:\Documents\Web\linux-contract\Django\Linuxjobber\home\admin.py", line 831, in save_model
+    pdf_file = HTML(string=html_template).write_pdf( stylesheets=[CSS("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")],presentational_hints=True)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\__init__.py", line 322, in __init__
+    with result as (source_type, source, base_url, protocol_encoding):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\__init__.py", line 396, in _select_source
+    with result as result:
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\__init__.py", line 406, in _select_source
+    with fetch(url_fetcher, url) as result:
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\urls.py", line 286, in fetch
+    raise URLFetchingError('%s: %s' % (type(exc).__name__, str(exc)))
+weasyprint.urls.URLFetchingError: URLError: <urlopen error [Errno 11001] getaddrinfo failed>
+[2020-02-16 22:35:01] ERROR [django.channels.server.log_action:154] HTTP POST /admin/home/workexperienceeligibility/62/change/ 500 [12.23, 127.0.0.1:1108]
+[2020-02-16 22:35:41] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /admin/home/workexperienceeligibility/62/change/
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 1317, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1229, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1275, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1224, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1016, in _send_output
+    self.send(msg)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 956, in send
+    self.connect()
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1384, in connect
+    super().connect()
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 928, in connect
+    (self.host,self.port), self.timeout, self.source_address)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\socket.py", line 707, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\socket.py", line 748, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\urls.py", line 284, in fetch
+    result = url_fetcher(url)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\urls.py", line 248, in default_url_fetcher
+    timeout=timeout, context=ssl_context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 525, in open
+    response = self._open(req, data)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 543, in _open
+    '_open', req)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 503, in _call_chain
+    result = func(*args)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 1360, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 1319, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno 11001] getaddrinfo failed>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 575, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "E:\Documents\Web\linux-contract\Django\Linuxjobber\home\admin.py", line 622, in change_view
+    request, object_id, form_url, extra_context=extra_context,
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1557, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1451, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1491, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "E:\Documents\Web\linux-contract\Django\Linuxjobber\home\admin.py", line 831, in save_model
+    pdf_file = HTML(string=html_template).write_pdf( stylesheets=[CSS("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")],presentational_hints=True)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\__init__.py", line 322, in __init__
+    with result as (source_type, source, base_url, protocol_encoding):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\__init__.py", line 396, in _select_source
+    with result as result:
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\__init__.py", line 406, in _select_source
+    with fetch(url_fetcher, url) as result:
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\urls.py", line 286, in fetch
+    raise URLFetchingError('%s: %s' % (type(exc).__name__, str(exc)))
+weasyprint.urls.URLFetchingError: URLError: <urlopen error [Errno 11001] getaddrinfo failed>
+[2020-02-16 22:35:41] ERROR [django.channels.server.log_action:154] HTTP POST /admin/home/workexperienceeligibility/62/change/ 500 [12.17, 127.0.0.1:1139]
+[2020-02-16 22:36:11] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /admin/home/workexperienceeligibility/62/change/
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 1317, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1229, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1275, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1224, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1016, in _send_output
+    self.send(msg)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 956, in send
+    self.connect()
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1384, in connect
+    super().connect()
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 928, in connect
+    (self.host,self.port), self.timeout, self.source_address)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\socket.py", line 707, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\socket.py", line 748, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\urls.py", line 284, in fetch
+    result = url_fetcher(url)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\urls.py", line 248, in default_url_fetcher
+    timeout=timeout, context=ssl_context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 525, in open
+    response = self._open(req, data)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 543, in _open
+    '_open', req)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 503, in _call_chain
+    result = func(*args)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 1360, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 1319, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno 11001] getaddrinfo failed>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 575, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "E:\Documents\Web\linux-contract\Django\Linuxjobber\home\admin.py", line 622, in change_view
+    request, object_id, form_url, extra_context=extra_context,
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1557, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1451, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1491, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "E:\Documents\Web\linux-contract\Django\Linuxjobber\home\admin.py", line 831, in save_model
+    pdf_file = HTML(string=html_template).write_pdf( stylesheets=[CSS("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")],presentational_hints=True)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\__init__.py", line 322, in __init__
+    with result as (source_type, source, base_url, protocol_encoding):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\__init__.py", line 396, in _select_source
+    with result as result:
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\__init__.py", line 406, in _select_source
+    with fetch(url_fetcher, url) as result:
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\urls.py", line 286, in fetch
+    raise URLFetchingError('%s: %s' % (type(exc).__name__, str(exc)))
+weasyprint.urls.URLFetchingError: URLError: <urlopen error [Errno 11001] getaddrinfo failed>
+[2020-02-16 22:36:11] ERROR [django.channels.server.log_action:154] HTTP POST /admin/home/workexperienceeligibility/62/change/ 500 [12.18, 127.0.0.1:1172]
+[2020-02-16 22:36:34] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /admin/home/workexperienceeligibility/62/change/
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 1317, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1229, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1275, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1224, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1016, in _send_output
+    self.send(msg)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 956, in send
+    self.connect()
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1384, in connect
+    super().connect()
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 928, in connect
+    (self.host,self.port), self.timeout, self.source_address)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\socket.py", line 707, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\socket.py", line 748, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\urls.py", line 284, in fetch
+    result = url_fetcher(url)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\urls.py", line 248, in default_url_fetcher
+    timeout=timeout, context=ssl_context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 525, in open
+    response = self._open(req, data)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 543, in _open
+    '_open', req)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 503, in _call_chain
+    result = func(*args)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 1360, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 1319, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno 11001] getaddrinfo failed>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 575, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "E:\Documents\Web\linux-contract\Django\Linuxjobber\home\admin.py", line 622, in change_view
+    request, object_id, form_url, extra_context=extra_context,
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1557, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1451, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1491, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "E:\Documents\Web\linux-contract\Django\Linuxjobber\home\admin.py", line 831, in save_model
+    pdf_file = HTML(string=html_template).write_pdf( stylesheets=[CSS("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")],presentational_hints=True)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\__init__.py", line 322, in __init__
+    with result as (source_type, source, base_url, protocol_encoding):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\__init__.py", line 396, in _select_source
+    with result as result:
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\__init__.py", line 406, in _select_source
+    with fetch(url_fetcher, url) as result:
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\urls.py", line 286, in fetch
+    raise URLFetchingError('%s: %s' % (type(exc).__name__, str(exc)))
+weasyprint.urls.URLFetchingError: URLError: <urlopen error [Errno 11001] getaddrinfo failed>
+[2020-02-16 22:36:34] ERROR [django.channels.server.log_action:154] HTTP POST /admin/home/workexperienceeligibility/62/change/ 500 [12.14, 127.0.0.1:1197]
+[2020-02-16 22:36:49] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /admin/home/workexperienceeligibility/62/change/
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 1317, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1229, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1275, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1224, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1016, in _send_output
+    self.send(msg)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 956, in send
+    self.connect()
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1384, in connect
+    super().connect()
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 928, in connect
+    (self.host,self.port), self.timeout, self.source_address)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\socket.py", line 707, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\socket.py", line 748, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\urls.py", line 284, in fetch
+    result = url_fetcher(url)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\urls.py", line 248, in default_url_fetcher
+    timeout=timeout, context=ssl_context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 525, in open
+    response = self._open(req, data)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 543, in _open
+    '_open', req)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 503, in _call_chain
+    result = func(*args)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 1360, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\urllib\request.py", line 1319, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno 11001] getaddrinfo failed>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 575, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "E:\Documents\Web\linux-contract\Django\Linuxjobber\home\admin.py", line 622, in change_view
+    request, object_id, form_url, extra_context=extra_context,
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1557, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1451, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1491, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "E:\Documents\Web\linux-contract\Django\Linuxjobber\home\admin.py", line 831, in save_model
+    pdf_file = HTML(string=html_template).write_pdf( stylesheets=[CSS("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")],presentational_hints=True)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\__init__.py", line 322, in __init__
+    with result as (source_type, source, base_url, protocol_encoding):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\__init__.py", line 396, in _select_source
+    with result as result:
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\__init__.py", line 406, in _select_source
+    with fetch(url_fetcher, url) as result:
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\weasyprint\urls.py", line 286, in fetch
+    raise URLFetchingError('%s: %s' % (type(exc).__name__, str(exc)))
+weasyprint.urls.URLFetchingError: URLError: <urlopen error [Errno 11001] getaddrinfo failed>
+[2020-02-16 22:36:49] ERROR [django.channels.server.log_action:154] HTTP POST /admin/home/workexperienceeligibility/62/change/ 500 [0.25, 127.0.0.1:1221]
+[2020-02-16 22:38:50] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/62/change/ 200 [0.34, 127.0.0.1:1255]
+[2020-02-16 22:38:51] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:1255]
+[2020-02-16 22:44:12] INFO [django.channels.server.log_action:147] HTTP POST /admin/home/workexperienceeligibility/62/change/ 302 [5.25, 127.0.0.1:1361]
+[2020-02-16 22:44:12] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/ 200 [0.34, 127.0.0.1:1361]
+[2020-02-16 22:44:12] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:1361]
+[2020-02-16 22:47:14] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/62/change/ 200 [0.35, 127.0.0.1:1069]
+[2020-02-16 22:47:14] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:1069]
+[2020-02-16 22:53:15] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/ 200 [0.64, 127.0.0.1:1177]
+[2020-02-16 22:53:15] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.12, 127.0.0.1:1177]
+[2020-02-16 22:53:23] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/70/change/ 200 [0.35, 127.0.0.1:1177]
+[2020-02-16 22:53:24] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.04, 127.0.0.1:1177]
+[2020-02-16 22:53:27] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/ 200 [0.12, 127.0.0.1:1208]
+[2020-02-16 22:53:32] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceisa/ 200 [0.30, 127.0.0.1:1208]
+[2020-02-16 22:53:32] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:1208]
+[2020-02-16 22:53:40] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceisa/25/change/ 200 [0.27, 127.0.0.1:1231]
+[2020-02-16 22:53:40] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:1231]
+[2020-02-16 22:53:48] INFO [django.channels.server.log_action:141] HTTP POST /admin/home/workexperienceisa/25/change/ 200 [0.33, 127.0.0.1:1242]
+[2020-02-16 22:53:48] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.15, 127.0.0.1:1242]
+[2020-02-16 22:54:45] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /admin/home/workexperienceisa/25/change/
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 575, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1557, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1451, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1491, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "E:\Documents\Web\linux-contract\Django\Linuxjobber\home\admin.py", line 609, in save_model
+    details =  WorkExperienceEligibility.objects.get(user=user)
+NameError: name 'user' is not defined
+[2020-02-16 22:54:45] ERROR [django.channels.server.log_action:154] HTTP POST /admin/home/workexperienceisa/25/change/ 500 [0.24, 127.0.0.1:1075]
+[2020-02-16 22:55:03] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /admin/home/workexperienceisa/25/change/
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 575, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1557, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\utils\decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1451, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\admin\options.py", line 1491, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "E:\Documents\Web\linux-contract\Django\Linuxjobber\home\admin.py", line 609, in save_model
+    details =  WorkExperienceEligibility.objects.get(user=user)
+NameError: name 'user' is not defined
+[2020-02-16 22:55:03] ERROR [django.channels.server.log_action:154] HTTP POST /admin/home/workexperienceisa/25/change/ 500 [0.25, 127.0.0.1:1097]
+[2020-02-16 22:57:33] INFO [django.channels.server.log_action:147] HTTP POST /admin/home/workexperienceisa/25/change/ 302 [129.63, 127.0.0.1:1121]
+[2020-02-16 22:57:34] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceisa/ 200 [0.21, 127.0.0.1:1121]
+[2020-02-16 22:57:34] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:1193]
+[2020-02-16 22:57:39] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceisa/25/change/ 200 [0.27, 127.0.0.1:1193]
+[2020-02-16 22:57:39] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.04, 127.0.0.1:1193]
+[2020-02-16 22:57:43] INFO [django.channels.server.log_action:141] HTTP GET /media/pdfs/Work-Experience-ISA-Karim_Tamara.pdf 200 [0.05, 127.0.0.1:1193]
