@@ -308,7 +308,7 @@ United State Employment Eligibility Form | Linuxjobber
                                     <span class="checkm"></span>
                                   </label>
                     </div>
-                    <div class="col-md-5"><input style="margin-left: -70px; margin-top: 2px;" class="eligformin1 eliglabel" name="alien" type="text"/></div>
+                    <div class="col-md-5"><input style="margin-left: -70px; margin-top: 2px;" class="eligformin1 eliglabel datepicker" type="date" {% if details.i_am_a == 3 %} value="{{details.expiry_date}}" {%endif%}  name="exp" /></div>
                 </div>
           
           
