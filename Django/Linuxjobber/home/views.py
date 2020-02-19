@@ -1354,7 +1354,7 @@ def work_experience_eligible(request):
 
 
     if request.method == "POST":
-
+        print(request.POST)
         firstname = request.POST['firstname']
         lastname = request.POST['lastname']
         middleinitial = request.POST['initial']
@@ -1379,13 +1379,13 @@ def work_experience_eligible(request):
         else:
             result = False
 
-        if i_am == 2:
+        if i_am == '2':
             alien_no = request.POST['alien1']
         else:
             alien_no = None
 
-        if i_am == 3:
-            expiry_date = request.POST['alien']
+        if i_am == '3':
+            expiry_date = request.POST['exp']
             form19 = request.POST['form19']
             foreign = request.POST['foreign']
         else:
@@ -2973,7 +2973,7 @@ def tryfree(request, sub_plan='standardPlan'):
                        'courses': get_courses(),
                        'tools': get_tools()}
             return render(request, 'home/premium_plan_pay.html', context)
-
+    
 
 @login_required
 def rhcsa_order(request):

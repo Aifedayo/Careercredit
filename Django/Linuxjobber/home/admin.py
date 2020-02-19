@@ -9,6 +9,9 @@ from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import redirect
 from django.template.response import TemplateResponse
 from django.urls import path
+from django.template.loader import get_template
+from weasyprint import HTML, CSS
+from django.core.files.uploadedfile import SimpleUploadedFile
 
 from django.core.mail import send_mail
 from django.utils import timezone
@@ -553,6 +556,7 @@ class SendMessageAdmin(admin.ModelAdmin):
                 try:
                     _message = Message.objects.get(id=message)
                     _email_group = EmailGroup.objects.get(id=email_group_id)
+
                     # Check for request duplication
                     try:
                         last = CompletedTask.objects.last()
@@ -598,6 +602,27 @@ class SendMessageAdmin(admin.ModelAdmin):
             except:
                 return JsonResponse({})
 
+
+class WorkExperienceIsaAdmin(admin.ModelAdmin):
+    def save_model(self, request, obj, form, change):
+        try:
+            details =  WorkExperienceEligibility.objects.get(user=obj.user)
+        
+        except  WorkExperienceEligibility.DoesNotExist:
+            details = None
+
+        try: 
+            det = WorkExperienceIsa.objects.get(user=obj.user)
+        except WorkExperienceIsa.DoesNotExist:
+            det = None
+
+        html_template = get_template('home/workexpisapdf.html').render({'user':details})
+
+
+        pdf_file = HTML(string=html_template).write_pdf( stylesheets=[CSS("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")],presentational_hints=True)
+        obj.pdf = SimpleUploadedFile('Work-Experience-ISA-'+ details.user.first_name +' '+details.user.last_name +'.pdf', pdf_file, content_type='application/pdf')
+
+        super().save_model(request, obj, form, change)
 
 class WorkExperienceEligibilityAdmin(admin.ModelAdmin):
     list_display = ('user','first_name','state','SSN','ssn_last_four','is_encrypted')
@@ -802,13 +827,44 @@ class WorkExperienceEligibilityAdmin(admin.ModelAdmin):
                 )
                 mailer.send_mail()
                 self.message_user(request, 'Records could not be updated, Invalid password', messages.ERROR)
+                
+    def save_model(self, request, obj, form, change):
+        if obj.generate_pdf == 1:
+            try:
+                details =  WorkExperienceEligibility.objects.get(user=obj.user)
+                date = details.date_of_birth
+                date = date.strftime('%m/%d/%Y')
+                created = details.date_created
+                created = created.strftime('%Y/%m/%d')
+                ssn = details.SSN
+                ssn = ssn[-4:]
+                ssn = "•••••" + ssn
+                print("grab")
+                
+            except  WorkExperienceEligibility.DoesNotExist:
+                details = None
+                date = None
+                created = None
+            #return render(request, 'home/workexpeligibilitypdf.html')
+            html_template = get_template('home/workexpeligibilitypdf.html').render({'details':details,'date':date,'ssn':ssn,'created':created})
+
+
+            pdf_file = HTML(string=html_template).write_pdf( stylesheets=[CSS("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")],presentational_hints=True)
+            obj.pdf = SimpleUploadedFile('Work-Experience-Eligibility-'+ details.user.first_name +' '+details.user.last_name +'.pdf', pdf_file, content_type='application/pdf')
+            html_template1 = get_template('home/workexptermpdf.html').render({'user':details})
+
+
+            pdf_file = HTML(string=html_template).write_pdf( stylesheets=[CSS("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")],presentational_hints=True)
+            obj.terms = SimpleUploadedFile('Work-Experience-Terms-'+ details.user.first_name +' '+details.user.last_name +'.pdf', pdf_file, content_type='application/pdf')
+
+        super().save_model(request, obj, form, change)
 
 
 class ItPartnershipAdmin(admin.ModelAdmin):
     list_display = ('full_name','company','email','idea_title','idea_detail')
     # list_display = ItPartnership._meta.get_fields()
 
-admin.site.register(WorkExperienceIsa)
+admin.site.register(WorkExperienceIsa,WorkExperienceIsaAdmin)
 admin.site.register(WorkExperienceEligibility,WorkExperienceEligibilityAdmin)
 admin.site.register(WorkExperiencePay)
 admin.site.register(WorkExperiencePriceWaiver)
