@@ -1,0 +1,9 @@
+
+    Hello, 
+    
+    You are receiving this email because you applied for an internship at linuxjobber.com,
+    we would review your application and get back to you.
+
+    Best Regards,
+    Admin.
+

@@ -1,0 +1,13 @@
+
+    Hello,
+        
+    {fullname} with email: {email} just applied for a part time role, {title}
+    
+    CV can be found here: {cv}
+    Phone number is: {phone} 
+    High salary choice is: {salary}
+    
+    Please kindly review.
+    
+    Warm Regards
+

@@ -99,8 +99,8 @@ span{font-size:18px;}
 .checkm2{position:absolute;top:0;left:0;height:35px;width:35px;background-color:#F2F2F2;border-radius:20%;border:2px solid grey;}
 .contain:hover input ~ .checkm{background-color:#ccc;}
 .contain:hover input ~ .checkm2{background-color:#ccc;}
-.contain input[type=radio]:checked ~ .checkm{background-color:#599D2F;border:2px solid #599D2F;}
-.contain input:checked ~ .checkm2{background-color:#599D2F;border:2px solid #599D2F;}
+.contain input[type=radio]:checked ~ .checkm{background-color:black;border:17px solid #599D2F;}
+.contain input:checked ~ .checkm2{background-color:black;border:17px solid #599D2F;}
 .checkm:after{content:"";position:absolute;display:none;}
 .checkm2:after{content:"";position:absolute;display:none;}
 .contain input[type=radio]:checked ~ .checkm:after{display:block;}
@@ -167,16 +167,7 @@ span{font-size:18px;}
   background-color: #ccc;
 }
 
-/* When the radio button is checked, add a blue background */
-.contain input[type=radio]:checked ~ .checkm{
-  background-color: #599D2F;
-  border: 2px solid #599D2F;;
-}
 
-.contain input:checked ~ .checkm2{
-  background-color: #599D2F;
-  border: 2px solid #599D2F;;
-}
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
 .checkm:after {
@@ -338,24 +329,24 @@ span{font-size:18px;}
 
           <div class="row" style="padding-bottom: 0px; padding-top: 0px;"> 
                 <div class="col-md-7">
-                    <label style="margin-left: -21px;"  class="contain">  <span class="eligqut eligquter">3. A lawful permanent resident <span class="eligquterblak">Alien Registration Number/USCIS Number:</span></span>
+                    <label style="margin-left: -21px;"  class="contain">  <span class="eligqut eligquter">3. A lawful permanent resident <span class="eligquterblak">Alien Registration Number/USCIS Number: {%if details.Alien_reg_num %} {{details.Alien_reg_num}} {%endif%}</span></span>
                         <input type="radio" name="selector" required value="2" {% if details.i_am_a == 2 %} Checked {%endif%}>
                         <span class="checkm"></span>
                     </label>
                 </div>
-                <div class="col-md-5">{%if details.Alien_reg_num %} value="{{details.Alien_reg_num}}" {%endif%}</div>
+                <div class="col-md-5"></div>
             </div>
 
             <div class="row"  style="padding-top: 0px;">
-                    <div class="col-md-7" >
+                    <div class="col-md-6" >
                             <label style="margin-left: -21px;" class="contain"> <span class="eligqut eligquter">4. An alien authorized to work <span class="eligquterblak">Until
-                                    (expiration date, if applicable, mm/dd/yyyy):<br>Some aliens may write "N/A" in the expiration date field(See Instrcutions)</span>
+                                    (expiration date, if applicable, mm/dd/yyyy): {% if details.i_am_a == 3 %} {{details.expiry_date|date}} {%endif%}<br>Some aliens may write "N/A" in the expiration date field(See Instrcutions)</span>
                                     </span>
                                     <input  type="radio" name="selector" required value="3" {% if details.i_am_a == 3 %} Checked {%endif%}>
                                     <span class="checkm"></span>
                                   </label>
                     </div>
-                    <div class="col-md-5"><input style="margin-left: -80px; margin-top: 2px;" class="eligformin1 eliglabel" name="alien" type="text"/></div>
+                    <div class="col-md-6"></div>
                 </div>
           
           
@@ -367,17 +358,17 @@ span{font-size:18px;}
     <span class="eligqut">Aliens authorized to work must provide only one of the following document numbers to complete Form I-9:  An Alien Registration Number/USCIS Number OR Form I-94 Admission Number OR Foreign Passport Number.</span><br><br>
     <div class="form-group" style="margin-bottom: 5px;">
         <label for="alien" class="eligqut" style="width: 50%;">1.  Alien Registration Number/USCIS Number:</label>
-         {%if details.Alien_reg_num %} value="{{details.Alien_reg_num}}" {%endif%} 
+         {%if details.Alien_reg_num %} {{details.Alien_reg_num}} {%endif%} 
     </div>
     <p class="eligqut" style="margin-bottom: 5px;"  >OR</p>
     <div class="form-group"  style="margin-bottom: 5px;">
         <label for="alien" class="eligqut" style="width: 30%;">2.  Form I-94 Admission Number:</label>
-         {%if details.form_19_num %} value="{{details.form_19_num}}" {%endif%} 
+         {%if details.form_19_num %} {{details.form_19_num}} {%endif%} 
     </div>
     <p class="eligqut" style="margin-bottom: 5px;">OR</p>
     <div class="form-group" style="margin-bottom: 5px;">
         <label for="alien" class="eligqut" style="width: 30%;">3.  Foreign Passport Number:</label>
-        {%if details.foreign_pass_num%} value="{{details.foreign_pass_num}}" {%endif%}  
+        {%if details.foreign_pass_num%} {{details.foreign_pass_num}} {%endif%}  
     </div>
 
     <div class="eligsec">
@@ -465,7 +456,9 @@ span{font-size:18px;}
         </div>
     </div>
     <hr>
-    <span class="eligqut">I {{details.first_name|upper}} {{details.last_name|upper}} AGREE TO HAVE READ, UNDERSTOOD AND ACEPTED OUR STUDENT ENROLLMENT AGREEMENT</span>
+    <span>I, <span class="eligqut" style="font-style: italic;">{{details.first_name|upper}} {{details.last_name|upper}} </span>, AGREE TO HAVE READ, UNDERSTOOD AND ACEPTED OUR STUDENT ENROLLMENT AGREEMENT</span>
+    <br>
+    <span class="eligqut" style="font-style: italic;">{{details.date_created | date}}</span>
     <br>
 </form>
 </div>

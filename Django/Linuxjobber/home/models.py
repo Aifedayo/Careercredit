@@ -137,7 +137,7 @@ class PartTimeJob(models.Model):
 
 
 def content_file_name(instance, filename):
-    return os.path.join('uploads', 'resumes', instance.user.username + '_' + filename)
+    return os.path.join('uploads','pdfs', 'resumes', instance.user.username + '_' + filename)
 
 
 class Jobplacement(models.Model):
@@ -441,10 +441,10 @@ class WorkExperienceEligibility(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=200, null=True)
     last_name = models.CharField(max_length=200, null=True)
-    middle_initial = models.CharField(max_length=200, null=True)
-    middle_name = models.CharField(max_length=200, null=True)
+    middle_initial = models.CharField(max_length=200, null=True, blank=True)
+    middle_name = models.CharField(max_length=200, null=True, blank=True)
     address = models.TextField()
-    apt_number = models.TextField()
+    apt_number = models.TextField(null=True, blank=True)
     city = models.CharField(max_length=20, null=True)
     state = models.CharField(max_length=20, null=True)
     zip_code = models.CharField(max_length=20, null=True)
@@ -456,15 +456,16 @@ class WorkExperienceEligibility(models.Model):
     employee_address = models.TextField()
     employee_email = models.TextField()
     employee_phone = models.CharField(max_length=50, null=True)
-    expiry_date = models.DateTimeField(default=timezone.now, null=True)
+    expiry_date = models.DateTimeField(default=timezone.now, null=True, blank=True)
     preparer_or_translator = models.BooleanField(default=False)
     i_am_a = models.IntegerField(default=0, choices=WORKEXPERIENCE_OPTIONS)
-    Alien_reg_num = models.TextField(null=True)
-    form_19_num = models.TextField(null=True)
-    foreign_pass_num = models.TextField(null=True)
+    Alien_reg_num = models.TextField(null=True, blank=True)
+    form_19_num = models.TextField(null=True, blank=True)
+    foreign_pass_num = models.TextField(null=True, blank=True)
     date_created = models.DateTimeField(default=timezone.now, null=True)
-    pdf = models.FileField(upload_to='uploads/', null=True)
-    terms = models.FileField(upload_to='uploads/', null=True)
+    pdf = models.FileField(upload_to='pdfs/', null=True, blank=True)
+    terms = models.FileField(upload_to='pdfs/', null=True, blank=True)
+    generate_pdf = models.IntegerField(default=0, choices=((0, 'No'), (1, 'Yes')))
 
     def __str__(self):
         return self.user.email
@@ -532,7 +533,8 @@ class WorkExperienceIsa(models.Model):
     employment_status = models.TextField(null=True)
     estimated_date_of_program_completion = models.DateTimeField(default=timezone.now, null=True)
     is_signed_isa = models.BooleanField(default=False)
-    pdf = models.FileField(upload_to='uploads/', null=True)
+    pdf = models.FileField(upload_to='pdfs', null=True, blank=True)
+    generate_pdf = models.IntegerField(default=0, choices=((0, 'No'), (1, 'Yes')))
 
     def __str__(self):
         return self.user.email
