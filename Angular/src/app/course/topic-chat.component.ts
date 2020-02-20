@@ -75,7 +75,7 @@ export class TopicChatComponent implements OnInit {
            user:sessionStorage.getItem('username'),
            content:message,
            the_type:type,
-           timestamp:now.toUTCString(),
+           timestamp:this.onlyHsMs(now.toLocaleTimeString()),
            token:this.token
          };  
 
@@ -189,4 +189,10 @@ export class TopicChatComponent implements OnInit {
     } catch (err) {}
   }
 
+  private onlyHsMs(time){
+    time = time.split(':')
+    let ampm = time.pop()
+    ampm = ampm.split(' ')
+    return `${time[0]}:${time[1]} ${ampm[1]}`
+  }
 }

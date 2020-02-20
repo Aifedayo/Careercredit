@@ -128,3 +128,32 @@ button {
 html body app-root app-course div.container-fluid.all-field div.row div.col-md-9 div app-topic-chat mat-card.card.medium.mat-card div#chat_div_space.card-content.scroll-hide mat-card.main-card.mat-card mat-list.chat-list.mat-list div div.me mat-list-item.mat-list-item.mat-2-line div.mat-list-item-content div{
   margin: 10px 0px 15px 10px;
 }
+
+b{
+  font-size: 15px;
+  line-height: 1.46668;
+}
+
+.mat-line i{
+  color: rgb(97, 96, 97);
+}
+
+p.mat-line{
+  margin-top: 6px;
+  line-height: 1.46668;
+  text-align: left;
+  word-wrap: break-word;
+  color:rgba(29,28,29,1);
+  font-variant-ligatures: common-ligatures;
+}
+
+.mat-list[dense] .mat-list-item .mat-line:nth-child(n+2){
+  margin-top: 8px;
+  font-size: 15px;
+  white-space: pre-wrap;
+}
+
+img.img-responsive.img-circle.fix-size,img.fix-size.mat-list-avatar{
+  border: 2px solid #fff;
+}
+
