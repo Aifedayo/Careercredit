@@ -1173,24 +1173,22 @@ def workexpform(request):
 
     try:
         details =  WorkExperienceEligibility.objects.get(user=request.user)
-        try:
-            deta = WorkExperienceIsa.objects.get(user=request.user)
-            
-            try:
-                eta = WorkExperienceIsa.objects.get(user=request.user)
-                if eta.is_signed_isa == True:
-                    pass
-                else:
-                    return redirect("home:workexpisa2")
-
-
-            except WorkExperienceIsa.DoesNotExist:
-                return redirect("home:isa")
-        except WorkExperienceIsa.DoesNotExist:
-            return redirect("home:isa")
-
     except  WorkExperienceEligibility.DoesNotExist:
         return redirect("home:eligibility")
+    
+    try:
+        deta = WorkExperienceIsa.objects.get(user=request.user)
+    except WorkExperienceIsa.DoesNotExist:
+        return redirect("home:isa")
+
+    try:
+        eta = WorkExperienceIsa.objects.get(user=request.user)
+        if eta.is_signed_isa == True:
+            pass
+        else:
+            return redirect("home:workexpisa2")
+    except WorkExperienceIsa.DoesNotExist:
+        return redirect("home:isa")
 
     try:
         jot =  WorkExperienceIsa.objects.get(user=request.user)
@@ -1546,20 +1544,22 @@ def workexprofile(request):
         if not weps.types:
             try:
                 details =  WorkExperienceEligibility.objects.get(user=request.user)
-                try:
-                    deta = WorkExperienceIsa.objects.get(user=request.user)
-                    try:
-                        eta = WorkExperienceIsa.objects.get(user=request.user)
-                        if eta.is_signed_isa == True:
-                            return redirect("home:workexpform")
-                        else:
-                            return redirect("home:workexpisa2")
-                    except WorkExperienceIsa.DoesNotExist:
-                        return redirect("home:isa")
-                except WorkExperienceIsa.DoesNotExist:
-                    return redirect("home:isa")
             except  WorkExperienceEligibility.DoesNotExist:
                 return redirect("home:eligibility")
+            
+            try:
+                deta = WorkExperienceIsa.objects.get(user=request.user)
+            except WorkExperienceIsa.DoesNotExist:
+                return redirect("home:isa")
+
+            try:
+                eta = WorkExperienceIsa.objects.get(user=request.user)
+                if eta.is_signed_isa == True:
+                    return redirect("home:workexpform")
+                else:
+                    return redirect("home:workexpisa2")
+            except WorkExperienceIsa.DoesNotExist:
+                return redirect("home:isa")
     except wepeoples.DoesNotExist:
         return redirect("home:workexperience")
 
@@ -1651,11 +1651,8 @@ def workexprofile(request):
     work_experience_term_pdf(details.user)
     work_experience_isa_pdf(details.user)
     pdf = details.pdf.url
-    pdf = pdf[1:]
     pdf2 = details.terms.url
-    pdf2 = pdf2[1:]
     pdf3 = isa.pdf.url
-    pdf3 = pdf3[1:]
     
     
 
