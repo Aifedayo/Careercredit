@@ -1,0 +1,9 @@
+<img id="lightbox-img" src="{{imageUrl}}" (click)="openModal()"
+    alt="Uploaded picture" width="200" height="100">
+
+<!-- The Modal -->
+<div id="lightboxModal" class="lightbox-modal">
+  <span class="lightbox-close" (click)="closeModal()">&times;</span>
+  <img class="lightbox-modal-content" id="lightboxModalImg">
+  <div id="lightbox-caption"></div>
+</div>
