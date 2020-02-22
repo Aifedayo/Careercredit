@@ -1537,29 +1537,31 @@ def work_experience_isa_part_2(request):
 
 @login_required
 def workexprofile(request):
+
+    try:
+        details =  WorkExperienceEligibility.objects.get(user=request.user)
+    except  WorkExperienceEligibility.DoesNotExist:
+        return redirect("home:eligibility")
+
+    try:
+        isa = WorkExperienceIsa.objects.get(user=request.user)
+        if isa.is_signed_isa == False:
+            return redirect("home:workexpisa2")
+    except WorkExperienceIsa.DoesNotExist:
+        return redirect("home:isa")
+
+    try:
+        eta = WorkExperienceIsa.objects.get(user=request.user)
+        
+    except WorkExperienceIsa.DoesNotExist:
+        return redirect("home:isa")
+    
     group = []
     try:
         weps = wepeoples.objects.get(user=request.user)
 
         if not weps.types:
-            try:
-                details =  WorkExperienceEligibility.objects.get(user=request.user)
-            except  WorkExperienceEligibility.DoesNotExist:
-                return redirect("home:eligibility")
-            
-            try:
-                deta = WorkExperienceIsa.objects.get(user=request.user)
-            except WorkExperienceIsa.DoesNotExist:
-                return redirect("home:isa")
-
-            try:
-                eta = WorkExperienceIsa.objects.get(user=request.user)
-                if eta.is_signed_isa == True:
-                    return redirect("home:workexpform")
-                else:
-                    return redirect("home:workexpisa2")
-            except WorkExperienceIsa.DoesNotExist:
-                return redirect("home:isa")
+            return redirect("home:workexpform")
     except wepeoples.DoesNotExist:
         return redirect("home:workexperience")
 
@@ -1635,15 +1637,6 @@ def workexprofile(request):
             "!!! Profile picture is required. Please upload it now"
         )
 
-    try:
-        details =  WorkExperienceEligibility.objects.get(user=request.user)
-    except  WorkExperienceEligibility.DoesNotExist:
-        return redirect("home:eligibility")
-
-    try:
-        isa = WorkExperienceIsa.objects.get(user=request.user)
-    except WorkExperienceIsa.DoesNotExist:
-        return redirect("home:isa")
     
     url = settings.ENV_URL
 

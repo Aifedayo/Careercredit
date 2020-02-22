@@ -2793,3 +2793,29 @@ weasyprint.urls.URLFetchingError: URLError: <urlopen error [WinError 10054] An e
 [2020-02-21 16:36:34] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.06, 127.0.0.1:5014]
 [2020-02-21 16:36:38] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/71/change/ 200 [0.40, 127.0.0.1:5014]
 [2020-02-21 16:36:38] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.08, 127.0.0.1:5014]
+[2020-02-22 12:39:12] INFO [django.channels.server.log_action:147] HTTP GET / 302 [0.61, 127.0.0.1:15862]
+[2020-02-22 12:39:12] INFO [django.channels.server.log_action:141] HTTP GET /timeout 200 [0.64, 127.0.0.1:15862]
+[2020-02-22 12:39:13] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/proj-list.png 200 [0.05, 127.0.0.1:15862]
+[2020-02-22 12:39:21] INFO [django.channels.server.log_action:147] HTTP POST /timeout 302 [0.31, 127.0.0.1:15907]
+[2020-02-22 12:39:21] INFO [django.channels.server.log_action:141] HTTP GET / 200 [0.26, 127.0.0.1:15907]
+[2020-02-22 12:39:24] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.14, 127.0.0.1:15907]
+[2020-02-22 12:39:33] INFO [django.channels.server.log_action:147] HTTP GET /workexperience/ 302 [0.07, 127.0.0.1:15938]
+[2020-02-22 12:40:00] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [26.57, 127.0.0.1:15938]
+[2020-02-22 12:40:00] INFO [django.channels.server.log_action:141] HTTP GET /media/resume/1.jpg 200 [0.13, 127.0.0.1:15938]
+[2020-02-22 12:47:45] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /workexperience/profile/
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "E:\Documents\Web\linux-contract\Django\Linuxjobber\home\views.py", line 1548, in workexprofile
+    if eta.is_signed_isa == False:
+UnboundLocalError: local variable 'eta' referenced before assignment
+[2020-02-22 12:47:45] ERROR [django.channels.server.log_action:154] HTTP GET /workexperience/profile/ 500 [0.21, 127.0.0.1:16559]
+[2020-02-22 12:48:33] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [26.74, 127.0.0.1:16616]
+[2020-02-22 12:48:33] INFO [django.channels.server.log_action:141] HTTP GET /media/resume/1.jpg 200 [0.05, 127.0.0.1:16616]
+[2020-02-22 12:49:01] INFO [django.channels.server.log_action:141] HTTP GET /media/pdfs/Work-Experience-ISA-mololuwa_olufeko_Eq0mfph.pdf 200 [0.13, 127.0.0.1:16755]
