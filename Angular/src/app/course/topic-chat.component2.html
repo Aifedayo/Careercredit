@@ -48,7 +48,7 @@
                               </a>
                           </span> -->
                           <app-image-lightbox *ngIf="message.the_type === 'image'" 
-                            imageUrl="https://s3.amazonaws.com/assets.prod.linuxjobber.com/media/chat_uploads/59c50206e890d.jpg"></app-image-lightbox>
+                            [imageUrl]="message.content"></app-image-lightbox>
                           <span *ngIf="message.the_type === 'file' ">
                               <i> Uploaded a file: </i>
                               <a [href]="message.content" download="{{ message.user }}'s_upload">
