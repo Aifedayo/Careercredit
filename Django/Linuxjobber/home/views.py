@@ -1756,13 +1756,23 @@ def apply(request, level):
                     message=message_applicant
                 )
                 mailer_applicant.send_mail()
+                message_admin = """
+                    Hello, 
+                    {email}
+                    just succesfully applied for Jobplacement Program.
+                    
+                    Warm Regards,
+                    Linuxjobber
 
+                """.format(
+                    email =  request.user.email
+                )
                 mailer = LinuxjobberMailer(
-                        subject="Account has been created",
-                        to_address= email,
+                        subject="Jobplacement registration successful",
+                        to_address= ADMIN_EMAIL,
                         header_text="Linuxjobber",
                         type=None,
-                        message= mail_message
+                        message= message_admin
                     )
                 mailer.send_mail()
 
@@ -2763,11 +2773,31 @@ def full_train_pay(request, class_id):
                 user = request.user
                 user.role = 3
                 user.save()
-                send_mail('Linuxjobber '+ comclass.name +' Subscription',
-                            'Hello, you have successfuly subscribed for our ' +comclass.name+' Plan package.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
-                            settings.EMAIL_HOST_USER, [request.user.email])
+                # send_mail('Linuxjobber '+ comclass.name +' Subscription',
+                #             'Hello, you have successfuly subscribed for our ' +comclass.name+' Plan package.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
+                #             settings.EMAIL_HOST_USER, [request.user.email])
+                message_applicant = """
+                    Hello, you have successfuly subscribed for our {comclass.name} Plan package.
+                    
+                    Thanks & Regards 
+                    Linuxjobber
+                    
+
+                    To Unsubscribe go here 
+                    {settings.ENV_URL}unsubscribe,
+                """
+                mailer_applicant = LinuxjobberMailer(
+                    subject="Linuxjobber "+ comclass.name +" Subscription",
+                    to_address=request.user.email,
+                    header_text="Linuxjobber "+comclass.name,
+                    type=None,
+                    message=message_applicant
+                )
+                mailer_applicant.send_mail()
                 return render(request, 'home/complete_pay_success.html', {'class': comclass.name})
             except Exception as error:
+                print("An error occured")
+                print(error)
                 messages.error(request, 'An error occurred while trying to pay please try again')
                 return redirect("home:index")
     else:
