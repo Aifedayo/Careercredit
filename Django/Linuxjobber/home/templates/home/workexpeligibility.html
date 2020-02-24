@@ -279,7 +279,7 @@ United State Employment Eligibility Form | Linuxjobber
     
     <div style="padding:0px">
 
-            <label class="contain"> <span class="eligqut eligquter">1. A citizen of the United States</span>
+            <label class="contain help1"> <span class="eligqut eligquter">1. A citizen of the United States</span>
                 <input type="radio" name="selector" required value="0" {% if details.i_am_a == 0 %} Checked {%endif%}>
                 <span class="checkm"></span>
             </label>
@@ -292,11 +292,11 @@ United State Employment Eligibility Form | Linuxjobber
           <div class="row" style="padding-bottom: 0px; padding-top: 0px;"> 
                 <div class="col-md-7">
                     <label style="margin-left: -21px;"  class="contain">  <span class="eligqut eligquter">3. A lawful permanent resident <span class="eligquterblak">Alien Registration Number/USCIS Number:</span></span>
-                        <input type="radio" name="selector" required value="2" {% if details.i_am_a == 2 %} Checked {%endif%}>
+                        <input type="radio" id="permanent" name="selector" required value="2" {% if details.i_am_a == 2 %} Checked {%endif%}>
                         <span class="checkm"></span>
                     </label>
                 </div>
-                <div class="col-md-5"><input  style="margin-left: -80px; margin-top: 2px;" {%if details.Alien_reg_num %} value="{{details.Alien_reg_num}}" {%endif%} class="eligformin1 eliglabel" name="alien1" type="text"/></div>
+                <div class="col-md-5"><input id="ali" style="margin-left: -80px; margin-top: 2px;" {%if details.Alien_reg_num %} value="{{details.Alien_reg_num}}" {%endif%} class="eligformin1 eliglabel" name="alien1" type="number"/></div>
             </div>
 
             <div class="row"  style="padding-top: 0px;">
@@ -320,7 +320,7 @@ United State Employment Eligibility Form | Linuxjobber
     <span class="eligqut">Aliens authorized to work must provide only one of the following document numbers to complete Form I-9:  An Alien Registration Number/USCIS Number OR Form I-94 Admission Number OR Foreign Passport Number.</span><br><br>
     <div class="form-group" style="margin-bottom: 5px;">
         <label for="alien" class="eligqut" style="width: 31%;">1.  Alien Registration Number/USCIS Number:</label>
-        <input class="eligformin1 eliglabel" {%if details.Alien_reg_num %} value="{{details.Alien_reg_num}}" {%endif%} name="alien" type="text"/>
+        <input class="eligformin1 eliglabel" id="ali1" {%if details.Alien_reg_num %} value="{{details.Alien_reg_num}}" {%endif%} name="alien" type="number"/>
     </div>
     <p class="eligqut" style="margin-bottom: 5px;"  >OR</p>
     <div class="form-group"  style="margin-bottom: 5px;">
@@ -466,8 +466,18 @@ var ssn = document.getElementById('ssn');
                 scrollTop: $(".jsy").offset().top
             }, 500);
             $('input[name=ssn]').focus();
-            return false;
-            
+
+            return false; 
+        }
+
+        if($('#permanent'). is(":checked")){
+            if($('#ali').val().length == 0){
+                $('html, body').animate({
+                    scrollTop: $(".help1").offset().top
+                }, 500);
+                $('#ali').focus();
+                return false; 
+            }
         }
     });
 
@@ -494,6 +504,10 @@ var ssn = document.getElementById('ssn');
             }
         }
     }
+
+    $("#ali").on('input', function() {
+        $("#ali1").val($("#ali").val())
+    });
 
     $("#fint").on('input', function() {
         $("#fint1").val($("#fint").val())
