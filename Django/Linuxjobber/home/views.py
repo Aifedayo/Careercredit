@@ -1173,24 +1173,22 @@ def workexpform(request):
 
     try:
         details =  WorkExperienceEligibility.objects.get(user=request.user)
-        try:
-            deta = WorkExperienceIsa.objects.get(user=request.user)
-            
-            try:
-                eta = WorkExperienceIsa.objects.get(user=request.user)
-                if eta.is_signed_isa == True:
-                    pass
-                else:
-                    return redirect("home:workexpisa2")
-
-
-            except WorkExperienceIsa.DoesNotExist:
-                return redirect("home:isa")
-        except WorkExperienceIsa.DoesNotExist:
-            return redirect("home:isa")
-
     except  WorkExperienceEligibility.DoesNotExist:
         return redirect("home:eligibility")
+    
+    try:
+        deta = WorkExperienceIsa.objects.get(user=request.user)
+    except WorkExperienceIsa.DoesNotExist:
+        return redirect("home:isa")
+
+    try:
+        eta = WorkExperienceIsa.objects.get(user=request.user)
+        if eta.is_signed_isa == True:
+            pass
+        else:
+            return redirect("home:workexpisa2")
+    except WorkExperienceIsa.DoesNotExist:
+        return redirect("home:isa")
 
     try:
         jot =  WorkExperienceIsa.objects.get(user=request.user)
@@ -1539,27 +1537,31 @@ def work_experience_isa_part_2(request):
 
 @login_required
 def workexprofile(request):
+
+    try:
+        details =  WorkExperienceEligibility.objects.get(user=request.user)
+    except  WorkExperienceEligibility.DoesNotExist:
+        return redirect("home:eligibility")
+
+    try:
+        isa = WorkExperienceIsa.objects.get(user=request.user)
+        if isa.is_signed_isa == False:
+            return redirect("home:workexpisa2")
+    except WorkExperienceIsa.DoesNotExist:
+        return redirect("home:isa")
+
+    try:
+        eta = WorkExperienceIsa.objects.get(user=request.user)
+        
+    except WorkExperienceIsa.DoesNotExist:
+        return redirect("home:isa")
+    
     group = []
     try:
         weps = wepeoples.objects.get(user=request.user)
 
         if not weps.types:
-            try:
-                details =  WorkExperienceEligibility.objects.get(user=request.user)
-                try:
-                    deta = WorkExperienceIsa.objects.get(user=request.user)
-                    try:
-                        eta = WorkExperienceIsa.objects.get(user=request.user)
-                        if eta.is_signed_isa == True:
-                            return redirect("home:workexpform")
-                        else:
-                            return redirect("home:workexpisa2")
-                    except WorkExperienceIsa.DoesNotExist:
-                        return redirect("home:isa")
-                except WorkExperienceIsa.DoesNotExist:
-                    return redirect("home:isa")
-            except  WorkExperienceEligibility.DoesNotExist:
-                return redirect("home:eligibility")
+            return redirect("home:workexpform")
     except wepeoples.DoesNotExist:
         return redirect("home:workexperience")
 
@@ -1635,15 +1637,6 @@ def workexprofile(request):
             "!!! Profile picture is required. Please upload it now"
         )
 
-    try:
-        details =  WorkExperienceEligibility.objects.get(user=request.user)
-    except  WorkExperienceEligibility.DoesNotExist:
-        return redirect("home:eligibility")
-
-    try:
-        isa = WorkExperienceIsa.objects.get(user=request.user)
-    except WorkExperienceIsa.DoesNotExist:
-        return redirect("home:isa")
     
     url = settings.ENV_URL
 
@@ -1651,11 +1644,8 @@ def workexprofile(request):
     work_experience_term_pdf(details.user)
     work_experience_isa_pdf(details.user)
     pdf = details.pdf.url
-    pdf = pdf[1:]
     pdf2 = details.terms.url
-    pdf2 = pdf2[1:]
     pdf3 = isa.pdf.url
-    pdf3 = pdf3[1:]
     
     
 
@@ -1756,13 +1746,23 @@ def apply(request, level):
                     message=message_applicant
                 )
                 mailer_applicant.send_mail()
+                message_admin = """
+                    Hello, 
+                    {email}
+                    just succesfully applied for Jobplacement Program.
+                    
+                    Warm Regards,
+                    Linuxjobber
 
+                """.format(
+                    email =  request.user.email
+                )
                 mailer = LinuxjobberMailer(
-                        subject="Account has been created",
-                        to_address= email,
+                        subject="Jobplacement registration successful",
+                        to_address= ADMIN_EMAIL,
                         header_text="Linuxjobber",
                         type=None,
-                        message= mail_message
+                        message= message_admin
                     )
                 mailer.send_mail()
 
@@ -2763,11 +2763,31 @@ def full_train_pay(request, class_id):
                 user = request.user
                 user.role = 3
                 user.save()
-                send_mail('Linuxjobber '+ comclass.name +' Subscription',
-                            'Hello, you have successfuly subscribed for our ' +comclass.name+' Plan package.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
-                            settings.EMAIL_HOST_USER, [request.user.email])
+                # send_mail('Linuxjobber '+ comclass.name +' Subscription',
+                #             'Hello, you have successfuly subscribed for our ' +comclass.name+' Plan package.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
+                #             settings.EMAIL_HOST_USER, [request.user.email])
+                message_applicant = """
+                    Hello, you have successfuly subscribed for our {comclass.name} Plan package.
+                    
+                    Thanks & Regards 
+                    Linuxjobber
+                    
+
+                    To Unsubscribe go here 
+                    {settings.ENV_URL}unsubscribe,
+                """
+                mailer_applicant = LinuxjobberMailer(
+                    subject="Linuxjobber "+ comclass.name +" Subscription",
+                    to_address=request.user.email,
+                    header_text="Linuxjobber "+comclass.name,
+                    type=None,
+                    message=message_applicant
+                )
+                mailer_applicant.send_mail()
                 return render(request, 'home/complete_pay_success.html', {'class': comclass.name})
             except Exception as error:
+                print("An error occured")
+                print(error)
                 messages.error(request, 'An error occurred while trying to pay please try again')
                 return redirect("home:index")
     else:

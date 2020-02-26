@@ -83,9 +83,16 @@ class AwsWebsocketGatewayView(APIView):
             }
 
             for connection in connections:
-                _send_to_connection(
-                    connection.connection_id, data
-                )
+                try:
+                    _send_to_connection(
+                        connection.connection_id, data
+                    )
+                except Exception as e:
+                    print(connection.connection_id)
+                    Connection.objects.filter(
+                        connection_id=connection.connection_id
+                    ).delete()
+
 
             return Response({'message':'successful'},status.HTTP_200_OK)
         except Token.DoesNotExist:
