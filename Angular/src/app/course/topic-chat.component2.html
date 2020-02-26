@@ -17,12 +17,15 @@
                     <span *ngIf="message.the_type === 'plain' || message.the_type === undefined " >
                       {{message.content}}
                     </span>
-                    <span *ngIf="message.the_type === 'image'">
+                    <!--<span *ngIf="message.the_type === 'image'">
                       <i> Uploaded an image </i>
                       <a [href]="message.content" target="_blank">
                           <img mat-list-icon [src]="message.content"/>
                       </a>
-                    </span>
+                    </span>-->
+                    <app-image-lightbox *ngIf="message.the_type === 'image'" 
+                      [imageUrl]="message.content">
+                    </app-image-lightbox>
                     <span *ngIf="message.the_type === 'file' ">
                       <i> Uploaded a file: </i><a [href]="message.content" 
                         download="{{ message.user }}'s_upload">Download</a>
@@ -41,12 +44,6 @@
                           <span *ngIf="message.the_type === 'plain' || message.the_type === undefined " >
                             {{message.content}}
                           </span>
-                          <!-- <span *ngIf="message.the_type === 'image'">
-                              <i> Uploaded an image </i>
-                              <a [href]="message.content" target="_blank">
-                                  <img mat-list-icon [src]="message.content"/>
-                              </a>
-                          </span> -->
                           <app-image-lightbox *ngIf="message.the_type === 'image'" 
                             [imageUrl]="message.content"></app-image-lightbox>
                           <span *ngIf="message.the_type === 'file' ">
