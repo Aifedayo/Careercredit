@@ -36,10 +36,14 @@ export class TopicChatComponent implements OnInit {
   public type=TYPE;
   public avatar:string;
   private token:string;
+  private offset_id:Number = 0;
+  private is_send_message:Boolean = false;
+  private recent_message_is_set:Boolean = false;
 
 
-      // getting a reference to the overall list, which is the parent container of the list items
+  // getting a reference to the overall list, which is the parent container of the list items
   @ViewChild(MatList, { read: ElementRef }) matList: ElementRef;
+  @ViewChild('ChatSpace') chatSpace: ElementRef<HTMLElement>;
 
   private user$: Observable<UserModel>;
   public environment = environment;
@@ -50,15 +54,11 @@ export class TopicChatComponent implements OnInit {
     private alertService: AlertService,
     private dataService: DataService,
   ) {
-    this.token = sessionStorage.getItem('token');
-    this.user$=this.apiService.getUserInfo();
-    this.current_user = sessionStorage.getItem('username');
-    // this.avatar=environment.API_URL + `media/avatar.png`;
-    this.avatar=this.dataService.profileImgIsSet()?
-      environment.API_URL + sessionStorage.getItem('profile_img'):
-      environment.API_URL + `media/avatar.png`;
-    this.websocket = new WebSocket(environment.WS_URL+"?token="+this.token);
-    this.activeGroup = sessionStorage.getItem('active_group');
+      this.token = sessionStorage.getItem('token');
+      this.user$=this.apiService.getUserInfo();
+      this.current_user = sessionStorage.getItem('username');
+      this.activeGroup = sessionStorage.getItem('active_group');
+      this.setProfileImage();
    }
 
   ngOnInit() {
@@ -67,22 +67,21 @@ export class TopicChatComponent implements OnInit {
 
   sendMessage(message,type:string) {
      if(this.dataService.profileImgIsSet()){
-       if (message!==""){
-         const now = new Date();
-         const context = {
-           action:'sendMessage',
-           active_group:this.activeGroup,
-           user:sessionStorage.getItem('username'),
-           content:message,
-           the_type:type,
-           timestamp:this.onlyHsMs(now.toLocaleTimeString()),
-           token:this.token
-         };  
+       if(message!==""){
+          const now = new Date();
+          const context = {
+            action:'sendMessage',
+            active_group:this.activeGroup,
+            user:sessionStorage.getItem('username'),
+            content:message,
+            the_type:type,
+            timestamp:this.onlyHsMs(now.toLocaleTimeString()),
+            token:this.token
+          };  
 
-         this.websocket.send(
-            JSON.stringify(context)
-          );
+          this.websocket.send(JSON.stringify(context));
           this.chat_text = '';
+          this.is_send_message = true
         } 
         //console.log(message)
       }
@@ -106,8 +105,8 @@ export class TopicChatComponent implements OnInit {
           this.apiService.uploadFile(formData)
             .subscribe(
                 data => {
-                  const url=environment.API_URL + data['url'];
-                  this.sendMessage(url,data['type'])
+                  // const url=environment.API_URL + data['url'];
+                  this.sendMessage(data['url'],data['type'])
                 },
                 error => console.log( error)
             );
@@ -119,50 +118,29 @@ export class TopicChatComponent implements OnInit {
   }
 
   callWebsocket(){
+    this.websocket = new WebSocket(
+      environment.WS_URL+"?token="+this.token
+    );
+
     this.websocket.onopen = (evt) => {
-      const now=new Date();
-      const context ={
-        action:'getRecentMessages',
-        active_group:this.activeGroup,
-        token:this.token
-      };
-      // console.log(context)
-      this.websocket.send(JSON.stringify(context));
+      if(!this.recent_message_is_set){
+        this.getMessages()
+      }
     };
 
     this.websocket.onmessage = (evt) => {
-      // console.log(evt.data);
       const data = JSON.parse(evt.data);
-      if(data['active_group'] == this.activeGroup){
-        if (data['messages'] !== undefined) {
-          data['messages'].forEach((message)=>{
-              const messg = {
-                user:message.user.username,
-                profile_img:message.user.profile_img,
-                content:message.content,
-                the_type:message.the_type,
-                timestamp:message.timestamp,
-              };
-              
-              this.messages.push(messg);
-            }
-          );
-        }
-      }
+      console.log(data)
+      this.processMessages(data)
     };
 
+    this.websocket.onclose = ()=>{
+        // this.websocket = null
+        console.log('... trying reconnection in 5 sec....')
+        setTimeout(this.callWebsocket,5000)
+    }
   }
 
-  mutableObserver(){
-    this.mutationObserver = new MutationObserver((mutations) => {
-        this.scrollToBottom();
-      }
-    );
-
-    this.mutationObserver.observe(this.matList.nativeElement, {
-        childList: true
-    });
-  }
 
   getProfileImg(proImgUrl:string){
     var image_url = "";
@@ -178,15 +156,93 @@ export class TopicChatComponent implements OnInit {
     return image_url
   }
 
+  getMessages(){
+    if(this.offset_id != -1){
+      const data = {
+        active_group:this.activeGroup,
+        offset_id:this.offset_id,
+        token:this.token
+      };
+
+      this.apiService.getMessages(data).subscribe(
+          data => {
+            this.is_send_message = false
+            if(this.offset_id != 0) data['is_next']=true
+            this.processMessages(data)
+            this.offset_id = data['next_offset_id']
+            this.recent_message_is_set = true
+          },
+          error => console.log( error)
+      );
+    }
+  }
+
+  isOthers(username){
+    return username !== this.current_user && 
+    username !== 'DATE-INFO'
+  }
+
+  formatDate(that_day) {
+      const date = new Date(that_day)
+      const today = new Date
+      const yesterday = new Date 
+      let format_date = date.toLocaleDateString(
+        'en-US',{weekday:'long',month:'long',day:'numeric'}
+      )
+      yesterday.setDate(today.getDate() - 1)
+      if(date.toLocaleDateString() == today.toLocaleDateString()){
+        format_date = 'Today'
+      }else if (date.toLocaleDateString() == yesterday.toLocaleDateString()){
+        format_date = 'Yesterday'
+      }
+      return format_date
+  }
+
+  private processMessages(data){
+    if(data['active_group'] == this.activeGroup){
+      if (data['messages'] !== undefined) {    
+        if(data['is_next']){
+          this.messages = [...data['messages'],...this.messages]
+          this.chatSpace.nativeElement.scrollTop = 100
+        }
+        else if(data['from_where'] === 'send'){
+          this.messages = [...this.messages,...data['messages']]
+          this.is_send_message = true
+        }else{
+          this.messages = data['messages']
+          this.is_send_message = true
+        }
+      }
+    }
+  }
+
   // auto-scroll fix: inspired by this stack overflow post
   // https://stackoverflow.com/questions/35232731/angular2-scroll-to-bottom-chat-style
   private scrollToBottom(){
     try {
+      this.chatSpace.nativeElement.scrollTop = 
+      this.chatSpace.nativeElement.scrollHeight
       this.matList.nativeElement.scrollTop = 
       this.matList.nativeElement.scrollHeight;
-      const chat_scroll = document.getElementById('chat_div_space');
-      chat_scroll.scrollTop = chat_scroll.scrollHeight;
     } catch (err) {}
+  }
+
+  private mutableObserver(){
+    this.mutationObserver = new MutationObserver((mutations) => {
+        if(this.is_send_message) this.scrollToBottom();
+      }
+    );
+
+    this.mutationObserver.observe(this.matList.nativeElement, {
+        childList: true
+    });
+  }
+
+  private setProfileImage(){
+    // this.avatar=environment.API_URL + `media/avatar.png`;
+    this.avatar=this.dataService.profileImgIsSet()?
+    environment.API_URL + sessionStorage.getItem('profile_img'):
+    environment.API_URL + `media/avatar.png`;
   }
 
   private onlyHsMs(time){

@@ -216,10 +216,21 @@ export class ApiService {
     return this.httpClient.get<UserModel>(environment.API_URL + `sso_api/topic/` + topic_id+ `/labs`, {headers: this.headers})
 
   }
+
   getNotes(topic_id){
     this.refreshToken();
     return this.httpClient.get<UserModel>(environment.API_URL + `sso_api/topic/` + topic_id+ `/note`, {headers: this.headers})
 
+  }
+
+  getMessages(data){
+    this.refreshToken();
+    let head = this.headers;
+    head = head.append('Content-Type', 'application/json');
+    const url =`${environment.API_URL}awsgateway/get_messages/`
+    return this.httpClient.post(
+      url,JSON.stringify(data), {headers: head}
+    )
   }
 
 

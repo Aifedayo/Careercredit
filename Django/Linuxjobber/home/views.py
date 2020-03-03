@@ -2261,8 +2261,8 @@ def account_settings(request):
                 return render(request, 'home/account_settings.html',
                               {'form': form, 'courses': get_courses(), 'tools': get_tools()})
 
-        V_AWS_ACTION = 'verify';
-        V_MACHINE_ID = 'verify';
+        V_AWS_ACTION = 'verify'
+        V_MACHINE_ID = 'verify'
         command = ['python3.6 ' + settings.BASE_DIR + "/home/utils/s3_sample.py %s %s %s %s" % (
         access_key, secret_key, V_AWS_ACTION, V_MACHINE_ID)]
 
@@ -2319,6 +2319,7 @@ def account_settings(request):
         return render(request, 'home/account_settings.html', {'form': form})
 
 
+@login_required()
 def ec2dashboard(request, command=None):
     form = AWSCredUpload()
     awscred = AwsCredential.objects.get(user=request.user)
@@ -2326,8 +2327,8 @@ def ec2dashboard(request, command=None):
     # Launch an instance
     if command and command == "launch":
         print("enter")
-        AWS_ACTION = 'launch_instance';
-        MACHINE_ID = "new";
+        AWS_ACTION = 'launch_instance'
+        MACHINE_ID = "new"
         command = ['python3.6 ' + settings.BASE_DIR + "/home/utils/s3_sample.py %s %s %s %s" % (
         awscred.accesskey, awscred.secretkey, AWS_ACTION, MACHINE_ID)]
 
@@ -2367,8 +2368,8 @@ def ec2dashboard(request, command=None):
 
     # Running instance
     running_machine = []
-    RUNING_AWS_ACTION = 'instance_running';
-    RUNING_MACHINE_ID = 'running';
+    RUNING_AWS_ACTION = 'instance_running'
+    RUNING_MACHINE_ID = 'running'
     command = ['python3.6 ' + settings.BASE_DIR + "/home/utils/s3_sample.py %s %s %s %s" % (
     awscred.accesskey, awscred.secretkey, RUNING_AWS_ACTION, RUNING_MACHINE_ID)]
 
@@ -2391,8 +2392,8 @@ def ec2dashboard(request, command=None):
 
     # stopped Instance
     stopped_machine = []
-    STOP_AWS_ACTION = 'instance_stopped';
-    STOP_MACHINE_ID = 'stopped';
+    STOP_AWS_ACTION = 'instance_stopped'
+    STOP_MACHINE_ID = 'stopped'
 
     command = ['python3.6 ' + settings.BASE_DIR + "/home/utils/s3_sample.py %s %s %s %s" % (
     awscred.accesskey, awscred.secretkey, STOP_AWS_ACTION, STOP_MACHINE_ID)]
@@ -2454,8 +2455,8 @@ def ec2dashboard(request, command=None):
                                'There was an error while validating credentials, please confirm your credential file is correct. Please contact admin@linuxjobber.com')
                 return redirect("home:ec2dashboard")
 
-        V_AWS_ACTION = 'verify';
-        V_MACHINE_ID = 'verify';
+        V_AWS_ACTION = 'verify'
+        V_MACHINE_ID = 'verify'
         command = ['python3.6 ' + settings.BASE_DIR + "/home/utils/s3_sample.py %s %s %s %s" % (
         access_key, secret_key, V_AWS_ACTION, V_MACHINE_ID)]
 
@@ -2505,8 +2506,8 @@ def startmachine(request, machine_id):
     awscred = AwsCredential.objects.get(user=request.user)
 
     if machine_id:
-        AWS_ACTION = 'start_instance';
-        MACHINE_ID = machine_id;
+        AWS_ACTION = 'start_instance'
+        MACHINE_ID = machine_id
         command = ['python3.6 ' + settings.BASE_DIR + "/home/utils/s3_sample.py %s %s %s %s" % (
         awscred.accesskey, awscred.secretkey, AWS_ACTION, MACHINE_ID)]
 
@@ -2543,8 +2544,8 @@ def startmachine(request, machine_id):
 def stopmachine(request, machine_id):
     awscred = AwsCredential.objects.get(user=request.user)
     if machine_id:
-        AWS_ACTION = 'stop_instance';
-        MACHINE_ID = machine_id;
+        AWS_ACTION = 'stop_instance'
+        MACHINE_ID = machine_id
         command = ['python3.6 ' + settings.BASE_DIR + "/home/utils/s3_sample.py %s %s %s %s" % (
         awscred.accesskey, awscred.secretkey, AWS_ACTION, MACHINE_ID)]
 
