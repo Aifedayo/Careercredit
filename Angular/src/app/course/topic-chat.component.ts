@@ -36,7 +36,7 @@ export class TopicChatComponent implements OnInit {
   public type=TYPE;
   public avatar:string;
   private token:string;
-  private offset_id:Number = 0;
+  public offset_id:Number = 0;
   private is_send_message:Boolean = false;
   private recent_message_is_set:Boolean = false;
 
