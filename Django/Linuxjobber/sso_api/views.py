@@ -232,14 +232,14 @@ class MyUploadView(APIView):
         extention=filename.split(".")[-1]
         a=ChatUpload.objects.create(upload=file)
         type=""
-        extention = a.upload.url.split(".")[-1]
+        extention = a.upload.url.split(".")[-1] 
         extention=extention.lower()
         if extention not in ['jpg','jpeg','png','ico']:
             type='file'
         else:
             type='image'
-
-        return Response({'url':a.upload.url[1:],'type':type},status=status.HTTP_201_CREATED)
+        url = a.upload.url[1:] if settings.DEBUG else a.upload.url
+        return Response({'url':url,'type':type},status=status.HTTP_201_CREATED)
 
 
 # class UserAttendance(generics.ListAPIView):
