@@ -9,6 +9,7 @@ import {MatList} from "@angular/material";
 import {environment} from "../../environments/environment";
 import {UserModel} from "../share/user-model";
 import { AlertService } from './_alert/alert.service';
+import ReconnectingWebSocket from '../_websocket/reconnecting-websocket';
 
 export enum TYPE {Plain='plain', Image='image', File='file'}
 
@@ -59,6 +60,9 @@ export class TopicChatComponent implements OnInit {
       this.current_user = sessionStorage.getItem('username');
       this.activeGroup = sessionStorage.getItem('active_group');
       this.setProfileImage();
+      this.websocket = new ReconnectingWebSocket(
+        environment.WS_URL+"?token="+this.token
+      )
    }
 
   ngOnInit() {
@@ -118,9 +122,9 @@ export class TopicChatComponent implements OnInit {
   }
 
   callWebsocket(){
-    this.websocket = new WebSocket(
-      environment.WS_URL+"?token="+this.token
-    );
+    // this.websocket = new WebSocket(
+    //   environment.WS_URL+"?token="+this.token
+    // );
 
     this.websocket.onopen = (evt) => {
       if(!this.recent_message_is_set){
@@ -130,15 +134,15 @@ export class TopicChatComponent implements OnInit {
 
     this.websocket.onmessage = (evt) => {
       const data = JSON.parse(evt.data);
-      console.log(data)
+      // console.log(data)
       this.processMessages(data)
     };
 
-    this.websocket.onclose = ()=>{
-        // this.websocket = null
-        console.log('... trying reconnection in 5 sec....')
-        setTimeout(this.callWebsocket,5000)
-    }
+    // this.websocket.onclose = ()=>{
+    //     // this.websocket = null
+    //     console.log('... trying reconnection in 5 sec....')
+    //     setTimeout(this.callWebsocket,5000)
+    // }
   }
 
 

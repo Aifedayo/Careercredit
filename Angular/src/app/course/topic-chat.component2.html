@@ -31,7 +31,7 @@
                       {{message.content}}
                     </span>
                     <app-image-lightbox *ngIf="message.the_type === 'image'" 
-                      [imageUrl]="message.content">
+                      [imageUrl]="getProfileImg(message.content)">
                     </app-image-lightbox>
                     <span *ngIf="message.the_type === 'file' ">
                       <i> Uploaded a file: </i><a [href]="message.content" 
@@ -52,7 +52,8 @@
                             {{message.content}}
                           </span>
                           <app-image-lightbox *ngIf="message.the_type === 'image'" 
-                            [imageUrl]="message.content"></app-image-lightbox>
+                            [imageUrl]="getProfileImg(message.content)">
+                          </app-image-lightbox>
                           <span *ngIf="message.the_type === 'file' ">
                               <i> Uploaded a file: </i>
                               <a [href]="message.content" download="{{ message.username }}'s_upload">

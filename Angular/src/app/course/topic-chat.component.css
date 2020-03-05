@@ -234,9 +234,10 @@ img.fix-size{
 
 img.fix-size.mat-list-avatar{
   align-self: flex-start !important;
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
 }
 
 :host::ng-deep mat-list-item.mat-list-item.mat-2-line div.mat-list-item-content div{
   align-self: flex-start !important;
+  margin-top: 0px !important;
 }
