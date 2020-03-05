@@ -22,6 +22,7 @@ import { CourseListComponent } from './course-list/course-list.component';
 import { AlertModule } from './_alert/alert.module';
 import { LightboxModule } from './_lightbox/lightbox.module';
 import { ImageLightboxComponent } from './_image-lightbox/image-lightbox.component';
+import { InfiniteScrollComponent } from './_infinite-scroll/Infinite-scroll.component';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
@@ -49,6 +50,7 @@ import { RouterModule } from '@angular/router';
     VerificationComponent,
     CourseListComponent,
     ImageLightboxComponent,
+    InfiniteScrollComponent,
   ],
   providers: [AuthGuard,VerificationGuard],
   bootstrap: [CourseComponent]

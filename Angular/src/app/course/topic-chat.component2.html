@@ -1,13 +1,26 @@
  <!-- Chat View -->
  <mat-card class="card medium" style="max-height: 500px; display: block">
-    <div class="card-content scroll-hide" style="overflow:auto" id="chat_div_space" >
-      <mat-card class="main-card" >
-          <mat-list class="chat-list" dense>
+    <div class="card-content scroll-hide" style="overflow:auto" id="chat_div_space" #ChatSpace>
+      <mat-card class="main-card">
+          <mat-list class="chat-list" dense >
+
+            <!-- Load More -->
+            <infinite-scroll (scrolled)="getMessages()" *ngIf="offset_id != -1">
+                <p class="loading-history">Loading history...</p>
+          </infinite-scroll>
+        
             <div *ngFor="let message of messages">
-                <mat-list-item *ngIf="message.user !== current_user" >
+                <div *ngIf="message.the_type === 'date'" class="chat-date">
+                    <div>
+                      <span class="chat-date-text">
+                        {{formatDate(message.content)}}
+                      </span>
+                    </div>
+                </div>
+                <mat-list-item *ngIf="isOthers(message.username)" >
                   <img mat-list-avatar [src]="getProfileImg(message.profile_img)" class="fix-size">
                   <h4 mat-line>
-                      <b>{{message.user}}</b>
+                      <b>{{message.username}}</b>
                       <i style="font-size: 12px; text-decoration: none;"> 
                         {{ message.timestamp }}
                       </i>
@@ -17,25 +30,19 @@
                     <span *ngIf="message.the_type === 'plain' || message.the_type === undefined " >
                       {{message.content}}
                     </span>
-                    <!--<span *ngIf="message.the_type === 'image'">
-                      <i> Uploaded an image </i>
-                      <a [href]="message.content" target="_blank">
-                          <img mat-list-icon [src]="message.content"/>
-                      </a>
-                    </span>-->
                     <app-image-lightbox *ngIf="message.the_type === 'image'" 
-                      [imageUrl]="message.content">
+                      [imageUrl]="getProfileImg(message.content)">
                     </app-image-lightbox>
                     <span *ngIf="message.the_type === 'file' ">
                       <i> Uploaded a file: </i><a [href]="message.content" 
-                        download="{{ message.user }}'s_upload">Download</a>
+                        download="{{ message.username }}'s_upload">Download</a>
                     </span>
                   </p>
                 </mat-list-item>
-                <div class="me"  *ngIf="message.user === current_user" >
+                <div class="me"  *ngIf="message.username === current_user" >
                     <mat-list-item >
                       <h4 mat-line >
-                        <b>{{message.user}}</b>
+                        <b>{{message.username}}</b>
                         <i style="font-size: 12px; text-decoration: none;"> 
                           {{ message.timestamp }}
                         </i>
@@ -45,10 +52,11 @@
                             {{message.content}}
                           </span>
                           <app-image-lightbox *ngIf="message.the_type === 'image'" 
-                            [imageUrl]="message.content"></app-image-lightbox>
+                            [imageUrl]="getProfileImg(message.content)">
+                          </app-image-lightbox>
                           <span *ngIf="message.the_type === 'file' ">
                               <i> Uploaded a file: </i>
-                              <a [href]="message.content" download="{{ message.user }}'s_upload">
+                              <a [href]="message.content" download="{{ message.username }}'s_upload">
                                 Download
                               </a>
                           </span>
