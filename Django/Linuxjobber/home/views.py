@@ -1643,6 +1643,8 @@ def workexprofile(request):
     work_experience_eligible_pdf(details.user)
     work_experience_term_pdf(details.user)
     work_experience_isa_pdf(details.user)
+    if not details.pdf:
+        return redirect("home:workexprofile")
     pdf = details.pdf.url
     pdf2 = details.terms.url
     pdf3 = isa.pdf.url
