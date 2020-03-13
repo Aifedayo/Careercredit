@@ -122,7 +122,7 @@ class GraduateCertificates(models.Model):
             }
             formatted_file = template.render(context)
             from .utils import generate_certificate_name
-            filename_pdf = "media/" + generate_certificate_name(self) + ".pdf"
+            filename_pdf = "media/certs/" + generate_certificate_name(self) + ".pdf"
             filename_html = filename_pdf.replace('pdf', 'html')
             filename_png = filename_pdf.replace('pdf', 'png')
 
