@@ -35,7 +35,9 @@ class GraduateCertificates(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, blank=True, null=True)
     certificate_type = models.ForeignKey(CertificateType, on_delete=models.CASCADE)
     certificate_id = models.CharField(max_length=10, null=True, blank=True)
-    alternate_graduate_image = models.ImageField(null=True, blank=True)
+    alternate_graduate_image = models.ImageField(
+        upload_to='certs/', null=True, blank=True
+    )
     graduation_date = models.DateField()
     alternate_email = models.EmailField(null=True, blank=True)
     alternate_full_name = models.CharField(max_length=255, null=True, blank=True)

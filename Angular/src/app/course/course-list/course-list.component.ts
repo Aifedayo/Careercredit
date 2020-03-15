@@ -19,13 +19,11 @@ export class CourseListComponent implements OnInit {
     this.username=sessionStorage.getItem('username');
   }
 
-
   ngOnInit() {
-      this.courses$=this.apiService.getAvailableClasses();
-  
+    this.courses$=this.apiService.getAvailableClasses();
   }
+
   addcourse(){
     this.dataservice.addcourse();
   }
-
 }
