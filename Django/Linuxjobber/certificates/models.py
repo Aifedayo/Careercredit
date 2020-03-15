@@ -133,7 +133,7 @@ class GraduateCertificates(models.Model):
             html_file = HTML(filename_html)
             css = CSS(string='@page { size: A3; width: 40cm; align: center; margin-left: 2cm; margin-right: 0 }')
             import os
-            if filename_pdf not in os.listdir('media'):
+            if filename_pdf not in os.listdir('media/certs'):
                 html_file.write_pdf(
                   filename_pdf, stylesheets=[css]
                 )
