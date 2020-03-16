@@ -33,9 +33,9 @@
                   <div class="col-md-2" style="padding: 0">
                     <img class="img-responsive" 
                       style="width: 150px;height: 150px; border-radius: 5px; left: calc(50% - 150px/2 - 472px);" 
-                      src="{{course.image || 'https://images.techhive.com/images/article/2014/07/linux-tux-100360806-large.jpg'}}" alt=""/>
+                      src="{{getProfileImg(course.image) || 'https://images.techhive.com/images/article/2014/07/linux-tux-100360806-large.jpg'}}" alt=""/>
                   </div>
-                  <div class="col-md-10">
+                  <div class="col-md-10"> 
                     <p style="color: grey; font-weight: 500;"> Course </p>
                     <h4 style="margin-top: -5px;">{{ course.name }}</h4>
                     <div style="height:55px ">
