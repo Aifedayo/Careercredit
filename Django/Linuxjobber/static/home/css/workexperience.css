@@ -267,7 +267,7 @@ main{
 /* {# Specify alumni images here #} */
 
 .alumni-image.one,.alumni-image.two,.alumni-image.three,
-.alumni-image.four,.alumni-image.five,.alumni-image.six{
+.alumni-image.four,.alumni-image.five,.alumni-image.six,.alumni-image.seven{
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -294,6 +294,10 @@ main{
 
 .alumni-image.six {
     background-image: url("https://ljtestimonials.s3-us-west-2.amazonaws.com/emmanuel_testimonials.JPEG");
+}
+
+.alumni-image.seven {
+    background-image: url("https://s3.amazonaws.com/assets.prod.linuxjobber.com/media/trainee_testimonials/image_2020_03_17T10_17_55_723Z.png");
 }
 
 
