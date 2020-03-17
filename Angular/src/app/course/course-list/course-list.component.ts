@@ -34,7 +34,7 @@ export class CourseListComponent implements OnInit {
       if(proImgUrl === null){
         return null;
       }
-      
+
       if(
         proImgUrl.startsWith("https://") || 
         proImgUrl.startsWith("http://") 
@@ -42,7 +42,7 @@ export class CourseListComponent implements OnInit {
         image_url =  proImgUrl
       }
       else {
-        image_url = environment.API_URL + proImgUrl
+        image_url = environment.API_URL + proImgUrl.slice(1)
       }
     return image_url
   }
