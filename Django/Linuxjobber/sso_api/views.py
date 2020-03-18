@@ -238,6 +238,7 @@ class MyUploadView(APIView):
             type='file'
         else:
             type='image'
+        # url = a.upload.url
         url = a.upload.url[1:] if settings.DEBUG else a.upload.url
         return Response({'url':url,'type':type},status=status.HTTP_201_CREATED)
 
@@ -287,6 +288,7 @@ class UserView(APIView):
                 a.delete()
                 return Response({},status.HTTP_400_BAD_REQUEST)
             b=CustomUser.objects.get(email=request.user)
+            # b.profile_img = a.upload.url
             b.profile_img = a.upload.url[1:] if settings.DEBUG else a.upload.url
             b.save()
             return Response(UserSerializer(b).data,status=status.HTTP_201_CREATED)
