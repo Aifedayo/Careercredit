@@ -283,8 +283,8 @@ def _send_to_connection(connection_id, data):
         "apigatewaymanagementapi",
         endpoint_url = str( settings.AWS_WS_GATEWAY),
         region_name=str(settings.S3DIRECT_REGION),
-        aws_access_key_id=str(settings.AWS_ACCESS_KEY_ID),
-        aws_secret_access_key=str(settings.AWS_SECRET_ACCESS_KEY),
+        aws_access_key_id=str(settings.AWS_ACCESS_KEY_ID_WEBSOCKET),
+        aws_secret_access_key=str(settings.AWS_SECRET_ACCESS_KEY_WEBSOCKET),
     )
     return gatewayapi.post_to_connection(
         ConnectionId=connection_id,
