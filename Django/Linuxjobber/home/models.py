@@ -428,6 +428,14 @@ class WorkExperiencePay(models.Model):
     def __str__(self):
         return self.user.email
 
+class WorkExperiencePaystub(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    paystub = models.ImageField(upload_to='resume', null=True)
+    date_created = models.DateTimeField(default=timezone.now, null=True)
+
+    def __str__(self):
+        return self.user.email
+
 
 WORKEXPERIENCE_OPTIONS = (
     (0, 'A citizen of the united states'),
@@ -557,7 +565,6 @@ class wepeoples(models.Model):
     state = models.CharField(max_length=20, null=True)
     income = models.CharField(max_length=20, null=True)
     relocation = models.CharField(max_length=5, null=True)
-    Paystub = models.ImageField(upload_to='resume', null=True)
     last_verification = models.DateTimeField(default=timezone.now, null=True)
     start_date = models.DateTimeField(default=timezone.now, null=True)
     graduation_date = models.DateTimeField(default=timezone.now, null=True)
@@ -572,6 +579,8 @@ class wetask(models.Model):
     task = models.CharField(max_length=500, null=True)
     objective = models.TextField()
     description = models.TextField()
+    video_url = models.TextField(default='None')
+    has_video = models.BooleanField(default=False)
     created = models.DateTimeField(default=timezone.now, null=False)
     is_active = models.IntegerField(default=0, choices=((0, 'No'), (1, 'Yes')))
     types = models.ForeignKey(wetype, on_delete=models.CASCADE)
@@ -589,7 +598,8 @@ class wework(models.Model):
     weight = models.IntegerField(null=True)
     we_people = models.ForeignKey(wepeoples, on_delete=models.CASCADE)
     task = models.ForeignKey(wetask, on_delete=models.CASCADE)
-    status = models.IntegerField(default=0, choices=((0, 'Pending'), (1, 'Done')))
+    status = models.IntegerField(default=0, choices=((0,'Not done'),(1, 'Grading'), (2, 'Failed'), (3, 'Completed')))
+    video_status = models.IntegerField(default=0, choices=((0, 'Not Watched'), (1, 'Watching'), (2,'Completed')))
     created = models.DateTimeField(default=timezone.now, null=True)
     send_task = models.IntegerField(default=0, choices=((0, 'No'), (1, 'Yes')))
     due = models.DateTimeField(default=due_time)

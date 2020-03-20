@@ -1340,19 +1340,21 @@ def work_experience_eligible(request):
         details =  WorkExperienceEligibility.objects.get(user=request.user)
         date = details.date_of_birth
         date = date.strftime('%m/%d/%Y')
+        expire = details.expiry_date
+        expire = expire.strftime('%m/%d/%Y')
         created = details.date_created
         created = created.strftime('%Y-%m-%d') 
     except  WorkExperienceEligibility.DoesNotExist:
         details = None
         date = None
         created = None
+        expire = None
         
 
     dater = datetime.now().strftime('%Y-%m-%d')
 
 
     if request.method == "POST":
-        print(request.POST)
         firstname = request.POST['firstname']
         lastname = request.POST['lastname']
         middleinitial = request.POST['initial']
@@ -1384,6 +1386,7 @@ def work_experience_eligible(request):
 
         if i_am == '3':
             expiry_date = request.POST['exp']
+            expiry_date = datetime.strptime(expiry_date,'%m/%d/%Y').date()
             form19 = request.POST['form19']
             foreign = request.POST['foreign']
         else:
@@ -1424,7 +1427,7 @@ def work_experience_eligible(request):
             work_experience_eligible_pdf(request.user)
             work_experience_term_pdf(request.user)
         return redirect("home:isa")  
-    return render(request, 'home/workexpeligibility.html',{'details':details,'date':date,'dater':dater,'created':created})
+    return render(request, 'home/workexpeligibility.html',{'details':details,'expire':expire,'date':date,'dater':dater,'created':created})
 
 @login_required
 def work_experience_isa_part_1(request):
@@ -1535,6 +1538,29 @@ def work_experience_isa_part_2(request):
     
     return render(request, 'home/workexpisa2.html', {'details':details})
 
+@csrf_exempt
+def workexpvideomid(request, id):
+    try:
+        weps = wework.objects.get(we_people__user=request.user, task__id=id)
+        weps.video_status = 1
+        weps.save(update_fields=['video_status'])
+    except wework.DoesNotExist:
+        pass
+
+    return HttpResponse("Result:done")
+
+@csrf_exempt
+def workexpvideoend(request, id):
+    try:
+        weps = wework.objects.get(we_people__user=request.user, task__id=id)
+        weps.video_status = 2
+        weps.save(update_fields=['video_status'])
+    except wework.DoesNotExist:
+        pass
+
+    return HttpResponse("Result:done")
+
+
 @login_required
 def workexprofile(request):
 
@@ -1565,21 +1591,40 @@ def workexprofile(request):
     except wepeoples.DoesNotExist:
         return redirect("home:workexperience")
 
+    try:
+
+        pay = WorkExperiencePay.objects.get(user=request.user)
+        if pay.includes_job_placement:
+            pay = True
+        else:
+            pay= False
+    
+    except WorkExperiencePay.DoesNotExist:
+        pay = False
+
     status = wework.objects.filter(we_people__user=request.user)
+
+    paystublist = WorkExperiencePaystub.objects.filter(user=request.user)
 
     for sta in status:
         group.append(sta.task.id)
-
+    
     listask = wetask.objects.filter(types=weps.types)
 
     if request.method == "POST":
         if request.POST['type'] == '1':
-            last_verify = request.FILES['verify']
-            weps.Paystub = last_verify
-            weps.last_verification = datetime.now()
-            weps.save(update_fields=["Paystub", "last_verification"])
+            try:
+                month = datetime.now().month
+                paystub = WorkExperiencePaystub.objects.get(user=request.user, date_created__month=month)
+                paystub.paystub = request.FILES['verify']
+                paystub.save(update_fields=["paystub"])
+                
+            except WorkExperiencePaystub.DoesNotExist:
+                paystub = WorkExperiencePaystub(user=request.user,paystub=request.FILES['verify'])
+                paystub.save()
+                
 
-            link = weps.Paystub.url
+            link = paystub.paystub.url
 
             # send_mail('Pay Stub verification needed',
             #           'Hello,\n ' + request.user.email + ' just uploaded is pay stub at: ' + link + '.\nPlease review and confirm last verification\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
@@ -1600,7 +1645,7 @@ def workexprofile(request):
                 message=message_applicant
             )
             mailer_applicant.send_mail()
-
+        
             messages.success(request,
                              'Paystub uploaded successfully, Last verification would be confirmed as soon as Paystub is verified')
             return redirect("home:workexprofile")
@@ -1653,7 +1698,7 @@ def workexprofile(request):
 
 
     return render(request, 'home/workexprofile.html',
-                  {'weps': weps, 'status': status, 'group': group, 'listask': listask, 'details':details, 'url':url, 'pdf':pdf, 'pdf2':pdf2, 'pdf3':pdf3})
+                  {'weps': weps, 'status': status, 'group': group, 'pay':pay, 'paystublist':paystublist, 'listask': listask, 'pdf':pdf, 'pdf2':pdf2, 'pdf3':pdf3, 'details':details, 'url':url})
 
 
 def workexpfaq(request):
@@ -1832,7 +1877,7 @@ def pay(request):
         try:
             wepeoples.objects.update_or_create(user=request.user, types=None, current_position=None,
                                             person=None, state=None, income=None, relocation=None,
-                                            last_verification=None, Paystub=None, graduation_date=None)
+                                            last_verification=None, graduation_date=None)
             
             state = WorkExperiencePay.objects.create(user=request.user,is_paid=True,includes_job_placement=optiona)
             
