@@ -504,7 +504,7 @@ Income Share Agreement Signature Form | Linuxjobber
         <form method="post" action="" enctype="multipart/form-data" accept-charset="utf-8">
             {% csrf_token %}
             <div class="row" style="padding: 0px;">
-                <div class="col-md-10"><input class="form-control isaput" name="fullname" type="text" placeholder="Your full name" required /></div>
+                <div class="col-md-10"><input class="form-control isaput" onkeyup="this.value=this.value.replace(/[^a-zA-Z\s]*$/,'');" name="fullname" type="text" placeholder="Your full name" required /></div>
                 <div class="col-md-2"></div>
             </div><br><br>
             <button class="btn btnelig" type="submit">CONTINUE</button><br><br><br>

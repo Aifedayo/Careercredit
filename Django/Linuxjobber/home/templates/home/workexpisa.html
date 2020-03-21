@@ -720,18 +720,18 @@ body > div.navheadmid > div.container.elig > div:nth-child(6) > div.col-md-8 > d
         </div>
         <span>Current Annual Income <span style="color: red; font-size: 25px;">*</span></span>
         <div class="row" style="padding: 0px;">
-            <div class="col-md-10"><input class="form-control isaput" value="{{jot.current_annual_income}}" required name="income" type="text" id="pwd" placeholder="Your current earnings per year" /></div>
+            <div class="col-md-10"><input onkeyup="this.value=this.value.replace(/[^0-9]/g,'');" class="form-control isaput" value="{{jot.current_annual_income}}" required name="income" type="text" id="pwd" placeholder="Your current earnings per year" /></div>
             <div class="col-md-2"></div>
         </div>
         <span>Monthly House Payment <span style="color: red; font-size: 25px;">*</span></span>
         <div class="row" style="padding: 0px;">
-            <div class="col-md-10"><input class="form-control isaput" value="{{jot.monthly_house_payment}}" required name="payment" type="text" placeholder="Your current monthly house payment" /></div>
+            <div class="col-md-10"><input onkeyup="this.value=this.value.replace(/[^0-9]/g,'');" class="form-control isaput" value="{{jot.monthly_house_payment}}" required name="payment" type="text" placeholder="Your current monthly house payment" /></div>
             <div class="col-md-2"></div>
         </div>
         <span>Highest Level of Education <span style="color: red; font-size: 25px;">*</span></span>
         <div class="row" style="padding: 0px;">
             <div class="col-md-10"><select name="edu" class="form-control isaput">
-                <option value="---">Choose</option>
+                
                 <option {% if jot.highest_level_education == "Some high school, no diploma" %} selected {%endif%} value="Some high school, no diploma">Some high school, no diploma</option>
                 <option {% if jot.highest_level_education == "High school graduate, diploma or the equivalent" %} selected {%endif%} value="High school graduate, diploma or the equivalent">High school graduate, diploma or the equivalent</option>
                 <option {% if jot.highest_level_education == "Some college credit, no degree" %} selected {%endif%} value="Some college credit, no degree">Some college credit, no degree</option>
@@ -747,7 +747,7 @@ body > div.navheadmid > div.container.elig > div:nth-child(6) > div.col-md-8 > d
         <span>Current Employment Status <span style="color: red; font-size: 25px;">*</span></span>
         <div class="row" style="padding: 0px;">
             <div class="col-md-10"><select name="status" class="form-control isaput" >
-                <option value="---">Choose</option>
+                
                 <option {% if jot.employment_status == "Employed for wages" %} selected {%endif%} value="Employed for wages">Employed for wages</option>
                 <option {% if jot.employment_status == "Self-employed" %} selected {%endif%}  value="Self-employed">Self-employed</option>
                 <option {% if jot.employment_status == "Out of work and looking for work" %} selected {%endif%} value="Out of work and looking for work">Out of work and looking for work</option>

@@ -25,7 +25,7 @@ from .models import FAQ, Job, RHCSAOrder, FreeAccountClick, Campaign, Message, U
     wework, wetype, PartTimeJob, TryFreeRecord, FullTimePostion, PartTimePostion, Resume, CareerSwitchApplication, \
     Certificates, EmailMessageType, EmailMessageLog, CompleteClass, \
     CompleteClassLearn, CompleteClassCertificate, WorkExperienceEligibility, WorkExperienceIsa, WorkExperiencePay, \
-    SubPayment, InstallmentPlan, EmailGroup, EmailGroupMessageLog, WorkExperiencePriceWaiver, Variables, ItPartnership
+    SubPayment, InstallmentPlan, EmailGroup, EmailGroupMessageLog, WorkExperiencePriceWaiver, Variables, ItPartnership, WorkExperiencePaystub
 
 from datetime import timedelta
 import datetime
@@ -867,6 +867,7 @@ class ItPartnershipAdmin(admin.ModelAdmin):
 admin.site.register(WorkExperienceIsa,WorkExperienceIsaAdmin)
 admin.site.register(WorkExperienceEligibility,WorkExperienceEligibilityAdmin)
 admin.site.register(WorkExperiencePay)
+admin.site.register(WorkExperiencePaystub)
 admin.site.register(WorkExperiencePriceWaiver)
 admin.site.register(FAQ)
 admin.site.register(Job, JobAdmin)
