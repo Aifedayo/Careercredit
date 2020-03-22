@@ -1610,21 +1610,30 @@ def workexprofile(request):
         group.append(sta.task.id)
     
     listask = wetask.objects.filter(types=weps.types)
-
+    exist = False
+    
     if request.method == "POST":
         if request.POST['type'] == '1':
-            try:
-                month = datetime.now().month
-                paystub = WorkExperiencePaystub.objects.get(user=request.user, date_created__month=month)
-                paystub.paystub = request.FILES['verify']
-                paystub.save(update_fields=["paystub"])
-                
-            except WorkExperiencePaystub.DoesNotExist:
-                paystub = WorkExperiencePaystub(user=request.user,paystub=request.FILES['verify'])
-                paystub.save()
+        
+            month = datetime.now().month
+            year = datetime.now().year
+            paystb = WorkExperiencePaystub.objects.filter(user=request.user)
+            for pays in paystb:
+                if pays.date_created.month == month and pays.date_created.year == year:
+                    exist = True
+                    paystb = paystb
+                    break
+
+            if exist:
+                paystb.paystub = request.FILES['verify']
+                paystb.save(update_fields=["paystub"])
+            else:
+                paystb = WorkExperiencePaystub(user=request.user,paystub=request.FILES['verify'])
+                paystb.save()
+            
                 
 
-            link = paystub.paystub.url
+            link = paystb.paystub.url
 
             # send_mail('Pay Stub verification needed',
             #           'Hello,\n ' + request.user.email + ' just uploaded is pay stub at: ' + link + '.\nPlease review and confirm last verification\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',

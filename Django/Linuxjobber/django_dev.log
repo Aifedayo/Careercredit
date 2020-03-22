@@ -81,3 +81,165 @@ users.models.DoesNotExist: CustomUser matching query does not exist.
 [2020-03-21 10:01:15] INFO [django.channels.server.log_action:141] HTTP GET /media/resume/3_ODco5Hh.jpg 200 [0.04, 127.0.0.1:3335]
 [2020-03-21 10:01:17] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/jobban2.png 200 [0.04, 127.0.0.1:3335]
 [2020-03-21 10:01:18] INFO [django.channels.server.log_action:141] HTTP GET /static/favicon.ico 200 [0.07, 127.0.0.1:3335]
+[2020-03-22 11:55:00] INFO [django.channels.server.log_action:147] HTTP GET / 302 [0.88, 127.0.0.1:17016]
+[2020-03-22 11:55:01] INFO [django.channels.server.log_action:141] HTTP GET /timeout 200 [0.27, 127.0.0.1:17016]
+[2020-03-22 11:55:01] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js 200 [0.04, 127.0.0.1:17016]
+[2020-03-22 11:55:01] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validate.js 200 [0.05, 127.0.0.1:17017]
+[2020-03-22 11:55:01] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/css/bootstrap.min.css 200 [0.05, 127.0.0.1:17022]
+[2020-03-22 11:55:01] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/css/style.css 200 [0.04, 127.0.0.1:17025]
+[2020-03-22 11:55:01] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/style.css 200 [0.07, 127.0.0.1:17023]
+[2020-03-22 11:55:01] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/newstylenew.css 200 [0.06, 127.0.0.1:17017]
+[2020-03-22 11:55:01] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/newstyle2.css 200 [0.10, 127.0.0.1:17024]
+[2020-03-22 11:55:01] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/main.css 200 [0.10, 127.0.0.1:17016]
+[2020-03-22 11:55:01] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/icon1.png 200 [0.05, 127.0.0.1:17024]
+[2020-03-22 11:55:01] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css 200 [0.12, 127.0.0.1:17025]
+[2020-03-22 11:55:01] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js 200 [0.12, 127.0.0.1:17023]
+[2020-03-22 11:55:01] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/logo.png 200 [0.11, 127.0.0.1:17017]
+[2020-03-22 11:55:01] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/fonts/fontsstylesheet.css 200 [0.07, 127.0.0.1:17016]
+[2020-03-22 11:55:01] INFO [django.channels.server.log_action:141] HTTP GET /static/Projects/custom/css/projects.css 200 [0.17, 127.0.0.1:17022]
+[2020-03-22 11:55:01] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/bootstrap.min.js 200 [0.04, 127.0.0.1:17025]
+[2020-03-22 11:55:01] INFO [django.channels.server.log_action:141] HTTP GET /static/faq/js/jquery.mobile.custom.min.js 200 [0.04, 127.0.0.1:17022]
+[2020-03-22 11:55:01] INFO [django.channels.server.log_action:141] HTTP GET /static/js/waterbubble.js 200 [0.03, 127.0.0.1:17025]
+[2020-03-22 11:55:01] INFO [django.channels.server.log_action:141] HTTP GET /static/faq/js/main.js 200 [0.07, 127.0.0.1:17022]
+[2020-03-22 11:55:01] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/logout1.png 200 [0.05, 127.0.0.1:17025]
+[2020-03-22 11:55:03] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/proj-list.png 200 [0.09, 127.0.0.1:17025]
+[2020-03-22 11:55:19] INFO [django.channels.server.log_action:147] HTTP POST /timeout 302 [0.26, 127.0.0.1:17046]
+[2020-03-22 11:55:19] INFO [django.channels.server.log_action:141] HTTP GET / 200 [0.15, 127.0.0.1:17046]
+[2020-03-22 11:55:19] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/testimonial-timeline.css 200 [0.02, 127.0.0.1:17046]
+[2020-03-22 11:55:19] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/jobphone.png 200 [0.09, 127.0.0.1:17054]
+[2020-03-22 11:55:19] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/LaptopBook.png 200 [0.10, 127.0.0.1:17047]
+[2020-03-22 11:55:19] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/homelive.png 200 [0.09, 127.0.0.1:17047]
+[2020-03-22 11:55:19] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/get3.png 200 [0.09, 127.0.0.1:17054]
+[2020-03-22 11:55:19] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/get2.png 200 [0.02, 127.0.0.1:17047]
+[2020-03-22 11:55:19] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/get1.png 200 [0.02, 127.0.0.1:17054]
+[2020-03-22 11:55:19] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/kenna.png 200 [0.08, 127.0.0.1:17047]
+[2020-03-22 11:55:19] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/adekunle.png 200 [0.10, 127.0.0.1:17054]
+[2020-03-22 11:55:19] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/fetigue.png 200 [0.06, 127.0.0.1:17047]
+[2020-03-22 11:55:21] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/jobban2.png 200 [0.09, 127.0.0.1:17047]
+[2020-03-22 11:55:21] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/homebanner.png 200 [0.09, 127.0.0.1:17054]
+[2020-03-22 11:55:22] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.02, 127.0.0.1:17054]
+[2020-03-22 12:14:37] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [26.15, 127.0.0.1:4264]
+[2020-03-22 12:14:37] INFO [django.channels.server.log_action:141] HTTP GET /media/resume/2_NPY5Yl7.jpg 200 [0.14, 127.0.0.1:4264]
+[2020-03-22 12:14:37] INFO [django.channels.server.log_action:141] HTTP GET /media/resume/5dfa4f8b85226_1Qs1hn5.png 200 [0.10, 127.0.0.1:4264]
+[2020-03-22 12:14:38] INFO [django.channels.server.log_action:141] HTTP GET /media/resume/3_ODco5Hh.jpg 200 [0.06, 127.0.0.1:4264]
+[2020-03-22 12:15:01] INFO [django.channels.server.log_action:147] HTTP POST /workexperience/profile/ 302 [0.19, 127.0.0.1:12422]
+[2020-03-22 12:15:26] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [24.85, 127.0.0.1:12422]
+[2020-03-22 12:15:26] INFO [django.channels.server.log_action:141] HTTP GET /media/resume/3_7CRIoUs.jpg 200 [0.07, 127.0.0.1:12422]
+[2020-03-22 19:56:56] INFO [django.channels.server.log_action:147] HTTP GET /workexperience/profile/ 302 [0.48, 127.0.0.1:1146]
+[2020-03-22 19:56:56] INFO [django.channels.server.log_action:141] HTTP GET /timeout 200 [0.16, 127.0.0.1:1146]
+[2020-03-22 19:56:56] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/css/main.css 304 [0.04, 127.0.0.1:1146]
+[2020-03-22 19:57:01] INFO [django.channels.server.log_action:147] HTTP POST /timeout 302 [0.29, 127.0.0.1:1163]
+[2020-03-22 19:57:25] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [23.48, 127.0.0.1:1163]
+[2020-03-22 19:57:25] INFO [django.channels.server.log_action:141] HTTP GET /media/resume/5dfa4f8b85226_1Qs1hn5.png 200 [0.17, 127.0.0.1:1238]
+[2020-03-22 19:57:25] INFO [django.channels.server.log_action:141] HTTP GET /media/resume/2_NPY5Yl7.jpg 200 [0.19, 127.0.0.1:1163]
+[2020-03-22 19:57:25] INFO [django.channels.server.log_action:145] HTTP GET /media/resume/3_7CRIoUs.jpg 304 [0.08, 127.0.0.1:1163]
+[2020-03-22 19:57:45] INFO [django.channels.server.log_action:147] HTTP POST /workexperience/profile/ 302 [0.30, 127.0.0.1:1262]
+[2020-03-22 19:58:10] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [25.41, 127.0.0.1:1262]
+[2020-03-22 19:58:10] INFO [django.channels.server.log_action:141] HTTP GET /media/resume/IMG-20190817-WA0016.jpg 200 [0.07, 127.0.0.1:1262]
+[2020-03-22 20:49:52] INFO [django.channels.server.log_action:147] HTTP GET /workexperience/profile/ 302 [0.63, 127.0.0.1:3772]
+[2020-03-22 20:49:53] INFO [django.channels.server.log_action:141] HTTP GET /timeout 200 [0.15, 127.0.0.1:3772]
+[2020-03-22 20:49:59] INFO [django.channels.server.log_action:147] HTTP POST /timeout 302 [0.27, 127.0.0.1:3792]
+[2020-03-22 20:50:23] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [24.09, 127.0.0.1:3792]
+[2020-03-22 20:50:24] INFO [django.channels.server.log_action:145] HTTP GET /media/resume/3_7CRIoUs.jpg 304 [0.13, 127.0.0.1:3792]
+[2020-03-22 20:50:24] INFO [django.channels.server.log_action:141] HTTP GET /media/resume/IMG-20190817-WA0016.jpg 200 [0.15, 127.0.0.1:3865]
+[2020-03-22 20:50:49] INFO [django.channels.server.log_action:147] HTTP POST /workexperience/profile/ 302 [0.11, 127.0.0.1:3884]
+[2020-03-22 20:51:12] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [23.25, 127.0.0.1:3884]
+[2020-03-22 20:51:12] INFO [django.channels.server.log_action:141] HTTP GET /media/resume/IMG-20190817-WA0016_Bhptmms.jpg 200 [0.08, 127.0.0.1:3884]
+[2020-03-22 20:57:55] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /workexperience/profile/
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "E:\Documents\Web\linux-contract\Django\Linuxjobber\home\views.py", line 1626, in workexprofile
+    paystub.save(update_fields=["paystub"])
+AttributeError: 'QuerySet' object has no attribute 'save'
+[2020-03-22 20:57:55] ERROR [django.channels.server.log_action:154] HTTP POST /workexperience/profile/ 500 [0.31, 127.0.0.1:1127]
+[2020-03-22 20:57:56] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2020-03-22 20:57:56] WARNING [django.channels.server.log_action:149] HTTP GET /favicon.ico 404 [0.05, 127.0.0.1:1127]
+[2020-03-22 21:00:13] INFO [django.channels.server.log_action:141] HTTP GET / 200 [0.48, 127.0.0.1:1179]
+[2020-03-22 21:00:16] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.11, 127.0.0.1:1179]
+[2020-03-22 21:00:17] INFO [django.channels.server.log_action:147] HTTP GET /admin 301 [0.01, 127.0.0.1:1179]
+[2020-03-22 21:00:18] INFO [django.channels.server.log_action:141] HTTP GET /admin/ 200 [0.73, 127.0.0.1:1179]
+[2020-03-22 21:00:18] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/dashboard.css 200 [0.02, 127.0.0.1:1202]
+[2020-03-22 21:00:18] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/base.css 200 [0.06, 127.0.0.1:1179]
+[2020-03-22 21:00:18] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/responsive.css 200 [0.08, 127.0.0.1:1203]
+[2020-03-22 21:00:18] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/fonts.css 200 [0.01, 127.0.0.1:1203]
+[2020-03-22 21:00:19] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/icon-addlink.svg 200 [0.05, 127.0.0.1:1203]
+[2020-03-22 21:00:19] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/icon-changelink.svg 200 [0.06, 127.0.0.1:1179]
+[2020-03-22 21:00:19] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/icon-deletelink.svg 200 [0.05, 127.0.0.1:1202]
+[2020-03-22 21:00:19] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/fonts/Roboto-Light-webfont.woff 200 [0.06, 127.0.0.1:1202]
+[2020-03-22 21:00:19] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/fonts/Roboto-Bold-webfont.woff 200 [0.06, 127.0.0.1:1179]
+[2020-03-22 21:00:19] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/fonts/Roboto-Regular-webfont.woff 200 [0.06, 127.0.0.1:1203]
+[2020-03-22 21:00:25] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperiencepaystub/ 200 [0.17, 127.0.0.1:1203]
+[2020-03-22 21:00:25] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/changelists.css 200 [0.09, 127.0.0.1:1203]
+[2020-03-22 21:00:25] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/vendor/jquery/jquery.js 200 [0.08, 127.0.0.1:1202]
+[2020-03-22 21:00:25] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.09, 127.0.0.1:1179]
+[2020-03-22 21:00:25] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/jquery.init.js 200 [0.10, 127.0.0.1:1211]
+[2020-03-22 21:00:25] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/core.js 200 [0.12, 127.0.0.1:1212]
+[2020-03-22 21:00:25] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/urlify.js 200 [0.06, 127.0.0.1:1202]
+[2020-03-22 21:00:25] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 200 [0.10, 127.0.0.1:1213]
+[2020-03-22 21:00:25] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/actions.js 200 [0.07, 127.0.0.1:1203]
+[2020-03-22 21:00:25] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/prepopulate.js 200 [0.05, 127.0.0.1:1211]
+[2020-03-22 21:00:25] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 200 [0.08, 127.0.0.1:1179]
+[2020-03-22 21:00:27] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/tooltag-add.svg 200 [0.01, 127.0.0.1:1179]
+[2020-03-22 21:00:34] INFO [django.channels.server.log_action:141] HTTP POST /admin/home/workexperiencepaystub/ 200 [0.10, 127.0.0.1:1226]
+[2020-03-22 21:00:35] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/cancel.js 200 [0.04, 127.0.0.1:1226]
+[2020-03-22 21:00:38] INFO [django.channels.server.log_action:147] HTTP POST /admin/home/workexperiencepaystub/ 302 [0.17, 127.0.0.1:1226]
+[2020-03-22 21:00:38] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperiencepaystub/ 200 [0.12, 127.0.0.1:1226]
+[2020-03-22 21:00:38] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.06, 127.0.0.1:1226]
+[2020-03-22 21:00:40] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/icon-yes.svg 200 [0.03, 127.0.0.1:1226]
+[2020-03-22 21:01:07] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [24.44, 127.0.0.1:1226]
+[2020-03-22 21:01:19] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /workexperience/profile/
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "E:\Documents\Web\linux-contract\Django\Linuxjobber\home\views.py", line 1633, in workexprofile
+    link = paystub.paystub.url
+NameError: name 'paystub' is not defined
+[2020-03-22 21:01:19] ERROR [django.channels.server.log_action:154] HTTP POST /workexperience/profile/ 500 [0.14, 127.0.0.1:1338]
+[2020-03-22 21:02:04] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [24.75, 127.0.0.1:1363]
+[2020-03-22 21:02:04] INFO [django.channels.server.log_action:141] HTTP GET /media/resume/IMG-20190817-WA0018.jpg 200 [0.06, 127.0.0.1:1363]
+[2020-03-22 21:02:13] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /workexperience/profile/
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "E:\Documents\Web\linux-contract\Django\Linuxjobber\home\views.py", line 1626, in workexprofile
+    paystb.save(update_fields=["paystub"])
+AttributeError: 'QuerySet' object has no attribute 'save'
+[2020-03-22 21:02:13] ERROR [django.channels.server.log_action:154] HTTP POST /workexperience/profile/ 500 [0.10, 127.0.0.1:1450]
+[2020-03-22 21:03:58] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [27.22, 127.0.0.1:1511]
+[2020-03-22 21:03:59] INFO [django.channels.server.log_action:145] HTTP GET /media/resume/IMG-20190817-WA0018.jpg 304 [0.04, 127.0.0.1:1593]
+[2020-03-22 21:03:59] INFO [django.channels.server.log_action:141] HTTP GET /media/resume/2_NPY5Yl7.jpg 200 [0.08, 127.0.0.1:1511]
+[2020-03-22 21:04:11] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /workexperience/profile/
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "E:\Documents\Web\linux-contract\Django\Linuxjobber\home\views.py", line 1636, in workexprofile
+    link = paystb.paystub.url
+AttributeError: 'QuerySet' object has no attribute 'paystub'
+[2020-03-22 21:04:11] ERROR [django.channels.server.log_action:154] HTTP POST /workexperience/profile/ 500 [0.11, 127.0.0.1:1617]
+[2020-03-22 21:05:50] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [23.68, 127.0.0.1:1672]
+[2020-03-22 21:05:50] INFO [django.channels.server.log_action:141] HTTP GET /media/resume/IMG-20190817-WA0018_GNai0gD.jpg 200 [0.05, 127.0.0.1:1672]
