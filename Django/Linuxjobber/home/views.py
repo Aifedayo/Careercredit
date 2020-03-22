@@ -1621,7 +1621,7 @@ def workexprofile(request):
             for pays in paystb:
                 if pays.date_created.month == month and pays.date_created.year == year:
                     exist = True
-                    paystb = paystb
+                    paystb = pays
                     break
 
             if exist:

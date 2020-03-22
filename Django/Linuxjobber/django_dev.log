@@ -243,3 +243,36 @@ AttributeError: 'QuerySet' object has no attribute 'paystub'
 [2020-03-22 21:04:11] ERROR [django.channels.server.log_action:154] HTTP POST /workexperience/profile/ 500 [0.11, 127.0.0.1:1617]
 [2020-03-22 21:05:50] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [23.68, 127.0.0.1:1672]
 [2020-03-22 21:05:50] INFO [django.channels.server.log_action:141] HTTP GET /media/resume/IMG-20190817-WA0018_GNai0gD.jpg 200 [0.05, 127.0.0.1:1672]
+[2020-03-22 21:54:36] INFO [django.channels.server.log_action:147] HTTP GET / 302 [0.53, 127.0.0.1:1068]
+[2020-03-22 21:54:36] INFO [django.channels.server.log_action:141] HTTP GET /timeout 200 [0.23, 127.0.0.1:1068]
+[2020-03-22 22:52:56] INFO [django.channels.server.log_action:147] HTTP GET / 302 [0.11, 127.0.0.1:1368]
+[2020-03-22 22:52:56] INFO [django.channels.server.log_action:141] HTTP GET /timeout 200 [0.14, 127.0.0.1:1368]
+[2020-03-22 22:53:08] INFO [django.channels.server.log_action:147] HTTP POST /timeout 302 [0.26, 127.0.0.1:1388]
+[2020-03-22 22:53:08] INFO [django.channels.server.log_action:147] HTTP GET / 302 [0.05, 127.0.0.1:1388]
+[2020-03-22 22:53:08] INFO [django.channels.server.log_action:141] HTTP GET /timeout 200 [0.11, 127.0.0.1:1388]
+[2020-03-22 22:53:17] INFO [django.channels.server.log_action:147] HTTP POST /timeout 302 [0.24, 127.0.0.1:1404]
+[2020-03-22 22:53:17] INFO [django.channels.server.log_action:141] HTTP GET / 200 [0.23, 127.0.0.1:1404]
+[2020-03-22 22:53:20] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.12, 127.0.0.1:1417]
+[2020-03-22 22:53:50] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [24.92, 127.0.0.1:1417]
+[2020-03-22 22:53:50] INFO [django.channels.server.log_action:141] HTTP GET /media/resume/2_NPY5Yl7.jpg 200 [0.15, 127.0.0.1:1417]
+[2020-03-22 22:53:50] INFO [django.channels.server.log_action:141] HTTP GET /media/resume/IMG-20190817-WA0018_GNai0gD.jpg 200 [0.18, 127.0.0.1:1485]
+[2020-03-22 22:53:59] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /workexperience/profile/
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "E:\Documents\Web\linux-contract\Django\Linuxjobber\home\views.py", line 1629, in workexprofile
+    paystb.save(update_fields=["paystub"])
+AttributeError: 'QuerySet' object has no attribute 'save'
+[2020-03-22 22:53:59] ERROR [django.channels.server.log_action:154] HTTP POST /workexperience/profile/ 500 [0.20, 127.0.0.1:1501]
+[2020-03-22 22:54:51] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [25.28, 127.0.0.1:1556]
+[2020-03-22 22:54:51] INFO [django.channels.server.log_action:141] HTTP GET /media/resume/2_NPY5Yl7.jpg 200 [0.05, 127.0.0.1:1556]
+[2020-03-22 22:54:52] INFO [django.channels.server.log_action:141] HTTP GET /media/resume/IMG-20190817-WA0018_GNai0gD.jpg 200 [0.09, 127.0.0.1:1626]
+[2020-03-22 22:55:00] INFO [django.channels.server.log_action:147] HTTP POST /workexperience/profile/ 302 [0.19, 127.0.0.1:1626]
+[2020-03-22 22:55:26] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [26.55, 127.0.0.1:1626]
+[2020-03-22 22:55:26] INFO [django.channels.server.log_action:141] HTTP GET /media/resume/IMG-20190817-WA0018_tw2HzLd.jpg 200 [0.05, 127.0.0.1:1626]
