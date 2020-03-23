@@ -155,9 +155,9 @@ Work Experience Profile | Linuxjobber
             <div class="row">
               <div class="col-md-2">Email</div>
               <div class="col-md-2 workproftext jeg">{{weps.user.email}}</div>
-              <div class="col-md-2 workproftext">Trainee Position</div>
+              <div class="col-md-2 " style="font-size: 12px;">Trainee Position</div>
               <div class="col-md-2 jeg workproftext">{{weps.types}}</div>
-              <div class="col-md-2 workproftext">Monthly Income($)</div>
+              <div class="col-md-2" style="font-size: 11px;">Monthly Income($)</div>
               <div class="col-md-2 jeg">{{weps.income}}</div>
             </div><br>
             <div class="row">
@@ -173,7 +173,7 @@ Work Experience Profile | Linuxjobber
               <div class="col-md-2 jeg">{{weps.relocation}}</div>
               <div class="col-md-2">Start Date</div>
               <div class="col-md-2 jeg">{%if weps.start_date%} {{weps.start_date|date}} {%else%} Not set {%endif%}</div>
-              <div class="col-md-2 workproftext">Graduation Date</div>
+              <div class="col-md-2" style="font-size: 12px;">Graduation Date</div>
               <div class="col-md-2 jeg">{%if weps.graduation_date%}{{weps.graduation_date|date}}{%else%}Not set{%endif%}</div>
             </div>
           </div>
@@ -340,7 +340,7 @@ Work Experience Profile | Linuxjobber
             <div class="col-md-1">{{forloop.counter}}</div>
             <div class="col-md-3">{{stat.task}}</div>
             <div class="col-md-2">Group {{stat.task.group}}</div>
-            <div class="col-md-2">{{stat.due|date}}</div>
+            <div class="col-md-2">{{stat.due|date:"jS, F Y"}}</div>
             <div class="col-md-2">{%if stat.status == 0%}<svg  width="23" height="25" viewBox="0 0 23 25" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M16.21 10.7422C16.21 10.2028 15.7728 9.76562 15.2334 9.76562H5.17481C4.63545 9.76562 4.19824 10.2028 4.19824 10.7422C4.19824 11.2815 4.63545 11.7188 5.17481 11.7188H15.2334C15.7728 11.7188 16.21 11.2815 16.21 10.7422Z" fill="#808080"/>
               <path d="M5.1748 13.6719C4.63545 13.6719 4.19824 14.1091 4.19824 14.6484C4.19824 15.1878 4.63545 15.625 5.1748 15.625H11.2837C11.8231 15.625 12.2603 15.1878 12.2603 14.6484C12.2603 14.1091 11.8231 13.6719 11.2837 13.6719H5.1748Z" fill="#808080"/>
