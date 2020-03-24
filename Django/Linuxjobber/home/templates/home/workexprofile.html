@@ -154,11 +154,11 @@ Work Experience Profile | Linuxjobber
             </div><br>
             <div class="row">
               <div class="col-md-2">Email</div>
-              <div class="col-md-2 workproftext jeg">{{weps.user.email}}</div>
-              <div class="col-md-2 " style="font-size: 12px;">Trainee Position</div>
-              <div class="col-md-2 jeg workproftext">{{weps.types}}</div>
-              <div class="col-md-2" style="font-size: 11px;">Monthly Income($)</div>
-              <div class="col-md-2 jeg">{{weps.income}}</div>
+              <div class="col-md-2 workproftext jeg" style="width: 15%; color: rgb(128, 128, 128);">{{weps.user.email}}</div>
+              <div class="col-md-2" style="padding-left:25.3px; width:18.4%;">Trainee Position</div>
+              <div class="col-md-2 jeg workproftext" style="width: 14%; color: rgb(128,128,128);">{{weps.types}}</div>
+              <div style="padding-left:33px;width:22%; padding-right:0px;" class="col-md-2">Monthly Income($)</div>
+              <div class="col-md-2 jeg" style="padding-left: 0px; margin-left: -5px; width: 12%; color: rgb(128, 128, 128);">{{weps.income}}</div>
             </div><br>
             <div class="row">
               <div class="col-md-2">State</div>
@@ -173,7 +173,7 @@ Work Experience Profile | Linuxjobber
               <div class="col-md-2 jeg">{{weps.relocation}}</div>
               <div class="col-md-2">Start Date</div>
               <div class="col-md-2 jeg">{%if weps.start_date%} {{weps.start_date|date}} {%else%} Not set {%endif%}</div>
-              <div class="col-md-2" style="font-size: 12px;">Graduation Date</div>
+              <div class="col-md-2" style="font-size: 12.5px;">Graduation Date</div>
               <div class="col-md-2 jeg">{%if weps.graduation_date%}{{weps.graduation_date|date}}{%else%}Not set{%endif%}</div>
             </div>
           </div>
@@ -380,9 +380,9 @@ Work Experience Profile | Linuxjobber
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-body">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <button type="button" class="close statclose{{stat.id}}" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                       <video id="stat{{stat.task.id}}" controls width="100%">
-                        <source src="" type="video/mp4">
+                        <source src="{{stat.task.video_url}}" type="video/mp4">
                       </video>
                     </div>
                   </div>
@@ -561,7 +561,9 @@ $(function() {
         videoSRCauto = videoSRC + "";
     $(theModal + ' source').attr('src', videoSRCauto);
     $(theModal + ' video').load();
-    $(theModal + ' button.close').click(function () {
+    $('.statclose{{stat.id}}').click(function () {
+      $(theModal + ' video').get(0).pause();
+      $(theModal + ' source').get(0).pause();
       $(theModal + ' source').attr('src', videoSRC);
     });
   });
