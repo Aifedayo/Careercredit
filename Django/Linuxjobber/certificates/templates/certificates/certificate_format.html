@@ -71,7 +71,7 @@ header{
 .img-circular{
  width: 110px;
  height: 110px;
- background-image: url({{ graduate_image }});
+ background-image: url('{{ env_url }}/media/{{ graduate_image }}');
  background-size: cover;
  display: block;
  border-radius: 100px;
@@ -174,7 +174,7 @@ header{
         </div>
 
         <div class="signature">
-            <img src="{{ instructor_signature }}" alt="sample-signature">
+            <img src="{{ env_url }}/media/{{ instructor_signature }}" alt="sample-signature">
         </div>
 
         <div class="cert-trainer1">
@@ -191,7 +191,7 @@ header{
         </div>
 
         <div class="cert-technology">
-            <img src="{{ certificate_logo }}" alt="django-icon">
+            <img src="{{ env_url }}/media/{{ certificate_logo }}" alt="django-icon">
         </div>
     </header>
 </body>
