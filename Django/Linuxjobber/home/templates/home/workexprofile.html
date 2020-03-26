@@ -166,15 +166,15 @@ Work Experience Profile | Linuxjobber
               <div class="col-md-2">Person Type</div>
               <div class="col-md-2 jeg workproftext">{{weps.person}}</div>
               <div class="col-md-2">Last Verification</div>
-              <div class="col-md-2 jeg ">{{weps.last_verification| date}}</div>
+              <div class="col-md-2 jeg workproftext">{{weps.last_verification| date:"jS, F Y"}}</div>
             </div><br>
             <div class="row">
               <div class="col-md-2">Relocation</div>
               <div class="col-md-2 jeg">{{weps.relocation}}</div>
               <div class="col-md-2">Start Date</div>
-              <div class="col-md-2 jeg">{%if weps.start_date%} {{weps.start_date|date}} {%else%} Not set {%endif%}</div>
+              <div class="col-md-2 jeg workproftext">{%if weps.start_date%} {{weps.start_date|date:"jS, F Y"}} {%else%} Not set {%endif%}</div>
               <div class="col-md-2" style="font-size: 12.5px;">Graduation Date</div>
-              <div class="col-md-2 jeg">{%if weps.graduation_date%}{{weps.graduation_date|date}}{%else%}Not set{%endif%}</div>
+              <div class="col-md-2 jeg workproftext">{%if weps.graduation_date%}{{weps.graduation_date|date:"jS, F Y"}}{%else%}Not set{%endif%}</div>
             </div>
           </div>
         </div>
