@@ -985,3 +985,86 @@ weasyprint.urls.URLFetchingError: timeout: The read operation timed out
 [2020-03-24 15:50:13] INFO [django.channels.server.log_action:141] HTTP POST /workexperience/workvidmid/1 200 [0.06, 127.0.0.1:25238]
 [2020-03-24 15:50:16] INFO [django.channels.server.log_action:141] HTTP POST /workexperience/workvidmid/1 200 [0.07, 127.0.0.1:25238]
 [2020-03-24 15:50:23] INFO [django.channels.server.log_action:141] HTTP POST /workexperience/workvidend/1 200 [0.03, 127.0.0.1:25238]
+[2020-03-25 09:40:04] INFO [django.channels.server.log_action:147] HTTP GET / 302 [0.92, 127.0.0.1:20027]
+[2020-03-25 09:40:04] INFO [django.channels.server.log_action:141] HTTP GET /timeout 200 [0.26, 127.0.0.1:20027]
+[2020-03-25 09:40:04] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js 200 [0.04, 127.0.0.1:20027]
+[2020-03-25 09:40:05] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/css/bootstrap.min.css 200 [0.05, 127.0.0.1:20035]
+[2020-03-25 09:40:05] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/style.css 200 [0.06, 127.0.0.1:20036]
+[2020-03-25 09:40:05] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/newstyle2.css 200 [0.06, 127.0.0.1:20038]
+[2020-03-25 09:40:05] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/main.css 200 [0.07, 127.0.0.1:20027]
+[2020-03-25 09:40:05] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/css/style.css 200 [0.09, 127.0.0.1:20037]
+[2020-03-25 09:40:05] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validate.js 200 [0.11, 127.0.0.1:20034]
+[2020-03-25 09:40:05] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/newstylenew.css 200 [0.07, 127.0.0.1:20035]
+[2020-03-25 09:40:05] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css 200 [0.09, 127.0.0.1:20038]
+[2020-03-25 09:40:05] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js 200 [0.09, 127.0.0.1:20027]
+[2020-03-25 09:40:05] INFO [django.channels.server.log_action:141] HTTP GET /static/Projects/custom/css/projects.css 200 [0.13, 127.0.0.1:20036]
+[2020-03-25 09:40:05] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/logo.png 200 [0.04, 127.0.0.1:20036]
+[2020-03-25 09:40:05] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/icon1.png 200 [0.05, 127.0.0.1:20027]
+[2020-03-25 09:40:05] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/fonts/fontsstylesheet.css 200 [0.03, 127.0.0.1:20038]
+[2020-03-25 09:40:05] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newdesigner/js/bootstrap.min.js 200 [0.05, 127.0.0.1:20038]
+[2020-03-25 09:40:05] INFO [django.channels.server.log_action:141] HTTP GET /static/faq/js/jquery.mobile.custom.min.js 200 [0.06, 127.0.0.1:20027]
+[2020-03-25 09:40:05] INFO [django.channels.server.log_action:141] HTTP GET /static/faq/js/main.js 200 [0.02, 127.0.0.1:20027]
+[2020-03-25 09:40:05] INFO [django.channels.server.log_action:141] HTTP GET /static/js/waterbubble.js 200 [0.03, 127.0.0.1:20038]
+[2020-03-25 09:40:05] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/logout1.png 200 [0.02, 127.0.0.1:20027]
+[2020-03-25 09:40:07] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/proj-list.png 200 [0.09, 127.0.0.1:20027]
+[2020-03-25 09:40:15] INFO [django.channels.server.log_action:147] HTTP POST /timeout 302 [0.21, 127.0.0.1:20063]
+[2020-03-25 09:40:15] INFO [django.channels.server.log_action:141] HTTP GET / 200 [0.19, 127.0.0.1:20063]
+[2020-03-25 09:40:15] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/testimonial-timeline.css 200 [0.05, 127.0.0.1:20063]
+[2020-03-25 09:40:15] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/LaptopBook.png 200 [0.07, 127.0.0.1:20064]
+[2020-03-25 09:40:15] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/jobphone.png 200 [0.07, 127.0.0.1:20074]
+[2020-03-25 09:40:16] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/homelive.png 200 [0.03, 127.0.0.1:20074]
+[2020-03-25 09:40:16] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/get2.png 200 [0.02, 127.0.0.1:20064]
+[2020-03-25 09:40:16] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/get3.png 200 [0.03, 127.0.0.1:20074]
+[2020-03-25 09:40:16] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/get1.png 200 [0.02, 127.0.0.1:20074]
+[2020-03-25 09:40:16] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/kenna.png 200 [0.02, 127.0.0.1:20074]
+[2020-03-25 09:40:16] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/adekunle.png 200 [0.06, 127.0.0.1:20064]
+[2020-03-25 09:40:16] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/fetigue.png 200 [0.03, 127.0.0.1:20074]
+[2020-03-25 09:40:17] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/jobban2.png 200 [0.05, 127.0.0.1:20074]
+[2020-03-25 09:40:17] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/homebanner.png 200 [0.05, 127.0.0.1:20064]
+[2020-03-25 09:40:19] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.03, 127.0.0.1:20064]
+[2020-03-25 09:41:45] INFO [django.channels.server.log_action:147] HTTP GET /workexperience/ 302 [0.04, 127.0.0.1:20127]
+[2020-03-25 09:42:33] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [48.17, 127.0.0.1:20127]
+[2020-03-25 09:42:33] INFO [django.channels.server.log_action:141] HTTP GET /media/resume/2_NPY5Yl7.jpg 200 [0.09, 127.0.0.1:20127]
+[2020-03-25 09:42:33] INFO [django.channels.server.log_action:141] HTTP GET /media/resume/IMG-20190817-WA0018_tw2HzLd.jpg 200 [0.10, 127.0.0.1:20212]
+[2020-03-25 09:43:41] INFO [django.channels.server.log_action:141] HTTP POST /workexperience/workvidmid/1 200 [0.04, 127.0.0.1:20256]
+[2020-03-25 09:44:05] INFO [django.channels.server.log_action:141] HTTP GET /complete_training/aws 200 [0.19, 127.0.0.1:20266]
+[2020-03-25 09:44:05] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/sucaws.png 200 [0.01, 127.0.0.1:20266]
+[2020-03-25 09:44:05] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/Vector2.png 200 [0.01, 127.0.0.1:20267]
+[2020-03-25 09:44:05] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/awsicon1.png 200 [0.03, 127.0.0.1:20267]
+[2020-03-25 09:44:05] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/awsicon2.png 200 [0.03, 127.0.0.1:20266]
+[2020-03-25 09:44:05] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/awsicon3.png 200 [0.03, 127.0.0.1:20266]
+[2020-03-25 09:44:05] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/awsicon4.png 200 [0.06, 127.0.0.1:20267]
+[2020-03-25 09:44:05] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/awsicon6.png 200 [0.01, 127.0.0.1:20267]
+[2020-03-25 09:44:05] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/awsicon5.png 200 [0.06, 127.0.0.1:20266]
+[2020-03-25 09:44:05] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/awsicon7.png 200 [0.03, 127.0.0.1:20267]
+[2020-03-25 09:44:07] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/awsft.png 200 [0.06, 127.0.0.1:20267]
+[2020-03-25 09:47:23] INFO [django.channels.server.log_action:141] HTTP GET / 200 [0.15, 127.0.0.1:20392]
+[2020-03-25 09:47:27] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.07, 127.0.0.1:20392]
+[2020-03-25 09:48:18] INFO [django.channels.server.log_action:141] HTTP GET / 200 [0.40, 127.0.0.1:20476]
+[2020-03-25 09:48:20] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.02, 127.0.0.1:20476]
+[2020-03-25 09:48:23] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /complete_training/aws
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Documents\Web\linux-contract\Django\Linuxjobber\home\views.py", line 886, in completeclass
+    if td > page.due_date:
+TypeError: can't compare offset-naive and offset-aware datetimes
+[2020-03-25 09:48:23] ERROR [django.channels.server.log_action:154] HTTP GET /complete_training/aws 500 [0.13, 127.0.0.1:20476]
+[2020-03-25 09:48:24] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2020-03-25 09:48:24] WARNING [django.channels.server.log_action:149] HTTP GET /favicon.ico 404 [0.06, 127.0.0.1:20476]
+[2020-03-25 09:48:49] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /complete_training/aws
+Traceback (most recent call last):
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Sam\AppData\Local\Programs\Python\Python37\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Documents\Web\linux-contract\Django\Linuxjobber\home\views.py", line 886, in completeclass
+    if td > page.due_date:
+TypeError: can't compare offset-naive and offset-aware datetimes
+[2020-03-25 09:48:49] ERROR [django.channels.server.log_action:154] HTTP GET /complete_training/aws 500 [0.06, 127.0.0.1:20506]
