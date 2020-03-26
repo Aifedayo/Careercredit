@@ -167,8 +167,13 @@ class GraduateCertificates(models.Model):
         ]
 
         bucket = settings.AWS_STORAGE_BUCKET_NAME
+        session = boto3.Session(
+            aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
+            aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
+            region_name=settings.S3DIRECT_REGION
+        )
 
-        s3 = boto3.resource('s3')
+        s3 = session.resource('s3')
 
         for f in files:
             try:
@@ -188,7 +193,12 @@ class GraduateCertificates(models.Model):
         }
 
     def upload_to_s3(self):
-        s3 = boto3.resource('s3')
+        session = boto3.Session(
+            aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
+            aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
+            region_name=settings.S3DIRECT_REGION
+        )
+        s3 = session.resource('s3')
         bucket = str(settings.AWS_STORAGE_BUCKET_NAME)
         filename = generate_certificate_name(self)
                
@@ -196,7 +206,7 @@ class GraduateCertificates(models.Model):
             s3.Bucket(bucket).upload_file(
                 f"/mnt/media/{filename}.{ext}", 
                 f"media/certs/{filename}.{ext}",
-                ExtraArgs={'ACL':'public-read'}
+                ExtraArgs={'ACL':settings.AWS_DEFAULT_ACL}
             )
 
     def set_as_sent(self):
