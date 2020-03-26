@@ -167,6 +167,8 @@ class GraduateCertificates(models.Model):
         ]
 
         bucket = settings.AWS_STORAGE_BUCKET_NAME
+        location = settings.AWS_LOCATION
+
         session = boto3.Session(
             aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
             aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
@@ -178,7 +180,7 @@ class GraduateCertificates(models.Model):
         for f in files:
             try:
                 s3.Bucket(bucket).download_file(
-                    f'media/{str(f)}',f'/mnt/media/{str(f)}'
+                    f'{location}/{str(f)}',f'/mnt/media/{str(f)}'
                 )
             except botocore.exceptions.ClientError as e:
                 if e.response['Error']['Code'] == "404":
