@@ -87,6 +87,17 @@
 	padding-bottom: 30px;
 }
 
+.navheadprofile{
+	background-color: #1B539E;
+	height: 120px;
+	background-size: cover;
+    background-repeat: no-repeat;
+	display:block;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	padding-left: 30px;
+}
+
 .navheadmidh{
 	font-size: 32px;
 
@@ -102,8 +113,20 @@
 	font-weight: 700;
 }
 
+.navheadmidprofile{
+	font-size: 36px;
+	color: #FFFFFF;
+	font-weight: 700;
+}
+
 .navheadmidp{
 	font-size: 18px;
+	color: #FFFFFF;
+	font-weight: 500;
+}
+
+.navheadmidp-prof{
+	font-size: 15px;
 	color: #FFFFFF;
 	font-weight: 500;
 }
@@ -112,6 +135,65 @@
 	color: #808080;
 }
 
+.workexp-prof-black{
+	background-color: #333333;
+	height: 220px;
+	padding-top: 15px;
+	color: #808080;
+}
+
+.workexp-prof-h1{
+	color: #4975B1;
+	font-size: 18px;
+	margin-bottom: 20px;
+	margin-left: 10px;
+}
+
+.workproftext{
+	white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+}
+
+.worktask{
+	background-color: #F8F8F8;
+	min-height: 300px;
+	border-radius: 1%;
+	margin-top: 20px;
+	padding: 20px;
+	margin-bottom: 40px;
+}
+
+.worktask2{
+	background-color: #F8F8F8;
+	min-height: 200px;
+	border-radius: 1%;
+	margin-top: 20px;
+	padding: 20px;
+	margin-bottom: 40px;
+}
+
+.worktaskinner{
+	background-color: #F2F2F2;
+	height: 45px;
+	padding: 15px;
+	color: #808080;
+	font-weight: 500;
+}
+
+.worktaskinner2{
+	padding: 15px;
+}
+
+.worktaskpad{
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.workimgprof{
+	border-radius: 100%;
+	margin-top: 15px;
+}
 .greybo{
 	background-color: #E5E5E5;
 	min-height: 150px;
