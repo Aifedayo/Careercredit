@@ -29,6 +29,9 @@ wp_patterns = [
     path('profile/pdf/',views.work_experience_eligible_pdf, name='workexppdf'),
     path('termpdf/',views.work_experience_term_pdf, name='workexppdf1'),
     path('isapdf/',views.work_experience_isa_pdf, name='workexppdf2'),
+    path('workvidmid/<int:id>',views.workexpvideomid, name='workvidmid'),
+    path('workvidend/<int:id>',views.workexpvideoend, name='workvidend'),
+    
 ]
 
 test_patterns = [
