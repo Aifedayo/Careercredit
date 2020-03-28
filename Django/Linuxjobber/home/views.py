@@ -1141,6 +1141,29 @@ def devops_pay(request):
                    'tools': get_tools()}
         return render(request, 'home/devops_pay.html', context)
 
+def updatestage(request, stagename):
+    current_stage, create = WorkexpFormStage.objects.get_or_create(user=request.user)
+    if stagename.__name__ == 'workterm':
+        current_stage.stage = 'workterm stage'
+
+    elif stagename.__name__ == 'pay':
+        current_stage.stage = 'payment stage'
+
+    elif stagename.__name__ == 'work_experience_eligible':
+        current_stage.stage = 'eligibility stage'
+
+    elif stagename.__name__ == 'work_experience_isa_part_1':
+        current_stage.stage = 'ISA part 1 stage'
+
+    elif stagename.__name__ == 'work_experience_isa_part_2':
+        current_stage.stage = 'ISA part 2 stage'
+
+    elif stagename.__name__ == 'workexpprofile':
+        current_stage.stage = 'profile form stage'
+    else:
+        pass
+    current_stage.save()
+
 
 def workexperience(request):
     PRICE=None
@@ -1164,11 +1187,13 @@ def workexperience(request):
 
 
 def workterm(request):
+    updatestage(workterm, request)
     return render(request, 'home/workexpterm.html')
 
 
 @login_required
 def workexpform(request):
+    updatestage(workexpform, request)
     form = WeForm()
 
     try:
@@ -1335,6 +1360,7 @@ def work_experience_term_pdf(user):
 
 @login_required
 def work_experience_eligible(request):
+    updatestage(work_experience_eligible, request)
 
     try:
         details =  WorkExperienceEligibility.objects.get(user=request.user)
@@ -1431,6 +1457,7 @@ def work_experience_eligible(request):
 
 @login_required
 def work_experience_isa_part_1(request):
+    updatestage(work_experience_isa_part_1, request)
     try:
         details =  WorkExperienceEligibility.objects.get(user=request.user)
         date = details.date_of_birth
@@ -1510,6 +1537,7 @@ def work_experience_isa_part_1(request):
     return render(request, 'home/workexpisa.html',{'details':details,'ssn':ssn,'paid':paid,'grad':grad,'jot':jot,'date':date,'comp':comp})
 
 def work_experience_isa_part_2(request):
+    updatestage(work_experience_isa_part_2, request)
 
     try:
         details =  WorkExperienceEligibility.objects.get(user=request.user)
@@ -1835,6 +1863,7 @@ def apply(request, level):
 
 @login_required
 def pay(request):
+    updatestage(pay, request)
     PRICE = 399
     mode = "One Time"
     PAY_FOR = "Work Experience"

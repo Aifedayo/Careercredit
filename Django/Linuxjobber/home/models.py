@@ -574,6 +574,16 @@ class wepeoples(models.Model):
     def __str__(self):
         return self.user.email
 
+# create work experience stage tracker
+class WorkexpFormStage(models.Model):
+    '''
+    keep track of the Work Experience Application form
+    '''
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    stage = models.CharField(max_length=100, blank=True) 
+
+    def __str__(self):
+        return str(self.user.email) +' '+ 'is in'+ ' ' + (self.stage)
 
 class wetask(models.Model):
     weight = models.IntegerField(null=True)
