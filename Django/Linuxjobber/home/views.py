@@ -1142,7 +1142,7 @@ def devops_pay(request):
         return render(request, 'home/devops_pay.html', context)
 
 def updatestage(request, stagename):
-    current_stage, create = WorkexpFormStage.objects.get_or_create(user=request.user)
+    current_stage, created = WorkexpFormStage.objects.get_or_create(user=request.user)
     if stagename.__name__ == 'workterm':
         current_stage.stage = 'workterm stage'
 
@@ -1158,10 +1158,11 @@ def updatestage(request, stagename):
     elif stagename.__name__ == 'work_experience_isa_part_2':
         current_stage.stage = 'ISA part 2 stage'
 
-    elif stagename.__name__ == 'workexpprofile':
+    elif stagename.__name__ == 'workexpform':
         current_stage.stage = 'profile form stage'
     else:
         pass
+    print(current_stage.user)
     current_stage.save()
 
 
@@ -1187,13 +1188,14 @@ def workexperience(request):
 
 
 def workterm(request):
-    updatestage(workterm, request)
+    # print(WorkexpFormStage.objects.get_or_create(user=request.user))
+    updatestage(request, workterm)
     return render(request, 'home/workexpterm.html')
 
 
 @login_required
 def workexpform(request):
-    updatestage(workexpform, request)
+    updatestage(request, workexpform)
     form = WeForm()
 
     try:
@@ -1260,12 +1262,13 @@ def workexpform(request):
                 except werole.DoesNotExist:
                     person = werole.objects.create(roles='Student')
                     person.save() 
-
+        
         try:
+            persson = "Trainee"
             weps = wepeoples.objects.get(user=request.user)
             weps.types = trainee
             weps.current_position = current
-            weps.person = person
+            weps.person = persson
             weps.state = state
             weps.income = income
             weps.relocation = relocate
@@ -1276,8 +1279,8 @@ def workexpform(request):
             weps.graduation_date = None
             weps.save()
         except wepeoples.DoesNotExist:
-            weps = wepeoples.objects.create(user=request.user, types=trainee,
-                                            current_position=current, person=person, state=state, income=income,
+            weps = wepeoples.objects.create(user=request.user, types=trainee,person = persson,
+                                            current_position=current, state=state, income=income,
                                             relocation=relocate, last_verification=None, Paystub=None,
                                             graduation_date=None, start_date=None)
             weps.save()
@@ -1360,7 +1363,7 @@ def work_experience_term_pdf(user):
 
 @login_required
 def work_experience_eligible(request):
-    updatestage(work_experience_eligible, request)
+    updatestage(request, work_experience_eligible)
 
     try:
         details =  WorkExperienceEligibility.objects.get(user=request.user)
@@ -1457,7 +1460,7 @@ def work_experience_eligible(request):
 
 @login_required
 def work_experience_isa_part_1(request):
-    updatestage(work_experience_isa_part_1, request)
+    updatestage(request, work_experience_isa_part_1)
     try:
         details =  WorkExperienceEligibility.objects.get(user=request.user)
         date = details.date_of_birth
@@ -1537,7 +1540,7 @@ def work_experience_isa_part_1(request):
     return render(request, 'home/workexpisa.html',{'details':details,'ssn':ssn,'paid':paid,'grad':grad,'jot':jot,'date':date,'comp':comp})
 
 def work_experience_isa_part_2(request):
-    updatestage(work_experience_isa_part_2, request)
+    updatestage(request, work_experience_isa_part_2)
 
     try:
         details =  WorkExperienceEligibility.objects.get(user=request.user)
@@ -1730,8 +1733,8 @@ def workexprofile(request):
     pdf = details.pdf.url
     pdf2 = details.terms.url
     pdf3 = isa.pdf.url
-    
-    
+    weps.save()
+    print(weps.person)
 
 
     return render(request, 'home/workexprofile.html',
@@ -1863,7 +1866,7 @@ def apply(request, level):
 
 @login_required
 def pay(request):
-    updatestage(pay, request)
+    updatestage(request, pay)
     PRICE = 399
     mode = "One Time"
     PAY_FOR = "Work Experience"

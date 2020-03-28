@@ -763,3 +763,1191 @@ TypeError: can't compare offset-naive and offset-aware datetimes
 [2020-03-26 19:20:06] INFO [django.channels.server.log_action:141] HTTP GET /static/favicon.ico 200 [0.11, 127.0.0.1:2407]
 [2020-03-26 19:20:06] INFO [django.channels.server.log_action:141] HTTP POST /workexperience/workvidmid/1 200 [0.31, 127.0.0.1:2406]
 >>>>>>> ee3bff49c12d2df288a97e7f4d31f115c3a2c27f
+[2020-03-28 15:05:06] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /workexperience/profile/
+Traceback (most recent call last):
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
+    res = self._query(query)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
+    db.query(q)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+_mysql_exceptions.OperationalError: (1054, "Unknown column 'home_workexperienceeligibility.generate_pdf' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\Documents\linuxjobber2\Django\Linuxjobber\home\views.py", line 1596, in workexprofile
+    details =  WorkExperienceEligibility.objects.get(user=request.user)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\query.py", line 397, in get
+    num = len(clone)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\query.py", line 254, in __len__
+    self._fetch_all()
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\sql\compiler.py", line 1068, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
+    res = self._query(query)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
+    db.query(q)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+django.db.utils.OperationalError: (1054, "Unknown column 'home_workexperienceeligibility.generate_pdf' in 'field list'")
+[2020-03-28 15:05:06] ERROR [django.channels.server.log_action:154] HTTP GET /workexperience/profile/ 500 [0.51, 127.0.0.1:2857]
+[2020-03-28 15:06:02] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /workexperience/apply/
+Traceback (most recent call last):
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\Documents\linuxjobber2\Django\Linuxjobber\home\views.py", line 1196, in workexpform
+    updatestage(workexpform, request)
+  File "C:\Users\USER\Documents\linuxjobber2\Django\Linuxjobber\home\views.py", line 1145, in updatestage
+    current_stage, create = WorkexpFormStage.objects.get_or_create(user=request.user)
+AttributeError: 'function' object has no attribute 'user'
+[2020-03-28 15:06:02] ERROR [django.channels.server.log_action:154] HTTP GET /workexperience/apply/ 500 [0.31, 127.0.0.1:2927]
+[2020-03-28 15:07:27] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /workexperience/sign/
+Traceback (most recent call last):
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\Documents\linuxjobber2\Django\Linuxjobber\home\views.py", line 1540, in work_experience_isa_part_2
+    updatestage(work_experience_isa_part_2, request)
+  File "C:\Users\USER\Documents\linuxjobber2\Django\Linuxjobber\home\views.py", line 1145, in updatestage
+    current_stage, created = WorkexpFormStage.objects.get_or_create(user=request.user)
+AttributeError: 'function' object has no attribute 'user'
+[2020-03-28 15:07:27] ERROR [django.channels.server.log_action:154] HTTP GET /workexperience/sign/ 500 [0.30, 127.0.0.1:2962]
+[2020-03-28 15:09:31] INFO [django.channels.server.log_action:141] HTTP GET / 200 [0.37, 127.0.0.1:2999]
+[2020-03-28 15:09:31] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js 304 [0.02, 127.0.0.1:2999]
+[2020-03-28 15:09:31] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validate.js 304 [0.02, 127.0.0.1:3000]
+[2020-03-28 15:09:31] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/css/bootstrap.min.css 304 [0.02, 127.0.0.1:3003]
+[2020-03-28 15:09:31] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/style.css 304 [0.02, 127.0.0.1:2999]
+[2020-03-28 15:09:31] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/css/style.css 304 [0.02, 127.0.0.1:3000]
+[2020-03-28 15:09:31] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/css/newstyle2.css 304 [0.02, 127.0.0.1:3003]
+[2020-03-28 15:09:31] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/css/newstylenew.css 304 [0.01, 127.0.0.1:3000]
+[2020-03-28 15:09:31] INFO [django.channels.server.log_action:145] HTTP GET /static/Projects/custom/css/projects.css 304 [0.01, 127.0.0.1:3003]
+[2020-03-28 15:09:31] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css 304 [0.02, 127.0.0.1:3000]
+[2020-03-28 15:09:31] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js 304 [0.02, 127.0.0.1:3003]
+[2020-03-28 15:09:31] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/css/main.css 200 [0.06, 127.0.0.1:2999]
+[2020-03-28 15:09:31] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/testimonial-timeline.css 304 [0.02, 127.0.0.1:3003]
+[2020-03-28 15:09:31] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/logo.png 304 [0.02, 127.0.0.1:3000]
+[2020-03-28 15:09:31] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/LaptopBook.png 304 [0.02, 127.0.0.1:2999]
+[2020-03-28 15:09:31] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/jobphone.png 304 [0.02, 127.0.0.1:3003]
+[2020-03-28 15:09:31] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/homelive.png 304 [0.03, 127.0.0.1:3000]
+[2020-03-28 15:09:31] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/get3.png 304 [0.04, 127.0.0.1:2999]
+[2020-03-28 15:09:31] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/get1.png 304 [0.02, 127.0.0.1:2999]
+[2020-03-28 15:09:31] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/get2.png 304 [0.06, 127.0.0.1:3003]
+[2020-03-28 15:09:31] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/adekunle.png 304 [0.05, 127.0.0.1:3000]
+[2020-03-28 15:09:31] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/kenna.png 304 [0.03, 127.0.0.1:2999]
+[2020-03-28 15:09:31] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/fetigue.png 304 [0.02, 127.0.0.1:3000]
+[2020-03-28 15:09:31] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/js/bootstrap.min.js 304 [0.03, 127.0.0.1:3003]
+[2020-03-28 15:09:31] INFO [django.channels.server.log_action:145] HTTP GET /static/faq/js/jquery.mobile.custom.min.js 304 [0.03, 127.0.0.1:2999]
+[2020-03-28 15:09:31] INFO [django.channels.server.log_action:145] HTTP GET /static/faq/js/main.js 304 [0.02, 127.0.0.1:3003]
+[2020-03-28 15:09:31] INFO [django.channels.server.log_action:145] HTTP GET /static/js/waterbubble.js 304 [0.02, 127.0.0.1:3000]
+[2020-03-28 15:09:32] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/fonts/fontsstylesheet.css 304 [0.01, 127.0.0.1:3000]
+[2020-03-28 15:09:34] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/jobban2.png 304 [0.02, 127.0.0.1:3000]
+[2020-03-28 15:09:34] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/homebanner.png 304 [0.02, 127.0.0.1:3003]
+[2020-03-28 15:09:36] INFO [django.channels.server.log_action:141] HTTP GET /static/favicon.ico 200 [0.02, 127.0.0.1:3003]
+[2020-03-28 15:09:37] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.05, 127.0.0.1:3020]
+[2020-03-28 15:09:38] INFO [django.channels.server.log_action:147] HTTP GET /workexperience/ 302 [0.05, 127.0.0.1:3020]
+[2020-03-28 15:10:19] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /workexperience/profile/
+Traceback (most recent call last):
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\Documents\linuxjobber2\Django\Linuxjobber\home\views.py", line 1733, in workexprofile
+    pdf3 = isa.pdf.url
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\fields\files.py", line 61, in url
+    self._require_file()
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\fields\files.py", line 38, in _require_file
+    raise ValueError("The '%s' attribute has no file associated with it." % self.field.name)
+ValueError: The 'pdf' attribute has no file associated with it.
+[2020-03-28 15:10:20] ERROR [django.channels.server.log_action:154] HTTP GET /workexperience/profile/ 500 [41.13, 127.0.0.1:3020]
+[2020-03-28 15:11:43] INFO [django.channels.server.log_action:141] HTTP GET /admin/users/customuser/ 200 [0.60, 127.0.0.1:3106]
+[2020-03-28 15:11:43] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:3106]
+[2020-03-28 15:11:58] INFO [django.channels.server.log_action:141] HTTP GET /admin/users/customuser/?p=1 200 [0.52, 127.0.0.1:3106]
+[2020-03-28 15:11:58] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.07, 127.0.0.1:3106]
+[2020-03-28 15:12:09] INFO [django.channels.server.log_action:141] HTTP GET /admin/users/customuser/3187/change/?_changelist_filters=p%3D1 200 [0.29, 127.0.0.1:3106]
+[2020-03-28 15:12:09] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.08, 127.0.0.1:3106]
+[2020-03-28 15:12:09] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/SelectFilter2.js 200 [0.06, 127.0.0.1:3125]
+[2020-03-28 15:12:09] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/SelectBox.js 200 [0.07, 127.0.0.1:3124]
+[2020-03-28 15:12:09] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/calendar.js 200 [0.07, 127.0.0.1:3126]
+[2020-03-28 15:12:09] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/admin/DateTimeShortcuts.js 200 [0.06, 127.0.0.1:3127]
+[2020-03-28 15:12:10] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/icon-unknown-alt.svg 200 [0.05, 127.0.0.1:3124]
+[2020-03-28 15:12:10] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/icon-unknown.svg 200 [0.06, 127.0.0.1:3126]
+[2020-03-28 15:12:10] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/selector-icons.svg 200 [0.07, 127.0.0.1:3127]
+[2020-03-28 15:12:10] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/calendar-icons.svg 200 [0.05, 127.0.0.1:3125]
+[2020-03-28 15:12:10] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/icon-calendar.svg 200 [0.06, 127.0.0.1:3106]
+[2020-03-28 15:12:10] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/icon-clock.svg 200 [0.06, 127.0.0.1:3132]
+[2020-03-28 15:12:12] INFO [django.channels.server.log_action:141] HTTP GET /admin/users/customuser/3187/delete/?_changelist_filters=p%3D1 200 [0.27, 127.0.0.1:3132]
+[2020-03-28 15:12:15] INFO [django.channels.server.log_action:147] HTTP POST /admin/users/customuser/3187/delete/?_changelist_filters=p%3D1 302 [0.16, 127.0.0.1:3132]
+[2020-03-28 15:12:15] INFO [django.channels.server.log_action:141] HTTP GET /admin/users/customuser/?p=1 200 [0.48, 127.0.0.1:3132]
+[2020-03-28 15:12:15] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.06, 127.0.0.1:3132]
+[2020-03-28 15:12:26] INFO [django.channels.server.log_action:141] HTTP GET / 200 [0.10, 127.0.0.1:3147]
+[2020-03-28 15:12:26] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/css/main.css 304 [0.01, 127.0.0.1:3147]
+[2020-03-28 15:12:31] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.03, 127.0.0.1:3160]
+[2020-03-28 15:13:05] INFO [django.channels.server.log_action:141] HTTP GET /signup 200 [0.23, 127.0.0.1:3230]
+[2020-03-28 15:13:05] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/styles.css 304 [0.01, 127.0.0.1:3230]
+[2020-03-28 15:13:06] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/imgback.jpg 304 [0.01, 127.0.0.1:3230]
+[2020-03-28 15:13:17] INFO [django.channels.server.log_action:141] HTTP POST /signup 200 [0.19, 127.0.0.1:3243]
+[2020-03-28 15:13:17] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/checkers.png 304 [0.01, 127.0.0.1:3243]
+[2020-03-28 15:13:19] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/signupbg.png 304 [0.01, 127.0.0.1:3243]
+[2020-03-28 15:13:21] INFO [django.channels.server.log_action:147] HTTP GET /login/ 302 [0.05, 127.0.0.1:3243]
+[2020-03-28 15:13:21] INFO [django.channels.server.log_action:141] HTTP GET /courses/userinterest 200 [0.09, 127.0.0.1:3243]
+[2020-03-28 15:13:21] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/icon1.png 304 [0.02, 127.0.0.1:3243]
+[2020-03-28 15:13:21] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/logout1.png 304 [0.02, 127.0.0.1:3244]
+[2020-03-28 15:13:21] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/button-left.png 304 [0.01, 127.0.0.1:3243]
+[2020-03-28 15:13:21] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/lin-logo.png 304 [0.02, 127.0.0.1:3244]
+[2020-03-28 15:13:21] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/amazons.png 304 [0.01, 127.0.0.1:3243]
+[2020-03-28 15:13:21] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/ppt.png 304 [0.01, 127.0.0.1:3244]
+[2020-03-28 15:13:21] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/jjava.png 304 [0.01, 127.0.0.1:3244]
+[2020-03-28 15:13:21] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/rchsaa.png 304 [0.01, 127.0.0.1:3243]
+[2020-03-28 15:13:21] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/ajs.png 304 [0.01, 127.0.0.1:3243]
+[2020-03-28 15:13:21] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/csecurity.png 304 [0.01, 127.0.0.1:3244]
+[2020-03-28 15:13:21] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/biz.png 304 [0.01, 127.0.0.1:3244]
+[2020-03-28 15:13:21] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/dba.png 304 [0.01, 127.0.0.1:3243]
+[2020-03-28 15:13:21] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/py.png 304 [0.01, 127.0.0.1:3244]
+[2020-03-28 15:13:23] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs//list-bg.png 304 [0.01, 127.0.0.1:3260]
+[2020-03-28 15:13:23] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.06, 127.0.0.1:3260]
+[2020-03-28 15:13:26] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/ 200 [0.13, 127.0.0.1:3260]
+[2020-03-28 15:13:26] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/we_new.css 304 [0.02, 127.0.0.1:3260]
+[2020-03-28 15:13:26] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/workexperience.css 200 [0.04, 127.0.0.1:3264]
+[2020-03-28 15:13:26] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/arrow-right.png 304 [0.01, 127.0.0.1:3260]
+[2020-03-28 15:13:26] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/cup.png 304 [0.01, 127.0.0.1:3264]
+[2020-03-28 15:13:26] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/tap.png 304 [0.01, 127.0.0.1:3264]
+[2020-03-28 15:13:26] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/accept.png 304 [0.01, 127.0.0.1:3264]
+[2020-03-28 15:13:26] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/number.png 304 [0.01, 127.0.0.1:3260]
+[2020-03-28 15:13:26] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/join.png 304 [0.01, 127.0.0.1:3260]
+[2020-03-28 15:13:26] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/arrow-blue.png 304 [0.01, 127.0.0.1:3264]
+[2020-03-28 15:13:26] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/graph.svg 304 [0.01, 127.0.0.1:3260]
+[2020-03-28 15:13:26] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/list%20_checked.png 304 [0.01, 127.0.0.1:3264]
+[2020-03-28 15:13:26] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/cap.png 304 [0.01, 127.0.0.1:3264]
+[2020-03-28 15:13:26] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/wallet.png 304 [0.01, 127.0.0.1:3260]
+[2020-03-28 15:13:28] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/bg2.png 304 [0.02, 127.0.0.1:3260]
+[2020-03-28 15:13:28] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/el.png 304 [0.02, 127.0.0.1:3264]
+[2020-03-28 15:13:28] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/alumni-bg.png 304 [0.02, 127.0.0.1:3272]
+[2020-03-28 15:13:28] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/thmbs.png 304 [0.01, 127.0.0.1:3272]
+[2020-03-28 15:13:31] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/ 200 [0.12, 127.0.0.1:3272]
+[2020-03-28 15:13:48] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /workexperience/terms/
+Traceback (most recent call last):
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\Documents\linuxjobber2\Django\Linuxjobber\home\views.py", line 1191, in workterm
+    updatestage(workterm, request)
+  File "C:\Users\USER\Documents\linuxjobber2\Django\Linuxjobber\home\views.py", line 1145, in updatestage
+    current_stage, created = WorkexpFormStage.objects.get_or_create(user=request.user)
+AttributeError: 'function' object has no attribute 'user'
+[2020-03-28 15:13:48] ERROR [django.channels.server.log_action:154] HTTP GET /workexperience/terms/ 500 [0.24, 127.0.0.1:3290]
+[2020-03-28 15:16:45] INFO [django.channels.server.log_action:141] HTTP GET /admin/ 200 [0.49, 127.0.0.1:3368]
+[2020-03-28 15:16:46] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/icon-deletelink.svg 200 [0.02, 127.0.0.1:3368]
+[2020-03-28 15:16:51] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexpformstage/ 200 [0.16, 127.0.0.1:3368]
+[2020-03-28 15:16:51] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.04, 127.0.0.1:3368]
+[2020-03-28 15:16:55] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexpformstage/add/ 200 [0.77, 127.0.0.1:3368]
+[2020-03-28 15:16:55] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:3368]
+[2020-03-28 15:17:09] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexpformstage/ 200 [0.08, 127.0.0.1:3368]
+[2020-03-28 15:17:09] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.06, 127.0.0.1:3368]
+[2020-03-28 15:18:03] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /workexperience/terms/
+Traceback (most recent call last):
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\Documents\linuxjobber2\Django\Linuxjobber\home\views.py", line 1191, in workterm
+    updatestage(workterm, request)
+  File "C:\Users\USER\Documents\linuxjobber2\Django\Linuxjobber\home\views.py", line 1145, in updatestage
+    current_stage, created = WorkexpFormStage.objects.get_or_create(user=request.user)
+AttributeError: 'function' object has no attribute 'user'
+[2020-03-28 15:18:03] ERROR [django.channels.server.log_action:154] HTTP GET /workexperience/terms/ 500 [0.21, 127.0.0.1:3405]
+[2020-03-28 15:19:11] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /workexperience/terms/
+Traceback (most recent call last):
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\Documents\linuxjobber2\Django\Linuxjobber\home\views.py", line 1192, in workterm
+    updatestage(workterm, request)
+  File "C:\Users\USER\Documents\linuxjobber2\Django\Linuxjobber\home\views.py", line 1145, in updatestage
+    current_stage, created = WorkexpFormStage.objects.get_or_create(user=request.user)
+AttributeError: 'function' object has no attribute 'user'
+[2020-03-28 15:19:11] ERROR [django.channels.server.log_action:154] HTTP GET /workexperience/terms/ 500 [0.26, 127.0.0.1:3440]
+[2020-03-28 15:21:45] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /workexperience/terms/
+Traceback (most recent call last):
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\Documents\linuxjobber2\Django\Linuxjobber\home\views.py", line 1191, in workterm
+    print(WorkexpFormStage.objects.get(user=request.user))
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\query.py", line 403, in get
+    self.model._meta.object_name
+home.models.DoesNotExist: WorkexpFormStage matching query does not exist.
+[2020-03-28 15:21:45] ERROR [django.channels.server.log_action:154] HTTP GET /workexperience/terms/ 500 [0.37, 127.0.0.1:3467]
+[2020-03-28 15:22:17] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /workexperience/terms/
+Traceback (most recent call last):
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\Documents\linuxjobber2\Django\Linuxjobber\home\views.py", line 1192, in workterm
+    updatestage(workterm, request)
+  File "C:\Users\USER\Documents\linuxjobber2\Django\Linuxjobber\home\views.py", line 1145, in updatestage
+    current_stage, created = WorkexpFormStage.objects.get_or_create(user=request.user)
+AttributeError: 'function' object has no attribute 'user'
+[2020-03-28 15:22:17] ERROR [django.channels.server.log_action:154] HTTP GET /workexperience/terms/ 500 [0.30, 127.0.0.1:3503]
+[2020-03-28 15:22:43] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexpformstage/ 200 [0.31, 127.0.0.1:3525]
+[2020-03-28 15:22:43] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/core.js 200 [0.03, 127.0.0.1:3527]
+[2020-03-28 15:22:43] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/jquery.init.js 200 [0.04, 127.0.0.1:3528]
+[2020-03-28 15:22:43] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/changelists.css 200 [0.04, 127.0.0.1:3529]
+[2020-03-28 15:22:43] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 200 [0.06, 127.0.0.1:3530]
+[2020-03-28 15:22:43] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/actions.js 200 [0.06, 127.0.0.1:3531]
+[2020-03-28 15:22:43] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/urlify.js 200 [0.04, 127.0.0.1:3527]
+[2020-03-28 15:22:43] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.06, 127.0.0.1:3528]
+[2020-03-28 15:22:43] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/prepopulate.js 200 [0.03, 127.0.0.1:3531]
+[2020-03-28 15:22:43] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 200 [0.05, 127.0.0.1:3529]
+[2020-03-28 15:22:43] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/responsive.css 200 [0.03, 127.0.0.1:3530]
+[2020-03-28 15:22:43] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/base.css 200 [0.02, 127.0.0.1:3527]
+[2020-03-28 15:22:43] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/vendor/jquery/jquery.js 200 [0.14, 127.0.0.1:3525]
+[2020-03-28 15:22:44] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/fonts/Roboto-Bold-webfont.woff 200 [0.04, 127.0.0.1:3525]
+[2020-03-28 15:22:44] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/fonts/Roboto-Light-webfont.woff 200 [0.05, 127.0.0.1:3527]
+[2020-03-28 15:22:44] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/tooltag-add.svg 200 [0.03, 127.0.0.1:3529]
+[2020-03-28 15:22:44] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/fonts/Roboto-Regular-webfont.woff 200 [0.04, 127.0.0.1:3530]
+[2020-03-28 15:23:25] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /workexperience/terms/
+Traceback (most recent call last):
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\Documents\linuxjobber2\Django\Linuxjobber\home\views.py", line 1192, in workterm
+    updatestage(workterm, request)
+  File "C:\Users\USER\Documents\linuxjobber2\Django\Linuxjobber\home\views.py", line 1145, in updatestage
+    current_stage, created = WorkexpFormStage.objects.get_or_create(user=request.user)
+AttributeError: 'function' object has no attribute 'user'
+[2020-03-28 15:23:25] ERROR [django.channels.server.log_action:154] HTTP GET /workexperience/terms/ 500 [0.27, 127.0.0.1:3572]
+[2020-03-28 15:28:04] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/terms/ 200 [0.31, 127.0.0.1:3784]
+[2020-03-28 15:28:09] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/pay/ 200 [0.12, 127.0.0.1:3784]
+[2020-03-28 15:28:09] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/css/main.css 304 [0.01, 127.0.0.1:3784]
+[2020-03-28 15:28:20] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/linuxlogo.png 304 [0.01, 127.0.0.1:3807]
+[2020-03-28 15:29:49] INFO [django.channels.server.log_action:147] HTTP POST /workexperience/pay/ 302 [2.41, 127.0.0.1:3824]
+[2020-03-28 15:29:49] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/eligibility/ 200 [0.22, 127.0.0.1:3824]
+[2020-03-28 15:30:56] INFO [django.channels.server.log_action:147] HTTP POST /workexperience/eligibility/ 302 [4.33, 127.0.0.1:3851]
+[2020-03-28 15:30:56] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/ISA/ 200 [0.21, 127.0.0.1:3851]
+[2020-03-28 15:31:01] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexpformstage/ 200 [0.22, 127.0.0.1:3867]
+[2020-03-28 15:31:01] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/base.css 304 [0.03, 127.0.0.1:3867]
+[2020-03-28 15:31:01] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/changelists.css 304 [0.03, 127.0.0.1:3869]
+[2020-03-28 15:31:01] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/urlify.js 304 [0.03, 127.0.0.1:3871]
+[2020-03-28 15:31:01] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.03, 127.0.0.1:3870]
+[2020-03-28 15:31:01] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.03, 127.0.0.1:3868]
+[2020-03-28 15:31:01] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/prepopulate.js 304 [0.04, 127.0.0.1:3872]
+[2020-03-28 15:31:01] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/jquery.init.js 304 [0.03, 127.0.0.1:3869]
+[2020-03-28 15:31:01] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/actions.js 304 [0.03, 127.0.0.1:3870]
+[2020-03-28 15:31:01] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/core.js 304 [0.03, 127.0.0.1:3871]
+[2020-03-28 15:31:01] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.03, 127.0.0.1:3868]
+[2020-03-28 15:31:01] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/responsive.css 304 [0.03, 127.0.0.1:3872]
+[2020-03-28 15:31:01] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.06, 127.0.0.1:3867]
+[2020-03-28 15:31:02] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Regular-webfont.woff 304 [0.03, 127.0.0.1:3867]
+[2020-03-28 15:31:02] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Light-webfont.woff 304 [0.01, 127.0.0.1:3872]
+[2020-03-28 15:31:02] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Bold-webfont.woff 304 [0.03, 127.0.0.1:3871]
+[2020-03-28 15:31:02] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/tooltag-add.svg 304 [0.03, 127.0.0.1:3868]
+[2020-03-28 15:31:15] INFO [django.channels.server.log_action:147] HTTP POST /workexperience/ISA/ 302 [0.08, 127.0.0.1:3886]
+[2020-03-28 15:31:15] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/sign/ 200 [0.13, 127.0.0.1:3886]
+[2020-03-28 15:31:57] INFO [django.channels.server.log_action:147] HTTP POST /workexperience/sign/ 302 [35.42, 127.0.0.1:3886]
+[2020-03-28 15:31:57] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/apply/ 200 [0.17, 127.0.0.1:3886]
+[2020-03-28 15:31:57] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/css/main.css 304 [0.01, 127.0.0.1:3886]
+[2020-03-28 15:32:20] INFO [django.channels.server.log_action:147] HTTP POST /workexperience/apply/ 302 [0.07, 127.0.0.1:3979]
+[2020-03-28 15:32:42] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexpformstage/ 200 [0.11, 127.0.0.1:4011]
+[2020-03-28 15:32:42] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/changelists.css 304 [0.02, 127.0.0.1:4011]
+[2020-03-28 15:32:42] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/jquery.init.js 304 [0.02, 127.0.0.1:4014]
+[2020-03-28 15:32:42] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/core.js 304 [0.02, 127.0.0.1:4012]
+[2020-03-28 15:32:42] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/actions.js 304 [0.02, 127.0.0.1:4016]
+[2020-03-28 15:32:42] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.02, 127.0.0.1:4015]
+[2020-03-28 15:32:42] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.02, 127.0.0.1:4013]
+[2020-03-28 15:32:42] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.02, 127.0.0.1:4012]
+[2020-03-28 15:32:42] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/prepopulate.js 304 [0.02, 127.0.0.1:4014]
+[2020-03-28 15:32:42] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/urlify.js 304 [0.02, 127.0.0.1:4011]
+[2020-03-28 15:32:42] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/responsive.css 304 [0.02, 127.0.0.1:4016]
+[2020-03-28 15:32:42] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/base.css 304 [0.01, 127.0.0.1:4013]
+[2020-03-28 15:32:42] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:4015]
+[2020-03-28 15:32:43] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Regular-webfont.woff 304 [0.03, 127.0.0.1:4015]
+[2020-03-28 15:32:43] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/tooltag-add.svg 304 [0.02, 127.0.0.1:4016]
+[2020-03-28 15:32:43] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Bold-webfont.woff 304 [0.02, 127.0.0.1:4013]
+[2020-03-28 15:32:43] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Light-webfont.woff 304 [0.02, 127.0.0.1:4011]
+[2020-03-28 15:32:47] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexpformstage/ 200 [0.09, 127.0.0.1:4011]
+[2020-03-28 15:32:47] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/core.js 304 [0.01, 127.0.0.1:4016]
+[2020-03-28 15:32:47] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/changelists.css 304 [0.01, 127.0.0.1:4013]
+[2020-03-28 15:32:47] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.02, 127.0.0.1:4014]
+[2020-03-28 15:32:47] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/actions.js 304 [0.02, 127.0.0.1:4012]
+[2020-03-28 15:32:47] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.02, 127.0.0.1:4015]
+[2020-03-28 15:32:47] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:4011]
+[2020-03-28 15:32:47] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/jquery.init.js 304 [0.02, 127.0.0.1:4016]
+[2020-03-28 15:32:47] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/prepopulate.js 304 [0.02, 127.0.0.1:4013]
+[2020-03-28 15:32:47] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.01, 127.0.0.1:4012]
+[2020-03-28 15:32:47] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/responsive.css 304 [0.01, 127.0.0.1:4015]
+[2020-03-28 15:32:47] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/urlify.js 304 [0.02, 127.0.0.1:4014]
+[2020-03-28 15:32:47] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/base.css 304 [0.01, 127.0.0.1:4011]
+[2020-03-28 15:32:47] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/fonts.css 200 [0.01, 127.0.0.1:4011]
+[2020-03-28 15:32:48] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Bold-webfont.woff 304 [0.02, 127.0.0.1:4011]
+[2020-03-28 15:32:48] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/tooltag-add.svg 304 [0.01, 127.0.0.1:4015]
+[2020-03-28 15:32:48] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Regular-webfont.woff 304 [0.02, 127.0.0.1:4016]
+[2020-03-28 15:32:48] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Light-webfont.woff 304 [0.02, 127.0.0.1:4014]
+[2020-03-28 15:33:08] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [47.99, 127.0.0.1:3979]
+[2020-03-28 15:33:09] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/prof2.png 304 [0.04, 127.0.0.1:3979]
+[2020-03-28 15:33:37] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexpformstage/ 200 [0.09, 127.0.0.1:4016]
+[2020-03-28 15:33:37] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.02, 127.0.0.1:4016]
+[2020-03-28 15:33:37] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/urlify.js 304 [0.01, 127.0.0.1:4011]
+[2020-03-28 15:33:37] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/jquery.init.js 304 [0.01, 127.0.0.1:4015]
+[2020-03-28 15:33:37] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/prepopulate.js 304 [0.01, 127.0.0.1:4013]
+[2020-03-28 15:33:37] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.02, 127.0.0.1:4012]
+[2020-03-28 15:33:37] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/core.js 304 [0.03, 127.0.0.1:4014]
+[2020-03-28 15:33:37] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/actions.js 304 [0.02, 127.0.0.1:4016]
+[2020-03-28 15:33:37] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.01, 127.0.0.1:4011]
+[2020-03-28 15:33:37] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/responsive.css 304 [0.01, 127.0.0.1:4012]
+[2020-03-28 15:33:37] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/base.css 304 [0.02, 127.0.0.1:4013]
+[2020-03-28 15:33:37] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/changelists.css 304 [0.01, 127.0.0.1:4015]
+[2020-03-28 15:33:37] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.03, 127.0.0.1:4014]
+[2020-03-28 15:33:38] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Regular-webfont.woff 304 [0.03, 127.0.0.1:4014]
+[2020-03-28 15:33:38] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/tooltag-add.svg 304 [0.04, 127.0.0.1:4012]
+[2020-03-28 15:33:38] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Light-webfont.woff 304 [0.04, 127.0.0.1:4015]
+[2020-03-28 15:33:38] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Bold-webfont.woff 304 [0.03, 127.0.0.1:4013]
+[2020-03-28 15:33:40] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexpformstage/ 200 [0.08, 127.0.0.1:4013]
+[2020-03-28 15:33:40] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/actions.js 304 [0.01, 127.0.0.1:4014]
+[2020-03-28 15:33:40] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/prepopulate.js 304 [0.02, 127.0.0.1:4016]
+[2020-03-28 15:33:40] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/base.css 304 [0.02, 127.0.0.1:4012]
+[2020-03-28 15:33:40] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.02, 127.0.0.1:4015]
+[2020-03-28 15:33:40] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/jquery.init.js 304 [0.02, 127.0.0.1:4011]
+[2020-03-28 15:33:40] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:4013]
+[2020-03-28 15:33:40] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.02, 127.0.0.1:4014]
+[2020-03-28 15:33:40] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/urlify.js 304 [0.01, 127.0.0.1:4015]
+[2020-03-28 15:33:40] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/responsive.css 304 [0.02, 127.0.0.1:4012]
+[2020-03-28 15:33:40] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/core.js 304 [0.02, 127.0.0.1:4011]
+[2020-03-28 15:33:41] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.02, 127.0.0.1:4016]
+[2020-03-28 15:33:41] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/changelists.css 304 [0.01, 127.0.0.1:4013]
+[2020-03-28 15:33:42] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Light-webfont.woff 304 [0.02, 127.0.0.1:4013]
+[2020-03-28 15:33:42] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Regular-webfont.woff 304 [0.01, 127.0.0.1:4011]
+[2020-03-28 15:33:42] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Bold-webfont.woff 304 [0.03, 127.0.0.1:4012]
+[2020-03-28 15:33:42] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/tooltag-add.svg 304 [0.02, 127.0.0.1:4016]
+[2020-03-28 15:36:15] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/apply/ 200 [0.15, 127.0.0.1:4096]
+[2020-03-28 15:37:05] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/apply/ 200 [0.44, 127.0.0.1:4125]
+[2020-03-28 15:37:05] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/css/main.css 304 [0.01, 127.0.0.1:4125]
+[2020-03-28 15:37:07] INFO [django.channels.server.log_action:141] HTTP GET /static/favicon.ico 200 [0.01, 127.0.0.1:4125]
+[2020-03-28 15:37:08] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexpformstage/ 200 [0.27, 127.0.0.1:4134]
+[2020-03-28 15:37:09] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/urlify.js 304 [0.03, 127.0.0.1:4138]
+[2020-03-28 15:37:09] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.03, 127.0.0.1:4137]
+[2020-03-28 15:37:09] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/base.css 304 [0.03, 127.0.0.1:4135]
+[2020-03-28 15:37:09] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/actions.js 304 [0.03, 127.0.0.1:4139]
+[2020-03-28 15:37:09] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/jquery.init.js 304 [0.03, 127.0.0.1:4136]
+[2020-03-28 15:37:09] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/responsive.css 304 [0.02, 127.0.0.1:4138]
+[2020-03-28 15:37:09] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.02, 127.0.0.1:4135]
+[2020-03-28 15:37:09] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.08, 127.0.0.1:4134]
+[2020-03-28 15:37:09] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/core.js 304 [0.02, 127.0.0.1:4139]
+[2020-03-28 15:37:09] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.02, 127.0.0.1:4137]
+[2020-03-28 15:37:09] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/changelists.css 304 [0.02, 127.0.0.1:4136]
+[2020-03-28 15:37:09] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/prepopulate.js 304 [0.01, 127.0.0.1:4135]
+[2020-03-28 15:37:10] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Light-webfont.woff 304 [0.02, 127.0.0.1:4135]
+[2020-03-28 15:37:10] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Bold-webfont.woff 304 [0.02, 127.0.0.1:4137]
+[2020-03-28 15:37:10] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Regular-webfont.woff 304 [0.02, 127.0.0.1:4136]
+[2020-03-28 15:37:10] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/tooltag-add.svg 304 [0.02, 127.0.0.1:4139]
+[2020-03-28 15:37:23] INFO [django.channels.server.log_action:147] HTTP POST /workexperience/apply/ 302 [0.06, 127.0.0.1:4153]
+[2020-03-28 15:38:06] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [42.97, 127.0.0.1:4153]
+[2020-03-28 15:38:06] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/css/bootstrap.min.css 304 [0.06, 127.0.0.1:4153]
+[2020-03-28 15:38:06] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/style.css 304 [0.05, 127.0.0.1:4153]
+[2020-03-28 15:38:06] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/css/style.css 304 [0.01, 127.0.0.1:4153]
+[2020-03-28 15:38:07] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/css/newstyle2.css 304 [0.01, 127.0.0.1:4153]
+[2020-03-28 15:38:07] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/css/newstylenew.css 304 [0.01, 127.0.0.1:4153]
+[2020-03-28 15:38:07] INFO [django.channels.server.log_action:145] HTTP GET /static/Projects/custom/css/projects.css 304 [0.01, 127.0.0.1:4153]
+[2020-03-28 15:38:07] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css 304 [0.01, 127.0.0.1:4153]
+[2020-03-28 15:41:22] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/ 200 [0.14, 127.0.0.1:4258]
+[2020-03-28 15:41:26] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/werole/ 200 [0.10, 127.0.0.1:4258]
+[2020-03-28 15:41:26] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:4258]
+[2020-03-28 15:53:20] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [134.52, 127.0.0.1:4541]
+[2020-03-28 15:53:20] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/css/main.css 304 [0.01, 127.0.0.1:4541]
+[2020-03-28 15:53:26] INFO [django.channels.server.log_action:141] HTTP GET /static/favicon.ico 200 [0.01, 127.0.0.1:4622]
+[2020-03-28 16:00:46] INFO [django.channels.server.log_action:141] HTTP GET /admin/ 200 [0.28, 127.0.0.1:4691]
+[2020-03-28 16:00:47] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/icon-deletelink.svg 304 [0.01, 127.0.0.1:4691]
+[2020-03-28 16:00:52] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/ 200 [0.59, 127.0.0.1:4691]
+[2020-03-28 16:00:53] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.07, 127.0.0.1:4691]
+[2020-03-28 16:01:00] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/188/change/ 200 [1.04, 127.0.0.1:4691]
+[2020-03-28 16:01:00] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/admin/DateTimeShortcuts.js 304 [0.04, 127.0.0.1:4701]
+[2020-03-28 16:01:00] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/calendar.js 304 [0.04, 127.0.0.1:4700]
+[2020-03-28 16:01:00] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.08, 127.0.0.1:4691]
+[2020-03-28 16:01:01] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/icon-calendar.svg 304 [0.01, 127.0.0.1:4691]
+[2020-03-28 16:01:01] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/calendar-icons.svg 304 [0.01, 127.0.0.1:4701]
+[2020-03-28 16:01:01] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/icon-clock.svg 304 [0.02, 127.0.0.1:4700]
+[2020-03-28 16:04:15] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [146.37, 127.0.0.1:4749]
+[2020-03-28 16:04:15] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js 304 [0.01, 127.0.0.1:4749]
+[2020-03-28 16:04:15] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validate.js 304 [0.01, 127.0.0.1:4749]
+[2020-03-28 16:04:15] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/css/main.css 304 [0.00, 127.0.0.1:4749]
+[2020-03-28 16:04:16] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/fonts/fontsstylesheet.css 304 [0.00, 127.0.0.1:4749]
+[2020-03-28 16:04:16] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js 304 [0.01, 127.0.0.1:4749]
+[2020-03-28 16:04:16] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/js/bootstrap.min.js 304 [0.00, 127.0.0.1:4749]
+[2020-03-28 16:04:16] INFO [django.channels.server.log_action:145] HTTP GET /static/faq/js/jquery.mobile.custom.min.js 304 [0.01, 127.0.0.1:4749]
+[2020-03-28 16:04:16] INFO [django.channels.server.log_action:145] HTTP GET /static/faq/js/main.js 304 [0.01, 127.0.0.1:4749]
+[2020-03-28 16:04:16] INFO [django.channels.server.log_action:145] HTTP GET /static/js/waterbubble.js 304 [0.01, 127.0.0.1:4749]
+[2020-03-28 16:04:16] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/logo.png 304 [0.00, 127.0.0.1:4749]
+[2020-03-28 16:04:16] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/icon1.png 304 [0.01, 127.0.0.1:4749]
+[2020-03-28 16:04:16] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/logout1.png 304 [0.01, 127.0.0.1:4749]
+[2020-03-28 16:04:18] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/jobban2.png 304 [0.01, 127.0.0.1:4749]
+[2020-03-28 16:04:22] INFO [django.channels.server.log_action:141] HTTP GET /static/favicon.ico 200 [0.14, 127.0.0.1:4749]
+[2020-03-28 16:04:22] INFO [django.channels.server.log_action:141] HTTP POST /admin/home/wepeoples/188/change/ 200 [1.09, 127.0.0.1:4847]
+[2020-03-28 16:04:22] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.09, 127.0.0.1:4847]
+[2020-03-28 16:04:22] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/fonts.css 304 [0.02, 127.0.0.1:4849]
+[2020-03-28 16:04:39] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/ 200 [0.67, 127.0.0.1:4849]
+[2020-03-28 16:04:39] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.08, 127.0.0.1:4849]
+[2020-03-28 16:04:42] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/188/change/ 200 [0.83, 127.0.0.1:4849]
+[2020-03-28 16:04:42] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.08, 127.0.0.1:4849]
+[2020-03-28 16:04:47] INFO [django.channels.server.log_action:141] HTTP POST /admin/home/wepeoples/188/change/ 200 [1.00, 127.0.0.1:4849]
+[2020-03-28 16:04:48] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.08, 127.0.0.1:4849]
+[2020-03-28 16:04:58] INFO [django.channels.server.log_action:141] HTTP POST /admin/home/wepeoples/188/change/ 200 [0.93, 127.0.0.1:4849]
+[2020-03-28 16:04:58] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.08, 127.0.0.1:4849]
+[2020-03-28 16:05:06] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/ 200 [0.63, 127.0.0.1:4849]
+[2020-03-28 16:05:06] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.09, 127.0.0.1:4849]
+[2020-03-28 16:05:10] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/188/change/ 200 [1.17, 127.0.0.1:4849]
+[2020-03-28 16:05:10] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.07, 127.0.0.1:4849]
+[2020-03-28 16:05:22] INFO [django.channels.server.log_action:141] HTTP POST /admin/home/wepeoples/188/change/ 200 [0.88, 127.0.0.1:4849]
+[2020-03-28 16:05:22] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.06, 127.0.0.1:4849]
+[2020-03-28 16:05:31] INFO [django.channels.server.log_action:141] HTTP POST /admin/home/wepeoples/188/change/ 200 [0.89, 127.0.0.1:4849]
+[2020-03-28 16:05:31] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/jquery.init.js 304 [0.02, 127.0.0.1:4894]
+[2020-03-28 16:05:31] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/core.js 304 [0.02, 127.0.0.1:4893]
+[2020-03-28 16:05:31] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.02, 127.0.0.1:4896]
+[2020-03-28 16:05:31] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/actions.js 304 [0.03, 127.0.0.1:4897]
+[2020-03-28 16:05:31] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/urlify.js 304 [0.02, 127.0.0.1:4894]
+[2020-03-28 16:05:31] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.06, 127.0.0.1:4849]
+[2020-03-28 16:05:31] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/forms.css 200 [0.05, 127.0.0.1:4895]
+[2020-03-28 16:05:31] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/prepopulate.js 304 [0.02, 127.0.0.1:4893]
+[2020-03-28 16:05:31] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/calendar.js 304 [0.03, 127.0.0.1:4896]
+[2020-03-28 16:05:31] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/responsive.css 304 [0.02, 127.0.0.1:4897]
+[2020-03-28 16:05:31] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.02, 127.0.0.1:4895]
+[2020-03-28 16:05:31] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.02, 127.0.0.1:4849]
+[2020-03-28 16:05:31] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/admin/DateTimeShortcuts.js 304 [0.02, 127.0.0.1:4893]
+[2020-03-28 16:05:31] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/base.css 304 [0.03, 127.0.0.1:4896]
+[2020-03-28 16:05:31] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/change_form.js 200 [0.05, 127.0.0.1:4894]
+[2020-03-28 16:05:31] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/prepopulate_init.js 200 [0.04, 127.0.0.1:4897]
+[2020-03-28 16:05:31] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/icon-changelink.svg 200 [0.04, 127.0.0.1:4895]
+[2020-03-28 16:05:31] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/icon-addlink.svg 200 [0.05, 127.0.0.1:4849]
+[2020-03-28 16:05:31] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/fonts.css 304 [0.02, 127.0.0.1:4896]
+[2020-03-28 16:05:31] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/widgets.css 200 [0.04, 127.0.0.1:4894]
+[2020-03-28 16:05:32] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Regular-webfont.woff 304 [0.01, 127.0.0.1:4894]
+[2020-03-28 16:05:32] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Bold-webfont.woff 304 [0.01, 127.0.0.1:4849]
+[2020-03-28 16:05:32] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Light-webfont.woff 304 [0.01, 127.0.0.1:4896]
+[2020-03-28 16:05:32] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/icon-calendar.svg 304 [0.02, 127.0.0.1:4896]
+[2020-03-28 16:05:32] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/icon-clock.svg 304 [0.01, 127.0.0.1:4849]
+[2020-03-28 16:05:32] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/calendar-icons.svg 304 [0.02, 127.0.0.1:4894]
+[2020-03-28 16:05:44] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/ 200 [0.58, 127.0.0.1:4849]
+[2020-03-28 16:05:44] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.06, 127.0.0.1:4849]
+[2020-03-28 16:05:47] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/188/change/ 200 [0.85, 127.0.0.1:4849]
+[2020-03-28 16:05:48] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.06, 127.0.0.1:4849]
+[2020-03-28 16:08:38] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [103.09, 127.0.0.1:4933]
+[2020-03-28 16:08:43] INFO [django.channels.server.log_action:141] HTTP GET /static/favicon.ico 200 [0.01, 127.0.0.1:4933]
+[2020-03-28 16:21:04] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [132.23, 127.0.0.1:5105]
+[2020-03-28 16:21:04] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/css/bootstrap.min.css 304 [0.01, 127.0.0.1:5105]
+[2020-03-28 16:21:04] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/style.css 304 [0.01, 127.0.0.1:5105]
+[2020-03-28 16:21:04] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/css/style.css 304 [0.00, 127.0.0.1:5105]
+[2020-03-28 16:21:04] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/css/newstyle2.css 304 [0.01, 127.0.0.1:5105]
+[2020-03-28 16:21:04] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/css/main.css 304 [0.01, 127.0.0.1:5105]
+[2020-03-28 16:21:04] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/css/newstylenew.css 304 [0.01, 127.0.0.1:5105]
+[2020-03-28 16:21:04] INFO [django.channels.server.log_action:145] HTTP GET /static/Projects/custom/css/projects.css 304 [0.00, 127.0.0.1:5105]
+[2020-03-28 16:21:04] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css 304 [0.01, 127.0.0.1:5105]
+[2020-03-28 16:21:04] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/prof2.png 304 [0.01, 127.0.0.1:5105]
+[2020-03-28 16:21:10] INFO [django.channels.server.log_action:141] HTTP GET /static/favicon.ico 200 [0.03, 127.0.0.1:5222]
+[2020-03-28 16:39:13] INFO [django.channels.server.log_action:141] HTTP GET / 200 [0.32, 127.0.0.1:5625]
+[2020-03-28 16:39:13] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/testimonial-timeline.css 304 [0.02, 127.0.0.1:5625]
+[2020-03-28 16:39:13] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/jobphone.png 304 [0.01, 127.0.0.1:5629]
+[2020-03-28 16:39:13] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/LaptopBook.png 304 [0.02, 127.0.0.1:5626]
+[2020-03-28 16:39:13] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/homelive.png 304 [0.01, 127.0.0.1:5626]
+[2020-03-28 16:39:13] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/get3.png 304 [0.01, 127.0.0.1:5629]
+[2020-03-28 16:39:13] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/get2.png 304 [0.01, 127.0.0.1:5629]
+[2020-03-28 16:39:13] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/get1.png 304 [0.01, 127.0.0.1:5626]
+[2020-03-28 16:39:13] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/adekunle.png 304 [0.01, 127.0.0.1:5626]
+[2020-03-28 16:39:13] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/kenna.png 304 [0.01, 127.0.0.1:5629]
+[2020-03-28 16:39:13] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/fetigue.png 304 [0.00, 127.0.0.1:5629]
+[2020-03-28 16:39:14] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/homebanner.png 304 [0.01, 127.0.0.1:5629]
+[2020-03-28 16:39:18] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.04, 127.0.0.1:5634]
+[2020-03-28 16:39:21] INFO [django.channels.server.log_action:147] HTTP GET /workexperience/ 302 [0.05, 127.0.0.1:5634]
+[2020-03-28 16:46:19] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [418.76, 127.0.0.1:5634]
+[2020-03-28 16:52:29] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [166.22, 127.0.0.1:5762]
+[2020-03-28 16:52:29] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/css/main.css 304 [0.01, 127.0.0.1:5762]
+[2020-03-28 16:52:39] INFO [django.channels.server.log_action:141] HTTP GET /static/favicon.ico 200 [0.03, 127.0.0.1:5866]
+[2020-03-28 17:12:52] INFO [django.channels.server.log_action:147] HTTP GET /admin/home/wepeoples/ 302 [0.06, 127.0.0.1:5990]
+[2020-03-28 17:12:52] INFO [django.channels.server.log_action:141] HTTP GET /timeout 200 [0.17, 127.0.0.1:5990]
+[2020-03-28 17:12:52] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/icon1.png 200 [0.06, 127.0.0.1:5995]
+[2020-03-28 17:12:52] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/logout1.png 200 [0.08, 127.0.0.1:5990]
+[2020-03-28 17:12:53] INFO [django.channels.server.log_action:141] HTTP GET /static/home/css/newhomepage/imgs/proj-list.png 200 [0.02, 127.0.0.1:5990]
+[2020-03-28 17:13:06] INFO [django.channels.server.log_action:147] HTTP GET /admin/ 302 [0.04, 127.0.0.1:5990]
+[2020-03-28 17:13:06] INFO [django.channels.server.log_action:141] HTTP GET /timeout 200 [0.12, 127.0.0.1:5990]
+[2020-03-28 17:13:18] INFO [django.channels.server.log_action:147] HTTP POST /timeout 302 [0.12, 127.0.0.1:5990]
+[2020-03-28 17:13:19] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/ 200 [0.84, 127.0.0.1:5990]
+[2020-03-28 17:13:19] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/jquery.init.js 304 [0.05, 127.0.0.1:5995]
+[2020-03-28 17:13:19] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/changelists.css 304 [0.05, 127.0.0.1:6025]
+[2020-03-28 17:13:19] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/core.js 304 [0.04, 127.0.0.1:6024]
+[2020-03-28 17:13:19] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.08, 127.0.0.1:5990]
+[2020-03-28 17:13:19] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.04, 127.0.0.1:6026]
+[2020-03-28 17:13:19] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/actions.js 304 [0.02, 127.0.0.1:6027]
+[2020-03-28 17:13:19] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/urlify.js 304 [0.03, 127.0.0.1:5995]
+[2020-03-28 17:13:19] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/prepopulate.js 304 [0.03, 127.0.0.1:6025]
+[2020-03-28 17:13:19] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.02, 127.0.0.1:6024]
+[2020-03-28 17:13:19] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.02, 127.0.0.1:5990]
+[2020-03-28 17:13:19] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/responsive.css 304 [0.02, 127.0.0.1:6026]
+[2020-03-28 17:13:19] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/base.css 304 [0.02, 127.0.0.1:6027]
+[2020-03-28 17:13:19] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/fonts.css 304 [0.01, 127.0.0.1:6027]
+[2020-03-28 17:13:20] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Regular-webfont.woff 304 [0.01, 127.0.0.1:6027]
+[2020-03-28 17:13:20] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Light-webfont.woff 304 [0.01, 127.0.0.1:6026]
+[2020-03-28 17:13:20] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Bold-webfont.woff 304 [0.01, 127.0.0.1:5990]
+[2020-03-28 17:13:20] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/tooltag-add.svg 304 [0.00, 127.0.0.1:5990]
+[2020-03-28 17:13:23] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/185/change/ 200 [1.01, 127.0.0.1:5990]
+[2020-03-28 17:13:23] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/change_form.js 304 [0.05, 127.0.0.1:6027]
+[2020-03-28 17:13:23] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.07, 127.0.0.1:5990]
+[2020-03-28 17:13:23] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/admin/DateTimeShortcuts.js 304 [0.04, 127.0.0.1:5995]
+[2020-03-28 17:13:23] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/prepopulate_init.js 304 [0.05, 127.0.0.1:6024]
+[2020-03-28 17:13:23] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/calendar.js 304 [0.05, 127.0.0.1:6025]
+[2020-03-28 17:13:23] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/forms.css 304 [0.06, 127.0.0.1:6026]
+[2020-03-28 17:13:23] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/icon-changelink.svg 304 [0.03, 127.0.0.1:6027]
+[2020-03-28 17:13:23] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/icon-addlink.svg 304 [0.03, 127.0.0.1:5990]
+[2020-03-28 17:13:23] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/widgets.css 304 [0.02, 127.0.0.1:6026]
+[2020-03-28 17:13:25] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/icon-clock.svg 304 [0.02, 127.0.0.1:6026]
+[2020-03-28 17:13:25] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/calendar-icons.svg 304 [0.02, 127.0.0.1:5990]
+[2020-03-28 17:13:25] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/icon-calendar.svg 304 [0.01, 127.0.0.1:6026]
+[2020-03-28 17:13:30] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/ 200 [0.71, 127.0.0.1:6026]
+[2020-03-28 17:13:30] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.08, 127.0.0.1:6026]
+[2020-03-28 17:13:34] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/184/change/ 200 [1.07, 127.0.0.1:6026]
+[2020-03-28 17:13:34] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.09, 127.0.0.1:6026]
+[2020-03-28 17:13:37] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/ 200 [0.63, 127.0.0.1:6026]
+[2020-03-28 17:13:38] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.09, 127.0.0.1:6026]
+[2020-03-28 17:19:28] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/ 200 [0.86, 127.0.0.1:6214]
+[2020-03-28 17:19:28] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/base.css 304 [0.03, 127.0.0.1:6214]
+[2020-03-28 17:19:28] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/core.js 304 [0.03, 127.0.0.1:6218]
+[2020-03-28 17:19:28] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.03, 127.0.0.1:6219]
+[2020-03-28 17:19:28] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/changelists.css 304 [0.03, 127.0.0.1:6220]
+[2020-03-28 17:19:28] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/jquery.init.js 304 [0.04, 127.0.0.1:6221]
+[2020-03-28 17:19:28] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/actions.js 304 [0.03, 127.0.0.1:6214]
+[2020-03-28 17:19:28] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.07, 127.0.0.1:6217]
+[2020-03-28 17:19:28] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/urlify.js 304 [0.03, 127.0.0.1:6219]
+[2020-03-28 17:19:28] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.03, 127.0.0.1:6218]
+[2020-03-28 17:19:28] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/prepopulate.js 304 [0.02, 127.0.0.1:6220]
+[2020-03-28 17:19:28] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/responsive.css 304 [0.02, 127.0.0.1:6221]
+[2020-03-28 17:19:28] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.02, 127.0.0.1:6214]
+[2020-03-28 17:19:29] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Light-webfont.woff 304 [0.23, 127.0.0.1:6214]
+[2020-03-28 17:19:29] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Bold-webfont.woff 304 [0.23, 127.0.0.1:6220]
+[2020-03-28 17:19:29] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Regular-webfont.woff 304 [0.25, 127.0.0.1:6221]
+[2020-03-28 17:19:29] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/tooltag-add.svg 304 [0.20, 127.0.0.1:6217]
+[2020-03-28 17:19:32] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/188/change/ 200 [1.17, 127.0.0.1:6217]
+[2020-03-28 17:19:32] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.09, 127.0.0.1:6217]
+[2020-03-28 17:21:46] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [141.77, 127.0.0.1:6204]
+[2020-03-28 17:25:24] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [160.89, 127.0.0.1:6407]
+[2020-03-28 17:25:24] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js 304 [0.01, 127.0.0.1:6407]
+[2020-03-28 17:25:24] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/css/bootstrap.min.css 304 [0.01, 127.0.0.1:6407]
+[2020-03-28 17:25:24] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/style.css 304 [0.01, 127.0.0.1:6407]
+[2020-03-28 17:25:24] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/css/style.css 304 [0.00, 127.0.0.1:6407]
+[2020-03-28 17:25:24] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/css/newstyle2.css 304 [0.01, 127.0.0.1:6407]
+[2020-03-28 17:25:24] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/css/main.css 304 [0.01, 127.0.0.1:6407]
+[2020-03-28 17:25:24] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/css/newstylenew.css 304 [0.01, 127.0.0.1:6407]
+[2020-03-28 17:25:24] INFO [django.channels.server.log_action:145] HTTP GET /static/Projects/custom/css/projects.css 304 [0.01, 127.0.0.1:6407]
+[2020-03-28 17:25:24] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css 304 [0.01, 127.0.0.1:6407]
+[2020-03-28 17:25:24] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validate.js 304 [0.01, 127.0.0.1:6407]
+[2020-03-28 17:25:24] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js 304 [0.01, 127.0.0.1:6407]
+[2020-03-28 17:25:24] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/logo.png 304 [0.01, 127.0.0.1:6407]
+[2020-03-28 17:25:24] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/fonts/fontsstylesheet.css 304 [0.01, 127.0.0.1:6407]
+[2020-03-28 17:25:24] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/icon1.png 304 [0.01, 127.0.0.1:6407]
+[2020-03-28 17:25:24] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/js/bootstrap.min.js 304 [0.01, 127.0.0.1:6407]
+[2020-03-28 17:25:24] INFO [django.channels.server.log_action:145] HTTP GET /static/faq/js/jquery.mobile.custom.min.js 304 [0.00, 127.0.0.1:6407]
+[2020-03-28 17:25:24] INFO [django.channels.server.log_action:145] HTTP GET /static/faq/js/main.js 304 [0.01, 127.0.0.1:6407]
+[2020-03-28 17:25:24] INFO [django.channels.server.log_action:145] HTTP GET /static/js/waterbubble.js 304 [0.01, 127.0.0.1:6407]
+[2020-03-28 17:25:24] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/logout1.png 304 [0.01, 127.0.0.1:6407]
+[2020-03-28 17:25:24] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/prof2.png 304 [0.01, 127.0.0.1:6407]
+[2020-03-28 17:25:26] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/jobban2.png 304 [0.00, 127.0.0.1:6407]
+[2020-03-28 17:25:29] INFO [django.channels.server.log_action:141] HTTP GET /static/favicon.ico 200 [0.01, 127.0.0.1:6407]
+[2020-03-28 17:31:24] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [105.03, 127.0.0.1:6541]
+[2020-03-28 17:31:29] INFO [django.channels.server.log_action:141] HTTP GET /static/favicon.ico 200 [0.01, 127.0.0.1:6541]
+[2020-03-28 17:33:25] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/ 200 [1.08, 127.0.0.1:6643]
+[2020-03-28 17:33:25] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.10, 127.0.0.1:6643]
+[2020-03-28 17:33:29] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/ 200 [0.27, 127.0.0.1:6643]
+[2020-03-28 17:33:32] INFO [django.channels.server.log_action:141] HTTP GET /admin/ 200 [0.16, 127.0.0.1:6643]
+[2020-03-28 17:33:33] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/icon-deletelink.svg 304 [0.02, 127.0.0.1:6643]
+[2020-03-28 17:33:36] INFO [django.channels.server.log_action:141] HTTP GET /admin/users/customuser/ 200 [0.74, 127.0.0.1:6643]
+[2020-03-28 17:33:36] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.08, 127.0.0.1:6643]
+[2020-03-28 17:33:42] INFO [django.channels.server.log_action:141] HTTP GET /admin/users/customuser/?p=1 200 [0.77, 127.0.0.1:6643]
+[2020-03-28 17:33:42] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.13, 127.0.0.1:6643]
+[2020-03-28 17:33:55] INFO [django.channels.server.log_action:141] HTTP GET /admin/users/customuser/3188/change/?_changelist_filters=p%3D1 200 [0.40, 127.0.0.1:6643]
+[2020-03-28 17:33:55] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/SelectBox.js 304 [0.10, 127.0.0.1:6676]
+[2020-03-28 17:33:55] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/SelectFilter2.js 304 [0.07, 127.0.0.1:6678]
+[2020-03-28 17:33:55] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.15, 127.0.0.1:6643]
+[2020-03-28 17:33:56] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/icon-unknown.svg 304 [0.06, 127.0.0.1:6643]
+[2020-03-28 17:33:56] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/icon-unknown-alt.svg 304 [0.06, 127.0.0.1:6676]
+[2020-03-28 17:33:56] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/selector-icons.svg 304 [0.03, 127.0.0.1:6678]
+[2020-03-28 17:34:02] INFO [django.channels.server.log_action:141] HTTP GET /admin/users/customuser/3188/delete/?_changelist_filters=p%3D1 200 [0.33, 127.0.0.1:6678]
+[2020-03-28 17:34:07] INFO [django.channels.server.log_action:147] HTTP POST /admin/users/customuser/3188/delete/?_changelist_filters=p%3D1 302 [0.27, 127.0.0.1:6678]
+[2020-03-28 17:34:08] INFO [django.channels.server.log_action:141] HTTP GET /admin/users/customuser/?p=1 200 [0.82, 127.0.0.1:6678]
+[2020-03-28 17:34:08] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.07, 127.0.0.1:6678]
+[2020-03-28 17:34:22] INFO [django.channels.server.log_action:141] HTTP GET /admin/users/customuser/?p=1 200 [0.46, 127.0.0.1:6678]
+[2020-03-28 17:34:22] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/base.css 304 [0.04, 127.0.0.1:6678]
+[2020-03-28 17:34:22] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/jquery.init.js 304 [0.03, 127.0.0.1:6643]
+[2020-03-28 17:34:22] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.03, 127.0.0.1:6676]
+[2020-03-28 17:34:22] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/changelists.css 304 [0.03, 127.0.0.1:6696]
+[2020-03-28 17:34:22] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/urlify.js 304 [0.03, 127.0.0.1:6697]
+[2020-03-28 17:34:22] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.03, 127.0.0.1:6698]
+[2020-03-28 17:34:22] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/core.js 304 [0.03, 127.0.0.1:6678]
+[2020-03-28 17:34:22] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/actions.js 304 [0.02, 127.0.0.1:6643]
+[2020-03-28 17:34:22] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/responsive.css 304 [0.03, 127.0.0.1:6696]
+[2020-03-28 17:34:22] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/prepopulate.js 304 [0.03, 127.0.0.1:6697]
+[2020-03-28 17:34:22] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.03, 127.0.0.1:6698]
+[2020-03-28 17:34:22] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:6676]
+[2020-03-28 17:34:22] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/fonts.css 304 [0.02, 127.0.0.1:6643]
+[2020-03-28 17:34:22] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/search.svg 200 [0.04, 127.0.0.1:6678]
+[2020-03-28 17:34:23] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Light-webfont.woff 304 [0.03, 127.0.0.1:6678]
+[2020-03-28 17:34:23] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Regular-webfont.woff 304 [0.02, 127.0.0.1:6676]
+[2020-03-28 17:34:23] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Bold-webfont.woff 304 [0.03, 127.0.0.1:6643]
+[2020-03-28 17:34:24] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/tooltag-add.svg 304 [0.05, 127.0.0.1:6676]
+[2020-03-28 17:34:24] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/sorting-icons.svg 200 [0.06, 127.0.0.1:6643]
+[2020-03-28 17:34:30] INFO [django.channels.server.log_action:141] HTTP GET /admin/ 200 [0.19, 127.0.0.1:6643]
+[2020-03-28 17:34:40] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/ 200 [0.76, 127.0.0.1:6643]
+[2020-03-28 17:34:40] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.06, 127.0.0.1:6643]
+[2020-03-28 17:34:53] INFO [django.channels.server.log_action:141] HTTP GET /logout 200 [0.08, 127.0.0.1:6711]
+[2020-03-28 17:34:55] INFO [django.channels.server.log_action:141] HTTP GET /static/home/images/slide1.png 200 [0.02, 127.0.0.1:6711]
+[2020-03-28 17:34:57] INFO [django.channels.server.log_action:141] HTTP GET / 200 [0.10, 127.0.0.1:6711]
+[2020-03-28 17:34:57] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/testimonial-timeline.css 304 [0.02, 127.0.0.1:6711]
+[2020-03-28 17:34:57] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/LaptopBook.png 304 [0.02, 127.0.0.1:6712]
+[2020-03-28 17:34:57] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/jobphone.png 304 [0.03, 127.0.0.1:6716]
+[2020-03-28 17:34:57] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/homelive.png 304 [0.01, 127.0.0.1:6716]
+[2020-03-28 17:34:57] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/get3.png 304 [0.01, 127.0.0.1:6712]
+[2020-03-28 17:34:57] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/get1.png 304 [0.00, 127.0.0.1:6716]
+[2020-03-28 17:34:57] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/get2.png 304 [0.01, 127.0.0.1:6712]
+[2020-03-28 17:34:57] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/kenna.png 304 [0.00, 127.0.0.1:6712]
+[2020-03-28 17:34:57] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/adekunle.png 304 [0.01, 127.0.0.1:6716]
+[2020-03-28 17:34:57] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/fetigue.png 304 [0.01, 127.0.0.1:6716]
+[2020-03-28 17:34:59] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/homebanner.png 304 [0.01, 127.0.0.1:6716]
+[2020-03-28 17:35:01] INFO [django.channels.server.log_action:141] HTTP GET /login/ 200 [0.05, 127.0.0.1:6716]
+[2020-03-28 17:35:01] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/styles.css 304 [0.03, 127.0.0.1:6716]
+[2020-03-28 17:35:03] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/imgback.jpg 304 [0.01, 127.0.0.1:6716]
+[2020-03-28 17:35:05] INFO [django.channels.server.log_action:141] HTTP POST /login/ 200 [0.09, 127.0.0.1:6737]
+[2020-03-28 17:35:08] INFO [django.channels.server.log_action:141] HTTP GET /signup 200 [0.05, 127.0.0.1:6737]
+[2020-03-28 17:37:29] INFO [django.channels.server.log_action:141] HTTP POST /signup 200 [0.67, 127.0.0.1:6833]
+[2020-03-28 17:37:29] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/checkers.png 304 [0.01, 127.0.0.1:6833]
+[2020-03-28 17:37:30] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/signupbg.png 304 [0.01, 127.0.0.1:6833]
+[2020-03-28 17:37:34] INFO [django.channels.server.log_action:147] HTTP GET /login/ 302 [0.08, 127.0.0.1:6844]
+[2020-03-28 17:37:34] INFO [django.channels.server.log_action:141] HTTP GET /courses/userinterest 200 [0.16, 127.0.0.1:6844]
+[2020-03-28 17:37:34] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/lin-logo.png 304 [0.01, 127.0.0.1:6844]
+[2020-03-28 17:37:34] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/button-left.png 304 [0.01, 127.0.0.1:6845]
+[2020-03-28 17:37:34] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/amazons.png 304 [0.01, 127.0.0.1:6845]
+[2020-03-28 17:37:34] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/ppt.png 304 [0.01, 127.0.0.1:6844]
+[2020-03-28 17:37:34] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/jjava.png 304 [0.01, 127.0.0.1:6844]
+[2020-03-28 17:37:34] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/rchsaa.png 304 [0.01, 127.0.0.1:6845]
+[2020-03-28 17:37:34] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/ajs.png 304 [0.01, 127.0.0.1:6845]
+[2020-03-28 17:37:34] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/csecurity.png 304 [0.01, 127.0.0.1:6844]
+[2020-03-28 17:37:34] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/biz.png 304 [0.01, 127.0.0.1:6844]
+[2020-03-28 17:37:34] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/dba.png 304 [0.01, 127.0.0.1:6845]
+[2020-03-28 17:37:34] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/py.png 304 [0.01, 127.0.0.1:6845]
+[2020-03-28 17:37:35] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs//list-bg.png 304 [0.01, 127.0.0.1:6845]
+[2020-03-28 17:37:38] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/ 200 [0.45, 127.0.0.1:6845]
+[2020-03-28 17:37:38] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/workexperience.css 304 [0.01, 127.0.0.1:6844]
+[2020-03-28 17:37:38] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/we_new.css 304 [0.03, 127.0.0.1:6845]
+[2020-03-28 17:37:38] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/arrow-right.png 304 [0.02, 127.0.0.1:6845]
+[2020-03-28 17:37:38] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/cup.png 304 [0.02, 127.0.0.1:6844]
+[2020-03-28 17:37:38] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/tap.png 304 [0.01, 127.0.0.1:6844]
+[2020-03-28 17:37:38] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/accept.png 304 [0.01, 127.0.0.1:6845]
+[2020-03-28 17:37:38] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/number.png 304 [0.01, 127.0.0.1:6845]
+[2020-03-28 17:37:38] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/join.png 304 [0.01, 127.0.0.1:6844]
+[2020-03-28 17:37:38] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/arrow-blue.png 304 [0.01, 127.0.0.1:6844]
+[2020-03-28 17:37:38] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/graph.svg 304 [0.01, 127.0.0.1:6845]
+[2020-03-28 17:37:38] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/list%20_checked.png 304 [0.01, 127.0.0.1:6845]
+[2020-03-28 17:37:38] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/cap.png 304 [0.01, 127.0.0.1:6845]
+[2020-03-28 17:37:38] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/wallet.png 304 [0.01, 127.0.0.1:6844]
+[2020-03-28 17:37:40] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/bg2.png 304 [0.06, 127.0.0.1:6844]
+[2020-03-28 17:37:40] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/el.png 304 [0.07, 127.0.0.1:6845]
+[2020-03-28 17:37:40] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/alumni-bg.png 304 [0.05, 127.0.0.1:6850]
+[2020-03-28 17:37:40] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/thmbs.png 304 [0.01, 127.0.0.1:6850]
+[2020-03-28 17:37:44] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/terms/ 200 [0.14, 127.0.0.1:6865]
+[2020-03-28 17:37:48] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/pay/ 200 [0.24, 127.0.0.1:6865]
+[2020-03-28 17:37:57] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/linuxlogo.png 304 [0.01, 127.0.0.1:6893]
+[2020-03-28 17:38:21] INFO [django.channels.server.log_action:147] HTTP POST /workexperience/pay/ 302 [5.93, 127.0.0.1:6909]
+[2020-03-28 17:38:21] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/eligibility/ 200 [0.22, 127.0.0.1:6909]
+[2020-03-28 17:39:09] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /workexperience/eligibility/
+Traceback (most recent call last):
+  File "C:\Users\USER\Documents\linuxjobber2\Django\Linuxjobber\home\views.py", line 1426, in work_experience_eligible
+    det = WorkExperienceEligibility.objects.get(user=request.user)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\query.py", line 403, in get
+    self.model._meta.object_name
+home.models.DoesNotExist: WorkExperienceEligibility matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\Documents\linuxjobber2\Django\Linuxjobber\home\views.py", line 1456, in work_experience_eligible
+    work_experience_term_pdf(request.user)
+  File "C:\Users\USER\Documents\linuxjobber2\Django\Linuxjobber\home\views.py", line 1355, in work_experience_term_pdf
+    pdf_file = HTML(string=html_template).write_pdf( stylesheets=[CSS("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")],presentational_hints=True)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\weasyprint\__init__.py", line 328, in __init__
+    source = source.read()
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python36\lib\gzip.py", line 276, in read
+    return self._buffer.read(size)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python36\lib\gzip.py", line 463, in read
+    if not self._read_gzip_header():
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python36\lib\gzip.py", line 406, in _read_gzip_header
+    magic = self._fp.read(2)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python36\lib\gzip.py", line 91, in read
+    self.file.read(size-self._length+read)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python36\lib\http\client.py", line 449, in read
+    n = self.readinto(b)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python36\lib\http\client.py", line 493, in readinto
+    n = self.fp.readinto(b)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python36\lib\socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python36\lib\ssl.py", line 1012, in recv_into
+    return self.read(nbytes, buffer)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python36\lib\ssl.py", line 874, in read
+    return self._sslobj.read(len, buffer)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python36\lib\ssl.py", line 631, in read
+    v = self._sslobj.read(len, buffer)
+socket.timeout: The read operation timed out
+[2020-03-28 17:39:10] ERROR [django.channels.server.log_action:154] HTTP POST /workexperience/eligibility/ 500 [21.20, 127.0.0.1:6936]
+[2020-03-28 17:39:19] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /workexperience/eligibility/
+Traceback (most recent call last):
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\Documents\linuxjobber2\Django\Linuxjobber\home\views.py", line 1372, in work_experience_eligible
+    expire = expire.strftime('%m/%d/%Y')
+AttributeError: 'NoneType' object has no attribute 'strftime'
+[2020-03-28 17:39:19] ERROR [django.channels.server.log_action:154] HTTP POST /workexperience/eligibility/ 500 [0.29, 127.0.0.1:6959]
+[2020-03-28 17:39:23] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /workexperience/eligibility/
+Traceback (most recent call last):
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\Documents\linuxjobber2\Django\Linuxjobber\home\views.py", line 1372, in work_experience_eligible
+    expire = expire.strftime('%m/%d/%Y')
+AttributeError: 'NoneType' object has no attribute 'strftime'
+[2020-03-28 17:39:23] ERROR [django.channels.server.log_action:154] HTTP GET /workexperience/eligibility/ 500 [0.24, 127.0.0.1:6959]
+[2020-03-28 17:39:55] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /workexperience/eligibility/
+Traceback (most recent call last):
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\Documents\linuxjobber2\Django\Linuxjobber\home\views.py", line 1372, in work_experience_eligible
+    expire = expire.strftime('%m/%d/%Y')
+AttributeError: 'NoneType' object has no attribute 'strftime'
+[2020-03-28 17:39:56] ERROR [django.channels.server.log_action:154] HTTP GET /workexperience/eligibility/ 500 [0.33, 127.0.0.1:6978]
+[2020-03-28 17:40:15] INFO [django.channels.server.log_action:147] HTTP GET /workexperience/pay/ 302 [0.11, 127.0.0.1:6991]
+[2020-03-28 17:40:15] INFO [django.channels.server.log_action:147] HTTP GET /workexperience/profile/ 302 [0.08, 127.0.0.1:6991]
+[2020-03-28 17:40:15] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/ISA/ 200 [0.25, 127.0.0.1:6991]
+[2020-03-28 17:40:33] INFO [django.channels.server.log_action:147] HTTP POST /workexperience/ISA/ 302 [0.11, 127.0.0.1:7010]
+[2020-03-28 17:40:34] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/sign/ 200 [0.19, 127.0.0.1:7010]
+[2020-03-28 17:41:35] INFO [django.channels.server.log_action:141] HTTP GET /admin/ 200 [0.34, 127.0.0.1:7070]
+[2020-03-28 17:41:40] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexpformstage/ 200 [0.13, 127.0.0.1:7070]
+[2020-03-28 17:41:40] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.07, 127.0.0.1:7070]
+[2020-03-28 17:42:01] INFO [django.channels.server.log_action:147] HTTP POST /workexperience/sign/ 302 [80.00, 127.0.0.1:7010]
+[2020-03-28 17:42:01] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/apply/ 200 [0.20, 127.0.0.1:7010]
+[2020-03-28 17:42:01] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/css/main.css 304 [0.01, 127.0.0.1:7010]
+[2020-03-28 17:42:18] INFO [django.channels.server.log_action:147] HTTP POST /workexperience/apply/ 302 [0.08, 127.0.0.1:7111]
+[2020-03-28 17:44:28] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /workexperience/profile/
+Traceback (most recent call last):
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\Documents\linuxjobber2\Django\Linuxjobber\home\views.py", line 1733, in workexprofile
+    pdf2 = details.terms.url
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\fields\files.py", line 61, in url
+    self._require_file()
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\fields\files.py", line 38, in _require_file
+    raise ValueError("The '%s' attribute has no file associated with it." % self.field.name)
+ValueError: The 'terms' attribute has no file associated with it.
+[2020-03-28 17:44:28] ERROR [django.channels.server.log_action:154] HTTP GET /workexperience/profile/ 500 [130.06, 127.0.0.1:7111]
+[2020-03-28 17:46:25] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [96.67, 127.0.0.1:7202]
+[2020-03-28 17:48:01] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/ 200 [0.12, 127.0.0.1:7328]
+[2020-03-28 17:48:08] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/ 200 [0.77, 127.0.0.1:7328]
+[2020-03-28 17:48:08] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.08, 127.0.0.1:7328]
+[2020-03-28 17:48:11] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/189/change/ 200 [1.24, 127.0.0.1:7328]
+[2020-03-28 17:48:11] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.08, 127.0.0.1:7328]
+[2020-03-28 17:48:22] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [91.71, 127.0.0.1:7275]
+[2020-03-28 17:48:28] INFO [django.channels.server.log_action:141] HTTP GET /static/favicon.ico 200 [0.02, 127.0.0.1:7363]
+[2020-03-28 17:52:31] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [148.60, 127.0.0.1:7402]
+[2020-03-28 17:52:40] INFO [django.channels.server.log_action:141] HTTP GET /static/favicon.ico 200 [0.01, 127.0.0.1:7486]
+[2020-03-28 17:54:15] INFO [django.channels.server.log_action:141] HTTP POST /admin/home/wepeoples/189/change/ 200 [1.70, 127.0.0.1:7515]
+[2020-03-28 17:54:16] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/forms.css 304 [0.07, 127.0.0.1:7515]
+[2020-03-28 17:54:16] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/calendar.js 304 [0.08, 127.0.0.1:7519]
+[2020-03-28 17:54:16] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.09, 127.0.0.1:7518]
+[2020-03-28 17:54:16] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/admin/DateTimeShortcuts.js 304 [0.08, 127.0.0.1:7520]
+[2020-03-28 17:54:16] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/change_form.js 304 [0.03, 127.0.0.1:7521]
+[2020-03-28 17:54:16] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/prepopulate_init.js 304 [0.02, 127.0.0.1:7523]
+[2020-03-28 17:54:16] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/icon-addlink.svg 304 [0.02, 127.0.0.1:7515]
+[2020-03-28 17:54:16] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/widgets.css 304 [0.01, 127.0.0.1:7520]
+[2020-03-28 17:54:16] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/icon-changelink.svg 304 [0.01, 127.0.0.1:7519]
+[2020-03-28 17:54:17] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/calendar-icons.svg 304 [0.02, 127.0.0.1:7519]
+[2020-03-28 17:54:17] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/icon-clock.svg 304 [0.02, 127.0.0.1:7520]
+[2020-03-28 17:54:17] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/icon-calendar.svg 304 [0.02, 127.0.0.1:7515]
+[2020-03-28 17:57:19] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/ 200 [0.60, 127.0.0.1:7655]
+[2020-03-28 17:57:28] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/ 200 [0.74, 127.0.0.1:7655]
+[2020-03-28 17:57:28] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.07, 127.0.0.1:7655]
+[2020-03-28 17:57:32] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/189/change/ 200 [1.08, 127.0.0.1:7655]
+[2020-03-28 17:57:32] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.09, 127.0.0.1:7655]
+[2020-03-28 17:57:42] INFO [django.channels.server.log_action:147] HTTP POST /admin/home/wepeoples/189/change/ 302 [0.06, 127.0.0.1:7655]
+[2020-03-28 17:57:42] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/ 200 [0.62, 127.0.0.1:7655]
+[2020-03-28 17:57:42] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.06, 127.0.0.1:7655]
+[2020-03-28 17:58:12] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/189/change/ 200 [1.17, 127.0.0.1:7655]
+[2020-03-28 17:58:12] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.08, 127.0.0.1:7655]
+[2020-03-28 17:59:56] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /workexperience/profile/
+Traceback (most recent call last):
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\Documents\linuxjobber2\Django\Linuxjobber\home\views.py", line 1735, in workexprofile
+    wep.save
+NameError: name 'wep' is not defined
+[2020-03-28 17:59:56] ERROR [django.channels.server.log_action:154] HTTP GET /workexperience/profile/ 500 [124.87, 127.0.0.1:7691]
+[2020-03-28 18:03:34] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [192.67, 127.0.0.1:7784]
+[2020-03-28 18:03:34] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/css/main.css 304 [0.01, 127.0.0.1:7784]
+[2020-03-28 18:04:40] INFO [django.channels.server.log_action:147] HTTP POST /admin/home/wepeoples/189/change/ 302 [0.25, 127.0.0.1:7887]
+[2020-03-28 18:04:41] INFO [django.channels.server.log_action:141] HTTP GET /static/favicon.ico 200 [0.03, 127.0.0.1:7894]
+[2020-03-28 18:04:41] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/ 200 [0.69, 127.0.0.1:7887]
+[2020-03-28 18:04:41] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.07, 127.0.0.1:7887]
+[2020-03-28 18:07:03] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [118.18, 127.0.0.1:7905]
+[2020-03-28 18:07:11] INFO [django.channels.server.log_action:141] HTTP GET /static/favicon.ico 200 [0.02, 127.0.0.1:7984]
+[2020-03-28 18:14:01] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [273.19, 127.0.0.1:8092]
+[2020-03-28 18:14:02] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/css/bootstrap.min.css 304 [0.01, 127.0.0.1:8092]
+[2020-03-28 18:14:02] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/style.css 304 [0.01, 127.0.0.1:8092]
+[2020-03-28 18:14:02] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/css/style.css 304 [0.01, 127.0.0.1:8092]
+[2020-03-28 18:14:02] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/css/newstyle2.css 304 [0.00, 127.0.0.1:8092]
+[2020-03-28 18:14:02] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/css/newstylenew.css 304 [0.01, 127.0.0.1:8092]
+[2020-03-28 18:14:02] INFO [django.channels.server.log_action:145] HTTP GET /static/Projects/custom/css/projects.css 304 [0.01, 127.0.0.1:8092]
+[2020-03-28 18:14:02] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css 304 [0.00, 127.0.0.1:8092]
+[2020-03-28 18:14:10] INFO [django.channels.server.log_action:141] HTTP GET /static/favicon.ico 200 [0.01, 127.0.0.1:8208]
+[2020-03-28 18:15:00] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/ 200 [0.96, 127.0.0.1:8219]
+[2020-03-28 18:15:00] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/jquery.init.js 304 [0.04, 127.0.0.1:8219]
+[2020-03-28 18:15:00] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.03, 127.0.0.1:8221]
+[2020-03-28 18:15:00] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/changelists.css 304 [0.03, 127.0.0.1:8223]
+[2020-03-28 18:15:00] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/base.css 304 [0.02, 127.0.0.1:8224]
+[2020-03-28 18:15:00] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/core.js 304 [0.04, 127.0.0.1:8225]
+[2020-03-28 18:15:00] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.04, 127.0.0.1:8219]
+[2020-03-28 18:15:00] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/actions.js 304 [0.04, 127.0.0.1:8221]
+[2020-03-28 18:15:00] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.09, 127.0.0.1:8222]
+[2020-03-28 18:15:00] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/urlify.js 304 [0.04, 127.0.0.1:8223]
+[2020-03-28 18:15:00] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.03, 127.0.0.1:8224]
+[2020-03-28 18:15:00] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/prepopulate.js 304 [0.02, 127.0.0.1:8225]
+[2020-03-28 18:15:00] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/responsive.css 304 [0.02, 127.0.0.1:8219]
+[2020-03-28 18:15:00] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/fonts.css 304 [0.01, 127.0.0.1:8221]
+[2020-03-28 18:15:01] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Regular-webfont.woff 304 [0.02, 127.0.0.1:8221]
+[2020-03-28 18:15:01] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Bold-webfont.woff 304 [0.01, 127.0.0.1:8225]
+[2020-03-28 18:15:01] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Light-webfont.woff 304 [0.02, 127.0.0.1:8219]
+[2020-03-28 18:15:01] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/tooltag-add.svg 304 [0.00, 127.0.0.1:8219]
+[2020-03-28 18:15:03] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/189/change/ 200 [1.24, 127.0.0.1:8219]
+[2020-03-28 18:15:04] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.07, 127.0.0.1:8219]
+[2020-03-28 18:15:11] INFO [django.channels.server.log_action:147] HTTP POST /admin/home/wepeoples/189/change/ 302 [0.07, 127.0.0.1:8219]
+[2020-03-28 18:15:12] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/ 200 [0.67, 127.0.0.1:8219]
+[2020-03-28 18:15:12] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.07, 127.0.0.1:8219]
+[2020-03-28 18:16:58] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/189/change/ 200 [2.07, 127.0.0.1:8289]
+[2020-03-28 18:16:58] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.08, 127.0.0.1:8289]
+[2020-03-28 18:18:51] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [97.15, 127.0.0.1:8302]
+[2020-03-28 18:18:59] INFO [django.channels.server.log_action:141] HTTP GET /static/favicon.ico 200 [0.01, 127.0.0.1:8380]
+[2020-03-28 18:22:07] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/ 200 [0.51, 127.0.0.1:8464]
+[2020-03-28 18:22:12] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/ 200 [0.73, 127.0.0.1:8464]
+[2020-03-28 18:22:12] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.07, 127.0.0.1:8464]
+[2020-03-28 18:22:16] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/189/change/ 200 [1.14, 127.0.0.1:8464]
+[2020-03-28 18:22:16] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.09, 127.0.0.1:8464]
+[2020-03-28 18:22:22] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/ 200 [0.69, 127.0.0.1:8464]
+[2020-03-28 18:22:22] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.08, 127.0.0.1:8464]
+[2020-03-28 18:22:26] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/185/change/ 200 [1.29, 127.0.0.1:8464]
+[2020-03-28 18:22:26] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.08, 127.0.0.1:8464]
+[2020-03-28 18:22:30] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/ 200 [0.70, 127.0.0.1:8464]
+[2020-03-28 18:22:30] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.08, 127.0.0.1:8464]
+[2020-03-28 18:33:45] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/ 200 [1.05, 127.0.0.1:8589]
+[2020-03-28 18:33:45] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:8589]
+[2020-03-28 18:33:49] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/189/change/ 200 [1.00, 127.0.0.1:8589]
+[2020-03-28 18:33:49] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.07, 127.0.0.1:8589]
+[2020-03-28 18:33:55] INFO [django.channels.server.log_action:147] HTTP POST /admin/home/wepeoples/189/change/ 302 [0.07, 127.0.0.1:8589]
+[2020-03-28 18:33:55] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/ 200 [0.67, 127.0.0.1:8589]
+[2020-03-28 18:33:55] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.08, 127.0.0.1:8589]
+[2020-03-28 18:34:03] INFO [django.channels.server.log_action:147] HTTP GET /workexperience/ 302 [0.07, 127.0.0.1:8612]
+[2020-03-28 18:35:02] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [59.69, 127.0.0.1:8612]
+[2020-03-28 18:35:02] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/css/main.css 304 [0.04, 127.0.0.1:8612]
+[2020-03-28 18:35:17] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/189/change/ 200 [0.93, 127.0.0.1:8689]
+[2020-03-28 18:35:17] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.08, 127.0.0.1:8689]
+[2020-03-28 18:35:23] INFO [django.channels.server.log_action:147] HTTP POST /admin/home/wepeoples/189/change/ 302 [0.08, 127.0.0.1:8689]
+[2020-03-28 18:35:24] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/ 200 [0.65, 127.0.0.1:8689]
+[2020-03-28 18:35:24] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.08, 127.0.0.1:8689]
+[2020-03-28 18:35:28] INFO [django.channels.server.log_action:141] HTTP GET /admin/ 200 [0.26, 127.0.0.1:8689]
+[2020-03-28 18:35:29] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/icon-deletelink.svg 304 [0.01, 127.0.0.1:8689]
+[2020-03-28 18:35:36] INFO [django.channels.server.log_action:141] HTTP GET /admin/users/customuser/ 200 [0.59, 127.0.0.1:8689]
+[2020-03-28 18:35:37] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/search.svg 304 [0.03, 127.0.0.1:8706]
+[2020-03-28 18:35:37] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.10, 127.0.0.1:8689]
+[2020-03-28 18:35:38] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/sorting-icons.svg 304 [0.01, 127.0.0.1:8689]
+[2020-03-28 18:35:43] INFO [django.channels.server.log_action:141] HTTP GET /admin/users/customuser/?p=1 200 [0.52, 127.0.0.1:8689]
+[2020-03-28 18:35:43] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.08, 127.0.0.1:8689]
+[2020-03-28 18:35:49] INFO [django.channels.server.log_action:141] HTTP GET /admin/users/customuser/3189/change/?_changelist_filters=p%3D1 200 [0.29, 127.0.0.1:8689]
+[2020-03-28 18:35:49] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/SelectBox.js 304 [0.01, 127.0.0.1:8706]
+[2020-03-28 18:35:49] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/SelectFilter2.js 304 [0.01, 127.0.0.1:8709]
+[2020-03-28 18:35:49] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.07, 127.0.0.1:8689]
+[2020-03-28 18:35:51] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/icon-unknown.svg 304 [0.03, 127.0.0.1:8689]
+[2020-03-28 18:35:51] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/selector-icons.svg 304 [0.03, 127.0.0.1:8709]
+[2020-03-28 18:35:51] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/icon-unknown-alt.svg 304 [0.04, 127.0.0.1:8706]
+[2020-03-28 18:35:54] INFO [django.channels.server.log_action:141] HTTP GET /admin/users/customuser/3189/delete/?_changelist_filters=p%3D1 200 [0.24, 127.0.0.1:8706]
+[2020-03-28 18:35:57] INFO [django.channels.server.log_action:147] HTTP POST /admin/users/customuser/3189/delete/?_changelist_filters=p%3D1 302 [0.19, 127.0.0.1:8706]
+[2020-03-28 18:35:57] INFO [django.channels.server.log_action:141] HTTP GET /admin/users/customuser/?p=1 200 [0.54, 127.0.0.1:8706]
+[2020-03-28 18:35:57] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.09, 127.0.0.1:8706]
+[2020-03-28 18:36:05] INFO [django.channels.server.log_action:141] HTTP GET /logout 200 [0.08, 127.0.0.1:8737]
+[2020-03-28 18:36:07] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/slide1.png 304 [0.01, 127.0.0.1:8737]
+[2020-03-28 18:36:09] INFO [django.channels.server.log_action:141] HTTP GET / 200 [0.13, 127.0.0.1:8737]
+[2020-03-28 18:36:09] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js 304 [0.06, 127.0.0.1:8737]
+[2020-03-28 18:36:09] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/testimonial-timeline.css 304 [0.05, 127.0.0.1:8738]
+[2020-03-28 18:36:09] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/LaptopBook.png 304 [0.01, 127.0.0.1:8742]
+[2020-03-28 18:36:09] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/jobphone.png 304 [0.02, 127.0.0.1:8737]
+[2020-03-28 18:36:09] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/js/bootstrap.min.js 304 [0.01, 127.0.0.1:8737]
+[2020-03-28 18:36:09] INFO [django.channels.server.log_action:145] HTTP GET /static/faq/js/jquery.mobile.custom.min.js 304 [0.01, 127.0.0.1:8737]
+[2020-03-28 18:36:09] INFO [django.channels.server.log_action:145] HTTP GET /static/faq/js/main.js 304 [0.01, 127.0.0.1:8742]
+[2020-03-28 18:36:09] INFO [django.channels.server.log_action:145] HTTP GET /static/js/waterbubble.js 304 [0.01, 127.0.0.1:8742]
+[2020-03-28 18:36:09] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/homelive.png 304 [0.01, 127.0.0.1:8737]
+[2020-03-28 18:36:09] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/get3.png 304 [0.01, 127.0.0.1:8737]
+[2020-03-28 18:36:09] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/get2.png 304 [0.01, 127.0.0.1:8737]
+[2020-03-28 18:36:09] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/get1.png 304 [0.01, 127.0.0.1:8742]
+[2020-03-28 18:36:09] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/adekunle.png 304 [0.01, 127.0.0.1:8742]
+[2020-03-28 18:36:09] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/kenna.png 304 [0.01, 127.0.0.1:8737]
+[2020-03-28 18:36:09] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/fetigue.png 304 [0.01, 127.0.0.1:8737]
+[2020-03-28 18:36:10] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/jobban2.png 304 [0.01, 127.0.0.1:8737]
+[2020-03-28 18:36:10] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/homebanner.png 304 [0.02, 127.0.0.1:8742]
+[2020-03-28 18:36:13] INFO [django.channels.server.log_action:141] HTTP GET /login/ 200 [0.04, 127.0.0.1:8742]
+[2020-03-28 18:36:13] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/styles.css 304 [0.02, 127.0.0.1:8742]
+[2020-03-28 18:36:15] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/imgback.jpg 304 [0.01, 127.0.0.1:8762]
+[2020-03-28 18:36:17] INFO [django.channels.server.log_action:141] HTTP GET /signup 200 [0.05, 127.0.0.1:8762]
+[2020-03-28 18:36:28] INFO [django.channels.server.log_action:141] HTTP POST /signup 200 [0.26, 127.0.0.1:8777]
+[2020-03-28 18:36:28] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/checkers.png 304 [0.01, 127.0.0.1:8777]
+[2020-03-28 18:36:29] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/signupbg.png 304 [0.01, 127.0.0.1:8777]
+[2020-03-28 18:36:32] INFO [django.channels.server.log_action:147] HTTP GET /login/ 302 [0.04, 127.0.0.1:8777]
+[2020-03-28 18:36:32] INFO [django.channels.server.log_action:141] HTTP GET /courses/userinterest 200 [0.14, 127.0.0.1:8777]
+[2020-03-28 18:36:32] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js 304 [0.05, 127.0.0.1:8777]
+[2020-03-28 18:36:32] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validate.js 304 [0.08, 127.0.0.1:8778]
+[2020-03-28 18:36:32] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/icon1.png 304 [0.03, 127.0.0.1:8777]
+[2020-03-28 18:36:32] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/logout1.png 304 [0.05, 127.0.0.1:8780]
+[2020-03-28 18:36:33] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/fonts/fontsstylesheet.css 304 [0.01, 127.0.0.1:8780]
+[2020-03-28 18:36:33] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/button-left.png 304 [0.01, 127.0.0.1:8777]
+[2020-03-28 18:36:33] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/lin-logo.png 304 [0.01, 127.0.0.1:8780]
+[2020-03-28 18:36:33] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/amazons.png 304 [0.01, 127.0.0.1:8777]
+[2020-03-28 18:36:33] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/ppt.png 304 [0.01, 127.0.0.1:8780]
+[2020-03-28 18:36:33] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/rchsaa.png 304 [0.01, 127.0.0.1:8777]
+[2020-03-28 18:36:33] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/jjava.png 304 [0.02, 127.0.0.1:8780]
+[2020-03-28 18:36:33] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/ajs.png 304 [0.01, 127.0.0.1:8777]
+[2020-03-28 18:36:33] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/csecurity.png 304 [0.01, 127.0.0.1:8780]
+[2020-03-28 18:36:33] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/biz.png 304 [0.01, 127.0.0.1:8780]
+[2020-03-28 18:36:33] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/dba.png 304 [0.01, 127.0.0.1:8777]
+[2020-03-28 18:36:33] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/py.png 304 [0.01, 127.0.0.1:8777]
+[2020-03-28 18:36:34] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs//list-bg.png 304 [0.01, 127.0.0.1:8790]
+[2020-03-28 18:36:36] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.09, 127.0.0.1:8790]
+[2020-03-28 18:36:42] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/ 200 [0.15, 127.0.0.1:8790]
+[2020-03-28 18:36:42] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/we_new.css 304 [0.01, 127.0.0.1:8790]
+[2020-03-28 18:36:42] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/workexperience.css 304 [0.01, 127.0.0.1:8791]
+[2020-03-28 18:36:42] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/arrow-right.png 304 [0.01, 127.0.0.1:8791]
+[2020-03-28 18:36:42] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/cup.png 304 [0.01, 127.0.0.1:8790]
+[2020-03-28 18:36:42] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/tap.png 304 [0.00, 127.0.0.1:8790]
+[2020-03-28 18:36:42] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/accept.png 304 [0.01, 127.0.0.1:8791]
+[2020-03-28 18:36:42] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/number.png 304 [0.01, 127.0.0.1:8791]
+[2020-03-28 18:36:42] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/join.png 304 [0.01, 127.0.0.1:8790]
+[2020-03-28 18:36:42] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/arrow-blue.png 304 [0.01, 127.0.0.1:8790]
+[2020-03-28 18:36:42] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/graph.svg 304 [0.01, 127.0.0.1:8791]
+[2020-03-28 18:36:42] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/list%20_checked.png 304 [0.01, 127.0.0.1:8791]
+[2020-03-28 18:36:42] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/cap.png 304 [0.01, 127.0.0.1:8791]
+[2020-03-28 18:36:42] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/wallet.png 304 [0.01, 127.0.0.1:8790]
+[2020-03-28 18:36:44] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/bg2.png 304 [0.01, 127.0.0.1:8807]
+[2020-03-28 18:36:44] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/el.png 304 [0.01, 127.0.0.1:8808]
+[2020-03-28 18:36:44] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/alumni-bg.png 304 [0.01, 127.0.0.1:8807]
+[2020-03-28 18:36:44] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/thmbs.png 304 [0.01, 127.0.0.1:8809]
+[2020-03-28 18:36:48] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/terms/ 200 [0.14, 127.0.0.1:8809]
+[2020-03-28 18:36:52] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/pay/ 200 [0.15, 127.0.0.1:8809]
+[2020-03-28 18:37:01] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/linuxlogo.png 304 [0.01, 127.0.0.1:8830]
+[2020-03-28 18:37:18] INFO [django.channels.server.log_action:147] HTTP POST /workexperience/pay/ 302 [1.63, 127.0.0.1:8845]
+[2020-03-28 18:37:18] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/eligibility/ 200 [0.26, 127.0.0.1:8845]
+[2020-03-28 18:38:11] INFO [django.channels.server.log_action:147] HTTP POST /workexperience/eligibility/ 302 [5.96, 127.0.0.1:8867]
+[2020-03-28 18:38:11] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/ISA/ 200 [0.28, 127.0.0.1:8867]
+[2020-03-28 18:38:31] INFO [django.channels.server.log_action:147] HTTP POST /workexperience/ISA/ 302 [0.19, 127.0.0.1:8890]
+[2020-03-28 18:38:32] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/sign/ 200 [0.25, 127.0.0.1:8890]
+[2020-03-28 18:39:09] INFO [django.channels.server.log_action:147] HTTP POST /workexperience/sign/ 302 [25.52, 127.0.0.1:8907]
+[2020-03-28 18:39:09] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/apply/ 200 [0.22, 127.0.0.1:8907]
+[2020-03-28 18:39:21] INFO [django.channels.server.log_action:147] HTTP POST /workexperience/apply/ 302 [0.07, 127.0.0.1:8981]
+[2020-03-28 18:39:38] INFO [django.channels.server.log_action:141] HTTP GET /admin/ 200 [0.20, 127.0.0.1:9005]
+[2020-03-28 18:39:39] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/icon-changelink.svg 304 [0.02, 127.0.0.1:9005]
+[2020-03-28 18:39:39] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/icon-addlink.svg 304 [0.02, 127.0.0.1:9010]
+[2020-03-28 18:40:02] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [40.38, 127.0.0.1:8981]
+[2020-03-28 18:40:02] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/prof2.png 304 [0.02, 127.0.0.1:8981]
+[2020-03-28 18:40:20] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/ 200 [0.69, 127.0.0.1:9010]
+[2020-03-28 18:40:20] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.05, 127.0.0.1:9010]
+[2020-03-28 18:40:24] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/190/change/ 200 [1.15, 127.0.0.1:9010]
+[2020-03-28 18:40:24] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/forms.css 304 [0.08, 127.0.0.1:9005]
+[2020-03-28 18:40:24] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/calendar.js 304 [0.07, 127.0.0.1:9067]
+[2020-03-28 18:40:24] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.15, 127.0.0.1:9010]
+[2020-03-28 18:40:24] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/admin/DateTimeShortcuts.js 304 [0.09, 127.0.0.1:9068]
+[2020-03-28 18:40:24] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/change_form.js 304 [0.09, 127.0.0.1:9069]
+[2020-03-28 18:40:24] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/prepopulate_init.js 304 [0.06, 127.0.0.1:9071]
+[2020-03-28 18:40:24] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/widgets.css 304 [0.02, 127.0.0.1:9005]
+[2020-03-28 18:40:25] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/icon-calendar.svg 304 [0.02, 127.0.0.1:9005]
+[2020-03-28 18:40:25] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/icon-clock.svg 304 [0.02, 127.0.0.1:9069]
+[2020-03-28 18:40:25] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/calendar-icons.svg 304 [0.02, 127.0.0.1:9071]
+[2020-03-28 18:42:06] INFO [django.channels.server.log_action:147] HTTP GET /workexperience/ 302 [0.40, 127.0.0.1:9113]
+[2020-03-28 18:43:06] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [60.65, 127.0.0.1:9113]
+[2020-03-28 18:47:01] INFO [django.channels.server.log_action:147] HTTP POST /admin/home/wepeoples/190/change/ 302 [0.48, 127.0.0.1:9240]
+[2020-03-28 18:47:02] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/wepeoples/ 200 [0.76, 127.0.0.1:9240]
+[2020-03-28 18:47:02] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.09, 127.0.0.1:9240]
+[2020-03-28 18:47:21] INFO [django.channels.server.log_action:147] HTTP GET /workexperience/ 302 [0.06, 127.0.0.1:9262]
+[2020-03-28 18:48:07] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [46.09, 127.0.0.1:9262]
+[2020-03-28 18:53:08] INFO [django.channels.server.log_action:141] HTTP GET /admin/ 200 [0.65, 127.0.0.1:9413]
+[2020-03-28 18:53:22] INFO [django.channels.server.log_action:141] HTTP GET /admin/users/customuser/ 200 [0.63, 127.0.0.1:9413]
+[2020-03-28 18:53:22] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.07, 127.0.0.1:9413]
+[2020-03-28 18:53:30] INFO [django.channels.server.log_action:141] HTTP GET /admin/users/customuser/?p=1 200 [0.52, 127.0.0.1:9413]
+[2020-03-28 18:53:30] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.07, 127.0.0.1:9413]
+[2020-03-28 18:53:51] INFO [django.channels.server.log_action:141] HTTP GET /admin/users/customuser/3190/change/?_changelist_filters=p%3D1 200 [0.27, 127.0.0.1:9413]
+[2020-03-28 18:53:51] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.06, 127.0.0.1:9413]
+[2020-03-28 18:53:56] INFO [django.channels.server.log_action:141] HTTP GET /admin/users/customuser/3190/delete/?_changelist_filters=p%3D1 200 [0.20, 127.0.0.1:9413]
+[2020-03-28 18:53:59] INFO [django.channels.server.log_action:147] HTTP POST /admin/users/customuser/3190/delete/?_changelist_filters=p%3D1 302 [0.21, 127.0.0.1:9413]
+[2020-03-28 18:53:59] INFO [django.channels.server.log_action:141] HTTP GET /admin/users/customuser/?p=1 200 [0.53, 127.0.0.1:9413]
+[2020-03-28 18:54:00] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.07, 127.0.0.1:9413]
+[2020-03-28 18:54:07] INFO [django.channels.server.log_action:141] HTTP GET /logout 200 [0.07, 127.0.0.1:9456]
+[2020-03-28 18:54:07] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/logo.png 304 [0.01, 127.0.0.1:9456]
+[2020-03-28 18:54:15] INFO [django.channels.server.log_action:141] HTTP GET / 200 [0.12, 127.0.0.1:9468]
+[2020-03-28 18:54:18] INFO [django.channels.server.log_action:141] HTTP GET /login/ 200 [0.06, 127.0.0.1:9468]
+[2020-03-28 18:54:22] INFO [django.channels.server.log_action:141] HTTP GET /signup 200 [0.03, 127.0.0.1:9468]
+[2020-03-28 18:54:39] INFO [django.channels.server.log_action:141] HTTP POST /signup 200 [0.29, 127.0.0.1:9494]
+[2020-03-28 18:54:43] INFO [django.channels.server.log_action:147] HTTP GET /login/ 302 [0.04, 127.0.0.1:9494]
+[2020-03-28 18:54:43] INFO [django.channels.server.log_action:141] HTTP GET /courses/userinterest 200 [0.14, 127.0.0.1:9494]
+[2020-03-28 18:54:48] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.12, 127.0.0.1:9510]
+[2020-03-28 18:54:50] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/ 200 [0.19, 127.0.0.1:9510]
+[2020-03-28 18:54:58] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/terms/ 200 [0.14, 127.0.0.1:9529]
+[2020-03-28 18:55:02] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/pay/ 200 [0.30, 127.0.0.1:9529]
+[2020-03-28 18:55:23] INFO [django.channels.server.log_action:141] HTTP GET /admin/users/customuser/?p=1 200 [0.62, 127.0.0.1:9552]
+[2020-03-28 18:55:23] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/jquery.init.js 304 [0.07, 127.0.0.1:9552]
+[2020-03-28 18:55:23] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.08, 127.0.0.1:9554]
+[2020-03-28 18:55:23] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/core.js 304 [0.07, 127.0.0.1:9555]
+[2020-03-28 18:55:23] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/urlify.js 304 [0.04, 127.0.0.1:9557]
+[2020-03-28 18:55:23] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.04, 127.0.0.1:9558]
+[2020-03-28 18:55:23] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/base.css 304 [0.02, 127.0.0.1:9552]
+[2020-03-28 18:55:23] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.06, 127.0.0.1:9556]
+[2020-03-28 18:55:23] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/changelists.css 304 [0.03, 127.0.0.1:9554]
+[2020-03-28 18:55:23] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/responsive.css 304 [0.03, 127.0.0.1:9557]
+[2020-03-28 18:55:23] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/prepopulate.js 304 [0.03, 127.0.0.1:9555]
+[2020-03-28 18:55:23] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/search.svg 304 [0.02, 127.0.0.1:9558]
+[2020-03-28 18:55:23] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.02, 127.0.0.1:9552]
+[2020-03-28 18:55:23] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/actions.js 304 [0.02, 127.0.0.1:9556]
+[2020-03-28 18:55:24] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Light-webfont.woff 304 [0.01, 127.0.0.1:9556]
+[2020-03-28 18:55:24] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Bold-webfont.woff 304 [0.02, 127.0.0.1:9558]
+[2020-03-28 18:55:24] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Regular-webfont.woff 304 [0.02, 127.0.0.1:9552]
+[2020-03-28 18:55:24] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/sorting-icons.svg 304 [0.01, 127.0.0.1:9552]
+[2020-03-28 18:55:24] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/tooltag-add.svg 304 [0.01, 127.0.0.1:9558]
+[2020-03-28 18:56:11] INFO [django.channels.server.log_action:147] HTTP POST /workexperience/pay/ 302 [3.58, 127.0.0.1:9580]
+[2020-03-28 18:56:11] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/eligibility/ 200 [0.25, 127.0.0.1:9580]
+[2020-03-28 18:56:44] INFO [django.channels.server.log_action:147] HTTP POST /workexperience/eligibility/ 302 [5.88, 127.0.0.1:9606]
+[2020-03-28 18:56:44] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/ISA/ 200 [0.28, 127.0.0.1:9606]
+[2020-03-28 18:56:58] INFO [django.channels.server.log_action:147] HTTP POST /workexperience/ISA/ 302 [0.08, 127.0.0.1:9628]
+[2020-03-28 18:56:58] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/sign/ 200 [0.16, 127.0.0.1:9628]
+[2020-03-28 18:58:03] INFO [django.channels.server.log_action:147] HTTP POST /workexperience/sign/ 302 [57.78, 127.0.0.1:9646]
+[2020-03-28 18:58:04] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/apply/ 200 [0.37, 127.0.0.1:9646]
+[2020-03-28 18:58:15] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /workexperience/apply/
+Traceback (most recent call last):
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\Documents\linuxjobber2\Django\Linuxjobber\home\views.py", line 1270, in workexpform
+    weps.person = personn
+NameError: name 'personn' is not defined
+[2020-03-28 18:58:16] ERROR [django.channels.server.log_action:154] HTTP POST /workexperience/apply/ 500 [0.56, 127.0.0.1:9725]
