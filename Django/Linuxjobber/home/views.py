@@ -1733,6 +1733,11 @@ def workexprofile(request):
     pdf = details.pdf.url
     pdf2 = details.terms.url
     pdf3 = isa.pdf.url
+    if weps.person is None:
+        weps.person = 'Trainee'
+        weps.save()
+    else:
+        pass
     weps.save()
     print(weps.person)
 
