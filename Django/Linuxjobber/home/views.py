@@ -1264,11 +1264,12 @@ def workexpform(request):
                     person.save() 
         
         try:
-            persson = "Trainee"
+            personn = "Trainee"
             weps = wepeoples.objects.get(user=request.user)
             weps.types = trainee
             weps.current_position = current
-            weps.person = persson
+            weps.person = person
+            weps.personn = personn
             weps.state = state
             weps.income = income
             weps.relocation = relocate
@@ -1279,7 +1280,7 @@ def workexpform(request):
             weps.graduation_date = None
             weps.save()
         except wepeoples.DoesNotExist:
-            weps = wepeoples.objects.create(user=request.user, types=trainee,person = persson,
+            weps = wepeoples.objects.create(user=request.user, types=trainee,person = person,personn=personn, 
                                             current_position=current, state=state, income=income,
                                             relocation=relocate, last_verification=None, Paystub=None,
                                             graduation_date=None, start_date=None)
@@ -1733,13 +1734,13 @@ def workexprofile(request):
     pdf = details.pdf.url
     pdf2 = details.terms.url
     pdf3 = isa.pdf.url
-    if weps.person is None:
-        weps.person = 'Trainee'
+    if weps.personn is None:
+        weps.personn = 'Trainee'
         weps.save()
     else:
         pass
     weps.save()
-    print(weps.person)
+    print(weps.personn)
 
 
     return render(request, 'home/workexprofile.html',

@@ -2166,3 +2166,421 @@ weasyprint.urls.URLFetchingError: URLError: <urlopen error [WinError 10054] An e
 [2020-03-29 19:26:44] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/py.png 304 [0.02, 127.0.0.1:8140]
 [2020-03-29 19:26:45] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs//list-bg.png 304 [0.01, 127.0.0.1:8152]
 [2020-03-29 19:26:46] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.11, 127.0.0.1:8152]
+[2020-03-29 20:37:23] INFO [django.channels.server.log_action:147] HTTP GET /workexperience/ 302 [0.43, 127.0.0.1:9001]
+[2020-03-29 20:37:23] INFO [django.channels.server.log_action:141] HTTP GET /timeout 200 [0.23, 127.0.0.1:9001]
+[2020-03-29 20:37:30] INFO [django.channels.server.log_action:147] HTTP POST /timeout 302 [0.20, 127.0.0.1:9001]
+[2020-03-29 20:37:30] INFO [django.channels.server.log_action:147] HTTP GET /workexperience/ 302 [0.04, 127.0.0.1:9001]
+[2020-03-29 20:38:40] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [69.40, 127.0.0.1:9001]
+[2020-03-29 20:38:40] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/prof2.png 304 [0.01, 127.0.0.1:9001]
+[2020-03-29 23:41:47] INFO [django.channels.server.log_action:147] HTTP GET /workexperience/profile/ 302 [0.50, 127.0.0.1:11090]
+[2020-03-29 23:41:47] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /timeout
+Traceback (most recent call last):
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
+    res = self._query(query)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
+    db.query(q)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+_mysql_exceptions.OperationalError: (1054, "Unknown column 'home_wepeoples.person_id' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 158, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 156, in _get_response
+    response = response.render()
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\template\response.py", line 106, in render
+    self.content = self.rendered_content
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    content = template.render(context, self._request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\template\base.py", line 173, in render
+    with context.bind_template(self):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python36\lib\contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\template\context.py", line 250, in bind_template
+    updates.update(processor(self.request))
+  File "C:\Users\USER\Documents\linuxjobber2\Django\Linuxjobber\home\context_processors.py", line 23, in workexperience
+    workexp = wepeoples.objects.get(user=request.user)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\query.py", line 397, in get
+    num = len(clone)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\query.py", line 254, in __len__
+    self._fetch_all()
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\sql\compiler.py", line 1068, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
+    res = self._query(query)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
+    db.query(q)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+django.db.utils.OperationalError: (1054, "Unknown column 'home_wepeoples.person_id' in 'field list'")
+[2020-03-29 23:41:48] ERROR [django.channels.server.log_action:154] HTTP GET /timeout 500 [1.11, 127.0.0.1:11090]
+[2020-03-29 23:46:33] INFO [django.channels.server.log_action:147] HTTP GET /workexperience/apply/ 302 [0.38, 127.0.0.1:11157]
+[2020-03-29 23:46:36] INFO [django.channels.server.log_action:147] HTTP GET / 302 [0.03, 127.0.0.1:11157]
+[2020-03-29 23:46:38] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /timeout
+Traceback (most recent call last):
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
+    res = self._query(query)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
+    db.query(q)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+_mysql_exceptions.OperationalError: (1054, "Unknown column 'home_wepeoples.person_id' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 158, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 156, in _get_response
+    response = response.render()
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\template\response.py", line 106, in render
+    self.content = self.rendered_content
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    content = template.render(context, self._request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\template\base.py", line 173, in render
+    with context.bind_template(self):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python36\lib\contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\template\context.py", line 250, in bind_template
+    updates.update(processor(self.request))
+  File "C:\Users\USER\Documents\linuxjobber2\Django\Linuxjobber\home\context_processors.py", line 23, in workexperience
+    workexp = wepeoples.objects.get(user=request.user)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\query.py", line 397, in get
+    num = len(clone)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\query.py", line 254, in __len__
+    self._fetch_all()
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\sql\compiler.py", line 1068, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
+    res = self._query(query)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
+    db.query(q)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+django.db.utils.OperationalError: (1054, "Unknown column 'home_wepeoples.person_id' in 'field list'")
+[2020-03-29 23:46:38] ERROR [django.channels.server.log_action:154] HTTP GET /timeout 500 [0.75, 127.0.0.1:11157]
+[2020-03-29 23:51:23] INFO [django.channels.server.log_action:147] HTTP GET / 302 [0.54, 127.0.0.1:11278]
+[2020-03-29 23:51:23] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /timeout
+Traceback (most recent call last):
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
+    res = self._query(query)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
+    db.query(q)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+_mysql_exceptions.OperationalError: (1054, "Unknown column 'home_wepeoples.person_id' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 158, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 156, in _get_response
+    response = response.render()
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\template\response.py", line 106, in render
+    self.content = self.rendered_content
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    content = template.render(context, self._request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\template\base.py", line 173, in render
+    with context.bind_template(self):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python36\lib\contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\template\context.py", line 250, in bind_template
+    updates.update(processor(self.request))
+  File "C:\Users\USER\Documents\linuxjobber2\Django\Linuxjobber\home\context_processors.py", line 23, in workexperience
+    workexp = wepeoples.objects.get(user=request.user)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\query.py", line 397, in get
+    num = len(clone)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\query.py", line 254, in __len__
+    self._fetch_all()
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\sql\compiler.py", line 1068, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
+    res = self._query(query)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
+    db.query(q)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+django.db.utils.OperationalError: (1054, "Unknown column 'home_wepeoples.person_id' in 'field list'")
+[2020-03-29 23:51:23] ERROR [django.channels.server.log_action:154] HTTP GET /timeout 500 [0.75, 127.0.0.1:11278]
+[2020-03-29 23:59:12] INFO [django.channels.server.log_action:147] HTTP GET / 302 [0.42, 127.0.0.1:11399]
+[2020-03-29 23:59:12] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /timeout
+Traceback (most recent call last):
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
+    res = self._query(query)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
+    db.query(q)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+_mysql_exceptions.OperationalError: (1054, "Unknown column 'home_wepeoples.person_id' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 158, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 156, in _get_response
+    response = response.render()
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\template\response.py", line 106, in render
+    self.content = self.rendered_content
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    content = template.render(context, self._request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\template\base.py", line 173, in render
+    with context.bind_template(self):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python36\lib\contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\template\context.py", line 250, in bind_template
+    updates.update(processor(self.request))
+  File "C:\Users\USER\Documents\linuxjobber2\Django\Linuxjobber\home\context_processors.py", line 23, in workexperience
+    workexp = wepeoples.objects.get(user=request.user)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\query.py", line 397, in get
+    num = len(clone)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\query.py", line 254, in __len__
+    self._fetch_all()
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\models\sql\compiler.py", line 1068, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
+    res = self._query(query)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
+    db.query(q)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\MySQLdb\connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+django.db.utils.OperationalError: (1054, "Unknown column 'home_wepeoples.person_id' in 'field list'")
+[2020-03-29 23:59:12] ERROR [django.channels.server.log_action:154] HTTP GET /timeout 500 [0.73, 127.0.0.1:11399]
+[2020-03-30 00:13:28] INFO [django.channels.server.log_action:141] HTTP GET / 200 [0.44, 127.0.0.1:11545]
+[2020-03-30 00:13:28] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validation.functions.js 304 [0.01, 127.0.0.1:11545]
+[2020-03-30 00:13:28] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/js/validation/jquery.validate.js 304 [0.01, 127.0.0.1:11546]
+[2020-03-30 00:13:28] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/css/bootstrap.min.css 304 [0.02, 127.0.0.1:11546]
+[2020-03-30 00:13:28] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/style.css 304 [0.02, 127.0.0.1:11545]
+[2020-03-30 00:13:28] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/css/style.css 304 [0.02, 127.0.0.1:11549]
+[2020-03-30 00:13:28] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/css/main.css 304 [0.02, 127.0.0.1:11545]
+[2020-03-30 00:13:28] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/css/newstyle2.css 304 [0.02, 127.0.0.1:11546]
+[2020-03-30 00:13:28] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/css/newstylenew.css 304 [0.02, 127.0.0.1:11549]
+[2020-03-30 00:13:28] INFO [django.channels.server.log_action:145] HTTP GET /static/Projects/custom/css/projects.css 304 [0.03, 127.0.0.1:11545]
+[2020-03-30 00:13:28] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.js 304 [0.02, 127.0.0.1:11549]
+[2020-03-30 00:13:28] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/jquery-ui-1.12.1.custom/jquery-ui.min.css 304 [0.02, 127.0.0.1:11546]
+[2020-03-30 00:13:28] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/testimonial-timeline.css 304 [0.03, 127.0.0.1:11545]
+[2020-03-30 00:13:28] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/logo.png 304 [0.04, 127.0.0.1:11549]
+[2020-03-30 00:13:28] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/LaptopBook.png 304 [0.06, 127.0.0.1:11546]
+[2020-03-30 00:13:28] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/jobphone.png 304 [0.04, 127.0.0.1:11545]
+[2020-03-30 00:13:28] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/homelive.png 304 [0.03, 127.0.0.1:11549]
+[2020-03-30 00:13:28] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/get3.png 304 [0.02, 127.0.0.1:11546]
+[2020-03-30 00:13:28] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/get2.png 304 [0.05, 127.0.0.1:11549]
+[2020-03-30 00:13:28] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/get1.png 304 [0.03, 127.0.0.1:11545]
+[2020-03-30 00:13:28] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/adekunle.png 304 [0.01, 127.0.0.1:11545]
+[2020-03-30 00:13:28] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/fonts/fontsstylesheet.css 304 [0.01, 127.0.0.1:11545]
+[2020-03-30 00:13:28] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/kenna.png 304 [0.02, 127.0.0.1:11549]
+[2020-03-30 00:13:28] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/fetigue.png 304 [0.02, 127.0.0.1:11545]
+[2020-03-30 00:13:28] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newdesigner/js/bootstrap.min.js 304 [0.01, 127.0.0.1:11549]
+[2020-03-30 00:13:28] INFO [django.channels.server.log_action:145] HTTP GET /static/faq/js/jquery.mobile.custom.min.js 304 [0.02, 127.0.0.1:11549]
+[2020-03-30 00:13:28] INFO [django.channels.server.log_action:145] HTTP GET /static/faq/js/main.js 304 [0.02, 127.0.0.1:11545]
+[2020-03-30 00:13:28] INFO [django.channels.server.log_action:145] HTTP GET /static/js/waterbubble.js 304 [0.01, 127.0.0.1:11545]
+[2020-03-30 00:13:31] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/jobban2.png 304 [0.01, 127.0.0.1:11566]
+[2020-03-30 00:13:31] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/homebanner.png 304 [0.01, 127.0.0.1:11567]
+[2020-03-30 00:13:32] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.01, 127.0.0.1:11567]
+[2020-03-30 00:13:33] INFO [django.channels.server.log_action:141] HTTP GET /login/ 200 [0.09, 127.0.0.1:11567]
+[2020-03-30 00:13:33] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/styles.css 304 [0.02, 127.0.0.1:11567]
+[2020-03-30 00:13:35] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/imgback.jpg 304 [0.01, 127.0.0.1:11567]
+[2020-03-30 00:13:37] INFO [django.channels.server.log_action:141] HTTP POST /login/ 200 [0.08, 127.0.0.1:11567]
+[2020-03-30 00:13:41] INFO [django.channels.server.log_action:141] HTTP GET /signup 200 [0.06, 127.0.0.1:11586]
+[2020-03-30 00:19:12] INFO [django.channels.server.log_action:141] HTTP GET /signup 200 [0.31, 127.0.0.1:11680]
+[2020-03-30 00:19:29] INFO [django.channels.server.log_action:141] HTTP POST /signup 200 [0.30, 127.0.0.1:11680]
+[2020-03-30 00:19:29] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/checkers.png 304 [0.01, 127.0.0.1:11680]
+[2020-03-30 00:19:31] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/signupbg.png 304 [0.02, 127.0.0.1:11680]
+[2020-03-30 00:19:36] INFO [django.channels.server.log_action:147] HTTP GET /login/ 302 [0.07, 127.0.0.1:11680]
+[2020-03-30 00:19:36] INFO [django.channels.server.log_action:141] HTTP GET /courses/userinterest 200 [0.20, 127.0.0.1:11680]
+[2020-03-30 00:19:36] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/icon1.png 304 [0.02, 127.0.0.1:11680]
+[2020-03-30 00:19:36] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/logout1.png 304 [0.02, 127.0.0.1:11690]
+[2020-03-30 00:19:36] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/lin-logo.png 304 [0.01, 127.0.0.1:11690]
+[2020-03-30 00:19:36] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/button-left.png 304 [0.01, 127.0.0.1:11680]
+[2020-03-30 00:19:36] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/amazons.png 304 [0.01, 127.0.0.1:11680]
+[2020-03-30 00:19:36] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/ppt.png 304 [0.01, 127.0.0.1:11690]
+[2020-03-30 00:19:36] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/jjava.png 304 [0.01, 127.0.0.1:11690]
+[2020-03-30 00:19:36] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/rchsaa.png 304 [0.01, 127.0.0.1:11680]
+[2020-03-30 00:19:36] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/ajs.png 304 [0.01, 127.0.0.1:11680]
+[2020-03-30 00:19:36] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/csecurity.png 304 [0.01, 127.0.0.1:11690]
+[2020-03-30 00:19:36] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/biz.png 304 [0.01, 127.0.0.1:11690]
+[2020-03-30 00:19:36] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/dba.png 304 [0.01, 127.0.0.1:11680]
+[2020-03-30 00:19:36] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/py.png 304 [0.01, 127.0.0.1:11680]
+[2020-03-30 00:19:38] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs//list-bg.png 304 [0.03, 127.0.0.1:11680]
+[2020-03-30 00:19:39] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.08, 127.0.0.1:11680]
+[2020-03-30 00:19:44] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/ 200 [0.20, 127.0.0.1:11680]
+[2020-03-30 00:19:44] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/we_new.css 304 [0.02, 127.0.0.1:11680]
+[2020-03-30 00:19:44] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/workexperience.css 304 [0.02, 127.0.0.1:11690]
+[2020-03-30 00:19:44] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/arrow-right.png 304 [0.01, 127.0.0.1:11680]
+[2020-03-30 00:19:44] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/cup.png 304 [0.01, 127.0.0.1:11690]
+[2020-03-30 00:19:44] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/accept.png 304 [0.01, 127.0.0.1:11680]
+[2020-03-30 00:19:44] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/tap.png 304 [0.02, 127.0.0.1:11690]
+[2020-03-30 00:19:44] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/number.png 304 [0.01, 127.0.0.1:11690]
+[2020-03-30 00:19:44] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/join.png 304 [0.02, 127.0.0.1:11680]
+[2020-03-30 00:19:44] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/arrow-blue.png 304 [0.01, 127.0.0.1:11680]
+[2020-03-30 00:19:44] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/graph.svg 304 [0.01, 127.0.0.1:11690]
+[2020-03-30 00:19:44] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/list%20_checked.png 304 [0.01, 127.0.0.1:11690]
+[2020-03-30 00:19:45] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/cap.png 304 [0.01, 127.0.0.1:11690]
+[2020-03-30 00:19:45] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/wallet.png 304 [0.02, 127.0.0.1:11680]
+[2020-03-30 00:19:46] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/bg2.png 304 [0.03, 127.0.0.1:11680]
+[2020-03-30 00:19:46] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/el.png 304 [0.02, 127.0.0.1:11690]
+[2020-03-30 00:19:46] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/alumni-bg.png 304 [0.02, 127.0.0.1:11711]
+[2020-03-30 00:19:46] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/thmbs.png 304 [0.01, 127.0.0.1:11711]
