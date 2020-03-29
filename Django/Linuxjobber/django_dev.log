@@ -2584,3 +2584,156 @@ django.db.utils.OperationalError: (1054, "Unknown column 'home_wepeoples.person_
 [2020-03-30 00:19:46] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/el.png 304 [0.02, 127.0.0.1:11690]
 [2020-03-30 00:19:46] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/alumni-bg.png 304 [0.02, 127.0.0.1:11711]
 [2020-03-30 00:19:46] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/thmbs.png 304 [0.01, 127.0.0.1:11711]
+[2020-03-30 00:21:06] INFO [django.channels.server.log_action:147] HTTP GET /admin/home/ 302 [0.44, 127.0.0.1:11748]
+[2020-03-30 00:21:06] INFO [django.channels.server.log_action:141] HTTP GET /admin/login/?next=/admin/home/ 200 [0.09, 127.0.0.1:11748]
+[2020-03-30 00:21:06] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/login.css 200 [0.06, 127.0.0.1:11748]
+[2020-03-30 00:21:06] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/base.css 200 [0.06, 127.0.0.1:11752]
+[2020-03-30 00:21:06] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/responsive.css 200 [0.05, 127.0.0.1:11753]
+[2020-03-30 00:21:06] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/fonts.css 200 [0.03, 127.0.0.1:11752]
+[2020-03-30 00:21:06] INFO [django.channels.server.log_action:147] HTTP GET /admin/home/ 302 [0.01, 127.0.0.1:11752]
+[2020-03-30 00:21:06] INFO [django.channels.server.log_action:141] HTTP GET /admin/login/?next=/admin/home/ 200 [0.03, 127.0.0.1:11752]
+[2020-03-30 00:21:07] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/fonts/Roboto-Light-webfont.woff 200 [0.05, 127.0.0.1:11752]
+[2020-03-30 00:21:07] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/fonts/Roboto-Regular-webfont.woff 200 [0.03, 127.0.0.1:11753]
+[2020-03-30 00:21:19] INFO [django.channels.server.log_action:147] HTTP POST /admin/login/?next=/admin/home/ 302 [0.25, 127.0.0.1:11753]
+[2020-03-30 00:21:20] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/ 200 [0.29, 127.0.0.1:11753]
+[2020-03-30 00:21:20] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/dashboard.css 200 [0.03, 127.0.0.1:11753]
+[2020-03-30 00:21:21] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/fonts/Roboto-Bold-webfont.woff 200 [0.05, 127.0.0.1:11753]
+[2020-03-30 00:21:21] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/icon-addlink.svg 200 [0.09, 127.0.0.1:11752]
+[2020-03-30 00:21:21] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/icon-changelink.svg 200 [0.10, 127.0.0.1:11748]
+[2020-03-30 00:21:26] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexpformstage/ 200 [0.16, 127.0.0.1:11748]
+[2020-03-30 00:21:26] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/jquery.init.js 200 [0.06, 127.0.0.1:11748]
+[2020-03-30 00:21:26] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/changelists.css 200 [0.06, 127.0.0.1:11753]
+[2020-03-30 00:21:26] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.10, 127.0.0.1:11765]
+[2020-03-30 00:21:26] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/prepopulate.js 200 [0.07, 127.0.0.1:11753]
+[2020-03-30 00:21:27] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/core.js 200 [0.11, 127.0.0.1:11767]
+[2020-03-30 00:21:27] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 200 [0.11, 127.0.0.1:11748]
+[2020-03-30 00:21:27] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 200 [0.15, 127.0.0.1:11766]
+[2020-03-30 00:21:27] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/actions.js 200 [0.06, 127.0.0.1:11753]
+[2020-03-30 00:21:27] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/urlify.js 200 [0.07, 127.0.0.1:11765]
+[2020-03-30 00:21:27] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/js/vendor/jquery/jquery.js 200 [0.27, 127.0.0.1:11752]
+[2020-03-30 00:21:27] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/tooltag-add.svg 200 [0.03, 127.0.0.1:11752]
+[2020-03-30 00:21:36] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/terms/ 200 [0.26, 127.0.0.1:11775]
+[2020-03-30 00:21:55] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/pay/ 200 [0.31, 127.0.0.1:11793]
+[2020-03-30 00:22:08] INFO [django.channels.server.log_action:145] HTTP GET /static/home/images/linuxlogo.png 304 [0.01, 127.0.0.1:11816]
+[2020-03-30 00:22:39] INFO [django.channels.server.log_action:147] HTTP POST /workexperience/pay/ 302 [5.57, 127.0.0.1:11836]
+[2020-03-30 00:22:40] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/eligibility/ 200 [0.37, 127.0.0.1:11836]
+[2020-03-30 00:23:38] INFO [django.channels.server.log_action:147] HTTP POST /workexperience/eligibility/ 302 [17.40, 127.0.0.1:11864]
+[2020-03-30 00:23:39] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/ISA/ 200 [0.28, 127.0.0.1:11864]
+[2020-03-30 00:24:11] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexpformstage/ 200 [0.23, 127.0.0.1:11886]
+[2020-03-30 00:24:11] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/core.js 304 [0.04, 127.0.0.1:11886]
+[2020-03-30 00:24:11] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/base.css 304 [0.04, 127.0.0.1:11890]
+[2020-03-30 00:24:11] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/changelists.css 304 [0.05, 127.0.0.1:11887]
+[2020-03-30 00:24:11] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.04, 127.0.0.1:11888]
+[2020-03-30 00:24:11] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/urlify.js 304 [0.04, 127.0.0.1:11891]
+[2020-03-30 00:24:11] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.08, 127.0.0.1:11889]
+[2020-03-30 00:24:11] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/prepopulate.js 304 [0.03, 127.0.0.1:11886]
+[2020-03-30 00:24:11] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/jquery.init.js 304 [0.03, 127.0.0.1:11887]
+[2020-03-30 00:24:11] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.04, 127.0.0.1:11890]
+[2020-03-30 00:24:11] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/responsive.css 304 [0.04, 127.0.0.1:11888]
+[2020-03-30 00:24:11] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/actions.js 304 [0.05, 127.0.0.1:11891]
+[2020-03-30 00:24:11] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.03, 127.0.0.1:11889]
+[2020-03-30 00:24:12] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Light-webfont.woff 304 [0.04, 127.0.0.1:11891]
+[2020-03-30 00:24:12] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Regular-webfont.woff 304 [0.06, 127.0.0.1:11889]
+[2020-03-30 00:24:12] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Bold-webfont.woff 304 [0.05, 127.0.0.1:11888]
+[2020-03-30 00:24:12] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/tooltag-add.svg 304 [0.05, 127.0.0.1:11890]
+[2020-03-30 00:24:18] INFO [django.channels.server.log_action:147] HTTP POST /workexperience/ISA/ 302 [0.10, 127.0.0.1:11904]
+[2020-03-30 00:24:18] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/sign/ 200 [0.22, 127.0.0.1:11904]
+[2020-03-30 00:24:37] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /workexperience/sign/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python36\lib\urllib\request.py", line 1318, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python36\lib\http\client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python36\lib\http\client.py", line 1285, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python36\lib\http\client.py", line 1234, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python36\lib\http\client.py", line 1026, in _send_output
+    self.send(msg)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python36\lib\http\client.py", line 964, in send
+    self.connect()
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python36\lib\http\client.py", line 1400, in connect
+    server_hostname=server_hostname)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python36\lib\ssl.py", line 407, in wrap_socket
+    _context=self, _session=session)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python36\lib\ssl.py", line 817, in __init__
+    self.do_handshake()
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python36\lib\ssl.py", line 1077, in do_handshake
+    self._sslobj.do_handshake()
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python36\lib\ssl.py", line 689, in do_handshake
+    self._sslobj.do_handshake()
+socket.timeout: _ssl.c:830: The handshake operation timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\weasyprint\urls.py", line 284, in fetch
+    result = url_fetcher(url)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\weasyprint\urls.py", line 248, in default_url_fetcher
+    timeout=timeout, context=ssl_context)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python36\lib\urllib\request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python36\lib\urllib\request.py", line 526, in open
+    response = self._open(req, data)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python36\lib\urllib\request.py", line 544, in _open
+    '_open', req)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python36\lib\urllib\request.py", line 504, in _call_chain
+    result = func(*args)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python36\lib\urllib\request.py", line 1361, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python36\lib\urllib\request.py", line 1320, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error _ssl.c:830: The handshake operation timed out>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\Documents\linuxjobber2\Django\Linuxjobber\home\views.py", line 1565, in work_experience_isa_part_2
+    work_experience_isa_pdf(details.user)
+  File "C:\Users\USER\Documents\linuxjobber2\Django\Linuxjobber\home\views.py", line 1337, in work_experience_isa_pdf
+    pdf_file = HTML(string=html_template).write_pdf( stylesheets=[CSS("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")],presentational_hints=True)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\weasyprint\__init__.py", line 322, in __init__
+    with result as (source_type, source, base_url, protocol_encoding):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python36\lib\contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\weasyprint\__init__.py", line 396, in _select_source
+    with result as result:
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python36\lib\contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\weasyprint\__init__.py", line 406, in _select_source
+    with fetch(url_fetcher, url) as result:
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python36\lib\contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\weasyprint\urls.py", line 286, in fetch
+    raise URLFetchingError('%s: %s' % (type(exc).__name__, str(exc)))
+weasyprint.urls.URLFetchingError: URLError: <urlopen error _ssl.c:830: The handshake operation timed out>
+[2020-03-30 00:24:37] ERROR [django.channels.server.log_action:154] HTTP POST /workexperience/sign/ 500 [13.71, 127.0.0.1:11917]
+[2020-03-30 00:24:47] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/sign/ 200 [0.27, 127.0.0.1:11935]
+[2020-03-30 00:28:27] INFO [django.channels.server.log_action:147] HTTP POST /workexperience/sign/ 302 [214.29, 127.0.0.1:11945]
+[2020-03-30 00:28:27] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/apply/ 200 [0.20, 127.0.0.1:11945]
+[2020-03-30 00:28:41] INFO [django.channels.server.log_action:147] HTTP POST /workexperience/apply/ 302 [0.10, 127.0.0.1:12032]
+[2020-03-30 00:28:44] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexpformstage/ 200 [0.56, 127.0.0.1:12052]
+[2020-03-30 00:28:44] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/core.js 304 [0.03, 127.0.0.1:12057]
+[2020-03-30 00:28:44] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/base.css 304 [0.05, 127.0.0.1:12052]
+[2020-03-30 00:28:44] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/jquery.init.js 304 [0.04, 127.0.0.1:12055]
+[2020-03-30 00:28:44] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/changelists.css 304 [0.05, 127.0.0.1:12053]
+[2020-03-30 00:28:44] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.05, 127.0.0.1:12056]
+[2020-03-30 00:28:44] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/urlify.js 304 [0.04, 127.0.0.1:12057]
+[2020-03-30 00:28:44] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.04, 127.0.0.1:12052]
+[2020-03-30 00:28:44] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.11, 127.0.0.1:12054]
+[2020-03-30 00:28:44] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/prepopulate.js 304 [0.04, 127.0.0.1:12053]
+[2020-03-30 00:28:44] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.05, 127.0.0.1:12055]
+[2020-03-30 00:28:44] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/actions.js 304 [0.06, 127.0.0.1:12056]
+[2020-03-30 00:28:44] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/responsive.css 304 [0.03, 127.0.0.1:12057]
+[2020-03-30 00:28:45] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Light-webfont.woff 304 [0.03, 127.0.0.1:12057]
+[2020-03-30 00:28:45] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Bold-webfont.woff 304 [0.03, 127.0.0.1:12056]
+[2020-03-30 00:28:45] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Regular-webfont.woff 304 [0.03, 127.0.0.1:12053]
+[2020-03-30 00:28:45] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/tooltag-add.svg 304 [0.01, 127.0.0.1:12053]
+[2020-03-30 00:29:50] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/profile/ 200 [69.64, 127.0.0.1:12032]
+[2020-03-30 00:29:50] INFO [django.channels.server.log_action:145] HTTP GET /static/home/css/newhomepage/imgs/prof2.png 304 [0.01, 127.0.0.1:12032]
