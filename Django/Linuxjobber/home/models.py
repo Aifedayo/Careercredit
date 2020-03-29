@@ -557,6 +557,7 @@ class WorkExperiencePriceWaiver(models.Model):
     def __str__(self):
         return self.user.email
 
+
 PERSON_TYPE = (
     ('Trainee', 'Trainee'),
     ('Student', 'Student'),
