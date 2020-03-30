@@ -106,8 +106,8 @@ class GraduateCertificates(models.Model):
 
 
     def generate_certificate(self):
+        media_root = settings.MEDIA_ROOT
         try:
-
             template = get_template('certificates/certificate_format.html')
             images = self.get_logo_and_signature_from_s3()
             certificate_logo = images['logo']
@@ -125,9 +125,10 @@ class GraduateCertificates(models.Model):
                 'certificate_id': self.certificate_id,
                 'issue_date': self.graduation_date,
                 'graduate_image': graduate_image,
+                'media_url':settings.MEDIA_URL,
             }
             formatted_file = template.render(context)
-            filename_pdf = "/mnt/media/" + generate_certificate_name(self) + ".pdf"
+            filename_pdf = media_root + generate_certificate_name(self) + ".pdf"
             filename_html = filename_pdf.replace('pdf', 'html')
             filename_png = filename_pdf.replace('pdf', 'png')
 
@@ -138,7 +139,7 @@ class GraduateCertificates(models.Model):
             html_file = HTML(filename_html)
             css = CSS(string='@page { size: A3; width: 40cm; align: center; margin-left: 2cm; margin-right: 0 }')
             import os
-            if filename_pdf not in os.listdir('/mnt/media'):
+            if filename_pdf not in os.listdir(media_root):
                 html_file.write_pdf(
                   filename_pdf, stylesheets=[css]
                 )
@@ -168,6 +169,7 @@ class GraduateCertificates(models.Model):
 
         bucket = settings.AWS_STORAGE_BUCKET_NAME
         location = settings.AWS_LOCATION
+        media_root = settings.MEDIA_ROOT
 
         session = boto3.Session(
             aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
@@ -180,7 +182,8 @@ class GraduateCertificates(models.Model):
         for f in files:
             try:
                 s3.Bucket(bucket).download_file(
-                    f'{location}/{str(f)}',f'/mnt/media/{str(f)}'
+                    # f'{location}/{str(f)}',f'/mnt/media/{str(f)}'
+                    f'{location}/{str(f)}',f'{media_root}{str(f)}'
                 )
             except botocore.exceptions.ClientError as e:
                 if e.response['Error']['Code'] == "404":
@@ -203,10 +206,11 @@ class GraduateCertificates(models.Model):
         s3 = session.resource('s3')
         bucket = str(settings.AWS_STORAGE_BUCKET_NAME)
         filename = generate_certificate_name(self)
-               
+        media_root = settings.MEDIA_ROOT
+
         for ext in ['pdf','png']:
             s3.Bucket(bucket).upload_file(
-                f"/mnt/media/{filename}.{ext}", 
+                f"{media_root}{filename}.{ext}", 
                 f"media/certs/{filename}.{ext}",
                 ExtraArgs={'ACL':settings.AWS_DEFAULT_ACL}
             )
@@ -259,3 +263,61 @@ class GraduateCertificates(models.Model):
     class Meta:
         verbose_name = 'Issue Certificate'
         verbose_name_plural = 'Issue Certificates'
+
+    def _get_logo_and_signature_from_s3(self):
+        files = [
+            self.certificate_type.logo,
+            self.certificate_type.instructor_signature,
+            self.alternate_graduate_image
+        ]
+
+        bucket = settings.AWS_STORAGE_BUCKET_NAME
+        location = settings.AWS_LOCATION
+        media_root = settings.MEDIA_ROOT
+
+        session = boto3.Session(
+            aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
+            aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
+            region_name=settings.S3DIRECT_REGION
+        )
+
+        s3 = session.client('s3')
+        imgs_b64 = []
+        for f in files:
+            try:
+                bytes_buffer = BytesIO()
+                s3.download_fileobj(
+                    Bucket=bucket, 
+                    Key=f'{location}/{str(f)}', 
+                    Fileobj=bytes_buffer
+                )
+
+                byte_value = base64.b64encode(bytes_buffer.getvalue())    
+                imgs_b64.append(byte_value.decode())
+            except botocore.exceptions.ClientError as e:
+                if e.response['Error']['Code'] == "404":
+                    print("The object does not exist.")
+                else:
+                    raise
+
+        return {
+            'logo':imgs_b64[0],
+            'instructor_signature':imgs_b64[1],
+            'alternate_graduate_image':imgs_b64[2]
+        }
+
+# import base64
+# from django.dispatch import receiver
+# from django.db.models.signals import post_save
+
+# def image_to_b64(image_file):
+#     with open(image_file.path, "rb") as f:
+#         encoded_string = base64.b64encode(f.read())
+#         return encoded_string
+
+
+# @receiver(post_save, sender=CertificateType)
+# def create_base64_str(sender, instance=None, created=False, **kwargs):
+#     print("********before*****")
+#     print(image_to_b64(instance.logo))
+    
