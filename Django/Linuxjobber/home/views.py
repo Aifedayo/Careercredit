@@ -1144,22 +1144,22 @@ def devops_pay(request):
 def updatestage(request, stagename):
     current_stage, created = WorkexpFormStage.objects.get_or_create(user=request.user)
     if stagename.__name__ == 'workterm':
-        current_stage.stage = 'workterm stage'
+        current_stage.stage = 'Terms and conditions'
 
     elif stagename.__name__ == 'pay':
-        current_stage.stage = 'payment stage'
+        current_stage.stage = 'Payment'
 
     elif stagename.__name__ == 'work_experience_eligible':
-        current_stage.stage = 'eligibility stage'
+        current_stage.stage = 'United State Employment Eligibilty Form'
 
     elif stagename.__name__ == 'work_experience_isa_part_1':
-        current_stage.stage = 'ISA part 1 stage'
+        current_stage.stage = 'ISA Agreement part 1 '
 
     elif stagename.__name__ == 'work_experience_isa_part_2':
-        current_stage.stage = 'ISA part 2 stage'
+        current_stage.stage = 'ISA Agreement part 2'
 
     elif stagename.__name__ == 'workexpform':
-        current_stage.stage = 'profile form stage'
+        current_stage.stage = 'WE profile form '
     else:
         pass
     print(current_stage.user)
