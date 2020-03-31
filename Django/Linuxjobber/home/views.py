@@ -1140,7 +1140,8 @@ def devops_pay(request):
                    'courses': get_courses(),
                    'tools': get_tools()}
         return render(request, 'home/devops_pay.html', context)
-
+        
+#keep track of the WE applicant's stage
 def updatestage(request, stagename):
     current_stage, created = WorkexpFormStage.objects.get_or_create(user=request.user)
     if stagename.__name__ == 'workterm':
