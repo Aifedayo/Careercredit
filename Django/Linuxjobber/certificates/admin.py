@@ -1,3 +1,4 @@
+import base64
 from typing import List, Any
 
 from django.contrib import admin, messages
@@ -83,6 +84,13 @@ class GraduateCertificateAdmin(admin.ModelAdmin):
     list_filter = ('is_sent',)
     raw_id_fields = ('user',)
 
+    # def save_model(self, request, obj, form, change):
+    #     image = request.FILES.get('alternate_graduate_image',None)
+    #     if image:
+    #         image_string = base64.b64encode(image.read())
+    #         print(image_string.decode())
+
+    #     super().save_model(request, obj, form, change)
 
 
     def get_urls(self):
