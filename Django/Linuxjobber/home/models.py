@@ -558,22 +558,38 @@ class WorkExperiencePriceWaiver(models.Model):
         return self.user.email
 
 
+PERSON_TYPE = (
+    ('Trainee', 'Trainee'),
+    ('Student', 'Student'),
+
+)
 class wepeoples(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
-    profile_picture = models.ImageField(upload_to='resume', null=True)
+    profile_picture = models.ImageField(upload_to='resume', null=True, blank=True)
     person = models.ForeignKey(werole, on_delete=models.CASCADE, null=True)
-    current_position = models.CharField(max_length=20, null=True)
-    state = models.CharField(max_length=20, null=True)
-    income = models.CharField(max_length=20, null=True)
-    relocation = models.CharField(max_length=5, null=True)
-    last_verification = models.DateTimeField(default=timezone.now, null=True)
-    start_date = models.DateTimeField(default=timezone.now, null=True)
-    graduation_date = models.DateTimeField(default=timezone.now, null=True)
-    types = models.ForeignKey(wetype, on_delete=models.CASCADE, null=True)
+    personn = models.CharField(max_length= 20, null=True, choices=PERSON_TYPE, default='Trainee')
+    current_position = models.CharField(max_length=20, null=True, blank=True )
+    state = models.CharField(max_length=20, null=True, blank=True)
+    income = models.CharField(max_length=20, null=True, blank=True)
+    relocation = models.CharField(max_length=5, null=True, blank=True)
+    last_verification = models.DateTimeField(default=timezone.now, null=True, blank=True)
+    start_date = models.DateTimeField(default=timezone.now, null=True, blank=True)
+    graduation_date = models.DateTimeField(default=timezone.now, null=True, blank=True)
+    types = models.ForeignKey(wetype, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return self.user.email
 
+# create work experience stage tracker
+class WorkexpFormStage(models.Model):
+    '''
+    keep track of the Work Experience Application form
+    '''
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    stage = models.CharField(max_length=100, blank=True) 
+
+    def __str__(self):
+        return self.user.email
 
 class wetask(models.Model):
     weight = models.IntegerField(null=True)
