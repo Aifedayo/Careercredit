@@ -39,6 +39,13 @@ export class HeaderComponent implements OnInit {
   }
 
   public getImgUrl(prevUrl){
+    if(
+      prevUrl.startsWith("https://") || 
+      prevUrl.startsWith("http://") 
+    ){
+      return prevUrl
+    }
+    
     return this.dataservice.profileImgIsSet()?
        this.dataservice.updatedImgUrl || (environment.API_URL + prevUrl):
        prevUrl;

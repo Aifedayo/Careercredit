@@ -1,5 +1,8 @@
+import base64
 from io import BytesIO
-
+import os
+import boto3
+import botocore
 from django.db import models
 
 # Create your models here.
@@ -9,6 +12,7 @@ from users.models import CustomUser
 from home.utilities import get_variable
 from django.conf import settings
 from home.mail_service import LinuxjobberMailer
+from .utils import generate_certificate_name
 from weasyprint import CSS
 
 from xhtml2pdf import pisa
@@ -36,7 +40,7 @@ class GraduateCertificates(models.Model):
     certificate_type = models.ForeignKey(CertificateType, on_delete=models.CASCADE)
     certificate_id = models.CharField(max_length=10, null=True, blank=True)
     alternate_graduate_image = models.ImageField(
-        upload_to='certs/', null=True, blank=True
+        null=True, blank=True
     )
     graduation_date = models.DateField()
     alternate_email = models.EmailField(null=True, blank=True)
@@ -103,12 +107,14 @@ class GraduateCertificates(models.Model):
 
 
     def generate_certificate(self):
+        media_root = settings.MEDIA_ROOT
         try:
-
-            template = get_template('certificates/certificate_format.html')
-            certificate_logo = self.convert_to_media_fqn(self.certificate_type.logo.url)
-            instructor_signature = self.convert_to_media_fqn(self.certificate_type.instructor_signature.url)
-            graduate_image= self.convert_to_media_fqn(self.get_graduate_image())
+            template = get_template('certificates/b64_certificate_format.html')
+            # images = self.get_logo_and_signature_from_s3()
+            images = self.get_logosignature_from_s3()
+            certificate_logo = images['logo']
+            instructor_signature = images['instructor_signature']
+            graduate_image= images['alternate_graduate_image']
             context={
                 'certificate_logo': certificate_logo,
                 'env_url': settings.ENV_URL.rstrip('/'),
@@ -121,13 +127,13 @@ class GraduateCertificates(models.Model):
                 'certificate_id': self.certificate_id,
                 'issue_date': self.graduation_date,
                 'graduate_image': graduate_image,
+                'media_url':settings.MEDIA_URL,
             }
             formatted_file = template.render(context)
-            from .utils import generate_certificate_name
-            filename_pdf = "media/certs/" + generate_certificate_name(self) + ".pdf"
+            # filename_pdf = media_root + generate_certificate_name(self) + ".pdf"
+            filename_pdf = media_root+'/'+ generate_certificate_name(self) + ".pdf"
             filename_html = filename_pdf.replace('pdf', 'html')
             filename_png = filename_pdf.replace('pdf', 'png')
-
             with open(filename_html, 'w') as certificate_file:
                 certificate_file.write(formatted_file)
 
@@ -135,7 +141,7 @@ class GraduateCertificates(models.Model):
             html_file = HTML(filename_html)
             css = CSS(string='@page { size: A3; width: 40cm; align: center; margin-left: 2cm; margin-right: 0 }')
             import os
-            if filename_pdf not in os.listdir('media/certs'):
+            if filename_pdf not in os.listdir(media_root):
                 html_file.write_pdf(
                   filename_pdf, stylesheets=[css]
                 )
@@ -156,6 +162,61 @@ class GraduateCertificates(models.Model):
         #     return filename_pdf
         # return None
 
+    def get_logo_and_signature_from_s3(self):
+        files = [
+            self.certificate_type.logo,
+            self.certificate_type.instructor_signature,
+            self.alternate_graduate_image
+        ]
+
+        bucket = settings.AWS_STORAGE_BUCKET_NAME
+        location = settings.AWS_LOCATION
+        media_root = settings.MEDIA_ROOT
+
+        session = boto3.Session(
+            aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
+            aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
+            region_name=settings.S3DIRECT_REGION
+        )
+
+        s3 = session.resource('s3')
+
+        for f in files:
+            try:
+                s3.Bucket(bucket).download_file(
+                    # f'{location}/{str(f)}',f'/mnt/media/{str(f)}'
+                    f'{location}/{str(f)}',f'{media_root}/{str(f)}'
+                )
+            except botocore.exceptions.ClientError as e:
+                if e.response['Error']['Code'] == "404":
+                    print("The object does not exist.")
+                else:
+                    raise
+
+        return {
+            'logo':str(files[0]),
+            'instructor_signature':str(files[1]),
+            'alternate_graduate_image':str(files[2])
+        }
+
+    def upload_to_s3(self):
+        session = boto3.Session(
+            aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
+            aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
+            region_name=settings.S3DIRECT_REGION
+        )
+        s3 = session.resource('s3')
+        bucket = str(settings.AWS_STORAGE_BUCKET_NAME)
+        filename = generate_certificate_name(self)
+        media_root = settings.MEDIA_ROOT
+
+        for ext in ['pdf','png']:
+            s3.Bucket(bucket).upload_file(
+                f"{media_root}/{filename}.{ext}", 
+                f"media/certs/{filename}.{ext}",
+                ExtraArgs={'ACL':settings.AWS_DEFAULT_ACL}
+            )
+
     def set_as_sent(self):
         self.is_sent = True
         self.save()
@@ -163,16 +224,16 @@ class GraduateCertificates(models.Model):
     def mail_certificate(self):
 
         mail_message = """
-Congratulations {fullname},
+        Congratulations {fullname},
 
-You have successfully completed {certificate} and earned a certificate.
+        You have successfully completed {certificate} and earned a certificate.
 
-You can download your certificate from here
+        You can download your certificate from here
 
-{env_url}/certificates/preview/{certificate_id}
+        {env_url}/certificates/preview/{certificate_id}
 
-Best Regards
-Admin.
+        Best Regards
+        Admin.
 
         """.format(
             fullname=self.get_fullname(),
@@ -204,3 +265,48 @@ Admin.
     class Meta:
         verbose_name = 'Issue Certificate'
         verbose_name_plural = 'Issue Certificates'
+
+    def get_logosignature_from_s3(self):
+        files = [
+            self.certificate_type.logo,
+            self.certificate_type.instructor_signature,
+            self.alternate_graduate_image
+        ]
+
+        bucket = settings.AWS_STORAGE_BUCKET_NAME
+        location = settings.AWS_LOCATION
+
+        session = boto3.Session(
+            aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
+            aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
+            region_name=settings.S3DIRECT_REGION
+        )
+
+        s3 = session.client('s3')
+        imgs_b64 = []
+
+        for f in files:
+            try:
+                bytes_buffer = BytesIO()
+                s3.download_fileobj(
+                    Bucket=bucket, 
+                    Key=f'{location}/{str(f)}', 
+                    Fileobj=bytes_buffer
+                )
+
+                imgs_b64.append(
+                    base64.b64encode(bytes_buffer.getvalue()).decode()
+                )
+
+            except botocore.exceptions.ClientError as e:
+                if e.response['Error']['Code'] == "404":
+                    print("The object does not exist.")
+                else:
+                    raise
+        return {
+            'logo':imgs_b64[0],
+            'instructor_signature':imgs_b64[1],
+            'alternate_graduate_image':imgs_b64[2]
+        }
+
+    
