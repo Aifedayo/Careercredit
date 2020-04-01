@@ -1,3 +1,4 @@
+import os
 import datetime
 import enum
 
@@ -136,7 +137,7 @@ class PartTimeJob(models.Model):
 
 
 def content_file_name(instance, filename):
-    return os.path.join('uploads', 'resumes', instance.user.username + '_' + filename)
+    return os.path.join('uploads','pdfs', 'resumes', instance.user.username + '_' + filename)
 
 
 class Jobplacement(models.Model):
@@ -188,6 +189,7 @@ class Groupclass(models.Model):
     users = models.ManyToManyField(CustomUser, blank=True)
     description = models.TextField(null=True)
     course = models.ForeignKey(Course, on_delete=models.CASCADE, null=True)
+    image = models.ImageField(upload_to='uploads/', null=True)
 
     def __str__(self):
         return self.name
@@ -427,6 +429,14 @@ class WorkExperiencePay(models.Model):
     def __str__(self):
         return self.user.email
 
+class WorkExperiencePaystub(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    paystub = models.ImageField(upload_to='resume', null=True)
+    date_created = models.DateTimeField(default=timezone.now, null=True)
+
+    def __str__(self):
+        return self.user.email
+
 
 WORKEXPERIENCE_OPTIONS = (
     (0, 'A citizen of the united states'),
@@ -440,10 +450,10 @@ class WorkExperienceEligibility(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=200, null=True)
     last_name = models.CharField(max_length=200, null=True)
-    middle_initial = models.CharField(max_length=200, null=True)
-    middle_name = models.CharField(max_length=200, null=True)
+    middle_initial = models.CharField(max_length=200, null=True, blank=True)
+    middle_name = models.CharField(max_length=200, null=True, blank=True)
     address = models.TextField()
-    apt_number = models.TextField()
+    apt_number = models.TextField(null=True, blank=True)
     city = models.CharField(max_length=20, null=True)
     state = models.CharField(max_length=20, null=True)
     zip_code = models.CharField(max_length=20, null=True)
@@ -455,15 +465,16 @@ class WorkExperienceEligibility(models.Model):
     employee_address = models.TextField()
     employee_email = models.TextField()
     employee_phone = models.CharField(max_length=50, null=True)
-    expiry_date = models.DateTimeField(default=timezone.now, null=True)
+    expiry_date = models.DateTimeField(default=timezone.now, null=True, blank=True)
     preparer_or_translator = models.BooleanField(default=False)
     i_am_a = models.IntegerField(default=0, choices=WORKEXPERIENCE_OPTIONS)
-    Alien_reg_num = models.TextField(null=True)
-    form_19_num = models.TextField(null=True)
-    foreign_pass_num = models.TextField(null=True)
+    Alien_reg_num = models.TextField(null=True, blank=True)
+    form_19_num = models.TextField(null=True, blank=True)
+    foreign_pass_num = models.TextField(null=True, blank=True)
     date_created = models.DateTimeField(default=timezone.now, null=True)
-    pdf = models.FileField(upload_to='uploads/', null=True)
-    terms = models.FileField(upload_to='uploads/', null=True)
+    pdf = models.FileField(upload_to='pdfs/', null=True, blank=True)
+    terms = models.FileField(upload_to='pdfs/', null=True, blank=True)
+    generate_pdf = models.IntegerField(default=0, choices=((0, 'No'), (1, 'Yes')))
 
     def __str__(self):
         return self.user.email
@@ -531,7 +542,8 @@ class WorkExperienceIsa(models.Model):
     employment_status = models.TextField(null=True)
     estimated_date_of_program_completion = models.DateTimeField(default=timezone.now, null=True)
     is_signed_isa = models.BooleanField(default=False)
-    pdf = models.FileField(upload_to='uploads/', null=True)
+    pdf = models.FileField(upload_to='pdfs', null=True, blank=True)
+    generate_pdf = models.IntegerField(default=0, choices=((0, 'No'), (1, 'Yes')))
 
     def __str__(self):
         return self.user.email
@@ -546,29 +558,46 @@ class WorkExperiencePriceWaiver(models.Model):
         return self.user.email
 
 
+PERSON_TYPE = (
+    ('Trainee', 'Trainee'),
+    ('Student', 'Student'),
+
+)
 class wepeoples(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
-    profile_picture = models.ImageField(upload_to='resume', null=True)
+    profile_picture = models.ImageField(upload_to='resume', null=True, blank=True)
     person = models.ForeignKey(werole, on_delete=models.CASCADE, null=True)
-    current_position = models.CharField(max_length=20, null=True)
-    state = models.CharField(max_length=20, null=True)
-    income = models.CharField(max_length=20, null=True)
-    relocation = models.CharField(max_length=5, null=True)
-    Paystub = models.ImageField(upload_to='resume', null=True)
-    last_verification = models.DateTimeField(default=timezone.now, null=True)
-    start_date = models.DateTimeField(default=timezone.now, null=True)
-    graduation_date = models.DateTimeField(default=timezone.now, null=True)
-    types = models.ForeignKey(wetype, on_delete=models.CASCADE, null=True)
+    personn = models.CharField(max_length= 20, null=True, choices=PERSON_TYPE, default='Trainee')
+    current_position = models.CharField(max_length=20, null=True, blank=True )
+    state = models.CharField(max_length=20, null=True, blank=True)
+    income = models.CharField(max_length=20, null=True, blank=True)
+    relocation = models.CharField(max_length=5, null=True, blank=True)
+    last_verification = models.DateTimeField(default=timezone.now, null=True, blank=True)
+    start_date = models.DateTimeField(default=timezone.now, null=True, blank=True)
+    graduation_date = models.DateTimeField(default=timezone.now, null=True, blank=True)
+    types = models.ForeignKey(wetype, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return self.user.email
 
+# create work experience stage tracker
+class WorkexpFormStage(models.Model):
+    '''
+    keep track of the Work Experience Application form
+    '''
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    stage = models.CharField(max_length=100, blank=True) 
+
+    def __str__(self):
+        return self.user.email
 
 class wetask(models.Model):
     weight = models.IntegerField(null=True)
     task = models.CharField(max_length=500, null=True)
     objective = models.TextField()
     description = models.TextField()
+    video_url = models.TextField(default='None')
+    has_video = models.BooleanField(default=False)
     created = models.DateTimeField(default=timezone.now, null=False)
     is_active = models.IntegerField(default=0, choices=((0, 'No'), (1, 'Yes')))
     types = models.ForeignKey(wetype, on_delete=models.CASCADE)
@@ -586,7 +615,8 @@ class wework(models.Model):
     weight = models.IntegerField(null=True)
     we_people = models.ForeignKey(wepeoples, on_delete=models.CASCADE)
     task = models.ForeignKey(wetask, on_delete=models.CASCADE)
-    status = models.IntegerField(default=0, choices=((0, 'Pending'), (1, 'Done')))
+    status = models.IntegerField(default=0, choices=((0,'Not done'),(1, 'Grading'), (2, 'Failed'), (3, 'Completed')))
+    video_status = models.IntegerField(default=0, choices=((0, 'Not Watched'), (1, 'Watching'), (2,'Completed')))
     created = models.DateTimeField(default=timezone.now, null=True)
     send_task = models.IntegerField(default=0, choices=((0, 'No'), (1, 'Yes')))
     due = models.DateTimeField(default=due_time)

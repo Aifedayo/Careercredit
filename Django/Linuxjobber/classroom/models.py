@@ -66,10 +66,19 @@ class ChatUpload(models.Model):
 
 class AttendanceLog(models.Model):
     group=models.ForeignKey(Groupclass,on_delete=models.CASCADE)
-    user=models.ForeignKey(CustomUser,on_delete=models.CASCADE,related_query_name='group_attendance')
+    user=models.ForeignKey(
+        CustomUser,on_delete=models.CASCADE,
+        related_query_name='group_attendance'
+    )
     timestamp=models.CharField(max_length=100)
     video_url=models.URLField(null=True,blank=True)
 
 class Connection(models.Model):
     connection_id = models.CharField(max_length=255)
+
+class RoomDate(models.Model):
+    date = models.CharField(max_length=100)
+    room = models.ForeignKey(ChatRoom, on_delete=models.CASCADE)
+
+
 

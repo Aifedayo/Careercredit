@@ -20,6 +20,9 @@ import {AuthGuard} from "../auth.guard";
 import {VerificationGuard} from "../verification.guard";
 import { CourseListComponent } from './course-list/course-list.component';
 import { AlertModule } from './_alert/alert.module';
+import { LightboxModule } from './_lightbox/lightbox.module';
+import { ImageLightboxComponent } from './_image-lightbox/image-lightbox.component';
+import { InfiniteScrollComponent } from './_infinite-scroll/Infinite-scroll.component';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
@@ -33,6 +36,7 @@ import { RouterModule } from '@angular/router';
     OrderModule,
     SharedModule,
     AlertModule,
+    LightboxModule,
     RouterModule
 
   ],
@@ -45,7 +49,8 @@ import { RouterModule } from '@angular/router';
     SafePipe,
     VerificationComponent,
     CourseListComponent,
-
+    ImageLightboxComponent,
+    InfiniteScrollComponent,
   ],
   providers: [AuthGuard,VerificationGuard],
   bootstrap: [CourseComponent]

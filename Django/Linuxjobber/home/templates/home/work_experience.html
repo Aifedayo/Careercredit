@@ -256,7 +256,7 @@ Work Experience | Linuxjobber
             </div>
         </section>
     </main>
-        <section class="alumni-network">
+        {% comment %} <section class="alumni-network">
             <p class="text-center">
                 <img src="{% static 'home/images/cap.png' %}" alt="">
             </p>
@@ -271,7 +271,7 @@ Work Experience | Linuxjobber
                         <p></p>
                     </div>
                       <div class="info">
-                 <p class="alumni-name"> Emmanuel A.</p>
+                    <p class="alumni-name"> Emmanuel A.</p>
                     <p class="alumni-role"> Linux Administrator</p>
                     <p class="alumni-role">Prince Georges County, MD</p>
                     <p class="alumni-role"><a href="https://twitter.com/linuxjobber"> Message on Twitter <i class="fa fa-twitter"></i></a> </p>
@@ -361,7 +361,138 @@ Work Experience | Linuxjobber
                         improves our graduates chances of getting jobs and also more more quickly.</p>
                 </div>
             </div>
+        </section> {% endcomment %}
+
+        <section class="alumni-network">
+            <p class="text-center">
+                <img src="{% static 'home/images/cap.png' %}" alt="">
+            </p>
+            <p class="alumni-header">THE ALUMNI</p>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="alumni-image seven">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                     <div class="info">
+                         <p class="alumni-name"> Ladouce D.</p>
+                         <p class="alumni-role"> DevOps Engineer </p>
+                         <p class="alumni-role"> Columbia, MD</p>
+                         <p class="alumni-role"> 
+                             <a href="https://twitter.com/linuxjobber"> Message on Twitter <i class="fa fa-twitter"></i></a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="alumni-image six">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                     <div class="info">
+                        <p class="alumni-name"> Emmanuel A.</p>
+                        <p class="alumni-role"> Linux Administrator</p>
+                        <p class="alumni-role">Prince Georges County, MD</p>
+                        <p class="alumni-role">
+                            <a href="https://twitter.com/linuxjobber"> Message on Twitter <i class="fa fa-twitter"></i></a> 
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="alumni-image one">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                     <div class="info">
+                         <p class="alumni-name"> Aaron M.</p>
+                         <p class="alumni-role"> DevOps Engineer</p>
+                         <p class="alumni-role"> Baltimore, MD</p>
+                         <p class="alumni-role"> 
+                             <a href="https://twitter.com/linuxjobber"> Message on Twitter <i class="fa fa-twitter"></i></a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="alumni-image two">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                    <div class="info">
+                        <p class="alumni-name"> Senai T.</p>
+                        <p class="alumni-role"> Linux Administrator</p>
+                        <p class="alumni-role"> Seattle, WA</p>
+                        <p class="alumni-role"> 
+                            <a href="https://twitter.com/linuxjobber"> Message on Twitter <i class="fa fa-twitter"></i></a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="alumni-image three">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                    <div class="info">
+                        <p class="alumni-name"> Chidi N.</p>
+                        <p class="alumni-role"> Linux Administrator</p>
+                        <p class="alumni-role">Silver Spring, MD </p>
+                        <p class="alumni-role">
+                            <a href="https://twitter.com/linuxjobber"> Message on Twitter <i class="fa fa-twitter"></i></a> 
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="alumni-image four">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                    <div class="info">
+                        <p class="alumni-name"> Joseph N.</p>
+                        <p class="alumni-role"> Linux Administrator</p>
+                        <p class="alumni-role">Bronx, NY </p>
+                        <p class="alumni-role"><a href="https://twitter.com/linuxjobber"> Message on Twitter <i class="fa fa-twitter"></i></a> </p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="alumni-image five">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                    <div class="info">
+                        <p class="alumni-name"> Azeem A.</p>
+                        <p class="alumni-role"> Linux Administrator</p>
+                        <p class="alumni-role">Los Angeles, CA </p>
+                        <p class="alumni-role">
+                            <a href="https://twitter.com/linuxjobber"> Message on Twitter <i class="fa fa-twitter"></i></a> 
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div style="min-height:100px "></div>
+            <div class="row">
+                <div class="col-md-5">
+                    <p style="line-height:50px; background-repeat: no-repeat; background-image: url({% static 'home/images/thmbs.png' %})">&nbsp;</p>
+                    <p class="bottom-text">At Linux Jobber, we cannot guarantee jobs but providing real-life work,
+                        connection to our alumni network and connection to our  network of recruiters significantly
+                        improves our graduates chances of getting jobs and also more more quickly.
+                    </p>
+                </div>
+            </div>
         </section>
+
         <section class="bottom-faq">
 
                     {% if request.user.is_authenticated %}

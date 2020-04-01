@@ -241,17 +241,19 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 
-AWS_DEFAULT_ACL = None
+# AWS_DEFAULT_ACL = None
+AWS_DEFAULT_ACL = config('AWS_DEFAULT_ACL',None)
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID', '')
 S3DIRECT_REGION = config('S3DIRECT_REGION','us-west-2')
 AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY', '')
 AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME', '')
 AWS_QUERYSTRING_AUTH = False #This will make sure that the file URL does not have unnecessary parameters like your access key.
 AWS_S3_CUSTOM_DOMAIN = AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com'
+# AWS_S3_CUSTOM_DOMAIN = 's3.amazonaws.com/'+AWS_STORAGE_BUCKET_NAME
 
 
 # Static media settings
@@ -260,7 +262,8 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = "/mnt/media/"
 STATIC_ROOT = "/mnt/asset/"
-DEFAULT_FILE_STORAGE = 'home.storage_backend.MediaStorage'
+DEFAULT_FILE_STORAGE = config('DEFAULT_FILE_STORAGE','home.storage_backend.MediaStorage')
+# DEFAULT_FILE_STORAGE = 'home.storage_backend.MediaStorage'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'asset'),
     os.path.join(BASE_DIR, 'static'),
@@ -268,6 +271,7 @@ STATICFILES_DIRS = [
 
 if not DEBUG:
     MEDIA_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/media/'
+    # MEDIA_URL = "https://s3.amazonaws.com/" + AWS_STORAGE_BUCKET_NAME + '/media/'
     # STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/{}/'.format(AWS_LOCATION)
 
 STATICFILES_FINDERS = (
@@ -327,3 +331,7 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 AWS_WS_GATEWAY = config('AWS_WS_GATEWAY','url')
 
 SES_EMAIL = config('SES_EMAIL','no@test.com')
+
+
+AWS_ACCESS_KEY_ID_WEBSOCKET = config('AWS_ACCESS_KEY_ID_WEBSOCKET', AWS_ACCESS_KEY_ID)
+AWS_SECRET_ACCESS_KEY_WEBSOCKET = config('AWS_ACCESS_KEY_ID_WEBSOCKET', AWS_SECRET_ACCESS_KEY)

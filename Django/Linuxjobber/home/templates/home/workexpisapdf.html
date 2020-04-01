@@ -1,0 +1,770 @@
+
+{% load staticfiles%}
+<style>
+/*! CSS Used from: https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css */
+.fa{display:inline-block;font:normal normal normal 14px/1 FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+.fa-2x{font-size:2em;}
+.fa-fw{width:1.28571429em;text-align:center;}
+.fa-lock:before{content:"\f023";}
+.fa-cogs:before{content:"\f085";}
+.fa-twitter:before{content:"\f099";}
+.fa-facebook:before{content:"\f09a";}
+.fa-certificate:before{content:"\f0a3";}
+.fa-cloud:before{content:"\f0c2";}
+.fa-google-plus:before{content:"\f0d5";}
+.fa-linkedin:before{content:"\f0e1";}
+.fa-suitcase:before{content:"\f0f2";}
+.fa-terminal:before{content:"\f120";}
+.fa-instagram:before{content:"\f16d";}
+.fa-linux:before{content:"\f17c";}
+.fa-file-code-o:before{content:"\f1c9";}
+.fa-line-chart:before{content:"\f201";}
+.fa-server:before{content:"\f233";}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);border:0;}
+/*! CSS Used from: http://127.0.0.1:8000/static/home/css/newdesigner/css/bootstrap.min.css */
+html{margin:0px;padding:0px;}
+body{margin:0px;padding:0px;}
+footer,header,nav,section{display:block;}
+a{background:0 0;}
+a:active,a:hover{outline:0;}
+img{border:0;}
+svg:not(:root){overflow:hidden;}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0;}
+button,input{color:inherit;font:inherit;margin:0;}
+button{overflow:visible;}
+button{text-transform:none;}
+button{-webkit-appearance:button;cursor:pointer;}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
+input{line-height:normal;}
+@media print{
+*{text-shadow:none!important;color:#000!important;background:transparent!important;box-shadow:none!important;}
+a,a:visited{text-decoration:underline;}
+a[href]:after{content:" (" attr(href) ")";}
+a[href^="javascript:"]:after{content:"";}
+img{page-break-inside:avoid;}
+img{max-width:100%!important;}
+p,h2{orphans:3;widows:3;}
+h2{page-break-after:avoid;}
+}
+*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+:before,:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+html{font-size:62.5%;-webkit-tap-highlight-color:rgba(0,0,0,0);}
+body{font-size:14px;line-height:1.42857143;color:#333;background-color:#fff;}
+input,button{font-family:inherit;font-size:inherit;line-height:inherit;}
+a{color:#003d4c ;text-decoration:none;}
+a:hover,a:focus{color:#003d4c ;text-decoration:underline;}
+a:focus{outline:thin dotted;outline:5px auto -webkit-focus-ring-color;outline-offset:-2px;}
+img{vertical-align:middle;}
+hr{margin-top:20px;margin-bottom:20px;border:0;border-top:1px solid #eee;}
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);border:0;}
+h2{font-family:inherit;font-weight:500;line-height:1.1;color:inherit;}
+h2{margin-top:20px;margin-bottom:10px;}
+h2{font-size:30px;}
+p{margin:0 0 10px;}
+.text-center{text-align:center;}
+ul{margin-top:0;margin-bottom:10px;}
+ul ul{margin-bottom:0;}
+.container{margin-right:auto;margin-left:auto;padding-left:15px;padding-right:15px;}
+@media (min-width:768px){
+.container{width:750px;}
+}
+@media (min-width:992px){
+.container{width:970px;}
+}
+@media (min-width:1200px){
+.container{width:1170px;}
+}
+.row{margin-left:-15px;margin-right:-15px;}
+.col-md-1,.col-md-2,.col-sm-3,.col-md-3,.col-sm-4,.col-md-4,.col-xs-6,.col-sm-6,.col-md-6,.col-md-8,.col-md-10,.col-xs-12{position:relative;min-height:1px;padding-left:15px;padding-right:15px;}
+.col-xs-6,.col-xs-12{float:left;}
+.col-xs-12{width:100%;}
+.col-xs-6{width:50%;}
+@media (min-width:768px){
+.col-sm-3,.col-sm-4,.col-sm-6{float:left;}
+.col-sm-6{width:50%;}
+.col-sm-4{width:33.33333333%;}
+.col-sm-3{width:25%;}
+}
+@media (min-width:992px){
+.col-md-1,.col-md-2,.col-md-3,.col-md-4,.col-md-6,.col-md-8,.col-md-10{float:left;}
+.col-md-10{width:83.33333333%;}
+.col-md-8{width:66.66666667%;}
+.col-md-6{width:50%;}
+.col-md-4{width:33.33333333%;}
+.col-md-3{width:25%;}
+.col-md-2{width:16.66666667%;}
+.col-md-1{width:8.33333333%;}
+}
+.form-control{display:block;width:100%;height:34px;padding:6px 12px;font-size:14px;line-height:1.42857143;color:#555;background-color:#fff;background-image:none;border:1px solid #ccc;border-radius:4px;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);box-shadow:inset 0 1px 1px rgba(0,0,0,.075);-webkit-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;}
+.form-control:focus{border-color:#66afe9;outline:0;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);}
+.form-control::-moz-placeholder{color:#999;opacity:1;}
+.form-control:-ms-input-placeholder{color:#999;}
+.form-control::-webkit-input-placeholder{color:#999;}
+.btn{display:inline-block;margin-bottom:0;font-weight:400;text-align:center;vertical-align:middle;cursor:pointer;background-image:none;border:1px solid transparent;white-space:nowrap;padding:6px 12px;font-size:14px;line-height:1.42857143;border-radius:4px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
+.btn:focus,.btn:active:focus{outline:thin dotted;outline:5px auto -webkit-focus-ring-color;outline-offset:-2px;}
+.btn:hover,.btn:focus{color:#333;text-decoration:none;}
+.btn:active{outline:0;background-image:none;-webkit-box-shadow:inset 0 3px 5px rgba(0,0,0,.125);box-shadow:inset 0 3px 5px rgba(0,0,0,.125);}
+.collapse{display:none;}
+.nav{margin-bottom:0;padding-left:0;list-style:none;}
+.nav>li{position:relative;display:block;}
+.nav>li>a{position:relative;display:block;padding:10px 15px;}
+.nav>li>a:hover,.nav>li>a:focus{text-decoration:none;background-color:#eee;}
+.navbar-collapse{max-height:340px;overflow-x:visible;padding-right:15px;padding-left:15px;border-top:1px solid transparent;box-shadow:inset 0 1px 0 rgba(255,255,255,.1);-webkit-overflow-scrolling:touch;}
+@media (min-width:768px){
+.navbar-collapse{width:auto;border-top:0;box-shadow:none;}
+.navbar-collapse.collapse{display:block!important;height:auto!important;padding-bottom:0;overflow:visible!important;}
+}
+.navbar-brand{float:left;padding:15px;font-size:18px;line-height:20px;height:50px;}
+.navbar-brand:hover,.navbar-brand:focus{text-decoration:none;}
+.navbar-toggle{position:relative;float:right;margin-right:15px;padding:9px 10px;margin-top:8px;margin-bottom:8px;background-color:transparent;background-image:none;border:1px solid transparent;border-radius:4px;}
+.navbar-toggle:focus{outline:0;}
+.navbar-toggle .icon-bar{display:block;width:22px;height:2px;border-radius:1px;}
+.navbar-toggle .icon-bar+.icon-bar{margin-top:4px;}
+@media (min-width:768px){
+.navbar-toggle{display:none;}
+}
+.navbar-nav{margin:7.5px -15px;}
+.navbar-nav>li>a{padding-top:10px;padding-bottom:10px;line-height:20px;}
+@media (min-width:768px){
+.navbar-nav{float:left;margin:0;}
+.navbar-nav>li{float:left;}
+.navbar-nav>li>a{padding-top:15px;padding-bottom:15px;}
+.navbar-nav.navbar-right:last-child{margin-right:-15px;}
+}
+@media (min-width:768px){
+.navbar-right{float:right!important;}
+}
+.container:before,.container:after,.row:before,.row:after,.nav:before,.nav:after,.navbar-collapse:before,.navbar-collapse:after{content:" ";display:table;}
+.container:after,.row:after,.nav:after,.navbar-collapse:after{clear:both;}
+/*! CSS Used from: http://127.0.0.1:8000/static/home/css/style.css */
+body{font-family:'Open Sans', sans-serif;}
+h2{color:#000;font-weight:700;}
+.social-links{display:flex;list-style:none;justify-content:center;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,0.2);}
+.social-links li{margin:0px 30px 0px 30px;}
+.link-icon{clear:both;line-height:9px;width:auto;height:34px;}
+.text-1{text-align:center;}
+input[type="text"]:focus{-webkit-box-shadow:none;box-shadow:none;}
+/*! CSS Used from: http://127.0.0.1:8000/static/home/css/newdesigner/css/style.css */
+.row{margin-left:0!important;margin-right:0!important;}
+nav{position:relative;}
+#header{background:rgba(0, 0, 0, 0) none repeat scroll 0 0;float:left;height:auto;padding:6px 0 14px;position:absolute;top:0;width:100%;z-index:99;}
+.logo .navbar-brand{height:auto;padding:0;}
+.mainmnu{margin:19px 0 0;}
+.navbar-right{float:right!important;margin:0!important;}
+.mainmnu .nav li a{color:#c3c3c3;float:none;font-family:helvetica;margin:0;padding:0 15px;}
+.mainmnu .nav li a{color:#c3c3c3;float:none;font-family:open sans;font-weight:bold;margin:0;padding:0 15px;text-transform:uppercase;}
+.mainmnu .nav li a:hover{background:none;color:#fff;}
+@media (max-width:1200px){
+.mainmnu .nav li a{padding:0 10px;}
+}
+@media (max-width:767px){
+.mainmnu{display:none;}
+#header{background:rgba(0, 0, 0, 0) none repeat scroll 0 0!important;padding:4px 0;position:absolute;top:0;z-index:999;}
+}
+@media (max-width:500px){
+.logo .navbar-brand > img{width:100%;}
+}
+/*! CSS Used from: http://127.0.0.1:8000/static/home/css/newhomepage/css/newstyle2.css */
+html,body,div,span,h2,p,img,i,ul,li,form,footer,header,nav,section{margin:0;padding:0;border:0;outline:0;vertical-align:baseline;font-family:'Alegreya Sans', sans-serif;font-weight:400;}
+*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;outline:0!important;}
+footer,header,nav,section{display:block;}
+nav ul{list-style:none;}
+li{list-style:none;}
+a{font-size:100%;vertical-align:baseline;background:transparent;outline:0!important;text-decoration:none;}
+a:hover{text-decoration:none;}
+hr{display:block;height:1px;border:0;border-top:1px solid #cccccc;margin:1em 0;padding:0;}
+h2{margin:0;}
+input{vertical-align:middle;border:0;margin:0;}
+input{outline:0!important;}
+button{border:0;}
+body{background:#fff;font-size:13px;font-weight:normal;overflow-x:hidden;margin:0;font-family:'Open Sans', sans-serif;}
+footer{background:#818181;padding:84px 0 90px;float:left;width:100%;}
+#header.r-header{transition:opacity 1s ease-in-out;-moz-transition:opacity 1s ease-in-out;-webkit-transition:opacity 1s ease-in-out;}
+nav{position:unset!important;}
+.mainmnu{margin:0!important;position:initial;}
+.nav>li{position:initial;margin:0 2px;}
+.text-1{text-align:center;}
+.link-icon{clear:both;display:block;line-height:9px;width:auto;height:34px;}
+.link-icon img{height:30px;}
+li.sub-menu a.b-n::after,li.sub-menu a.b-n:focus::after,li.sub-menu a.b-n:hover::after{content:'';display:inline-block;width:9px;height:9px;overflow:hidden;border:1px solid #fff;border-top:1px solid transparent;border-left:1px solid transparent;opacity:.75;position:relative;left:6px;top:0;-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-o-transform:rotate(-45deg);-ms-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transition:all .3s ease-out;-moz-transition:all .3s ease-out;-ms-transition:all .3s ease-out;-o-transition:all .3s ease-out;transition:all .3s ease-out;box-sizing:border-box;z-index:-1;}
+li.sub-menu a.b-n::after,li.sub-menu a.b-n:focus::after,li.sub-menu a.b-n:hover::after{top:-4px;transform:rotate(45deg);}
+li.sub-menu:hover a.b-n::after{top:2px;transform:rotate(-135deg);}
+.header-bottom{border-bottom:1px solid #cccccc;}
+.nav>li>a:hover,.nav>li>a:focus{background:rgba(0, 0, 0, 0) none repeat scroll 0 0;}
+.mainmnu .nav li a{color:#f3f3ff!important;font-family:'Alegreya Sans', sans-serif!important;font-size:14px!important;font-weight:700!important;padding:18px 17px 24px!important;text-transform:uppercase;}
+.mainmnu .nav li a.b-n:hover{border-bottom:2px solid #ffffff;}
+.transparent-style{background-color:transparent #7d7e7e!important;display:none;}
+.mainmnu .nav li li a{display:inline-block;font-weight:normal!important;letter-spacing:1px;line-height:15px;list-style:outside none none!important;padding:15px 0!important;text-transform:capitalize!important;}
+.dropdowns{background-color:#005ea6;border-radius:0;border-top:1px solid #cccccc;left:0;list-style:outside none none!important;margin-left:0!important;min-height:150px;position:absolute!important;right:0;top:70px;width:100%;position:relative;}
+form div{clear:none!important;}
+form div{clear:both;padding:2px .5em;vertical-align:text-top;}
+.form-control{border:4;}
+.padd{padding:0!important;}
+#header{padding:6px 0 14px;}
+@media only screen and (max-width:1200px){
+.mainmnu .nav li a{padding:22px 6px 22px!important;}
+}
+@media only screen and (max-width:1030px){
+.mainmnu .nav li a{padding:22px 7px 22px!important;}
+}
+@media only screen and (max-width:991px){
+footer{padding:60px 0;}
+.navbar-brand>img{width:100%;}
+.mainmnu .nav li a{padding:0 0px 23px!important;}
+.mainmnu{margin:10px 0 0!important;padding:0!important;}
+}
+@media only screen and (max-width: 767px){
+.header-bottom{border-bottom:none;}
+}
+@media only screen and (max-width:480px){
+footer{padding:20px 0 30px;}
+}
+i.fa.fa-certificate{margin-right:10px;}
+i.fa.fa-certificate{margin-right:10px;}
+@media (min-width: 20px) and (max-width: 450px){
+.fa.fa-suitcase{font-size:18px;}
+.footer .social-links li{margin:0 5px 25px;}
+}
+h2{margin-bottom:20px;font-weight:600;}
+span{font-size:18px;}
+/*! CSS Used from: http://127.0.0.1:8000/static/home/css/newhomepage/css/main.css */
+.footer{padding:50px;background:#313328;color:#fff;}
+.footer h2{color:#c4c4c4;font-size:30px;}
+.footer li{list-style:none;color:#fff;}
+.footer a{color:#fff;}
+.footer{margin:0;}
+.navhead{background:url(http://127.0.0.1:8000/static/home/css/newhomepage/imgs/jobban2.png);height:70px;background-size:cover;background-repeat:no-repeat;display:block;}
+.navheadmid{background-color:#1B539E;height:180px;background-size:cover;background-repeat:no-repeat;display:block;padding-top:30px;padding-bottom:30px;}
+.navheadinner{margin-left:-20px;}
+.navheadmidh1{font-size:24px;color:#FFFFFF;font-weight:700;}
+.navheadmidp{font-size:18px;color:#FFFFFF;font-weight:500;}
+@media (min-height: 1024px) and (min-width: 1366px){
+.navhead{min-height:70px;display:block;}
+}
+@media (device-width: 768px) and (device-height: 1024px) and (orientation:portrait){
+.navhead{height:60px;}
+}
+@media (device-height: 768px) and (device-width: 1024px) and (orientation:landscape){
+.navhead{height:70px;}
+}
+@media (min-height: 1366px) and (min-width: 1024px){
+.navhead{height:70px;}
+}
+/*! CSS Used from: http://127.0.0.1:8000/static/home/css/newhomepage/css/newstylenew.css */
+.elig{margin-top:20px;padding-top:25px;padding-bottom:25px;}
+.eligh1{font-size:24px;color:#4975B1;margin-bottom:30px;font-weight:600;}
+.btnelig{background:#000000;color:#FFFFFF;width:250px;height:50px;font-weight:600;}
+.isaput{margin-left:-15px;height:45px;margin-top:3px;margin-bottom:10px;}
+.isasign{padding:20px;}
+.isasignsec{margin-top:50px;}
+.issasinbod{font-weight:700;}
+.isasignh1{font-size:32px;font-weight:700;}
+/*! CSS Used from: http://127.0.0.1:8000/static/Projects/custom/css/projects.css */
+@media (min-width: 768px) and (max-width: 1024px){
+img{margin-right:10px;width:100%;}
+}
+/*! CSS Used from: Embedded */
+a{font-weight:500;}
+@media (max-width:767px){
+.mainmnu{display:block!important;}
+}
+li.sub-menu a.b-n::after,li.sub-menu a.b-n:focus::after,li.sub-menu a.b-n:hover::after{z-index:0;}
+.navbar-toggle{background:transparent;}
+.icon-bar{background-color:#fff;}
+.navbar-collapse{padding:0;}
+@media (max-width: 640px) and (min-width: 360px){
+.navbar-right{padding:0 16px;float:none!important;}
+}
+/*! CSS Used fontfaces */
+@font-face{font-family:'FontAwesome';src:url('https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/fonts/fontawesome-webfont.eot?v=4.6.3');src:url('https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/fonts/fontawesome-webfont.eot#iefix&v=4.6.3') format('embedded-opentype'),url('https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/fonts/fontawesome-webfont.woff2?v=4.6.3') format('woff2'),url('https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/fonts/fontawesome-webfont.woff?v=4.6.3') format('woff'),url('https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/fonts/fontawesome-webfont.ttf?v=4.6.3') format('truetype'),url('https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/fonts/fontawesome-webfont.svg?v=4.6.3#fontawesomeregular') format('svg');font-weight:normal;font-style:normal;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:300;src:local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN_r8OX-hpOqc.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:300;src:local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN_r8OVuhpOqc.woff2) format('woff2');unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:300;src:local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN_r8OXuhpOqc.woff2) format('woff2');unicode-range:U+1F00-1FFF;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:300;src:local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN_r8OUehpOqc.woff2) format('woff2');unicode-range:U+0370-03FF;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:300;src:local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN_r8OXehpOqc.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:300;src:local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN_r8OXOhpOqc.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:300;src:local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN_r8OUuhp.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:400;src:local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFWJ0bbck.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:400;src:local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFUZ0bbck.woff2) format('woff2');unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:400;src:local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFWZ0bbck.woff2) format('woff2');unicode-range:U+1F00-1FFF;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:400;src:local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFVp0bbck.woff2) format('woff2');unicode-range:U+0370-03FF;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:400;src:local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFWp0bbck.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:400;src:local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFW50bbck.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:400;src:local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFVZ0b.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:600;src:local('Open Sans SemiBold'), local('OpenSans-SemiBold'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UNirkOX-hpOqc.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:600;src:local('Open Sans SemiBold'), local('OpenSans-SemiBold'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UNirkOVuhpOqc.woff2) format('woff2');unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:600;src:local('Open Sans SemiBold'), local('OpenSans-SemiBold'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UNirkOXuhpOqc.woff2) format('woff2');unicode-range:U+1F00-1FFF;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:600;src:local('Open Sans SemiBold'), local('OpenSans-SemiBold'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UNirkOUehpOqc.woff2) format('woff2');unicode-range:U+0370-03FF;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:600;src:local('Open Sans SemiBold'), local('OpenSans-SemiBold'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UNirkOXehpOqc.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:600;src:local('Open Sans SemiBold'), local('OpenSans-SemiBold'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UNirkOXOhpOqc.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:600;src:local('Open Sans SemiBold'), local('OpenSans-SemiBold'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UNirkOUuhp.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:700;src:local('Open Sans Bold'), local('OpenSans-Bold'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN7rgOX-hpOqc.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:700;src:local('Open Sans Bold'), local('OpenSans-Bold'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN7rgOVuhpOqc.woff2) format('woff2');unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:700;src:local('Open Sans Bold'), local('OpenSans-Bold'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN7rgOXuhpOqc.woff2) format('woff2');unicode-range:U+1F00-1FFF;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:700;src:local('Open Sans Bold'), local('OpenSans-Bold'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN7rgOUehpOqc.woff2) format('woff2');unicode-range:U+0370-03FF;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:700;src:local('Open Sans Bold'), local('OpenSans-Bold'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN7rgOXehpOqc.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:700;src:local('Open Sans Bold'), local('OpenSans-Bold'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN7rgOXOhpOqc.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:700;src:local('Open Sans Bold'), local('OpenSans-Bold'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN7rgOUuhp.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:800;src:local('Open Sans ExtraBold'), local('OpenSans-ExtraBold'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN8rsOX-hpOqc.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:800;src:local('Open Sans ExtraBold'), local('OpenSans-ExtraBold'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN8rsOVuhpOqc.woff2) format('woff2');unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:800;src:local('Open Sans ExtraBold'), local('OpenSans-ExtraBold'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN8rsOXuhpOqc.woff2) format('woff2');unicode-range:U+1F00-1FFF;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:800;src:local('Open Sans ExtraBold'), local('OpenSans-ExtraBold'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN8rsOUehpOqc.woff2) format('woff2');unicode-range:U+0370-03FF;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:800;src:local('Open Sans ExtraBold'), local('OpenSans-ExtraBold'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN8rsOXehpOqc.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:800;src:local('Open Sans ExtraBold'), local('OpenSans-ExtraBold'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN8rsOXOhpOqc.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:800;src:local('Open Sans ExtraBold'), local('OpenSans-ExtraBold'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN8rsOUuhp.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:300;src:local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN_r8OX-hpOqc.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:300;src:local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN_r8OVuhpOqc.woff2) format('woff2');unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:300;src:local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN_r8OXuhpOqc.woff2) format('woff2');unicode-range:U+1F00-1FFF;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:300;src:local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN_r8OUehpOqc.woff2) format('woff2');unicode-range:U+0370-03FF;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:300;src:local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN_r8OXehpOqc.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:300;src:local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN_r8OXOhpOqc.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:300;src:local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v17/mem5YaGs126MiZpBA-UN_r8OUuhp.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:400;src:local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFWJ0bbck.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:400;src:local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFUZ0bbck.woff2) format('woff2');unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:400;src:local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFWZ0bbck.woff2) format('woff2');unicode-range:U+1F00-1FFF;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:400;src:local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFVp0bbck.woff2) format('woff2');unicode-range:U+0370-03FF;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:400;src:local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFWp0bbck.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:400;src:local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFW50bbck.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:400;src:local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFVZ0b.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+</style>
+<div class="container elig">
+
+    <div class="isasignsec">
+       <br>
+        <div class="isasign">
+            <p class="isasignh1">Income Share Agreement</p><br>
+            <p class="issasinbod">This Income Share Agreement ("ISA" or "Agreement") is made and entered into as of October 22, 2018, by and between {{details.first_name|upper}} {{details.last_name|upper}} (here in after "Student," "you," "your", "I" or "me") and Linuxjobber, Inc. (hereinafter, "Company," "we," "our," or "us", and shall include any successors or assigns of Linuxjobber, Inc.). Student and Company may sometimes be referred to in this Agreement, individually, as a "Party" and, collectively, as the "Parties," as required by context.<br>
+            <br>
+            THIS IS A LEGAL CONTRACT. READ IT CAREFULLY BEFORE SIGNING. BY ENTERING INTO THIS AGREEMENT, YOU AGREE THAT IN RETURN FOR RECEIVING THE JOB PLACEMENT HIGHER EDUCATION OR TRAINING PROVIDED BY LINUXJOBBER, INC., YOU WILL PAY A PORTION OF YOUR EARNED INCOME TO COMPANY (OR ITS ASSIGNEE), IN ACCORDANCE WITH THE TERMS AND CONDITION SET FORTH BELOW. THIS AGREEMENT DOES NOT CONSTITUTE A LOAN. THE AMOUNT YOU MUST REPAY IS NOT A FIXED AMOUNT. INSTEAD, YOUR PAYMENT OBLIGATION IS CONTINGENT ON AND SHALL VARY BASED ON YOUR EARNED INCOME EACH YEAR, AS DESCRIBED IN THIS AGREEMENT.<br>
+            <br>In consideration of the Higher Education or Training provided to Student, and subject to all of the terms, covenants, promises, and conditions contained in this Agreement, Student and Company agree as follows:</p>
+                
+            <br>
+            <p>
+                      Education Act, as amended from time to time; (b) a proprietary or vocational school; or (c) a program or service that provides you the
+                                opportunity to earn Qualified Monthly Earned Income. For the purposes of this Agreement, Program or Training refers to Job Placement.<br><br>
+                                "Income-Earning Month" means a month in which your Earned Income in aggregate for that month exceeds the Minimum Monthly Amount.<br><br>
+                                "Income Share" refers to a fixed percentage of your Qualified Monthly Earned Income. Your Income Share under this Agreement is 17.00%,
+                                subject to adjustment for underreporting or overreporting of Earned Income, as described herein.<br><br>
+                                "LINUXJOBBER" refers to LINUXJOBBER Technologies, Inc. LINUXJOBBER will serve in connection with other third parties as Company’s ISA program manager under this
+                                Agreement.<br><br>
+                                "LINUXJOBBER Platform" means the proprietary cloud-based computing platform used by LINUXJOBBER for the processing and payment functions contemplated
+                      <p style="font-weight: 700; padding-bottom: 2px;">1. DEFINITIONS.</p><br>
+                                For purposes of this Agreement:<br><br>
+                                "Approved Bank Account" means a bank account established by you with a financial institution designated or approved by Company's ISA
+                                program manager.<br><br>
+                                "Derived Monthly Income" equals your Earned Income for an entire calendar year divided by 12.<br><br>
+                                "Disability" means a determination by the Social Security Administration or other federal or state agency that you are disabled.<br><br>
+                                "Earned Income" means your total wages, compensation and gross income from self-employment, and other income, as reported or required
+                                to be reported for income tax purposes. For example, for U.S. individual taxpayers for the 2018 tax year, this includes the sum of: (a) line 1
+                                (Wages, salaries, tips, etc.) of IRS Form 1040; (b) line 12 (Business income or (loss)) of Schedule 1 (IRS Form 1040); (c) line 17 (Rental
+                                real estate, royalties, partnerships, S corporations, trusts, etc.) of Schedule 1 (IRS Form 1040) less any passive income or loss on lines 29a
+                                column h and 34a column d of Schedule E (IRS Form 1040); (d) line 21 (Other income) of Schedule 1 (IRS Form 1040), but not including
+                                any net operating loss deduction claimed on such line; and (e) line 34 (Net farm profit or (loss)) of Schedule F (IRS Form 1040). For later tax
+                                years, Earned Income includes equivalent information reported or required to be reported on the same or any successor IRS forms. Earned
+                                Income also includes your pro rata share of net income retained by any legal entity based on your ownership interest and your active
+                                participation in such entity or entities; distributions from your active participation in any legal entity or entities to the extent not already
+                                included; and any non-cash consideration received or deemed earned by you, directly or indirectly, including, but not limited to,
+                                contributions to qualified and non-qualified deferred compensation and retirement benefit plans, fringe benefits not reported as wages for
+                                compensation, and equity rights or deferred compensation generated or attributable to the current period of your employment. In addition,
+                                Earned Income includes any amounts earned by or payable to you, directly or indirectly, as a result of your provision of services to any
+                                related party. If you file tax returns jointly with your spouse, your Earned Income shall not include any income earned solely by your spouse, as demonstrated by you to Company’s satisfaction. At its discretion, Company may estimate your Earned Income using documentation other
+                                than your U.S. federal income tax return, provided that the documentation is another verifiable source acceptable to Company. All references
+                                in this Agreement to income tax returns of, reporting or required reporting by, forms applicable to, or obligations of or to a U.S. taxpayer
+                                include substantial equivalents with respect to a non-U.S. taxpayer.<br><br>
+                            
+                                "Employer" means any Person for which you provide services, either as an employee or as an independent contractor and, for U.S. taxpayers,
+                                includes any Person required by IRS regulation to provide you with a Form W–2 or a 1099-MISC.<br><br>
+                                "Program or Training" means: (a) a program of study at a school or educational institution that is eligible under Title IV of the Higher
+                                by this Agreement, including, among other things, monitoring the Earned Income in your Approved Bank Account and, if applicable,
+                                withdrawing Monthly Payments from your Approved Bank Account.<br><br>
+                                "Minimum Monthly Amount" equals $4,166.67, which is equivalent to $50,000.00 annually.<br><br>
+                                "Monthly Earned Income" means the amount of Earned Income you receive in each month during the Payment Term. Your Monthly Earned
+                                Income will be based on total Earned Income received by you from all sources.<br><br>
+                                "Monthly Payment" means the amount of your Qualified Monthly Earned Income times your Income Share.<br><br>
+                                "Payment Cap" equals $30,000.00.<br><br>
+                                "Payment Term" refers the period during which you have a contingent obligation to make Monthly Payments, as provided under this
+                                Agreement.<br><br>
+                                "Person" means any individual, partnership, corporation, limited liability company, trust or unincorporated association, joint venture or other
+                                entity or governmental body.<br><br>
+                                "Prepayment Amount" means payment or payments made by you  to Company that will extinguish your obligations under this Agreement
+                                prior to the end of the Payment Term. Prepayment Amount equals the Payment Cap less any Monthly Payments already made under this
+                                Agreement, plus any outstanding fees or other amounts that you may owe Company under this Agreement.<br><br>
+                                "Qualified Income-Earning Month" means a month in which your Monthly Earned Income exceeds the Minimum Monthly Amount.<br><br>
+                                "Qualified Monthly Earned Income" means your Monthly Earned Income in any Qualified Income-Earning Month.<br><br>
+                                
+                                <p style="font-weight: 700; padding-bottom: 2px;">2. RIGHTS AND OBLIGATIONS UNDER THIS AGREEMENT.</p><br>
+                                Company agrees to provide you with the Program or Training, subject to the terms and conditions of this Agreement. In return, you agree to
+                                pay Company: (a) a total of 12.0 Monthly Payments on your Qualified Monthly Earned Income, subject to reconciliation and your obligation
+                                to make additional payment(s) for any underreported Earned Income, as described herein; or (b) until your total Monthly Payments reach the
+                                Payment Cap, whichever occurs first (“Payment Satisfaction”).<br><br>
+
+                                <p style="font-weight: 700; padding-bottom: 2px;">3. LINUXJOBBER AS ISA PROGRAM MANAGER</p><br>
+                                You hereby consent to LINUXJOBBER acting as the agent of Company and managing and processing all aspects of this Agreement, including but not
+                                limited to monitoring your Earned Income in your Approved Bank Account, processing payments, and performing reconciliations. You
+                                further agree to cooperate with all requests made by LINUXJOBBER in connection with your compliance with terms and conditions of this Agreement,
+                                including by providing information, documents, and authorizations, as requested from time to time.<br><br>
+                                <p style="font-weight: 700; padding-bottom: 2px;">4. MAKING PAYMENTS FROM EARNED INCOME.</p><br>
+                                a. Payment Term. Your Payment Term will start 4 months from completion of or withdrawal from your Program or Training, whichever
+                                occurs first. However, your obligation to make Monthly Payments will occur only if you are earning the Qualified Monthly Earned Income
+                                or as otherwise provided herein. Your Payment Term will end upon Payment Satisfaction.<br><br>
+                                b. Reporting of all Earned Income. Upon completion of your Program or Training and throughout the Payment Term, you agree to use the
+                                LINUXJOBBER Platform to communicate: (i) all employment positions you accept including, if requested, a description of the business and products or
+                                services provided by each Employer and the nature of your position with each Employer; (ii) your base salary for each employment position;
+                                and (iii) your projected annual gross Earned Income.You further agree during the Payment Term to update through the LINUXJOBBER Platform any
+                                changes in your projected annual gross Earned Income within thirty (30) days of any event giving rise to such change.<br><br>
+                                c. Monthly Payment Based on Projected Earned Income. Based on the projected Earned Income you report to LINUXJOBBER, subject to reconciliation
+                                as provided below, you shall pay Company a Monthly Payment for each month in which you have Qualified Monthly Earned Income.<br><br>
+                                d. Methods of Payment. Prior to or upon commencement of the Payment Term, you agree to elect one of following options for recurring
+                                Monthly Payments and any other payment(s) owing under this Agreement:<br><br>
+                                i. electronic funds transfers from your Approved Bank Account; or<br><br>
+                                ii. payments by credit card.<br><br>
+                                You agree to execute authorizations and any other documentation necessary for LINUXJOBBER to implement your election.<br><br>
+                                e. Withdrawal of Authorization for Preauthorized Electronic Funds Transfers. You have the right at any time to revoke your prior
+                                authorization for electronic funds transfers, subject to providing LINUXJOBBER at least three (3) business days’ notice prior to a scheduled payment.
+                                Should you elect to do so, revocation will not relieve you of your obligation to make Monthly Payments or any other payment(s) hereunder,
+                                and you agree to pay by credit card. If at any time during the Payment Term your circumstances will not permit payment of the Monthly
+                                Payment through electronic funds transfers from your Approved Bank Account or by credit card, you may contact LINUXJOBBER to request a
+                                reasonable alternative method of payment of your Monthly Payment, which LINUXJOBBER may or may not accept in its sole discretion.<br><br>
+
+                                f. Approved Bank Account.<br><br>
+                                i. Set Up and Maintenance of Approved Bank Account. You agree that, prior to receiving any Earned Income, you will establish a bank
+                                account with a financial institution designated or approved by LINUXJOBBER in writing (“Approved Bank Account”) and also will permit integration of
+                                the Approved Bank Account with LINUXJOBBER’s Platform as necessary to permit LINUXJOBBER to track your Earned Income, monitor account activity and
+                                balances, perform reconciliations and, if elected by you, process and withdraw your Monthly Payments from your Approved Bank Account.
+                                You further agree to provide details of the Approved Bank Account as LINUXJOBBER may reasonably request from time to time. If for any reason (e.g.,
+                                a change in your employment or address), you would like to change your Approved Bank Account to another bank, you agree to give LINUXJOBBER
+                                prior notice of the requested change and such details for the proposed replacement account as LINUXJOBBER may reasonably request. The proposed
+                                replacement account shall be subject to LINUXJOBBER’s prior approval. If at any time during the Payment Term you change the password to your
+
+                                Approved Bank Account or otherwise take any action that alters the ability of LINUXJOBBER to access your Approved Bank Account, you agree to give
+                                LINUXJOBBER prompt notice of the change and to comply with all requests of LINUXJOBBER to integrate the new Approved Bank Account with the LINUXJOBBER
+                                Platform.<br><br>
+                                ii. Right to Require Change of Approved Bank Account. Notwithstanding the foregoing provision, and even if you already have an Approved
+                                Bank Account, you acknowledge that LINUXJOBBER may require you during the Payment Term to open and maintain a new account with a financial
+                                institution designated by LINUXJOBBER, and you agree that, upon notice from LINUXJOBBER, that you will promptly open a new account with the designated
+                                financial institution and that such account shall then become your Approved Bank Account. You further agree to execute all documents
+                                required to open the new Approved Bank Account including, if applicable, authorization for automatic payments from the new Approved
+                                Bank Account. You also agree to authorize integration of the Approved Bank Account with the LINUXJOBBER Platform to permit LINUXJOBBER to monitor your
+                                EarnedIncome, among other things.<br><br>
+                                g. Deposit of all Earned Income into Approved Bank Account. You agree that during the entire Payment Term you shall deposit all Earned
+                                Income received by you from any and all sources directly into your Approved Bank Account. If you are employed, you agree to cause your
+                                Employer to arrange for the direct deposit of all of your Earned Income to your Approved Bank Account. Your refusal or failure to establish
+                                the Approved Bank Account or to permit integration with the LINUXJOBBER Platform for the purpose of making Monthly Payments or other payments
+                                hereunder shall not relieve you of any of your obligations under this Agreement.<br><br>
+                                h. Payment Deferrals and Extensions of Payment Term. LINUXJOBBER shall place your ISA in deferment status and not accept payments for any month
+                                that your Monthly Earned Income does not exceed the Minimum Monthly Amount (a “Deferred Month”), until such time as your Monthly
+                                Earned Income exceeds, or is deemed to exceed the Minimum Monthly Amount (as determined by reconciliation, as described herein), at
+                                which time your obligation to make Monthly Payments shall be reinstated. There is no limit on the aggregate number of months that Monthly
+                                Payments may be deferred.<br><br>
+                                i. Survival of Obligations. Expiration of the Payment Term only terminates your obligation to make Monthly Payments from Qualified
+                                Monthly Earned Income. However, it does not terminate this ISA or any continuing obligations you may have to Company or LINUXJOBBER pursuant
+                                to this ISA, including but not limited to the obligation to make additional payments if LINUXJOBBER determines that you underreported your Earned
+                                Income.<br><br>
+
+                                <p style="font-weight: 700; padding-bottom: 2px;">5. RECONCILIATION.</p><br> From time to time during the Payment Term, and for a period of one (1) year following the end of the calendar year
+                                in which the Payment Term expires, Company shall have the right to examine and audit your records pertaining to your employment and to
+                                verify your Earned Income at any point or points during the Payment Term to ensure that you have properly reported or projected your
+                                Earned Income and to verify that LINUXJOBBER has properly calculated and deducted Monthly Payments and other payment owing hereunder
+                                (“Reconciliation”). You agree to cooperate with the Company and LINUXJOBBER in the Reconciliation process.<br><br>
+                                a. Confirmation of Earned Income and Employment. To permit LINUXJOBBER to perform Reconciliation, you agree that you shall, within thirty (30)
+                                days of request:<br><br>
+                                i. verify your Earned Income as reported to the IRS by completing and delivering to LINUXJOBBER a IRS Form 4506-T or Form 4506T-EZ (or any
+                                successor form) or, at LINUXJOBBER’s option, provide LINUXJOBBER with a true and accurate copy of your federal tax return as submitted to the IRS for any
+                                calendar year of the Payment Term;<br><br>
+                                ii. provide LINUXJOBBER with the name, address and phone number of any Employers from which you have received Earned Income and authorize
+                                each of your Employers to disclose to us all forms of cash and non-cash compensation paid or provided to or earned by you; and<br><br>
+                                iii. provide such other documentation including, without limitation, pay stubs, Form W-2s, offer letters, and other information and summaries
+                                of any non-written or oral non-cash consideration, equity or deferred compensation arrangements as may be reasonably requested by LINUXJOBBER.<br><br>
+
+                                b. Underreported Earned Income.<br><br>
+                                i. If at any time during the Payment Term, whether intentionally or unintentionally, you underreport your Earned Income, resulting in one or
+                                more deferred Monthly Payments, or one or more lower Monthly Payments than Company is entitled to receive under this Agreement,
+                                Company will have the right to correct the issue, in its discretion, by: (A) increasing your Income Share for Monthly Payments payable to us
+                                for each subsequent Qualified Income Earning Month, to a maximum of 150% of Income Share; or (B) adding a fixed monthly
+                                underpayment fee which shall not exceed $1,000.00 per month (“Underpayment Fee”), until such time as the discrepancy has been corrected.<br><br>
+                                ii. Alternatively, if a Reconciliation shows that you underreported your Earned Income at any time during the Payment Term, so that you
+                                made one or more lower Monthly Payments than Company is entitled to receive under this Agreement, LINUXJOBBER shall give you notice within ten
+                                (10) days of completion of the Reconciliation of the amount of the underpayment and reasonable documentation of the underpayment
+                                calculation. You agree to pay us the aggregate amount of the underpayment within sixty (60) days of receiving such notice. If you do not pay
+                                on time, you authorize LINUXJOBBER to deduct the amount of your underpayment from your Approved Bank Account. If the Approved Bank Account
+                                is no longer active or there are insufficient funds to pay the underpayment, Company may exercise its legal rights to collect such
+                                underpayment. In that case, you agree to pay Company’s reasonable costs of collection, including attorney fees.<br><br>
+                                iii. If a Reconciliation shows or you claim that your Derived Monthly Income for any month in which you made a Monthly Payment was less
+                                than the amount of Qualified Monthly Earned Income on which such Monthly Payment was calculated, such Monthly Payment will not be
+                                reduced or otherwise refunded unless you can demonstrate with documentation reasonably satisfactory to LINUXJOBBER that such payment was the
+                                result of a manifest error.<br><br>
+                                iv. If a Reconciliation shows that your Derived Monthly Income for any month was more than the amount of Monthly Earned Income you
+                                reported for such month, your Monthly Earned Income for that month shall be deemed to equal the Derived Monthly Income, and any
+                                additional amounts payable to us will be subject to recapture pursuant to clauses (i) or (ii) above, as the case may be.<br><br>
+
+                                c. Overreported Earned Income.<br><br>
+                                i. If at any time during the Payment Term, for any reason, you overreport your Earned Income, resulting in larger Monthly Payments than
+                                Company is entitled to receive under this Agreement, you will have the right to notify LINUXJOBBER of this and provide any documentation that LINUXJOBBER
+                                may reasonably request to verify your claim of overpayment If, after Reconciliation, LINUXJOBBER agrees that you overreported your Earned Income,
+                                Company will correct the error, in its discretion, by: (A) refunding the amount of the overpayment to your Approved Bank Account in a
+                                single payment or by equal payments over a period not to exceed 6 months; or (B) decreasing your Income Share by not less than 10% for
+                                each Monthly Payment, until such time as the overage in payments to Company has been corrected.<br><br>
+                                ii. If the Payment Term ends prior to correction of any overage in payments, as determined by Reconciliation, Company shall pay you the
+                                balance of any remaining overpayment within thirty (30) days of the end of the Payment Term.<br><br>
+                                d. Extension of Time for Reconciliation. If you should file for an extension of the time to file your federal income tax returns or if you fail to
+                                provide us with the requested tax, Employer or Earned Income information or you do not otherwise reasonably cooperate with us for
+                                purposes of Reconciliation, then the one (1) year period following the end of the calendar year in which the Payment Term expires shall be
+                                extended for a period of time equal to the period of time that you failed to provide the requested information or you obtained by filing the
+                                extension. It is the intent of this provision that the running of the one (1) year period following the end of the calendar year in which the
+                                Payment Term expires shall be extended so that the Company has a full and reasonable opportunity to perform Reconciliation and so that
+                                you may not benefit from your failure to comply with your obligations or obtaining an extension.<br><br>
+                                <p style="font-weight: 700; padding-bottom: 2px;">6. CAP ON PAYMENTS; PREPAYMENT AMOUNT.</p><br><br>
+                                a. Payment Cap. The total Monthly Payments you owe under this Agreement will not exceed the Payment Cap.<br><br>
+                                
+                                b. Prepayment Amount. You may at any time pay in full your obligation to the Company by paying an amount equal to the PrePayment
+                                Amount.<br><br>
+                                <p style="font-weight: 700; padding-bottom: 2px;">7. ADDITIONAL PROVISIONS AFFECTING PAYMENTS.</p><br><br>
+                                a. Limit on Other Income Share Agreements. You agree that you have not and will not enter into additional income share agreements or
+                                similar arrangements with Company or any other Person that, in the aggregate, obligate you to pay a total Income Share exceeding 30.0% of
+                                your Earned Income.<br><br>
+                                b. International Work. If you move out of the United States during your Payment Term, you agree to continue to report Earned Income and
+                                to continue paying your Income Share of Qualified Monthly Earned Income. You shall not be in breach of this Agreement so long as you
+                                continue to make the required Monthly Payments.<br><br>
+                                c. Waiver of ISA Due to Death or Total and Permanent Disability. We will waive what you owe under this Agreement, including any past
+                                due amounts and fees, if you die or become disabled. If you would like to assert a waiver based on disability, you will need to provide
+                                documentation showing that you have been found to be permanently disabled by the Social Security Administration or other federal or state
+                                agency due to a condition that began or deteriorated after the Effective Date.<br><br>
+                                d. Obligation in Event of Withdrawal. If, for any reason, you withdraw from the Program or Training provided pursuant to this Agreement,
+                                you may be entitled to a pro rata reduction in your Income Share or the length of the Payment Term, at the sole discretion of Company. You
+                                agree to give Company and LINUXJOBBER prompt notice of your withdrawal from the Program or Training and the effective date of your withdrawal.<br><br>
+                                <p style="font-weight: 700; padding-bottom: 2px;">8. REVIEW OF YOUR TAX RETURNS.</p><br><br> For the tax year in which your Payment Term begins through the tax year in which your Payment
+                                Term ends, you agree to file timely your U.S. federal income tax returns no later than April 15 of the following year, and to timely file any
+                                state or local tax returns by the due date. You agree to notify LINUXJOBBER of any extension you seek for filing federal income tax returns. Moreover,
+                                upon request, you agree to sign and file IRS Form 4506-T or Form 4506T-EZ (or any successor form) within thirty (30) days of request,
+                                designating Company and LINUXJOBBER as the recipients of the transcripts of your tax returns covering any and all years of your Payment Term. You
+                                agree to perform any similar requirements or procedures for any non-U.S. country’s taxing authority, as applicable.<br>
+                                <p style="font-weight: 700; padding-bottom: 2px;">9. TAX REPORTING.</p><br><br> Company intends to report the tax consequence of the ISA on its tax returns as a financial contract that is eligible for
+                                open transaction treatment. Company believes that this tax treatment is more likely than not the proper characterization for federal income
+                                tax purposes. Company urges you to consult with your own tax advisors, to ascertain the appropriate manner in which to report your taxes.
+                                Company believes that there is a potential benefit if all parties to a transaction report in a consistent fashion. Company encourages you to
+                                report in a manner that is consistent for all parties to the transaction. Company recognizes that there may be specific situations where
+                                Company or you may find it appropriate to report in a way that is inconsistent with the other party. Company urges you to consult with your
+                                tax advisors about the potential consequences of such reporting.<br><br>
+
+                                <p style="font-weight: 700; padding-bottom: 2px;">10. COVENANTS AND REPRESENTATIONS OF OBLIGOR.</p><br><br> By entering into this Agreement, you represent, warrant and promise to the
+                                Company as follows:<br><br>
+                                a. that you are entering into this Agreement in good faith and with the intention to pay us by making Monthly Payments when due;<br><br>
+                                b. that all the information you have provided to Company in connection with entering into this Agreement is true and accurate and that you
+                                have not provided any false, misleading or deceptive statements or omissions of fact;<br><br>
+                                c. that you are not contemplating bankruptcy, and you have not consulted with an attorney regarding bankruptcy in the past six months;<br><br>
+                                d. that you are a U.S. citizen or permanent resident or have a social security number and the legal right to work in the United States;<br><br>
+
+                                e. that you will make reasonable and good faith efforts to seek employment immediately following completion of the Program or Training
+                                and during all times during the Payment Term that you are not employed or that you have Earned Income less than the Minimum Monthly
+                                Amount;<br><br>
+                                f. during the Payment Term, you will timely report to LINUXJOBBER any changes in your Employment status;<br><br>
+                                g. during the Payment Term, you will not conceal, divert, defer or transfer any of your Earned Income (including but not limited to any
+                                non-cash consideration, equity or deferred compensation rights granted to you) for the purpose of avoiding or reducing your Monthly
+                                Payment obligation or otherwise;<br><br>
+                                h. that you will timely and fully provide all information and documentation required under the terms and conditions of this Agreement or as
+                                reasonably requested by Company (including any assignee of Company) and/or LINUXJOBBER, and that such information or documentation shall be
+                                true, complete, and accurate;<br><br>
+                                i. that during the Payment Term you will file all federal, state or local tax returns and reports as required by law, which shall be true and
+                                correct in all material respects, that you will report all of your Earned Income on such returns, and that you shall pay all federal, state or local
+                                taxes and other assessments when due;<br><br>
+                                j. that you shall keep accurate records relating to your Earned Income for each year of your Payment Term, including all W-2s, pay stubs,
+                                and any invoices or payments relating to self-employment services you provide; and
+                                k. that you will retain all such records for a period of at least one (1) year following the date you fulfill all your payment obligations under
+                                this Agreement.<br><br>
+                                <p style="font-weight: 700; padding-bottom: 2px;">11. COVENANTS AND REPRESENTATIONS OF COMPANY.</p> Company represents, warrants and promises as follows:<br><br>
+                                a. Confidentiality. Company agrees that all non-public employment or financial information of Obligor and any non-public records or
+                                information provided to LINUXJOBBER pursuant to this Agreement is personal and confidential information. Company agrees not to use personal or
+                                financial information concerning you or your Employer for any purposes other than (i) as expressly authorized herein or as separately agreed
+                                to by you, (ii) as incidental to performance of this Agreement, or (iii) to enforce its rights under this Agreement.<br><br>
+                                b. Security. Company and LINUXJOBBER shall use and maintain commercially reasonable security controls so as to prevent any unauthorized access to
+                                or use any personal and confidential information of Obligor.<br><br>
+
+                                <p style="font-weight: 700; padding-bottom: 2px;">12. BREACH AND REMEDIES.</p><br>
+                                a. Breach. Without prejudice to Company’s other rights and remedies hereunder, and subject to applicable law, Company may deem you to
+                                be in breach under this Agreement upon any of: (i) your failure to make any Monthly Payment within ninety (90) days of the due date; (ii)
+                                your failure to report or update your Earned Income within ninety (90) days of LINUXJOBBER’s request; (iii) your failure to provide LINUXJOBBER with a
+                                completed and executed IRS Form 4506-T, your social security number, or the name of your Employer(s) within ninety (90) days of LINUXJOBBER’s
+                                request; (iv) your failure to provide details of and confirm ownership of your Approved Bank Account within ninety (90) days of receiving
+                                written notice from us or LINUXJOBBER of such failure; (v) your failure to provide documentation including, without limitation, copies of your federal
+                                tax returns, pay stubs, Form W-2s, and offer letters, and summaries of any non-written or oral non-cash consideration, equity, or deferred
+                                compensation arrangements as may be reasonably requested by LINUXJOBBER, pursuant to this Agreement; or (vi) your violation of any other
+                                provision of this Agreement that impairs Company’s rights, including but not limited to, the receipt of information that LINUXJOBBER deems, in its sole
+                                discretion, to be materially false, misleading, or deceptive.<br><br>
+
+
+                                b. Remedies upon Breach. Subject to applicable law (including any notice or cure rights provided under applicable law), upon breach,
+                                Company shall be entitled to: (i) collect the Prepayment Amount; (ii) enforce all legal rights and remedies in the collection of such amount
+                                and related fees (including any rights available to Company to garnish wages or set off any federal or state tax refund); or (iii) utilize any
+                                combination of these remedies. You agree to pay Company’s costs of collection to the extent permitted by applicable law, including
+                                reasonable attorney fees, collection fees charged by a taxing authority for tax refund set-off, and any other fees or costs (including
+                                Company’s fees and costs due to your bankruptcy or insolvency, if applicable).<br><br>
+                                c. Equitable Remedies. If Company concludes that money damages are not a sufficient remedy for any particular breach of this Agreement,
+                                then Company shall be entitled to seek an accounting, as well as injunctive or other equitable relief to the fullest extent permitted by
+                                applicable law. Such remedy shall be in addition to all other legal or equitable remedies available to Company.<br><br>
+                                <p style="font-weight: 700; padding-bottom: 2px;">13. RETAINED RIGHTS.</p> No breach or the termination of this Agreement will affect the validity of any of your accrued obligations owing
+                                to Company under this Agreement. Notwithstanding termination of the Payment Term, Company shall retain all rights to enforce your
+                                obligations under this Agreement, including the right to receive the full amount of your Income Share owing hereunder based on your Earned
+                                Income during the Payment Term.<br><br>
+                                <p style="font-weight: 700; padding-bottom: 2px;">14. ELECTRONIC DELIVERY.</p> LINUXJOBBER may decide to deliver any documents or notices related to this Agreement by electronic means. You
+                                agree to receive such documents or notices by electronic delivery to the email address provided Company and LINUXJOBBER, and to participate
+                                through an on-line or electronic system established and maintained by Company or LINUXJOBBER.<br><br>
+                                15. PERMITTED COMMUNICATIONS. Company or LINUXJOBBER may use an automatic dialer to place calls or send text messages, or use
+                                electronic mail, to communicate with you about payment due dates, missed payments, and other important information, and may use an
+                                artificial or prerecorded voice in connection with such communications. You hereby consent to such communications at any telephone
+                                number or email address that you provide Company or LINUXJOBBER, now or in the future. You agree that Company and LINUXJOBBER will not be liable to you
+                                for any such communications, even if information is communicated to an unintended recipient. You understand that, when you receive such
+                                communications, you may incur a charge from your wireless or internet service providers. You agree that Company and LINUXJOBBER shall have no
+                                liability for such charges. You also agree that Company and our agents, including but not limited to LINUXJOBBER, may record any telephone
+                                conversations with you.
+                                You may withdraw your consent to receive emails or telephone calls or text messages using an automatic dialer or an artificial or prerecorded
+                                voice by sending notice by email to support@LINUXJOBBER.org (or such other email address as the Company or LINUXJOBBER may provide to you from time to
+                                time). The notice must include (i) your name and address, (ii) your cellular telephone number(s), and (iii) your account number, if applicable;
+                                and shall expressly state that you are revoking your consent under this Agreement for Company or LINUXJOBBER to email or place calls and send text
+                                messages to you using an automatic dialer or artificial or prerecorded voice.<br><br>
+
+                                <p style="font-weight: 700; padding-bottom: 2px;">16. CONSENT TO CREDIT AND INCOME VERIFICATION; CREDIT REPORTING; OBLIGOR INFORMATION.</p><br><br>
+                                a. In connection with the provision of the Program or Training and by entering into this Agreement, you authorize Company or LINUXJOBBER to obtain
+                                your credit report, verify the information that you provide to the Company, and gather such additional information that Company or LINUXJOBBER
+                                reasonably determines to help assess and understand your ability to perform your obligations under this Agreement. You understand that
+                                Company or LINUXJOBBER may verify your information and obtain additional information using a number of sources, including but not limited to,
+                                consumer reporting agencies, third party databases, past and present employers, other school registrars, public sources, and personal
+                                references provided by you. Upon your request, you will be notified whether or not Company or LINUXJOBBER obtained you credit report and, if so,
+                                the name and address of the consumer reporting agency that furnished the report. You further authorize Company or LINUXJOBBER to share your credit
+                                report and information therein with its assigns or affiliates (including but not limited to its parents, investors, and lenders), which Company
+                                or LINUXJOBBER will do using reasonable data security procedures.
+                                <br><br>
+                                b. You authorize the Company and its agents (including, but not limited to, LINUXJOBBER) to report information about this Agreement to credit
+                                bureaus. Although this Agreement is not “credit,” we may inform credit bureaus about your positive payment behavior when you make
+                                payments as agreed. However, this also means that late payments, missed payments, or other breaches of this Agreement may be reflected in
+                                your credit report.<br><br>
+                                c. You authorize the Company to use any and all information provided by you, and any data derived from such information, for any purpose,
+                                including, without limitation, creation of any additional products or services derived therefrom. You disclaim any proprietary or monetary
+                                interest in any such additional products or services.<br><br>
+                                <p style="font-weight: 700; padding-bottom: 2px;">17. CUSTOMER IDENTIFICATION POLICY.</p> To help the government fight the funding of terrorism and money laundering activities, LINUXJOBBER
+                                will obtain, verify, and record information identifying you. When you enter into this Agreement, LINUXJOBBER reserve the right to ask for your name,
+                                address, date of birth, social security number, and other information that will allow Company to identify you. LINUXJOBBER may also ask to see your
+                                driver’s license or other identifying documents.<br><br>
+
+                                <p style="font-weight: 700; padding-bottom: 2px;">18. DATA.</p> You hereby consent to Company and LINUXJOBBER’s use of information or data (collectively, “Data”) provided by or concerning you: (a)
+                                to collect and analyze the Data and any other data relating to the provision, use, and performance of this Agreement, the LINUXJOBBER Platform and
+                                related systems and technologies; (b) to use the Data to improve and enhance the LINUXJOBBER Platform or for other development, diagnostic, and
+                                corrective purposes in connection with this Agreement or any other business of LINUXJOBBER; and (c) to disclose such information and data solely in
+                                aggregate or other de-identified form in connection with LINUXJOBBER’s businesses. Company and LINUXJOBBER shall own any data derived from or based upon
+                                the Data in conjunction with the foregoing rights.<br><br>
+                                <p style="font-weight: 700; padding-bottom: 2px;">19. NOTICE AND CURE.</p> Prior to initiating any legal action or other proceeding regarding any past, present or future claim, dispute, or
+                                controversy, Company or Obligor may have against the other, regardless of the legal theory on which it is based, arising out of, relating to or
+                                occurring in connection with this Agreement (a “Claim”), the party asserting the Claim shall give the other party written notice of the Claim
+                                and a reasonable opportunity, not less than thirty (30) days, to resolve the Claim. The notice must explain the nature of the Claim and the
+                                relief demanded by the party asserting it. If Company is asserting the Claim, Company will send such notice to you at your address appearing
+                                in our records or, if you are known to be represented by an attorney, to your attorney at his or her office address. The party asserting the
+                                Claim must reasonably cooperate in providing any information about the Claim that the other party reasonably requests. The provisions of
+                                this section shall survive termination of this Agreement.<br><br>
+                                <p style="font-weight: 700; padding-bottom: 2px;">20. ARBITRATION OF CLAIMS AGAINST COMPANY.</p> Except as expressly provided below, Obligor agrees that any Claim against the
+                                Company shall be submitted to and resolved by binding arbitration under the Federal Arbitration Act (“FAA”), 9 U.S.C. §§1 et seq., before
+                                the American Arbitration Association (“AAA”) under its Consumer Arbitration Rules then in effect (the “AAA Rules”, available online at
+                                www.adr.org). If the AAA is unable to serve as administrator and Company and Obligor cannot agree on a replacement, a court with
+                                jurisdiction will select the administrator or arbitrator. This means that any Claim you have shall be resolved by a neutral third-party
+                                arbitrator, and not by a judge or a jury, and you hereby knowingly and voluntarily waive the right to trial on such Claim by any court of law
+                                or equity. For purposes of this Arbitration Agreement: (a) the term “Claim” has the broadest possible meaning, and includes initial claims,
+                                counterclaims, cross-claims and third-party claims. It includes disputes based upon contract, tort, consumer rights, fraud and other intentional
+                                torts, constitution, statute, regulation, ordinance, common law and equity (including any claim for injunctive or declaratory relief). For
+                                purposes of this Arbitration Agreement; (b) the term “Company” includes: (i) the Company; (ii) any assignee of this Agreement; (iii) any
+                                assignee, agent, designee or servicer of the Company (including, but not limited to, LINUXJOBBER): (iv) the officers, directors, employees, affiliates,
+                                subsidiaries, and parents of all of the foregoing; and (v) any Person named as a co-defendant with Company in a Claim asserted by Obligor,
+                                such as servicers and debt collectors. Notwithstanding the foregoing, if a Claim that Obligor wishes to assert against Company is cognizable
+                                in a small claims court (or your state’s equivalent court) with jurisdiction over the Claim and the parties, Obligor or Company may pursue
+                                such Claim in such court; provided, however, that if the Claim is transferred, removed, or appealed to a different court, it shall then be
+                                resolved by arbitration, as provided herein. Moreover, any dispute concerning the validity or enforceability of this Arbitration Agreement
+                                must be decided by a court; any dispute concerning the validity or enforceability of this Agreement is for the arbitrator.<br><br>
+                                
+                                Any arbitration hearing that you attend will take place before a single arbitrator and shall be held in the same city as the U.S. District Court
+                                closest to your address. If you cannot obtain a waiver of the AAA’s or arbitrator’s filing, administrative, hearing and/or other fees, Company
+                                will consider in good faith any request by you for Company to bear such fees. Each party will bear the expense of its own attorneys, experts
+                                and witnesses, regardless of which party prevails, unless applicable law or this Agreement provides a right to recover any of those fees from
+                                the other party.<br><br>
+                                The arbitrator shall follow applicable substantive law to the extent consistent with the FAA, applicable statutes of limitation and privilege
+                                rules that would apply in a court proceeding, but subject to any limitations as may be set forth in this Agreement.<br><br>
+                                This Arbitration Agreement shall survive the termination of this Agreement, your fulfillment of your obligations under this Agreement, and
+                                bankruptcy or insolvency by either party (to the extent permitted by applicable law). In the event of any conflict or inconsistency between
+                                this Arbitration Agreement and the administrator’s rules or other provisions of this Agreement, this Arbitration Agreement will govern.<br><br>
+                                CLASS ACTION WAIVER: IF A CLAIM IS ARBITRATED, OBLIGOR WILL NOT HAVE THE RIGHT TO PARTICIPATE IN A
+                                CLASS ACTION, A PRIVATE ATTORNEY GENERAL ACTION, OR OTHER REPRESENTATIVE ACTION IN COURT OR IN
+                                ARBITRATION, EITHER AS A CLASS REPRESENTATIVE OR CLASS MEMBER. Further, unless both Obligor and Company agree
+                                otherwise in writing, the arbitrator may not join or consolidate Claims with claims of any other Persons. The arbitrator shall have no
+                                authority to conduct any class, private attorney general, or other representative proceeding, and shall award declaratory or injunctive relief
+                                only to the extent necessary to provide relief warranted by the Claim. If a determination is made in a proceeding involving Company and
+                                Obligor that the class action waiver is invalid or unenforceable, only this sentence of this Arbitration Agreement will remain in force and the
+                                remainder of this Arbitration Agreement shall be null and void, provided, that the determination concerning the class action waiver shall be
+                                subject to appeal.<br><br>
+                                RIGHT TO REJECT: You may reject this Arbitration Agreement by emailing a rejection notice to Company at support@LINUXJOBBER.org (or such
+                                other email address as Company or LINUXJOBBER may provide to you from time to time) within thirty (30) days after the Effective Date. Any rejection
+                                notice must include: (i) your name and address; (ii) your cellular telephone number(s); (iii) your account number, if applicable; and shall
+                                state that you are rejecting the Arbitration Agreement in this Agreement. Any rejection of this Arbitration Agreement, will not affect any
+                                other provisions of, or your obligations under, this Agreement.<br><br>
+                                <p style="font-weight: 700; padding-bottom: 2px;">21. LIMITATION OF LIABILITY.</p> EXCEPT TO THE EXTENT CAUSED BY THE WILLFUL MISCONDUCT OF COMPANY OR
+                                LINUXJOBBER, NEITHER COMPANY NOR LINUXJOBBER SHALL BE LIABLE TO OBLIGOR FOR LOSS OF EMPLOYMENT, LOST INCOME OR
+                                PROFITS, CONSEQUENTIAL, EXEMPLARY, INCIDENTAL, INDIRECT, OR SPECIAL DAMAGES, EVEN IF ADVISED BY
+                                OBLIGOR OF THE POSSIBILITY OF SUCH DAMAGES. THE PROVISIONS OF THIS SECTION 21 SHALL SURVIVE
+                                TERMINATION OF THIS AGREEMENT.<br><br>
+                                <p style="font-weight: 700; padding-bottom: 2px;">22. SURVIVAL OF CERTAIN PROVISIONS.</p> Notwithstanding anything to the contrary in this Agreement, the provisions of Sections 3
+                                (Payment Management by LINUXJOBBER), 5 (Reconciliation), 9 (Tax Reporting), 10 (Covenants and Representations of Obligor), 12 (Breach and
+                                Remedies), 13 (Retained Rights), 14 (Electronic Delivery), 15 (Permitted Communications), 19 (Notice and Cure), 20 (Arbitration of Claims
+                                Against Company), 22 (Limitation of Liability), and 23 (General Provisions) shall survive termination of this Agreement, your fulfillment of
+                                your obligations under this Agreement, and bankruptcy or insolvency of either party (to the extent permitted by applicable law).<br><br>
+
+                                <p style="font-weight: 700; padding-bottom: 2px;">23. GENERAL PROVISIONS.</p><br>
+                                a. Entire Agreement. This Agreement sets forth the entire agreement and understanding of the Parties relating to the subject matter herein
+                                and supersedes all prior or contemporaneous discussions, understandings and agreements, whether oral or written, between you and us
+                                relating to the subject matter hereof.<br><br>
+                                b. Amendments. This Agreement cannot be modified or amended except with the written consent of both Parties<br><br>
+
+                                c. No Waivers. No delay or failure on the part of either Party to require performance of any provision of this Agreement shall constitute a
+                                waiver of that provision as to that or any other instance.<br><br>
+                                d. Successors and Assigns. Company (and any Person that acquires a majority interest of the equity of Company or substantially all of its
+                                assets), may sell or assign this Agreement or any of our rights, economic benefits, or obligations under this Agreement, to any Person
+                                without your permission or consent. However, you may not assign this Agreement, whether voluntarily or by operation of law, or any of your
+                                rights, economic benefits (including but not limited to the Program or Training), or obligations under this Agreement, except with
+                                Company’s prior written consent and any such attempted assignment without our consent shall be null and void. Except as otherwise
+                                provided in this Agreement, this Agreement, and the rights and obligations of the parties hereunder, will be binding upon and inure to the
+                                benefit of their respective successors, assigns, heirs, executors, administrators and legal representatives.<br><br>
+                                e. Severability. Except as set forth in the in Section 20 (Arbitration of Claims Against Company), if one or more provisions of this
+                                Agreement are held to be unenforceable under applicable law or the application thereof to any Person or circumstance shall be invalid or
+                                unenforceable to any extent, then (i) such provision shall be excluded from this Agreement to the minimum extent necessary so that this
+                                Agreement will otherwise remain in full force and effect and enforceable, (ii) the balance of this Agreement shall be interpreted as if such
+                                provision were so excluded and (iii) the remainder of this Agreement shall be enforceable in accordance with its terms.<br><br>
+                                f. Governing Law. The validity, interpretation, construction and performance of this Agreement, all acts and transactions pursuant to this
+                                Agreement, and the rights and obligations of the Parties under this Agreement shall be governed by, construed, and interpreted in accordance
+                                with the laws of the State of New York, without giving effect to principles of conflicts of law.<br><br>
+                                g. Notices. Any notice, consent, demand or request required or permitted to be given under this Agreement shall be in writing and, except as
+                                otherwise provided, shall be deemed sufficient: (i) when sent by email from you to LINUXJOBBER, as the Company’s ISA program manager, at
+                                support@LINUXJOBBER.org or to such other email address as Company or LINUXJOBBER may provide to you from time to time, and (ii) when sent by Company
+                                or LINUXJOBBER to you via email at the email address you last provided to Company or LINUXJOBBER.<br><br>
+                                h. Execution; Electronic Transactions. This Agreement may be executed electronically or manually. Execution may be completed in
+                                counterparts (including both counterparts that are executed on paper and counterparts that are electronic records and executed electronically),
+                                which together shall constitute a single agreement. Any copy of this Agreement (including a copy printed from an image of this Agreement
+                                that has been stored electronically) shall have the same legal effect as an original.<br><br>
+
+                                <p style="font-weight: 700; padding-bottom: 2px;">VERIFICATION OF REVIEW AND INDEPENDENT DECISION TO ENTER INTO ISA</p><br>
+                                BY SIGNING BELOW, OBLIGOR ACKNOWLEDGES AND AGREES THAT THIS AGREEMENT IS ENTERED INTO
+                                VOLUNTARILY AND AS AN ARMS-LENGTH TRANSACTION. OBLIGOR FURTHER ACKNOWLEDGES AND AGREES WITH
+                                EACH OF THE FOLLOWING: (I) THAT I AM OF LEGAL AGE TO EXECUTE THIS AGREEMENT; (II) THAT I HAVE HAD THE
+                                OPPORTUNITY TO READ THIS AGREEMENT AND TO REVIEW ITS TERMS AND CONDITIONS WITH MY LEGAL AND
+                                FINANCIAL ADVISORS OF MY CHOOSING; (III) THAT COMPANY IS NOT AN AGENT OR FIDUCIARY OR ADVISOR ACTING
+                                FOR MY BENEFIT OR IN MY FAVOR IN CONNECTION WITH THE EXECUTION OF THIS AGREEMENT; (IV) THAT COMPANY
+                                HAS NOT PROVIDED ME WITH ANY LEGAL, ACCOUNTING, INVESTMENT, REGULATORY OR TAX ADVICE WITH
+                                RESPECT TO THIS AGREEMENT; AND (V) THAT COMPANY HAS NOT MADE ANY PROMISES OR ASSURANCES TO ME
+                                THAT ARE NOT EXPRESSLY SET FORTH IN WRITING IN THIS AGREEMENT. I UNDERSTAND THAT, BY ENTERING INTO
+                                THIS THIS AGREEMENT, I AM IRREVOCABLY AGREEING TO SHARE A FIXED PORTION OF MY FUTURE EARNED INCOME
+                                IN CONSIDERATION OF RECEIVING THE PROGRAM OR TRAINING, IN ACCORDANCE WITH THE TERMS AND
+                                CONDITIONS OF THIS AGREEMENT.<br><br>
+                                IN WITNESS WHEREOF, the parties have entered into this Income Share Agreement as of the Effective Date.
+                            </p>
+                            <br>
+
+                <span>I, <span style="font-weight: 700; font-style: italic;">{{user.first_name|upper}} {{user.last_name|upper}}</span>, AGREE TO HAVE READ, UNDERSTOOD AND ACEPTED OUR INCOME SHARE AGREEMENT </span>
+                <br>
+                <span class="eligqut" style="font-style: italic;">{{user.date_created | date}}</span>
+        </div>
+        
+    </div>
+</div>

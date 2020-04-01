@@ -444,7 +444,9 @@ color: rgba(0, 0, 0, 0.8);
                     out of or relating to, and/or to enforce this Agreement.
                 </p>
                 <br>
-                <h5>I {{user.first_name|upper}} {{user.last_name|upper}} AGREE TO HAVE READ, UNDERSTOOD AND ACEPTED OUR STUDENT ENROLLMENT AGREEMENT </h5>
+                <span>I, <span style="font-weight: 700; font-style: italic;"> {{user.first_name|upper}} {{user.last_name|upper}} </span>, AGREE TO HAVE READ, UNDERSTOOD AND ACEPTED OUR STUDENT ENROLLMENT AGREEMENT </span>
+                <br>
+                <span class="eligqut" style="font-style: italic;">{{user.date_created | date}}</span>
             </div>
 
 

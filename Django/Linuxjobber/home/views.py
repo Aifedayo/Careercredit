@@ -5,6 +5,7 @@ import subprocess, json
 import random, string
 import pytz
 import requests
+import os
 
 
 from smtplib import SMTPException
@@ -178,17 +179,12 @@ def signup(request):
                         user.username = username
                         user.save()
 
-                    mail_message = """
-                    Hello {firstname} {lastname},
-                    Thank you for registering on Linuxjobber, your username is: {username}
-                    and your email is {email}
-                    
-                    Follow this url to login with your username and password {env_url}/login
-                    
-                    Best Regards
-                    Admin.
-                    
-                    """.format(
+                    file_path = os.path.join(settings.BASE_DIR, 'emails', 'signup.txt')
+                    with open(file_path, 'r') as f:
+                        file_content = f.read()
+                        
+
+                    mail_message = file_content.format(
                         username =  username,
                         email = email,
                         firstname = firstname,
@@ -298,19 +294,10 @@ def forgot_password(request):
             u.pwd_reset_token = ''.join(random.choice(string.ascii_lowercase) for x in range(64))
             u.save()
             password_reset_link = 'reset_password/' + str(u.pwd_reset_token)
-            mail_message = """
-                Hello,
-                
-                You are receiving this email because we received a request to reset your password,
-                ignore this message if you did not initiate the request else click the link below 
-                to reset your password.
-                
-                {env}{reset_link} 
-                
-                Warm Regards, 
-                Linuxjobber. 
-
-            """.format(
+            file_path = os.path.join(settings.BASE_DIR, 'emails', 'forgotpassword.txt')
+            with open(file_path, 'r') as f:
+                file_content = f.read()
+            mail_message = file_content.format(
                 env = settings.ENV_URL,
                 reset_link = password_reset_link
             )
@@ -376,16 +363,10 @@ def internships(request):
             messages.success(request, 'Thanks for applying for the internship which starts on ' + str(internsh.strftime(
                 '%b %d, %y')) + '. Please ensure you keep in touch with Linuxjobber latest updates on our various social media platform')
 
-            mail_message = """
-            Hello, 
-            
-            You are receiving this email because you applied for an internship at linuxjobber.com,
-            we would review your application and get back to you.
-
-            Best Regards,
-            Admin.
-
-            """
+            file_path = os.path.join(settings.BASE_DIR, 'emails', 'signup.txt')
+            with open(file_path, 'r') as f:
+                file_content = f.read()
+            mail_message = file_content
             mailer = LinuxjobberMailer(
                 subject = "Linuxjobber Internship",
                 to_address = request.POST['email'],
@@ -528,37 +509,22 @@ def partime(request):
             else:
                 high = 'No'
 
-            message_applicant = """Hello, you are receiving this email because you applied for a part-time role at linuxjobber.com.\n
-            Your resume was received with pleasure! Your background skills looks good! I hope you are doing okay.
-            \n\nThis role is expected to fill a position in Linuxjobber,Inc.\n\n
-            By the time you respond, we expect that you would have already visited our website at https://linuxjobber.com, 
-            and seen that we are a training company that is focused on helping job seekers get their junior and mid-level positions.
-            \n\nTo achieve this, our company builds applications as well as training materials, including videos.
+            file_path = os.path.join(settings.BASE_DIR, 'emails', 'parttimeapplicant.txt')
+            with open(file_path, 'r') as f:
+                file_content = f.read()
 
-            \nIf you are accepted into this Part-time role, you will mostly handle
-            programming tasks.
+            file_path = os.path.join(settings.BASE_DIR, 'emails', 'parttimeadmin.txt')
+            with open(file_path, 'r') as f:
+                file_content2 = f.read()
 
-            \n\nDo you understand our mission and is this a challenge that you are willing to take on? Are you still interested in this role?
+            message_applicant = file_content.format(
+                env = settings.ENV_URL
+            )
 
-            \n\n If so visit this link to login, if you dont have an account, register here: """ + settings.ENV_URL + """  and click the yes button: """ + settings.ENV_URL + """jobs/challenge/ \n
-            Best Regards,.\n\n Thanks & Regards \n Linuxjobber. \n\n\n\n\n\n\n\n To Unsubscribe go here \n""" + settings.ENV_URL + """unsubscribe"""
 
 
             # send_mail('Linuxjobber Newsletter', message, settings.EMAIL_HOST_USER, [request.POST['email']])
-            message_admin = """
-            Hello,
-             
-            {fullname} with email: {email} just applied for a part time role, {title}
-            
-            CV can be found here: {cv}
-            Phone number is: {phone} 
-            High salary choice is: {salary}
-            
-            Please kindly review.
-            
-            Warm Regards
-
-            """.format(
+            message_admin = file_content2.format(
                 fullname = request.POST['fullname'],
                 email =  request.POST['email'],
                 title = position.job_title,
@@ -604,24 +570,14 @@ def partime(request):
 @login_required
 def jobchallenge(request, respon=None):
     if respon:
-        message = """ 
-                Thanks for responding.\n
-                Here is the preparation you need for the interview:\n\n
+        file_path = os.path.join(settings.BASE_DIR, 'emails', 'jobchallenge.txt')
+        with open(file_path, 'r') as f:
+            file_content = f.read()
 
-                1. Watch and practice: http://linuxjobber.com/tutorials/lab_video/1/1\n
-                2. Watch and practice: https://www.youtube.com/watch?v=0PtBREh74r4\n
-                3. Make a video of your own (3 mins or more) performing and explaining
-                the actual tasks you are doing based on the two videos above.\n\n
-
-                Here is a video recording application that you can use for free:
-                https://screencast-o-matic.com/ \n\n
-
-                Done!\n
-
-                Upload video to google drive and send link to joseph.showunmi@linuxjobber.com .\n
-
-                Best Regards,.\n\n Thanks & Regards \n Linuxjobber.\n\n\n\n\n\n\n\n To Unsubscribe go here \n""" + settings.ENV_URL + """unsubscribe"""
-
+        message = file_content.format(
+            env = settings.ENV_URL
+        )
+        
         mailer = LinuxjobberMailer(
             subject="Job Challenge",
             to_address = request.user.email,
@@ -741,28 +697,17 @@ def jobapplication(request, job):
             #           request.POST[
             #               'phone'] + '\nplease kindly review.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
             #           settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
-            message_applicant = """
-                Hello, 
-                You are receiving this email because you applied for a full-time role at linuxjobber.com, we will review
-                 your application and get back to you.
-                 
-                 Warm Regards,
-                 Linuxjobber
             
-            """
-            message_admin = """
-            Hello,
+            file_path = os.path.join(settings.BASE_DIR, 'emails', 'jobapplicationadmin.txt')
+            with open(file_path, 'r') as f:
+                file_content = f.read()
 
-            {fullname} with email: {email} just applied for a full time role, {title}
-
-            CV can be found here: {cv}
-            Phone number is: {phone} 
-
-            Kindly review.
-
-            Warm Regards
-
-            """.format(
+            file_path = os.path.join(settings.BASE_DIR, 'emails', 'jobapplicationapplicant.txt')
+            with open(file_path, 'r') as f:
+                file_content2 = f.read()
+            
+            message_applicant = file_content2
+            message_admin = file_content.format(
                 fullname=request.POST['fullname'],
                 email=request.POST['email'],
                 title=posts.job_title,
@@ -896,15 +841,11 @@ def linux_full_training(request):
         try:
             subscriber = NewsLetterSubscribers(email=email)
             subscriber.save()
-            message_applicant = """
-                Hello, 
-                
-                You are receiving this email because you have subscribed to our newsletter on linuxjobber.com.
-                
-                Warm Regards,
-                Linuxjobber
+            file_path = os.path.join(settings.BASE_DIR, 'emails', 'newsletter.txt')
+            with open(file_path, 'r') as f:
+                file_content = f.read()
 
-            """
+            message_applicant = file_content
             mailer_applicant = LinuxjobberMailer(
                 subject="Newsletter Subscription",
                 to_address= email,
@@ -960,15 +901,10 @@ def aws_full_training(request):
         try:
             subscriber = NewsLetterSubscribers(email=email)
             subscriber.save()
-            message_applicant = """
-Hello, 
-
-You are receiving this email because you have subscribed to our newsletter on linuxjobber.com.
-
-Warm Regards,
-Linuxjobber
-
-            """
+            file_path = os.path.join(settings.BASE_DIR, 'emails', 'newsletter.txt')
+            with open(file_path, 'r') as f:
+                file_content = f.read()
+            message_applicant = file_content
             mailer_applicant = LinuxjobberMailer(
                 subject="Newsletter Subscription",
                 to_address=email,
@@ -1001,15 +937,10 @@ def oracledb_full_training(request):
             subscriber = NewsLetterSubscribers(email=email)
             subscriber.save()
 
-            message_applicant = """
-Hello, 
-
-You are receiving this email because you have subscribed to our newsletter on linuxjobber.com.
-
-Warm Regards,
-Linuxjobber
-
-            """
+            file_path = os.path.join(settings.BASE_DIR, 'emails', 'newsletter.txt')
+            with open(file_path, 'r') as f:
+                file_content = f.read()
+            message_applicant = file_content
             mailer_applicant = LinuxjobberMailer(
                 subject="Newsletter Subscription",
                 to_address=email,
@@ -1043,15 +974,10 @@ def linux_certification(request):
             subscriber = NewsLetterSubscribers(email=email)
             subscriber.save()
 
-            message_applicant = """
-Hello, 
-
-You are receiving this email because you have subscribed to our newsletter on linuxjobber.com.
-
-Warm Regards,
-Linuxjobber
-
-            """
+            file_path = os.path.join(settings.BASE_DIR, 'emails', 'newsletter.txt')
+            with open(file_path, 'r') as f:
+                file_content = f.read()
+            message_applicant = file_content
             mailer_applicant = LinuxjobberMailer(
                 subject="Newsletter Subscription",
                 to_address=email,
@@ -1085,15 +1011,10 @@ def aws_certification(request):
             subscriber = NewsLetterSubscribers(email=email)
             subscriber.save()
 
-            message_applicant = """
-Hello, 
-
-You are receiving this email because you have subscribed to our newsletter on linuxjobber.com.
-
-Warm Regards,
-Linuxjobber
-
-            """
+            file_path = os.path.join(settings.BASE_DIR, 'emails', 'newsletter.txt')
+            with open(file_path, 'r') as f:
+                file_content = f.read()
+            message_applicant = file_content
             mailer_applicant = LinuxjobberMailer(
                 subject="Newsletter Subscription",
                 to_address=email,
@@ -1126,15 +1047,10 @@ def oracledb_certification(request):
         try:
             subscriber = NewsLetterSubscribers(email=email)
             subscriber.save()
-            message_applicant = """
-                Hello, 
-
-                You are receiving this email because you have subscribed to our newsletter on linuxjobber.com.
-
-                Warm Regards,
-                Linuxjobber
-
-            """
+            file_path = os.path.join(settings.BASE_DIR, 'emails', 'newsletter.txt')
+            with open(file_path, 'r') as f:
+                file_content = f.read()
+            message_applicant = file_content
             mailer_applicant = LinuxjobberMailer(
                 subject="Newsletter Subscription",
                 to_address=email,
@@ -1194,15 +1110,10 @@ def devops_pay(request):
                 # send_mail('Linuxjobber DevOps Course Subscription',
                 #           'Hello, you have successfuly subscribed for our DevOps Course package.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
                 #           settings.EMAIL_HOST_USER, [request.user.email])
-                message_applicant = """
-                    Hello, 
-
-                    You have successfuly subscribed for our DevOps Course package.
-
-                    Warm Regards,
-                    Linuxjobber
-
-                """
+                file_path = os.path.join(settings.BASE_DIR, 'emails', 'devopspay.txt')
+                with open(file_path, 'r') as f:
+                    file_content = f.read()
+                message_applicant = file_content
                 mailer_applicant = LinuxjobberMailer(
                     subject="DevOps Course Subscription",
                     to_address= request.user.email,
@@ -1229,6 +1140,31 @@ def devops_pay(request):
                    'courses': get_courses(),
                    'tools': get_tools()}
         return render(request, 'home/devops_pay.html', context)
+        
+#keep track of the WE applicant's stage
+def updatestage(request, stagename):
+    current_stage, created = WorkexpFormStage.objects.get_or_create(user=request.user)
+    if stagename.__name__ == 'workterm':
+        current_stage.stage = 'Terms and conditions'
+
+    elif stagename.__name__ == 'pay':
+        current_stage.stage = 'Payment'
+
+    elif stagename.__name__ == 'work_experience_eligible':
+        current_stage.stage = 'United State Employment Eligibilty Form'
+
+    elif stagename.__name__ == 'work_experience_isa_part_1':
+        current_stage.stage = 'ISA Agreement part 1 '
+
+    elif stagename.__name__ == 'work_experience_isa_part_2':
+        current_stage.stage = 'ISA Agreement part 2'
+
+    elif stagename.__name__ == 'workexpform':
+        current_stage.stage = 'WE profile form '
+    else:
+        pass
+    print(current_stage.user)
+    current_stage.save()
 
 
 def workexperience(request):
@@ -1253,33 +1189,34 @@ def workexperience(request):
 
 
 def workterm(request):
+    # print(WorkexpFormStage.objects.get_or_create(user=request.user))
+    updatestage(request, workterm)
     return render(request, 'home/workexpterm.html')
 
 
 @login_required
 def workexpform(request):
+    updatestage(request, workexpform)
     form = WeForm()
 
     try:
         details =  WorkExperienceEligibility.objects.get(user=request.user)
-        try:
-            deta = WorkExperienceIsa.objects.get(user=request.user)
-            
-            try:
-                eta = WorkExperienceIsa.objects.get(user=request.user)
-                if eta.is_signed_isa == True:
-                    pass
-                else:
-                    return redirect("home:workexpisa2")
-
-
-            except WorkExperienceIsa.DoesNotExist:
-                return redirect("home:isa")
-        except WorkExperienceIsa.DoesNotExist:
-            return redirect("home:isa")
-
     except  WorkExperienceEligibility.DoesNotExist:
         return redirect("home:eligibility")
+    
+    try:
+        deta = WorkExperienceIsa.objects.get(user=request.user)
+    except WorkExperienceIsa.DoesNotExist:
+        return redirect("home:isa")
+
+    try:
+        eta = WorkExperienceIsa.objects.get(user=request.user)
+        if eta.is_signed_isa == True:
+            pass
+        else:
+            return redirect("home:workexpisa2")
+    except WorkExperienceIsa.DoesNotExist:
+        return redirect("home:isa")
 
     try:
         jot =  WorkExperienceIsa.objects.get(user=request.user)
@@ -1326,12 +1263,14 @@ def workexpform(request):
                 except werole.DoesNotExist:
                     person = werole.objects.create(roles='Student')
                     person.save() 
-
+        
         try:
+            personn = "Trainee"
             weps = wepeoples.objects.get(user=request.user)
             weps.types = trainee
             weps.current_position = current
             weps.person = person
+            weps.personn = personn
             weps.state = state
             weps.income = income
             weps.relocation = relocate
@@ -1342,8 +1281,8 @@ def workexpform(request):
             weps.graduation_date = None
             weps.save()
         except wepeoples.DoesNotExist:
-            weps = wepeoples.objects.create(user=request.user, types=trainee,
-                                            current_position=current, person=person, state=state, income=income,
+            weps = wepeoples.objects.create(user=request.user, types=trainee,person = person,personn=personn, 
+                                            current_position=current, state=state, income=income,
                                             relocation=relocate, last_verification=None, Paystub=None,
                                             graduation_date=None, start_date=None)
             weps.save()
@@ -1378,6 +1317,32 @@ def work_experience_eligible_pdf(user):
 
     return True
 
+
+def work_experience_isa_pdf(user):
+    #return render(request, 'home/workexpisapdf.html')
+
+    try:
+        details =  WorkExperienceEligibility.objects.get(user=user)
+        
+    except  WorkExperienceEligibility.DoesNotExist:
+        details = None
+
+    try: 
+        det = WorkExperienceIsa.objects.get(user=user)
+    except WorkExperienceIsa.DoesNotExist:
+        det = None
+
+    html_template = get_template('home/workexpisapdf.html').render({'user':details})
+
+
+    pdf_file = HTML(string=html_template).write_pdf( stylesheets=[CSS("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")],presentational_hints=True)
+    det.pdf = SimpleUploadedFile('Work-Experience-ISA-'+ details.user.first_name +' '+details.user.last_name +'.pdf', pdf_file, content_type='application/pdf')
+    det.save()
+    http_response = HttpResponse(pdf_file, content_type='application/pdf')
+    http_response['Content-Disposition'] = 'filename="report.pdf"'
+
+    return True
+
 def work_experience_term_pdf(user):
     #return render(request, 'home/workexptermpdf.html')
     try:
@@ -1385,6 +1350,8 @@ def work_experience_term_pdf(user):
         
     except  WorkExperienceEligibility.DoesNotExist:
         details = None
+
+
     html_template = get_template('home/workexptermpdf.html').render({'user':details})
 
 
@@ -1398,25 +1365,27 @@ def work_experience_term_pdf(user):
 
 @login_required
 def work_experience_eligible(request):
+    updatestage(request, work_experience_eligible)
 
     try:
         details =  WorkExperienceEligibility.objects.get(user=request.user)
         date = details.date_of_birth
         date = date.strftime('%m/%d/%Y')
+        expire = details.expiry_date
+        expire = expire.strftime('%m/%d/%Y')
         created = details.date_created
-        created = created.strftime('%Y-%m-%d')
-        
+        created = created.strftime('%Y-%m-%d') 
     except  WorkExperienceEligibility.DoesNotExist:
         details = None
         date = None
         created = None
+        expire = None
         
 
     dater = datetime.now().strftime('%Y-%m-%d')
 
 
     if request.method == "POST":
-
         firstname = request.POST['firstname']
         lastname = request.POST['lastname']
         middleinitial = request.POST['initial']
@@ -1441,13 +1410,14 @@ def work_experience_eligible(request):
         else:
             result = False
 
-        if i_am == 2:
+        if i_am == '2':
             alien_no = request.POST['alien1']
         else:
             alien_no = None
 
-        if i_am == 3:
-            expiry_date = request.POST['alien']
+        if i_am == '3':
+            expiry_date = request.POST['exp']
+            expiry_date = datetime.strptime(expiry_date,'%m/%d/%Y').date()
             form19 = request.POST['form19']
             foreign = request.POST['foreign']
         else:
@@ -1488,10 +1458,11 @@ def work_experience_eligible(request):
             work_experience_eligible_pdf(request.user)
             work_experience_term_pdf(request.user)
         return redirect("home:isa")  
-    return render(request, 'home/workexpeligibility.html',{'details':details,'date':date,'dater':dater,'created':created})
+    return render(request, 'home/workexpeligibility.html',{'details':details,'expire':expire,'date':date,'dater':dater,'created':created})
 
 @login_required
 def work_experience_isa_part_1(request):
+    updatestage(request, work_experience_isa_part_1)
     try:
         details =  WorkExperienceEligibility.objects.get(user=request.user)
         date = details.date_of_birth
@@ -1545,30 +1516,17 @@ def work_experience_isa_part_1(request):
             state = WorkExperienceIsa.objects.create(user=request.user,email=email,is_signed_isa=False,current_annual_income=income,monthly_house_payment=pay,highest_level_education=edu,employment_status=status,estimated_date_of_program_completion=completion)
             state.save()
 
+
         if paid.includes_job_placement:
-            message_applicant = """
-                Hello, 
-
-                You have succesfully signed the agreement for Linuxjobber Work Experience and Job Placement Program.
-                
-                
-
-                Warm Regards,
-                Linuxjobber
-
-            """
+            file_path = os.path.join(settings.BASE_DIR, 'emails', 'workexperience.txt')
+            with open(file_path, 'r') as f:
+                file_content = f.read()
+            message_applicant = file_content
         else:
-            message_applicant = """
-                Hello, 
-
-                You have succesfully signed the agreement for Linuxjobber Work Experience Program.
-                
-                
-
-                Warm Regards,
-                Linuxjobber
-
-            """
+            file_path = os.path.join(settings.BASE_DIR, 'emails', 'workexperience2.txt')
+            with open(file_path, 'r') as f:
+                file_content2 = f.read()
+            message_applicant = file_content2
 
         mailer_applicant = LinuxjobberMailer(
             subject="Agreement Signed Successful",
@@ -1584,11 +1542,13 @@ def work_experience_isa_part_1(request):
     return render(request, 'home/workexpisa.html',{'details':details,'ssn':ssn,'paid':paid,'grad':grad,'jot':jot,'date':date,'comp':comp})
 
 def work_experience_isa_part_2(request):
+    updatestage(request, work_experience_isa_part_2)
 
     try:
         details =  WorkExperienceEligibility.objects.get(user=request.user)
     except  WorkExperienceEligibility.DoesNotExist:
         details = None
+
 
     try:
         jot = WorkExperienceIsa.objects.get(user=request.user)
@@ -1603,6 +1563,7 @@ def work_experience_isa_part_2(request):
             jot = WorkExperienceIsa.objects.get(user=request.user)
             jot.is_signed_isa = True
             jot.save()
+            work_experience_isa_pdf(details.user)
             return redirect("home:workexpform")
         except WorkExperienceIsa.DoesNotExist:
             return redirect("home:isa")
@@ -1610,63 +1571,111 @@ def work_experience_isa_part_2(request):
     
     return render(request, 'home/workexpisa2.html', {'details':details})
 
+@csrf_exempt
+def workexpvideomid(request, id):
+    try:
+        weps = wework.objects.get(we_people__user=request.user, task__id=id)
+        weps.video_status = 1
+        weps.save(update_fields=['video_status'])
+    except wework.DoesNotExist:
+        pass
+
+    return HttpResponse("Result:done")
+
+@csrf_exempt
+def workexpvideoend(request, id):
+    try:
+        weps = wework.objects.get(we_people__user=request.user, task__id=id)
+        weps.video_status = 2
+        weps.save(update_fields=['video_status'])
+    except wework.DoesNotExist:
+        pass
+
+    return HttpResponse("Result:done")
+
+
 @login_required
 def workexprofile(request):
+
+    try:
+        details =  WorkExperienceEligibility.objects.get(user=request.user)
+    except  WorkExperienceEligibility.DoesNotExist:
+        return redirect("home:eligibility")
+
+    try:
+        isa = WorkExperienceIsa.objects.get(user=request.user)
+        if isa.is_signed_isa == False:
+            return redirect("home:workexpisa2")
+    except WorkExperienceIsa.DoesNotExist:
+        return redirect("home:isa")
+
+    try:
+        eta = WorkExperienceIsa.objects.get(user=request.user)
+        
+    except WorkExperienceIsa.DoesNotExist:
+        return redirect("home:isa")
+    
     group = []
     try:
         weps = wepeoples.objects.get(user=request.user)
 
         if not weps.types:
-            try:
-                details =  WorkExperienceEligibility.objects.get(user=request.user)
-                try:
-                    deta = WorkExperienceIsa.objects.get(user=request.user)
-                    try:
-                        eta = WorkExperienceIsa.objects.get(user=request.user)
-                        if eta.is_signed_isa == True:
-                            return redirect("home:workexpform")
-                        else:
-                            return redirect("home:workexpisa2")
-                    except WorkExperienceIsa.DoesNotExist:
-                        return redirect("home:isa")
-                except WorkExperienceIsa.DoesNotExist:
-                    return redirect("home:isa")
-            except  WorkExperienceEligibility.DoesNotExist:
-                return redirect("home:eligibility")
+            return redirect("home:workexpform")
     except wepeoples.DoesNotExist:
         return redirect("home:workexperience")
 
+    try:
+
+        pay = WorkExperiencePay.objects.get(user=request.user)
+        if pay.includes_job_placement:
+            pay = True
+        else:
+            pay= False
+    
+    except WorkExperiencePay.DoesNotExist:
+        pay = False
+
     status = wework.objects.filter(we_people__user=request.user)
+
+    paystublist = WorkExperiencePaystub.objects.filter(user=request.user)
 
     for sta in status:
         group.append(sta.task.id)
-
+    
     listask = wetask.objects.filter(types=weps.types)
-
+    exist = False
+    
     if request.method == "POST":
         if request.POST['type'] == '1':
-            last_verify = request.FILES['verify']
-            weps.Paystub = last_verify
-            weps.last_verification = datetime.now()
-            weps.save(update_fields=["Paystub", "last_verification"])
+        
+            month = datetime.now().month
+            year = datetime.now().year
+            paystb = WorkExperiencePaystub.objects.filter(user=request.user)
+            for pays in paystb:
+                if pays.date_created.month == month and pays.date_created.year == year:
+                    exist = True
+                    paystb = pays
+                    break
 
-            link = weps.Paystub.url
+            if exist:
+                paystb.paystub = request.FILES['verify']
+                paystb.save(update_fields=["paystub"])
+            else:
+                paystb = WorkExperiencePaystub(user=request.user,paystub=request.FILES['verify'])
+                paystb.save()
+            
+                
+
+            link = paystb.paystub.url
 
             # send_mail('Pay Stub verification needed',
             #           'Hello,\n ' + request.user.email + ' just uploaded is pay stub at: ' + link + '.\nPlease review and confirm last verification\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
             #           settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
-
-            message_applicant = """
-                Hello, 
-
-                {email} just uploaded his/her pay stub at: {link} 
-                
-                Please review and confirm last verification
-
-                Warm Regards,
-                Linuxjobber
-
-            """.format(
+            
+            file_path = os.path.join(settings.BASE_DIR, 'emails', 'workexperienceprofile.txt')
+            with open(file_path, 'r') as f:
+                file_content = f.read()
+            message_applicant = file_content.format(
                 email =  request.user.email,
                 link = link
             )
@@ -1678,7 +1687,7 @@ def workexprofile(request):
                 message=message_applicant
             )
             mailer_applicant.send_mail()
-
+        
             messages.success(request,
                              'Paystub uploaded successfully, Last verification would be confirmed as soon as Paystub is verified')
             return redirect("home:workexprofile")
@@ -1715,24 +1724,28 @@ def workexprofile(request):
             "!!! Profile picture is required. Please upload it now"
         )
 
-    try:
-        details =  WorkExperienceEligibility.objects.get(user=request.user)
-    except  WorkExperienceEligibility.DoesNotExist:
-        return redirect("home:eligibility")
     
     url = settings.ENV_URL
 
     work_experience_eligible_pdf(details.user)
     work_experience_term_pdf(details.user)
+    work_experience_isa_pdf(details.user)
+    if not details.pdf:
+        return redirect("home:workexprofile")
     pdf = details.pdf.url
-    pdf = pdf[1:]
     pdf2 = details.terms.url
-    pdf2 = pdf2[1:]
-    
+    pdf3 = isa.pdf.url
+    if weps.personn is None:
+        weps.personn = 'Trainee'
+        weps.save()
+    else:
+        pass
+    weps.save()
+    print(weps.personn)
 
 
     return render(request, 'home/workexprofile.html',
-                  {'weps': weps, 'status': status, 'group': group, 'listask': listask, 'details':details, 'url':url, 'pdf':pdf, 'pdf2':pdf2})
+                  {'weps': weps, 'status': status, 'group': group, 'pay':pay, 'paystublist':paystublist, 'listask': listask, 'pdf':pdf, 'pdf2':pdf2, 'pdf3':pdf3, 'details':details, 'url':url})
 
 
 def workexpfaq(request):
@@ -1814,15 +1827,11 @@ def apply(request, level):
                 # send_mail('Linuxjobber Jobplacement Program',
                 #           'Hello, you have succesfully signed up for Linuxjobber Jobplacement program,\n\nIf you havent signed the agreement, visit this link to do so: https://leif.org/commit?product_id=5b304639e59b74063647c484#/.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
                 #           settings.EMAIL_HOST_USER, [request.user.email])
-                message_applicant = """
-                    Hello, 
-
-                    You are receiving this email because you have successfully signed up for Linuxjobber Jobplacement program
-
-                    Warm Regards,
-                    Linuxjobber
-
-                """
+                
+                file_path = os.path.join(settings.BASE_DIR, 'emails', 'apply.txt')
+                with open(file_path, 'r') as f:
+                    file_content = f.read()
+                message_applicant = file_content
                 mailer_applicant = LinuxjobberMailer(
                     subject="Subscription Success",
                     to_address=request.user.email,
@@ -1831,13 +1840,23 @@ def apply(request, level):
                     message=message_applicant
                 )
                 mailer_applicant.send_mail()
+                message_admin = """
+                    Hello, 
+                    {email}
+                    just succesfully applied for Jobplacement Program.
+                    
+                    Warm Regards,
+                    Linuxjobber
 
+                """.format(
+                    email =  request.user.email
+                )
                 mailer = LinuxjobberMailer(
-                        subject="Account has been created",
-                        to_address= email,
+                        subject="Jobplacement registration successful",
+                        to_address= ADMIN_EMAIL,
                         header_text="Linuxjobber",
                         type=None,
-                        message= mail_message
+                        message= message_admin
                     )
                 mailer.send_mail()
 
@@ -1854,6 +1873,7 @@ def apply(request, level):
 
 @login_required
 def pay(request):
+    updatestage(request, pay)
     PRICE = 399
     mode = "One Time"
     PAY_FOR = "Work Experience"
@@ -1905,7 +1925,7 @@ def pay(request):
         try:
             wepeoples.objects.update_or_create(user=request.user, types=None, current_position=None,
                                             person=None, state=None, income=None, relocation=None,
-                                            last_verification=None, Paystub=None, graduation_date=None)
+                                            last_verification=None, graduation_date=None)
             
             state = WorkExperiencePay.objects.create(user=request.user,is_paid=True,includes_job_placement=optiona)
             
@@ -1916,16 +1936,11 @@ def pay(request):
             # send_mail('Linuxjobber Work-Experience Program',
             #           'Hello, you have succesfully paid for Linuxjobber work experience program,\n\nIf you havent signed the agreement, visit this link to do so: https://leif.org/commit?product_id=5b30461fe59b74063647c483#/.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
             #           settings.EMAIL_HOST_USER, [request.user.email])
-            message_applicant = """
-                Hello, 
-
-                You have succesfully paid for Linuxjobber Work Experience Program.
-                
-
-                Warm Regards,
-                Linuxjobber
-
-            """
+            
+            file_path = os.path.join(settings.BASE_DIR, 'emails', 'pay.txt')
+            with open(file_path, 'r') as f:
+                file_content = f.read()
+            message_applicant = file_content
 
             message_admin = """
                 Hello, 
@@ -2341,8 +2356,8 @@ def account_settings(request):
                 return render(request, 'home/account_settings.html',
                               {'form': form, 'courses': get_courses(), 'tools': get_tools()})
 
-        V_AWS_ACTION = 'verify';
-        V_MACHINE_ID = 'verify';
+        V_AWS_ACTION = 'verify'
+        V_MACHINE_ID = 'verify'
         command = ['python3.6 ' + settings.BASE_DIR + "/home/utils/s3_sample.py %s %s %s %s" % (
         access_key, secret_key, V_AWS_ACTION, V_MACHINE_ID)]
 
@@ -2399,6 +2414,7 @@ def account_settings(request):
         return render(request, 'home/account_settings.html', {'form': form})
 
 
+@login_required()
 def ec2dashboard(request, command=None):
     form = AWSCredUpload()
     awscred = AwsCredential.objects.get(user=request.user)
@@ -2406,8 +2422,8 @@ def ec2dashboard(request, command=None):
     # Launch an instance
     if command and command == "launch":
         print("enter")
-        AWS_ACTION = 'launch_instance';
-        MACHINE_ID = "new";
+        AWS_ACTION = 'launch_instance'
+        MACHINE_ID = "new"
         command = ['python3.6 ' + settings.BASE_DIR + "/home/utils/s3_sample.py %s %s %s %s" % (
         awscred.accesskey, awscred.secretkey, AWS_ACTION, MACHINE_ID)]
 
@@ -2447,8 +2463,8 @@ def ec2dashboard(request, command=None):
 
     # Running instance
     running_machine = []
-    RUNING_AWS_ACTION = 'instance_running';
-    RUNING_MACHINE_ID = 'running';
+    RUNING_AWS_ACTION = 'instance_running'
+    RUNING_MACHINE_ID = 'running'
     command = ['python3.6 ' + settings.BASE_DIR + "/home/utils/s3_sample.py %s %s %s %s" % (
     awscred.accesskey, awscred.secretkey, RUNING_AWS_ACTION, RUNING_MACHINE_ID)]
 
@@ -2471,8 +2487,8 @@ def ec2dashboard(request, command=None):
 
     # stopped Instance
     stopped_machine = []
-    STOP_AWS_ACTION = 'instance_stopped';
-    STOP_MACHINE_ID = 'stopped';
+    STOP_AWS_ACTION = 'instance_stopped'
+    STOP_MACHINE_ID = 'stopped'
 
     command = ['python3.6 ' + settings.BASE_DIR + "/home/utils/s3_sample.py %s %s %s %s" % (
     awscred.accesskey, awscred.secretkey, STOP_AWS_ACTION, STOP_MACHINE_ID)]
@@ -2534,8 +2550,8 @@ def ec2dashboard(request, command=None):
                                'There was an error while validating credentials, please confirm your credential file is correct. Please contact admin@linuxjobber.com')
                 return redirect("home:ec2dashboard")
 
-        V_AWS_ACTION = 'verify';
-        V_MACHINE_ID = 'verify';
+        V_AWS_ACTION = 'verify'
+        V_MACHINE_ID = 'verify'
         command = ['python3.6 ' + settings.BASE_DIR + "/home/utils/s3_sample.py %s %s %s %s" % (
         access_key, secret_key, V_AWS_ACTION, V_MACHINE_ID)]
 
@@ -2585,8 +2601,8 @@ def startmachine(request, machine_id):
     awscred = AwsCredential.objects.get(user=request.user)
 
     if machine_id:
-        AWS_ACTION = 'start_instance';
-        MACHINE_ID = machine_id;
+        AWS_ACTION = 'start_instance'
+        MACHINE_ID = machine_id
         command = ['python3.6 ' + settings.BASE_DIR + "/home/utils/s3_sample.py %s %s %s %s" % (
         awscred.accesskey, awscred.secretkey, AWS_ACTION, MACHINE_ID)]
 
@@ -2623,8 +2639,8 @@ def startmachine(request, machine_id):
 def stopmachine(request, machine_id):
     awscred = AwsCredential.objects.get(user=request.user)
     if machine_id:
-        AWS_ACTION = 'stop_instance';
-        MACHINE_ID = machine_id;
+        AWS_ACTION = 'stop_instance'
+        MACHINE_ID = machine_id
         command = ['python3.6 ' + settings.BASE_DIR + "/home/utils/s3_sample.py %s %s %s %s" % (
         awscred.accesskey, awscred.secretkey, AWS_ACTION, MACHINE_ID)]
 
@@ -2674,15 +2690,12 @@ def students_packages(request):
             # send_mail('Linuxjobber Newsletter',
             #           'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
             #           settings.EMAIL_HOST_USER, [email])
-            message_applicant = """
-                Hello, 
 
-                You are receiving this email because you have subscribed to our newsletter on linuxjobber.com.
+            file_path = os.path.join(settings.BASE_DIR, 'emails', 'newsletter.txt')
+            with open(file_path, 'r') as f:
+                file_content = f.read()
 
-                Warm Regards,
-                Linuxjobber
-
-            """
+            message_applicant = file_content
             mailer_applicant = LinuxjobberMailer(
                 subject="Newsletter Subscription",
                 to_address=email,
@@ -2715,15 +2728,10 @@ def server_service(request):
             # send_mail('Linuxjobber Newsletter',
             #           'Hello, you are receiving this email because you have subscribed to our newsletter on linuxjobber.com.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
             #           settings.EMAIL_HOST_USER, [email])
-            message_applicant = """
-                Hello, 
-
-                You are receiving this email because you have subscribed to our newsletter on linuxjobber.com.
-
-                Warm Regards,
-                Linuxjobber
-
-            """
+            file_path = os.path.join(settings.BASE_DIR, 'emails', 'newsletter.txt')
+            with open(file_path, 'r') as f:
+                file_content = f.read()
+            message_applicant = file_content
             mailer_applicant = LinuxjobberMailer(
                 subject="Newsletter Subscription",
                 to_address=email,
@@ -2779,16 +2787,10 @@ def pay_live_help(request):
                 # send_mail('Linuxjobber Live Help Subscription',
                 #           'Hello, you have successfuly subscribed for Live Help on Linuxjobber.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
                 #           settings.EMAIL_HOST_USER, [request.user.email])
-
-                message_applicant = """
-                    Hello, 
-
-                    You are receiving this email because you have successfuly subscribed for Live Help on Linuxjobber.
-
-                    Warm Regards,
-                    Linuxjobber
-
-                """
+                file_path = os.path.join(settings.BASE_DIR, 'emails', 'livehelp.txt')
+                with open(file_path, 'r') as f:
+                    file_content = f.read()
+                message_applicant = file_content
                 mailer_applicant = LinuxjobberMailer(
                     subject="Live Help Subscription",
                     to_address=request.user.email
@@ -2857,11 +2859,31 @@ def full_train_pay(request, class_id):
                 user = request.user
                 user.role = 3
                 user.save()
-                send_mail('Linuxjobber '+ comclass.name +' Subscription',
-                            'Hello, you have successfuly subscribed for our ' +comclass.name+' Plan package.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
-                            settings.EMAIL_HOST_USER, [request.user.email])
+                # send_mail('Linuxjobber '+ comclass.name +' Subscription',
+                #             'Hello, you have successfuly subscribed for our ' +comclass.name+' Plan package.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
+                #             settings.EMAIL_HOST_USER, [request.user.email])
+                message_applicant = """
+                    Hello, you have successfuly subscribed for our {comclass.name} Plan package.
+                    
+                    Thanks & Regards 
+                    Linuxjobber
+                    
+
+                    To Unsubscribe go here 
+                    {settings.ENV_URL}unsubscribe,
+                """
+                mailer_applicant = LinuxjobberMailer(
+                    subject="Linuxjobber "+ comclass.name +" Subscription",
+                    to_address=request.user.email,
+                    header_text="Linuxjobber "+comclass.name,
+                    type=None,
+                    message=message_applicant
+                )
+                mailer_applicant.send_mail()
                 return render(request, 'home/complete_pay_success.html', {'class': comclass.name})
             except Exception as error:
+                print("An error occured")
+                print(error)
                 messages.error(request, 'An error occurred while trying to pay please try again')
                 return redirect("home:index")
     else:
@@ -2910,15 +2932,11 @@ def tryfree(request, sub_plan='standardPlan'):
                     # send_mail('Linuxjobber Standard Plan Subscription',
                     #           'Hello, you have successfuly subscribed for our Standard Plan package.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
                     #           settings.EMAIL_HOST_USER, [request.user.email])
-                    message_applicant = """
-                        Hello, 
-
-                        You are receiving this email because you have successfuly subscribed for our Standard Plan package.
-
-                        Warm Regards,
-                        Linuxjobber
-
-                    """
+                    file_path = os.path.join(settings.BASE_DIR, 'emails', 'tryfree.txt')
+                    with open(file_path, 'r') as f:
+                        file_content = f.read()
+                    
+                    message_applicant = file_content
                     mailer_applicant = LinuxjobberMailer(
                         subject="Standard Plan Subscription",
                         to_address=request.user.email,
@@ -2979,15 +2997,10 @@ def tryfree(request, sub_plan='standardPlan'):
                     # send_mail('Linuxjobber AWS Full Training Subscription',
                     #           'Hello, you have successfuly subscribed for our AWS Full Training Plan package.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
                     #           settings.EMAIL_HOST_USER, [request.user.email])
-                    message_applicant = """
-                        Hello, 
-
-                        You are receiving this email because you have successfuly subscribed for our AWS Full Training Plan package.
-
-                        Warm Regards,
-                        Linuxjobber
-
-                    """
+                    file_path = os.path.join(settings.BASE_DIR, 'emails', 'awsplan.txt')
+                    with open(file_path, 'r') as f:
+                        file_content = f.read()
+                    message_applicant = file_content
                     mailer_applicant = LinuxjobberMailer(
                         subject="AWS Full Training Subscription",
                         to_address=request.user.email,
@@ -3047,16 +3060,10 @@ def tryfree(request, sub_plan='standardPlan'):
                     # send_mail('Linuxjobber Premium Plan Subscription',
                     #           'Hello, you have successfuly subscribed for our Premium Plan package.\n\n Thanks & Regards \n Linuxjobber\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
                     #           settings.EMAIL_HOST_USER, [request.user.email])
-
-                    message_applicant = """
-                        Hello, 
-
-                        You are receiving this email because you have successfuly subscribed for our Premium Plan package.
-
-                        Warm Regards,
-                        Linuxjobber
-
-                    """
+                    file_path = os.path.join(settings.BASE_DIR, 'emails', 'preniumplan.txt')
+                    with open(file_path, 'r') as f:
+                        file_content = f.read()
+                    message_applicant = file_content
                     mailer_applicant = LinuxjobberMailer(
                         subject="Premiun Plan Subscription",
                         to_address=request.user.email,
@@ -3082,7 +3089,7 @@ def tryfree(request, sub_plan='standardPlan'):
                        'courses': get_courses(),
                        'tools': get_tools()}
             return render(request, 'home/premium_plan_pay.html', context)
-
+    
 
 @login_required
 def rhcsa_order(request):
@@ -3126,17 +3133,10 @@ def noobaid(request):
         availability = request.POST['availability']
         requesta = request.POST['request']
 
-        mail_message = """
-                        Hello Admin,
-                        {name} just made a request for noobaid product,
-                        with email: {email}, institute is: {location}, phone: {availability}, 
-                        request: {requesta}.
-                        
-
-                        Best Regards
-                        Admin.
-
-                        """.format(
+        file_path = os.path.join(settings.BASE_DIR, 'emails', 'noobaid.txt')
+        with open(file_path, 'r') as f:
+            file_content = f.read()
+        mail_message = file_content.format(
                     name=name,
                     email=email,
                     location=location,
@@ -3207,17 +3207,10 @@ def group_list(request):
                 user.last_name = lastname
                 user.save()
 
-                mail_message = """
-                                   Hello {firstname} {lastname},
-                                   Thank you for registering on Linuxjobber, your username is: {username}
-                                   and your email is {email}
-
-                                   Follow this url to login with your username and password {env_url}/login
-
-                                   Best Regards
-                                   Admin.
-
-                                   """.format(
+                file_path = os.path.join(settings.BASE_DIR, 'emails', 'group_list.txt')
+                with open(file_path, 'r') as f:
+                    file_content = f.read()
+                mail_message = file_content.format(
                     username=username,
                     email=email,
                     firstname=firstname,
@@ -3371,16 +3364,10 @@ def combined_class_pay(request):
                 #           + 'unsubscribe',
                 #           settings.EMAIL_HOST_USER, [request.user.email])
 
-                message_applicant = """
-                    Hello, 
-
-                    You are receiving this email because you have successfuly beem enrolled in our Combined Class 
-                    which gives you access to full technical training with Work Experience package included.
-
-                    Warm Regards,
-                    Linuxjobber
-
-                """
+                file_path = os.path.join(settings.BASE_DIR, 'emails', 'combined_class_pay.txt')
+                with open(file_path, 'r') as f:
+                    file_content = f.read()
+                message_applicant = file_content
                 mailer_applicant = LinuxjobberMailer(
                     subject="Combined Class Payment Successful",
                     to_address=request.user.email,
@@ -3471,21 +3458,11 @@ def career_switch(request, position_id=None):
                 cv = jobform.resume.url
             else:
                 cv = request.POST['cv_link']
-
-            applicant_template = """
-Hi {fullname},
-
-We are happy you are interested to switch to a {new_career} role.
-
-This mail is to confirm we have received your details, and would be reviewing it accordingly.
-
-In addition, you would also be informed occasionally on open roles, you can unsubscribe from these notifications here {unsubscribe_url}
-
-Warm Regards,
-Linuxjobber
             
-            
-            """.format(
+            file_path = os.path.join(settings.BASE_DIR, 'emails', 'career_switch.txt')
+            with open(file_path, 'r') as f:
+                file_content = f.read()
+            applicant_template = file_content.format(
                 fullname=jobform.fullname,
                 new_career=jobform.new_career,
                 unsubscribe_url=settings.ENV_URL + '/unsubscribe'
@@ -3504,17 +3481,11 @@ Linuxjobber
             )
             mailer_applicant.send_mail()
 
-            admin_email_template = """
-Hello,
+            file_path = os.path.join(settings.BASE_DIR, 'emails', 'career_switch_admin.txt')
+            with open(file_path, 'r') as f:
+                file_content2 = f.read()
 
-{fullname} with {email} just submitted a career switch application for the {new_career}.
-
-Old career : {old_career}
-Phone : {phone}          
-CV can be found here : {cv_url} 
-
-Kindly review.   
-            """.format(
+            admin_email_template = file_content2.format(
                 fullname=jobform.fullname,
                 new_career=jobform.new_career,
                 old_career=jobform.old_career,
@@ -3613,18 +3584,12 @@ def installment_pay(request):
                 try:
                     UserPayment.objects.create(user=request.user, amount=PRICE,
                                                trans_id=charge.id, pay_for=charge.description)
-                    message_applicant = """
-Hello, 
-
-Your installment payment of {amount} has been received.
-
-Total installments left : {count}
-Balance : ${balance}
-
-Warm Regards,
-Linuxjobber
-
-                        """.format(
+                    
+                    file_path = os.path.join(settings.BASE_DIR, 'emails', 'installment_pay.txt')
+                    with open(file_path, 'r') as f:
+                        file_content = f.read()
+                    
+                    message_applicant = file_content.format(
                         balance=sub_payment.installment.get_balance(),
                         count=sub_payment.installment.subpayment_set.count(),
                         amount= sub_payment.amount

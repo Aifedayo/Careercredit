@@ -35,7 +35,9 @@ class GraduateCertificates(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, blank=True, null=True)
     certificate_type = models.ForeignKey(CertificateType, on_delete=models.CASCADE)
     certificate_id = models.CharField(max_length=10, null=True, blank=True)
-    alternate_graduate_image = models.ImageField(null=True, blank=True)
+    alternate_graduate_image = models.ImageField(
+        upload_to='certs/', null=True, blank=True
+    )
     graduation_date = models.DateField()
     alternate_email = models.EmailField(null=True, blank=True)
     alternate_full_name = models.CharField(max_length=255, null=True, blank=True)
@@ -122,7 +124,7 @@ class GraduateCertificates(models.Model):
             }
             formatted_file = template.render(context)
             from .utils import generate_certificate_name
-            filename_pdf = "media/" + generate_certificate_name(self) + ".pdf"
+            filename_pdf = "media/certs/" + generate_certificate_name(self) + ".pdf"
             filename_html = filename_pdf.replace('pdf', 'html')
             filename_png = filename_pdf.replace('pdf', 'png')
 
@@ -133,7 +135,7 @@ class GraduateCertificates(models.Model):
             html_file = HTML(filename_html)
             css = CSS(string='@page { size: A3; width: 40cm; align: center; margin-left: 2cm; margin-right: 0 }')
             import os
-            if filename_pdf not in os.listdir('media'):
+            if filename_pdf not in os.listdir('media/certs'):
                 html_file.write_pdf(
                   filename_pdf, stylesheets=[css]
                 )
