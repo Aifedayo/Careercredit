@@ -1445,6 +1445,7 @@ def work_experience_eligible(request):
             foreign = None
 
         try: 
+            #Get WorkExperienceEligibility model with user
             det = WorkExperienceEligibility.objects.get(user=request.user)
             det.first_name = firstname
             det.last_name = lastname
@@ -1591,6 +1592,7 @@ def work_experience_isa_part_2(request):
         
 
     if request.method == "POST":
+        # Post method to get the form
         sign = request.POST['fullname']
 
         try:
@@ -1780,7 +1782,12 @@ def workexprofile(request):
 
     
     url = settings.ENV_URL
-
+    # trainee_status = wework.objects.get_or_create(we_people__user=request.user)
+    # trainee_status = trainee_status.trainee_stat
+    trainee, created = WeTraineeStatus.objects.get_or_create(user__user=request.user)
+    trainee.user = wepeoples.objects.get(user=request.user)
+    trainee.save()
+    trainee_status = trainee.trainee_stat
     work_experience_eligible_pdf(details.user)
     work_experience_term_pdf(details.user)
     work_experience_isa_pdf(details.user)
@@ -1789,17 +1796,21 @@ def workexprofile(request):
     pdf = details.pdf.url
     pdf2 = details.terms.url
     pdf3 = isa.pdf.url
+    # if not trainee_status:
+    #     trainee_status = 'Pending'
+    #     trainee_status.save()
     if weps.personn is None:
         weps.personn = 'Trainee'
         weps.save()
     else:
         pass
     weps.save()
-    print(weps.personn)
+    print(trainee.user)
+    print(trainee_status)
 
 
     return render(request, 'home/workexprofile.html',
-                  {'weps': weps, 'status': status, 'group': group, 'pay':pay, 'paystublist':paystublist, 'listask': listask, 'pdf':pdf, 'pdf2':pdf2, 'pdf3':pdf3, 'details':details, 'url':url})
+                  {'trainee_status':trainee_status,'weps': weps, 'status': status, 'group': group, 'pay':pay, 'paystublist':paystublist, 'listask': listask, 'pdf':pdf, 'pdf2':pdf2, 'pdf3':pdf3, 'details':details, 'url':url})
 
 
 def workexpfaq(request):
@@ -1928,7 +1939,9 @@ def apply(request, level):
 
 @login_required
 def pay(request):
+    # Work Experience Pay view
     updatestage(request, pay)
+    # Update the stage of the applicant first
     PRICE = 399
     mode = "One Time"
     PAY_FOR = "Work Experience"
@@ -1938,12 +1951,14 @@ def pay(request):
     stripe.api_key = stripeset[0].secretkey
     optiona = False
     try:
+        # Get wepeoples model with the current user
         workexp = wepeoples.objects.get(user=request.user)
         return redirect("home:workexprofile")
     except wepeoples.DoesNotExist:
         pass
 
     try:
+        # Get WorkExperiencePriceWaiver model with the current user
         wav = WorkExperiencePriceWaiver.objects.get(user=request.user)
         if wav.is_enabled:
             PRICE = wav.price
@@ -1954,11 +1969,13 @@ def pay(request):
         pass
 
     if request.method == "POST":
+        # Post Method for the form
         token = request.POST.get("stripeToken")
         jobplacement = request.POST["workexperience"]
 
 
         if PRICE == '0':
+            
             UserPayment.objects.create(user=request.user, amount=PRICE, trans_id='-', pay_for=PAY_FOR)
         else:
             try:
