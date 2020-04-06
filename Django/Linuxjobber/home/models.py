@@ -407,20 +407,25 @@ class FreeAccountClick(models.Model):
 
 
 class wetype(models.Model):
+    # Create table to record the type of work experience applicants
     types = models.CharField(max_length=50, null=True)
 
     def __str__(self):
+        # when the objects are invoked, reture types
         return self.types
 
 
 class werole(models.Model):
+    # Create table to record the role of work experience applicants 
     roles = models.CharField(max_length=50, null=True)
 
     def __str__(self):
+        # when the objects are invoked, return roles
         return self.roles
 
 
 class WorkExperiencePay(models.Model):
+    # Create table to record payments of work experience applicants 
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     is_paid = models.BooleanField(default=False)
     includes_job_placement = models.BooleanField(default=False)
@@ -430,6 +435,7 @@ class WorkExperiencePay(models.Model):
         return self.user.email
 
 class WorkExperiencePaystub(models.Model):
+    # Create table to record the paystub of work experience applicants
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     paystub = models.ImageField(upload_to='resume', null=True)
     date_created = models.DateTimeField(default=timezone.now, null=True)
@@ -447,6 +453,7 @@ WORKEXPERIENCE_OPTIONS = (
 
 
 class WorkExperienceEligibility(models.Model):
+    # Create table for to record the details of work experience applicants that are eligible
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=200, null=True)
     last_name = models.CharField(max_length=200, null=True)
@@ -534,6 +541,7 @@ A new SSN has been added to the database, go to https://linuxjobber.com/admin to
 
 
 class WorkExperienceIsa(models.Model):
+    # Create table for ISA details of the work experience applicants
     email = models.TextField(default='')
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     current_annual_income = models.TextField(null=True)
@@ -550,6 +558,7 @@ class WorkExperienceIsa(models.Model):
 
 
 class WorkExperiencePriceWaiver(models.Model):
+    # Create table to waive price for applicants of work experience
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     price = models.CharField(max_length=200, default="0")
     is_enabled = models.BooleanField(default=False)
@@ -564,6 +573,7 @@ PERSON_TYPE = (
 
 )
 class wepeoples(models.Model):
+    # Create table for all the applicants of the Work experience with these details
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     profile_picture = models.ImageField(upload_to='resume', null=True, blank=True)
     person = models.ForeignKey(werole, on_delete=models.CASCADE, null=True)
@@ -592,6 +602,7 @@ class WorkexpFormStage(models.Model):
         return self.user.email
 
 class wetask(models.Model):
+    # Tasks that are available in the work experience
     weight = models.IntegerField(null=True)
     task = models.CharField(max_length=500, null=True)
     objective = models.TextField()
@@ -617,12 +628,14 @@ TRAINEE_STATUS = (
 )   
 
 class WeTraineeStatus(models.Model):
+    # Keeps the status of the trainee in the work experience program
     user = models.ForeignKey(wepeoples,null=True, on_delete=models.CASCADE)
     trainee_stat = models.CharField(max_length= 50, default='Pending', choices=TRAINEE_STATUS)
     def __str__(self):
         return self.user.user.email
 
 class wework(models.Model):
+    # The work/task assigned to applicants of work experience
     weight = models.IntegerField(null=True)
     we_people = models.ForeignKey(wepeoples, on_delete=models.CASCADE)
     task = models.ForeignKey(wetask, on_delete=models.CASCADE)
@@ -633,10 +646,12 @@ class wework(models.Model):
     due = models.DateTimeField(default=due_time)
 
     class Meta:
+    
         unique_together = (('we_people', 'weight'),)
         ordering = (('we_people', 'weight'))
 
     def __str__(self):
+        # Return email of the applicant
         return self.we_people.user.email
 
 
