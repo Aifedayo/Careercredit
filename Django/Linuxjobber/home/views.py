@@ -1141,8 +1141,9 @@ def devops_pay(request):
                    'tools': get_tools()}
         return render(request, 'home/devops_pay.html', context)
         
-#keep track of the WE applicant's stage
+
 def updatestage(request, stagename):
+    #keep track of the WE applicant's stage
     current_stage, created = WorkexpFormStage.objects.get_or_create(user=request.user)
     if stagename.__name__ == 'workterm':
         current_stage.stage = 'Terms and conditions'
@@ -1168,14 +1169,17 @@ def updatestage(request, stagename):
 
 
 def workexperience(request):
+    # View for the work experience page
     PRICE=None
     if request.user.is_authenticated:
         try:
+            # Redirect user to profile if user exists
             workexp = wepeoples.objects.get(user=request.user)
             return redirect("home:workexprofile")
         except wepeoples.DoesNotExist:
             pass
         try:
+            # Check if user has price waiver
             wav = WorkExperiencePriceWaiver.objects.get(user=request.user)
             if wav.is_enabled:
                 PRICE = wav.price
@@ -1189,27 +1193,31 @@ def workexperience(request):
 
 
 def workterm(request):
-    # print(WorkexpFormStage.objects.get_or_create(user=request.user))
-    updatestage(request, workterm)
+    # Work Experience terms and agreement view
+    updatestage(request, workterm) # update the stage of applicant
     return render(request, 'home/workexpterm.html')
 
 
 @login_required
 def workexpform(request):
-    updatestage(request, workexpform)
+    # Work Experience form view
+    updatestage(request, workexpform) # update the stage of applicant
     form = WeForm()
 
     try:
+        # redirect user to eligibility page is user does not already exists in it
         details =  WorkExperienceEligibility.objects.get(user=request.user)
     except  WorkExperienceEligibility.DoesNotExist:
         return redirect("home:eligibility")
     
     try:
+        # redirect user to ISA page is user does not already exists in it
         deta = WorkExperienceIsa.objects.get(user=request.user)
     except WorkExperienceIsa.DoesNotExist:
         return redirect("home:isa")
 
     try:
+        # redirect user to ISA 2 page is user does not already exists in it
         eta = WorkExperienceIsa.objects.get(user=request.user)
         if eta.is_signed_isa == True:
             pass
@@ -1229,6 +1237,7 @@ def workexpform(request):
         
 
     if request.method == 'POST':
+        # post method in form
         trainee = request.POST['types']
         trainee = wetype.objects.get(id=trainee)
         current = request.POST['current_position']
@@ -1244,6 +1253,7 @@ def workexpform(request):
             
 
         if date < today:
+            #check date 
             try:
                 person = werole.objects.get(roles='Trainee')
             except werole.DoesNotExist:
@@ -1265,6 +1275,7 @@ def workexpform(request):
                     person.save() 
         
         try:
+            # check if user exist in wepeoples model
             personn = "Trainee"
             weps = wepeoples.objects.get(user=request.user)
             weps.types = trainee
@@ -1286,12 +1297,14 @@ def workexpform(request):
                                             relocation=relocate, last_verification=None, Paystub=None,
                                             graduation_date=None, start_date=None)
             weps.save()
-        return redirect("home:workexprofile")
+        return redirect("home:workexprofile") # rediect to workexperience profile
     else:
         return render(request, 'home/workexpform.html', {'form': form,'details': details,'comp':comp})
 
 def work_experience_eligible_pdf(user):
+    # Work experience eligibility view
     try:
+        # Get the user in the WorkExperienceEligibility model
         details =  WorkExperienceEligibility.objects.get(user=user)
         date = details.date_of_birth
         date = date.strftime('%m/%d/%Y')
@@ -1319,15 +1332,16 @@ def work_experience_eligible_pdf(user):
 
 
 def work_experience_isa_pdf(user):
-    #return render(request, 'home/workexpisapdf.html')
-
+    # Work experience ISA Pdf 
     try:
+        # Get workexperienceeligibility model with use
         details =  WorkExperienceEligibility.objects.get(user=user)
         
     except  WorkExperienceEligibility.DoesNotExist:
         details = None
 
     try: 
+        #Get WorkExperienceIsa model with user
         det = WorkExperienceIsa.objects.get(user=user)
     except WorkExperienceIsa.DoesNotExist:
         det = None
@@ -1345,7 +1359,9 @@ def work_experience_isa_pdf(user):
 
 def work_experience_term_pdf(user):
     #return render(request, 'home/workexptermpdf.html')
+    # Work experience term pdef view
     try:
+        # Get workexperienceeligibility model with use
         details =  WorkExperienceEligibility.objects.get(user=user)
         
     except  WorkExperienceEligibility.DoesNotExist:
@@ -1365,9 +1381,11 @@ def work_experience_term_pdf(user):
 
 @login_required
 def work_experience_eligible(request):
+    # update the stage of the applicant first
     updatestage(request, work_experience_eligible)
 
     try:
+        # Get workexperienceeligibility model with user
         details =  WorkExperienceEligibility.objects.get(user=request.user)
         date = details.date_of_birth
         date = date.strftime('%m/%d/%Y')
@@ -1386,6 +1404,7 @@ def work_experience_eligible(request):
 
 
     if request.method == "POST":
+        # Post method of the form
         firstname = request.POST['firstname']
         lastname = request.POST['lastname']
         middleinitial = request.POST['initial']
@@ -1426,6 +1445,7 @@ def work_experience_eligible(request):
             foreign = None
 
         try: 
+            #Get WorkExperienceEligibility model with user
             det = WorkExperienceEligibility.objects.get(user=request.user)
             det.first_name = firstname
             det.last_name = lastname
@@ -1453,17 +1473,22 @@ def work_experience_eligible(request):
             work_experience_term_pdf(det.user)
             return redirect("home:isa")
         except WorkExperienceEligibility.DoesNotExist:
+            # create workexperienceeligibility model with user
             state = WorkExperienceEligibility.objects.create(user=request.user,first_name=firstname,last_name=lastname,middle_initial=middleinitial,middle_name=othername,state=state,address=address,apt_number=Apt,city=city,zip_code=zipc,date_of_birth=dob,SSN=ssn,employee_address=eadress,employee_email=email,employee_phone=tel,expiry_date=expiry_date,preparer_or_translator=translator,i_am_a=i_am,Alien_reg_num=alien_no,form_19_num=form19,foreign_pass_num=foreign)
             state.save()
             work_experience_eligible_pdf(request.user)
             work_experience_term_pdf(request.user)
+        # redirect to the ISA page
         return redirect("home:isa")  
     return render(request, 'home/workexpeligibility.html',{'details':details,'expire':expire,'date':date,'dater':dater,'created':created})
 
 @login_required
 def work_experience_isa_part_1(request):
+    # work experience ISA 1 
     updatestage(request, work_experience_isa_part_1)
+    # Update stage of the applicant when the page is accessed
     try:
+         # Get workexperienceeligibility model with user
         details =  WorkExperienceEligibility.objects.get(user=request.user)
         date = details.date_of_birth
         date = date.strftime('%Y-%m-%d')
@@ -1478,11 +1503,14 @@ def work_experience_isa_part_1(request):
         ssn = None
 
     try:
+         # Get workexperiencepay model with user
         paid = WorkExperiencePay.objects.get(user=request.user)
     except WorkExperiencePay.DoesNotExist:
+        #redirect to pay 
         return redirect("home:pay")
 
     try:
+        # Get workexperienceIsa model with user
         jot =  WorkExperienceIsa.objects.get(user=request.user)
         comp = jot.estimated_date_of_program_completion
         comp = comp.strftime('%Y-%m-%d')
@@ -1495,6 +1523,7 @@ def work_experience_isa_part_1(request):
         grad = grad.strftime('%Y-%m-%d')
 
     if request.method == "POST":
+        # Post method
         email = request.POST['email']
         income = request.POST['income']
         pay = request.POST['payment']
@@ -1503,6 +1532,7 @@ def work_experience_isa_part_1(request):
         completion = request.POST['date']
 
         try:
+            # Get workexperienceIsa model with user and upadets the attributes
             det = WorkExperienceIsa.objects.get(user=request.user)
             det.is_signed_isa=False
             det.current_annual_income=income
@@ -1518,6 +1548,7 @@ def work_experience_isa_part_1(request):
 
 
         if paid.includes_job_placement:
+            # if user has job placement 
             file_path = os.path.join(settings.BASE_DIR, 'emails', 'workexperience.txt')
             with open(file_path, 'r') as f:
                 file_content = f.read()
@@ -1527,7 +1558,7 @@ def work_experience_isa_part_1(request):
             with open(file_path, 'r') as f:
                 file_content2 = f.read()
             message_applicant = file_content2
-
+        # Mail Applicant a successfull application message
         mailer_applicant = LinuxjobberMailer(
             subject="Agreement Signed Successful",
             to_address=request.user.email,
@@ -1537,26 +1568,31 @@ def work_experience_isa_part_1(request):
         )
         mailer_applicant.send_mail()
 
-
+        # Redirect to ISA2 after filling the form
         return redirect("home:workexpisa2")
     return render(request, 'home/workexpisa.html',{'details':details,'ssn':ssn,'paid':paid,'grad':grad,'jot':jot,'date':date,'comp':comp})
 
 def work_experience_isa_part_2(request):
+    # Work Experience ISA2 view
     updatestage(request, work_experience_isa_part_2)
+    # Update the stage of the applicant when the view is accessed 
 
     try:
+        # Get the WorkExperienceEligibility model with user 
         details =  WorkExperienceEligibility.objects.get(user=request.user)
     except  WorkExperienceEligibility.DoesNotExist:
         details = None
 
 
     try:
+        # Get the WorkExperienceIsa model with user 
         jot = WorkExperienceIsa.objects.get(user=request.user)
     except WorkExperienceIsa.DoesNotExist:
         return redirect("home:isa")
         
 
     if request.method == "POST":
+        # Post method to get the form
         sign = request.POST['fullname']
 
         try:
@@ -1573,7 +1609,10 @@ def work_experience_isa_part_2(request):
 
 @csrf_exempt
 def workexpvideomid(request, id):
+    # Work Experience video at the middle
     try:
+        # Get the Wework model with the current user
+        # update video status
         weps = wework.objects.get(we_people__user=request.user, task__id=id)
         weps.video_status = 1
         weps.save(update_fields=['video_status'])
@@ -1584,7 +1623,10 @@ def workexpvideomid(request, id):
 
 @csrf_exempt
 def workexpvideoend(request, id):
+    # Work Experience Video at the end
     try:
+        # Get the Wework model with the current user
+        # update video status
         weps = wework.objects.get(we_people__user=request.user, task__id=id)
         weps.video_status = 2
         weps.save(update_fields=['video_status'])
@@ -1596,13 +1638,15 @@ def workexpvideoend(request, id):
 
 @login_required
 def workexprofile(request):
-
+    # Work experience profile view
     try:
+        # Redirect user to eligibility if user does not exist
         details =  WorkExperienceEligibility.objects.get(user=request.user)
     except  WorkExperienceEligibility.DoesNotExist:
         return redirect("home:eligibility")
 
     try:
+        # Redirect user to ISA 2 if user does not exist
         isa = WorkExperienceIsa.objects.get(user=request.user)
         if isa.is_signed_isa == False:
             return redirect("home:workexpisa2")
@@ -1610,6 +1654,7 @@ def workexprofile(request):
         return redirect("home:isa")
 
     try:
+        # Redirect user to ISA if user does not exist
         eta = WorkExperienceIsa.objects.get(user=request.user)
         
     except WorkExperienceIsa.DoesNotExist:
@@ -1617,6 +1662,7 @@ def workexprofile(request):
     
     group = []
     try:
+        # Redirect user to Form if user does not exist
         weps = wepeoples.objects.get(user=request.user)
 
         if not weps.types:
@@ -1638,7 +1684,7 @@ def workexprofile(request):
     status = wework.objects.filter(we_people__user=request.user)
 
     paystublist = WorkExperiencePaystub.objects.filter(user=request.user)
-
+    # Get user in the paystub model
     for sta in status:
         group.append(sta.task.id)
     
@@ -1646,8 +1692,9 @@ def workexprofile(request):
     exist = False
     
     if request.method == "POST":
+        # Post method
         if request.POST['type'] == '1':
-        
+            # if type variable from the form is 1
             month = datetime.now().month
             year = datetime.now().year
             paystb = WorkExperiencePaystub.objects.filter(user=request.user)
@@ -1672,6 +1719,7 @@ def workexprofile(request):
             #           'Hello,\n ' + request.user.email + ' just uploaded is pay stub at: ' + link + '.\nPlease review and confirm last verification\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
             #           settings.EMAIL_HOST_USER, ['joseph.showunmi@linuxjobber.com'])
             
+            # Open the 
             file_path = os.path.join(settings.BASE_DIR, 'emails', 'workexperienceprofile.txt')
             with open(file_path, 'r') as f:
                 file_content = f.read()
@@ -1679,6 +1727,7 @@ def workexprofile(request):
                 email =  request.user.email,
                 link = link
             )
+            # Mail user for paystub verification
             mailer_applicant = LinuxjobberMailer(
                 subject="Paystub Verification Needed",
                 to_address=ADMIN_EMAIL,
@@ -1689,15 +1738,19 @@ def workexprofile(request):
             mailer_applicant.send_mail()
         
             messages.success(request,
-                             'Paystub uploaded successfully, Last verification would be confirmed as soon as Paystub is verified')
+                             'Paystub uploaded successfully, Last verification would be confirmed as soon as Paystub is verified'
+                             )
+            #Redirect to the profile page
             return redirect("home:workexprofile")
         elif request.POST['type'] == '2':
+            # if type variable from the form is 2
             income = request.POST['income']
             weps.income = income
             weps.save(update_fields=['income'])
             messages.success(request, 'Total monthly income updated successfully')
             return redirect("home:workexprofile")
         elif request.POST['type'] == '3':
+            # if type variable from the form is 3
             u = CustomUser.objects.get(email=request.user.email)
             u.first_name = request.POST['first_name']
             u.last_name = request.POST['last_name']
@@ -1705,11 +1758,13 @@ def workexprofile(request):
             messages.success(request, 'Your names have been updated successfully')
             return redirect("home:workexprofile")
         elif request.POST['type'] == '4':
+            # if type variable from the form is 4
             weps.state = request.POST['state']
             weps.save(update_fields=["state"])
             messages.success(request, 'State updated successfully')
             return redirect("home:workexprofile")
         elif request.POST['type'] == '5':
+            # if type variable from the form is 5
             weps.profile_picture = request.FILES['profile']
             weps.save(update_fields=['profile_picture'])
             messages.success(request, 'Profile picture updated successfully')
@@ -1719,6 +1774,7 @@ def workexprofile(request):
             return redirect("home:workexprofile")
 
     if not weps.profile_picture:
+        # Check if there is profile picture in the wepeoples model
         messages.error(
             request,
             "!!! Profile picture is required. Please upload it now"
@@ -1726,7 +1782,12 @@ def workexprofile(request):
 
     
     url = settings.ENV_URL
-
+    # trainee_status = wework.objects.get_or_create(we_people__user=request.user)
+    # trainee_status = trainee_status.trainee_stat
+    trainee, created = WeTraineeStatus.objects.get_or_create(user__user=request.user)
+    trainee.user = wepeoples.objects.get(user=request.user)
+    trainee.save()
+    trainee_status = trainee.trainee_stat
     work_experience_eligible_pdf(details.user)
     work_experience_term_pdf(details.user)
     work_experience_isa_pdf(details.user)
@@ -1735,24 +1796,29 @@ def workexprofile(request):
     pdf = details.pdf.url
     pdf2 = details.terms.url
     pdf3 = isa.pdf.url
+    # if not trainee_status:
+    #     trainee_status = 'Pending'
+    #     trainee_status.save()
     if weps.personn is None:
         weps.personn = 'Trainee'
         weps.save()
     else:
         pass
     weps.save()
-    print(weps.personn)
+    print(trainee.user)
+    print(trainee_status)
 
 
     return render(request, 'home/workexprofile.html',
-                  {'weps': weps, 'status': status, 'group': group, 'pay':pay, 'paystublist':paystublist, 'listask': listask, 'pdf':pdf, 'pdf2':pdf2, 'pdf3':pdf3, 'details':details, 'url':url})
+                  {'trainee_status':trainee_status,'weps': weps, 'status': status, 'group': group, 'pay':pay, 'paystublist':paystublist, 'listask': listask, 'pdf':pdf, 'pdf2':pdf2, 'pdf3':pdf3, 'details':details, 'url':url})
 
 
 def workexpfaq(request):
+    # Work experience FAQ view
     above_fifty_percent = FAQ.objects.filter(
         is_wefaq=True, is_fifty_percent_faq=True
     )
-
+    # Retrieve the is_fifty_percent_faq from the FAQ model
     below_fifty_percent = FAQ.objects.filter(
         is_wefaq=True, is_fifty_percent_faq=False
     )
@@ -1764,7 +1830,7 @@ def workexpfaq(request):
             request.user, wepeoples
         )
     }
-
+    
     return render(request, 'home/workexpfaq.html', context)
 
 
@@ -1873,7 +1939,9 @@ def apply(request, level):
 
 @login_required
 def pay(request):
+    # Work Experience Pay view
     updatestage(request, pay)
+    # Update the stage of the applicant first
     PRICE = 399
     mode = "One Time"
     PAY_FOR = "Work Experience"
@@ -1883,12 +1951,14 @@ def pay(request):
     stripe.api_key = stripeset[0].secretkey
     optiona = False
     try:
+        # Get wepeoples model with the current user
         workexp = wepeoples.objects.get(user=request.user)
         return redirect("home:workexprofile")
     except wepeoples.DoesNotExist:
         pass
 
     try:
+        # Get WorkExperiencePriceWaiver model with the current user
         wav = WorkExperiencePriceWaiver.objects.get(user=request.user)
         if wav.is_enabled:
             PRICE = wav.price
@@ -1899,11 +1969,13 @@ def pay(request):
         pass
 
     if request.method == "POST":
+        # Post Method for the form
         token = request.POST.get("stripeToken")
         jobplacement = request.POST["workexperience"]
 
 
         if PRICE == '0':
+            
             UserPayment.objects.create(user=request.user, amount=PRICE, trans_id='-', pay_for=PAY_FOR)
         else:
             try:

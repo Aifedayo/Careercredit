@@ -610,6 +610,17 @@ class wetask(models.Model):
     def __str__(self):
         return self.task
 
+TRAINEE_STATUS = (
+    ('Pending', 'Pending'), ('In-progress', 'In-progress'), 
+    ('Stopped','Stopped'),  ('Extended', 'Extended'), 
+    ('Ready-state', 'Ready-state'), ('Completed','Completed')
+)   
+
+class WeTraineeStatus(models.Model):
+    user = models.ForeignKey(wepeoples,null=True, on_delete=models.CASCADE)
+    trainee_stat = models.CharField(max_length= 50, default='Pending', choices=TRAINEE_STATUS)
+    def __str__(self):
+        return self.user.user.email
 
 class wework(models.Model):
     weight = models.IntegerField(null=True)
