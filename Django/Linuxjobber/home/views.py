@@ -1601,7 +1601,7 @@ def work_experience_isa_part_2(request):
             jot = WorkExperienceIsa.objects.get(user=request.user)
             jot.is_signed_isa = True
             jot.save()
-            work_experience_isa_pdf(details.user)
+            # work_experience_isa_pdf(details.user)
             return redirect("home:workexpform")
         except WorkExperienceIsa.DoesNotExist:
             return redirect("home:isa")
