@@ -15,7 +15,7 @@ from django.utils import timezone
 from users.models import CustomUser
 
 from datetime import date
-
+from .storage_backend import *
 
 def due_time():
     return timezone.now() + timezone.timedelta(days=6)
@@ -113,7 +113,7 @@ class Job(models.Model):
     email = models.CharField(max_length=200)
     phone = models.CharField(max_length=12)
     position = models.ForeignKey(FullTimePostion, on_delete=models.CASCADE)
-    resume = models.FileField(upload_to='resume', null=True)
+    resume = models.FileField(upload_to='uploads/resume', null=True)
     cv_link = models.CharField(max_length=200, null=True)
     interest = models.CharField(max_length=200, null=True, blank=True, default="")
     application_date = models.DateTimeField(default=timezone.now)
@@ -126,7 +126,7 @@ class PartTimeJob(models.Model):
     fullname = models.CharField(max_length=200)
     email = models.CharField(max_length=200)
     phone = models.CharField(max_length=15)
-    cv = models.FileField(upload_to='resume', null=True)
+    cv = models.FileField(upload_to='uploads/resume', null=True)
     cv_link = models.CharField(max_length=200, null=True)
     position = models.ForeignKey(PartTimePostion, on_delete=models.CASCADE)
     high_salary = models.IntegerField(default=0, choices=((0, 'No'), (1, 'Yes')))
@@ -275,7 +275,7 @@ class Internship(models.Model):
     country = models.CharField(max_length=200)
     experience = models.CharField(max_length=50)
     course = models.CharField(max_length=200)
-    resume = models.FileField(upload_to='resume')
+    resume = models.FileField(upload_to='uploads/resume')
     date = models.DateTimeField(default=timezone.now, null=False)
 
     def __str__(self):
@@ -284,7 +284,8 @@ class Internship(models.Model):
 
 class Resume(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
-    resume = models.FileField(upload_to='resume')
+    resume = models.FileField(upload_to='uploads/resume')
+    # resume = models.FileField(storage=S3UploadStorage(location='uploads/resume'))
 
     def __str__(self):
         return self.user.username
@@ -437,7 +438,7 @@ class WorkExperiencePay(models.Model):
 class WorkExperiencePaystub(models.Model):
     # Create table to record the paystub of work experience applicants
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    paystub = models.ImageField(upload_to='resume', null=True)
+    paystub = models.ImageField(upload_to='uploads/paystubs', null=True)
     date_created = models.DateTimeField(default=timezone.now, null=True)
 
     def __str__(self):
@@ -479,8 +480,8 @@ class WorkExperienceEligibility(models.Model):
     form_19_num = models.TextField(null=True, blank=True)
     foreign_pass_num = models.TextField(null=True, blank=True)
     date_created = models.DateTimeField(default=timezone.now, null=True)
-    pdf = models.FileField(upload_to='pdfs/', null=True, blank=True)
-    terms = models.FileField(upload_to='pdfs/', null=True, blank=True)
+    pdf = models.FileField(upload_to='uploads/I-9/', null=True, blank=True)
+    terms = models.FileField(upload_to='uploads/I-9/', null=True, blank=True)
     generate_pdf = models.IntegerField(default=0, choices=((0, 'No'), (1, 'Yes')))
 
     def __str__(self):
@@ -550,7 +551,7 @@ class WorkExperienceIsa(models.Model):
     employment_status = models.TextField(null=True)
     estimated_date_of_program_completion = models.DateTimeField(default=timezone.now, null=True)
     is_signed_isa = models.BooleanField(default=False)
-    pdf = models.FileField(upload_to='pdfs', null=True, blank=True)
+    pdf = models.FileField(upload_to='uploads/ISA', null=True, blank=True)
     generate_pdf = models.IntegerField(default=0, choices=((0, 'No'), (1, 'Yes')))
 
     def __str__(self):

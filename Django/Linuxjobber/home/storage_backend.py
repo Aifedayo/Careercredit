@@ -1,7 +1,15 @@
 from decouple import config
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
+from storages.backends.s3boto3 import S3Boto3Storage
 
+class S3MediaStorage(S3Boto3Storage):
+    bucket_name = settings.AWS_STORAGE_BUCKET_NAME
+    location = 'media'
+
+class S3UploadStorage(S3Boto3Storage):
+    bucket_name = settings.AWS_STORAGE_BUCKET_NAME
+    location = 'uploads'
 
 class MediaStorage(FileSystemStorage):
     location = '/mnt/media'
