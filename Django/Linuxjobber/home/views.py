@@ -1390,7 +1390,7 @@ def work_experience_eligible(request):
         date = details.date_of_birth
         date = date.strftime('%m/%d/%Y')
         expire = details.expiry_date
-        # expire = expire.strftime('%m/%d/%Y')
+        expire = expire.strftime('%m/%d/%Y')
         created = details.date_created
         created = created.strftime('%Y-%m-%d') 
     except  WorkExperienceEligibility.DoesNotExist:
