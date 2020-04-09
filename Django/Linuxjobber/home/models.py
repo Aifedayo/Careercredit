@@ -576,7 +576,7 @@ PERSON_TYPE = (
 class wepeoples(models.Model):
     # Create table for all the applicants of the Work experience with these details
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
-    profile_picture = models.ImageField(upload_to='resume', null=True, blank=True)
+    profile_picture = models.ImageField(upload_to='uploads/', null=True, blank=True)
     person = models.ForeignKey(werole, on_delete=models.CASCADE, null=True)
     personn = models.CharField(max_length= 20, null=True, choices=PERSON_TYPE, default='Trainee')
     current_position = models.CharField(max_length=20, null=True, blank=True )
