@@ -1469,8 +1469,8 @@ def work_experience_eligible(request):
             det.foreign_pass_num=foreign
 
             det.save()
-            work_experience_eligible_pdf(det.user)
-            work_experience_term_pdf(det.user)
+            # work_experience_eligible_pdf(det.user)
+            # work_experience_term_pdf(det.user)
             return redirect("home:isa")
         except WorkExperienceEligibility.DoesNotExist:
             # create workexperienceeligibility model with user
@@ -1542,9 +1542,11 @@ def work_experience_isa_part_1(request):
             det.estimated_date_of_program_completion=completion
             det.email = email
             det.save()
+            
         except WorkExperienceIsa.DoesNotExist:
             state = WorkExperienceIsa.objects.create(user=request.user,email=email,is_signed_isa=False,current_annual_income=income,monthly_house_payment=pay,highest_level_education=edu,employment_status=status,estimated_date_of_program_completion=completion)
             state.save()
+            work_experience_isa_pdf(request.user)
 
 
         if paid.includes_job_placement:
@@ -1599,7 +1601,7 @@ def work_experience_isa_part_2(request):
             jot = WorkExperienceIsa.objects.get(user=request.user)
             jot.is_signed_isa = True
             jot.save()
-            work_experience_isa_pdf(details.user)
+            # work_experience_isa_pdf(details.user)
             return redirect("home:workexpform")
         except WorkExperienceIsa.DoesNotExist:
             return redirect("home:isa")
