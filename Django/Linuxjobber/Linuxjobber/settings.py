@@ -254,6 +254,7 @@ AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME', '')
 AWS_QUERYSTRING_AUTH = False #This will make sure that the file URL does not have unnecessary parameters like your access key.
 AWS_S3_CUSTOM_DOMAIN = AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com'
 # AWS_S3_CUSTOM_DOMAIN = 's3.amazonaws.com/'+AWS_STORAGE_BUCKET_NAME
+AWS_S3_FILE_OEVRWRITE = config('AWS_S3_FILE_OEVRWRITE', '')
 
 
 # Static media settings

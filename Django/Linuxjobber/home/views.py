@@ -1440,7 +1440,7 @@ def work_experience_eligible(request):
             form19 = request.POST['form19']
             foreign = request.POST['foreign']
         else:
-            expiry_date = None
+            expiry_date = dater #None
             form19 = None
             foreign = None
 
@@ -1469,8 +1469,8 @@ def work_experience_eligible(request):
             det.foreign_pass_num=foreign
 
             det.save()
-            # work_experience_eligible_pdf(det.user)
-            # work_experience_term_pdf(det.user)
+            work_experience_eligible_pdf(det.user)
+            work_experience_term_pdf(det.user)
             return redirect("home:isa")
         except WorkExperienceEligibility.DoesNotExist:
             # create workexperienceeligibility model with user
@@ -1479,6 +1479,7 @@ def work_experience_eligible(request):
             work_experience_eligible_pdf(request.user)
             work_experience_term_pdf(request.user)
         # redirect to the ISA page
+        print(expiry_date)
         return redirect("home:isa")  
     return render(request, 'home/workexpeligibility.html',{'details':details,'expire':expire,'date':date,'dater':dater,'created':created})
 
@@ -1546,7 +1547,7 @@ def work_experience_isa_part_1(request):
         except WorkExperienceIsa.DoesNotExist:
             state = WorkExperienceIsa.objects.create(user=request.user,email=email,is_signed_isa=False,current_annual_income=income,monthly_house_payment=pay,highest_level_education=edu,employment_status=status,estimated_date_of_program_completion=completion)
             state.save()
-            work_experience_isa_pdf(request.user)
+            # work_experience_isa_pdf(request.user)
 
 
         if paid.includes_job_placement:
@@ -1601,7 +1602,7 @@ def work_experience_isa_part_2(request):
             jot = WorkExperienceIsa.objects.get(user=request.user)
             jot.is_signed_isa = True
             jot.save()
-            # work_experience_isa_pdf(details.user)
+            work_experience_isa_pdf(details.user)
             return redirect("home:workexpform")
         except WorkExperienceIsa.DoesNotExist:
             return redirect("home:isa")

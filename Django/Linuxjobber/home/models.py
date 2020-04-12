@@ -473,7 +473,7 @@ class WorkExperienceEligibility(models.Model):
     employee_address = models.TextField()
     employee_email = models.TextField()
     employee_phone = models.CharField(max_length=50, null=True)
-    expiry_date = models.DateTimeField(default=timezone.now, null=True, blank=True)
+    expiry_date = models.DateTimeField(default=timezone.now, null=True)
     preparer_or_translator = models.BooleanField(default=False)
     i_am_a = models.IntegerField(default=0, choices=WORKEXPERIENCE_OPTIONS)
     Alien_reg_num = models.TextField(null=True, blank=True)
