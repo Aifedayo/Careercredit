@@ -8576,3 +8576,97 @@ AttributeError: 'NoneType' object has no attribute 'strftime'
 [2020-04-12 23:05:50] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/eligibility/ 200 [0.27, 127.0.0.1:10690]
 [2020-04-12 23:06:28] INFO [django.channels.server.log_action:147] HTTP POST /workexperience/eligibility/ 302 [18.17, 127.0.0.1:10690]
 [2020-04-12 23:06:29] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/ISA/ 200 [0.27, 127.0.0.1:10690]
+[2020-04-13 13:05:19] INFO [django.channels.server.log_action:147] HTTP GET / 302 [1.12, 127.0.0.1:13050]
+[2020-04-13 13:05:20] INFO [django.channels.server.log_action:141] HTTP GET /timeout 200 [0.30, 127.0.0.1:13050]
+[2020-04-13 13:05:41] INFO [django.channels.server.log_action:147] HTTP POST /timeout 302 [0.27, 127.0.0.1:13050]
+[2020-04-13 13:05:41] INFO [django.channels.server.log_action:141] HTTP GET / 200 [0.19, 127.0.0.1:13050]
+[2020-04-13 13:05:44] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.10, 127.0.0.1:13050]
+[2020-04-13 13:05:53] INFO [django.channels.server.log_action:147] HTTP GET /workexperience/ 302 [0.05, 127.0.0.1:13050]
+[2020-04-13 13:05:53] INFO [django.channels.server.log_action:147] HTTP GET /workexperience/profile/ 302 [0.08, 127.0.0.1:13050]
+[2020-04-13 13:05:54] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/apply/ 200 [0.26, 127.0.0.1:13050]
+[2020-04-13 13:05:57] INFO [django.channels.server.log_action:147] HTTP GET /admin/home/workexperienceeligibility/ 302 [0.70, 127.0.0.1:13096]
+[2020-04-13 13:05:57] INFO [django.channels.server.log_action:141] HTTP GET /admin/login/?next=/admin/home/workexperienceeligibility/ 200 [0.24, 127.0.0.1:13096]
+[2020-04-13 13:05:57] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/login.css 200 [0.04, 127.0.0.1:13096]
+[2020-04-13 13:06:01] INFO [django.channels.server.log_action:147] HTTP POST /admin/login/?next=/admin/home/workexperienceeligibility/ 302 [0.28, 127.0.0.1:13096]
+[2020-04-13 13:06:02] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/ 200 [0.59, 127.0.0.1:13096]
+[2020-04-13 13:06:02] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.07, 127.0.0.1:13096]
+[2020-04-13 13:06:54] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/31/change/ 200 [1.96, 127.0.0.1:13096]
+[2020-04-13 13:06:54] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.07, 127.0.0.1:13096]
+[2020-04-13 13:07:13] INFO [django.channels.server.log_action:141] HTTP POST /admin/home/workexperienceeligibility/31/change/ 200 [1.88, 127.0.0.1:13096]
+[2020-04-13 13:07:14] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.09, 127.0.0.1:13096]
+[2020-04-13 13:07:42] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/ 200 [1.17, 127.0.0.1:13147]
+[2020-04-13 13:07:43] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.10, 127.0.0.1:13147]
+[2020-04-13 13:07:43] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/31/change/ 200 [1.93, 127.0.0.1:13096]
+[2020-04-13 13:07:47] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/22/change/ 200 [1.63, 127.0.0.1:13147]
+[2020-04-13 13:07:47] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.09, 127.0.0.1:13147]
+[2020-04-13 13:08:04] INFO [django.channels.server.log_action:147] HTTP GET /admin/login/?next=/admin/home/workexperienceeligibility/ 302 [0.07, 127.0.0.1:13160]
+[2020-04-13 13:08:04] INFO [django.channels.server.log_action:141] HTTP GET /admin/ 200 [0.30, 127.0.0.1:13160]
+[2020-04-13 13:08:04] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/ 200 [0.52, 127.0.0.1:13147]
+[2020-04-13 13:08:04] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/css/dashboard.css 200 [0.12, 127.0.0.1:13160]
+[2020-04-13 13:08:05] INFO [django.channels.server.log_action:141] HTTP GET /static/admin/img/icon-deletelink.svg 200 [0.03, 127.0.0.1:13160]
+[2020-04-13 13:08:16] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/ 200 [0.34, 127.0.0.1:13160]
+[2020-04-13 13:08:16] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.08, 127.0.0.1:13160]
+[2020-04-13 13:08:20] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/31/change/ 200 [1.76, 127.0.0.1:13160]
+[2020-04-13 13:08:21] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.09, 127.0.0.1:13160]
+[2020-04-13 13:08:33] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/31/delete/ 200 [0.13, 127.0.0.1:13160]
+[2020-04-13 13:08:35] INFO [django.channels.server.log_action:147] HTTP POST /admin/home/workexperienceeligibility/31/delete/ 302 [0.05, 127.0.0.1:13160]
+[2020-04-13 13:08:36] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/ 200 [0.26, 127.0.0.1:13160]
+[2020-04-13 13:08:36] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.07, 127.0.0.1:13160]
+[2020-04-13 13:09:42] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/eligibility/ 200 [0.68, 127.0.0.1:13241]
+[2020-04-13 13:10:11] INFO [django.channels.server.log_action:147] HTTP POST /workexperience/eligibility/ 302 [11.67, 127.0.0.1:13310]
+[2020-04-13 13:10:11] INFO [django.channels.server.log_action:141] HTTP GET /workexperience/ISA/ 200 [0.24, 127.0.0.1:13310]
+[2020-04-13 13:10:24] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/ 200 [0.72, 127.0.0.1:13336]
+[2020-04-13 13:10:24] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/base.css 304 [0.02, 127.0.0.1:13340]
+[2020-04-13 13:10:24] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.02, 127.0.0.1:13339]
+[2020-04-13 13:10:24] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/jquery.init.js 304 [0.02, 127.0.0.1:13341]
+[2020-04-13 13:10:24] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/changelists.css 304 [0.03, 127.0.0.1:13342]
+[2020-04-13 13:10:24] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/core.js 304 [0.04, 127.0.0.1:13343]
+[2020-04-13 13:10:24] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/urlify.js 304 [0.03, 127.0.0.1:13340]
+[2020-04-13 13:10:24] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.10, 127.0.0.1:13336]
+[2020-04-13 13:10:24] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/prepopulate.js 304 [0.02, 127.0.0.1:13341]
+[2020-04-13 13:10:24] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.03, 127.0.0.1:13339]
+[2020-04-13 13:10:24] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/css/responsive.css 304 [0.04, 127.0.0.1:13342]
+[2020-04-13 13:10:24] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.04, 127.0.0.1:13343]
+[2020-04-13 13:10:24] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/search.svg 304 [0.03, 127.0.0.1:13340]
+[2020-04-13 13:10:24] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/js/actions.js 304 [0.04, 127.0.0.1:13336]
+[2020-04-13 13:10:24] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/icon-no.svg 304 [0.03, 127.0.0.1:13341]
+[2020-04-13 13:10:24] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/icon-yes.svg 304 [0.03, 127.0.0.1:13339]
+[2020-04-13 13:10:25] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Light-webfont.woff 304 [0.02, 127.0.0.1:13339]
+[2020-04-13 13:10:25] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Bold-webfont.woff 304 [0.02, 127.0.0.1:13341]
+[2020-04-13 13:10:25] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/fonts/Roboto-Regular-webfont.woff 304 [0.02, 127.0.0.1:13340]
+[2020-04-13 13:10:25] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/tooltag-add.svg 304 [0.01, 127.0.0.1:13340]
+[2020-04-13 13:10:25] INFO [django.channels.server.log_action:145] HTTP GET /static/admin/img/sorting-icons.svg 304 [0.01, 127.0.0.1:13341]
+[2020-04-13 13:10:28] INFO [django.channels.server.log_action:141] HTTP GET /admin/home/workexperienceeligibility/32/change/ 200 [1.79, 127.0.0.1:13341]
+[2020-04-13 13:10:29] INFO [django.channels.server.log_action:141] HTTP GET /admin/jsi18n/ 200 [0.09, 127.0.0.1:13341]
+[2020-04-13 13:10:38] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /workexperience/eligibility/
+Traceback (most recent call last):
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\Documents\linuxjobber2\Django\Linuxjobber\home\views.py", line 1395, in work_experience_eligible
+    expire =   expire.strftime('%m/%d/%Y')
+AttributeError: 'NoneType' object has no attribute 'strftime'
+[2020-04-13 13:10:39] ERROR [django.channels.server.log_action:154] HTTP GET /workexperience/eligibility/ 500 [0.55, 127.0.0.1:13361]
+[2020-04-13 13:10:40] WARNING [django.request.get_response:93] Not Found: /favicon.ico
+[2020-04-13 13:10:40] WARNING [django.channels.server.log_action:149] HTTP GET /favicon.ico 404 [0.12, 127.0.0.1:13361]
+[2020-04-13 13:11:05] INFO [django.channels.server.log_action:141] HTTP GET / 200 [0.36, 127.0.0.1:13391]
+[2020-04-13 13:11:07] INFO [django.channels.server.log_action:141] HTTP POST /ulocation 200 [0.07, 127.0.0.1:13391]
+[2020-04-13 13:11:16] ERROR [django.request.handle_uncaught_exception:118] Internal Server Error: /workexperience/eligibility/
+Traceback (most recent call last):
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\Documents\LINUXJOBBER REPO\linuxjobber\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\Documents\linuxjobber2\Django\Linuxjobber\home\views.py", line 1395, in work_experience_eligible
+    expire =   expire.strftime('%m/%d/%Y')
+AttributeError: 'NoneType' object has no attribute 'strftime'
+[2020-04-13 13:11:16] ERROR [django.channels.server.log_action:154] HTTP GET /workexperience/eligibility/ 500 [0.28, 127.0.0.1:13407]
