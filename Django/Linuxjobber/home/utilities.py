@@ -79,9 +79,9 @@ def set_payment_notification_schedule(notification_day, notification_hour, notif
 
 
 import base64
-#from Crypto.Cipher import AES
-#from Crypto import Random
-#from Crypto.Protocol.KDF import PBKDF2
+from Crypto.Cipher import AES
+from Crypto import Random
+from Crypto.Protocol.KDF import PBKDF2
 
 BLOCK_SIZE = 16
 pad = lambda s: s + (BLOCK_SIZE - len(s) % BLOCK_SIZE) * chr(BLOCK_SIZE - len(s) % BLOCK_SIZE)
