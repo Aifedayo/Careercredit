@@ -1391,8 +1391,12 @@ def work_experience_eligible(request):
         date = date.strftime('%m/%d/%Y')
         created = details.date_created
         created = created.strftime('%Y-%m-%d') 
-        expire = details.expiry_date
-        expire =  created  #expire.strftime('%m/%d/%Y')
+        try:
+            expire = details.expiry_date
+            expire = expire.strftime('%Y-%m-%d')#expire.strftime('%m/%d/%Y')
+        except:
+            expire = details.expiry_date
+            expire =  created  #expire.strftime('%m/%d/%Y')           
     except  WorkExperienceEligibility.DoesNotExist:
         details = None
         date = None
@@ -1440,7 +1444,7 @@ def work_experience_eligible(request):
             form19 = request.POST['form19']
             foreign = request.POST['foreign']
         else:
-            expiry_date = dater #None
+            expiry_date = expire #None
             form19 = None
             foreign = None
 
