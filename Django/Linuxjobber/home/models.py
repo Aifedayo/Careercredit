@@ -499,7 +499,7 @@ class WorkExperienceEligibility(models.Model):
         new_mail_message = """
         A new SSN has been added to the database by {} {}, go to https://linuxjobber.com/admin to encrypt
                             """.format(self.first_name, self.last_name)
-        print(new_mail_message)
+                            
         if not self.pk:
             mailer = LinuxjobberMailer(
                 subject="SSN Added",

@@ -363,10 +363,12 @@ def internships(request):
             messages.success(request, 'Thanks for applying for the internship which starts on ' + str(internsh.strftime(
                 '%b %d, %y')) + '. Please ensure you keep in touch with Linuxjobber latest updates on our various social media platform')
 
-            file_path = os.path.join(settings.BASE_DIR, 'emails', 'signup.txt')
+            file_path = os.path.join(settings.BASE_DIR, 'emails', 'internships.txt') #'signup.txt')
             with open(file_path, 'r') as f:
                 file_content = f.read()
-            mail_message = file_content
+            mail_message = file_content  #.format(firtname=internform.firtname, lastname=internform.lastname,
+                                            #username="", email= internform.email, env_url=settings.ENV_URL
+                                            #)
             mailer = LinuxjobberMailer(
                 subject = "Linuxjobber Internship",
                 to_address = request.POST['email'],
