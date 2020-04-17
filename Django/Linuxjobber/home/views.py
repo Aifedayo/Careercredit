@@ -366,9 +366,8 @@ def internships(request):
             file_path = os.path.join(settings.BASE_DIR, 'emails', 'internships.txt') #'signup.txt')
             with open(file_path, 'r') as f:
                 file_content = f.read()
-            mail_message = file_content  #.format(firtname=internform.firtname, lastname=internform.lastname,
-                                            #username="", email= internform.email, env_url=settings.ENV_URL
-                                            #)
+            mail_message = file_content.format(firstname=request.POST['firstname'], lastname=request.POST['lastname'])
+                                      
             mailer = LinuxjobberMailer(
                 subject = "Linuxjobber Internship",
                 to_address = request.POST['email'],
@@ -879,10 +878,14 @@ def completeclass(request,course):
         page_learn = CompleteClassLearn.objects.filter(completeclass=page)
         page_cert = CompleteClassCertificate.objects.filter(completeclass=page)
         courses = CourseTopic.objects.filter(course=page.course)
+        all_courses = CourseTopic.objects.all()
         tm = timezone.now() + timedelta(days=1)
         td = datetime.now()
         td = utc.localize(td)
-
+        for course in all_courses:
+            if course.duration == 5:
+                course.duration = 55
+                course.save()
         if tm.date() ==  page.due_date.date():
             tomorrow = True
         if td > page.due_date:

@@ -26,7 +26,7 @@ from .models import FAQ, Job, RHCSAOrder, FreeAccountClick, Campaign, Message, U
     Certificates, EmailMessageType, EmailMessageLog, CompleteClass, \
     CompleteClassLearn, CompleteClassCertificate, WorkExperienceEligibility, WorkExperienceIsa, WorkExperiencePay, \
     SubPayment, InstallmentPlan, EmailGroup, EmailGroupMessageLog, WorkExperiencePriceWaiver, Variables, ItPartnership,\
-     WorkExperiencePaystub, WorkexpFormStage, WeTraineeStatus
+     WorkExperiencePaystub, WorkexpFormStage, WeTraineeStatus, RecordWEChange
 
 from datetime import timedelta
 import datetime
@@ -926,7 +926,7 @@ admin.site.register(EmailGroupMessageLog, SendMessageAdmin)
 admin.site.register(ItPartnership, ItPartnershipAdmin)
 admin.site.register(WorkexpFormStage)
 admin.site.register(WeTraineeStatus)
-
+admin.site.register(RecordWEChange)
 
 class VariablesAdmin(admin.ModelAdmin):
     list_display = ('key','value')

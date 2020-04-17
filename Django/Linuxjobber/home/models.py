@@ -656,6 +656,13 @@ class wework(models.Model):
         # Return email of the applicant
         return self.we_people.user.email
 
+class RecordWEChange(models.Model):
+    userid = models.CharField(max_length=50,null=True)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True)
+    field = models.ForeignKey(wepeoples, on_delete = models.CASCADE, null=True)
+    prev_value = models.CharField(max_length=100, null=True)
+    new_value = models.CharField(max_length=100, null=True)
+    change_time = models.DateTimeField(default=timezone.now, null=True)
 
 class GroupClassLog(models.Model):
     group = models.ForeignKey(Groupclass, on_delete=models.CASCADE)
