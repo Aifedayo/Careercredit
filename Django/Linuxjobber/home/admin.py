@@ -26,7 +26,7 @@ from .models import FAQ, Job, RHCSAOrder, FreeAccountClick, Campaign, Message, U
     Certificates, EmailMessageType, EmailMessageLog, CompleteClass, \
     CompleteClassLearn, CompleteClassCertificate, WorkExperienceEligibility, WorkExperienceIsa, WorkExperiencePay, \
     SubPayment, InstallmentPlan, EmailGroup, EmailGroupMessageLog, WorkExperiencePriceWaiver, Variables, ItPartnership,\
-     WorkExperiencePaystub, WorkexpFormStage, WeTraineeStatus
+     WorkExperiencePaystub, WorkexpFormStage, WeTraineeStatus, RecordWEChange
 
 from datetime import timedelta
 import datetime
@@ -605,6 +605,7 @@ class SendMessageAdmin(admin.ModelAdmin):
 
 
 class WorkExperienceIsaAdmin(admin.ModelAdmin):
+    # Customiz the work experience ISA form 
     def save_model(self, request, obj, form, change):
         try:
             details =  WorkExperienceEligibility.objects.get(user=obj.user)
@@ -626,6 +627,7 @@ class WorkExperienceIsaAdmin(admin.ModelAdmin):
         super().save_model(request, obj, form, change)
 
 class WorkExperienceEligibilityAdmin(admin.ModelAdmin):
+    # Customize the work experience eligibity form on the admin panel
     list_display = ('user','first_name','state','SSN','ssn_last_four','is_encrypted')
     search_fields = ('first_name','user__email','last_name')
     change_form_template = 'admin/workexperienceeligibility_change_list.html'
@@ -633,6 +635,7 @@ class WorkExperienceEligibilityAdmin(admin.ModelAdmin):
     list_filter = ('is_encrypted',)
 
     class CustomChangeList(ChangeList):
+        #Change list of the form
         def __init__(self, *args, **kwargs):
             super().__init__(*args, **kwargs)
             self.title = ''
@@ -649,6 +652,7 @@ class WorkExperienceEligibilityAdmin(admin.ModelAdmin):
 
 
     def get_urls(self):
+        # Invoke the urls attached
         urls = super().get_urls()
         my_urls = [
             path('ssn/handle', self.handle_encryption, name= 'transform-ssn'),
@@ -658,6 +662,7 @@ class WorkExperienceEligibilityAdmin(admin.ModelAdmin):
 
 
     def handle_encryption(self,request):
+        # Take care of the encryption from the form
         if request.method == 'POST':
             if request.POST.get('action') == 'encrypt':
                 self.encrypt_one(request)
@@ -667,6 +672,7 @@ class WorkExperienceEligibilityAdmin(admin.ModelAdmin):
 
 
     def encrypt_all(self,request):
+        # Encrypt the details from the form
         if request.method == 'POST':
 
             from  .views import ADMIN_EMAIL
@@ -703,6 +709,7 @@ class WorkExperienceEligibilityAdmin(admin.ModelAdmin):
                         log.append(True)
 
                 if True in log:
+                    # Check if the log is true
                     self.message_user(request, 'Records updated', messages.SUCCESS)
                     new_mail_message = "SSN data has been encrypted by {}".format(request.user)
                     mailer = LinuxjobberMailer(
@@ -719,6 +726,7 @@ class WorkExperienceEligibilityAdmin(admin.ModelAdmin):
                 self.message_user(request, 'Records could not be updated', messages.ERROR)
 
     def encrypt_one(self,request):
+        # Encrypt one of the SSN
         if request.method == 'POST':
             from  .views import ADMIN_EMAIL
             password = request.POST.get('password', None)
@@ -746,6 +754,7 @@ class WorkExperienceEligibilityAdmin(admin.ModelAdmin):
             except:
                 self.message_user(request, 'SSN cannot be encrypted', messages.ERROR)
     def decrypt_one(self,request):
+        # Decrypt one SSN
         if request.method == 'POST':
             from .utilities import decrypt
             from .views import ADMIN_EMAIL
@@ -786,6 +795,7 @@ class WorkExperienceEligibilityAdmin(admin.ModelAdmin):
                 mailer.send_mail()
                 self.message_user(request, 'SSN cannot be decrypted, Invalid password', messages.ERROR)
     def decrypt_all(self,request):
+        # Decrypt all the SSN
         if request.method == 'POST':
             from .utilities import decrypt
             from .views import ADMIN_EMAIL
@@ -830,6 +840,7 @@ class WorkExperienceEligibilityAdmin(admin.ModelAdmin):
                 self.message_user(request, 'Records could not be updated, Invalid password', messages.ERROR)
                 
     def save_model(self, request, obj, form, change):
+        # Save the form detail into the database
         if obj.generate_pdf == 1:
             try:
                 details =  WorkExperienceEligibility.objects.get(user=obj.user)
@@ -915,7 +926,7 @@ admin.site.register(EmailGroupMessageLog, SendMessageAdmin)
 admin.site.register(ItPartnership, ItPartnershipAdmin)
 admin.site.register(WorkexpFormStage)
 admin.site.register(WeTraineeStatus)
-
+admin.site.register(RecordWEChange)
 
 class VariablesAdmin(admin.ModelAdmin):
     list_display = ('key','value')
