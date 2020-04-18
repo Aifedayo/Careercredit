@@ -245,7 +245,7 @@ USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 
-# AWS_DEFAULT_ACL = None
+AWS_DEFAULT_ACL = None
 AWS_DEFAULT_ACL = config('AWS_DEFAULT_ACL',None)
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID', '')
 S3DIRECT_REGION = config('S3DIRECT_REGION','us-west-2')
@@ -254,6 +254,7 @@ AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME', '')
 AWS_QUERYSTRING_AUTH = False #This will make sure that the file URL does not have unnecessary parameters like your access key.
 AWS_S3_CUSTOM_DOMAIN = AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com'
 # AWS_S3_CUSTOM_DOMAIN = 's3.amazonaws.com/'+AWS_STORAGE_BUCKET_NAME
+AWS_S3_FILE_OEVRWRITE = config('AWS_S3_FILE_OEVRWRITE', '')
 
 
 # Static media settings
@@ -262,8 +263,8 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = "/mnt/media/"
 STATIC_ROOT = "/mnt/asset/"
-DEFAULT_FILE_STORAGE = config('DEFAULT_FILE_STORAGE','home.storage_backend.MediaStorage')
-# DEFAULT_FILE_STORAGE = 'home.storage_backend.MediaStorage'
+DEFAULT_FILE_STORAGE = config('DEFAULT_FILE_STORAGE','home.storage_backend.S3UploadStorage')
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'asset'),
     os.path.join(BASE_DIR, 'static'),
