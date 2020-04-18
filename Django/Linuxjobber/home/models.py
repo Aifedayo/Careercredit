@@ -657,6 +657,7 @@ class wework(models.Model):
         return self.we_people.user.email
 
 class RecordWEChange(models.Model):
+    "Model table to record the changes made to a trainee's"
     userid = models.CharField(max_length=50,null=True)
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True)
     field = models.ForeignKey(wepeoples, on_delete = models.CASCADE, null=True)
