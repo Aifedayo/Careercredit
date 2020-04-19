@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import {Subject} from "rxjs/index";
 import {WebSocketService} from "./web-socket.service";
-import {environment} from "../../environments/environment.prod";
+import {environment} from "../../environments/environment";
+declare var moment: any;
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,25 @@ export class ChatService {
 	// 			}
 	// 		});
 	// }
+	public formatProfileImg(proImgUrl:string){
+        var image_url = "";
+          if(
+            proImgUrl.startsWith("https://") || 
+            proImgUrl.startsWith("http://") 
+          ){
+            image_url =  proImgUrl
+          }
+          else {
+            image_url = environment.API_URL + proImgUrl
+          }
+        return image_url
+  }
+
+  public formatTime(timestamp){
+    return timestamp.indexOf(':')== -1?
+    moment(Number(timestamp)).format('LT'):timestamp
+  }
+
 }
 
 export interface Message {

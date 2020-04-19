@@ -1,6 +1,7 @@
 import json
 import os
 import boto3
+import re
 from datetime import date
 from django.conf import settings
 from django.shortcuts import render
@@ -15,7 +16,7 @@ from rest_framework.views import APIView
 
 from classroom.models import ChatMessage, ChatRoom, Connection, RoomDate
 
-from .models import ChatMessageWithProfile
+from .models import ChatMessageWithProfile, ChatQoute
 from .serializers import ChatSerializer
 from .pagination import PaginatedChatMessage
 
@@ -74,7 +75,7 @@ class AwsWebsocketGatewayView(APIView):
             data = {
                 "active_group":active_group,
                 "from_where":"send",
-                "messages": messages
+                "messages":messages
             }
             
             _send_message_to_all(data,connections)
@@ -113,7 +114,7 @@ def get_recent_messages(request):
                     "username":m.user.username,
                     "profile_img":m.user.profile_img
                 }, 
-                "content": m.message,
+                "content": _format_user_mention(m.message),
                 "timestamp": m.timestamp,
                 "the_type": m.the_type
             } for m in recent_messages
@@ -159,18 +160,9 @@ def get_messages(request):
             message_qs = ChatMessageWithProfile.objects.filter(room=room) \
             .exclude(user__username='SERVER INFO') 
             if offset_id != 0: message_qs = message_qs.filter(id__lt=offset_id)
-            message_qs = message_qs.select_related('user').order_by('-pk')[:per_page]
+            message_qs = message_qs.select_related('user','qoute').order_by('-pk')[:per_page]
 
-            messages = [
-                {
-                    "username":m.user.username,
-                    "profile_img":m.user.profile_img,
-                    "content": m.message,
-                    "timestamp": m.timestamp,
-                    "the_type": m.the_type
-                } for m in message_qs
-            ]
-
+            messages = [ _format_message(m) for m in message_qs]
             messages.reverse()
             
             data = {
@@ -187,41 +179,33 @@ def get_messages(request):
     except Token.DoesNotExist:
         return Response("Nothing",status=status.HTTP_403_FORBIDDEN)
 
-# @api_view(["POST"])
-# @permission_classes((AllowAny,))
-# def get_messages(request): 
-#     token = request.data['token']
-#     try:
-#         token= Token.objects.get(key=token)
-
-#         active_group = request.data['active_group']
-#         room, _ = ChatRoom.objects.get_or_create(
-#             name=active_group
-#         )
-
-#         queryset = ChatMessageWithProfile.objects \
-#         .filter(room=room).exclude(user__username='SERVER INFO') \
-#         .select_related('user')
-#         # .select_related('user').order_by('id')
-#         # .select_related('user').order_by('-pk')
-
-#         paginator = PaginatedChatMessage()
-#         paginator.page_size = 5
-#         paginator.ordering = 'id'
-#         result_page = paginator.paginate_queryset(queryset, request)
-#         serializer = ChatSerializer(result_page, many=True)
-#         data = serializer.data
-#         # data.append({'aactive_group':active_group})
-#         return paginator.get_paginated_response(data, active_group)
-#     except Token.DoesNotExist:
-#         return Response("Nothing",status=status.HTTP_403_FORBIDDEN)
-
+@csrf_exempt
+@api_view(["POST"])
+@permission_classes((AllowAny,))
+def get_mention_users(request):
+    token = request.data['token']
+    try:
+        token= Token.objects.get(key=token)
+        user_count_limit = 10
+        search_text = request.data.get('search_text','')
+        room, _ = ChatRoom.objects.get_or_create(
+            name=request.data['active_group']
+        )        
+        all_user_qs = ChatMessage.objects.filter(room=room) \
+        .exclude(user='SERVER INFO').exclude(user='DATE-INFO')
+        mention_user_qs = all_user_qs.filter(user__istartswith=search_text)
+        if len(mention_user_qs) < 1: mention_user_qs = all_user_qs
+        mention_user_qs = mention_user_qs.values_list('user', flat=True) \
+        .distinct()[:user_count_limit]
+        return Response(mention_user_qs,status.HTTP_200_OK)
+    except Token.DoesNotExist:
+        return Response("Nothing",status=status.HTTP_403_FORBIDDEN)
 
 
 #Helper
 def _save_message(body,room):
     # Add the new message to the database
-    instance = ChatMessage(
+    m_instance = ChatMessage(
         user=body['user'],
         message=body['content'],
         the_type=body['the_type'],
@@ -229,16 +213,21 @@ def _save_message(body,room):
         room=room
     ).save()
 
-    chatWithProfile = ChatMessageWithProfile.objects.get(id=instance.id)
+    chatWithProfile = ChatMessageWithProfile.objects \
+    .select_related('user').get(id=m_instance.id)
 
+    if 'qoute_message' in body:
+        qoute_m = body['qoute_message']
+        chat_q = ChatQoute(
+            message=chatWithProfile,
+            username=qoute_m['username'],
+            content=qoute_m['content'],
+            the_type=qoute_m['the_type'],
+            timestamp=qoute_m['timestamp']            
+        ).save()
+        chatWithProfile.qoute = chat_q
     # # Send the message data to all connections
-    message = {
-        "username":chatWithProfile.user.username,
-        "profile_img":chatWithProfile.user.profile_img,
-        "content": body['content'],
-        "timestamp": body['timestamp'],
-        "the_type": body['the_type']
-    }
+    message = _format_message(chatWithProfile)
 
     return message
 
@@ -290,3 +279,25 @@ def _send_to_connection(connection_id, data):
         ConnectionId=connection_id,
         Data=json.dumps(data).encode('utf-8')
     )
+
+def _format_message(m):
+    message = {
+        "username":m.user.username,
+        "profile_img":m.user.profile_img,
+        "content": _format_user_mention(m.message),
+        "timestamp": m.timestamp,
+        "the_type": m.the_type
+    }
+
+    qoute_m = getattr(m, 'qoute', None)
+    if qoute_m is not None:
+        message['qoute_message'] = {
+            'username':qoute_m.username,
+            'content':_format_user_mention(qoute_m.content),
+            'the_type':qoute_m.the_type,
+            'timestamp':qoute_m.timestamp  
+        }
+    return message
+
+def _format_user_mention(text):
+    return re.sub("(^@\w{1,50}|\s@\w{1,50})", r" <b>\1</b>", text)

@@ -5,4 +5,5 @@ urlpatterns = [
     path('',views.AwsWebsocketGatewayView.as_view()),
     path('get_recent_messages/',views.get_recent_messages),
     path('get_messages/',views.get_messages),
+    path('get_mention_users/',views.get_mention_users),
 ]

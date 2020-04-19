@@ -4,12 +4,14 @@ import { HttpClient } from '@angular/common/http';
 
 import {ApiService} from "../share/api.service";
 import {ChatMessage} from "../share/chat-message";
-import {Observable} from "rxjs/index";
+import {Observable, Subject} from "rxjs/index";
+import { debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
 import {MatList} from "@angular/material";
 import {environment} from "../../environments/environment";
 import {UserModel} from "../share/user-model";
 import { AlertService } from './_alert/alert.service';
 import ReconnectingWebSocket from '../_websocket/reconnecting-websocket';
+declare var moment: any;
 
 export enum TYPE {Plain='plain', Image='image', File='file'}
 
@@ -40,11 +42,14 @@ export class TopicChatComponent implements OnInit {
   public offset_id:Number = 0;
   private is_send_message:Boolean = false;
   private recent_message_is_set:Boolean = false;
-
+  public mention_users: Observable<any[]>;
+  private search_mention_stream = new Subject();
+  public qoute_message = null;
 
   // getting a reference to the overall list, which is the parent container of the list items
   @ViewChild(MatList, { read: ElementRef }) matList: ElementRef;
   @ViewChild('ChatSpace') chatSpace: ElementRef<HTMLElement>;
+  @ViewChild('chat_input') chat_input: ElementRef<HTMLElement>;
 
   private user$: Observable<UserModel>;
   public environment = environment;
@@ -67,27 +72,51 @@ export class TopicChatComponent implements OnInit {
 
   ngOnInit() {
     this.callWebsocket()
+    this.setUserMentionProp()
+    // console.log(moment(1489199400000).tz('Asia/Seoul').format('LT'))
+    // console.log(moment(1489199400000).tz('America/New_York').format())
+  }
+
+  ngAfterViewInit(): void {
+    this.mutableObserver();
+  }
+
+  setUserMentionProp(){
+    this.mention_users = this.search_mention_stream.pipe(
+      debounceTime(250),
+      distinctUntilChanged(),
+      switchMap((data: any) => this.apiService.getMentionUsers(data))
+    )
+    // .debounceTime(500)
+    // .distinctUntilChanged()
+    // // .switchMap((term: string) => this.getItems(term));
   }
 
   sendMessage(message,type:string) {
      if(this.dataService.profileImgIsSet()){
        if(message!==""){
           const now = new Date();
-          const context = {
+          let context = {
             action:'sendMessage',
             active_group:this.activeGroup,
             user:sessionStorage.getItem('username'),
             content:message,
             the_type:type,
-            timestamp:this.onlyHsMs(now.toLocaleTimeString()),
+            timestamp:now.getTime(),
+            // timestamp:this.onlyHsMs(now.toLocaleTimeString()),
             token:this.token
-          };  
+          }; 
+
+          if(this.qoute_message){
+            let {profile_img, ...qoute_m} = this.qoute_message
+            context['qoute_message'] = qoute_m
+          }
 
           this.websocket.send(JSON.stringify(context));
+          this.qoute_message = null;
           this.chat_text = '';
           this.is_send_message = true
         } 
-        //console.log(message)
       }
       else{
           this.alertService.error(
@@ -95,8 +124,6 @@ export class TopicChatComponent implements OnInit {
           );
       }
   }
-
-  openImage(url):void{} 
 
   fileChange(event): void {
       const fileList: FileList = event.target.files;
@@ -115,10 +142,6 @@ export class TopicChatComponent implements OnInit {
                 error => console.log( error)
             );
       }
-  }
-
-  ngAfterViewInit(): void {
-    this.mutableObserver();
   }
 
   callWebsocket(){
@@ -145,21 +168,6 @@ export class TopicChatComponent implements OnInit {
     // }
   }
 
-
-  getProfileImg(proImgUrl:string){
-    var image_url = "";
-      if(
-        proImgUrl.startsWith("https://") || 
-        proImgUrl.startsWith("http://") 
-      ){
-        image_url =  proImgUrl
-      }
-      else {
-        image_url = environment.API_URL + proImgUrl
-      }
-    return image_url
-  }
-
   getMessages(){
     if(this.offset_id != -1){
       const data = {
@@ -181,9 +189,36 @@ export class TopicChatComponent implements OnInit {
     }
   }
 
-  isOthers(username){
-    return username !== this.current_user && 
-    username !== 'DATE-INFO'
+  searchMention(search_txt: string) {
+    const data = {
+      active_group:this.activeGroup,
+      search_text:search_txt,
+      token:this.token
+    };  
+    this.search_mention_stream.next(data);
+  }
+
+  getProfileImg(proImgUrl:string){
+    var image_url = "";
+      if(
+        proImgUrl.startsWith("https://") || 
+        proImgUrl.startsWith("http://") 
+      ){
+        image_url =  proImgUrl
+      }
+      else {
+        image_url = environment.API_URL + proImgUrl
+      }
+    return image_url
+  }
+
+  qoute(message){
+    this.qoute_message = message
+    this.chat_input.nativeElement.focus()
+  }
+
+  closed(){
+    this.qoute_message = null
   }
 
   formatDate(that_day) {
@@ -201,6 +236,7 @@ export class TopicChatComponent implements OnInit {
       }
       return format_date
   }
+
 
   private processMessages(data){
     if(data['active_group'] == this.activeGroup){
