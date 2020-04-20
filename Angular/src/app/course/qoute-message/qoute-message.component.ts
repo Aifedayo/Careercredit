@@ -7,7 +7,7 @@ declare var moment: any;
   styleUrls: ['./qoute-message.component.css'],
 })
 export class QouteMessageComponent implements OnInit {
-    @Input() message = {};
+    @Input() message;
     @Input() display_close:Boolean = false;
     @Output() closed = new EventEmitter();
 

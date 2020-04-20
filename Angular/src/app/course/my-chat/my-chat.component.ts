@@ -11,9 +11,9 @@ import { ApiService } from './../../share/api.service';
 })
 export class MyChatComponent implements OnInit {
     public current_user:string;
-    private user$: Observable<UserModel>;
+    public user$: Observable<UserModel>;
 
-    @Input() message = {};
+    @Input() message;
     @Output() qouted = new EventEmitter();
 
     constructor(public chatService:ChatService,private apiService:ApiService){
@@ -21,8 +21,7 @@ export class MyChatComponent implements OnInit {
         this.current_user = sessionStorage.getItem('username');
     }
 
-    ngOnInit(): void {
-    }
+    ngOnInit(): void {}
 
     qoute(){
       this.qouted.emit(this.message)

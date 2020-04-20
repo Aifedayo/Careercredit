@@ -42,7 +42,7 @@
         <input  class="form-control"  name="chat_text" #chat_input
           [(ngModel)]="chat_text" placeholder="Type Your Message Here" 
           maxlength="400" [mention]="mention_users | async" 
-          (searchTerm)='searchMention($event)'>
+          (searchTerm)='searchMention($event)' [mentionConfig]="mentionConfig">
         <button class="send" (click)="sendMessage(chat_text,'plain')" id="submit"> 
           SEND
         </button>

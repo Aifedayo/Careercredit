@@ -11,17 +11,15 @@ export class OthersChatComponent implements OnInit {
     public current_user:string;
 
     @Output() qouted = new EventEmitter();
-    @Input() message = {};
+    @Input() message;
     
     constructor(public chatService:ChatService){
         this.current_user = sessionStorage.getItem('username');
     }
 
-    ngOnInit(): void {
+    ngOnInit(): void {}   
 
-    }   
-
-    isOthers(username){
+    isOthers(username:string){
         return username !== this.current_user && 
         username !== 'DATE-INFO'
     }

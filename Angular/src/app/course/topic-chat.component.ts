@@ -45,7 +45,8 @@ export class TopicChatComponent implements OnInit {
   public mention_users: Observable<any[]>;
   private search_mention_stream = new Subject();
   public qoute_message = null;
-
+  public mentionConfig;
+  
   // getting a reference to the overall list, which is the parent container of the list items
   @ViewChild(MatList, { read: ElementRef }) matList: ElementRef;
   @ViewChild('ChatSpace') chatSpace: ElementRef<HTMLElement>;
@@ -68,13 +69,18 @@ export class TopicChatComponent implements OnInit {
       this.websocket = new ReconnectingWebSocket(
         environment.WS_URL+"?token="+this.token
       )
+      this.mentionConfig = {
+        dropUp:'true',
+        mentionSelect: (item:any)=>{
+          // return `<b>${item['label'].toUpperCase()}</b>`;
+          return `@${item['label']}`;
+        }
+      };
    }
 
   ngOnInit() {
     this.callWebsocket()
     this.setUserMentionProp()
-    // console.log(moment(1489199400000).tz('Asia/Seoul').format('LT'))
-    // console.log(moment(1489199400000).tz('America/New_York').format())
   }
 
   ngAfterViewInit(): void {
