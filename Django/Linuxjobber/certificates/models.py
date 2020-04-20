@@ -3,6 +3,7 @@ from io import BytesIO
 import os
 import boto3
 import botocore
+import requests
 from django.db import models
 
 # Create your models here.
@@ -86,9 +87,10 @@ class GraduateCertificates(models.Model):
         return self.certificate_type.instructor_role.url
 
     def get_graduate_image(self):
-        if self.user:
-            return self.user.profile_img
-        return self.alternate_graduate_image.url
+        url = self.user.profile_img \
+        if self.user else self.alternate_graduate_image.url
+        return base64.b64encode(requests.get(url).content).decode()
+            
 
     def convert_to_fqn(self, url):
 
@@ -114,7 +116,7 @@ class GraduateCertificates(models.Model):
             images = self.get_logosignature_from_s3()
             certificate_logo = images['logo']
             instructor_signature = images['instructor_signature']
-            graduate_image= images['alternate_graduate_image']
+            graduate_image= images['graduate_image']
             context={
                 'certificate_logo': certificate_logo,
                 'env_url': settings.ENV_URL.rstrip('/'),
@@ -270,7 +272,7 @@ class GraduateCertificates(models.Model):
         files = [
             self.certificate_type.logo,
             self.certificate_type.instructor_signature,
-            self.alternate_graduate_image
+            # self.alternate_graduate_image
         ]
 
         bucket = settings.AWS_STORAGE_BUCKET_NAME
@@ -306,7 +308,5 @@ class GraduateCertificates(models.Model):
         return {
             'logo':imgs_b64[0],
             'instructor_signature':imgs_b64[1],
-            'alternate_graduate_image':imgs_b64[2]
+            'graduate_image':self.get_graduate_image()
         }
-
-    

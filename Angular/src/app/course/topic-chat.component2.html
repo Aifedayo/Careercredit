@@ -17,62 +17,19 @@
                       </span>
                     </div>
                 </div>
-                <mat-list-item *ngIf="isOthers(message.username)" >
-                  <img mat-list-avatar [src]="getProfileImg(message.profile_img)" class="fix-size">
-                  <h4 mat-line>
-                      <b>{{message.username}}</b>
-                      <i style="font-size: 12px; text-decoration: none;"> 
-                        {{ message.timestamp }}
-                      </i>
-                  </h4>
-                  <br>
-                  <p mat-line >
-                    <span *ngIf="message.the_type === 'plain' || message.the_type === undefined " >
-                      {{message.content}}
-                    </span>
-                    <app-image-lightbox *ngIf="message.the_type === 'image'" 
-                      [imageUrl]="getProfileImg(message.content)">
-                    </app-image-lightbox>
-                    <span *ngIf="message.the_type === 'file' ">
-                      <i> Uploaded a file: </i><a [href]="message.content" 
-                        download="{{ message.username }}'s_upload">Download</a>
-                    </span>
-                  </p>
-                </mat-list-item>
-                <div class="me"  *ngIf="message.username === current_user" >
-                    <mat-list-item >
-                      <h4 mat-line >
-                        <b>{{message.username}}</b>
-                        <i style="font-size: 12px; text-decoration: none;"> 
-                          {{ message.timestamp }}
-                        </i>
-                      </h4>
-                      <p mat-line >
-                          <span *ngIf="message.the_type === 'plain' || message.the_type === undefined " >
-                            {{message.content}}
-                          </span>
-                          <app-image-lightbox *ngIf="message.the_type === 'image'" 
-                            [imageUrl]="getProfileImg(message.content)">
-                          </app-image-lightbox>
-                          <span *ngIf="message.the_type === 'file' ">
-                              <i> Uploaded a file: </i>
-                              <a [href]="message.content" download="{{ message.username }}'s_upload">
-                                Download
-                              </a>
-                          </span>
-                      </p>
-                      <div style="text-align: right;margin: 30px 0px 15px 15px; width: 50px; height: 50px;" >
-                        <img *ngIf="user$|async as i" class="img-responsive img-circle fix-size" 
-                          style="background: white" [src]="getProfileImg(i.profile_img)">
-                      </div>
-                    </mat-list-item>
-                    <br style="clear:both" />
-                </div>
+                <app-others-chat [message]="message" (qouted)="qoute($event)"></app-others-chat>
+                <app-my-chat [message]="message" (qouted)="qoute($event)"></app-my-chat>
             </div>
           </mat-list>
       </mat-card>
     </div>
    <mat-card-footer >
+      <div>
+        <app-qoute-message 
+          *ngIf="qoute_message" [(message)] = "qoute_message" 
+          [display_close]="true" (closed)="closed()">
+        </app-qoute-message>
+      </div>
       <form class="form-group" style="display:flex ;margin-right: -30px">
         <div class="image-upload">
           <label for="file-input" style="top:4px">
@@ -82,8 +39,10 @@
           </label>
         </div>
         <!-- <input (keyup.enter)="sendMessage(chat_text,'plain')" class="form-control"  name="chat_text" [(ngModel)]="chat_text" placeholder="Type Your Message Here" maxlength="400"> -->
-        <input  class="form-control"  name="chat_text" 
-          [(ngModel)]="chat_text" placeholder="Type Your Message Here" maxlength="400">
+        <input  class="form-control"  name="chat_text" #chat_input
+          [(ngModel)]="chat_text" placeholder="Type Your Message Here" 
+          maxlength="400" [mention]="mention_users | async" 
+          (searchTerm)='searchMention($event)' [mentionConfig]="mentionConfig">
         <button class="send" (click)="sendMessage(chat_text,'plain')" id="submit"> 
           SEND
         </button>

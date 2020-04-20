@@ -223,12 +223,23 @@ export class ApiService {
 
   }
 
+  //Chat Api
   getMessages(data){
     this.refreshToken();
     let head = this.headers;
     head = head.append('Content-Type', 'application/json');
     const url =`${environment.API_URL}awsgateway/get_messages/`
     return this.httpClient.post(
+      url,JSON.stringify(data), {headers: head}
+    )
+  }
+
+  getMentionUsers(data):Observable<any[]>{
+    this.refreshToken();
+    let head = this.headers;
+    head = head.append('Content-Type', 'application/json');
+    const url =`${environment.API_URL}awsgateway/get_mention_users/`
+    return this.httpClient.post<any[]>(
       url,JSON.stringify(data), {headers: head}
     )
   }
