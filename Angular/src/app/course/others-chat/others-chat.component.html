@@ -1,0 +1,45 @@
+<div class="chat-item-o" *ngIf="isOthers(message.username)">
+    <div class="other">
+        <div class="image">
+            <img [src]="chatService.formatProfileImg(message.profile_img)" />
+        </div>    
+        <div class="message">
+            <div class="head">
+                <h4>{{message.username}}</h4>
+                <i>{{ chatService.formatTime(message.timestamp) }}</i>
+                <img src="../../../assets/image/qoute-icon.png" alt="" (click)="qoute()"
+                    *ngIf="message.the_type === 'plain' || message.the_type === undefined">
+            </div>
+            <p class="content">
+                <app-qoute-message [message]="message.qoute_message" 
+                    *ngIf="message.qoute_message">
+                </app-qoute-message>
+                <span *ngIf="message.the_type === 'plain' || message.the_type === undefined " 
+                    [innerHTML]="message.content">
+                </span> 
+                <span *ngIf="message.the_type === 'file' ">
+                    <i> Uploaded a file: </i>
+                    <a [href]="message.content" download="{{ message.username }}'s_upload">
+                        Download
+                    </a>
+                </span>
+                <app-image-lightbox *ngIf="message.the_type === 'image'" 
+                    [imageUrl]="chatService.formatProfileImg(message.content)">
+                </app-image-lightbox>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

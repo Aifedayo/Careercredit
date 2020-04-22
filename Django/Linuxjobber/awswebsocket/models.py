@@ -12,6 +12,7 @@ class User(models.Model):
         db_table = "users_customuser"
         managed = False
 
+
 class ChatMessageWithProfile(models.Model):
     user = models.ForeignKey(
         User,  db_column='user',
@@ -26,3 +27,19 @@ class ChatMessageWithProfile(models.Model):
     class Meta:
         db_table = "classroom_chatmessage"
         managed = False
+   
+
+class ChatQoute(models.Model):
+    message = models.OneToOneField(
+        ChatMessageWithProfile,
+        on_delete=models.CASCADE,
+        related_name='qoute'
+    )
+    username = models.CharField(max_length=50)
+    content = models.CharField(max_length=400)
+    the_type=models.CharField(max_length=10,default='plain')
+    timestamp=models.CharField(max_length=100,null=True)
+
+    def save(self, *args, **kwargs):
+        super(ChatQoute, self).save(*args, **kwargs)
+        return self    

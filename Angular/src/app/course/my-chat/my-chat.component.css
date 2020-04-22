@@ -1,0 +1,88 @@
+/* start here */
+.chat-item{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 16px;
+    position: relative;
+    height: inherit;
+    font-size: 12px;
+    color: rgba(0,0,0,.87);
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    line-height: 1.42857143;
+    font-weight: normal;
+}
+
+.chat-item .my{
+    display: flex;
+    background: rgba(27, 83, 158, 0.2);
+    border-radius: 10px;
+    margin-top: 10px;
+    width: auto;
+    max-width: 350px;
+    padding: 0 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.chat-item .my .message{
+    white-space: normal;
+    text-overflow: ellipsis;
+    font-weight: 400;
+    width: 100%;
+}
+
+.chat-item .my .message .head{
+    display: flex;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+
+.chat-item .my .message .head img{
+    visibility: hidden;
+    width:20px;
+    margin-right: auto;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.chat-item:hover .my .message .head img{
+    visibility: visible;
+}
+
+.chat-item .my .message .head h4{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 5px;
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.chat-item .my .message .head i{
+    font-size: 12px;
+    text-decoration: none;
+    color: rgb(97, 96, 97);
+}
+
+.chat-item .my .message .content{
+    margin-top: 8px;
+    font-size: 15px;
+    white-space: pre-wrap;
+    overflow: hidden;
+}
+
+.chat-item .my .image{
+    margin: 0px 0px 15px 15px;
+    width: 50px;
+    height: 50px;
+}
+
+.chat-item .my .image img{
+    background: white;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    height: 36px;
+    width: 36px;
+    max-width: 100%;
+}
