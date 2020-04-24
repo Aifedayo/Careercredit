@@ -36,7 +36,7 @@ from Courses.models import Course, CoursePermission, UserInterest, CourseTopic
 from ToolsApp.models import Tool
 from users.models import CustomUser
 from .forms import JobPlacementForm, JobApplicationForm, AWSCredUpload, InternshipForm, \
-    ResumeForm, PartimeApplicationForm, WeForm, UnsubscribeForm, ItPartnershipForm
+    ResumeForm, PartimeApplicationForm, WeForm, UnsubscribeForm, ItPartnershipForm, FeedbacksForm
 from datetime import datetime
 from .mail_service import LinuxjobberMailer, handle_failed_campaign
 
@@ -363,10 +363,11 @@ def internships(request):
             messages.success(request, 'Thanks for applying for the internship which starts on ' + str(internsh.strftime(
                 '%b %d, %y')) + '. Please ensure you keep in touch with Linuxjobber latest updates on our various social media platform')
 
-            file_path = os.path.join(settings.BASE_DIR, 'emails', 'signup.txt')
+            file_path = os.path.join(settings.BASE_DIR, 'emails', 'internships.txt') #'signup.txt')
             with open(file_path, 'r') as f:
                 file_content = f.read()
-            mail_message = file_content
+            mail_message = file_content.format(firstname=request.POST['firstname'], lastname=request.POST['lastname'])
+                                      
             mailer = LinuxjobberMailer(
                 subject = "Linuxjobber Internship",
                 to_address = request.POST['email'],
@@ -443,6 +444,9 @@ def policies(request):
 def jobs(request):
     posts = FullTimePostion.objects.all()
     return render(request, 'home/job_index.html', {'posts': posts})
+
+def testimonials(request):
+    return render(request, 'home/testimonials.html')
 
 
 @csrf_exempt
@@ -877,10 +881,14 @@ def completeclass(request,course):
         page_learn = CompleteClassLearn.objects.filter(completeclass=page)
         page_cert = CompleteClassCertificate.objects.filter(completeclass=page)
         courses = CourseTopic.objects.filter(course=page.course)
+        all_courses = CourseTopic.objects.all()
         tm = timezone.now() + timedelta(days=1)
         td = datetime.now()
         td = utc.localize(td)
-
+        for course in all_courses:
+            if course.duration == 5:
+                course.duration = 55
+                course.save()
         if tm.date() ==  page.due_date.date():
             tomorrow = True
         if td > page.due_date:
@@ -1389,10 +1397,14 @@ def work_experience_eligible(request):
         details =  WorkExperienceEligibility.objects.get(user=request.user)
         date = details.date_of_birth
         date = date.strftime('%m/%d/%Y')
-        expire = details.expiry_date
-        expire = expire.strftime('%m/%d/%Y')
         created = details.date_created
         created = created.strftime('%Y-%m-%d') 
+        try:
+            expire = details.expiry_date
+            expire = expire.strftime('%Y-%m-%d')#expire.strftime('%m/%d/%Y')
+        except:
+            expire = details.expiry_date
+            expire =  created  #expire.strftime('%m/%d/%Y')           
     except  WorkExperienceEligibility.DoesNotExist:
         details = None
         date = None
@@ -1440,7 +1452,7 @@ def work_experience_eligible(request):
             form19 = request.POST['form19']
             foreign = request.POST['foreign']
         else:
-            expiry_date = None
+            expiry_date = expire #None
             form19 = None
             foreign = None
 
@@ -1479,6 +1491,7 @@ def work_experience_eligible(request):
             work_experience_eligible_pdf(request.user)
             work_experience_term_pdf(request.user)
         # redirect to the ISA page
+        print(expiry_date)
         return redirect("home:isa")  
     return render(request, 'home/workexpeligibility.html',{'details':details,'expire':expire,'date':date,'dater':dater,'created':created})
 
@@ -1542,9 +1555,11 @@ def work_experience_isa_part_1(request):
             det.estimated_date_of_program_completion=completion
             det.email = email
             det.save()
+            
         except WorkExperienceIsa.DoesNotExist:
             state = WorkExperienceIsa.objects.create(user=request.user,email=email,is_signed_isa=False,current_annual_income=income,monthly_house_payment=pay,highest_level_education=edu,employment_status=status,estimated_date_of_program_completion=completion)
             state.save()
+            # work_experience_isa_pdf(request.user)
 
 
         if paid.includes_job_placement:
@@ -3726,4 +3741,23 @@ def it_partnership(request):
                 {'form':it_partner}
             )
     return TemplateResponse(request, 'home/it_partnership.html') 
+
+
+def feedbacks(request):
+    if request.method == "POST":
+        form = FeedbacksForm(request.POST)
+        feedback = Feedbacks.objects.all()
+        if form.is_valid():
+            print('heello')
+            feedbackform = form.save(commit=False)
+            feedbackform.user = request.user
+            feedbackform.save()
+            messages.success(request, 'Thanks, your feedback has been recorded')
+            print('hello world')
+            return redirect("home:feedbacks")
+    else:
+        form = FeedbacksForm()
+    feedback = Feedbacks.objects.first()
+    form = FeedbacksForm()
+    return render(request, 'home/feedbacks.html', {'form':form, 'feedback':feedback})
 

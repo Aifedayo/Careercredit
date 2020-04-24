@@ -1,0 +1,141 @@
+{% extends 'home/base.html' %}
+{% load staticfiles%}
+{% block title %}
+Feedbacks | Linuxjobber Work Experience
+{% endblock %}
+{% block styles %} 
+<link href="{% static 'home/css/newdesigner/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="{% static 'home/css/feedbacks.css' %}">
+{%endblock%}
+{% block content %}
+ <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">   
+        </div>      
+  </div>      
+</div>
+  
+  <style>
+  label{ text-align:left !important; font-size:15px; }
+  .form-horizontal.Big-form {
+    border: 1px solid aliceblue;
+  }
+  .ValidationErrors { color:red !important; font-size:10px; }
+</style>
+     
+<br>
+{% comment %} <section class="video-study">
+	<div class="container">
+  {% if messages %}
+          {% for message in messages %}
+            {% if message.tags == "success" %}
+            <br><br>
+            <div class="alert alert-success" role="alert">
+            <p style="color:#155724">{{message}}</p>
+            </div>
+            {%else%}
+            <br><br>
+            <div class="alert alert-danger" role="alert">
+            <p style="color:#721c24">{{message}}</p>
+            </div>
+            {%endif%}
+          {% endfor %}
+        {% endif %}
+	 <div class="row video-howto">
+	   <div class="col-xs-12 col-sm-12 col-lg-6">
+      <img src="{% static '/home/css/newhomepage/imgs/macc.png' %}" width="550px" height="400px">
+      </div>
+      <div class="col-xs-12 col-sm-12 col-lg-6 intern-col">
+        <h3 class="text-center intern-title">Become a Full Stack Developer <br>in 3 months</h3>
+        <br>
+        <p class="text-center mgg-20">Get trainings with practical knowledge on the latest technologies that will make you competent in todays technology job market.</p>
+      </div>
+      <a href="#g" class="btn reg-btn">Apply Now</a>
+    </div>
+  </div>
+</section> {% endcomment %}
+<div class="container">
+        <div class="row">
+          <hr>
+        </div>
+      </div>
+{% comment %} <section class="cred" id="g">
+  <div class="container">
+    <div class="row p80">
+      <div class="text-center">
+        <h3  class="p-title">About the program</h3>
+      <div>
+      <p class="mgg-20">Our 3-month Internship program is designed to help undergraduates and fresh graduates boost their skills and build experience as Developers, or System Administrators. Training will be on relevant technologies in the field.<br>
+
+          Developers: will be trained on Fullstack Development for Web Applications, using Python on the Django framework for back-end development, and Angular for front-end development.<br>
+
+          System Administrators: will learn Linux Systems Administration, using CentOS 7 for Linux server administration.<br>
+          Requirements: Participants must have working knowledge of HTML, Python and JavaScript. <br>
+          After the first month, selected candidates will begin receiving a stipend of 20,000 Naira per week, for the remaining two months. <br>
+      </p>
+
+
+      <p class="mgg-20">For enquiries, send an email to admin@linuxjobber.com</p>
+      <p class="mgg-20">Register below</p>
+      </div>
+      </div>
+    </div>
+    </div>
+</section> {% endcomment %}
+<section class="intern-reg feedback-form">
+  <div class="container">
+    <div class="row p100">
+      <div class="text-center">
+        {% if messages %}
+          {% for message in messages %}
+          <div class="alert alert-{{message.tags}}" role="alert">
+            <p>{{message}}</p>
+          </div>
+          {% endfor %}
+        {% endif %}
+        <h3>Give us a feedback</h3>
+        <p>Tell us a little about what you enjoy about us</p>
+        <form class="content" method="post" action="">
+            {% csrf_token %}
+            <div class="form-row">
+                {{ form.non_field_errors }}
+
+                {{ form.source.errors }}
+                {{ form.source }}
+                {{form.satisfaction.label_tag}}
+                <div class="satisfaction-rate">
+                    <div>
+                      {{form.satisfaction.value}}
+                    </div>
+                </div>
+
+
+                <div class="form-item"> 
+                    <button type="submit" class="btn">Submit</button>
+                </div>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="text/javascript">
+	jQuery(function(){
+    $('.dangerfile').hide();
+		$('#id_resume').bind('change', function() {
+    var MAX_UPLOAD_SIZE = "2621440"
+  if (this.files[0].size >  MAX_UPLOAD_SIZE){
+    $('.dangerfile').show();
+    $('form input[type="submit"]').prop("disabled", true);
+  }
+  else{
+    $('.dangerfile').hide();
+    $('form input[type="submit"]').prop("disabled", false);
+  }
+
+});
+	});
+</script>
+{%endblock%}

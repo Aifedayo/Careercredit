@@ -1,0 +1,30 @@
+h3{
+    margin: 0px;
+    padding: 0px;
+}
+
+.content {
+    max-width: 1100px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 2rem;
+    font-family: 'Roboto';
+    font-style: normal;
+    text-align:center;
+}
+.feedback-form{
+    text-align:center;
+    background: #F4F6FA;
+}
+
+.feedback-form  p{
+    font-weight: 300px;
+    font-size: 3.6rem;
+    line-height: 4.2rem;
+    text-align: center;
+    color: #333333;
+    padding-bottom: 3rem;
+}
+.satisfaction-rate{
+    display: flex;
+}
