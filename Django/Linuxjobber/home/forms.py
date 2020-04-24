@@ -72,7 +72,17 @@ class ResumeForm(forms.ModelForm):
 		fields = ['resume',]
 
 
-	
+class FeedbacksForm(forms.ModelForm):
+    satisfaction = forms.CharField(widget=forms.RadioSelect(choices= SATISFACTION_RATE))
+    recommend_us = forms.CharField(widget=forms.RadioSelect(choices=RECOMMEND_US))   
+    # feedback = forms.CharField(label='First Name', widget = forms.TextInput(attrs =
+    # {'placeholder': 'First name', 'id' :'JobFname', 'class':'form-control'}) )
+
+
+    class Meta:
+        model =Feedbacks
+        fields = '__all__'
+        exclude = ('user',)
 
 class ContactUsForm(forms.ModelForm):
 	

@@ -36,7 +36,7 @@ from Courses.models import Course, CoursePermission, UserInterest, CourseTopic
 from ToolsApp.models import Tool
 from users.models import CustomUser
 from .forms import JobPlacementForm, JobApplicationForm, AWSCredUpload, InternshipForm, \
-    ResumeForm, PartimeApplicationForm, WeForm, UnsubscribeForm, ItPartnershipForm
+    ResumeForm, PartimeApplicationForm, WeForm, UnsubscribeForm, ItPartnershipForm, FeedbacksForm
 from datetime import datetime
 from .mail_service import LinuxjobberMailer, handle_failed_campaign
 
@@ -444,6 +444,9 @@ def policies(request):
 def jobs(request):
     posts = FullTimePostion.objects.all()
     return render(request, 'home/job_index.html', {'posts': posts})
+
+def testimonials(request):
+    return render(request, 'home/testimonials.html')
 
 
 @csrf_exempt
@@ -3738,4 +3741,23 @@ def it_partnership(request):
                 {'form':it_partner}
             )
     return TemplateResponse(request, 'home/it_partnership.html') 
+
+
+def feedbacks(request):
+    if request.method == "POST":
+        form = FeedbacksForm(request.POST)
+        feedback = Feedbacks.objects.all()
+        if form.is_valid():
+            print('heello')
+            feedbackform = form.save(commit=False)
+            feedbackform.user = request.user
+            feedbackform.save()
+            messages.success(request, 'Thanks, your feedback has been recorded')
+            print('hello world')
+            return redirect("home:feedbacks")
+    else:
+        form = FeedbacksForm()
+    feedback = Feedbacks.objects.first()
+    form = FeedbacksForm()
+    return render(request, 'home/feedbacks.html', {'form':form, 'feedback':feedback})
 
