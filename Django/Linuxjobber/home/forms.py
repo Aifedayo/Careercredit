@@ -73,8 +73,23 @@ class ResumeForm(forms.ModelForm):
 
 
 class FeedbacksForm(forms.ModelForm):
-    satisfaction = forms.CharField(widget=forms.RadioSelect(choices= SATISFACTION_RATE))
-    recommend_us = forms.CharField(widget=forms.RadioSelect(choices=RECOMMEND_US))   
+    SATISFACTION_RATE_FORM= (
+('1',""),
+('2', ""),
+('3', ""),
+('4', ''),
+('5', ''),
+)
+
+    RECOMMEND_US_FORM = (
+('1',""),
+('2', ""),
+('3', ""),
+('4', ''),
+('5', ''),
+)
+    satisfaction = forms.CharField(widget=forms.RadioSelect(choices= SATISFACTION_RATE_FORM))
+    recommend_us = forms.CharField(widget=forms.RadioSelect(choices=RECOMMEND_US_FORM))   
     # feedback = forms.CharField(label='First Name', widget = forms.TextInput(attrs =
     # {'placeholder': 'First name', 'id' :'JobFname', 'class':'form-control'}) )
 

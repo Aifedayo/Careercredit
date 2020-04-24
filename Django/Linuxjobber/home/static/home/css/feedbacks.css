@@ -2,29 +2,32 @@ h3{
     margin: 0px;
     padding: 0px;
 }
-
-.content {
-    max-width: 1100px;
-    margin: auto;
-    overflow: hidden;
-    padding: 0 2rem;
-    font-family: 'Roboto';
-    font-style: normal;
-    text-align:center;
+ul{
+    padding: 0;
+    margin: 0;
 }
-.feedback-form{
-    text-align:center;
-    background: #F4F6FA;
+ul li{
+    display: block;
+    margin: 20px;
+    text-shadow: 2px 2px 7px grey;
+    font-size: 27px !important;
 }
 
-.feedback-form  p{
-    font-weight: 300px;
-    font-size: 3.6rem;
-    line-height: 4.2rem;
-    text-align: center;
-    color: #333333;
-    padding-bottom: 3rem;
-}
 .satisfaction-rate{
-    display: flex;
+    
+    
+}
+.satisfaction-rate i:hover{
+    color: green;
+}
+ 
+ ul li.active,  ul li.secondary-active{
+    color: yellow;
+}
+#id_satisfaction{
+    display: block;
+} 
+
+input[type="radio"]{
+    display: none;
 }

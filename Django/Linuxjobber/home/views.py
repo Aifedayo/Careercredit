@@ -3748,7 +3748,7 @@ def feedbacks(request):
         form = FeedbacksForm(request.POST)
         feedback = Feedbacks.objects.all()
         if form.is_valid():
-            print('heello')
+            
             feedbackform = form.save(commit=False)
             feedbackform.user = request.user
             feedbackform.save()
@@ -3757,6 +3757,7 @@ def feedbacks(request):
             return redirect("home:feedbacks")
     else:
         form = FeedbacksForm()
+    # print(form)
     feedback = Feedbacks.objects.first()
     form = FeedbacksForm()
     return render(request, 'home/feedbacks.html', {'form':form, 'feedback':feedback})

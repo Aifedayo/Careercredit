@@ -3,9 +3,13 @@
 {% block title %}
 Feedbacks | Linuxjobber Work Experience
 {% endblock %}
+
+{% block external_header %}
+    <link rel="stylesheet" href="{% static 'home/css/feedbacks.css' %}">
+{% endblock %}
+
 {% block styles %} 
 <link href="{% static 'home/css/newdesigner/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="{% static 'home/css/feedbacks.css' %}">
 {%endblock%}
 {% block content %}
  <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -17,12 +21,16 @@ Feedbacks | Linuxjobber Work Experience
 </div>
   
   <style>
+
+
   label{ text-align:left !important; font-size:15px; }
   .form-horizontal.Big-form {
     border: 1px solid aliceblue;
   }
   .ValidationErrors { color:red !important; font-size:10px; }
-</style>
+
+
+  </style>
      
 <br>
 {% comment %} <section class="video-study">
@@ -103,13 +111,88 @@ Feedbacks | Linuxjobber Work Experience
 
                 {{ form.source.errors }}
                 {{ form.source }}
-                {{form.satisfaction.label_tag}}
+
                 <div class="satisfaction-rate">
-                    <div>
-                      {{form.satisfaction.value}}
-                    </div>
+                  <label for="id_satisfaction_0">Satisfaction:</label>
+                  <ul id="id_satisfaction">                  
+                    <li>
+                      <label for="id_satisfaction_0">
+                       <i class="far fa-star"></i>
+                      <input type="radio" name="satisfaction" value="1" required id="id_satisfaction_0" />
+                      </label>
+                    </li>
+                    <li>
+                    <label for="id_satisfaction_1">
+                     <i class="far fa-star"></i>
+                      <input type="radio" name="satisfaction" value="2" required id="id_satisfaction_1" />
+                      </label>
+                    </li>
+                    <li>
+                        <label for="id_satisfaction_2">
+                         <i class="far fa-star"></i>
+                        <input type="radio" name="satisfaction" value="3" required id="id_satisfaction_2" />
+                        </label>
+
+                    </li>
+                    <li>
+                        <label for="id_satisfaction_3">
+                         <i class="far fa-star"></i>
+                        <input type="radio" name="satisfaction" value="4" required id="id_satisfaction_3" />
+                        </label>
+                    </li>
+                    <li>
+                        <label for="id_satisfaction_4">
+                         <i class="far fa-star"></i>
+                        <input type="radio" name="satisfaction" value="5" required id="id_satisfaction_4" />
+                        </label>
+                    </li>
+
                 </div>
 
+                <div>
+                  <label for="id_recommend_us_0">Recommend us:</label>
+                    <ul id="id_recommend_us">
+                        <li>
+                        <label for="id_recommend_us_0">
+                        <input type="radio" name="recommend_us" value="1" required id="id_recommend_us_0" />
+                        </label>
+                        </li>
+
+                        <li>
+                        <label for="id_recommend_us_1">
+                        <input type="radio" name="recommend_us" value="2" required id="id_recommend_us_1" />
+                        </label>
+                        </li>
+
+                        <li>
+                        <label for="id_recommend_us_2">
+                        <input type="radio" name="recommend_us" value="3" required id="id_recommend_us_2" />
+                        </label>
+                        </li>
+
+                        <li>
+                        <label for="id_recommend_us_3">
+                        <input type="radio" name="recommend_us" value="4" required id="id_recommend_us_3" />
+                        </label>
+                        </li>
+
+                        <li>
+                        <label for="id_recommend_us_4">
+                        <input type="radio" name="recommend_us" value="5" required id="id_recommend_us_4" />
+                        </label>
+                        </li>
+                    </ul>  
+                  </div>
+                  <div>
+                    <label for="id_has_friend">Has friend:</label>                  
+                    <input type="checkbox" name="has_friend" id="id_has_friend" />
+                  </div>
+                  <div>
+                  <label for="id_feedback">Feedback:
+                  </label>
+                  <textarea name="feedback" cols="40" rows="10" maxlength="100" required id="id_feedback">
+                  </textarea>  
+                  </div>
 
                 <div class="form-item"> 
                     <button type="submit" class="btn">Submit</button>
