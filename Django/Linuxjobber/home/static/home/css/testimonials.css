@@ -197,4 +197,19 @@ body{
 .feedback-person{
     color: #1B539E;
     margin-right: 5.93%;
+    width: 268px;
+}
+.feedback-person p{
+    font-family: Roboto;
+    font-style: normal;
+    /* font-weight: 500; */
+    font-size: 12px;
+    line-height: 16px;
+}
+.feedback-person span{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
 }
