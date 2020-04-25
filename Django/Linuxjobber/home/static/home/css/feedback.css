@@ -2,16 +2,20 @@ h3{
     margin: 0px;
     padding: 0px;
 }
-ul{
+
+.text-center2{
+    margin-top: 5%;
+}
+.form-row ul{
     padding: 0;
     margin: 0;
 }
-ul li{
+.form-row ul li{
     display: inline-block;
     margin: 10px;
     text-shadow: 2px 2px 7px grey;
     font-size: 27px !important;
-}
+} 
 
 .satisfaction-rate{
     
@@ -33,4 +37,12 @@ ul li.active,  ul li.secondary-active{
 
 input[type="radio"]{
     display: none;
+}
+.has-friend{
+    display: block;
+}
+
+.feedback{
+    display: block;
+
 }

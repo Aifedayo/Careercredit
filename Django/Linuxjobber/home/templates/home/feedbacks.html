@@ -3,14 +3,17 @@
 {% block title %}
 Feedbacks | Linuxjobber Work Experience
 {% endblock %}
-
 {% block external_header %}
-    <link rel="stylesheet" href="{% static 'home/css/feedbacks.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/feedback.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
 {% endblock %}
 
-{% block styles %} 
+    
+
+
+{% comment %} {% block styles %} 
 <link href="{% static 'home/css/newdesigner/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
-{%endblock%}
+{%endblock%} {% endcomment %}
 {% block content %}
  <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
@@ -93,8 +96,8 @@ Feedbacks | Linuxjobber Work Experience
 </section> {% endcomment %}
 <section class="intern-reg feedback-form">
   <div class="container">
-    <div class="row p100">
-      <div class="text-center">
+    <div class="row ">
+      <div class="text-center text-center2">
         {% if messages %}
           {% for message in messages %}
           <div class="alert alert-{{message.tags}}" role="alert">
@@ -188,15 +191,18 @@ Feedbacks | Linuxjobber Work Experience
                         </li>
                     </ul>  
                   </div>
-                  <div>
-                    <label for="id_has_friend">Has friend:</label>                  
-                    <input type="checkbox" name="has_friend" id="id_has_friend" />
+                  <div class="has-friend">
+                    <label for="id_has_friend">Has friend:</label> 
+                    <ul>               
+                    <input type="checkbox" name="has_friend" id="id_has_friend"  style="display: inline-block; margin: 10px;" />
+                    </ul>  
                   </div>
-                  <div>
-                  <label for="id_feedback">Feedback:
-                  </label>
-                  <textarea name="feedback" cols="40" rows="10" maxlength="100" required id="id_feedback">
-                  </textarea>  
+                  <div class="feedback">
+                    <label for="id_feedback">Feedback:
+                    </label>
+                    <ul>
+                      <textarea name="feedback" cols="40" rows="10" maxlength="100" required id="id_feedback"></textarea>
+                    </ul>  
                   </div>
 
                 <div class="form-item"> 
