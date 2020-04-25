@@ -117,67 +117,72 @@ Feedbacks | Linuxjobber Work Experience
                   <ul id="id_satisfaction">                  
                     <li>
                       <label for="id_satisfaction_0">
-                       <i class="far fa-star"></i>
+                       <i class="fas fa-star"></i>
                       <input type="radio" name="satisfaction" value="1" required id="id_satisfaction_0" />
                       </label>
                     </li>
                     <li>
                     <label for="id_satisfaction_1">
-                     <i class="far fa-star"></i>
+                     <i class="fas fa-star"></i>
                       <input type="radio" name="satisfaction" value="2" required id="id_satisfaction_1" />
                       </label>
                     </li>
                     <li>
                         <label for="id_satisfaction_2">
-                         <i class="far fa-star"></i>
+                         <i class="fas fa-star"></i>
                         <input type="radio" name="satisfaction" value="3" required id="id_satisfaction_2" />
                         </label>
 
                     </li>
                     <li>
                         <label for="id_satisfaction_3">
-                         <i class="far fa-star"></i>
+                         <i class="fas fa-star"></i>
                         <input type="radio" name="satisfaction" value="4" required id="id_satisfaction_3" />
                         </label>
                     </li>
                     <li>
                         <label for="id_satisfaction_4">
-                         <i class="far fa-star"></i>
+                         <i class="fas fa-star"></i>
                         <input type="radio" name="satisfaction" value="5" required id="id_satisfaction_4" />
                         </label>
                     </li>
 
                 </div>
 
-                <div>
+                <div class="recommend-rate">
                   <label for="id_recommend_us_0">Recommend us:</label>
                     <ul id="id_recommend_us">
                         <li>
                         <label for="id_recommend_us_0">
+                        <i class="fas fa-star"></i>
                         <input type="radio" name="recommend_us" value="1" required id="id_recommend_us_0" />
                         </label>
                         </li>
 
                         <li>
                         <label for="id_recommend_us_1">
+                        <i class="fas fa-star"></i>
                         <input type="radio" name="recommend_us" value="2" required id="id_recommend_us_1" />
                         </label>
                         </li>
 
                         <li>
                         <label for="id_recommend_us_2">
+                        <i class="fas fa-star"></i>
                         <input type="radio" name="recommend_us" value="3" required id="id_recommend_us_2" />
                         </label>
                         </li>
 
                         <li>
                         <label for="id_recommend_us_3">
+                        <i class="fas fa-star"></i>
                         <input type="radio" name="recommend_us" value="4" required id="id_recommend_us_3" />
                         </label>
                         </li>
 
                         <li>
                         <label for="id_recommend_us_4">
+                        <i class="fas fa-star"></i>
                         <input type="radio" name="recommend_us" value="5" required id="id_recommend_us_4" />
                         </label>
                         </li>
@@ -203,7 +208,23 @@ Feedbacks | Linuxjobber Work Experience
     </div>
   </div>
 </section>
+<script>
 
+  $('.satisfaction-rate li').on("click", function(){
+      $('.satisfaction-rate li').removeClass('active');
+      $('.satisfaction-rate li').removeClass('secondary-active');
+      $(this).addClass('active');
+      $(this).prevAll().addClass('active');
+  })
+
+  $(' .recommend-rate li').on("click", function(){
+      $('.recommend-rate li').removeClass('active');
+      $('.recommend-rate li').removeClass('secondary-active');
+      $(this).addClass('active');
+      $(this).prevAll().addClass('active');
+  })
+
+</script>
 <script type="text/javascript">
 	jQuery(function(){
     $('.dangerfile').hide();

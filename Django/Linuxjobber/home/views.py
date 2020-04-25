@@ -3742,7 +3742,7 @@ def it_partnership(request):
             )
     return TemplateResponse(request, 'home/it_partnership.html') 
 
-
+@login_required
 def feedbacks(request):
     if request.method == "POST":
         form = FeedbacksForm(request.POST)
