@@ -118,87 +118,103 @@ Feedbacks | Linuxjobber Work Experience
                 <div class="satisfaction-rate">
                   <label for="id_satisfaction_0" class="label-style">So far, how satisfied are you with the Work Experience program?</label>
                   <ul id="id_satisfaction">                  
-                    <li>
+                    <li value="1">
                       <label for="id_satisfaction_0">
                        <i class="fas fa-star"></i>
                       <input type="radio" name="satisfaction" value="1" required id="id_satisfaction_0" />
                       </label>
                     </li>
-                    <li>
+                    <li value="2">
                     <label for="id_satisfaction_1">
                      <i class="fas fa-star"></i>
                       <input type="radio" name="satisfaction" value="2" required id="id_satisfaction_1" />
                       </label>
                     </li>
-                    <li>
+                    <li value="3">
                         <label for="id_satisfaction_2">
                          <i class="fas fa-star"></i>
                         <input type="radio" name="satisfaction" value="3" required id="id_satisfaction_2" />
                         </label>
 
                     </li>
-                    <li>
+                    <li value="4">
                         <label for="id_satisfaction_3">
                          <i class="fas fa-star"></i>
                         <input type="radio" name="satisfaction" value="4" required id="id_satisfaction_3" />
                         </label>
                     </li>
-                    <li>
+                    <li value="5">
                         <label for="id_satisfaction_4">
                          <i class="fas fa-star"></i>
                         <input type="radio" name="satisfaction" value="5" required id="id_satisfaction_4" />
+                        
                         </label>
                     </li>
+                    <span id="starvalue-1"></span>
 
                 </div>
 
                 <div class="recommend-rate">
                   <label for="id_recommend_us_0" class="label-style">How likely are you to recommend our Work Experience program to your friends?</label>
                     <ul id="id_recommend_us">
-                        <li>
+                        <li value="1">
                         <label for="id_recommend_us_0">
                         <i class="fas fa-star"></i>
                         <input type="radio" name="recommend_us" value="1" required id="id_recommend_us_0" />
                         </label>
                         </li>
 
-                        <li>
+                        <li value="2">
                         <label for="id_recommend_us_1">
                         <i class="fas fa-star"></i>
                         <input type="radio" name="recommend_us" value="2" required id="id_recommend_us_1" />
                         </label>
                         </li>
 
-                        <li>
+                        <li value="3">
                         <label for="id_recommend_us_2">
                         <i class="fas fa-star"></i>
                         <input type="radio" name="recommend_us" value="3" required id="id_recommend_us_2" />
                         </label>
                         </li>
 
-                        <li>
+                        <li value="4">
                         <label for="id_recommend_us_3">
                         <i class="fas fa-star"></i>
                         <input type="radio" name="recommend_us" value="4" required id="id_recommend_us_3" />
                         </label>
                         </li>
 
-                        <li>
+                        <li value="5">
                         <label for="id_recommend_us_4">
                         <i class="fas fa-star"></i>
                         <input type="radio" name="recommend_us" value="5" required id="id_recommend_us_4" />
                         </label>
                         </li>
+                        <span id="starvalue-2"></span>
                     </ul>  
                   </div>
                   <div class="has-friend">
-                    <label for="id_has_friend" class="label-style">Do you have any friends that need Tech Work Experience?</label> 
-                    <ul>               
-                    <input type="checkbox" name="has_friend" id="id_has_friend"  style="display: inline-block; margin: 10px;" />
-                    </ul>  
+                    <label for="id_has_friend" class="label-style">Will you recommend our Work Experience program to your friends?</label> 
+                    <ul>
+                    <div class=""> 
+                    <li >
+                      
+                      <label for="id_has_friend_0">
+                       Yes <input type="radio" name="has_friend" value="1" required id="id_has_friend_0" />
+                      
+                      </label>                    
+                     </li>
+                      <li>
+                        <label for="id_has_friend_1">
+                         No <input type="radio" name="has_friend" value="2" required id="id_has_friend_1" />
+                      </label>
+                      </li>
+                    </div> 
+                    </ul>
                   </div>
                   <div class="feedback">
-                    <label for="id_feedback" class="label-style">Feedback
+                    <label for="id_feedback" class="label-style">What can you say about our Work Experience program?
                     </label>
                     <ul>
                       <textarea name="feedback" cols="40" rows="10" maxlength="100" required id="id_feedback"></textarea>
@@ -215,20 +231,32 @@ Feedbacks | Linuxjobber Work Experience
   </div>
 </section>
 <script>
+	jQuery(function(){
+    var insertedText = {
+			1: '1/5',
+			2: '2/5',
+			3: '3/5',
+			4: '4/5',
+			5: '5/5'
+		}
+    $('.satisfaction-rate li').on("click", function(){
+        $('.satisfaction-rate li').removeClass('active');
+        $('.satisfaction-rate li').removeClass('secondary-active');
+        $(this).addClass('active');
+        $(this).prevAll().addClass('active');
 
-  $('.satisfaction-rate li').on("click", function(){
-      $('.satisfaction-rate li').removeClass('active');
-      $('.satisfaction-rate li').removeClass('secondary-active');
-      $(this).addClass('active');
-      $(this).prevAll().addClass('active');
-  })
+        $("#starvalue-1").text(insertedText[$(this).val()])
+    })
 
-  $(' .recommend-rate li').on("click", function(){
-      $('.recommend-rate li').removeClass('active');
-      $('.recommend-rate li').removeClass('secondary-active');
-      $(this).addClass('active');
-      $(this).prevAll().addClass('active');
-  })
+    $(' .recommend-rate li').on("click", function(){
+        $('.recommend-rate li').removeClass('active');
+        $('.recommend-rate li').removeClass('secondary-active');
+        $(this).addClass('active');
+        $(this).prevAll().addClass('active');
+
+        $("#starvalue-2").text(insertedText[$(this).val()])
+    })
+  });
 
 </script>
 <script type="text/javascript">

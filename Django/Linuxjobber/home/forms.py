@@ -89,9 +89,8 @@ class FeedbacksForm(forms.ModelForm):
 ('5', ''),
 )
     satisfaction = forms.CharField(widget=forms.RadioSelect(choices= SATISFACTION_RATE_FORM))
-    recommend_us = forms.CharField(widget=forms.RadioSelect(choices=RECOMMEND_US_FORM))   
-    # feedback = forms.CharField(label='First Name', widget = forms.TextInput(attrs =
-    # {'placeholder': 'First name', 'id' :'JobFname', 'class':'form-control'}) )
+    recommend_us = forms.CharField(widget=forms.RadioSelect(choices=RECOMMEND_US_FORM))  
+    has_friend = forms.CharField(widget=forms.RadioSelect(choices=HAS_FRIEND)) 
 
 
     class Meta:

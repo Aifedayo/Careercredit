@@ -42,7 +42,7 @@
         <div class="col-md-8 second-cont">
             <div class=" feedbacks">
 
-
+                {%for testi in feedbacks%}
                 <div class="media media-2 boxx" style="">
                     <div class="media-body">
                         <div class="quo1">
@@ -50,8 +50,8 @@
                             <img src="{% static 'home/images/quo1.png' %}" class="" style="">
                         </div> 
                         <div class="testimoni">
-                            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            <p> 
+                            {{testi.feedback}}
                             </p>                            
                         </div>                        
 
@@ -65,6 +65,35 @@
                             </div>
                             <div class="feedback-person">
                                 <p><span>Funke Akindele,</span>  Joined as Linux Administrator</p>
+                            </div>
+                        </div>  
+                    </div>                         
+                </div> 
+                {%endfor%}
+
+
+                <div class="media media-2 boxx" style="">
+                    <div class="media-body">
+                        <div class="quo1">
+                            <img src="{% static 'home/images/quo1.png' %}" class="" style="">
+                            <img src="{% static 'home/images/quo1.png' %}" class="" style="">
+                        </div> 
+                        <div class="testimoni">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco as we proceed onh
+                            </p>                            
+                        </div>                        
+
+                        <div class="quo2">
+                            <img src="{% static 'home/images/quo2.png' %}" class="" style="">
+                            <img src="{% static 'home/images/quo2.png' %}" class="" style="">
+                        </div> 
+                        <div class=" person" style="">
+                            <div >
+                                <img src="{% static 'home/Mary Okafor.jpg' %}" class="feedback-img"  style="">
+                            </div>
+                            <div class="feedback-person">
+                                <p><span>Funke Akindele,</span>  Joined as Linux Administrator </p>
                             </div>
                         </div>  
                     </div>                         

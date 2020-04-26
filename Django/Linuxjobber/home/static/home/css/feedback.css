@@ -31,7 +31,7 @@ h3{
     padding-bottom: 1rem;
 
 }
-.label-style{
+.label-style, #starvalue-1, #starvalue-2{
     font-family: 'Roboto', "Helvetica Neue", sans-serif;
     /* display: block; */
     font-weight: 500;
@@ -40,6 +40,7 @@ h3{
     color: #333333;
     text-align: left;
     padding-bottom: 0.1rem;
+    margin-bottom: 10px;
 }
 .text-center2 textarea{
     font-size: inherit;
@@ -88,11 +89,16 @@ ul li.active,  ul li.secondary-active{
 input[type="radio"]{
     display: none;
 }
+.has-friend input[type="radio"]{
+    display: inline-block;
+}
 .has-friend{
     display: block;
 }
 
 .feedback{
     display: block;
-
+}
+.has-friend ul label{
+    font-family: 'Roboto', "Helvetica Neue", sans-serif;
 }

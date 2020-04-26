@@ -679,12 +679,16 @@ RECOMMEND_US = (
     ('4', 'Likely'),
     ('5', 'Very Likely'),
 )
+HAS_FRIEND = (
+    ('1', 'Yes'),
+    ('2', "No")
+)
 
 class Feedbacks(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     satisfaction = models.CharField(choices=SATISFACTION_RATE, max_length=50)
     recommend_us = models.CharField( choices=RECOMMEND_US, max_length=50)
-    has_friend = models.BooleanField()    
+    has_friend = models.CharField(choices= HAS_FRIEND, max_length= 10)    
     feedback = models.TextField(max_length=100)
 
 

@@ -445,9 +445,6 @@ def jobs(request):
     posts = FullTimePostion.objects.all()
     return render(request, 'home/job_index.html', {'posts': posts})
 
-def testimonials(request):
-    return render(request, 'home/testimonials.html')
-
 
 @csrf_exempt
 def position_detail(request, position_type="fulltime"):
@@ -3742,6 +3739,14 @@ def it_partnership(request):
             )
     return TemplateResponse(request, 'home/it_partnership.html') 
 
+def testimonials(request):
+    feedbacks = Feedbacks.objects.all()
+    
+    # for feed in feedbacks:
+    #     person = wepeoples.objects
+        # print(feed.feedback)
+    return render(request, 'home/testimonials.html', {'feedbacks':feedbacks})
+
 @login_required
 def feedbacks(request):
     if request.method == "POST":
@@ -3757,7 +3762,7 @@ def feedbacks(request):
             return redirect("home:feedbacks")
     else:
         form = FeedbacksForm()
-    # print(form)
+    print(form)
     feedback = Feedbacks.objects.first()
     form = FeedbacksForm()
     return render(request, 'home/feedbacks.html', {'form':form, 'feedback':feedback})

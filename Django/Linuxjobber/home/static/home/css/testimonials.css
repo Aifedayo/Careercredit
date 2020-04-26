@@ -162,6 +162,8 @@ body{
 
 }
 .testimoni{
+    width: 316.2px;
+    height: 71.11px;
     margin-left: 7%;
     margin-right: 7.2%;
 }
@@ -192,12 +194,13 @@ body{
     border-radius: 50%;
     background-size: cover; 
     border: 1px solid #E5E5E5;
+    /* width: 369px; */
 }
 
 .feedback-person{
     color: #1B539E;
     margin-right: 5.93%;
-    width: 268px;
+    width: 300px;
 }
 .feedback-person p{
     font-family: Roboto;
