@@ -1196,7 +1196,7 @@ def workexperience(request):
         pass
     return render(request, 'home/work_experience.html', {'PRICE':PRICE})
 
-
+@login_required
 def workterm(request):
     # Work Experience terms and agreement view
     updatestage(request, workterm) # update the stage of applicant
@@ -3739,3 +3739,5 @@ def it_partnership(request):
             )
     return TemplateResponse(request, 'home/it_partnership.html') 
 
+def career_credit(request):
+    return TemplateResponse(request, 'home/career_credit.html') 
