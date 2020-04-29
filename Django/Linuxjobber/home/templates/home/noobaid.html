@@ -114,6 +114,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
 <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 <script src="{% static 'home/css/newdesigner/js/validation/jquery.validate.js' %}"></script>
+
+{% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> {% endcomment %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
  <nav class="navbar navbar-toggleable-md noobnav">
     <div class = "container">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -317,11 +322,48 @@
                     <input class="noobint form-control" style="border: 0; padding-left: 0px; border-radius: 0px;  outline: 0;background: transparent;border-bottom: 1px solid #BFBFBF;" placeholder="Phone" type="text" name="availability" required/>
                     <br>
                     <textarea class="noobint form-control" style="border: 0; padding-left: 0px; border-radius: 0px;  outline: 0;background: transparent;border-bottom: 1px solid #BFBFBF;" placeholder="Request" type="text" name="request" required></textarea>
+                    
                     <br>
-                    <button class="btn btnoob2"  style="font-weight: 700;" type="submit">Submit</button>
+                    <button class="btn btnoob2"  style="font-weight: 700;" type="submit"  >Submit</button>
                 </form>
             </div>
+        
         </div>
+
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+            <div class="modal-content">
+            
+                <!-- Modal Header -->
+                <div class="modal-header">
+                <h4 class="modal-title">Noobaid Demo Request</h4>
+                {% comment %} <h6> Do not close</h6> {% endcomment %}
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+                
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form method="post" action="">
+                    {% csrf_token %}
+                    A token has been sent to your email. Enter the token and click send below.
+                    <br>
+                    <input class="noobint form-control" style="border: 0; padding-left: 0px; border-radius: 0px;  outline: 0;background: 
+                    transparent;border-bottom: 1px solid #BFBFBF;" placeholder="Token" type="text" name="token" required/>
+                    <br>
+                    <button class="btn btnoob2"  style="font-weight: 700;" type="submit"  >Send message now</button>
+                    </form>
+                </div>
+                
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel message</button>
+                </div>
+                
+            </div>
+            </div>
+        </div>
+
+
     </div>
 </div>
 
@@ -332,7 +374,13 @@
 </div>
 
 		
-
+{% if successful_submit %}
+    <script>
+        $(document).ready(function(){
+            $("#myModal").modal('show');
+        });
+    </script>
+{% endif %}
 
 <script>
     $(document).ready(function (){
