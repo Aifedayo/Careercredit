@@ -49,7 +49,8 @@ html body *{
 
 /* banner */
 section.banner{
-    background:url('/static/home/careercredit/images/banner.png');
+    /* background:url('/static/home/careercredit/images/banner.png'); */
+    background:url('../../careercredit/images/banner.png');
     width: 100%;
     height: 111vh;
     background-repeat: no-repeat;
@@ -256,7 +257,7 @@ section.application-step{
 }
 
 section.application-step .content .app-step-bg{
-    background:url('/static/home/careercredit/images/app-step-bg.png');
+    background:url('../../careercredit/images/app-step-bg.png');
     background-repeat: no-repeat;
     background-size: contain;
     height: 64.5rem;
@@ -328,7 +329,7 @@ section.what-more{
 }
 
 section.what-more .content .bg{
-    background:url('/static/home/careercredit/images/second_curve.png');
+    background:url('../../careercredit/images/second_curve.png');
     background-repeat: no-repeat;
     background-size: contain;
     height: 68.3rem;
@@ -403,7 +404,7 @@ section.who-can-apply{
 }
 
 section.who-can-apply .content .bg{
-    background:url('/static/home/careercredit/images/third_curve.png');
+    background:url('../../careercredit/images/third_curve.png');
     background-repeat: no-repeat;
     background-size: contain;
     height: 39.2rem;
@@ -516,7 +517,7 @@ section.forth-curve{
 }
 
 section.forth-curve .content .bg{
-    background:url('/static/home/careercredit/images/forth_curve.png');
+    background:url('../../careercredit/images/forth_curve.png');
     background-repeat: no-repeat;
     background-size: contain;
     height: 14.2rem;
@@ -529,7 +530,7 @@ section.app-open-now{
 }
 
 section.app-open-now .content .bg{
-    background:url('/static/home/careercredit/images/fifth_curve.png');
+    background:url('../../careercredit/images/fifth_curve.png');
     background-repeat: no-repeat;
     background-size: contain;
     height: 69.2rem; 
@@ -537,7 +538,7 @@ section.app-open-now .content .bg{
 }
 
 section.app-open-now .content .bg .now-bg{
-    background:url('/static/home/careercredit/images/app-open-now-bg.png');
+    background:url('../../careercredit/images/app-open-now-bg.png');
     background-repeat: no-repeat;
     background-size: contain;
     height: 43rem; 
@@ -778,3 +779,18 @@ footer .content .copy-right a{
     text-decoration: none;
     color: #35B99F;
 }
+
+
+
+
+/* form */
+
+section.form-nav .content nav{
+    background:url('../../careercredit/images/form-header.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+/* section.form-nav .content .nav .list{
+
+} */
