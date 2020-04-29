@@ -1,0 +1,8 @@
+
+    Hello {fullname},
+
+    Here is your secret token
+    {token}
+
+    Warm Regards, 
+    Linuxjobber
