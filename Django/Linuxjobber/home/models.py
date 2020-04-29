@@ -664,6 +664,34 @@ class RecordWEChange(models.Model):
     new_info = models.CharField(max_length=100, null=True)
     change_date = models.DateField(default=datetime.date.today, null=True)
 
+SATISFACTION_RATE= (
+    ('1',"Least Satisfied"),
+    ('2', "Not Satisfied"),
+    ('3', "Somewhat Satisfied"),
+    ('4', 'Satisfied'),
+    ('5', 'Very Satisfied'),
+)
+
+RECOMMEND_US = (
+    ('1',"Least Likely"),
+    ('2', "Not Likely"),
+    ('3', "Somewhat Likely"),
+    ('4', 'Likely'),
+    ('5', 'Very Likely'),
+)
+HAS_FRIEND = (
+    ('1', 'Yes'),
+    ('2', "No")
+)
+
+class Feedbacks(models.Model):
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+    satisfaction = models.CharField(choices=SATISFACTION_RATE, max_length=50)
+    recommend_us = models.CharField( choices=RECOMMEND_US, max_length=50)
+    has_friend = models.CharField(choices= HAS_FRIEND, max_length= 10)    
+    feedback = models.TextField(max_length=100)
+
+
 class GroupClassLog(models.Model):
     group = models.ForeignKey(Groupclass, on_delete=models.CASCADE)
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)

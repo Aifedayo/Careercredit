@@ -36,7 +36,7 @@ from Courses.models import Course, CoursePermission, UserInterest, CourseTopic
 from ToolsApp.models import Tool
 from users.models import CustomUser
 from .forms import JobPlacementForm, JobApplicationForm, AWSCredUpload, InternshipForm, \
-    ResumeForm, PartimeApplicationForm, WeForm, UnsubscribeForm, ItPartnershipForm
+    ResumeForm, PartimeApplicationForm, WeForm, UnsubscribeForm, ItPartnershipForm, FeedbacksForm
 from datetime import datetime
 from .mail_service import LinuxjobberMailer, handle_failed_campaign
 
@@ -3738,6 +3738,34 @@ def it_partnership(request):
                 {'form':it_partner}
             )
     return TemplateResponse(request, 'home/it_partnership.html') 
+
+def testimonials(request):
+    feedbacks = Feedbacks.objects.all()
+    
+    # for feed in feedbacks:
+    #     person = wepeoples.objects
+        # print(feed.feedback)
+    return render(request, 'home/testimonials.html', {'feedbacks':feedbacks})
+
+@login_required
+def feedbacks(request):
+    if request.method == "POST":
+        form = FeedbacksForm(request.POST)
+        feedback = Feedbacks.objects.all()
+        if form.is_valid():
+            
+            feedbackform = form.save(commit=False)
+            feedbackform.user = request.user
+            feedbackform.save()
+            messages.success(request, 'Thanks, your feedback has been recorded')
+            print('hello world')
+            return redirect("home:feedbacks")
+    else:
+        form = FeedbacksForm()
+    print(form)
+    feedback = Feedbacks.objects.first()
+    form = FeedbacksForm()
+    return render(request, 'home/feedbacks.html', {'form':form, 'feedback':feedback})
 
 def career_credit(request):
     return TemplateResponse(request, 'home/career_credit.html') 
