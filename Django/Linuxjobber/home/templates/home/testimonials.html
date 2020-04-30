@@ -1,0 +1,275 @@
+{% extends 'home/base.html' %}
+{% load staticfiles %}
+{% block title %}
+    Testimonials
+{% endblock %}
+
+{% block external_header %}
+    <link rel="stylesheet" href="{% static 'home/css/testimonial-timeline.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/testimonials.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% load staticfiles %}
+{% block content %}
+
+    <div class="navhead"></div>
+
+    <div class="row">
+        <div class="col-md-4 first-cont" >
+            <div class="style-text">What are people saying about us?</div> 
+            <a class="btn" href="">Sign up for Work Experience<a></a>
+
+            <div class="media media-1">
+                <div class="media-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                    </p>
+                </div>                
+                <div class="media-left founder">
+                    <div><img src="{% static 'home/jo.png' %}" class="media-object" style="width:60px">
+                    </div> 
+                    <div class="media-body media-texxt">
+                        <p class=" positn"><span style="font-weight: bold; font-size: 
+                        14px;line-height: 16px; font-family: Roboto;"> - Joseph Showumi,</span>  Founder LinuxJobber</p>
+                    </div>                
+                </div>
+
+            </div>            
+        </div>
+
+        <div class="col-md-8 second-cont">
+            <div class=" feedbacks">
+
+                {%for testi in feedbacks%}
+                <div class="media media-2 boxx" style="">
+                    <div class="media-body">
+                        <div class="quo1">
+                            <img src="{% static 'home/images/quo1.png' %}" class="" style="">
+                            <img src="{% static 'home/images/quo1.png' %}" class="" style="">
+                        </div> 
+                        <div class="testimoni">
+                            <p> 
+                            {{testi.feedback}}
+                            </p>                            
+                        </div>                        
+
+                        <div class="quo2">
+                            <img src="{% static 'home/images/quo2.png' %}" class="" style="">
+                            <img src="{% static 'home/images/quo2.png' %}" class="" style="">
+                        </div> 
+                        <div class=" person" style="">
+                            <div >
+                                <img src="{% static 'home/Mary Okafor.jpg' %}" class="feedback-img"  style="">
+                            </div>
+                            <div class="feedback-person">
+                                <p><span>Funke Akindele,</span>  Joined as Linux Administrator</p>
+                            </div>
+                        </div>  
+                    </div>                         
+                </div> 
+                {%endfor%}
+
+
+                <div class="media media-2 boxx" style="">
+                    <div class="media-body">
+                        <div class="quo1">
+                            <img src="{% static 'home/images/quo1.png' %}" class="" style="">
+                            <img src="{% static 'home/images/quo1.png' %}" class="" style="">
+                        </div> 
+                        <div class="testimoni">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco as we proceed onh
+                            </p>                            
+                        </div>                        
+
+                        <div class="quo2">
+                            <img src="{% static 'home/images/quo2.png' %}" class="" style="">
+                            <img src="{% static 'home/images/quo2.png' %}" class="" style="">
+                        </div> 
+                        <div class=" person" style="">
+                            <div >
+                                <img src="{% static 'home/Mary Okafor.jpg' %}" class="feedback-img"  style="">
+                            </div>
+                            <div class="feedback-person">
+                                <p><span>Funke Akindele,</span>  Joined as Linux Administrator </p>
+                            </div>
+                        </div>  
+                    </div>                         
+                </div> 
+
+                <div class="media media-2 boxx" style="">
+                    <div class="media-body">
+                        <div class="quo1">
+                            <img src="{% static 'home/images/quo1.png' %}" class="" style="">
+                            <img src="{% static 'home/images/quo1.png' %}" class="" style="">
+                        </div> 
+                        <div class="testimoni">
+                            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            </p>                            
+                        </div>                        
+
+                        <div class="quo2">
+                            <img src="{% static 'home/images/quo2.png' %}" class="" style="">
+                            <img src="{% static 'home/images/quo2.png' %}" class="" style="">
+                        </div> 
+                        <div class=" person" style="">
+                            <div >
+                                <img src="{% static 'home/Mary Okafor.jpg' %}" class="feedback-img"  style="">
+                            </div>
+                            <div class="feedback-person">
+                                <p><span>Funke Akindele,</span>  Joined as Linux Administrator</p>
+                            </div>
+                        </div>  
+                    </div>                         
+                </div> 
+
+                <div class="media media-2 boxx" style="">
+                    <div class="media-body">
+                        <div class="quo1">
+                            <img src="{% static 'home/images/quo1.png' %}" class="" style="">
+                            <img src="{% static 'home/images/quo1.png' %}" class="" style="">
+                        </div> 
+                        <div class="testimoni">
+                            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            </p>                            
+                        </div>                        
+
+                        <div class="quo2">
+                            <img src="{% static 'home/images/quo2.png' %}" class="" style="">
+                            <img src="{% static 'home/images/quo2.png' %}" class="" style="">
+                        </div> 
+                        <div class=" person" style="">
+                            <div >
+                                <img src="{% static 'home/Mary Okafor.jpg' %}" class="feedback-img"  style="">
+                            </div>
+                            <div class="feedback-person">
+                                <p><span>Funke Akindele,</span>  Joined as Linux Administrator</p>
+                            </div>
+                        </div>  
+                    </div>                         
+                </div> 
+
+                <div class="media media-2 boxx" style="">
+                    <div class="media-body">
+                        <div class="quo1">
+                            <img src="{% static 'home/images/quo1.png' %}" class="" style="">
+                            <img src="{% static 'home/images/quo1.png' %}" class="" style="">
+                        </div> 
+                        <div class="testimoni">
+                            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            </p>                            
+                        </div>                        
+
+                        <div class="quo2">
+                            <img src="{% static 'home/images/quo2.png' %}" class="" style="">
+                            <img src="{% static 'home/images/quo2.png' %}" class="" style="">
+                        </div> 
+                        <div class=" person" style="">
+                            <div >
+                                <img src="{% static 'home/Mary Okafor.jpg' %}" class="feedback-img"  style="">
+                            </div>
+                            <div class="feedback-person">
+                                <p><span>Funke Akindele,</span>  Joined as Linux Administrator</p>
+                            </div>
+                        </div>  
+                    </div>                         
+                </div> 
+
+                <div class="media media-2 boxx" style="">
+                    <div class="media-body">
+                        <div class="quo1">
+                            <img src="{% static 'home/images/quo1.png' %}" class="" style="">
+                            <img src="{% static 'home/images/quo1.png' %}" class="" style="">
+                        </div> 
+                        <div class="testimoni">
+                            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            </p>                            
+                        </div>                        
+
+                        <div class="quo2">
+                            <img src="{% static 'home/images/quo2.png' %}" class="" style="">
+                            <img src="{% static 'home/images/quo2.png' %}" class="" style="">
+                        </div> 
+                        <div class=" person" style="">
+                            <div >
+                                <img src="{% static 'home/Mary Okafor.jpg' %}" class="feedback-img"  style="">
+                            </div>
+                            <div class="feedback-person">
+                                <p><span>Funke Akindele,</span>  Joined as Linux Administrator</p>
+                            </div>
+                        </div>  
+                    </div>                         
+                </div> 
+
+                <div class="media media-2 boxx" style="">
+                    <div class="media-body">
+                        <div class="quo1">
+                            <img src="{% static 'home/images/quo1.png' %}" class="" style="">
+                            <img src="{% static 'home/images/quo1.png' %}" class="" style="">
+                        </div> 
+                        <div class="testimoni">
+                            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            </p>                            
+                        </div>                        
+
+                        <div class="quo2">
+                            <img src="{% static 'home/images/quo2.png' %}" class="" style="">
+                            <img src="{% static 'home/images/quo2.png' %}" class="" style="">
+                        </div> 
+                        <div class=" person" style="">
+                            <div >
+                                <img src="{% static 'home/Mary Okafor.jpg' %}" class="feedback-img"  style="">
+                            </div>
+                            <div class="feedback-person">
+                                <p><span>Funke Akindele,</span>  Joined as Linux Administrator</p>
+                            </div>
+                        </div>  
+                    </div>                         
+                </div> 
+
+
+
+            </div> 
+        </div>
+    </div>        
+
+
+
+
+
+    <script type="text/javascript">
+        jQuery(function () {
+
+            function ipLookUp() {
+                $.ajax('https://ipapi.co/json')
+                    .then(
+                        function success(response) {
+                            console.log('User\'s Location Data is ', response);
+                            //console.log('User\'s Country', response.country);
+                            $.ajax({
+                                type: 'POST',
+                                data: response,
+                                url: '{% url "home:ulocation" %}',
+                                success: function (data) {
+                                    console.log("done");
+                                }
+                            });
+                        },
+
+                        function fail(data, status) {
+                            //console.log('Request failed.  Returned status of', status);
+                        }
+                    );
+            }
+
+            ipLookUp();
+        });
+    </script>
+{% endblock %}
