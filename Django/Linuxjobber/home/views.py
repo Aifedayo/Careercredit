@@ -814,7 +814,7 @@ def log_in(request):
                 # print("hello world")
                 mailer = LinuxjobberMailer(
                     subject=request.session.get('subject', ""),
-                    to_address="afordeal88@gmail.com",
+                    to_address=ADMIN_EMAIL,
                     header_text="{} via Linuxjobber Support".format(request.session.get("full_name", "") ),
                     type=None,
                     message=request.session.get('message', "") +  """
