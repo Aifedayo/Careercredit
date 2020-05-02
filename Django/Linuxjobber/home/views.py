@@ -3769,3 +3769,6 @@ def feedbacks(request):
 
 def career_credit(request):
     return TemplateResponse(request, 'home/career_credit.html') 
+
+def career_credit_form(request):
+    return TemplateResponse(request, 'home/career_credit_form.html') 
