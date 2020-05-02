@@ -422,7 +422,7 @@ border-radius: 10px 0 0 10px;
 								<p class="text white">Your message was not sent please try again! </p>
 							{% endif %}
 							{% if success != '' %}
-								<p class="text white">Message sent!</p>
+								<p class="text white" style="font-size: large;">Message sent!</p>
 							{% endif %}
                     </div>
                     <div class="row">
@@ -465,9 +465,13 @@ border-radius: 10px 0 0 10px;
 
                     <div class="row">
                         <p class="text-center">
+                        {% comment %} {% if request.user.is_authenticated %} {% endcomment %}
                             <button class="btn homebanbut white">
                                 Send Message
                             </button>
+                        {% comment %} {%else%}
+                        <a href="{% url 'home:login' %}?next=/companys/contact" class="btn btn-lg reg-sub">login</a>
+                        {%endif%} {% endcomment %}
                         </p>
                     </div>
                 </form>
