@@ -4,6 +4,10 @@ from ckeditor.widgets import CKEditorWidget
 from subprocess import PIPE, run
 import subprocess
 import sys
+import configparser
+import ast
+import os, shutil
+from email.parser import Parser
 from .models import *
 from home.mail_service import LinuxjobberMailer, LinuxjobberMassMailer
 
@@ -38,6 +42,11 @@ class GradesReportAdmin(admin.ModelAdmin):
 	actions = ['send_lab_report']
 
 	def send_lab_report(self, request, queryset):
+		CONFIG_FILE = './Courses/students.ini'
+		parser = configparser.SafeConfigParser()
+		parser.read( CONFIG_FILE)
+		instructors = ast.literal_eval( parser.get('classroom','INSTRUCTORS'))
+		print(os.path.abspath('./Courses/daily.py'))
 		sets = []
 		sets_value = []
 		for obj in queryset:
@@ -46,14 +55,12 @@ class GradesReportAdmin(admin.ModelAdmin):
 				sets.append(obj)
 		# output = run([sys.executable, 'C:\\Users\\USER\Documents\\linuxjobber2\\Django\\Linuxjobber\\Courses\\daily.py',
 		#             '1', 'k'], shell=False, stdout=PIPE)
-		output = subprocess.check_output('python C:\\Users\\USER\Documents\\linuxjobber2\\Django\\Linuxjobber\\Courses\\daily.py 1 k all', shell=True).splitlines()
+		output = subprocess.check_output('python ./Courses/daily.py 1 k all', shell=True).splitlines()
 		# print(sets)
 		
 		for person in sets:
 			print(person.course_topic.course)
 			if str(person.course_topic.course) == 'Linux Fundamentals':
-				labs = person.lab.lab_set.all()
-				print(labs)
 				user = str(person)
 				user = user.split('@')[0]
 				message = b''
@@ -61,27 +68,58 @@ class GradesReportAdmin(admin.ModelAdmin):
 					if user.encode('utf-8') in report:
 
 						message += report + b'\n'
-				# print(message)
-				# mailer = LinuxjobberMailer(
-				# 	        subject=" Current Fundamentals Lab Report for %s"%(user),
-				# 			to_address="afordeal88@gmail.com",
-				# 			header_text="Linuxjobber",
-				# 			type=None,
-				# 			message=message.decode('utf-8')
-				# )	
-				# mailer.send_mail()	
+				print(message)
+				recievers = instructors +  [str(person)]
+
+				for receiver in recievers:
+					mailer = LinuxjobberMailer(
+						        subject=" Current Fundamentals Lab Report for %s"%(user),
+								to_address=receiver,
+								header_text="Linuxjobber",
+								type=None,
+								message=message.decode('utf-8')
+					)	
+					mailer.send_mail()	
 			elif str(person.course_topic.course) == 'Linux Proficiency':
 				user = str(person)
 				user = user.split('@')[0]
-				for report in output:				
+				message = b''
+				for report in output:
 					if user.encode('utf-8') in report:
-						print(report)					
+
+						message += report + b'\n'
+				print(message)
+				recievers = instructors +  [str(person)]
+
+				for receiver in recievers:
+					mailer = LinuxjobberMailer(
+						        subject=" Current Proficiency Lab Report for %s"%(user),
+								to_address=receiver,
+								header_text="Linuxjobber",
+								type=None,
+								message=message.decode('utf-8')
+					)	
+					mailer.send_mail()					
 			elif str(person.course_topic.course) == 'Devops':
 				user = str(person)
 				user = user.split('@')[0]
-				for report in output:				
+				message = b''
+				for report in output:
 					if user.encode('utf-8') in report:
-						print(report)					
+
+						message += report + b'\n'
+				print(message)
+				recievers = instructors +  [str(person)]
+
+				for receiver in recievers:
+					mailer = LinuxjobberMailer(
+						        subject=" Current Devops Lab Report for %s"%(user),
+								to_address=receiver,
+								header_text="Linuxjobber",
+								type=None,
+								message=message.decode('utf-8')
+					)	
+					mailer.send_mail()						
 			else:
 				print('nay')
 

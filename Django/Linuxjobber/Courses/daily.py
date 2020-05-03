@@ -9,7 +9,7 @@ import datetime
 print(sys.argv)
 # CONFIG_FILE = '/home/linuxjobber/tools/config.ini'
 # CONFIG_FILE = 'config.ini'
-CONFIG_FILE = 'C:\\Users\\USER\\Documents\\linuxjobber2\\Django\\Linuxjobber\\Courses\\config.ini'
+CONFIG_FILE = './Courses/config.ini'
 def addToList( instance):
     instance_list = open("aws_instance_list", "a")
     items = instance.split("'")
