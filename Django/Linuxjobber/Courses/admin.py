@@ -1,9 +1,11 @@
 from django.contrib import admin
 from django import forms
 from ckeditor.widgets import CKEditorWidget
-
-
+from subprocess import PIPE, run
+import subprocess
+import sys
 from .models import *
+from home.mail_service import LinuxjobberMailer, LinuxjobberMassMailer
 
 class CourseTopicAdmin(admin.ModelAdmin):
 	search_fields = ('course__course_title','topic',)
@@ -33,6 +35,58 @@ class UserCourseStatAdmin(admin.ModelAdmin):
 
 class GradesReportAdmin(admin.ModelAdmin):
 	list_display = ('user','course_topic','grade')
+	actions = ['send_lab_report']
+
+	def send_lab_report(self, request, queryset):
+		sets = []
+		sets_value = []
+		for obj in queryset:
+			if str(obj) not in sets_value:
+				sets_value.append(str(obj))
+				sets.append(obj)
+		# output = run([sys.executable, 'C:\\Users\\USER\Documents\\linuxjobber2\\Django\\Linuxjobber\\Courses\\daily.py',
+		#             '1', 'k'], shell=False, stdout=PIPE)
+		output = subprocess.check_output('python C:\\Users\\USER\Documents\\linuxjobber2\\Django\\Linuxjobber\\Courses\\daily.py 1 k all', shell=True).splitlines()
+		# print(sets)
+		
+		for person in sets:
+			print(person.course_topic.course)
+			if str(person.course_topic.course) == 'Linux Fundamentals':
+				labs = person.lab.lab_set.all()
+				print(labs)
+				user = str(person)
+				user = user.split('@')[0]
+				message = b''
+				for report in output:
+					if user.encode('utf-8') in report:
+
+						message += report + b'\n'
+				# print(message)
+				# mailer = LinuxjobberMailer(
+				# 	        subject=" Current Fundamentals Lab Report for %s"%(user),
+				# 			to_address="afordeal88@gmail.com",
+				# 			header_text="Linuxjobber",
+				# 			type=None,
+				# 			message=message.decode('utf-8')
+				# )	
+				# mailer.send_mail()	
+			elif str(person.course_topic.course) == 'Linux Proficiency':
+				user = str(person)
+				user = user.split('@')[0]
+				for report in output:				
+					if user.encode('utf-8') in report:
+						print(report)					
+			elif str(person.course_topic.course) == 'Devops':
+				user = str(person)
+				user = user.split('@')[0]
+				for report in output:				
+					if user.encode('utf-8') in report:
+						print(report)					
+			else:
+				print('nay')
+
+		
+	send_lab_report.short_description = "Send lab reports to students and instructors"
 
 class LabTaskAdmin(admin.ModelAdmin):
 	list_display = ('task', 'lab')
