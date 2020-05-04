@@ -1,9 +1,15 @@
 from django.contrib import admin
 from django import forms
 from ckeditor.widgets import CKEditorWidget
-
-
+from subprocess import PIPE, run
+import subprocess
+import sys
+import configparser
+import ast
+import os, shutil
+from email.parser import Parser
 from .models import *
+from home.mail_service import LinuxjobberMailer, LinuxjobberMassMailer
 
 class CourseTopicAdmin(admin.ModelAdmin):
 	search_fields = ('course__course_title','topic',)
@@ -33,6 +39,87 @@ class UserCourseStatAdmin(admin.ModelAdmin):
 
 class GradesReportAdmin(admin.ModelAdmin):
 	list_display = ('user','course_topic','grade')
+	actions = ['send_lab_report']
+
+	def send_lab_report(self, request, queryset):
+		CONFIG_FILE = 'settings.ini'
+		parser = configparser.SafeConfigParser()
+		parser.read( CONFIG_FILE)
+		instructors = ast.literal_eval( parser.get('classroom','INSTRUCTORS'))
+		sets = []
+		sets_value = []
+		for obj in queryset:
+			if str(obj) not in sets_value:
+				sets_value.append(str(obj))
+				sets.append(obj)
+		# output = run([sys.executable, 'C:\\Users\\USER\Documents\\linuxjobber2\\Django\\Linuxjobber\\Courses\\daily.py',
+		#             '1', 'k'], shell=False, stdout=PIPE)
+		output = subprocess.check_output('python ./Courses/daily.py 1 k all', shell=True).splitlines()
+		# print(sets)
+		print(output)
+		for person in sets:
+			if str(person.course_topic.course) == 'Linux Fundamentals':
+				user = str(person)
+				user = user.split('@')[0]
+				message = b''
+				for report in output:
+					if user.encode('utf-8') in report:
+
+						message += report + b'\n'
+				recievers = instructors +  [str(person)]
+				
+				for receiver in recievers:
+					mailer = LinuxjobberMailer(
+						        subject=" Current Fundamentals Lab Report for %s"%(user),
+								to_address=receiver,
+								header_text="Linuxjobber",
+								type=None,
+								message=message.decode('utf-8')
+					)	
+					mailer.send_mail()	
+			elif str(person.course_topic.course) == 'Linux Proficiency':
+				user = str(person)
+				user = user.split('@')[0]
+				message = b''
+				for report in output:
+					if user.encode('utf-8') in report:
+
+						message += report + b'\n'
+				recievers = instructors +  [str(person)]
+
+				for receiver in recievers:
+					mailer = LinuxjobberMailer(
+						        subject=" Current Proficiency Lab Report for %s"%(user),
+								to_address=receiver,
+								header_text="Linuxjobber",
+								type=None,
+								message=message.decode('utf-8')
+					)	
+					mailer.send_mail()					
+			elif str(person.course_topic.course) == 'Devops':
+				user = str(person)
+				user = user.split('@')[0]
+				message = b''
+				for report in output:
+					if user.encode('utf-8') in report:
+
+						message += report + b'\n'
+				recievers = instructors +  [str(person)]
+
+				for receiver in recievers:
+					mailer = LinuxjobberMailer(
+						        subject=" Current Devops Lab Report for %s"%(user),
+								to_address=receiver,
+								header_text="Linuxjobber",
+								type=None,
+								message=message.decode('utf-8')
+					)	
+					mailer.send_mail()						
+			else:
+				print('nay')
+
+		
+	send_lab_report.short_description = "Send lab reports to students and instructors"
 
 class LabTaskAdmin(admin.ModelAdmin):
 	list_display = ('task', 'lab')
