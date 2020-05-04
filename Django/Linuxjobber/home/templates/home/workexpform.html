@@ -77,9 +77,11 @@ Work Experience Profile Form | Linuxjobber
             <div class="col-md-10">{{form.types}}</div>
             <div class="col-md-2"></div>
         </div>
-		<span>Current Position <span style="color: red; font-size: 25px;">*</span></span>
+
+		{% comment %} <span>Current Position <span style="color: red; font-size: 25px;">*</span></span> {% endcomment %}
+		<span>Name of Current Employer <span style="color: red; font-size: 25px;">*</span></span>
         <div class="row" style="padding: 0px;">
-            <div class="col-md-10"><input class="form-control isaput" name="current_position" maxlength="20" type="text" placeholder="Your current position" required maxlength="20" /></div>
+            <div class="col-md-10"><input class="form-control isaput" name="current_position" maxlength="20" type="text" placeholder="Your current employer" required maxlength="20" /></div>
             <div class="col-md-2"></div>
 		</div>
 		<span>State <span style="color: red; font-size: 25px;">*</span></span>
