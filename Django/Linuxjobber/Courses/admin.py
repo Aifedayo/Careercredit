@@ -46,7 +46,6 @@ class GradesReportAdmin(admin.ModelAdmin):
 		parser = configparser.SafeConfigParser()
 		parser.read( CONFIG_FILE)
 		instructors = ast.literal_eval( parser.get('classroom','INSTRUCTORS'))
-		print(os.path.abspath('./Courses/daily.py'))
 		sets = []
 		sets_value = []
 		for obj in queryset:
@@ -59,7 +58,6 @@ class GradesReportAdmin(admin.ModelAdmin):
 		# print(sets)
 		
 		for person in sets:
-			print(person.course_topic.course)
 			if str(person.course_topic.course) == 'Linux Fundamentals':
 				user = str(person)
 				user = user.split('@')[0]
@@ -68,7 +66,6 @@ class GradesReportAdmin(admin.ModelAdmin):
 					if user.encode('utf-8') in report:
 
 						message += report + b'\n'
-				print(message)
 				recievers = instructors +  [str(person)]
 
 				for receiver in recievers:
@@ -88,7 +85,6 @@ class GradesReportAdmin(admin.ModelAdmin):
 					if user.encode('utf-8') in report:
 
 						message += report + b'\n'
-				print(message)
 				recievers = instructors +  [str(person)]
 
 				for receiver in recievers:
@@ -108,7 +104,6 @@ class GradesReportAdmin(admin.ModelAdmin):
 					if user.encode('utf-8') in report:
 
 						message += report + b'\n'
-				print(message)
 				recievers = instructors +  [str(person)]
 
 				for receiver in recievers:
