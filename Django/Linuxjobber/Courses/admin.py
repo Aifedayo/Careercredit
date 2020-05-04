@@ -42,7 +42,7 @@ class GradesReportAdmin(admin.ModelAdmin):
 	actions = ['send_lab_report']
 
 	def send_lab_report(self, request, queryset):
-		CONFIG_FILE = './Courses/students.ini'
+		CONFIG_FILE = 'settings.ini'
 		parser = configparser.SafeConfigParser()
 		parser.read( CONFIG_FILE)
 		instructors = ast.literal_eval( parser.get('classroom','INSTRUCTORS'))
@@ -56,7 +56,7 @@ class GradesReportAdmin(admin.ModelAdmin):
 		#             '1', 'k'], shell=False, stdout=PIPE)
 		output = subprocess.check_output('python ./Courses/daily.py 1 k all', shell=True).splitlines()
 		# print(sets)
-		
+		print(output)
 		for person in sets:
 			if str(person.course_topic.course) == 'Linux Fundamentals':
 				user = str(person)
@@ -67,7 +67,7 @@ class GradesReportAdmin(admin.ModelAdmin):
 
 						message += report + b'\n'
 				recievers = instructors +  [str(person)]
-
+				
 				for receiver in recievers:
 					mailer = LinuxjobberMailer(
 						        subject=" Current Fundamentals Lab Report for %s"%(user),
