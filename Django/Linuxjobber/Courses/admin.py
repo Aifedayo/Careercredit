@@ -47,7 +47,7 @@ class UserCourseStatAdmin(admin.ModelAdmin):
 class GradesReportAdmin(admin.ModelAdmin):
 	list_display = ('user','course_topic','grade')
 	actions = ['send_lab_report']
-	change_list_template = 'admin/send_lab_reports.html'
+	# change_list_template = 'admin/send_lab_reports.html'
 
 	def get_urls(self):
 		urls = super().get_urls()
