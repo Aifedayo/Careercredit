@@ -39,6 +39,7 @@ from .forms import JobPlacementForm, JobApplicationForm, AWSCredUpload, Internsh
     ResumeForm, PartimeApplicationForm, WeForm, UnsubscribeForm, ItPartnershipForm
 from datetime import datetime
 from .mail_service import LinuxjobberMailer, handle_failed_campaign
+import uuid
 
 fs = FileSystemStorage(location=settings.MEDIA_ROOT + '/uploads')
 # stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -806,9 +807,23 @@ def log_in(request):
             error_message = "Sorry, No account exists with the username"
 
         finally:
+
             if error_message:
                 return TemplateResponse(request, "home/registration/login.html", {"error_message": error_message})
-
+            if next=="/companys/contact":
+                # print("hello world")
+                mailer = LinuxjobberMailer(
+                    subject=request.session.get('subject', ""),
+                    to_address=ADMIN_EMAIL,
+                    header_text="{} via Linuxjobber Support".format(request.session.get("full_name", "") ),
+                    type=None,
+                    message=request.session.get('message', "") +  """
+                                                            \n
+                                                            Mail address : {}       
+                                                            """.format(request.session.get("email", "") )
+                )
+                mailer.send_mail()
+                request.session["contact_us_mail_sent"] = "yes"
             return perform_registration_checks(request.user, next)
 
     return TemplateResponse(request, 'home/registration/login.html', {'error_message': error_message})
@@ -2359,38 +2374,51 @@ def group_pay(request, pk):
 
 
 def contact_us(request):
+    print(request.session.get("contact_us_mail_sent", ""))
     error = ''
     success = ''
     if request.method == "POST":
-        fname = request.POST['full_name']
-        phone = request.POST['phonenumber']
-        # email = request.POST['email']
-        from_email = request.POST['email']
-        subject = request.POST['subject']
-        message = request.POST['message']
-        message+= """
-        \n
-        Mail address : {}       
-        """.format(from_email)
+        if request.user.is_authenticated:
+            fname = request.POST['full_name']
+            phone = request.POST['phonenumber']
+            # email = request.POST['email']
+            from_email = request.POST['email']
+            subject = request.POST['subject']
+            message = request.POST['message']
+            message += """
+            \n
+            Mail address : {}       
+            """.format(from_email)
 
-        try:
-            # send_mail(message, subject, from_email, ['elena.edwards@linuxjobber.com'])
-            mailer = LinuxjobberMailer(
-                subject=subject,
-                to_address=ADMIN_EMAIL,
-                header_text="{} via Linuxjobber Support".format(fname),
-                type=None,
-                message=message
-            )
-            mailer.send_mail()
-            # contact_message = ContactMessages(full_name=fname, phone_no=phone, email=email, message_subject=subj, message=message)
-            # contact_message.save()
-        except Exception as e:
-            error = 'yes'
+            try:
+                # send_mail(message, subject, from_email, ['elena.edwards@linuxjobber.com'])
+                mailer = LinuxjobberMailer(
+                    subject=subject,
+                    to_address=ADMIN_EMAIL,
+                    header_text="{} via Linuxjobber Support".format(fname),
+                    type=None,
+                    message=message
+                )
+                mailer.send_mail()
+            
+                # contact_message = ContactMessages(full_name=fname, phone_no=phone, email=email, message_subject=subj, message=message)
+                # contact_message.save()
+            except Exception as e:
+                error = 'yes'
+            else:
+                success = 'yes'
+            
+            return render(request, 'home/contact_us.html', {'error': error, 'success': success})
+
         else:
-            success = 'yes'
-        return render(request, 'home/contact_us.html', {'error': error, 'success': success})
+            request.session['full_name'] = request.POST['full_name']
+            request.session['phone'] = request.POST['phonenumber']
+            request.session['subject'] =request.POST['subject']
+            request.session['message'] =request.POST['message']
+            return redirect("/login?next=/companys/contact")
     else:
+        if request.session.get("contact_us_mail_sent", ""):
+            success = "yes"
         return render(request, 'home/contact_us.html',
                       {'error': error, 'success': success, 'courses': get_courses(), 'tools': get_tools()})
 
@@ -3211,35 +3239,80 @@ def upload_profile_pic(request):
 
 def noobaid(request):
     if request.method == "POST":
-        name = request.POST['name']
-        email = request.POST['email']
-        location = request.POST['location']
-        availability = request.POST['availability']
-        requesta = request.POST['request']
+        try:
+            name = request.POST['name']
+            email = request.POST['email']
+            location = request.POST['location']
+            availability = request.POST['availability']
+            requesta = request.POST['request']
+            
+            request.session['name'] =name
+            request.session['email'] =email
+            request.session['location'] =location
+            request.session['availability'] =availability
+            request.session['requesta'] =requesta
 
-        file_path = os.path.join(settings.BASE_DIR, 'emails', 'noobaid.txt')
-        with open(file_path, 'r') as f:
-            file_content = f.read()
-        mail_message = file_content.format(
-                    name=name,
-                    email=email,
-                    location=location,
-                    availability=availability,
-                    requesta=requesta
+            token = uuid.uuid4().hex[:6]
+            request.session['token'] =token
+            print(token)
+            file_path = os.path.join(settings.BASE_DIR, 'emails', 'noobaid_token.txt')
+            with open(file_path, 'r') as f:
+                file_content = f.read()
+            mail_message = file_content.format(
+                        fullname=name,
+                        token=token,
+                    )
+            # print(mail_message)
+            mailer = LinuxjobberMailer(
+                subject="Noobaid Demo Request",
+                to_address=email,
+                header_text="Linuxjobber",
+                type=None,
+                message=mail_message
+            )
+            mailer.send_mail()
+            successful_submit = "yes"
+            messages.success(request,'Wait, your message has not been sent yet')
+            messages.success(request,'Your request has been made successfully, you will get a response from us shortly')
+            return render(request, 'home/noobaid.html', {"successful_submit":successful_submit})
+
+        except:
+            token = request.POST['token']
+            if token == request.session.get("token", ""):
+            
+                file_path = os.path.join(settings.BASE_DIR, 'emails', 'noobaid.txt')
+
+                with open(file_path, 'r') as f:
+                    file_content = f.read()
+
+                mail_message = file_content.format(
+                            name=request.session.get("name", ""),
+                            email=request.session.get("email", ""),
+                            location=request.session.get("location", ""),
+                            availability=request.session.get("availability", ""),
+                            requesta=request.session.get("requesta", "")
+                        )
+                mailer = LinuxjobberMailer(
+                    subject="Noobaid Demo Request",
+                    to_address=ADMIN_EMAIL,
+                    header_text="Linuxjobber",
+                    type=None,
+                    message=mail_message
                 )
-        mailer = LinuxjobberMailer(
-            subject="Noobaid Demo Request",
-            to_address=ADMIN_EMAIL,
-            header_text="Linuxjobber",
-            type=None,
-            message=mail_message
-        )
-        mailer.send_mail()
+                mailer.send_mail()
+                # print(mail_message)
+                messages.success(request,'Your request has been made successfully,\
+                                            you will get a response from us shortly')
+                return render(request, 'home/noobaid.html', )
+            else:
+                messages.error(request,"Invalid token. Fill the form and get a new token")
+                return render(request, 'home/noobaid.html', )
 
-        messages.success(request,'Your request has been made successfully, you will get a response from us shortly')
 
-    return render(request, 'home/noobaid.html')
+    return render(request, 'home/noobaid.html',)
 
+def noobaid_token(request):
+    return render
 
 def group_list(request):
     user = None
