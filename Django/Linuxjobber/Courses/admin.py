@@ -7,6 +7,7 @@ import sys
 import configparser
 import ast
 import os, shutil
+from decouple import config, Csv
 from email.parser import Parser
 from .models import *
 from home.mail_service import LinuxjobberMailer, LinuxjobberMassMailer
@@ -42,10 +43,8 @@ class GradesReportAdmin(admin.ModelAdmin):
 	actions = ['send_lab_report']
 
 	def send_lab_report(self, request, queryset):
-		CONFIG_FILE = 'settings.ini'
-		parser = configparser.SafeConfigParser()
-		parser.read( CONFIG_FILE)
-		instructors = ast.literal_eval( parser.get('classroom','INSTRUCTORS'))
+		instructors = config('INSTRUCTORS')
+		print(instructors)
 		sets = []
 		sets_value = []
 		for obj in queryset:
@@ -55,8 +54,7 @@ class GradesReportAdmin(admin.ModelAdmin):
 		# output = run([sys.executable, 'C:\\Users\\USER\Documents\\linuxjobber2\\Django\\Linuxjobber\\Courses\\daily.py',
 		#             '1', 'k'], shell=False, stdout=PIPE)
 		output = subprocess.check_output('python ./Courses/daily.py 1 k all', shell=True).splitlines()
-		# print(sets)
-		print(output)
+		# print(output)
 		for person in sets:
 			if str(person.course_topic.course) == 'Linux Fundamentals':
 				user = str(person)

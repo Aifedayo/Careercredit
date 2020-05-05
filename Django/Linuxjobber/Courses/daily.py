@@ -1,5 +1,6 @@
 #!/usr/bin/python
 import configparser
+from decouple import config, Csv
 import MySQLdb
 import sys
 import subprocess
@@ -143,7 +144,7 @@ parser = configparser.SafeConfigParser()
 parser.read( CONFIG_FILE)
 
 if sys.argv[1] == "1":
-    connection = MySQLdb.connect (host=parser.get('linuxjobber','HOST'),user=parser.get('linuxjobber','USER'),passwd=parser.get('linuxjobber','PASSWD'),db=parser.get('linuxjobber','DB'));
+    connection = MySQLdb.connect (host=config('DATABASE_HOST'),user=config('DATABASE_USER'),passwd=config('DATABASE_PASSWORD'),db=config('DATABASE_NAME'));
 elif sys.argv[1] == "2":
     connection = MySQLdb.connect (host=parser.get('noobaid','host'),user=parser.get('noobaid','user'),passwd=parser.get('noobaid','passwd'),db=parser.get('noobaid','db'));
 
