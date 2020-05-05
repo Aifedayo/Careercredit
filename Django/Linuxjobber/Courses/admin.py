@@ -1,6 +1,12 @@
 from django.contrib import admin
 from django import forms
 from ckeditor.widgets import CKEditorWidget
+from django.http import HttpResponseRedirect, JsonResponse
+from django.template.response import TemplateResponse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import redirect
+from django.contrib import admin, messages
+from django.urls import path
 from subprocess import PIPE, run
 import subprocess
 import sys
@@ -41,9 +47,17 @@ class UserCourseStatAdmin(admin.ModelAdmin):
 class GradesReportAdmin(admin.ModelAdmin):
 	list_display = ('user','course_topic','grade')
 	actions = ['send_lab_report']
+	change_list_template = 'admin/send_lab_reports.html'
+
+	def get_urls(self):
+		urls = super().get_urls()
+		# my_urls = [
+		# 	path('', self.clean_mail, name= 'clean-mail-log'),
+		#]  # type: List[path]
+		return   urls
 
 	def send_lab_report(self, request, queryset):
-		instructors = config('INSTRUCTORS')
+		instructors = ast.literal_eval(config('INSTRUCTORS')) 
 		print(instructors)
 		sets = []
 		sets_value = []
@@ -75,6 +89,7 @@ class GradesReportAdmin(admin.ModelAdmin):
 								message=message.decode('utf-8')
 					)	
 					mailer.send_mail()	
+				messages.success(request,'Lab reports have been sent successfully')	
 			elif str(person.course_topic.course) == 'Linux Proficiency':
 				user = str(person)
 				user = user.split('@')[0]
@@ -93,7 +108,8 @@ class GradesReportAdmin(admin.ModelAdmin):
 								type=None,
 								message=message.decode('utf-8')
 					)	
-					mailer.send_mail()					
+					mailer.send_mail()	
+				messages.success(request,'Lab reports have been sent successfully')				
 			elif str(person.course_topic.course) == 'Devops':
 				user = str(person)
 				user = user.split('@')[0]
@@ -112,9 +128,13 @@ class GradesReportAdmin(admin.ModelAdmin):
 								type=None,
 								message=message.decode('utf-8')
 					)	
-					mailer.send_mail()						
+					mailer.send_mail()	
+				messages.success(request,'Lab reports have been sent successfully')						
 			else:
+				messages.success(request,'Lab reports have been sent successfully')
 				print('nay')
+		
+		# return TemplateResponse(request,'admin/send_lab_reports.html')
 
 		
 	send_lab_report.short_description = "Send lab reports to students and instructors"
