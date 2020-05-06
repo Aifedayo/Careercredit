@@ -826,8 +826,8 @@ section.form-nav .content .nav .list .home-link{
     letter-spacing: 0.05em;
     color: #35B89E;
     font-weight: bold;
-    font-size: 16px;
-    line-height: 19px;
+    font-size: 1.6rem;
+    line-height: 1.9rem;
 }
 
 section.form .content .head-section{
@@ -839,69 +839,69 @@ section.form .content .head-section{
 section.form .content .head-section::before{
     content: '';
     display: block;
-    width: 5px;
-    height: 53px;
+    width: .5rem;
+    height: 5.3rem;
     background: #35B99F;
-    border-radius: 135px;
+    border-radius: 13.5rem;
     margin-right: 1rem;
 }
 
 section.form .content .head-section .right h3{
     font-weight: bold;
-    font-size: 24px;
-    line-height: 28px;
+    font-size: 2.4rem;
+    line-height: 2.8rem;
     text-transform: capitalize;
     color: #35B99F;
-    margin-bottom: 5px;
+    margin-bottom: .5rem;
 }
  
 section.form .content .head-section .right p{
     font-weight: 500;
-    font-size: 14px;
-    line-height: 16px;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
     color: #333333;
 }
 
 section.form .content .career-form .btn{
-    margin-top: 20px;
+    margin-top: 2rem;
 }
 
 section.form .content .career-form .form-section{
-    border-top: 1px solid rgba(0, 0, 0, 0.2);
-    padding-top: 20px;
+    border-top: .1rem solid rgba(0, 0, 0, 0.2);
+    padding-top: 2rem;
 }
 
 section.form .content .career-form .form-section:nth-child(2){
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    padding-bottom: 10px;
+    border-bottom: .1rem solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 1rem;
 }
 
 section.form .content .career-form .form-section .title *{
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
 }
 
 section.form .content .career-form .form-section .title h3{
     font-weight: 500;
-    font-size: 14px;
-    line-height: 16px;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
     color: #333333;
 }
 
 section.form .content .career-form .form-section .title p{
     font-weight: normal;
-    font-size: 14px;
-    line-height: 16px;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
     color: #808080;
 }
 
 section.form .content .career-form .form-section  .fields{
-    margin-top: 50px;
-    margin-bottom: 20px;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
 }
 
 section.form .content .career-form .form-section  .fields .wrapper{
     display: flex;
-    margin-bottom: 40px;
+    margin-bottom: 4rem;
 }
 
 section.form .content .career-form .form-section  .fields .wrapper .row{
@@ -919,26 +919,26 @@ section.form .content .career-form .form-section  .fields .wrapper .row .item *{
 }
 
 section.form .content .career-form .form-section  .fields .wrapper .row .item label{
-    margin-bottom: 5px;
+    margin-bottom: .5rem;
     font-weight: 500;
-    font-size: 14px;
-    line-height: 16px;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
     color: #333333;
 }
 
 
 section.form .content .career-form .form-section  .fields .wrapper .row .item input,
 section.form .content .career-form .form-section  .fields .wrapper .row .item .select-style{
-    padding: 5px 8px;
+    padding: .5rem .8rem;
     background: #e6e6e6;
-    border: 0px;
-    border-radius: 5px;
+    border: 0rem;
+    border-radius: .5rem;
     /* height: 46px; */
-    height: 40px;
+    height: 4rem;
     width: 100%;
     font-weight: normal;
-    font-size: 14px;
-    line-height: 16px;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
     color: #333333;
     position: relative;
 }
@@ -963,7 +963,7 @@ section.form .content .career-form .form-section  .fields .wrapper .row .item .s
 } */
 
 section.form .content .career-form .form-section  .fields .wrapper .row .item .select-style select{
-    padding: 13px 8px;
+    padding: 1.3rem .8rem;
     width: 100%;
     /* width: 130%; */
     border: none;
@@ -977,4 +977,41 @@ section.form .content .career-form .form-section  .fields .wrapper .row .item .s
 
 section.form .content .career-form .form-section  .fields .wrapper .row .item .select-style select:focus{
     outline: none;
+}
+
+
+/* alert */
+
+div.message{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.alert{
+    flex-basis: 60%;
+    padding: 1.5rem 3rem;
+    /* border: #333333 solid 1px; */
+    font-size: 1.4rem;
+    font-weight: 300;
+    line-height: 1.6rem;
+    border-radius: 1rem;
+}
+
+.alert-success{
+    background: #d4edda;
+}
+
+.alert-success p{
+    color:#155724
+}
+
+.alert-danger{
+   background: #fad7da;
+
+}
+
+.alert-danger p{
+    color:#721c24
 }
