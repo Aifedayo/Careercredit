@@ -36,7 +36,8 @@ from Courses.models import Course, CoursePermission, UserInterest, CourseTopic
 from ToolsApp.models import Tool
 from users.models import CustomUser
 from .forms import JobPlacementForm, JobApplicationForm, AWSCredUpload, InternshipForm, \
-    ResumeForm, PartimeApplicationForm, WeForm, UnsubscribeForm, ItPartnershipForm, FeedbacksForm
+    ResumeForm, PartimeApplicationForm, WeForm, UnsubscribeForm, ItPartnershipForm, \
+    FeedbacksForm, CareercreditForm
 from datetime import datetime
 from .mail_service import LinuxjobberMailer, handle_failed_campaign
 import uuid
@@ -3840,3 +3841,20 @@ def feedbacks(request):
     form = FeedbacksForm()
     return render(request, 'home/feedbacks.html', {'form':form, 'feedback':feedback})
 
+def career_credit(request):
+    return TemplateResponse(request, 'home/career_credit.html') 
+
+def career_credit_form(request):
+    if request.method == "POST":
+        career_credit = CareercreditForm(request.POST)
+        if career_credit.is_valid():
+            career_credit.save()
+            messages.success(request, 'Thanks, we will get back to you soon')
+            return redirect("home:career_credit_form")
+        else:
+            return render(
+                request, 
+                'home/career_credit_form.html', 
+                {'form':career_credit}
+            )   
+    return TemplateResponse(request, 'home/career_credit_form.html') 
