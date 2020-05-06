@@ -904,8 +904,8 @@ def completeclass(request,course):
                 course.save()
         if tm.date() ==  page.due_date.date():
             tomorrow = True
-        if td > page.due_date:
-            expired = True
+        # if td > page.due_date:
+        #     expired = True
         if td.date() == page.due_date.date():
             today = True
 
@@ -1819,7 +1819,7 @@ def workexprofile(request):
     trainee, created = WeTraineeStatus.objects.get_or_create(user__user=request.user)
     trainee.user = wepeoples.objects.get(user=request.user)
     trainee.save()
-    # trainee_status = trainee.trainee_stat
+    trainee_status = trainee.trainee_stat
     # work_experience_eligible_pdf(details.user)
     # work_experience_term_pdf(details.user)
     # work_experience_isa_pdf(details.user)
@@ -1837,8 +1837,7 @@ def workexprofile(request):
     else:
         pass
     weps.save()
-    print(trainee.user)
-    print(trainee_status)
+
 
 
     return render(request, 'home/workexprofile.html',
