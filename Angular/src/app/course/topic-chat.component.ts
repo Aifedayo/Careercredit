@@ -46,7 +46,7 @@ export class TopicChatComponent implements OnInit {
   private search_mention_stream = new Subject();
   public qoute_message = null;
   public mentionConfig;
-  
+
   // getting a reference to the overall list, which is the parent container of the list items
   @ViewChild(MatList, { read: ElementRef }) matList: ElementRef;
   @ViewChild('ChatSpace') chatSpace: ElementRef<HTMLElement>;
@@ -71,9 +71,10 @@ export class TopicChatComponent implements OnInit {
       )
       this.mentionConfig = {
         dropUp:'true',
+        allowSpace:'true',
         mentionSelect: (item:any)=>{
           // return `<b>${item['label'].toUpperCase()}</b>`;
-          return `@${item['label']}`;
+          return `@${item['label']} `;
         }
       };
    }
