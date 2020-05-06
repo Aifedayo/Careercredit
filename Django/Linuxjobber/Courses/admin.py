@@ -67,7 +67,7 @@ class GradesReportAdmin(admin.ModelAdmin):
 				sets.append(obj)
 		# output = run([sys.executable, 'C:\\Users\\USER\Documents\\linuxjobber2\\Django\\Linuxjobber\\Courses\\daily.py',
 		#             '1', 'k'], shell=False, stdout=PIPE)
-		output = subprocess.check_output('python ./Courses/daily.py 1 k all', shell=True).splitlines()
+		output = subprocess.check_output('python3.6 ./Courses/daily.py 1 k all', shell=True).splitlines()
 		# print(output)
 		for person in sets:
 			if str(person.course_topic.course) == 'Linux Fundamentals':
