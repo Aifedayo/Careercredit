@@ -1304,23 +1304,3 @@ class ItPartnership(models.Model):
 
     def __str__(self):
         return self.full_name
-
-class Careercredit(models.Model):
-    last_name = models.CharField(max_length=200)
-    first_name = models.CharField(max_length=200)
-    other_name = models.CharField(max_length=200, blank=True, null=True)
-    email = models.CharField(max_length=200)
-    phone_number = models.CharField(max_length=200, blank=True, null=True)
-    school = models.CharField(max_length=200)
-    degree_type = models.CharField(max_length=200)
-    course_of_study = models.CharField(max_length=200)
-    graduating_year = models.CharField(max_length=200)
-    first_classmate_fullname = models.CharField(max_length=200)
-    first_classmate_email = models.CharField(max_length=200)
-    second_classmate_fullname = models.CharField(max_length=200)
-    second_classmate_email = models.CharField(max_length=200)
-    lecturer_fullname = models.CharField(max_length=200)
-    lecturer_email = models.CharField(max_length=200)
-
-    def __str__(self):
-        return f'{self.last_name} {self.first_name}'
