@@ -1,6 +1,5 @@
 #!/usr/bin/python
 import configparser
-from decouple import config, Csv
 import MySQLdb
 import sys
 import subprocess
@@ -8,9 +7,8 @@ import datetime
 
 #CONFIG_FILE = '/home/linuxjobber/tools/config.ini'
 print(sys.argv)
-# CONFIG_FILE = '/home/linuxjobber/tools/config.ini'
-# CONFIG_FILE = 'config.ini'
-CONFIG_FILE = 'settings.ini'
+CONFIG_FILE = '/home/linuxjobber/tools/config.ini'
+CONFIG_FILE = 'config.ini'
 def addToList( instance):
     instance_list = open("aws_instance_list", "a")
     items = instance.split("'")
@@ -144,7 +142,7 @@ parser = configparser.SafeConfigParser()
 parser.read( CONFIG_FILE)
 
 if sys.argv[1] == "1":
-    connection = MySQLdb.connect (host=config('DATABASE_HOST'),user=config('DATABASE_USER'),passwd=config('DATABASE_PASSWORD'),db=config('DATABASE_NAME'));
+    connection = MySQLdb.connect (host=parser.get('linuxjobber','HOST'),user=parser.get('linuxjobber','USER'),passwd=parser.get('linuxjobber','PASSWD'),db=parser.get('linuxjobber','DB'));
 elif sys.argv[1] == "2":
     connection = MySQLdb.connect (host=parser.get('noobaid','host'),user=parser.get('noobaid','user'),passwd=parser.get('noobaid','passwd'),db=parser.get('noobaid','db'));
 

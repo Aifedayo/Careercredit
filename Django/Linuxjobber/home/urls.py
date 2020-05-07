@@ -64,9 +64,6 @@ urlpatterns = [
     path('workexperience/', include(wp_patterns)),
     path('gainexperience', views.gainexperience, name='gainexperience'),
     path('internships', views.internships, name='internships'),
-
-    path('testimonials', views.testimonials, name='testimonials'),
-    path('feedbacks', views.feedbacks, name='feedbacks'),
     path('jobplacements/', include(jp_patterns)),
     path('accepted', views.accepted, name='accepted'),
     path('groupCourse/',views.group_list, name='group'),
@@ -125,8 +122,6 @@ urlpatterns = [
     path('installments/pay',views.installment_pay, name="installments_pay"),
     path('mail/status',views.mail_status, name="mail-status"),
     path('it_partnership/',views.it_partnership, name="it_partnership"),
-    path('career_credit/',views.career_credit, name="career_credit"),
-    path('career_credit_form/',views.career_credit_form, name="career_credit_form"),
 ]
 
 

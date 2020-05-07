@@ -72,31 +72,7 @@ class ResumeForm(forms.ModelForm):
 		fields = ['resume',]
 
 
-class FeedbacksForm(forms.ModelForm):
-    SATISFACTION_RATE_FORM= (
-('1',""),
-('2', ""),
-('3', ""),
-('4', ''),
-('5', ''),
-)
-
-    RECOMMEND_US_FORM = (
-('1',""),
-('2', ""),
-('3', ""),
-('4', ''),
-('5', ''),
-)
-    satisfaction = forms.CharField(widget=forms.RadioSelect(choices= SATISFACTION_RATE_FORM))
-    recommend_us = forms.CharField(widget=forms.RadioSelect(choices=RECOMMEND_US_FORM))  
-    has_friend = forms.CharField(widget=forms.RadioSelect(choices=HAS_FRIEND)) 
-
-
-    class Meta:
-        model =Feedbacks
-        fields = '__all__'
-        exclude = ('user',)
+	
 
 class ContactUsForm(forms.ModelForm):
 	
@@ -144,9 +120,4 @@ class UpcomingScheduleForm(forms.Form):
 class ItPartnershipForm(forms.ModelForm):
 	class Meta:
 		model = ItPartnership
-		fields = '__all__'	
-
-class CareercreditForm(forms.ModelForm):
-	class Meta:
-		model = Careercredit
 		fields = '__all__'	

@@ -55,8 +55,7 @@ INSTALLED_APPS = [
     'background_task',
     'certificates',
 
-    'awswebsocket',
-    
+    'awswebsocket'
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
