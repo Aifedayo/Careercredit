@@ -1820,11 +1820,7 @@ def workexprofile(request):
     trainee, created = WeTraineeStatus.objects.get_or_create(user__user=request.user)
     trainee.user = wepeoples.objects.get(user=request.user)
     trainee.save()
-<<<<<<< HEAD
     trainee_status = trainee.trainee_stat
-=======
-    # trainee_status = trainee.trainee_stat
->>>>>>> f73f3e35f1355f9f693a2745f917b158a2225ace
     # work_experience_eligible_pdf(details.user)
     # work_experience_term_pdf(details.user)
     # work_experience_isa_pdf(details.user)
