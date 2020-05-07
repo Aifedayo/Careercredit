@@ -1513,9 +1513,6 @@ def work_experience_isa_part_1(request):
     # work experience ISA 1 
     updatestage(request, work_experience_isa_part_1)
     # Update stage of the applicant when the page is accessed
-    current_date = datetime.today()
-    current_date =  current_date.strftime("%B %d, %Y")
-    print(current_date)
     try:
          # Get workexperienceeligibility model with user
         details =  WorkExperienceEligibility.objects.get(user=request.user)
@@ -1600,9 +1597,8 @@ def work_experience_isa_part_1(request):
         mailer_applicant.send_mail()
 
         # Redirect to ISA2 after filling the form
-        print(date)
         return redirect("home:workexpisa2")
-    return render(request, 'home/workexpisa.html',{'details':details,'ssn':ssn,'paid':paid,'grad':grad,'jot':jot,'date':date,'comp':comp, 'current_date':current_date})
+    return render(request, 'home/workexpisa.html',{'details':details,'ssn':ssn,'paid':paid,'grad':grad,'jot':jot,'date':date,'comp':comp})
 
 def work_experience_isa_part_2(request):
     # Work Experience ISA2 view
@@ -1819,10 +1815,10 @@ def workexprofile(request):
     trainee, created = WeTraineeStatus.objects.get_or_create(user__user=request.user)
     trainee.user = wepeoples.objects.get(user=request.user)
     trainee.save()
-    # trainee_status = trainee.trainee_stat
-    # work_experience_eligible_pdf(details.user)
-    # work_experience_term_pdf(details.user)
-    # work_experience_isa_pdf(details.user)
+    trainee_status = trainee.trainee_stat
+    work_experience_eligible_pdf(details.user)
+    work_experience_term_pdf(details.user)
+    work_experience_isa_pdf(details.user)
     if not details.pdf:
         return redirect("home:workexprofile")
     pdf = details.pdf.url
