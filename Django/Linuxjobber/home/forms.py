@@ -145,8 +145,3 @@ class ItPartnershipForm(forms.ModelForm):
 	class Meta:
 		model = ItPartnership
 		fields = '__all__'	
-
-class CareercreditForm(forms.ModelForm):
-	class Meta:
-		model = Careercredit
-		fields = '__all__'	
