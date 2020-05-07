@@ -658,12 +658,39 @@ class wework(models.Model):
 
 class RecordWEChange(models.Model):
     "Model table to record the changes made to a trainee's"
-    userid = models.CharField(max_length=50,null=True)
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True)
-    field = models.ForeignKey(wepeoples, on_delete = models.CASCADE, null=True)
-    prev_value = models.CharField(max_length=100, null=True)
-    new_value = models.CharField(max_length=100, null=True)
-    change_time = models.DateTimeField(default=timezone.now, null=True)
+    change_type = models.CharField(max_length=100, null=True)
+    old_info = models.CharField(max_length=100, null=True)
+    new_info = models.CharField(max_length=100, null=True)
+    change_date = models.DateField(default=datetime.date.today, null=True)
+
+SATISFACTION_RATE= (
+    ('1',"Least Satisfied"),
+    ('2', "Not Satisfied"),
+    ('3', "Somewhat Satisfied"),
+    ('4', 'Satisfied'),
+    ('5', 'Very Satisfied'),
+)
+
+RECOMMEND_US = (
+    ('1',"Least Likely"),
+    ('2', "Not Likely"),
+    ('3', "Somewhat Likely"),
+    ('4', 'Likely'),
+    ('5', 'Very Likely'),
+)
+HAS_FRIEND = (
+    ('1', 'Yes'),
+    ('2', "No")
+)
+
+class Feedbacks(models.Model):
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+    satisfaction = models.CharField(choices=SATISFACTION_RATE, max_length=50)
+    recommend_us = models.CharField( choices=RECOMMEND_US, max_length=50)
+    has_friend = models.CharField(choices= HAS_FRIEND, max_length= 10)    
+    feedback = models.TextField(max_length=100)
+
 
 class GroupClassLog(models.Model):
     group = models.ForeignKey(Groupclass, on_delete=models.CASCADE)
@@ -1277,3 +1304,23 @@ class ItPartnership(models.Model):
 
     def __str__(self):
         return self.full_name
+
+class Careercredit(models.Model):
+    last_name = models.CharField(max_length=200)
+    first_name = models.CharField(max_length=200)
+    other_name = models.CharField(max_length=200, blank=True, null=True)
+    email = models.CharField(max_length=200)
+    phone_number = models.CharField(max_length=200, blank=True, null=True)
+    school = models.CharField(max_length=200)
+    degree_type = models.CharField(max_length=200)
+    course_of_study = models.CharField(max_length=200)
+    graduating_year = models.CharField(max_length=200)
+    first_classmate_fullname = models.CharField(max_length=200)
+    first_classmate_email = models.CharField(max_length=200)
+    second_classmate_fullname = models.CharField(max_length=200)
+    second_classmate_email = models.CharField(max_length=200)
+    lecturer_fullname = models.CharField(max_length=200)
+    lecturer_email = models.CharField(max_length=200)
+
+    def __str__(self):
+        return f'{self.last_name} {self.first_name}'

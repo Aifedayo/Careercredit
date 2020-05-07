@@ -36,7 +36,8 @@ from Courses.models import Course, CoursePermission, UserInterest, CourseTopic
 from ToolsApp.models import Tool
 from users.models import CustomUser
 from .forms import JobPlacementForm, JobApplicationForm, AWSCredUpload, InternshipForm, \
-    ResumeForm, PartimeApplicationForm, WeForm, UnsubscribeForm, ItPartnershipForm
+    ResumeForm, PartimeApplicationForm, WeForm, UnsubscribeForm, ItPartnershipForm, \
+    FeedbacksForm, CareercreditForm
 from datetime import datetime
 from .mail_service import LinuxjobberMailer, handle_failed_campaign
 import uuid
@@ -1513,6 +1514,9 @@ def work_experience_isa_part_1(request):
     # work experience ISA 1 
     updatestage(request, work_experience_isa_part_1)
     # Update stage of the applicant when the page is accessed
+    current_date = datetime.today()
+    current_date =  current_date.strftime("%B %d, %Y")
+    print(current_date)
     try:
          # Get workexperienceeligibility model with user
         details =  WorkExperienceEligibility.objects.get(user=request.user)
@@ -1597,8 +1601,9 @@ def work_experience_isa_part_1(request):
         mailer_applicant.send_mail()
 
         # Redirect to ISA2 after filling the form
+        print(date)
         return redirect("home:workexpisa2")
-    return render(request, 'home/workexpisa.html',{'details':details,'ssn':ssn,'paid':paid,'grad':grad,'jot':jot,'date':date,'comp':comp})
+    return render(request, 'home/workexpisa.html',{'details':details,'ssn':ssn,'paid':paid,'grad':grad,'jot':jot,'date':date,'comp':comp, 'current_date':current_date})
 
 def work_experience_isa_part_2(request):
     # Work Experience ISA2 view
@@ -1815,7 +1820,11 @@ def workexprofile(request):
     trainee, created = WeTraineeStatus.objects.get_or_create(user__user=request.user)
     trainee.user = wepeoples.objects.get(user=request.user)
     trainee.save()
+<<<<<<< HEAD
     trainee_status = trainee.trainee_stat
+=======
+    # trainee_status = trainee.trainee_stat
+>>>>>>> f73f3e35f1355f9f693a2745f917b158a2225ace
     # work_experience_eligible_pdf(details.user)
     # work_experience_term_pdf(details.user)
     # work_experience_isa_pdf(details.user)
@@ -3812,3 +3821,48 @@ def it_partnership(request):
             )
     return TemplateResponse(request, 'home/it_partnership.html') 
 
+def testimonials(request):
+    feedbacks = Feedbacks.objects.all()
+    
+    # for feed in feedbacks:
+    #     person = wepeoples.objects
+        # print(feed.feedback)
+    return render(request, 'home/testimonials.html', {'feedbacks':feedbacks})
+
+@login_required
+def feedbacks(request):
+    if request.method == "POST":
+        form = FeedbacksForm(request.POST)
+        feedback = Feedbacks.objects.all()
+        if form.is_valid():
+            
+            feedbackform = form.save(commit=False)
+            feedbackform.user = request.user
+            feedbackform.save()
+            messages.success(request, 'Thanks, your feedback has been recorded')
+            print('hello world')
+            return redirect("home:feedbacks")
+    else:
+        form = FeedbacksForm()
+    print(form)
+    feedback = Feedbacks.objects.first()
+    form = FeedbacksForm()
+    return render(request, 'home/feedbacks.html', {'form':form, 'feedback':feedback})
+
+def career_credit(request):
+    return TemplateResponse(request, 'home/career_credit.html') 
+
+def career_credit_form(request):
+    if request.method == "POST":
+        career_credit = CareercreditForm(request.POST)
+        if career_credit.is_valid():
+            career_credit.save()
+            messages.success(request, 'Thanks, we will get back to you soon')
+            return redirect("home:career_credit_form")
+        else:
+            return render(
+                request, 
+                'home/career_credit_form.html', 
+                {'form':career_credit}
+            )   
+    return TemplateResponse(request, 'home/career_credit_form.html') 
