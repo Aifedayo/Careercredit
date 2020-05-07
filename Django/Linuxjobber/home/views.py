@@ -1816,15 +1816,9 @@ def workexprofile(request):
     trainee.user = wepeoples.objects.get(user=request.user)
     trainee.save()
     trainee_status = trainee.trainee_stat
-<<<<<<< HEAD
     # work_experience_eligible_pdf(details.user)
     # work_experience_term_pdf(details.user)
     # work_experience_isa_pdf(details.user)
-=======
-    work_experience_eligible_pdf(details.user)
-    work_experience_term_pdf(details.user)
-    work_experience_isa_pdf(details.user)
->>>>>>> cb7a5b303e0e98023fa0a691890a915390890d43
     if not details.pdf:
         return redirect("home:workexprofile")
     pdf = details.pdf.url
