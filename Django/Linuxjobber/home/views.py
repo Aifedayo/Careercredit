@@ -891,6 +891,7 @@ def completeclass(request,course):
     tomorrow = False
     try:
         page = CompleteClass.objects.get(slug=course)
+        print(page)
         page_learn = CompleteClassLearn.objects.filter(completeclass=page)
         page_cert = CompleteClassCertificate.objects.filter(completeclass=page)
         courses = CourseTopic.objects.filter(course=page.course)
@@ -2946,7 +2947,7 @@ def full_train_pay(request, class_id):
     mode = "One Time Payment"
     stripeset = StripePayment.objects.all()
     stripe.api_key = stripeset[0].secretkey
-    DISCLMR = "Please note that you will be charged ${} upfront. However, you may cancel at any time within 14 days for a full refund. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ${}/Monthly".format(
+    DISCLMR = "Please note that you will be charged ${} upfront. However, you may cancel at any time within 14 days for a full refund. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ${}".format(
         PRICE, PRICE)
 
 
