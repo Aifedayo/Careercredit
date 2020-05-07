@@ -1828,9 +1828,9 @@ def workexprofile(request):
     pdf = details.pdf.url
     pdf2 = details.terms.url
     pdf3 = isa.pdf.url
-    # if not trainee_status:
-    #     trainee_status = 'Pending'
-    #     trainee_status.save()
+    if not trainee_status:
+        trainee_status = 'Pending'
+        trainee_status.save()
     if weps.personn is None:
         weps.personn = 'Trainee'
         weps.save()
