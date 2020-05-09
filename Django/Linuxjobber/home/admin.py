@@ -21,12 +21,12 @@ from .forms import  UpcomingScheduleForm
 from .mail_service import LinuxjobberMassMailer, handle_campaign, LinuxjobberMailer
 from .models import FAQ, Job, RHCSAOrder, FreeAccountClick, Campaign, Message, Unsubscriber, Internship, \
     InternshipDetail, MessageGroup, UserLocation, NewsLetterSubscribers, UserOrder, Document, MainModel, AwsCredential, \
-    Jobplacement, Groupclass, BillingHistory, GroupClassRegister, StripePayment, UserPayment, wepeoples, wetask, werole, \
+    Jobplacement, Groupclass, PaymentHistory, GroupClassRegister, StripePayment, UserPayment, wepeoples, wetask, werole, \
     wework, wetype, PartTimeJob, TryFreeRecord, FullTimePostion, PartTimePostion, Resume, CareerSwitchApplication, \
     Certificates, EmailMessageType, EmailMessageLog, CompleteClass, \
     CompleteClassLearn, CompleteClassCertificate, WorkExperienceEligibility, WorkExperienceIsa, WorkExperiencePay, \
     SubPayment, InstallmentPlan, EmailGroup, EmailGroupMessageLog, WorkExperiencePriceWaiver, Variables, ItPartnership,\
-     WorkExperiencePaystub, WorkexpFormStage, WeTraineeStatus, RecordWEChange
+     WorkExperiencePaystub, WorkexpFormStage, WeTraineeStatus, RecordWEChange, Feedbacks, Careercredit
 
 from datetime import timedelta
 import datetime
@@ -876,6 +876,7 @@ class ItPartnershipAdmin(admin.ModelAdmin):
     list_display = ('full_name','company','email','idea_title','idea_detail')
     # list_display = ItPartnership._meta.get_fields()
 
+
 admin.site.register(WorkExperienceIsa,WorkExperienceIsaAdmin)
 admin.site.register(WorkExperienceEligibility,WorkExperienceEligibilityAdmin)
 admin.site.register(WorkExperiencePay)
@@ -890,7 +891,7 @@ admin.site.register(AwsCredential)
 admin.site.register(Jobplacement)
 admin.site.register(Groupclass)
 admin.site.register(GroupClassRegister)
-admin.site.register(BillingHistory)
+admin.site.register(PaymentHistory)
 admin.site.register(RHCSAOrder)
 admin.site.register(Campaign, campaignAdmin)
 admin.site.register(NewsLetterSubscribers)
@@ -927,6 +928,8 @@ admin.site.register(ItPartnership, ItPartnershipAdmin)
 admin.site.register(WorkexpFormStage)
 admin.site.register(WeTraineeStatus)
 admin.site.register(RecordWEChange)
+admin.site.register(Feedbacks)
+admin.site.register(Careercredit)
 
 class VariablesAdmin(admin.ModelAdmin):
     list_display = ('key','value')
