@@ -891,6 +891,7 @@ def completeclass(request,course):
     tomorrow = False
     try:
         page = CompleteClass.objects.get(slug=course)
+        print(page)
         page_learn = CompleteClassLearn.objects.filter(completeclass=page)
         page_cert = CompleteClassCertificate.objects.filter(completeclass=page)
         courses = CourseTopic.objects.filter(course=page.course)
@@ -904,8 +905,8 @@ def completeclass(request,course):
                 course.save()
         if tm.date() ==  page.due_date.date():
             tomorrow = True
-        if td > page.due_date:
-            expired = True
+        # if td > page.due_date:
+        #     expired = True
         if td.date() == page.due_date.date():
             today = True
 
@@ -1819,7 +1820,7 @@ def workexprofile(request):
     trainee, created = WeTraineeStatus.objects.get_or_create(user__user=request.user)
     trainee.user = wepeoples.objects.get(user=request.user)
     trainee.save()
-    # trainee_status = trainee.trainee_stat
+    trainee_status = trainee.trainee_stat
     # work_experience_eligible_pdf(details.user)
     # work_experience_term_pdf(details.user)
     # work_experience_isa_pdf(details.user)
@@ -1828,17 +1829,16 @@ def workexprofile(request):
     pdf = details.pdf.url
     pdf2 = details.terms.url
     pdf3 = isa.pdf.url
-    # if not trainee_status:
-    #     trainee_status = 'Pending'
-    #     trainee_status.save()
+    if not trainee_status:
+        trainee_status = 'Pending'
+        trainee_status.save()
     if weps.personn is None:
         weps.personn = 'Trainee'
         weps.save()
     else:
         pass
     weps.save()
-    print(trainee.user)
-    print(trainee_status)
+
 
 
     return render(request, 'home/workexprofile.html',
@@ -2947,7 +2947,7 @@ def full_train_pay(request, class_id):
     mode = "One Time Payment"
     stripeset = StripePayment.objects.all()
     stripe.api_key = stripeset[0].secretkey
-    DISCLMR = "Please note that you will be charged ${} upfront. However, you may cancel at any time within 14 days for a full refund. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ${}/Monthly".format(
+    DISCLMR = "Please note that you will be charged ${} upfront. However, you may cancel at any time within 14 days for a full refund. By clicking Pay with Card you are agreeing to allow Linuxjobber to bill you ${}".format(
         PRICE, PRICE)
 
 
