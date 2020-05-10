@@ -1217,6 +1217,12 @@ def workexperience(request):
 def workterm(request):
     # Work Experience terms and agreement view
     updatestage(request, workterm) # update the stage of applicant
+    try:
+        # redirect user to profile page is user has already finished their application
+        workexp = wepeoples.objects.get(user=request.user)
+        return redirect("home:workexprofile")
+    except  wepeoples.DoesNotExist:
+        pass
     return render(request, 'home/workexpterm.html')
 
 
@@ -1225,7 +1231,12 @@ def workexpform(request):
     # Work Experience form view
     updatestage(request, workexpform) # update the stage of applicant
     form = WeForm()
-
+    try:
+        # redirect user to profile page is user has already finished their application
+        workexp = wepeoples.objects.get(user=request.user)
+        return redirect("home:workexprofile")
+    except  wepeoples.DoesNotExist:
+        pass
     try:
         # redirect user to eligibility page is user does not already exists in it
         details =  WorkExperienceEligibility.objects.get(user=request.user)
@@ -1405,7 +1416,12 @@ def work_experience_term_pdf(user):
 def work_experience_eligible(request):
     # update the stage of the applicant first
     updatestage(request, work_experience_eligible)
-
+    try:
+        # redirect user to profile page is user has already finished their application
+        workexp = wepeoples.objects.get(user=request.user)
+        return redirect("home:workexprofile")
+    except  wepeoples.DoesNotExist:
+        pass
     try:
         # Get workexperienceeligibility model with user
         details =  WorkExperienceEligibility.objects.get(user=request.user)
@@ -1518,6 +1534,12 @@ def work_experience_isa_part_1(request):
     current_date =  current_date.strftime("%B %d, %Y")
     print(current_date)
     try:
+        # redirect user to profile page is user has already finished their application
+        workexp = wepeoples.objects.get(user=request.user)
+        return redirect("home:workexprofile")
+    except  wepeoples.DoesNotExist:
+        pass
+    try:
          # Get workexperienceeligibility model with user
         details =  WorkExperienceEligibility.objects.get(user=request.user)
         date = details.date_of_birth
@@ -1609,7 +1631,12 @@ def work_experience_isa_part_2(request):
     # Work Experience ISA2 view
     updatestage(request, work_experience_isa_part_2)
     # Update the stage of the applicant when the view is accessed 
-
+    try:
+        # redirect user to profile page is user has already finished their application
+        workexp = wepeoples.objects.get(user=request.user)
+        return redirect("home:workexprofile")
+    except  wepeoples.DoesNotExist:
+        pass
     try:
         # Get the WorkExperienceEligibility model with user 
         details =  WorkExperienceEligibility.objects.get(user=request.user)

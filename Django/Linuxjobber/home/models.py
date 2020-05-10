@@ -216,7 +216,7 @@ class StripePayment(models.Model):
         return self.secretkey
 
 
-class PaymentHistory(models.Model):
+class BillingHistory(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     amount = models.IntegerField(default=0)
     subscription_id = models.CharField(max_length=100)
@@ -225,6 +225,19 @@ class PaymentHistory(models.Model):
 
     def __str__(self):
         return self.user.email
+
+
+
+class PaymentHistory(models.Model):
+    email = models.CharField(max_length=100,unique=True)
+    
+    def __str__(self):
+        return self.email
+
+    class Meta:
+        db_table = "users_customuser"
+        managed = False
+
 
 
 class ContactMessages(models.Model):
