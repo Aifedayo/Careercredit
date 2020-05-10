@@ -756,6 +756,7 @@ footer .content .wrapper .left .site-info .address p{
     flex-basis: 55%;
 }
 
+footer .content .wrapper .left .links li a, 
 footer .content .wrapper .right .more-link li a{
     color: #35B99F;
 }
@@ -1009,7 +1010,6 @@ div.message{
 
 .alert-danger{
    background: #fad7da;
-
 }
 
 .alert-danger p{

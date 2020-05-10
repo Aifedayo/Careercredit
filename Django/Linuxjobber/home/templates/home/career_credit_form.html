@@ -66,11 +66,13 @@
                                 <div class="row">
                                     <div class="item">
                                         <label>Last Name *</label>
-                                        <input type="text" placeholder="John" name="last_name" required/>
+                                        <input type="text" placeholder="John" name="last_name" 
+                                            onkeyup="this.value=this.value.replace(/[^a-zA-Z\s]*$/,'');" required/>
                                     </div>
                                     <div class="item">
                                         <label>First Name *</label>
-                                        <input type="text" placeholder="John" name="first_name" required/>
+                                        <input type="text" placeholder="John" name="first_name" 
+                                            onkeyup="this.value=this.value.replace(/[^a-zA-Z\s]*$/,'');" required/>
                                     </div>
                                 </div>
                             </div>
@@ -78,11 +80,12 @@
                                 <div class="row">
                                     <div class="item">
                                         <label>Other Name</label>
-                                        <input type="text" placeholder="John" name="other_name"/>
+                                        <input type="text" placeholder="John" name="other_name"
+                                            onkeyup="this.value=this.value.replace(/[^a-zA-Z\s]*$/,'');" />
                                     </div>
                                     <div class="item">
                                         <label>Email Address *</label>
-                                        <input type="text" placeholder="John@email.com" name="email" required/>
+                                        <input type="email" placeholder="John@email.com" name="email" required/>
                                     </div>
                                 </div>
                             </div>
@@ -90,11 +93,13 @@
                                 <div class="row">
                                     <div class="item">
                                         <label>Phone Number</label>
-                                        <input type="text" placeholder="123456789" name="phone_number"/>
+                                        <input type="text" placeholder="123456789" name="phone_number"
+                                            onkeyup="this.value=this.value.replace(/[^0-9]/g,'');" />
                                     </div>
                                     <div class="item">
                                         <label>University/College *</label>
-                                        <input type="text" placeholder="University of Lagos" name="school" required/>
+                                        <input type="text" placeholder="University of Lagos" name="school" 
+                                            onkeyup="this.value=this.value.replace(/[^a-zA-Z\s]*$/,'');" required/>
                                     </div>
                                 </div>
                             </div>
@@ -111,7 +116,8 @@
                                     </div>
                                     <div class="item">
                                         <label>Course of Study *</label>
-                                        <input type="text" placeholder="Computer science" name="course_of_study" required/>
+                                        <input type="text" placeholder="Computer science" name="course_of_study" 
+                                            onkeyup="this.value=this.value.replace(/[^a-zA-Z\s]*$/,'');" required/>
                                     </div>
                                 </div>
                             </div>
@@ -149,11 +155,12 @@
                                 <div class="row">
                                     <div class="item">
                                         <label>First Classmate Full Name *</label>
-                                        <input type="text" placeholder="John" name="first_classmate_fullname" required/>
+                                        <input type="text" placeholder="John" name="first_classmate_fullname" 
+                                            onkeyup="this.value=this.value.replace(/[^a-zA-Z\s]*$/,'');" required/>
                                     </div>
                                     <div class="item">
                                         <label>First Classmate Email Address *</label>
-                                        <input type="text" placeholder="John@email.com" name="first_classmate_email" required/>
+                                        <input type="email" placeholder="John@email.com" name="first_classmate_email" required/>
                                     </div>
                                 </div>
                             </div>
@@ -161,11 +168,12 @@
                                 <div class="row">
                                     <div class="item">
                                         <label>Second Classmate Full Name *</label>
-                                        <input type="text" placeholder="John" name="second_classmate_fullname" required/>
+                                        <input type="text" placeholder="John" name="second_classmate_fullname" 
+                                            onkeyup="this.value=this.value.replace(/[^a-zA-Z\s]*$/,'');" required/>
                                     </div>
                                     <div class="item">
                                         <label>Second Classmate Email Address *</label>
-                                        <input type="text" placeholder="John@email.com" name="second_classmate_email" required/>
+                                        <input type="email" placeholder="John@email.com" name="second_classmate_email" required/>
                                     </div>
                                 </div>
                             </div>
@@ -173,11 +181,12 @@
                                 <div class="row">
                                     <div class="item">
                                         <label>Lecture/Proffessor Full Name *</label>
-                                        <input type="text" placeholder="Prof. John" name="lecturer_fullname" required/>
+                                        <input type="text" placeholder="Prof. John" name="lecturer_fullname" 
+                                            onkeyup="this.value=this.value.replace(/[^a-zA-Z\s]*$/,'');" required/>
                                     </div>
                                     <div class="item">
                                         <label>Lecture/Proffessor Email Address *</label>
-                                        <input type="text" placeholder="profJohn@email.com" name="lecturer_email" required/>
+                                        <input type="email" placeholder="profJohn@email.com" name="lecturer_email" required/>
                                     </div>
                                 </div>
                             </div>
@@ -192,17 +201,17 @@
                 <div class="wrapper">
                     <div class="left">
                         <div class="site-info">
-                            <img src="{% static 'home/careercredit/images/logo.png' %}" />
+                            <a href="/career_credit"><img src="{% static 'home/careercredit/images/logo.png' %}" /></a>
                             <div class="address">
                                 <p>7277 Corona Street Oak Ridge, TN 37830</p>
                             </div>
                         </div>
                         <ul class="links">
-                            <li>Apply now</li>
-                            <li>Benefits </li>
-                            <li>Application requirements</li>
-                            <li>LinuxJobber official website</li>
-                            <li>Privacy </li>
+                            <li><a href="#">Apply now</a></li>
+                            <li><a href="#">Benefits </a></li>
+                            <li><a href="#">Application requirements</a></li>
+                            <li><a href="#">LinuxJobber official website</a></li>
+                            <li><a href="#">Privacy </a></li>
                         </ul>
                     </div>
                     <div class="right">
