@@ -28,8 +28,8 @@
     <tr>
       <th scope="col">Date</th>
       <th scope="col">Amount</th>
-      <th scope="col">Subscription ID</th>
-      <th scope="col">Status</th>
+      <th scope="col">Transaction ID</th>
+      <th scope="col">Paid for</th>
     </tr>
   </thead>
 
@@ -37,10 +37,10 @@
 {%for hist in pay_hist%} 
     <tbody>
     <tr>
-      <th scope="row"><div>{{hist.date}}</div> </th>
+      <th scope="row"><div>{{hist.paid_at}}</div> </th>
       <td><div>{{hist.amount}}</div></td>
-      <td><div>{{hist.subscription_id}}</div></td>
-      <td><div>{{hist.status}}</div></td>
+      <td><div>{{hist.trans_id}}</div></td>
+      <td><div>{{hist.pay_for}}</div></td>
     </tr>
 
   </tbody>

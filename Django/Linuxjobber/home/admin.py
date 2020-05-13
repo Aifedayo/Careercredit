@@ -887,7 +887,7 @@ class PaymentHistoryAdmin(admin.ModelAdmin):
         # return super().changelist_view( request, extra_context=None)
     def render_change_form(self, request, context, add=False, change=False, form_url='', obj=None):
 
-        hist = BillingHistory.objects.filter(user__email=obj)
+        hist = UserPayment.objects.filter(user__email=obj)
         context.update({
             "pay_hist":hist
         })
