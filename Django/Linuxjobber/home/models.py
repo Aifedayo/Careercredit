@@ -698,11 +698,11 @@ HAS_FRIEND = (
 )
 
 class Feedbacks(models.Model):
-    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+    user = models.OneToOneField(wepeoples, on_delete=models.CASCADE)
     satisfaction = models.CharField(choices=SATISFACTION_RATE, max_length=50)
     recommend_us = models.CharField( choices=RECOMMEND_US, max_length=50)
     has_friend = models.CharField(choices= HAS_FRIEND, max_length= 10)    
-    feedback = models.TextField(max_length=100)
+    feedback = models.TextField(max_length=200)
 
 
 class GroupClassLog(models.Model):

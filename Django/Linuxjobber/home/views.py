@@ -3893,11 +3893,11 @@ def it_partnership(request):
 
 def testimonials(request):
     feedbacks = Feedbacks.objects.all()
-    
+    WE_person = wepeoples
     # for feed in feedbacks:
     #     person = wepeoples.objects
         # print(feed.feedback)
-    return render(request, 'home/testimonials.html', {'feedbacks':feedbacks})
+    return render(request, 'home/testimonials.html', {'feedbacks':feedbacks, 'WE_person':WE_person})
 
 @login_required
 def feedbacks(request):
@@ -3907,14 +3907,14 @@ def feedbacks(request):
         if form.is_valid():
             
             feedbackform = form.save(commit=False)
-            feedbackform.user = request.user
+            feedbackform.user = wepeoples.objects.get(user=request.user)
             feedbackform.save()
             messages.success(request, 'Thanks, your feedback has been recorded')
             print('hello world')
             return redirect("home:feedbacks")
     else:
         form = FeedbacksForm()
-    print(form)
+    
     feedback = Feedbacks.objects.first()
     form = FeedbacksForm()
     return render(request, 'home/feedbacks.html', {'form':form, 'feedback':feedback})

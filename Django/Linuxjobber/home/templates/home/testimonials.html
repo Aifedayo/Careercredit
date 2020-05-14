@@ -61,10 +61,10 @@
                         </div> 
                         <div class=" person" style="">
                             <div >
-                                <img src="{% static 'home/Mary Okafor.jpg' %}" class="feedback-img"  style="">
+                                <img src="{{testi.user.profile_picture.url}}" class="feedback-img"  style="">
                             </div>
                             <div class="feedback-person">
-                                <p><span>Funke Akindele,</span>  Joined as Linux Administrator</p>
+                                <p><span>{{testi.user.user.first_name}} {{testi.user.user.last_name}} ,</span>  Joined as {{testi.user.types}} </p>
                             </div>
                         </div>  
                     </div>                         
