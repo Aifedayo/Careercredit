@@ -3905,13 +3905,22 @@ def feedbacks(request):
         form = FeedbacksForm(request.POST)
         feedback = Feedbacks.objects.all()
         if form.is_valid():
-            
-            feedbackform = form.save(commit=False)
-            feedbackform.user = wepeoples.objects.get(user=request.user)
-            feedbackform.save()
-            messages.success(request, 'Thanks, your feedback has been recorded')
-            print('hello world')
-            return redirect("home:feedbacks")
+            try:
+                Feedbacks.objects.get(user=wepeoples.objects.get(user=request.user))
+                messages.error(request, "Sorry, but, you already gave us a feedback")
+                return redirect('home:feedbacks')
+            except:
+                try:
+                    wep = wepeoples.objects.get(user=request.user)
+                    feedbackform = form.save(commit=False)
+                    feedbackform.user = wep
+                    feedbackform.save()
+                    messages.success(request, 'Thanks, your feedback has been recorded')
+                    print('hello world')
+                    return redirect("home:feedbacks")
+                except wepeoples.DoesNotExist:
+                    messages.error(request, "You have not done our WorkExperience Programme")
+                    return redirect("home:feedbacks")
     else:
         form = FeedbacksForm()
     
