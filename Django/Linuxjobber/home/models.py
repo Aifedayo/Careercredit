@@ -703,7 +703,8 @@ class Feedbacks(models.Model):
     recommend_us = models.CharField( choices=RECOMMEND_US, max_length=50)
     has_friend = models.CharField(choices= HAS_FRIEND, max_length= 10)    
     feedback = models.TextField(max_length=200)
-
+    def __str__(self):
+        return str(self.user)
 
 class GroupClassLog(models.Model):
     group = models.ForeignKey(Groupclass, on_delete=models.CASCADE)

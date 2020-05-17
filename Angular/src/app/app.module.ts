@@ -21,12 +21,15 @@ import {ApiService} from "./share/api.service";
 import { SafePipe } from './share/safe.pipe';
 import {OrderModule} from "ngx-order-pipe";
 import {DashboardModule} from "./dashboard/dashboard.module";
+import {AdminDashboardModule} from "./admin-dashboard/admin-dashboard.module";
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     PrivateChatComponent,
+    AdminDashboardComponent,
 
   ],
   imports: [
@@ -40,7 +43,8 @@ import {DashboardModule} from "./dashboard/dashboard.module";
     CourseModule,
     OrderModule,
     DashboardModule,
-    RouterModule
+    RouterModule,
+    AdminDashboardModule
   ],
   providers: [DataService,Location,ApiService],
   bootstrap: [AppComponent]
