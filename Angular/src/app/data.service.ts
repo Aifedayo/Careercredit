@@ -56,7 +56,7 @@ export class DataService {
 
 
   sessionSet(token:string,group_id:string)  {
-    this.http.post(environment.API_URL + 'sso_api/confirm_key/' + group_id,JSON.stringify({'token':token}),this.httpOptions)
+    this.http.post(environment.API_URL + 'sso_api/confirm_key/' + group_id, JSON.stringify({'token':token}),this.httpOptions)
       .subscribe(data=>{
       sessionStorage.clear();
       sessionStorage.setItem('username', data['username']);

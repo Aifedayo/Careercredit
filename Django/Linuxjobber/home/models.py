@@ -710,6 +710,9 @@ class GroupClassLog(models.Model):
     group = models.ForeignKey(Groupclass, on_delete=models.CASCADE)
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     last_login = models.DateTimeField(auto_now=True)
+    
+    def __str__(self):
+        return str(self.user)
 
     def get_log(group_id):
         data = {}

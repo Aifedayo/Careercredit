@@ -41,6 +41,7 @@ def login(request):
                         status=status.HTTP_403_FORBIDDEN)
     user = authenticate(username=username, password=password)
     user1= authenticate(email=username, password=password)
+    print(user1)
     if not user and not user1:
         return Response({'error': 'Invalid Credentials'},
                         status=status.HTTP_400_BAD_REQUEST)

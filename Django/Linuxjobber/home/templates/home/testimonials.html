@@ -83,11 +83,18 @@
         </div>
     </div>        
 
-
-
-
-
-    <script type="text/javascript">
+    <script>
+        var infinite = new Waypoint.Infinite({
+        element: $('.infinite-container')[0],
+        onBeforePageLoad: function () {
+            $('.loading').show();
+        },
+        onAfterPageLoad: function ($items) {
+            $('.loading').hide();
+        }
+        });
+    </script>
+    {% comment %} <script type="text/javascript">
         jQuery(function () {
 
             function ipLookUp() {
@@ -114,5 +121,5 @@
 
             ipLookUp();
         });
-    </script>
+    </script> {% endcomment %}
 {% endblock %}

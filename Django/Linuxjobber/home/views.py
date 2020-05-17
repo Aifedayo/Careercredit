@@ -7,7 +7,7 @@ import pytz
 import requests
 import os
 
-
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from smtplib import SMTPException
 from django.conf import settings
 from django.contrib.auth.hashers import check_password
