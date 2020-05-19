@@ -361,6 +361,11 @@
 													<li><a href="{% url 'home:workexprofile' %}"><span class="link-icon"><img src="{% static 'home/images/icon1.png' %}" alt="" /></span>Work Experience Profile</a></li>
 												</ul>
 											</div>
+											<div class="col-md-4 col-sm-6">
+												<ul>	
+													<li><a href="{% url 'home:feedbacks' %}"><span class="link-icon"><img src="{% static 'home/images/icon1.png' %}" alt="" /></span>Give Feedback on Work Experience </a></li>
+												</ul>
+											</div>
 											{%endif%}
                                             											<div class="col-md-4 col-sm-6">
 												<ul>
@@ -429,9 +434,9 @@
 						<li><a href="{% url 'home:faq' %}">FAQ</a></li>
 						<li><a href="{% url 'home:partime' %}">Part-Time Jobs</a></li>
 						<li><a href="{% url 'home:group' %}">Group Class</a></li>
-						<li><a href="{% url 'home:workexperience' %}">Work
-								Experience</a></li>
-								<li><a href="{% url 'home:combined_class' %}">Combined Class</a></li>
+						<li><a href="{% url 'home:workexperience' %}">WorkExperience</a></li>
+						<li><a href="{% url 'home:testimonials' %}">WorkExperience Testimonials</a></li>
+						<li><a href="{% url 'home:combined_class' %}">Combined Class</a></li>
 						<li><a href="{% url 'home:jobplacements' %}">Job
 								Placement Program</a></li>
 						{%for class in complitfoot %}

@@ -19,9 +19,10 @@ import { AlertModule } from './../course/_alert/alert.module';
     DashboardRoutingModule,
     FormsModule,
     RouterModule,
-    AlertModule
+    AlertModule,
+    
   ],
-  declarations: [HeaderComponent, ContentComponent, ProfileComponent, AttendanceComponent, StudentsComponent, SettingsComponent,ListComponent],
+  declarations: [HeaderComponent, ContentComponent, ProfileComponent, AttendanceComponent,StudentsComponent, SettingsComponent,ListComponent],//StudentsComponent,
   bootstrap: [ HeaderComponent ]
 })
 export class DashboardModule { }
