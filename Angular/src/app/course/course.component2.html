@@ -17,15 +17,25 @@
               <span style="font-size: 12px;">{{ course.start_date}} - {{course.end_date}}</span> 
             </span>
         </div>
+
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right" style="margin-right: -100px">
+            <li *ngIf="is_instructor">
+              <a [routerLink]="['/admin']" class="head-text" 
+                style="margin-right: -10px">Instructor Dashboard
+              </a>
+            </li>
             <li>
               <a [routerLink]="['/dashboard/list']" class="head-text" 
                 style="margin-right: -100px">{{ username }}
               </a>
             </li>
+
           </ul>
         </div><!--/.nav-collapse -->
+
+
+
       </div>
     </nav>
 

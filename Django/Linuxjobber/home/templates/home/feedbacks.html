@@ -98,13 +98,28 @@ Feedbacks | Linuxjobber Work Experience
   <div class="container">
     <div class="row ">
       <div class="text-center text-center2">
-        {% if messages %}
+        {% comment %} {% if messages %}
           {% for message in messages %}
           <div class="alert alert-{{message.tags}}" role="alert">
             <p>{{message}}</p>
           </div>
           {% endfor %}
+        {% endif %} {% endcomment %}
+
+            {% if messages %}
+          {% for message in messages %}
+            {% if message.tags == "success" %}
+            <div class="alert alert-success" role="alert">
+            <p style="color:#155724">{{message}}</p>
+        	</div>
+            {%else%}
+            <div class="alert alert-danger" role="alert">
+            <p style="color:#721c24">{{message}}</p>
+            </div>
+            {%endif%}
+          {% endfor %}
         {% endif %}
+
         <h3>Give us a feedback</h3>
         <p>Tell us a little about what you enjoy about us</p>
         <form class="content" method="post" action="">
@@ -217,7 +232,7 @@ Feedbacks | Linuxjobber Work Experience
                     <label for="id_feedback" class="label-style">What can you say about our Work Experience program?
                     </label>
                     <ul>
-                      <textarea name="feedback" cols="40" rows="10" maxlength="100" required id="id_feedback"></textarea>
+                      <textarea name="feedback" cols="40" rows="10" maxlength="200" required id="id_feedback"></textarea>
                     </ul>  
                   </div>
 

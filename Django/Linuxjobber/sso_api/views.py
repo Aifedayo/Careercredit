@@ -41,6 +41,7 @@ def login(request):
                         status=status.HTTP_403_FORBIDDEN)
     user = authenticate(username=username, password=password)
     user1= authenticate(email=username, password=password)
+    print(user1)
     if not user and not user1:
         return Response({'error': 'Invalid Credentials'},
                         status=status.HTTP_400_BAD_REQUEST)
@@ -66,6 +67,11 @@ def confirm_api(request,group_id):
         print(g)
         print(g.video_required)
         set_last_login(g,token.user)
+        instructors = g.instructors.all()
+        if token.user in instructors:
+            is_instructor = True
+        else:
+            is_instructor = False
         if g.video_required:
             video_required = True
             b = AttendanceLog.objects.filter(group=group_id, user=token.user,
@@ -82,7 +88,8 @@ def confirm_api(request,group_id):
                          'video_required':video_required,
                          'uploaded':uploaded,
                          'profile_img':token.user.profile_img,
-                         'email':token.user.email
+                         'email':token.user.email,
+                         'is_instructor': is_instructor
                          },status=status.HTTP_202_ACCEPTED)
     except Token.DoesNotExist:
         return Response("Nothing",status=status.HTTP_403_FORBIDDEN)
