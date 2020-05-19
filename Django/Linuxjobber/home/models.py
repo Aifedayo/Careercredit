@@ -190,6 +190,7 @@ class Groupclass(models.Model):
     description = models.TextField(null=True)
     course = models.ForeignKey(Course, on_delete=models.CASCADE, null=True)
     image = models.ImageField(upload_to='uploads/', null=True)
+    instructors = models.ManyToManyField(CustomUser, blank=True, related_name= "course_instructors")
 
     def __str__(self):
         return self.name
@@ -698,17 +699,21 @@ HAS_FRIEND = (
 )
 
 class Feedbacks(models.Model):
-    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+    user = models.OneToOneField(wepeoples, on_delete=models.CASCADE)
     satisfaction = models.CharField(choices=SATISFACTION_RATE, max_length=50)
     recommend_us = models.CharField( choices=RECOMMEND_US, max_length=50)
     has_friend = models.CharField(choices= HAS_FRIEND, max_length= 10)    
-    feedback = models.TextField(max_length=100)
-
+    feedback = models.TextField(max_length=200)
+    def __str__(self):
+        return str(self.user)
 
 class GroupClassLog(models.Model):
     group = models.ForeignKey(Groupclass, on_delete=models.CASCADE)
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     last_login = models.DateTimeField(auto_now=True)
+    
+    def __str__(self):
+        return str(self.user)
 
     def get_log(group_id):
         data = {}
