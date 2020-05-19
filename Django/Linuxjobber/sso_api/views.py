@@ -87,6 +87,26 @@ def confirm_api(request,group_id):
     except Token.DoesNotExist:
         return Response("Nothing",status=status.HTTP_403_FORBIDDEN)
 
+@csrf_exempt
+@api_view(["POST"])
+@permission_classes((AllowAny,))
+def tagzmail_api(request):
+    token = request.data.get("token")
+    print(token,"Pasted token")
+    try:
+        token= Token.objects.get(key=token)
+        #g= Groupclass.objects.get(pk=user_id)
+        print(token)
+        return Response({'username':token.user.username,
+                         'token':token.key,
+                         'id':token.user.pk,
+                         'role':token.user.role,
+                         'email':token.user.email
+                         },status=status.HTTP_202_ACCEPTED)
+    except Token.DoesNotExist:
+        return Response("Nothing",status=status.HTTP_403_FORBIDDEN)
+
+
 def set_last_login(group,user):
     obj,created = GroupClassLog.objects.update_or_create(group=group,user=user,defaults={'last_login':''})
     AttendanceLog.objects.create(group=group,user=user,timestamp=datetime.now().strftime('%A %d %B, %Y @ %I:%M%p'))
