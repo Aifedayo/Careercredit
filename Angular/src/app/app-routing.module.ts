@@ -7,6 +7,7 @@ import { AuthGuard } from './auth.guard';
 import {ContentComponent} from "./dashboard/content/content.component";
 import {VerificationComponent} from "./course/verification/verification.component";
 import {VerificationGuard} from "./verification.guard";
+import {AdminGuard} from "./verification.guard";
 import {CourseListComponent} from "./course/course-list/course-list.component";
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
@@ -19,7 +20,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'v', component: VerificationComponent},
   { path: 'x', component: CourseListComponent},
-  { path: 'admin', component: AdminDashboardComponent },
+  { path: 'admin', component: AdminDashboardComponent, },
 ];
 
 

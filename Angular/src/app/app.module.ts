@@ -29,8 +29,6 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     AppComponent,
     HomeComponent,
     PrivateChatComponent,
-    AdminDashboardComponent,
-
   ],
   imports: [
     BrowserModule,

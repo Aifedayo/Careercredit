@@ -67,6 +67,11 @@ def confirm_api(request,group_id):
         print(g)
         print(g.video_required)
         set_last_login(g,token.user)
+        instructors = g.instructors.all()
+        if token.user in instructors:
+            is_instructor = True
+        else:
+            is_instructor = False
         if g.video_required:
             video_required = True
             b = AttendanceLog.objects.filter(group=group_id, user=token.user,
@@ -83,7 +88,8 @@ def confirm_api(request,group_id):
                          'video_required':video_required,
                          'uploaded':uploaded,
                          'profile_img':token.user.profile_img,
-                         'email':token.user.email
+                         'email':token.user.email,
+                         'is_instructor': is_instructor
                          },status=status.HTTP_202_ACCEPTED)
     except Token.DoesNotExist:
         return Response("Nothing",status=status.HTTP_403_FORBIDDEN)

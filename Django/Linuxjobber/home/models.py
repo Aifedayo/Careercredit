@@ -190,6 +190,7 @@ class Groupclass(models.Model):
     description = models.TextField(null=True)
     course = models.ForeignKey(Course, on_delete=models.CASCADE, null=True)
     image = models.ImageField(upload_to='uploads/', null=True)
+    instructors = models.ManyToManyField(CustomUser, blank=True, related_name= "course_instructors")
 
     def __str__(self):
         return self.name

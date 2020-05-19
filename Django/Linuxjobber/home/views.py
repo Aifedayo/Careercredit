@@ -2323,6 +2323,7 @@ def monthly_subscription(request):
 
 def group(request, pk):
     group_item = get_object_or_404(Groupclass, pk=pk)
+    print(group_item.instructors.all())
     user = None
     if request.user.is_authenticated:
         user = CustomUser.objects.get(email=request.user)

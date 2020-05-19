@@ -67,6 +67,7 @@ export class DataService {
       sessionStorage.setItem('video_required', data['video_required']);
       sessionStorage.setItem('uploaded', data['uploaded']);
       sessionStorage.setItem('profile_img', data['profile_img']);
+      sessionStorage.setItem('is_instructor', data['is_instructor']);
 
       console.log(data['video_required'])
       console.log(data['uploaded'])
@@ -99,5 +100,11 @@ export class DataService {
     return sessionStorage.getItem('profile_img')==this.defaultProfileImg?
       false:true;
   }
+
+  isInstructor(){
+    return sessionStorage.getItem('is_instructor')=='true'?
+    true:false;
+  }
+
 }
 
