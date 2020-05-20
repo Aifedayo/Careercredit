@@ -199,7 +199,11 @@ class GroupUsers(APIView):
         """
         try:
             g=Groupclass.objects.get(id=group_id)
-            users=UserSerializer(g.users,many=True)
+            all_users = g.users.all()
+            deleted_users = g.deleted.all()
+            active_users = [user for user in all_users if user not in deleted_users]
+            print(g.deleted.all)
+            users=UserSerializer(active_users, many=True)
             return Response(users.data)
 
         except Groupclass.DoesNotExist:
@@ -363,3 +367,37 @@ class CourseInfo(APIView):
                 c=CourseTopic.objects.get(pk=topic_id)
                 return Response({'labs': TopicLabSerializer(l,many=True).data,'topic':c.topic}, status=status.HTTP_200_OK)
 
+class DeleteUsers(APIView):
+    """
+    View to list all groups in the system.
+
+    * Requires token authentication.
+    """
+    authentication_classes = (authentication.TokenAuthentication,)
+
+    # permission_classes = (permissions.IsAdminUser,)
+
+    def get(self, request, group_id=0):
+        """
+        Return a list of all users in the group.
+        Returns list of groups associated to the user as well
+        """
+        try:
+            g=Groupclass.objects.get(id=group_id)
+            users=UserSerializer(g.deleted,many=True)
+            return Response(users.data, status.HTTP_200_OK)
+
+        except Groupclass.DoesNotExist:
+            return Response("Not found",status.HTTP_404_NOT_FOUND)
+    def put(self, request, group_id=0):
+        user = request.data.get('email')
+        try:
+            u = CustomUser.objects.get(email=user)
+            g= Groupclass.objects.get(id=group_id)
+            g.deleted.add(u)
+            g.save()
+            return Response(UserSerializer(u).data, status=status.HTTP_201_CREATED)
+        except:
+            return Response("Not found",status.HTTP_404_NOT_FOUND)
+    # def put(self, request, group_id=0):
+    #     pass

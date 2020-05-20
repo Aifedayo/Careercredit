@@ -3504,7 +3504,7 @@ def group_list(request):
     user_token = None
     if request.user.is_authenticated:
         user_token, _ = Token.objects.get_or_create(user=request.user)
-
+    
     return TemplateResponse(request, 'home/group_class.html', {'groups': Groupclass.objects.all(),
                                                                'GROUP_URL': settings.GROUP_CLASS_URL,
                                                                'token': user_token})
