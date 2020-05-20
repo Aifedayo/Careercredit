@@ -202,7 +202,6 @@ class GroupUsers(APIView):
             all_users = g.users.all()
             deleted_users = g.deleted.all()
             active_users = [user for user in all_users if user not in deleted_users]
-            print(g.deleted.all)
             users=UserSerializer(active_users, many=True)
             return Response(users.data)
 
