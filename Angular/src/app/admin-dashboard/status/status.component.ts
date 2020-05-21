@@ -16,15 +16,16 @@ export class StatusComponent implements OnInit {
   public a;
   public attendance$;
   public user$:Observable<UserModel>;
-  constructor(private apiService:ApiService,private router:ActivatedRoute) {
+  constructor(private apiService:ApiService,private router:Router,private route:ActivatedRoute) {
   }
 
   ngOnInit() {
-    console.log(this.router.params)
-    this.router.params.subscribe(data=>{
+    console.log(this.route.params)
+    this.route.params.subscribe(data=>{
 
       this.attendance$=this.apiService.getUserAttendance(sessionStorage.getItem('active_group'),data['user_id'])
       this.user$=this.apiService.getUserInfo(data['user_id']);
+      console.log(window.location.origin)
     });
   }
 
@@ -35,7 +36,8 @@ export class StatusComponent implements OnInit {
     console.log(user) 
     this.apiService.deleteUser(sessionStorage.getItem('active_group'), user).subscribe(
       data => {
-        console.log('success')
+        alert('Student has been removed')
+        window.location.replace(window.location.origin+"/admin/students")
       }
     )
    })
