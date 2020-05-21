@@ -19,5 +19,6 @@ urlpatterns = [
     path('group/<int:group_id>/userlog/',views.UserAttendance.as_view()),
     path('group/<int:group_id>/userlog/<int:user_id>',views.UserAttendance.as_view()),
     path('confirm_key/<int:group_id>',views.confirm_api),
-    path('api-token-auth',auth.obtain_auth_token)
+    path('api-token-auth',auth.obtain_auth_token),
+    path('tagzmail_api/',views.tagzmail_api)
 ]
