@@ -184,7 +184,8 @@ export class ApiService {
     head = this.headers;
     head = head.append('Content-Type', 'application/json');
     const x = {'video_required': obj.video_required};
-    return this.httpClient.post(environment.API_URL + 'sso_api/group/' + obj.id + `/detail`, JSON.stringify(x), {headers: head})
+    return this.httpClient.post(environment.API_URL + 'sso_api/group/' + obj.id + `/detail`, JSON.stringify(x),
+    {headers: head})
   }
 
   getUserVerification(){
@@ -244,5 +245,18 @@ export class ApiService {
     )
   }
 
+  deleteUser(group_id, obj:string){
+    this.refreshToken()
+    let head = new HttpHeaders();
+    head = this.headers;
+    head = head.append('Content-Type', 'application/json');
+    let data = {"email": obj}
+    let url = environment.API_URL + `sso_api/group/${group_id}/deleted`
+    console.log(JSON.stringify(data))
+    console.log(url)
+    // return this.httpClient.put( 'http://localhost:8000/sso_api/upload',data,{headers:this.fileheaders})
+    return this.httpClient.put(environment.API_URL + `sso_api/group/${group_id}/deleted`, JSON.stringify(data),
+    {headers: head})
+  }
 
 }

@@ -6,12 +6,12 @@
             <span class="settings-title">Students</span>
             <div class="row">
               <ul class="collection">
-                <li class="collection-item" *ngFor="let student of students |async"><a [routerLink]="['./attendance', student.id]">{{ student.first_name }},{{ student.last_name }}</a>  </li>
+                <li class="collection-item" *ngFor="let student of students |async"><a [routerLink]="['./status', student.id]">{{ student.first_name }} {{ student.last_name }}</a>  </li>
               </ul>
             </div>
           </div>
           <div class="col s12 m8">
-              <div class="row">
+              <div class="row" style="margin-left: 100px;">
                   <router-outlet></router-outlet>
               </div>
           </div>

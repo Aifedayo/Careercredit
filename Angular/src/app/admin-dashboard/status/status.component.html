@@ -1,0 +1,23 @@
+<main>
+  <div class="rectangle">
+    <div class="row">
+      <div class="align-center" style="text-align: center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
+       Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;font-size: large;">Student's Status</div>
+      <div class="" style="margin:10px;" *ngIf="user$|async as user">
+        <div class=""><img class="responsive-img circle" [src]="user.profile_img" alt=""><img></div>
+        <p class="align-center"> {{ user.first_name }} {{ user.last_name }} </p>
+        <p class="align-center"> Last login dates:  </p>
+        <table>
+
+          <tr *ngFor="let item of attendance$|async as logs">
+            <td >{{ item.timestamp }} </td>
+            <td *ngIf="item.video_url !== null"><a [href]="url + item.video_url" download="_video">View</a> </td>
+            <td *ngIf="item.video_url ==null"> -  </td>
+          </tr>
+  
+        </table>
+        <button class="delete" (click)="deleteUser()"> Delete student</button>
+      </div>
+    </div>
+  </div>
+</main>

@@ -182,3 +182,11 @@ img.img-responsive{
     margin-left: 20px;
     text-align: center;
   }
+
+  .admin{
+    font-family:'Roboto',sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    text-align: center;
+  }

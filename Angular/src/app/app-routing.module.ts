@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'v', component: VerificationComponent},
   { path: 'x', component: CourseListComponent},
-  { path: 'admin', component: AdminDashboardComponent, },
+  { path: 'admin', component: AdminDashboardComponent,canActivate: [AdminGuard] },
 ];
 
 
@@ -28,6 +28,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [AuthGuard]
+  providers: [AuthGuard, AdminGuard]
 })
 export class AppRoutingModule { }

@@ -127,7 +127,11 @@
                 </div>
               {%else%}
                 {{group.class_meet}}<br>
+                {% if request.user not in group.deleted.all %}
                 <a href="{{ GROUP_URL }}{{ group.id }}?hash={{token}}" class="btn groupclabut2">Go To Class</a>
+                {%else%}
+                <a href="{{ GROUP_URL }}{{ group.id }}" class="btn groupclabut2">Go To Class</a>
+                {%endif%}
               {%endif%}
             </div>
           </div>
