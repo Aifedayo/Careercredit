@@ -20,9 +20,5 @@ urlpatterns = [
     path('group/<int:group_id>/userlog/<int:user_id>',views.UserAttendance.as_view()),
     path('confirm_key/<int:group_id>',views.confirm_api),
     path('api-token-auth',auth.obtain_auth_token),
-<<<<<<< HEAD
-    path('group/<int:group_id>/deleted',views.DeleteUsers.as_view()),
-=======
     path('tagzmail_api/',views.tagzmail_api)
->>>>>>> d14400b0cd30d5ef84f5b5a9ecf34872edf61c28
 ]
