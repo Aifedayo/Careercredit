@@ -41,6 +41,7 @@ def login(request):
                         status=status.HTTP_403_FORBIDDEN)
     user = authenticate(username=username, password=password)
     user1= authenticate(email=username, password=password)
+    print(user1)
     if not user and not user1:
         return Response({'error': 'Invalid Credentials'},
                         status=status.HTTP_400_BAD_REQUEST)
@@ -66,6 +67,11 @@ def confirm_api(request,group_id):
         print(g)
         print(g.video_required)
         set_last_login(g,token.user)
+        instructors = g.instructors.all()
+        if token.user in instructors:
+            is_instructor = True
+        else:
+            is_instructor = False
         if g.video_required:
             video_required = True
             b = AttendanceLog.objects.filter(group=group_id, user=token.user,
@@ -82,10 +88,31 @@ def confirm_api(request,group_id):
                          'video_required':video_required,
                          'uploaded':uploaded,
                          'profile_img':token.user.profile_img,
+                         'email':token.user.email,
+                         'is_instructor': is_instructor
+                         },status=status.HTTP_202_ACCEPTED)
+    except Token.DoesNotExist:
+        return Response("Nothing",status=status.HTTP_403_FORBIDDEN)
+
+@csrf_exempt
+@api_view(["POST"])
+@permission_classes((AllowAny,))
+def tagzmail_api(request):
+    token = request.data.get("token")
+    print(token,"Pasted token")
+    try:
+        token= Token.objects.get(key=token)
+        #g= Groupclass.objects.get(pk=user_id)
+        print(token)
+        return Response({'username':token.user.username,
+                         'token':token.key,
+                         'id':token.user.pk,
+                         'role':token.user.role,
                          'email':token.user.email
                          },status=status.HTTP_202_ACCEPTED)
     except Token.DoesNotExist:
         return Response("Nothing",status=status.HTTP_403_FORBIDDEN)
+
 
 def set_last_login(group,user):
     obj,created = GroupClassLog.objects.update_or_create(group=group,user=user,defaults={'last_login':''})

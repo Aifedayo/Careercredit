@@ -21,7 +21,7 @@ from .forms import  UpcomingScheduleForm
 from .mail_service import LinuxjobberMassMailer, handle_campaign, LinuxjobberMailer
 from .models import FAQ, Job, RHCSAOrder, FreeAccountClick, Campaign, Message, Unsubscriber, Internship, \
     InternshipDetail, MessageGroup, UserLocation, NewsLetterSubscribers, UserOrder, Document, MainModel, AwsCredential, \
-    Jobplacement, Groupclass, BillingHistory, PaymentHistory, GroupClassRegister, StripePayment, UserPayment, wepeoples, wetask, werole, \
+    Jobplacement, Groupclass, GroupClassLog, BillingHistory, PaymentHistory, GroupClassRegister, StripePayment, UserPayment, wepeoples, wetask, werole, \
     wework, wetype, PartTimeJob, TryFreeRecord, FullTimePostion, PartTimePostion, Resume, CareerSwitchApplication, \
     Certificates, EmailMessageType, EmailMessageLog, CompleteClass, \
     CompleteClassLearn, CompleteClassCertificate, WorkExperienceEligibility, WorkExperienceIsa, WorkExperiencePay, \
@@ -948,6 +948,7 @@ admin.site.register(RecordWEChange)
 admin.site.register(Feedbacks)
 admin.site.register(Careercredit)
 admin.site.register(PaymentHistory, PaymentHistoryAdmin)
+admin.site.register(GroupClassLog)
 
 class VariablesAdmin(admin.ModelAdmin):
     list_display = ('key','value')
