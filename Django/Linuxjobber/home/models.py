@@ -225,6 +225,9 @@ class BillingHistory(models.Model):
     status = models.CharField(max_length=100)
     date = models.DateTimeField(default=timezone.now, null=False)
 
+    class Meta:
+        db_table = 'home_paymenthistory'
+
     def __str__(self):
         return self.user.email
 
