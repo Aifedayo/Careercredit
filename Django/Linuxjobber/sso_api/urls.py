@@ -12,6 +12,7 @@ urlpatterns = [
     path('user/upload',views.UserView.as_view()),
     path('user/<int:user_id>',views.UserView.as_view()),
     path('group/<int:group_id>',views.GroupCourseDetail.as_view()),
+    path('group/<int:group_id>/deleted',views.DeleteUsers.as_view()),
     path('group/<int:group_id>/user/verification',views.Verification.as_view()),
     path('group/<int:group_id>/detail',views.GroupDetail.as_view()),
     path('group/<int:group_id>/users',views.GroupMembers.as_view()),
