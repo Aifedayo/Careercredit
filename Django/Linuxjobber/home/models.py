@@ -226,7 +226,7 @@ class BillingHistory(models.Model):
     date = models.DateTimeField(default=timezone.now, null=False)
 
     class Meta:
-        db_table = 'home_paymenthistory'
+        db_table = 'home_billinghistory'
 
     def __str__(self):
         return self.user.email

@@ -167,6 +167,16 @@ body{
     margin-left: 7%;
     margin-right: 7.2%;
 }
+.testimoni p{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+
+    color: #333333;
+}
+
 .quo1{
     display: flex;
     padding: 0;
