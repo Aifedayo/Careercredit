@@ -162,8 +162,8 @@ body{
 
 }
 .testimoni{
-    width: 316.2px;
-    height: 71.11px;
+    max-width: 316.2px;
+    max-height: 71.11px;
     margin-left: 7%;
     margin-right: 7.2%;
 }
@@ -189,10 +189,13 @@ body{
 }
 .person{
     display: flex;
+    /* position: absolute; */
     justify-content: stretch;
     align-items: center;
     text-align: start;
     margin-top: 1.8rem;
+  
+    
 }
 
 .feedback-img{
