@@ -50,6 +50,10 @@ export class VerificationGuard implements CanActivate {
   }
 }
 
+
+@Injectable({
+  providedIn: 'root'
+})
 export class AdminGuard implements CanActivate {
 
   private is_instructor: boolean;
@@ -60,11 +64,12 @@ export class AdminGuard implements CanActivate {
     // const group_id=next.params['group_id'];
     this.is_instructor = this.dataservice.isInstructor();
     if(this.is_instructor){
-      this.router.navigate(['/admin/'])
+      console.log('hello')
+      return true
     }
     else{
       // this.router.navigate(['/classroom/' + group_id])
-      return true
+      return false
     }
 
   }

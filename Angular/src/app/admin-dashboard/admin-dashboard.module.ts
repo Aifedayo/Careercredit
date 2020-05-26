@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router'
 import { HeaderComponent } from './header/header.component';
 import { StudentsComponent } from './students/students.component';
 import { AdminDashboardComponent } from './admin-dashboard.component';
+import { StatusComponent } from './status/status.component';
 
 @NgModule({
   imports: [
@@ -14,7 +15,7 @@ import { AdminDashboardComponent } from './admin-dashboard.component';
     RouterModule
 
   ],
-  declarations: [HeaderComponent,StudentsComponent, AdminDashboardComponent],
+  declarations: [HeaderComponent,StudentsComponent, AdminDashboardComponent, StatusComponent],
   bootstrap: [ AdminDashboardComponent ]
 })
 export class AdminDashboardModule { }

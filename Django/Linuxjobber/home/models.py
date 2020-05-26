@@ -191,6 +191,7 @@ class Groupclass(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE, null=True)
     image = models.ImageField(upload_to='uploads/', null=True)
     instructors = models.ManyToManyField(CustomUser, blank=True, related_name= "course_instructors")
+    deleted = models.ManyToManyField(CustomUser, blank=True, related_name= "deleted_students")
 
     def __str__(self):
         return self.name
@@ -223,6 +224,9 @@ class BillingHistory(models.Model):
     subscription_id = models.CharField(max_length=100)
     status = models.CharField(max_length=100)
     date = models.DateTimeField(default=timezone.now, null=False)
+
+    class Meta:
+        db_table = 'home_billinghistory'
 
     def __str__(self):
         return self.user.email

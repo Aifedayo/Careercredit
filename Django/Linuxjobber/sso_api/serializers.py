@@ -84,3 +84,9 @@ class NoteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Note
         fields = ['Detail','Topic']
+
+
+class DeletedUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CustomUser
+        fields = ['id','username','email','first_name','last_name','profile_img','role']
