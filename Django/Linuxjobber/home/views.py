@@ -7,7 +7,7 @@ import pytz
 import requests
 import os
 
-
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from smtplib import SMTPException
 from django.conf import settings
 from django.contrib.auth.hashers import check_password
@@ -1186,20 +1186,29 @@ def updatestage(request, stagename):
         current_stage.stage = 'WE profile form '
     else:
         pass
-    print(current_stage.user)
     current_stage.save()
-
+def access_profile(request):
+    # try:
+    #     # redirect user to profile page is user has already finished their application
+    #     workexp = wepeoples.objects.get(user=request.user)
+    #     if workexp.state:
+    #         return redirect("home:workexprofile")
+    # except  wepeoples.DoesNotExist:
+    #     pass
+    pass
 
 def workexperience(request):
     # View for the work experience page
     PRICE=None
     if request.user.is_authenticated:
         try:
-            # Redirect user to profile if user exists
+            # redirect user to profile page is user has already finished their application
             workexp = wepeoples.objects.get(user=request.user)
-            return redirect("home:workexprofile")
-        except wepeoples.DoesNotExist:
+            if workexp.state or workexp.types:
+                return redirect("home:workexprofile")
+        except  wepeoples.DoesNotExist:
             pass
+        # access_profile(request)
         try:
             # Check if user has price waiver
             wav = WorkExperiencePriceWaiver.objects.get(user=request.user)
@@ -1217,6 +1226,19 @@ def workexperience(request):
 def workterm(request):
     # Work Experience terms and agreement view
     updatestage(request, workterm) # update the stage of applicant
+    try:
+        # redirect user to profile page is user has already finished their application
+        workexp = wepeoples.objects.get(user=request.user)
+        if workexp.state or workexp.types:
+            return redirect("home:workexprofile")
+    except  wepeoples.DoesNotExist:
+        pass
+    # access_profile
+    try:
+        workexpay = WorkExperiencePay.objects.get(user=request.user)
+        return redirect("home:eligibility")
+    except WorkExperiencePay.DoesNotExist:
+        pass
     return render(request, 'home/workexpterm.html')
 
 
@@ -1225,7 +1247,15 @@ def workexpform(request):
     # Work Experience form view
     updatestage(request, workexpform) # update the stage of applicant
     form = WeForm()
-
+    # access_profile(request)
+    try:
+        # redirect user to profile page is user has already finished their application
+        workexp = wepeoples.objects.get(user=request.user)
+        if workexp.state or workexp.types:
+            return redirect("home:workexprofile")
+    except  wepeoples.DoesNotExist:
+        pass
+    
     try:
         # redirect user to eligibility page is user does not already exists in it
         details =  WorkExperienceEligibility.objects.get(user=request.user)
@@ -1405,7 +1435,20 @@ def work_experience_term_pdf(user):
 def work_experience_eligible(request):
     # update the stage of the applicant first
     updatestage(request, work_experience_eligible)
+    # access_profile(request)
+    try:
+        # redirect user to profile page is user has already finished their application
+        workexp = wepeoples.objects.get(user=request.user)
+        if workexp.state or workexp.types:
+            return redirect("home:workexprofile")
+    except  wepeoples.DoesNotExist:
+        pass
 
+    try:
+        workexpay = WorkExperiencePay.objects.get(user=request.user)
+    except WorkExperiencePay.DoesNotExist:
+        return redirect("home:workterm")
+    
     try:
         # Get workexperienceeligibility model with user
         details =  WorkExperienceEligibility.objects.get(user=request.user)
@@ -1418,7 +1461,8 @@ def work_experience_eligible(request):
             expire = expire.strftime('%Y-%m-%d')#expire.strftime('%m/%d/%Y')
         except:
             expire = details.expiry_date
-            expire =  created  #expire.strftime('%m/%d/%Y')           
+            expire =  created  #expire.strftime('%m/%d/%Y')
+        return redirect("home:isa")           
     except  WorkExperienceEligibility.DoesNotExist:
         details = None
         date = None
@@ -1517,6 +1561,15 @@ def work_experience_isa_part_1(request):
     current_date = datetime.today()
     current_date =  current_date.strftime("%B %d, %Y")
     print(current_date)
+    # access_profile(request)
+    try:
+        # redirect user to profile page is user has already finished their application
+        workexp = wepeoples.objects.get(user=request.user)
+        if workexp.state or workexp.types:
+            return redirect("home:workexprofile")
+    except  wepeoples.DoesNotExist:
+        pass
+
     try:
          # Get workexperienceeligibility model with user
         details =  WorkExperienceEligibility.objects.get(user=request.user)
@@ -1527,7 +1580,7 @@ def work_experience_isa_part_1(request):
         ssn = "•••••" + ssn
 
     except  WorkExperienceEligibility.DoesNotExist:
-        return redirect("home:eligibilty")
+        return redirect("home:eligibility")
         details = None
         date = None
         ssn = None
@@ -1545,6 +1598,7 @@ def work_experience_isa_part_1(request):
         comp = jot.estimated_date_of_program_completion
         comp = comp.strftime('%Y-%m-%d')
         grad = None
+        return redirect("home:workexpisa2")
 
     except WorkExperienceIsa.DoesNotExist:
         jot = None
@@ -1605,10 +1659,20 @@ def work_experience_isa_part_1(request):
         return redirect("home:workexpisa2")
     return render(request, 'home/workexpisa.html',{'details':details,'ssn':ssn,'paid':paid,'grad':grad,'jot':jot,'date':date,'comp':comp, 'current_date':current_date})
 
+@login_required
 def work_experience_isa_part_2(request):
     # Work Experience ISA2 view
     updatestage(request, work_experience_isa_part_2)
     # Update the stage of the applicant when the view is accessed 
+    # access_profile(request)
+
+    try:
+        # redirect user to profile page is user has already finished their application
+        workexp = wepeoples.objects.get(user=request.user)
+        if workexp.state or workexp.types:
+            return redirect("home:workexprofile")
+    except  wepeoples.DoesNotExist:
+        pass
 
     try:
         # Get the WorkExperienceEligibility model with user 
@@ -1622,12 +1686,13 @@ def work_experience_isa_part_2(request):
         jot = WorkExperienceIsa.objects.get(user=request.user)
     except WorkExperienceIsa.DoesNotExist:
         return redirect("home:isa")
-        
+    if request.session.get('isasign'):
+        return redirect("home:workexpform") 
 
     if request.method == "POST":
         # Post method to get the form
         sign = request.POST['fullname']
-
+        request.session['isasign'] = sign
         try:
             jot = WorkExperienceIsa.objects.get(user=request.user)
             jot.is_signed_isa = True
@@ -1672,6 +1737,7 @@ def workexpvideoend(request, id):
 @login_required
 def workexprofile(request):
     # Work experience profile view
+    
     try:
         # Redirect user to eligibility if user does not exist
         details =  WorkExperienceEligibility.objects.get(user=request.user)
@@ -1982,13 +2048,21 @@ def pay(request):
     stripeset = StripePayment.objects.all()
     stripe.api_key = stripeset[0].secretkey
     optiona = False
+    # access_profile(request)
+
     try:
-        # Get wepeoples model with the current user
+        # redirect user to profile page is user has already finished their application
         workexp = wepeoples.objects.get(user=request.user)
-        return redirect("home:workexprofile")
-    except wepeoples.DoesNotExist:
+        if workexp.state or workexp.types:
+            return redirect("home:workexprofile")
+    except  wepeoples.DoesNotExist:
         pass
 
+    try:
+        workexpay = WorkExperiencePay.objects.get(user=request.user)
+        return redirect("home:eligibility")
+    except WorkExperiencePay.DoesNotExist:
+        pass
     try:
         # Get WorkExperiencePriceWaiver model with the current user
         wav = WorkExperiencePriceWaiver.objects.get(user=request.user)
@@ -2249,6 +2323,7 @@ def monthly_subscription(request):
 
 def group(request, pk):
     group_item = get_object_or_404(Groupclass, pk=pk)
+    print(group_item.instructors.all())
     user = None
     if request.user.is_authenticated:
         user = CustomUser.objects.get(email=request.user)
@@ -3429,7 +3504,7 @@ def group_list(request):
     user_token = None
     if request.user.is_authenticated:
         user_token, _ = Token.objects.get_or_create(user=request.user)
-
+    
     return TemplateResponse(request, 'home/group_class.html', {'groups': Groupclass.objects.all(),
                                                                'GROUP_URL': settings.GROUP_CLASS_URL,
                                                                'token': user_token})
@@ -3819,11 +3894,11 @@ def it_partnership(request):
 
 def testimonials(request):
     feedbacks = Feedbacks.objects.all()
-    
+    WE_person = wepeoples
     # for feed in feedbacks:
     #     person = wepeoples.objects
         # print(feed.feedback)
-    return render(request, 'home/testimonials.html', {'feedbacks':feedbacks})
+    return render(request, 'home/testimonials.html', {'feedbacks':feedbacks, 'WE_person':WE_person})
 
 @login_required
 def feedbacks(request):
@@ -3831,16 +3906,25 @@ def feedbacks(request):
         form = FeedbacksForm(request.POST)
         feedback = Feedbacks.objects.all()
         if form.is_valid():
-            
-            feedbackform = form.save(commit=False)
-            feedbackform.user = request.user
-            feedbackform.save()
-            messages.success(request, 'Thanks, your feedback has been recorded')
-            print('hello world')
-            return redirect("home:feedbacks")
+            try:
+                Feedbacks.objects.get(user=wepeoples.objects.get(user=request.user))
+                messages.error(request, "Sorry, but, you already gave us a feedback")
+                return redirect('home:feedbacks')
+            except:
+                try:
+                    wep = wepeoples.objects.get(user=request.user)
+                    feedbackform = form.save(commit=False)
+                    feedbackform.user = wep
+                    feedbackform.save()
+                    messages.success(request, 'Thanks, your feedback has been recorded')
+                    print('hello world')
+                    return redirect("home:feedbacks")
+                except wepeoples.DoesNotExist:
+                    messages.error(request, "You have not done our WorkExperience Programme")
+                    return redirect("home:feedbacks")
     else:
         form = FeedbacksForm()
-    print(form)
+    
     feedback = Feedbacks.objects.first()
     form = FeedbacksForm()
     return render(request, 'home/feedbacks.html', {'form':form, 'feedback':feedback})

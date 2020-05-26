@@ -34,6 +34,7 @@ export class CourseComponent implements OnInit {
   public groupMembers$: Observable<GroupMember[]>;
   public noOfUsers$:Observable<any>;
   public group$: Observable<ClassModel>;
+  public is_instructor:boolean; 
 
   constructor(
     private apiService:ApiService,
@@ -78,6 +79,9 @@ export class CourseComponent implements OnInit {
     this.groupMembers$ = this.apiService.getGroupMembers(
       sessionStorage.getItem('active_group')
     );
+    this.is_instructor = this.dataservice.isInstructor(
+    );
+    console.log(this.dataservice.isInstructor())
 
   }
 

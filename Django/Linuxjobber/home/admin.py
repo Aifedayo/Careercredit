@@ -21,7 +21,7 @@ from .forms import  UpcomingScheduleForm
 from .mail_service import LinuxjobberMassMailer, handle_campaign, LinuxjobberMailer
 from .models import FAQ, Job, RHCSAOrder, FreeAccountClick, Campaign, Message, Unsubscriber, Internship, \
     InternshipDetail, MessageGroup, UserLocation, NewsLetterSubscribers, UserOrder, Document, MainModel, AwsCredential, \
-    Jobplacement, Groupclass, PaymentHistory, GroupClassRegister, StripePayment, UserPayment, wepeoples, wetask, werole, \
+    Jobplacement, Groupclass, GroupClassLog, BillingHistory, PaymentHistory, GroupClassRegister, StripePayment, UserPayment, wepeoples, wetask, werole, \
     wework, wetype, PartTimeJob, TryFreeRecord, FullTimePostion, PartTimePostion, Resume, CareerSwitchApplication, \
     Certificates, EmailMessageType, EmailMessageLog, CompleteClass, \
     CompleteClassLearn, CompleteClassCertificate, WorkExperienceEligibility, WorkExperienceIsa, WorkExperiencePay, \
@@ -876,6 +876,23 @@ class ItPartnershipAdmin(admin.ModelAdmin):
     list_display = ('full_name','company','email','idea_title','idea_detail')
     # list_display = ItPartnership._meta.get_fields()
 
+class PaymentHistoryAdmin(admin.ModelAdmin):
+    search_fields = ('email',)
+    change_form_template = 'admin/payment_hist.html'
+    # def changelist_view(self, request, extra_context=None):
+        # people = BillingHistory.objects.values_list("user__email", flat=True).distinct() 
+        # print(people)
+        # for obj in people:
+        #     obj, created = PaymentHistory.objects.get_or_create(user__email=obj)
+        # return super().changelist_view( request, extra_context=None)
+    def render_change_form(self, request, context, add=False, change=False, form_url='', obj=None):
+
+        hist = UserPayment.objects.filter(user__email=obj)
+        context.update({
+            "pay_hist":hist
+        })
+        return super().render_change_form( request, context, add=False, change=False, form_url='', obj=None)
+
 
 admin.site.register(WorkExperienceIsa,WorkExperienceIsaAdmin)
 admin.site.register(WorkExperienceEligibility,WorkExperienceEligibilityAdmin)
@@ -891,7 +908,7 @@ admin.site.register(AwsCredential)
 admin.site.register(Jobplacement)
 admin.site.register(Groupclass)
 admin.site.register(GroupClassRegister)
-admin.site.register(PaymentHistory)
+admin.site.register(BillingHistory)
 admin.site.register(RHCSAOrder)
 admin.site.register(Campaign, campaignAdmin)
 admin.site.register(NewsLetterSubscribers)
@@ -930,6 +947,8 @@ admin.site.register(WeTraineeStatus)
 admin.site.register(RecordWEChange)
 admin.site.register(Feedbacks)
 admin.site.register(Careercredit)
+admin.site.register(PaymentHistory, PaymentHistoryAdmin)
+admin.site.register(GroupClassLog)
 
 class VariablesAdmin(admin.ModelAdmin):
     list_display = ('key','value')

@@ -1,0 +1,39 @@
+<header *ngIf="user$|async as user">
+<nav class="navbar">
+  <div class="container" style="margin-top: 10px">
+    <div class="navbar-header" >
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#" style="margin-left: -130px;margin-top: -10px">
+          <img style="width: 166px;height: 42px;" src="/assets/image/Final-Logo.png" alt="no image" >
+      </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav vcenter">
+        <li class="active" style="background: transparent;"><a href="#" style="color: whitesmoke; font-size: 25px;">Classroom Profile</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" style="margin-right: -100px">
+        <li><a style="margin-right: -100px;color: whitesmoke;" *ngIf="group$|async as _group" [routerLink]="['/classroom',_group.id]">Go to Classroom</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="admin">Instructor Dashboard</div>
+
+
+<div class="setup">
+    <img src="{{getImgUrl(user.profile_img)}}" 
+      class="ellipse"  alt="" [routerLink]="['./profile']" >
+    <p class="rite username" style="font-weight:bold;">{{ user.first_name }} {{ user.last_name }}</p>
+    <p class="rite" style="font-size: 13px;">{{ user.email }}</p>
+    <a (click)="logout()">LOGOUT</a><br><br><br>
+    <a class="link"   [routerLink]="['./students']"     routerLinkActive="['active']"><i  class="fas fa-caret-right"></i>Students</a><br>
+    <!--- <a  class="link"  [routerLink]="['./students']"   routerLinkActive="['active']"><i class="fas fa-caret-right"></i>Students</a> -->
+</div>
+<div class="rectangle">
+</div>
+</header>

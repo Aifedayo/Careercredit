@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router} from '@angular/router';
 import { Observable } from 'rxjs';
 import {ApiService} from "./share/api.service";
+import {DataService} from "./data.service";
 import {state} from "@angular/animations";
 
 @Injectable({
@@ -44,6 +45,31 @@ export class VerificationGuard implements CanActivate {
     else{
       this.router.navigate(['/classroom/' + group_id])
       return true
+    }
+
+  }
+}
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AdminGuard implements CanActivate {
+
+  private is_instructor: boolean;
+  constructor(private dataservice:DataService, private router:Router){
+  }
+
+  canActivate() {
+    // const group_id=next.params['group_id'];
+    this.is_instructor = this.dataservice.isInstructor();
+    if(this.is_instructor){
+      console.log('hello')
+      return true
+    }
+    else{
+      // this.router.navigate(['/classroom/' + group_id])
+      return false
     }
 
   }

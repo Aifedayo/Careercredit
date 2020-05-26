@@ -253,7 +253,7 @@ S3DIRECT_REGION = config('S3DIRECT_REGION','us-west-2')
 AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY', '')
 AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME', '')
 AWS_QUERYSTRING_AUTH = False #This will make sure that the file URL does not have unnecessary parameters like your access key.
-AWS_S3_CUSTOM_DOMAIN = AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com'
+AWS_S3_CUSTOM_DOMAIN =  AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com'
 # AWS_S3_CUSTOM_DOMAIN = 's3.amazonaws.com/'+AWS_STORAGE_BUCKET_NAME
 AWS_S3_FILE_OEVRWRITE = config('AWS_S3_FILE_OEVRWRITE', '')
 
@@ -272,7 +272,7 @@ STATICFILES_DIRS = [
 ]
 
 if not DEBUG:
-    MEDIA_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/media/'
+    MEDIA_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/media/'
     # MEDIA_URL = "https://s3.amazonaws.com/" + AWS_STORAGE_BUCKET_NAME + '/media/'
     # STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/{}/'.format(AWS_LOCATION)
 
@@ -320,7 +320,7 @@ SERVER_IP = config('SERVER_IP', "192.168.122.1")
 SERVER_USER = config('SERVER_USER', "sysadmin")
 SERVER_PASSWORD = config('SERVER_PASSWORD', "8iu7*IU&")
 GROUP_CLASS_URL = config('GROUP_CLASS_URL', 'http://localhost:4200/classroom/')
-FASMAIL_URL = config('GROUP_CLASS_URL', 'http://localhost:4300/')
+FASMAIL_URL = config('FASMAIL_URL', 'http://localhost:4300/')
 
 TOOLS_USER = config('TOOLS_USER', "samuel")
 TOOLS_PASSWORD = config('TOOLS_PASSWORD', "8iu7*IU&")
