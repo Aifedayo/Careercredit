@@ -45,20 +45,22 @@
                 {%for testi in feedbacks%}
                 <div class="media media-2 boxx" style="">
                     <div class="media-body">
-                        <div class="quo1">
-                            <img src="{% static 'home/images/quo1.png' %}" class="" style="">
-                            <img src="{% static 'home/images/quo1.png' %}" class="" style="">
-                        </div> 
-                        <div class="testimoni">
-                            <p> 
-                            {{testi.feedback}}
-                            </p>                            
-                        </div>                        
+                        <div style="min-height: 110px;">
+                            <div class="quo1">
+                                <img src="{% static 'home/images/quo1.png' %}" class="" style="">
+                                <img src="{% static 'home/images/quo1.png' %}" class="" style="">
+                            </div> 
+                            <div class="testimoni">
+                                <p> 
+                                {{testi.feedback}}
+                                </p>                            
+                            </div>                        
 
-                        <div class="quo2">
-                            <img src="{% static 'home/images/quo2.png' %}" class="" style="">
-                            <img src="{% static 'home/images/quo2.png' %}" class="" style="">
-                        </div> 
+                            <div class="quo2">
+                                <img src="{% static 'home/images/quo2.png' %}" class="" style="">
+                                <img src="{% static 'home/images/quo2.png' %}" class="" style="">
+                        </div>
+                        </div>
                         <div class=" person" style="">
                             {%if testi.user.profile_picture%}
                             <div >
