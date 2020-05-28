@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from users.models import CustomUser
 from django.core.files.storage import FileSystemStorage
 from django.core.validators import MaxValueValidator
+# from .admin import LinuxjobberMailer, LinuxjobberMassMailer
 
 fs = FileSystemStorage(location='/media/uploads')
 

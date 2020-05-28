@@ -59,6 +59,7 @@ class HomeConfig(AppConfig):
 
             # Trigger the automatic inclusion of variables
             set_payment_notification_schedule(calendar.SUNDAY,0,0,on_load=True)
+            send_lab_reports(repeat=10)
         except Exception as e:
             print(e)
 
