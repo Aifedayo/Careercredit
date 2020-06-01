@@ -92,7 +92,7 @@ export class ApiService {
       });
 
   }
-
+ 
   getCourseDetails(id) {
     this.refreshToken()
     return this.httpClient.get(environment.API_URL + `sso_api/group/` + id, {headers: this.headers})

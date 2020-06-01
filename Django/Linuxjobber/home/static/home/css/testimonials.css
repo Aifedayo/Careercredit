@@ -177,6 +177,12 @@ body{
     color: #333333;
 }
 
+.testimoni p::after{
+    content: url("../images/quo22.png");
+    position: absolute;
+    margin-top: 15px;
+}
+
 .quo1{
     display: flex;
     padding: 0;
