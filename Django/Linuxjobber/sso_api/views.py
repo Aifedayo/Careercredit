@@ -230,7 +230,7 @@ class GroupUsers(APIView):
             return Response("Not found",status.HTTP_404_NOT_FOUND)
 
 class GroupCourseDetail(APIView):
-    authentication_classes = (authentication.TokenAuthentication,)
+    # authentication_classes = (authentication.TokenAuthentication,)
     def get(self,request,group_id):
         try:
             group_item=Groupclass.objects.get(pk=group_id)
@@ -247,6 +247,8 @@ class GroupCourseDetail(APIView):
             pass
         except Course.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
+    def put(self,request,group_id):
+        pass
 
 class MyUploadView(APIView):
     authentication_classes = (authentication.TokenAuthentication,)
