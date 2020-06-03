@@ -230,7 +230,7 @@ class GroupUsers(APIView):
             return Response("Not found",status.HTTP_404_NOT_FOUND)
 
 class GroupCourseDetail(APIView):
-    # authentication_classes = (authentication.TokenAuthentication,)
+    authentication_classes = (authentication.TokenAuthentication,)
     def get(self,request,group_id):
         try:
             group_item=Groupclass.objects.get(pk=group_id)
@@ -247,8 +247,25 @@ class GroupCourseDetail(APIView):
             pass
         except Course.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
+
     def put(self,request,group_id):
-        pass
+        if 'id' not in request.data:
+            return Response('Empty',status=status.HTTP_404_NOT_FOUND)
+        if 'id' in request.data:
+            try:
+                
+                topic_id = request.data.get('id')
+                course_topic = CourseTopic.objects.get(pk=topic_id)
+                if 'topic' in request.data:
+                    course_topic.topic = request.data.get('topic')
+                    course_topic.save()
+                if 'video' in request.data:
+                    course_topic.video = request.data.get('video')
+                    course_topic.save()
+                
+                return Response('Updated', status=status.HTTP_201_CREATED)
+            except:
+                return Response("Not found",status.HTTP_404_NOT_FOUND)
 
 class MyUploadView(APIView):
     authentication_classes = (authentication.TokenAuthentication,)

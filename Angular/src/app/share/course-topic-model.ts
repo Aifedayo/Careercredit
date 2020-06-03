@@ -8,3 +8,11 @@ export class CourseTopicModel {
 
   }
 }
+
+export class EditTopicModel {
+  id:number;
+  topic: string;
+  video:string;
+  constructor(){
+  }
+}
