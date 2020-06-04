@@ -10,6 +10,7 @@ import {ClassModel} from "./class-model";
 import {UserModel} from "./user-model";
 import {GroupMember} from "./group-member";
 import {AttendanceModel} from "./attendance-model";
+import {EditTopicModel} from "./course-topic-model";
 
 @Injectable({
   providedIn: 'root'
@@ -205,7 +206,7 @@ export class ApiService {
    videoRequired(group_id){
         this.refreshToken();
      this.httpClient.get<ClassModel>(environment.API_URL + `sso_api/group/` + group_id + `/detail`, {headers: this.headers})
-.subscribe(res=>{
+  .subscribe(res=>{
       return !! res['video_required']
     });
      return false
@@ -259,4 +260,16 @@ export class ApiService {
     {headers: head})
   }
 
+  editTopic(group_id, obj:EditTopicModel){
+    this.refreshToken()
+    let head = new HttpHeaders();
+    head = this.headers;
+    head = head.append('Content-Type', 'application/json');
+    let data = {"id": obj.id}
+    console.log(JSON.stringify(data))
+    // return this.httpClient.put( 'http://localhost:8000/sso_api/upload',data,{headers:this.fileheaders})
+    return this.httpClient.put(environment.API_URL + `sso_api/group/${group_id}`, JSON.stringify(data),
+    {headers: head})
+  }
+  
 }
