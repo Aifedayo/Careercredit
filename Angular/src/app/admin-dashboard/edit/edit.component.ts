@@ -48,33 +48,22 @@ export class EditComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params=> {
-      this.classes=this.apiService.getAvailableClasses();
+      this.classes=this.apiService.getAvailableClasses(); 
       const selectedClass = + params["group_id"];
-      sessionStorage.setItem('active_group', selectedClass.toString() );
-      this.group$ = this.apiService.getGroupInfo(sessionStorage.getItem('active_group'))
+      console.log(this.classes)
+      // sessionStorage.setItem('active_group', selectedClass.toString() );
+      // this.group$ = this.apiService.getGroupInfo(sessionStorage.getItem('active_group'))
       this.selectedGroup=selectedClass;
       if (selectedClass){
         const selectedTopic = + params["topic_id"];
         
         this.apiService.LoadData(selectedClass);
-        this.topicsSub=this.apiService._allTopics$;
-
-        this.noOfUsers$ = this.apiService.getMembers(selectedClass);        
+        this.topicsSub=this.apiService._allTopics$;   
+        
       }
     })
 
-    this.router.events.subscribe((event) => {
-        if(event instanceof NavigationEnd){
-          this.currentUrl = event.url;
-        }
-    });
 
-    this.groupMembers$ = this.apiService.getGroupMembers(
-      sessionStorage.getItem('active_group')
-    );
-    this.is_instructor = this.dataservice.isInstructor(
-    );
-    console.log(this.dataservice.isInstructor())
   }
 
 }
