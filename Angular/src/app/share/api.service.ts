@@ -132,7 +132,7 @@ export class ApiService {
       // return this.httpClient.get(environment.API_URL + `sso_api/group/`+group_id+`/userlog`,{headers:this.headers})
 
     }
-    return this.httpClient.get(environment.API_URL + `sso_api/group/` + group_id + `/userlog/` + user_id, {headers: this.headers})
+    return this.httpClient.get<AttendanceModel>(environment.API_URL + `sso_api/group/` + group_id + `/userlog/` + user_id, {headers: this.headers})
     // return this.httpClient.get<AttendanceModel[]>(environment.API_URL + `sso_api/group/`+group_id+`/userlog/`+user_id,{headers:this.headers})
 
 

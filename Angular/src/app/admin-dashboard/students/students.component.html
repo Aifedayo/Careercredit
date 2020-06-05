@@ -12,6 +12,11 @@
           </div>
           <div class="col s12 m8">
               <div class="row" style="margin-left: 100px;">
+                <div>Delete by last-login date</div>
+                <input type="text">
+                <input type="button" (click)="deleteByDate()" value="Delete">
+              </div>
+              <div class="row" style="margin-left: 100px;">
                   <router-outlet></router-outlet>
               </div>
           </div>

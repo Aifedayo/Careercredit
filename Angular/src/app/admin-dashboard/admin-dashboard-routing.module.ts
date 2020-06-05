@@ -5,12 +5,16 @@ import { StudentsComponent } from './students/students.component';
 import { StatusComponent } from './status/status.component';
 import { EditComponent } from './edit/edit.component';
 
+
 const routes: Routes = [
   { path: 'admin', component: AdminDashboardComponent, 
     children:[
       {path:'students',component:StudentsComponent,
-        children:[{path: 'status/:user_id', component: StatusComponent}]},
-      {path:'edit', component:EditComponent,},    
+        children:[{path: 'status/:user_id', component: StatusComponent}]
+      },
+      {path:'edit', component:EditComponent,
+        children:[{path: 'topic/:topic_id', component: StatusComponent}]
+      },    
     ]
   },
 

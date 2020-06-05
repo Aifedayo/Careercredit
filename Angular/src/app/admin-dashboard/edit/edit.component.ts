@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../../data.service';
 import { MaterializeModule } from 'angular2-materialize';
 import {ApiService} from "../../share/api.service";
@@ -10,6 +10,7 @@ import {UserModel} from "../../share/user-model";
 import {GroupMember} from "../../share/group-member";
 import { OrderPipe } from 'ngx-order-pipe';
 import {ActivatedRoute, Params, Router, NavigationEnd} from '@angular/router';
+
 
 @Component({
   selector: 'app-edit',
@@ -47,23 +48,14 @@ export class EditComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.params.subscribe(params=> {
-      this.classes=this.apiService.getAvailableClasses(); 
-      const selectedClass = + params["group_id"];
-      console.log(this.classes)
-      // sessionStorage.setItem('active_group', selectedClass.toString() );
-      // this.group$ = this.apiService.getGroupInfo(sessionStorage.getItem('active_group'))
-      this.selectedGroup=selectedClass;
-      if (selectedClass){
-        const selectedTopic = + params["topic_id"];
-        
-        this.apiService.LoadData(selectedClass);
-        this.topicsSub=this.apiService._allTopics$;   
-        
-      }
-    })
 
+    const selectedClass= sessionStorage.getItem('active_group')
+    if (selectedClass){
 
+      this.apiService.LoadData(selectedClass);
+      this.topicsSub=this.apiService._allTopics$; 
+
+    }
   }
 
 }

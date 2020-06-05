@@ -13,7 +13,7 @@ import { EditComponent } from './edit/edit.component';
   imports: [
     CommonModule,
     AdminDashboardRoutingModule, 
-    RouterModule
+    RouterModule,
 
   ],
   declarations: [HeaderComponent,StudentsComponent, AdminDashboardComponent, StatusComponent, EditComponent],
