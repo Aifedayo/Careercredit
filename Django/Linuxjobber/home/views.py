@@ -1904,11 +1904,14 @@ def workexprofile(request):
     else:
         pass
     weps.save()
-
+    remaining_tasks = len(listask) - len(group)
 
 
     return render(request, 'home/workexprofile.html',
-                  {'trainee_status':trainee_status,'weps': weps, 'status': status, 'group': group, 'pay':pay, 'paystublist':paystublist, 'listask': listask, 'pdf':pdf, 'pdf2':pdf2, 'pdf3':pdf3, 'details':details, 'url':url})
+                  {'trainee_status':trainee_status,'weps': weps, 'status': status, 
+                  'group': group, 'pay':pay, 'paystublist':paystublist, 'listask': listask,
+                   'pdf':pdf, 'pdf2':pdf2, 'pdf3':pdf3, 'details':details, 'url':url,
+                   "remaining_tasks":remaining_tasks})
 
 
 def workexpfaq(request):

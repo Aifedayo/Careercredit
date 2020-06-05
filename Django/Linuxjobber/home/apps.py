@@ -37,10 +37,11 @@ class HomeConfig(AppConfig):
 
         from .background_tasks import activate_service,set_installment_upcoming_payment_notification_service,\
             UPCOMING_PAYMENT_NOTIFICATION_SERVICE_LABEL,OVERDUE_PAYMENT_NOTIFICATION_SERVICE_LABEL,\
-            set_installment_overdue_payment_notification_service
+            set_installment_overdue_payment_notification_service#, send_lab_reports
         from background_task.models import Task
         from .utilities import set_payment_notification_schedule
         import calendar
+        from datetime import timedelta 
 
         # Upcoming payments notification activation
         try:
@@ -59,6 +60,8 @@ class HomeConfig(AppConfig):
 
             # Trigger the automatic inclusion of variables
             set_payment_notification_schedule(calendar.SUNDAY,0,0,on_load=True)
+            # send_lab_reports(schedule=timedelta(minutes=5))
+
         except Exception as e:
             print(e)
 

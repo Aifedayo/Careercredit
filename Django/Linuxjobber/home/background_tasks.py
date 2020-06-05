@@ -89,8 +89,9 @@ def activate_service(label,background_function,task_repeat=0,schedule=86400):
         background_function(label,repeat=task_repeat,schedule=schedule)
 
 
-
-
+# @background()
+# def send_lab_reports( ):
+#     print('Hello world')
 
 
 
