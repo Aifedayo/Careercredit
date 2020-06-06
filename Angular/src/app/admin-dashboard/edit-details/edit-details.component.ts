@@ -58,6 +58,8 @@ export class EditDetailsComponent implements OnInit {
     this.apiService.editTopic(selectedClass, this.topic).subscribe(res=>{
       this.topic.topic = this.topic.topic
       this.topic.video = this.topic.video
+      alert('Topic details have been edited')
+      window.location.replace(window.location.origin+"/admin/edit")
     })
   }
 

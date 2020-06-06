@@ -7,6 +7,6 @@ admin.site.register(DjangoStudent)
 admin.site.register(ChatMessage)
 admin.site.register(ChatRoom)
 admin.site.register(ChatUpload)
-
+admin.site.register(AttendanceLog)
 
 
