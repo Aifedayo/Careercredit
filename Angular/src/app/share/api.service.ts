@@ -260,12 +260,12 @@ export class ApiService {
     {headers: head})
   }
 
-  editTopic(group_id, obj:EditTopicModel){
+  editTopic(group_id, obj:CourseTopicModel){
     this.refreshToken()
     let head = new HttpHeaders();
     head = this.headers;
     head = head.append('Content-Type', 'application/json');
-    let data = {"id": obj.id}
+    let data = {"id": obj.id, "topic":obj.topic, "video":obj.video}
     console.log(JSON.stringify(data))
     // return this.httpClient.put( 'http://localhost:8000/sso_api/upload',data,{headers:this.fileheaders})
     return this.httpClient.put(environment.API_URL + `sso_api/group/${group_id}`, JSON.stringify(data),

@@ -6,12 +6,12 @@
             <span class="settings-title">Topics</span>
             <div class="row">
               <ul class="collection">
-                <li class="collection-item" *ngFor="let topic of topicsSub |async"><a [routerLink]="">{{topic.topic}} </a>  </li>
+                <li class="collection-item" *ngFor="let topic of topicsSub |async"><a [routerLink]="['./topic', topic.id]"> {{topic.topic}} </a>  </li>
               </ul>
             </div>
           </div>
           <div class="col s12 m8">
-              <div class="row" style="margin-left: 100px;">
+              <div class="row" style="margin-left: 50px;">
                   <router-outlet></router-outlet>
               </div>
           </div>
@@ -19,3 +19,4 @@
       </div>
     </div>
  </main>
+
