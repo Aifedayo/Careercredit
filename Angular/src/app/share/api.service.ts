@@ -128,7 +128,7 @@ export class ApiService {
 
   getUserAttendance(group_id, user_id = null) {
     if (user_id === null) {
-      return this.httpClient.get(environment.API_URL + `sso_api/group/` + group_id + `/userlog`, {headers: this.headers})
+      return this.httpClient.get<AttendanceModel>(environment.API_URL + `sso_api/group/` + group_id + `/userlog`, {headers: this.headers})
       // return this.httpClient.get(environment.API_URL + `sso_api/group/`+group_id+`/userlog`,{headers:this.headers})
 
     }
@@ -246,12 +246,12 @@ export class ApiService {
     )
   }
 
-  deleteUser(group_id, obj:string){
+  deleteUser(group_id, obj){
     this.refreshToken()
     let head = new HttpHeaders();
     head = this.headers;
     head = head.append('Content-Type', 'application/json');
-    let data = {"email": obj}
+    let data = {"id": obj}
     let url = environment.API_URL + `sso_api/group/${group_id}/deleted`
     console.log(JSON.stringify(data))
     console.log(url)
