@@ -152,6 +152,9 @@ class CourseSectionAdmin(admin.ModelAdmin):
 class CourseFeedbackAdmin(admin.ModelAdmin):
 	list_display = ('course', 'user' , 'rating','comment', 'created_on','updated_on')
 
+class GradesReportReceiverAdmin(admin.ModelAdmin):
+	filter_horizontal = ('receivers',)
+	
 admin.site.register(Course)
 admin.site.register(CourseTopic, CourseTopicAdmin)
 admin.site.register(CourseDescription)
@@ -165,3 +168,4 @@ admin.site.register(UserInterest,UserInterestAdmin)
 admin.site.register(UserCourseStat,UserCourseStatAdmin)
 admin.site.register(CourseSection,CourseSectionAdmin)
 admin.site.register(CourseFeedback,CourseFeedbackAdmin)
+admin.site.register(GradesReportsReceiver, GradesReportReceiverAdmin)

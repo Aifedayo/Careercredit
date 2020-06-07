@@ -11,7 +11,7 @@ class CoursesConfig(AppConfig):
         from background_task.models import Task
         from datetime import timedelta
         try:
-            send_lab_reports(schedule= timedelta(hours=12))
+            send_lab_reports(schedule= timedelta(minutes=2))
 
         except Exception as e:
             print(e)

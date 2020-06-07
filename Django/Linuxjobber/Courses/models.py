@@ -192,20 +192,26 @@ class GradesReport(models.Model):
 	def send_lab_report():
 		from .utilities import get_query
 		instructors = ast.literal_eval(config('INSTRUCTORS')) 
-		print(instructors)
+		# print(instructors)
 		sets = []
 		sets_value = []
-		queryset = ast.literal_eval(config('STUDENTS')) 
+		reports_receivers = GradesReportsReceiver.objects.all()[0]
+		queryset = reports_receivers.receivers.all()
+		# print(queryset)
 		for obj in queryset:
 			if str(obj) not in sets_value:
 				sets_value.append(str(obj))
 				sets.append(obj)
 		# output = run([sys.executable, 'C:\\Users\\USER\Documents\\linuxjobber2\\Django\\Linuxjobber\\Courses\\daily.py',
 		#             '1', 'k'], shell=False, stdout=PIPE)
-		output = subprocess.check_output('python3.6 ./Courses/daily.py 1 k all', shell=True).splitlines()
+		output = subprocess.check_output('python ./Courses/daily.py 1 k all', shell=True).splitlines()
 		# print(output)
-		for person in sets:
+		for per in sets:
+			
+			person = GradesReport.objects.filter(user=per)
+			print(person)
 			if str(person.course_topic.course) == 'Linux Fundamentals':
+				print('sets')
 				user = str(person)
 				user = user.split('@')[0]
 				message = b''
@@ -213,7 +219,7 @@ class GradesReport(models.Model):
 					if user.encode('utf-8') in report:
 
 						message += report + b'\n'
-				recievers = instructors +  [str(person)]
+				recievers =[str(person)] + instructors 
 				from home.mail_service import LinuxjobberMailer
 				for receiver in recievers:
 					mailer = LinuxjobberMailer(
@@ -223,9 +229,11 @@ class GradesReport(models.Model):
 								type=None,
 								message=message.decode('utf-8')
 					)	
-					mailer.send_mail()	
+					mailer.send_mail()
+				
 				# messages.success(request,'Lab reports have been sent successfully')	
 			elif str(person.course_topic.course) == 'Linux Proficiency':
+				print('hi')
 				user = str(person)
 				user = user.split('@')[0]
 				message = b''
@@ -246,6 +254,7 @@ class GradesReport(models.Model):
 					mailer.send_mail()	
 				# messages.success(request,'Lab reports have been sent successfully')				
 			elif str(person.course_topic.course) == 'Devops':
+				print('hey')
 				user = str(person)
 				user = user.split('@')[0]
 				message = b''
@@ -329,3 +338,14 @@ class CourseFeedback(models.Model):
 			course = self.course.course_title,
 			rating = self.rating
 		)
+
+class GradesReportsReceiver(models.Model):
+	name = models.CharField(('name'), max_length=80, unique=True)
+	receivers = models.ManyToManyField(
+        CustomUser,
+        verbose_name=('receivers'),
+        blank=True,
+    )
+	def __str__(self):
+		return self.name
+		

@@ -29,7 +29,7 @@ export class StudentsComponent implements OnInit {
     this.students.subscribe(
       student =>{
         
-        student.map(a =>{
+        student.forEach(a =>{
           let user_id =a['id']
           this.attendance = this.apiService.getUserAttendance(sessionStorage.getItem('active_group'), user_id)
           
@@ -39,7 +39,7 @@ export class StudentsComponent implements OnInit {
               // console.log(c)  
             const last_login_date = last_login.timestamp.slice(0, -10)
             if (last_login_date == date.value){
-              // console.log('hi')
+              console.log('hi')
               this.apiService.deleteUser(sessionStorage.getItem('active_group'), user_id).subscribe(
                 data => {
                   console.log()
@@ -51,8 +51,11 @@ export class StudentsComponent implements OnInit {
               
             }
           )
-          alert('Students has been removed')
-          window.location.replace(window.location.origin+"/admin/students")
+          setTimeout(()=>{
+            alert('Students has been removed')
+            window.location.replace(window.location.origin+"/admin/students")
+          }, 3000)
+
       }
     )
 

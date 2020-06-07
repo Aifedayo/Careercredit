@@ -64,7 +64,7 @@ def get_send_task_mail_template(obj, task):
 
 class weworkAdmin(admin.ModelAdmin):
     search_fields = ['we_people__user__email']
-    raw_id_fields = ['task']
+    raw_id_fields = ['task', ]
     list_filter = ('status',)
     list_display = ['we_people', 'weight', 'task', 'status', 'due', 'task_type']
 
@@ -222,7 +222,7 @@ class EmailMessageLogAdmin(admin.ModelAdmin):
     actions = ['resend_message','unsent']
     list_filter = ('has_sent','group_log')
     change_list_template = 'admin/emailmessage_log_changelist.html'
-
+    # search_fields = ['to_address',]
 
     def get_urls(self):
         urls = super().get_urls()
@@ -893,6 +893,8 @@ class PaymentHistoryAdmin(admin.ModelAdmin):
         })
         return super().render_change_form( request, context, add=False, change=False, form_url='', obj=None)
 
+class GroupClassAdmin(admin.ModelAdmin):
+    filter_horizontal = ('instructors', 'deleted', 'users')
 
 admin.site.register(WorkExperienceIsa,WorkExperienceIsaAdmin)
 admin.site.register(WorkExperienceEligibility,WorkExperienceEligibilityAdmin)
@@ -906,7 +908,7 @@ admin.site.register(Document)
 admin.site.register(MainModel)
 admin.site.register(AwsCredential)
 admin.site.register(Jobplacement)
-admin.site.register(Groupclass)
+admin.site.register(Groupclass, GroupClassAdmin)
 admin.site.register(GroupClassRegister)
 admin.site.register(BillingHistory)
 admin.site.register(RHCSAOrder)
