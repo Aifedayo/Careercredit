@@ -29,7 +29,7 @@ export class StudentsComponent implements OnInit {
     this.students.subscribe(
       student =>{
         
-        student.forEach(a =>{
+        student.map(a =>{
           let user_id =a['id']
           this.attendance = this.apiService.getUserAttendance(sessionStorage.getItem('active_group'), user_id)
           
@@ -54,7 +54,7 @@ export class StudentsComponent implements OnInit {
           setTimeout(()=>{
             alert('Students has been removed')
             window.location.replace(window.location.origin+"/admin/students")
-          }, 3000)
+          }, 2000)
 
       }
     )
