@@ -13,7 +13,7 @@ class CoursesConfig(AppConfig):
         try:
             activate_service(
                 label=SEND_GRADE_REPORTS_TO_STUDENTS_N_INSTRUCTORS,
-                background_function=send_lab_reports,
+                background_function=send_lab_reports_out,
                 task_repeat=Task.DAILY
             )
 
