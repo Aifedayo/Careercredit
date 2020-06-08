@@ -5,9 +5,10 @@ import { StudentsComponent } from './students/students.component';
 import { StatusComponent } from './status/status.component';
 import { EditComponent } from './edit/edit.component';
 import { EditDetailsComponent } from './edit-details/edit-details.component';
+import {AdminGuard} from "../verification.guard";
 
 const routes: Routes = [
-  { path: 'admin', component: AdminDashboardComponent, 
+  { path: 'admin', component: AdminDashboardComponent, canActivate: [AdminGuard],
     children:[
       {path:'students',component:StudentsComponent,
         children:[{path: 'status/:user_id', component: StatusComponent}]

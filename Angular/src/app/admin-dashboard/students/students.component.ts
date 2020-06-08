@@ -26,6 +26,11 @@ export class StudentsComponent implements OnInit {
   
 
   deleteByDate(date: HTMLInputElement){
+    // let dt = new Date('Tuesday 17 December, 2019')
+    // let pdt = new Date('2020-06-10')
+    // console.log(date.valueAsDate)
+    // console.log(dt)
+    // 
     this.students.subscribe(
       student =>{
         
@@ -35,18 +40,22 @@ export class StudentsComponent implements OnInit {
           
           this.attendance.subscribe(b=>{
             const last_login = b[0]
-            // console.log(last_login)
-              // console.log(c)  
-            const last_login_date = last_login.timestamp.slice(0, -10)
-            if (last_login_date == date.value){
-              console.log('hi')
-              this.apiService.deleteUser(sessionStorage.getItem('active_group'), user_id).subscribe(
-                data => {
-                  console.log()
-                }
-              )
+            if(last_login){
+                // console.log(last_login)
+                // console.log(c)  
+              const last_login_date = new Date( last_login.timestamp.slice(0, -10))
+              // console.log(last_login_date)
+              // console.log(date.valueAsDate)
+              if (date.valueAsDate >= last_login_date){
+                // console.log('hi')
+                this.apiService.deleteUser(sessionStorage.getItem('active_group'), user_id).subscribe(
+                  data => {
+                    console.log()
+                  }
+                )
+              } 
             }
-            
+
           })
               
             }
