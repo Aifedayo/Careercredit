@@ -205,17 +205,21 @@ class GradesReport(models.Model):
 			# person = GradesReport.objects.filter(user=obj)
 		# output = run([sys.executable, 'C:\\Users\\USER\Documents\\linuxjobber2\\Django\\Linuxjobber\\Courses\\daily.py',
 		#             '1', 'k'], shell=False, stdout=PIPE)
-		output = subprocess.check_output('python ./Courses/daily.py 1 k all', shell=True).splitlines()
-		# print(fundamentalsStudents)
-		# print(proficiencyStudents)
-		# print(onPremStudents)
+		try:
+			output = subprocess.check_output('python ./Courses/daily.py 1 k all', shell=True).splitlines()
+		except:
+			output = subprocess.check_output('python3.6 ./Courses/daily.py 1 k all', shell=True).splitlines()
+
+		fundamentalsReports =''
+		proficiencyReports =''
+		onPremReports= ''
 		for student in fundamentalsStudents:
 			# print(output)
 			user = str(student)
 			user = user.split('@')[0]
 			message = b''
 			for report in output:
-					if user.encode('utf-8') in report:
+					if user.encode('utf-8') in report and 'LinuxFundamentalsLab_'.encode('utf-8') in report :
 						message += report + b'\n'
 			recievers =instructors + [str(student)]  
 			print(recievers)
@@ -237,7 +241,7 @@ class GradesReport(models.Model):
 			user = user.split('@')[0]
 			message = b''
 			for report in output:
-					if user.encode('utf-8') in report:
+					if user.encode('utf-8') in report and 'LinuxProficiencyLab_'.encode('utf-8') in report:
 						message += report + b'\n'
 			recievers = instructors + [str(student)] 
 			if message: 
@@ -258,7 +262,7 @@ class GradesReport(models.Model):
 			user = user.split('@')[0]
 			message = b''
 			for report in output:
-					if user.encode('utf-8') in report:
+					if user.encode('utf-8') in report and 'OnPremDeployment_'.encode('utf-8') in report:
 						message += report + b'\n'
 			recievers = instructors + [str(student)]  
 			if message:

@@ -6,6 +6,7 @@ import { StatusComponent } from './status/status.component';
 import { EditComponent } from './edit/edit.component';
 import { EditDetailsComponent } from './edit-details/edit-details.component';
 import {AdminGuard} from "../verification.guard";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
   { path: 'admin', component: AdminDashboardComponent, canActivate: [AdminGuard],

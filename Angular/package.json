@@ -23,7 +23,7 @@
     "@angular/platform-browser": "^6.1.0",
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
-    "@ng-bootstrap/ng-bootstrap": "^6.1.0",
+    "@ng-bootstrap/ng-bootstrap": "^2.2.2",
     "@types/video.js": "^7.2.10",
     "angular2-materialize": "^15.1.10",
     "bootstrap": "^4.5.0",
