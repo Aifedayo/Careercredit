@@ -23,7 +23,7 @@ def get_process(label):
 
 def activate_service(label,background_function,task_repeat=0,schedule=21600 ):  #timedelta(minutes=1)):
     process = get_process(label)
-    print(process)
+    # print(process)
     if not process:
         clear_old_task(label)
         background_function(label,repeat=task_repeat,schedule=schedule)

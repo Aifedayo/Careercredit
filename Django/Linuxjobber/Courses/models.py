@@ -193,9 +193,9 @@ class GradesReport(models.Model):
 		from .utilities import get_query
 		instructors = ast.literal_eval(config('INSTRUCTORS')) 
 		# print(instructors)
-		fundamentalsStudents = GradesReportsReceiver.objects.get(name='Linux Fundamentals').receivers.all()
-		proficiencyStudents = GradesReportsReceiver.objects.get(name='Linux Proficiency').receivers.all()
-		onPremStudents=GradesReportsReceiver.objects.get(name='Devops').receivers.all()
+		fundamentalsStudents = GradesReportsReceiver.objects.get(course_title__course_title='Linux Fundamentals').receivers.all()
+		proficiencyStudents = GradesReportsReceiver.objects.get(course_title__course_title='Linux Proficiency').receivers.all()
+		onPremStudents=GradesReportsReceiver.objects.get(course_title__course_title='DevOps').receivers.all()
 		# sets = []
 		# sets_value = []
 		# reports_receivers = GradesReportsReceiver.objects.all()[0]
@@ -209,7 +209,7 @@ class GradesReport(models.Model):
 			output = subprocess.check_output('python ./Courses/daily.py 1 k all', shell=True).splitlines()
 		except:
 			output = subprocess.check_output('python3.6 ./Courses/daily.py 1 k all', shell=True).splitlines()
-
+		print("mails will be sent")
 		fundamentalsReports =''
 		proficiencyReports =''
 		onPremReports= ''
@@ -222,7 +222,7 @@ class GradesReport(models.Model):
 					if user.encode('utf-8') in report and 'LinuxFundamentalsLab_'.encode('utf-8') in report :
 						message += report + b'\n'
 			recievers =instructors + [str(student)]  
-			print(recievers)
+			# print(recievers)
 			if message:
 				from home.mail_service import LinuxjobberMailer
 				for receiver in recievers:
@@ -236,7 +236,7 @@ class GradesReport(models.Model):
 					mailer.send_mail()
 				print('sent')
 		for student in proficiencyStudents:
-			print(student)
+			# print(student)
 			user = str(student)
 			user = user.split('@')[0]
 			message = b''
@@ -257,7 +257,7 @@ class GradesReport(models.Model):
 					mailer.send_mail()
 
 		for student in onPremStudents:
-			print(student)
+			# print(student)
 			user = str(student)
 			user = user.split('@')[0]
 			message = b''
@@ -410,6 +410,7 @@ class CourseFeedback(models.Model):
 
 class GradesReportsReceiver(models.Model):
 	name = models.CharField(('name'), max_length=80, unique=True)
+	course_title = models.ForeignKey(Course,on_delete=models.CASCADE, null= True)
 	receivers = models.ManyToManyField(
         CustomUser,
         verbose_name=('receivers'),
