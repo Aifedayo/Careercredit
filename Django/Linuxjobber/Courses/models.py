@@ -206,10 +206,10 @@ class GradesReport(models.Model):
 		# output = run([sys.executable, 'C:\\Users\\USER\Documents\\linuxjobber2\\Django\\Linuxjobber\\Courses\\daily.py',
 		#             '1', 'k'], shell=False, stdout=PIPE)
 		try:
-			output = subprocess.check_output('python ./Courses/daily.py 1 k all', shell=True).splitlines()
-		except:
 			output = subprocess.check_output('python3.6 ./Courses/daily.py 1 k all', shell=True).splitlines()
-		print("mails will be sent")
+		except:
+			output = subprocess.check_output('python ./Courses/daily.py 1 k all', shell=True).splitlines()
+		# print("mails will be sent")
 		fundamentalsReports =''
 		proficiencyReports =''
 		onPremReports= ''
@@ -222,7 +222,9 @@ class GradesReport(models.Model):
 					if user.encode('utf-8') in report and 'LinuxFundamentalsLab_'.encode('utf-8') in report :
 						message += report + b'\n'
 			recievers =instructors + [str(student)]  
-			# print(recievers)
+			print('message')
+			print(message)
+
 			if message:
 				from home.mail_service import LinuxjobberMailer
 				for receiver in recievers:
