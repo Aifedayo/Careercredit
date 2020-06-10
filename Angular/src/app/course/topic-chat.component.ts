@@ -4,13 +4,16 @@ import { HttpClient } from '@angular/common/http';
 
 import {ApiService} from "../share/api.service";
 import {ChatMessage} from "../share/chat-message";
-import {Observable, Subject} from "rxjs/index";
-import { debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
+import {Observable, Subject, BehaviorSubject} from "rxjs/index";
+import { debounceTime, distinctUntilChanged, switchMap, tap} from 'rxjs/operators';
 import {MatList} from "@angular/material";
 import {environment} from "../../environments/environment";
 import {UserModel} from "../share/user-model";
 import { AlertService } from './_alert/alert.service';
 import ReconnectingWebSocket from '../_websocket/reconnecting-websocket';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
+
 declare var moment: any;
 
 export enum TYPE {Plain='plain', Image='image', File='file'}
@@ -54,6 +57,13 @@ export class TopicChatComponent implements OnInit {
 
   private user$: Observable<UserModel>;
   public environment = environment;
+
+  //is-typing 
+  public messageForm = new FormGroup({
+    message: new FormControl('', Validators.required)
+    });
+  public touched: Subject<boolean> = new BehaviorSubject(false);
+
   
   constructor(
     private http: HttpClient, 
@@ -86,6 +96,9 @@ export class TopicChatComponent implements OnInit {
 
   ngAfterViewInit(): void {
     this.mutableObserver();
+    this.messageForm.valueChanges.pipe(
+      tap(() => this.apiService.startTyping()),
+      ).subscribe();
   }
 
   setUserMentionProp(){

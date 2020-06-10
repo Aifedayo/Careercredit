@@ -276,5 +276,17 @@ export class ApiService {
     return this.httpClient.put(environment.API_URL + `sso_api/group/${group_id}`, JSON.stringify(data),
     {headers: head})
   }
+
+  public startTyping(): void {
+    CometChat.startTyping(new CometChat.TypingIndicator('supergroup', CometChat.RECEIVER_TYPE.GROUP, {}));
+    }
+
+  public endTyping(): void {
+  CometChat.endTyping(new CometChat.TypingIndicator('supergroup', CometChat.RECEIVER_TYPE.GROUP, {}));
+  }
   
+  public getTypingIndicator(): Observable<any> {
+  return this.whoIsTyping$;
+  }
+
 }
