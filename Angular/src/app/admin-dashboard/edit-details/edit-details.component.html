@@ -1,0 +1,14 @@
+  <div>
+      <form>
+        <label for="username" style="color:black;">Topic</label><br>
+        <input style="width: 500px; height: 31px; background: #FFFFFF; border: 1px solid rgba(0, 0, 0, 0.727);border-radius: 5px; padding-left:0px;" class="fname" [(ngModel)]="topic.topic" type="text"  class="validate" name="topic"><br><br><br>
+
+        <label for="first_name" style="color:black;">Video URL</label><br>
+        <input style="width: 500px; height: 31px; background: #FFFFFF; border: 1px solid rgba(0, 0, 0, 0.727);border-radius: 5px; padding-left:0px;"  class="gname" [(ngModel)]="topic.video" type="text" class="validate" name="video_url"><br><br><br>
+
+        <!-- <label for="last_name" style="color:black;">Last Name</label><br>
+        <input style="width: 500px; height: 31px; background: #FFFFFF; border: 1px solid rgba(0, 0, 0, 0.727);border-radius: 5px; padding-left:0px;"  class="unname"  type="text" class="validate" name="last_name" ><br><br><br> -->
+
+        <input class="save" (click)="editTopic()" type="submit" value="SAVE">
+    </form>
+  </div>
