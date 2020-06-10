@@ -4,13 +4,15 @@ import {environment} from "../../environments/environment";
 import {CourseTopicModel} from "./course-topic-model";
 import {ActivatedRoute} from "@angular/router";
 import {Location} from "@angular/common";
-import {Observable, of, Subject} from "rxjs/index";
+import {Observable, of,from, ReplaySubject,BehaviorSubject, Subject} from "rxjs/index";
 import {Topic} from "../course/topic.model";
 import {ClassModel} from "./class-model";
 import {UserModel} from "./user-model";
 import {GroupMember} from "./group-member";
 import {AttendanceModel} from "./attendance-model";
 import {EditTopicModel} from "./course-topic-model";
+import { filter, flatMap, tap } from 'rxjs/operators';
+import { CometChat } from "@cometchat-pro/chat"
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +32,9 @@ export class ApiService {
 
   private headers: HttpHeaders = new HttpHeaders();
   private fileheaders: HttpHeaders = new HttpHeaders();
+
+  private _whoIsTypingArr: string[] = [];
+  private whoIsTyping$: Subject<string[]> = new BehaviorSubject([]);
 
   constructor(private httpClient: HttpClient, location: Location, route: ActivatedRoute) {
     this.headers = this.headers.append('Accept', 'application/json');
