@@ -429,9 +429,10 @@ class DeleteUsers(APIView):
         except Groupclass.DoesNotExist:
             return Response("Not found",status.HTTP_404_NOT_FOUND)
     def put(self, request, group_id=0):
-        user = request.data.get('email')
+        user = request.data.get('id')
+        print(user)
         try:
-            u = CustomUser.objects.get(email=user)
+            u = CustomUser.objects.get(pk=user)
             g= Groupclass.objects.get(id=group_id)
             g.deleted.add(u)
             g.save()

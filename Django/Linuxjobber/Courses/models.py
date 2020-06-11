@@ -192,28 +192,40 @@ class GradesReport(models.Model):
 	def send_lab_report():
 		from .utilities import get_query
 		instructors = ast.literal_eval(config('INSTRUCTORS')) 
-		print(instructors)
-		sets = []
-		sets_value = []
-		queryset = ast.literal_eval(config('STUDENTS')) 
-		for obj in queryset:
-			if str(obj) not in sets_value:
-				sets_value.append(str(obj))
-				sets.append(obj)
+		# print(instructors)
+		fundamentalsStudents = GradesReportsReceiver.objects.get(course_title__course_title='Linux Fundamentals').receivers.all()
+		proficiencyStudents = GradesReportsReceiver.objects.get(course_title__course_title='Linux Proficiency').receivers.all()
+		onPremStudents=GradesReportsReceiver.objects.get(course_title__course_title='DevOps').receivers.all()
+		# sets = []
+		# sets_value = []
+		# reports_receivers = GradesReportsReceiver.objects.all()[0]
+		# queryset = reports_receivers.receivers.all()
+		# print(queryset)
+		# for obj in queryset:
+			# person = GradesReport.objects.filter(user=obj)
 		# output = run([sys.executable, 'C:\\Users\\USER\Documents\\linuxjobber2\\Django\\Linuxjobber\\Courses\\daily.py',
 		#             '1', 'k'], shell=False, stdout=PIPE)
-		output = subprocess.check_output('python3.6 ./Courses/daily.py 1 k all', shell=True).splitlines()
-		# print(output)
-		for person in sets:
-			if str(person.course_topic.course) == 'Linux Fundamentals':
-				user = str(person)
-				user = user.split('@')[0]
-				message = b''
-				for report in output:
-					if user.encode('utf-8') in report:
-
+		try:
+			output = subprocess.check_output('python3.6 ./Courses/daily.py 1 k all', shell=True).splitlines()
+		except:
+			output = subprocess.check_output('python ./Courses/daily.py 1 k all', shell=True).splitlines()
+		# print("mails will be sent")
+		fundamentalsReports =''
+		proficiencyReports =''
+		onPremReports= ''
+		for student in fundamentalsStudents:
+			# print(output)
+			user = str(student)
+			user = user.split('@')[0]
+			message = b''
+			for report in output:
+					if user.encode('utf-8') in report and 'LinuxFundamentalsLab_'.encode('utf-8') in report :
 						message += report + b'\n'
-				recievers = instructors +  [str(person)]
+			recievers =instructors + [str(student)]  
+			print('message')
+			print(message)
+
+			if message:
 				from home.mail_service import LinuxjobberMailer
 				for receiver in recievers:
 					mailer = LinuxjobberMailer(
@@ -223,18 +235,19 @@ class GradesReport(models.Model):
 								type=None,
 								message=message.decode('utf-8')
 					)	
-					mailer.send_mail()	
-				# messages.success(request,'Lab reports have been sent successfully')	
-			elif str(person.course_topic.course) == 'Linux Proficiency':
-				user = str(person)
-				user = user.split('@')[0]
-				message = b''
-				for report in output:
-					if user.encode('utf-8') in report:
-
+					mailer.send_mail()
+				print('sent')
+		for student in proficiencyStudents:
+			# print(student)
+			user = str(student)
+			user = user.split('@')[0]
+			message = b''
+			for report in output:
+					if user.encode('utf-8') in report and 'LinuxProficiencyLab_'.encode('utf-8') in report:
 						message += report + b'\n'
-				recievers = instructors +  [str(person)]
-
+			recievers = instructors + [str(student)] 
+			if message: 
+				from home.mail_service import LinuxjobberMailer
 				for receiver in recievers:
 					mailer = LinuxjobberMailer(
 								subject=" Current Proficiency Lab Report for %s"%(user),
@@ -243,18 +256,19 @@ class GradesReport(models.Model):
 								type=None,
 								message=message.decode('utf-8')
 					)	
-					mailer.send_mail()	
-				# messages.success(request,'Lab reports have been sent successfully')				
-			elif str(person.course_topic.course) == 'Devops':
-				user = str(person)
-				user = user.split('@')[0]
-				message = b''
-				for report in output:
-					if user.encode('utf-8') in report:
+					mailer.send_mail()
 
+		for student in onPremStudents:
+			# print(student)
+			user = str(student)
+			user = user.split('@')[0]
+			message = b''
+			for report in output:
+					if user.encode('utf-8') in report and 'OnPremDeployment_'.encode('utf-8') in report:
 						message += report + b'\n'
-				recievers = instructors +  [str(person)]
-
+			recievers = instructors + [str(student)]  
+			if message:
+				from home.mail_service import LinuxjobberMailer
 				for receiver in recievers:
 					mailer = LinuxjobberMailer(
 								subject=" Current Devops Lab Report for %s"%(user),
@@ -263,11 +277,77 @@ class GradesReport(models.Model):
 								type=None,
 								message=message.decode('utf-8')
 					)	
-					mailer.send_mail()	
-				# messages.success(request,'Lab reports have been sent successfully')						
-			else:
-				# messages.success(request,'Lab reports have been sent successfully')
-				print('nay')
+					mailer.send_mail()
+
+		# for per in sets:
+		# 	print(person)
+		# 	if str(person.course_topic.course) == 'Linux Fundamentals':
+		# 		print('sets')
+		# 		user = str(person)
+		# 		user = user.split('@')[0]
+		# 		message = b''
+		# 		for report in output:
+		# 			if user.encode('utf-8') in report:
+
+		# 				message += report + b'\n'
+		# 		recievers =[str(person)] + instructors 
+		# 		from home.mail_service import LinuxjobberMailer
+		# 		for receiver in recievers:
+		# 			mailer = LinuxjobberMailer(
+		# 						subject=" Current Fundamentals Lab Report for %s"%(user),
+		# 						to_address=receiver,
+		# 						header_text="Linuxjobber",
+		# 						type=None,
+		# 						message=message.decode('utf-8')
+		# 			)	
+		# 			mailer.send_mail()
+				
+		# 		# messages.success(request,'Lab reports have been sent successfully')	
+		# 	elif str(person.course_topic.course) == 'Linux Proficiency':
+		# 		print('hi')
+		# 		user = str(person)
+		# 		user = user.split('@')[0]
+		# 		message = b''
+		# 		for report in output:
+		# 			if user.encode('utf-8') in report:
+
+		# 				message += report + b'\n'
+		# 		recievers = instructors +  [str(person)]
+
+		# 		for receiver in recievers:
+		# 			mailer = LinuxjobberMailer(
+		# 						subject=" Current Proficiency Lab Report for %s"%(user),
+		# 						to_address=receiver,
+		# 						header_text="Linuxjobber",
+		# 						type=None,
+		# 						message=message.decode('utf-8')
+		# 			)	
+		# 			mailer.send_mail()	
+		# 		# messages.success(request,'Lab reports have been sent successfully')				
+		# 	elif str(person.course_topic.course) == 'Devops':
+		# 		print('hey')
+		# 		user = str(person)
+		# 		user = user.split('@')[0]
+		# 		message = b''
+		# 		for report in output:
+		# 			if user.encode('utf-8') in report:
+
+		# 				message += report + b'\n'
+		# 		recievers = instructors +  [str(person)]
+
+		# 		for receiver in recievers:
+		# 			mailer = LinuxjobberMailer(
+		# 						subject=" Current Devops Lab Report for %s"%(user),
+		# 						to_address=receiver,
+		# 						header_text="Linuxjobber",
+		# 						type=None,
+		# 						message=message.decode('utf-8')
+		# 			)	
+		# 			mailer.send_mail()	
+		# 		# messages.success(request,'Lab reports have been sent successfully')						
+		# 	else:
+		# 		# messages.success(request,'Lab reports have been sent successfully')
+		# 		print('nay')
 
 def content_file_name(instance, filename):
 	ext = ''
@@ -329,3 +409,15 @@ class CourseFeedback(models.Model):
 			course = self.course.course_title,
 			rating = self.rating
 		)
+
+class GradesReportsReceiver(models.Model):
+	name = models.CharField(('name'), max_length=80, unique=True)
+	course_title = models.ForeignKey(Course,on_delete=models.CASCADE, null= True)
+	receivers = models.ManyToManyField(
+        CustomUser,
+        verbose_name=('receivers'),
+        blank=True,
+    )
+	def __str__(self):
+		return self.name
+		

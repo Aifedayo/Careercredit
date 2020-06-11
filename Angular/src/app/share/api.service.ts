@@ -4,13 +4,15 @@ import {environment} from "../../environments/environment";
 import {CourseTopicModel} from "./course-topic-model";
 import {ActivatedRoute} from "@angular/router";
 import {Location} from "@angular/common";
-import {Observable, of, Subject} from "rxjs/index";
+import {Observable, of,from, ReplaySubject,BehaviorSubject, Subject} from "rxjs/index";
 import {Topic} from "../course/topic.model";
 import {ClassModel} from "./class-model";
 import {UserModel} from "./user-model";
 import {GroupMember} from "./group-member";
 import {AttendanceModel} from "./attendance-model";
 import {EditTopicModel} from "./course-topic-model";
+import { filter, flatMap, tap } from 'rxjs/operators';
+import { CometChat } from "@cometchat-pro/chat"
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +32,9 @@ export class ApiService {
 
   private headers: HttpHeaders = new HttpHeaders();
   private fileheaders: HttpHeaders = new HttpHeaders();
+
+  private _whoIsTypingArr: string[] = [];
+  private whoIsTyping$: Subject<string[]> = new BehaviorSubject([]);
 
   constructor(private httpClient: HttpClient, location: Location, route: ActivatedRoute) {
     this.headers = this.headers.append('Accept', 'application/json');
@@ -128,11 +133,11 @@ export class ApiService {
 
   getUserAttendance(group_id, user_id = null) {
     if (user_id === null) {
-      return this.httpClient.get(environment.API_URL + `sso_api/group/` + group_id + `/userlog`, {headers: this.headers})
+      return this.httpClient.get<AttendanceModel>(environment.API_URL + `sso_api/group/` + group_id + `/userlog`, {headers: this.headers})
       // return this.httpClient.get(environment.API_URL + `sso_api/group/`+group_id+`/userlog`,{headers:this.headers})
 
     }
-    return this.httpClient.get(environment.API_URL + `sso_api/group/` + group_id + `/userlog/` + user_id, {headers: this.headers})
+    return this.httpClient.get<AttendanceModel>(environment.API_URL + `sso_api/group/` + group_id + `/userlog/` + user_id, {headers: this.headers})
     // return this.httpClient.get<AttendanceModel[]>(environment.API_URL + `sso_api/group/`+group_id+`/userlog/`+user_id,{headers:this.headers})
 
 
@@ -246,12 +251,12 @@ export class ApiService {
     )
   }
 
-  deleteUser(group_id, obj:string){
+  deleteUser(group_id, obj){
     this.refreshToken()
     let head = new HttpHeaders();
     head = this.headers;
     head = head.append('Content-Type', 'application/json');
-    let data = {"email": obj}
+    let data = {"id": obj}
     let url = environment.API_URL + `sso_api/group/${group_id}/deleted`
     console.log(JSON.stringify(data))
     console.log(url)
@@ -260,12 +265,12 @@ export class ApiService {
     {headers: head})
   }
 
-  editTopic(group_id, obj:EditTopicModel){
+  editTopic(group_id, obj:CourseTopicModel){
     this.refreshToken()
     let head = new HttpHeaders();
     head = this.headers;
     head = head.append('Content-Type', 'application/json');
-    let data = {"id": obj.id}
+    let data = {"id": obj.id, "topic":obj.topic, "video":obj.video}
     console.log(JSON.stringify(data))
     // return this.httpClient.put( 'http://localhost:8000/sso_api/upload',data,{headers:this.fileheaders})
     return this.httpClient.put(environment.API_URL + `sso_api/group/${group_id}`, JSON.stringify(data),
