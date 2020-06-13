@@ -289,7 +289,11 @@ export class TopicChatComponent implements OnInit {
         else if(data['from_where'] === 'send'){
           this.messages = [...this.messages,...data['messages']]
           this.is_send_message = true
-        }else{
+        }
+        else if(data['message'] === 'typing'){
+          this.test = 'typing'
+        }
+        else{
           this.messages = data['messages']
           this.is_send_message = true
         }
@@ -338,13 +342,26 @@ export class TopicChatComponent implements OnInit {
     }
 
   public startTyping(): void {
-    this.websocket
-    
+    console.log('hi')
+    let context = {
+      action:'startTyping',
+      active_group:this.activeGroup,
+      user:sessionStorage.getItem('username'),
+      token:this.token
+    }; 
+    this.websocket.send(JSON.stringify(context));
     // CometChat.startTyping(new CometChat.TypingIndicator('supergroup', CometChat.RECEIVER_TYPE.GROUP, {}));
     }
 
   public endTyping(): void {
-
+    console.log('hi')
+    let context = {
+      action:'endTyping',
+      active_group:this.activeGroup,
+      user:sessionStorage.getItem('username'),
+      token:this.token
+    }; 
+    this.websocket.send(JSON.stringify(context));
   // CometChat.endTyping(new CometChat.TypingIndicator('supergroup', CometChat.RECEIVER_TYPE.GROUP, {}));
   }
   public isTyping(event){

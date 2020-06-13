@@ -205,10 +205,25 @@ def get_mention_users(request):
 @api_view(["POST"])
 @permission_classes((AllowAny,))
 def start_typing(request):
-    print("hello")
-    token = request.data['token']
+    print(request.data)
+    token = request.data['body']['token']
     try:
         token= Token.objects.get(key=token)
+        body = request.data['body']
+        active_group = request.data['body']['active_group']
+        connection_id = request.data['connectionId']
+        all_connections = Connection.objects.all()
+        connections = Connection.objects.exclude(connection_id=connection_id)
+        print(len(connections))
+        print(len(all_connections))
+        data = {
+                "active_group":active_group,
+                "message":'typing'
+        }
+            
+        _send_message_to_all(data,connections)
+        return Response({'message':'successful'},status.HTTP_200_OK)
+
     except Token.DoesNotExist:
         return Response("Nothing",status=status.HTTP_403_FORBIDDEN)
 
@@ -216,9 +231,12 @@ def start_typing(request):
 @api_view(["POST"])
 @permission_classes((AllowAny,))
 def end_typing(request):
-    token = request.data['token']
+    token = request.data['body']['token']
     try:
         token= Token.objects.get(key=token)
+        body = request.data['body']
+        active_group = request.data['body']['active_group']
+        return Response({'message':'successful'},status.HTTP_200_OK)
     except Token.DoesNotExist:
         return Response("Nothing",status=status.HTTP_403_FORBIDDEN)
 #Helper
