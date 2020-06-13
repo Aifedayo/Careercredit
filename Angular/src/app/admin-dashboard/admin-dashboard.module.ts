@@ -8,15 +8,18 @@ import { StudentsComponent } from './students/students.component';
 import { AdminDashboardComponent } from './admin-dashboard.component';
 import { StatusComponent } from './status/status.component';
 import { EditComponent } from './edit/edit.component';
+import { EditDetailsComponent } from './edit-details/edit-details.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   imports: [
     CommonModule,
     AdminDashboardRoutingModule, 
-    RouterModule
+    RouterModule,
+    FormsModule,
 
   ],
-  declarations: [HeaderComponent,StudentsComponent, AdminDashboardComponent, StatusComponent, EditComponent],
+  declarations: [HeaderComponent,StudentsComponent, AdminDashboardComponent, StatusComponent, EditComponent, EditDetailsComponent],
   bootstrap: [ AdminDashboardComponent ]
 })
 export class AdminDashboardModule { }

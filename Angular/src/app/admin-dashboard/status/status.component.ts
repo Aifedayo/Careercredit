@@ -30,9 +30,9 @@ export class StatusComponent implements OnInit {
   }
 
   deleteUser(){
-    var user: string;
+    var user: number;
     this.user$.subscribe(data => {
-    user = data['email'];   
+    user = data['id'];   
     console.log(user) 
     this.apiService.deleteUser(sessionStorage.getItem('active_group'), user).subscribe(
       data => {

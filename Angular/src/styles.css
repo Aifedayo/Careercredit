@@ -2,6 +2,7 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 @import '../node_modules/materialize-css/dist/css/materialize.min.css';
 @import '~video.js/dist/video-js.css';
+
 /*
 videojs.wavesurfer.css is only required when recording audio-only:
 @import '~videojs-wavesurfer/dist/css/videojs.wavesurfer.css';

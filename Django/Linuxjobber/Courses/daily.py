@@ -1,4 +1,4 @@
-#!/usr/bin/python
+# !/usr/bin/python
 import configparser
 from decouple import config, Csv
 import MySQLdb
