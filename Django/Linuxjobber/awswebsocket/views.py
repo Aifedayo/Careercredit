@@ -205,7 +205,7 @@ def get_mention_users(request):
 @api_view(["POST"])
 @permission_classes((AllowAny,))
 def start_typing(request):
-    print(request.data)
+    print(request.data['connectionId'])
     token = request.data['body']['token']
     try:
         token= Token.objects.get(key=token)
@@ -218,10 +218,10 @@ def start_typing(request):
         print(len(all_connections))
         data = {
                 "active_group":active_group,
-                "message":'typing'
+                "message":"typing"
         }
             
-        _send_message_to_all(data,connections)
+        _send_message_to_all(data, connections)
         return Response({'message':'successful'},status.HTTP_200_OK)
 
     except Token.DoesNotExist:

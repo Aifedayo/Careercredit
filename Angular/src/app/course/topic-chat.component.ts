@@ -280,7 +280,11 @@ export class TopicChatComponent implements OnInit {
 
 
   private processMessages(data){
+    console.log('hi')
     if(data['active_group'] == this.activeGroup){
+      if(data['message'] === 'typing'){
+        this.test = 'typing'
+      }
       if (data['messages'] !== undefined) {    
         if(data['is_next']){
           this.messages = [...data['messages'],...this.messages]
@@ -289,9 +293,6 @@ export class TopicChatComponent implements OnInit {
         else if(data['from_where'] === 'send'){
           this.messages = [...this.messages,...data['messages']]
           this.is_send_message = true
-        }
-        else if(data['message'] === 'typing'){
-          this.test = 'typing'
         }
         else{
           this.messages = data['messages']
@@ -342,7 +343,7 @@ export class TopicChatComponent implements OnInit {
     }
 
   public startTyping(): void {
-    console.log('hi')
+    
     let context = {
       action:'startTyping',
       active_group:this.activeGroup,
