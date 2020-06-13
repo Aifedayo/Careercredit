@@ -363,9 +363,9 @@ def internships(request):
         if form.is_valid():
             internform = form.save(commit=False)
             internform.save()
-            messages.success(request, 'Thanks for applying for the internship which starts on ' + str(internship_det.date.strftime(
-                '%b %d, %y')) + '. Please ensure you keep in touch with Linuxjobber latest updates on our various social media platform')
-
+            # messages.success(request, 'Thanks for applying for the internship which starts on ' + str(internship_det.date.strftime(
+                # '%b %d, %y')) + '. Please ensure you keep in touch with Linuxjobber latest updates on our various social media platform')
+            messages.success(request, internship_det.form_response)
             file_path = os.path.join(settings.BASE_DIR, 'emails', 'internships.txt') #'signup.txt')
             with open(file_path, 'r') as f:
                 file_content = f.read()

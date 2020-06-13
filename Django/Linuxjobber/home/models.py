@@ -1355,6 +1355,7 @@ class InternshipDetails(models.Model):
     about_title = models.CharField(max_length=200, blank=True, null=True)
     about = models.TextField(null=True, blank=True)
     date = models.DateTimeField(default=timezone.now, null=True)
-
+    for_enquiries = models.TextField(null=True, blank=True)
+    form_response = models.TextField(null=True, blank=True)
     def __str__(self):
         return f'{self.internship_title}'
