@@ -33,8 +33,6 @@ export class ApiService {
   private headers: HttpHeaders = new HttpHeaders();
   private fileheaders: HttpHeaders = new HttpHeaders();
 
-  private _whoIsTypingArr: string[] = [];
-  private whoIsTyping$: Subject<string[]> = new BehaviorSubject([]);
 
   constructor(private httpClient: HttpClient, location: Location, route: ActivatedRoute) {
     this.headers = this.headers.append('Accept', 'application/json');
@@ -277,16 +275,6 @@ export class ApiService {
     {headers: head})
   }
 
-  public startTyping(): void {
-    CometChat.startTyping(new CometChat.TypingIndicator('supergroup', CometChat.RECEIVER_TYPE.GROUP, {}));
-    }
-
-  public endTyping(): void {
-  CometChat.endTyping(new CometChat.TypingIndicator('supergroup', CometChat.RECEIVER_TYPE.GROUP, {}));
-  }
   
-  public getTypingIndicator(): Observable<any> {
-  return this.whoIsTyping$;
-  }
-
 }
+
