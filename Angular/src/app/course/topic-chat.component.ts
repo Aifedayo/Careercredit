@@ -4,13 +4,16 @@ import { HttpClient } from '@angular/common/http';
 
 import {ApiService} from "../share/api.service";
 import {ChatMessage} from "../share/chat-message";
-import {Observable, Subject} from "rxjs/index";
-import { debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
+import {Observable, Subject, BehaviorSubject} from "rxjs/index";
+import { debounceTime, distinctUntilChanged, switchMap, tap, scan, map, filter} from 'rxjs/operators';
 import {MatList} from "@angular/material";
 import {environment} from "../../environments/environment";
 import {UserModel} from "../share/user-model";
 import { AlertService } from './_alert/alert.service';
 import ReconnectingWebSocket from '../_websocket/reconnecting-websocket';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
+
 declare var moment: any;
 
 export enum TYPE {Plain='plain', Image='image', File='file'}
@@ -34,7 +37,8 @@ export class TopicChatComponent implements OnInit {
   public chat_text  = '';
   public messages = [];
   public the_message:ChatMessage;
-  public websocket;
+  public websocket: ReconnectingWebSocket;
+  public ws: WebSocket;
   public email;
   public type=TYPE;
   public avatar:string;
@@ -47,6 +51,7 @@ export class TopicChatComponent implements OnInit {
   public qoute_message = null;
   public mentionConfig;
 
+
   // getting a reference to the overall list, which is the parent container of the list items
   @ViewChild(MatList, { read: ElementRef }) matList: ElementRef;
   @ViewChild('ChatSpace') chatSpace: ElementRef<HTMLElement>;
@@ -54,7 +59,19 @@ export class TopicChatComponent implements OnInit {
 
   private user$: Observable<UserModel>;
   public environment = environment;
-  
+
+  //is-typing 
+  public messageForm = new FormGroup({
+    message: new FormControl('', Validators.required)
+    });
+  public messageInput = new Subject<string>();
+  public touched: Subject<boolean> = new BehaviorSubject(false);
+  public typingIndicator //Observable<boolean> = this.getTypingIndicator().pipe(map(val => val.length > 0));
+  private _whoIsTypingArr: string[] = [];
+  private whoIsTyping$: Subject<string[]> = new BehaviorSubject([]);
+  public who: Observable<string>
+  public test
+
   constructor(
     private http: HttpClient, 
     private apiService:ApiService,
@@ -69,6 +86,7 @@ export class TopicChatComponent implements OnInit {
       this.websocket = new ReconnectingWebSocket(
         environment.WS_URL+"?token="+this.token
       )
+      this.ws = new WebSocket(environment.WS_URL+"?token="+this.token)
       this.mentionConfig = {
         dropUp:'true',
         allowSpace:'true',
@@ -86,6 +104,20 @@ export class TopicChatComponent implements OnInit {
 
   ngAfterViewInit(): void {
     this.mutableObserver();
+    this.messageForm.valueChanges.pipe(
+      tap(() => 
+      this.startTyping()),
+      ).subscribe();
+    this.messageInput.pipe(
+      tap(() => this.startTyping()),
+      ).subscribe();
+    this.who = this.getTypingIndicator().pipe(filter(val => val.length > 0), map(val => {
+      switch(val.length) {
+      case 1: return `${val[0]} is typing`;
+      case 2: return `${val[0]} and ${val[1]} are typing`;
+      default: return `Many poeple are typing`;
+      }
+      }));
   }
 
   setUserMentionProp(){
@@ -118,11 +150,12 @@ export class TopicChatComponent implements OnInit {
             let {profile_img, ...qoute_m} = this.qoute_message
             context['qoute_message'] = qoute_m
           }
-
+          console.log('sent')
           this.websocket.send(JSON.stringify(context));
           this.qoute_message = null;
           this.chat_text = '';
           this.is_send_message = true
+          
         } 
       }
       else{
@@ -157,6 +190,7 @@ export class TopicChatComponent implements OnInit {
     // );
 
     this.websocket.onopen = (evt) => {
+      
       if(!this.recent_message_is_set){
         this.getMessages()
       }
@@ -298,4 +332,25 @@ export class TopicChatComponent implements OnInit {
     ampm = ampm.split(' ')
     return `${time[0]}:${time[1]} ${ampm[1]}`
   }
+
+  public getTypingIndicator(): Observable<any> {
+    return this.whoIsTyping$;
+    }
+
+  public startTyping(): void {
+    this.websocket
+    
+    // CometChat.startTyping(new CometChat.TypingIndicator('supergroup', CometChat.RECEIVER_TYPE.GROUP, {}));
+    }
+
+  public endTyping(): void {
+
+  // CometChat.endTyping(new CometChat.TypingIndicator('supergroup', CometChat.RECEIVER_TYPE.GROUP, {}));
+  }
+  public isTyping(event){
+    this.messageInput.next(event)
+    console.log("is typing")
+    return true
+  }
+
 }
