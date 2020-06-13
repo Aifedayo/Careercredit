@@ -34,7 +34,7 @@
       <span>{{test}}</span>
       <div *ngIf="typingIndicator | async" class="typingIndicator">
         <span>{{who | async}}
-          <div class="container">
+          <div class="containerr">
             <span class="dot"></span>
             <span class="dot"></span>
             <span class="dot"></span>
@@ -42,7 +42,7 @@
         </span>
       </div>
 
-      <form  [formGroup]="messageForm" class="form-group" style="display:flex ;margin-right: -30px">
+      <form   class="form-group" style="display:flex ;margin-right: -30px">
         <div class="image-upload">
           <label for="file-input" style="top:4px">
             <i class="medium material-icons" >add</i>
@@ -50,8 +50,8 @@
               (change)="fileChange($event)" type="file"/>
           </label>
         </div>
-        <!-- <input (ngModelChange)='isTyping($event)' (keyup.enter)="sendMessage(chat_text,'plain')" class="form-control"  name="chat_text" [(ngModel)]="chat_text" placeholder="Type Your Message Here" maxlength="400"> -->
-        <input formControlName="message" [ngClass]="{'inactive': !(touched | async)}"   class="form-control"  name="chat_text" #chat_input
+        <!-- <inputformControlName="message"   (keyup.enter)="sendMessage(chat_text,'plain')" class="form-control"  name="chat_text" [(ngModel)]="chat_text" placeholder="Type Your Message Here" maxlength="400"> -->
+        <input (ngModelChange)='isTyping($event)' [ngClass]="{'inactive': !(touched | async)}"   class="form-control"  name="chat_text" #chat_input
           [(ngModel)]="chat_text" placeholder="Type Your Message Here" 
           maxlength="400" [mention]="mention_users | async" 
           (searchTerm)='searchMention($event)' [mentionConfig]="mentionConfig">

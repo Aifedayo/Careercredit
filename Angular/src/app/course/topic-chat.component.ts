@@ -66,7 +66,7 @@ export class TopicChatComponent implements OnInit {
     });
   public messageInput = new Subject<string>();
   public touched: Subject<boolean> = new BehaviorSubject(false);
-  public typingIndicator //Observable<boolean> = this.getTypingIndicator().pipe(map(val => val.length > 0));
+  public typingIndicator : Observable<boolean>//
   private _whoIsTypingArr: string[] = [];
   private whoIsTyping$: Subject<string[]> = new BehaviorSubject([]);
   public who: Observable<string>
@@ -111,6 +111,7 @@ export class TopicChatComponent implements OnInit {
     this.messageInput.pipe(
       tap(() => this.startTyping()),
       ).subscribe();
+    
     this.who = this.getTypingIndicator().pipe(filter(val => val.length > 0), map(val => {
       switch(val.length) {
       case 1: return `${val[0]} is typing`;
@@ -280,10 +281,15 @@ export class TopicChatComponent implements OnInit {
 
 
   private processMessages(data){
-    console.log('hi')
+    // console.log('hi')
     if(data['active_group'] == this.activeGroup){
-      if(data['message'] === 'typing'){
-        this.test = 'typing'
+      if(data['message'] === 'start_typing'){
+        this.onTypingStarted(data["who"])
+        this.typingIndicator = this.getTypingIndicator().pipe(map(val => val.length > 0));
+      }
+      else if(data['message'] === 'end_typing'){
+        this.onTypingStarted(data["who"])
+        this.typingIndicator = this.getTypingIndicator().pipe(map(val => val.length > 0));
       }
       if (data['messages'] !== undefined) {    
         if(data['is_next']){
@@ -337,6 +343,19 @@ export class TopicChatComponent implements OnInit {
     ampm = ampm.split(' ')
     return `${time[0]}:${time[1]} ${ampm[1]}`
   }
+  public onTypingStarted (who) {
+    console.log(this._whoIsTypingArr)
+    if(this._whoIsTypingArr.indexOf(who) == -1){
+      console.log('added')
+    this._whoIsTypingArr.push(who);
+    this.whoIsTyping$.next(this._whoIsTypingArr);
+    }
+  }
+
+  public onTypingEnded (who) {
+    this._whoIsTypingArr.splice(this._whoIsTypingArr.findIndex(val => val === who.sender.name), 1);
+    this.whoIsTyping$.next(this._whoIsTypingArr);
+    }
 
   public getTypingIndicator(): Observable<any> {
     return this.whoIsTyping$;

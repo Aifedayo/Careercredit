@@ -214,11 +214,12 @@ def start_typing(request):
         connection_id = request.data['connectionId']
         all_connections = Connection.objects.all()
         connections = Connection.objects.exclude(connection_id=connection_id)
-        print(len(connections))
-        print(len(all_connections))
+        who = body["user"]
+        print(who)
         data = {
                 "active_group":active_group,
-                "message":"typing"
+                "message":"start_typing",
+                "who": who,
         }
             
         _send_message_to_all(data, connections)
@@ -236,6 +237,18 @@ def end_typing(request):
         token= Token.objects.get(key=token)
         body = request.data['body']
         active_group = request.data['body']['active_group']
+        connection_id = request.data['connectionId']
+        all_connections = Connection.objects.all()
+        connections = Connection.objects.exclude(connection_id=connection_id)
+        who = body["user"]
+        print(who)
+        data = {
+                "active_group":active_group,
+                "message":"end_typing",
+                "who": who,
+        }
+            
+        _send_message_to_all(data, connections)
         return Response({'message':'successful'},status.HTTP_200_OK)
     except Token.DoesNotExist:
         return Response("Nothing",status=status.HTTP_403_FORBIDDEN)

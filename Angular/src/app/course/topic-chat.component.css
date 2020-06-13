@@ -258,7 +258,7 @@ div.typingIndicator {
   box-sizing: border-box;
   }
 
-.container {
+.containerr {
   display: inline-block;
   position: relative;
   top: -1px;
@@ -276,7 +276,18 @@ animation: 1.2s typing-dot ease-in-out infinite;
 animation-delay: 0.15s;
 margin-left: 3px;
 }
+
 .dot:nth-of-type(3) {
 animation-delay: 0.25s;
 margin-left: 3px;
 }
+@keyframes typing-dot {
+  15% {
+  transform: translateY(-35%);
+  opacity: 0.5;
+  }
+  30% {
+  transform: translateY(0%);
+  opacity: 1;
+  }
+  }
