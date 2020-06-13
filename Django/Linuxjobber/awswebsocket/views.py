@@ -205,13 +205,22 @@ def get_mention_users(request):
 @api_view(["POST"])
 @permission_classes((AllowAny,))
 def start_typing(request):
+    print("hello")
     token = request.data['token']
+    try:
+        token= Token.objects.get(key=token)
+    except Token.DoesNotExist:
+        return Response("Nothing",status=status.HTTP_403_FORBIDDEN)
 
 @csrf_exempt
 @api_view(["POST"])
 @permission_classes((AllowAny,))
 def end_typing(request):
     token = request.data['token']
+    try:
+        token= Token.objects.get(key=token)
+    except Token.DoesNotExist:
+        return Response("Nothing",status=status.HTTP_403_FORBIDDEN)
 #Helper
 def _save_message(body,room):
     # Add the new message to the database
