@@ -375,18 +375,18 @@ export class TopicChatComponent implements OnInit {
 
   public endTyping(): void {
     console.log('hi')
-    let context = {
-      action:'endTyping',
-      active_group:this.activeGroup,
-      user:sessionStorage.getItem('username'),
-      token:this.token
-    }; 
-    this.websocket.send(JSON.stringify(context));
+    // let context = {
+    //   action:'endTyping',
+    //   active_group:this.activeGroup,
+    //   user:sessionStorage.getItem('username'),
+    //   token:this.token
+    // }; 
+    // this.websocket.send(JSON.stringify(context));
   // CometChat.endTyping(new CometChat.TypingIndicator('supergroup', CometChat.RECEIVER_TYPE.GROUP, {}));
   }
   public isTyping(event){
     this.messageInput.next(event)
-    console.log("is typing")
+    // console.log("is typing")
     return true
   }
 

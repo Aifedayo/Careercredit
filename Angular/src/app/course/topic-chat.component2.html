@@ -51,7 +51,7 @@
           </label>
         </div>
         <!-- <inputformControlName="message"   (keyup.enter)="sendMessage(chat_text,'plain')" class="form-control"  name="chat_text" [(ngModel)]="chat_text" placeholder="Type Your Message Here" maxlength="400"> -->
-        <input (ngModelChange)='isTyping($event)' [ngClass]="{'inactive': !(touched | async)}"   class="form-control"  name="chat_text" #chat_input
+        <input (ngModelChange)='isTyping($event)' (blur)="endTyping()" ()="endTyping()" [ngClass]="{'inactive': !(touched | async)}"   class="form-control"  name="chat_text" #chat_input
           [(ngModel)]="chat_text" placeholder="Type Your Message Here" 
           maxlength="400" [mention]="mention_users | async" 
           (searchTerm)='searchMention($event)' [mentionConfig]="mentionConfig">
