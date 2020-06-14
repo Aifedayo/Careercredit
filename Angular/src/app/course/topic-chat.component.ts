@@ -288,8 +288,8 @@ export class TopicChatComponent implements OnInit {
         this.typingIndicator = this.getTypingIndicator().pipe(map(val => val.length > 0));
       }
       else if(data['message'] === 'end_typing'){
-        this.onTypingStarted(data["who"])
-        this.typingIndicator = this.getTypingIndicator().pipe(map(val => val.length > 0));
+        console.log("typing ended")
+        this.onTypingEnded(data["who"])
       }
       if (data['messages'] !== undefined) {    
         if(data['is_next']){
@@ -353,7 +353,7 @@ export class TopicChatComponent implements OnInit {
   }
 
   public onTypingEnded (who) {
-    this._whoIsTypingArr.splice(this._whoIsTypingArr.findIndex(val => val === who.sender.name), 1);
+    this._whoIsTypingArr.splice(this._whoIsTypingArr.findIndex(val => val === who), 1);
     this.whoIsTyping$.next(this._whoIsTypingArr);
     }
 
@@ -375,13 +375,13 @@ export class TopicChatComponent implements OnInit {
 
   public endTyping(): void {
     console.log('hi')
-    // let context = {
-    //   action:'endTyping',
-    //   active_group:this.activeGroup,
-    //   user:sessionStorage.getItem('username'),
-    //   token:this.token
-    // }; 
-    // this.websocket.send(JSON.stringify(context));
+    let context = {
+      action:'endTyping',
+      active_group:this.activeGroup,
+      user:sessionStorage.getItem('username'),
+      token:this.token
+    }; 
+    this.websocket.send(JSON.stringify(context));
   // CometChat.endTyping(new CometChat.TypingIndicator('supergroup', CometChat.RECEIVER_TYPE.GROUP, {}));
   }
   public isTyping(event){
