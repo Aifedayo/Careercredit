@@ -31,7 +31,7 @@
         </app-qoute-message>
       </div>
       <!-- is typin side  -->
-      <span>{{test}}</span>
+
       <div *ngIf="typingIndicator | async" class="typingIndicator">
         <span>{{who | async}}
           <div class="containerr">
@@ -41,6 +41,7 @@
           </div>
         </span>
       </div>
+      <br>
 
       <form   class="form-group" style="display:flex ;margin-right: -30px">
         <div class="image-upload">
@@ -51,7 +52,7 @@
           </label>
         </div>
         <!-- <inputformControlName="message" ()="endTyping()"  (keyup.enter)="sendMessage(chat_text,'plain')" class="form-control"  name="chat_text" [(ngModel)]="chat_text" placeholder="Type Your Message Here" maxlength="400"> -->
-        <input (ngModelChange)='isTyping($event)' (blur)="endTyping()"  [ngClass]="{'inactive': !(touched | async)}"   class="form-control"  name="chat_text" #chat_input
+        <input (ngModelChange)='isTyping($event)'  (blur)="endTyping()" [ngClass]="{'inactive': !(touched | async)}"   class="form-control"  name="chat_text" #chat_input
           [(ngModel)]="chat_text" placeholder="Type Your Message Here" 
           maxlength="400" [mention]="mention_users | async" 
           (searchTerm)='searchMention($event)' [mentionConfig]="mentionConfig">
