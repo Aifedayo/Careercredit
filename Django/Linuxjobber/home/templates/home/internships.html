@@ -44,12 +44,15 @@ Internships | Linuxjobber
         {% endif %}
 	 <div class="row video-howto">
 	   <div class="col-xs-12 col-sm-12 col-lg-6">
-      <img src="{% static '/home/css/newhomepage/imgs/macc.png' %}" width="550px" height="400px">
+      <!-- <img src="{% static '/home/css/newhomepage/imgs/macc.png' %}" width="550px" height="400px"> -->
+      <img src="{{internship_det.image.url}}" width="550px" height="400px">
       </div>
       <div class="col-xs-12 col-sm-12 col-lg-6 intern-col">
-        <h3 class="text-center intern-title">Become a Full Stack Developer <br>in 3 months</h3>
+        <!-- <h3 class="text-center intern-title">Become a Full Stack Developer <br>in 3 months</h3> -->
+        <h3 class="text-center intern-title">{{internship_det.internship_title|safe}}</h3>
         <br>
-        <p class="text-center mgg-20">Get trainings with practical knowledge on the latest technologies that will make you competent in todays technology job market.</p>
+        <!-- <p class="text-center mgg-20">Get trainings with practical knowledge on the latest technologies that will make you competent in todays technology job market.</p> -->
+        <p class="text-center mgg-20">{{internship_det.internship|safe}}</p>
       </div>
       <a href="#g" class="btn reg-btn">Apply Now</a>
     </div>
@@ -64,19 +67,22 @@ Internships | Linuxjobber
   <div class="container">
     <div class="row p80">
       <div class="text-center">
-        <h3  class="p-title">About the program</h3>
+        <!-- <h3  class="p-title">About the program</h3> -->
+        <h3  class="p-title">{{internship_det.about_title|safe}}</h3>
       <div>
-      <p class="mgg-20">Our 3-month Internship program is designed to help undergraduates and fresh graduates boost their skills and build experience as Developers, or System Administrators. Training will be on relevant technologies in the field.<br>
+      <!-- <p class="mgg-20">Our 3-month Internship program is designed to help undergraduates and fresh graduates boost their skills and build experience as Developers, or System Administrators. Training will be on relevant technologies in the field.<br>
 
           Developers: will be trained on Fullstack Development for Web Applications, using Python on the Django framework for back-end development, and Angular for front-end development.<br>
 
           System Administrators: will learn Linux Systems Administration, using CentOS 7 for Linux server administration.<br>
           Requirements: Participants must have working knowledge of HTML, Python and JavaScript. <br>
           After the first month, selected candidates will begin receiving a stipend of 20,000 Naira per week, for the remaining two months. <br>
+      </p> -->
+      <p class="mgg-20">{{internship_det.about|safe}}
       </p>
 
-
-      <p class="mgg-20">For enquiries, send an email to admin@linuxjobber.com</p>
+      <!-- <p class="mgg-20">For enquiries, send an email to admin@linuxjobber.com</p> -->
+      <p class="mgg-20">{{internship_det.for_enquiries|safe}}</p>
       <p class="mgg-20">Register below</p>
       </div>
       </div>

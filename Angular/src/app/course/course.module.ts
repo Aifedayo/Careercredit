@@ -12,7 +12,7 @@ import { CourseRoutingModule } from './course-routing.module';
 import { TopicLabComponent } from './topic-lab/topic-lab.component';
 import { TopicNotesComponent } from './topic-notes/topic-notes.component';
 import { TopicVideoComponent } from './topic-video/topic-video.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {SafePipe} from "../share/safe.pipe";
 import {OrderModule} from "ngx-order-pipe";
 import {SharedModule} from "../../shared/shared.module";
@@ -38,6 +38,7 @@ import {QouteMessageComponent} from './qoute-message/qoute-message.component';
     CommonModule,
     CourseRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     OrderModule,
     SharedModule,
     AlertModule,

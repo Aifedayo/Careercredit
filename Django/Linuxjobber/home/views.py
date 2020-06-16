@@ -356,15 +356,16 @@ def gainexperience(request):
 
 def internships(request):
     MAX_UPLOAD_SIZE = "2621440"
-    internsh = InternshipDetail.objects.all()[0].date
+    internsh = InternshipDetail.objects.all()[0].date   
+    internship_det = InternshipDetails.objects.all()[0]
     if request.method == "POST":
         form = InternshipForm(request.POST, request.FILES)
         if form.is_valid():
             internform = form.save(commit=False)
             internform.save()
-            messages.success(request, 'Thanks for applying for the internship which starts on ' + str(internsh.strftime(
-                '%b %d, %y')) + '. Please ensure you keep in touch with Linuxjobber latest updates on our various social media platform')
-
+            # messages.success(request, 'Thanks for applying for the internship which starts on ' + str(internship_det.date.strftime(
+                # '%b %d, %y')) + '. Please ensure you keep in touch with Linuxjobber latest updates on our various social media platform')
+            messages.success(request, internship_det.form_response)
             file_path = os.path.join(settings.BASE_DIR, 'emails', 'internships.txt') #'signup.txt')
             with open(file_path, 'r') as f:
                 file_content = f.read()
@@ -381,11 +382,11 @@ def internships(request):
             # send_mail('Linuxjobber Internship',
             #           'Hello, you are receiving this email because you applied for an internship at linuxjobber.com, we will review your application and get back to you.\n\n Thanks & Regards \n Linuxjobber.\n\n\n\n\n\n\n\n To Unsubscribe go here \n' + settings.ENV_URL + 'unsubscribe',
             #           settings.EMAIL_HOST_USER, [request.POST['email']])
-            return render(request, 'home/internships.html', {'form': form, })
+            return render(request, 'home/internships.html', {'form': form, 'internship_det':internship_det })
     else:
         form = InternshipForm()
     form = InternshipForm()
-    return render(request, 'home/internships.html', {'form': form})
+    return render(request, 'home/internships.html', {'form': form, 'internship_det':internship_det})
 
 
 def resumeservice(request):

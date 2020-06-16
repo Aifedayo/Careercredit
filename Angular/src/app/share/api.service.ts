@@ -33,8 +33,6 @@ export class ApiService {
   private headers: HttpHeaders = new HttpHeaders();
   private fileheaders: HttpHeaders = new HttpHeaders();
 
-  private _whoIsTypingArr: string[] = [];
-  private whoIsTyping$: Subject<string[]> = new BehaviorSubject([]);
 
   constructor(private httpClient: HttpClient, location: Location, route: ActivatedRoute) {
     this.headers = this.headers.append('Accept', 'application/json');
@@ -276,5 +274,7 @@ export class ApiService {
     return this.httpClient.put(environment.API_URL + `sso_api/group/${group_id}`, JSON.stringify(data),
     {headers: head})
   }
+
   
 }
+
