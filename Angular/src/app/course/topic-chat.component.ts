@@ -116,7 +116,7 @@ export class TopicChatComponent implements OnInit {
       switch(val.length) {
       case 1: return `${val[0]} is typing`;
       case 2: return `${val[0]} and ${val[1]} are typing`;
-      default: return `Many poeple are typing`;
+      default: return `Many people are typing`;
       }
       }));
   }
