@@ -47,7 +47,6 @@ export class StudentsComponent implements OnInit {
               const last_login_date = new Date( val2[1].timestamp.slice(0, -10))
               // console.log(val2)
               if (date.valueAsDate >= last_login_date){
-                this.showSpinner = false
                 console.log('wil be deleted')
                 this.apiService.deleteUser(sessionStorage.getItem('active_group'), val2[0]).subscribe()
               }
@@ -56,6 +55,7 @@ export class StudentsComponent implements OnInit {
         },
         (error)=>{},
         ()=>{
+          this.showSpinner = false
           alert('Students have been removed')
           window.location.replace(window.location.origin+"/admin/students")
         }
