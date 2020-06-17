@@ -18,7 +18,7 @@ export class StudentsComponent implements OnInit {
   public attendances
   public attendance
   public last_login_arr: Observable<any>[] = []
-  private showSpinner = false
+  public showSpinner = false
   constructor( private apiService:ApiService) {
     this.students=apiService.getMembers(sessionStorage.getItem('active_group'))
   }
