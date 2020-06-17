@@ -16,6 +16,7 @@
                 <input type="date" name="date" id="date" #lastDate>
                 <input type="button" (click)="deleteByDate(lastDate)" value="Delete">
               </div>
+              <mat-spinner *ngIf="showSpinner"></mat-spinner>
               <div class="row" style="margin-left: 100px;">
                   <router-outlet></router-outlet>
               </div>

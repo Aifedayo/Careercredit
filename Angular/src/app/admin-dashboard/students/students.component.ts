@@ -18,6 +18,7 @@ export class StudentsComponent implements OnInit {
   public attendances
   public attendance
   public last_login_arr: Observable<any>[] = []
+  private showSpinner = false
   constructor( private apiService:ApiService) {
     this.students=apiService.getMembers(sessionStorage.getItem('active_group'))
   }
@@ -28,6 +29,7 @@ export class StudentsComponent implements OnInit {
   }
   
   deleteByDate(date: HTMLInputElement){
+    this.showSpinner= true
     let students_id = this.getStudentsId()
     students_id.subscribe(res=>{
       res.forEach(val1=>{
@@ -45,6 +47,7 @@ export class StudentsComponent implements OnInit {
               const last_login_date = new Date( val2[1].timestamp.slice(0, -10))
               // console.log(val2)
               if (date.valueAsDate >= last_login_date){
+                this.showSpinner = false
                 console.log('wil be deleted')
                 this.apiService.deleteUser(sessionStorage.getItem('active_group'), val2[0]).subscribe()
               }
