@@ -10,6 +10,7 @@ import { StatusComponent } from './status/status.component';
 import { EditComponent } from './edit/edit.component';
 import { EditDetailsComponent } from './edit-details/edit-details.component';
 import {FormsModule} from "@angular/forms";
+import {MatProgressSpinnerModule} from "@angular/material"
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import {FormsModule} from "@angular/forms";
     AdminDashboardRoutingModule, 
     RouterModule,
     FormsModule,
+    MatProgressSpinnerModule,
 
   ],
   declarations: [HeaderComponent,StudentsComponent, AdminDashboardComponent, StatusComponent, EditComponent, EditDetailsComponent],
