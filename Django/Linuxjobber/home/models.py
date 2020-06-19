@@ -16,6 +16,7 @@ from users.models import CustomUser
 
 from datetime import date
 from .storage_backend import *
+from tinymce.models import HTMLField
 
 def due_time():
     return timezone.now() + timezone.timedelta(days=6)
@@ -1346,3 +1347,15 @@ class Careercredit(models.Model):
 
     def __str__(self):
         return f'{self.last_name} {self.first_name}'
+
+class InternshipDetails(models.Model):
+    internship_title = models.CharField(max_length=200, blank=True, null=True)
+    internship = models.TextField(null=True, blank=True)
+    image = models.ImageField(upload_to='uploads/', null=True, blank=True)
+    about_title = models.CharField(max_length=200, blank=True, null=True)
+    about = models.TextField(null=True, blank=True)
+    date = models.DateTimeField(default=timezone.now, null=True)
+    for_enquiries = models.TextField(null=True, blank=True)
+    form_response = models.TextField(null=True, blank=True)
+    def __str__(self):
+        return f'{self.internship_title}'
