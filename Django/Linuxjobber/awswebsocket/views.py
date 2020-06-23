@@ -201,7 +201,57 @@ def get_mention_users(request):
     except Token.DoesNotExist:
         return Response("Nothing",status=status.HTTP_403_FORBIDDEN)
 
+@csrf_exempt
+@api_view(["POST"])
+@permission_classes((AllowAny,))
+def start_typing(request):
+    print(request.data['connectionId'])
+    token = request.data['body']['token']
+    try:
+        token= Token.objects.get(key=token)
+        body = request.data['body']
+        active_group = request.data['body']['active_group']
+        connection_id = request.data['connectionId']
+        all_connections = Connection.objects.all()
+        connections = Connection.objects.exclude(connection_id=connection_id)
+        who = body["user"]
+        print(who)
+        data = {
+                "active_group":active_group,
+                "message":"start_typing",
+                "who": who,
+        }
+            
+        _send_message_to_all(data, connections)
+        return Response({'message':'successful'},status.HTTP_200_OK)
 
+    except Token.DoesNotExist:
+        return Response("Nothing",status=status.HTTP_403_FORBIDDEN)
+
+@csrf_exempt
+@api_view(["POST"])
+@permission_classes((AllowAny,))
+def end_typing(request):
+    token = request.data['body']['token']
+    try:
+        token= Token.objects.get(key=token)
+        body = request.data['body']
+        active_group = request.data['body']['active_group']
+        connection_id = request.data['connectionId']
+        all_connections = Connection.objects.all()
+        connections = Connection.objects.exclude(connection_id=connection_id)
+        who = body["user"]
+        print(who)
+        data = {
+                "active_group":active_group,
+                "message":"end_typing",
+                "who": who,
+        }
+            
+        _send_message_to_all(data, connections)
+        return Response({'message':'successful'},status.HTTP_200_OK)
+    except Token.DoesNotExist:
+        return Response("Nothing",status=status.HTTP_403_FORBIDDEN)
 #Helper
 def _save_message(body,room):
     # Add the new message to the database

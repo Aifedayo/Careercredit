@@ -21,7 +21,7 @@ urlpatterns = [
     path('sso_api/', include('sso_api.urls')),
     path('awsgateway/', include('awswebsocket.urls')),
     path('certificates/', include('certificates.urls')),
-
+    path('tinymce/', include('tinymce.urls')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

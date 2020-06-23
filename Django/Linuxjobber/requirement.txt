@@ -61,3 +61,4 @@ urllib3==1.22
 webservices==0.7
 zope.interface==4.6.0
 django-background-tasks
+django-tinymce==3.0.2
