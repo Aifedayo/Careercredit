@@ -127,6 +127,8 @@ urlpatterns = [
     path('it_partnership/',views.it_partnership, name="it_partnership"),
     path('career_credit/',views.career_credit, name="career_credit"),
     path('career_credit_form/',views.career_credit_form, name="career_credit_form"),
+    path('career_credit_form2/', views.career_credit_form2, name="career_credit_form2"),
+    path('career_credit_success/', views.signupsuccess, name="career_credit_success"),
 ]
 
 

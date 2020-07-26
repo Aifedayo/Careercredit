@@ -1,0 +1,533 @@
+
+@font-face {font-family: "CeraPRO-Light";
+    src: url("../../careercredit/fonts/CeraPro-Light.ttf"); /* IE9*/
+    src: url("1fa7b40f4644596654d7ed3c41c25bae.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("1fa7b40f4644596654d7ed3c41c25bae.woff2") format("woff2"), /* chrome、firefox */
+    url("1fa7b40f4644596654d7ed3c41c25bae.woff") format("woff"), /* chrome、firefox */
+    url("../../careercredit/fonts/CeraPro-Light.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url("1fa7b40f4644596654d7ed3c41c25bae.svg#CeraPRO-Light") format("svg"); /* iOS 4.1- */
+  }
+  @font-face {font-family: "Cera PRO Medium";
+
+ src: url("../../careercredit/fonts/Cera Pro Medium.otf"); /* IE9*/
+ src: url("1fa7b40f4644596654d7ed3c41c25bae.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+ url("1fa7b40f4644596654d7ed3c41c25bae.woff2") format("woff2"), /* chrome、firefox */
+ url("1fa7b40f4644596654d7ed3c41c25bae.woff") format("woff"), /* chrome、firefox */
+ url("../../careercredit/fonts/Cera Pro Medium.otf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+ url("1fa7b40f4644596654d7ed3c41c25bae.svg#Cera PRO Medium") format("svg"); /* iOS 4.1- */
+}
+
+@font-face {font-family: "CeraPro-Regular";
+src: url("../../careercredit/fonts/CeraPro-Regular.otf"); /* IE9*/
+src: url("1fa7b40f4644596654d7ed3c41c25bae.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+url("1fa7b40f4644596654d7ed3c41c25bae.woff2") format("woff2"), /* chrome、firefox */
+url("1fa7b40f4644596654d7ed3c41c25bae.woff") format("woff"), /* chrome、firefox */
+url("../../careercredit/fonts/CeraPro-Regular.otf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+url("1fa7b40f4644596654d7ed3c41c25bae.svg#CeraPro-Regular.otf") format("svg"); /* iOS 4.1- */
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    /* box-sizing: border-box; */
+}
+
+
+.btn {
+    font-weight: 900;
+    font-size: 1.6rem;
+    line-height: 1.4rem;
+    color: #FFFFFF;
+    padding: 1.0rem 1.8rem;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    letter-spacing: 0.05em;
+    background: #35B99F;
+    border-radius: .9rem;
+    text-decoration: none;
+    font-family:"CeraPRO-Regular" !important;
+
+}
+
+
+.btn2 {
+    font-weight: 900;
+    font-size: 1.6rem;
+    line-height: 1.4rem;
+    color: #FFFFFF;
+    padding: 1.0rem 1.8rem;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    letter-spacing: 0.05em;
+    background: #35B99F;
+    border-radius: .9rem;
+    text-decoration: none;
+    font-family:"CeraPRO-Regular" !important;
+
+}
+
+/* banner */
+section.banner{
+    
+    background:url('../../careercredit/images/form_header.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 8.6rem;
+    margin-bottom: 50px;
+    width: auto;
+    background-position: center;
+}
+
+section.banner .content{
+    display: flex;
+    flex-direction: column;
+    
+    height: 100%;
+    
+}
+
+section.banner .content .nav-bar{
+    margin-top: .5rem;
+    margin-bottom: auto;
+    }
+
+section.banner .content .nav-bar img{
+    margin-left: 3rem;
+    width: 100px;
+}
+section.banner .content .nav-bar a{
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    font-family:"Cera PRO Medium" !important;
+    margin-top: 50px;
+   
+    
+}
+section.banner .content .nav-bar a:hover{
+    background-color: #35B99F;
+    color: white;
+    
+}
+section.banner .content .nav-bar .home,
+section.banner .content .nav-bar .about,
+section.banner .content .nav-bar .contact{
+    padding: 4px;
+    font-size: 18px;
+    line-height: 1.9rem;
+    letter-spacing: 0.05em;
+    width: 140px;
+    float: right;
+    border-radius: 8px;
+    margin-right: 2rem;
+    
+}
+section.banner .content .nav-bar .employer{
+    font-size: 18px;
+    line-height: 1.9rem;
+    letter-spacing: 0.05em;
+    float: right;
+    padding: 4px;
+    border-radius: 10px;
+    margin-right: 2rem;
+}
+section.banner .content .nav-bar a h3{
+    padding: 6px;
+    font-weight: bold;
+    
+    text-decoration: none;
+}
+
+    #bar2 {
+        width: 100%;
+        margin-top: 70px;
+    
+    }
+    .divide2 {
+        width: 100%;
+        text-align: center;
+        margin-top: 6rem;
+        margin-bottom: .9rem;
+    }
+
+    
+    .divide2 h2 {
+        color:#35B99F;
+        font-size: 3.8rem;
+        font-weight: 700;
+        margin-top: 1.2rem;
+        font-family:"Cera PRO Medium" !important;
+    }
+ 
+    
+
+    .divide2 p{
+        margin-top: .6rem;
+        font-family:"CeraPRO-Light" !important;;
+        font-weight: bold;
+        font-size: 1.4rem;
+    }
+
+    .first, .second{
+        font-family:"CeraPro-Light"  !important;
+        font-weight: bold;
+        font-size: 1.4rem;
+        margin-top: .6rem;
+        padding-right: 100px;
+        justify-content: center;
+    }
+
+    .divide2 .bar3{
+        margin-top: 30px;
+    }
+    .divide2 .bar3 small{
+        color:red;
+    }
+    .divide2 h6 {
+        margin: auto;
+        color: rgb(63, 63, 63);
+        font-family:"CeraPRO-Light" !important;
+        padding: 10px 60px;
+        font-size: 1.4rem;
+        background-color: rgb(248, 255, 255);
+        width: 80%;
+    }
+
+section.form-nav{
+    background:url('../../careercredit/images/form_header.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 8.6rem;
+    margin-bottom: 50px;
+}
+
+section.form-nav .content .nav .list{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 8.6rem;
+     height: 100%; 
+}
+
+section.form-nav .content .nav .list a{
+    text-decoration: none;
+}
+.bar .home-link {
+    display: inline-block;
+    float: right;
+    width: 140px;
+    font-size: 18px;
+    
+}
+section.form-nav .content .nav .list .home-link {
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: #35B89E;
+    font-weight: bold;
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+}
+
+section.form .content .head-section{
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+section.form .content .head-section::before{
+    content: '';
+    display: block;
+    width: .5rem;
+    height: 5.3rem;
+    
+    border-radius: 13.5rem;
+    margin-right: 1rem;
+}
+
+section.form .content .head-section .right h3{
+    font-weight: bold;
+    font-size: 2.4rem;
+    line-height: 2.8rem;
+    text-transform: capitalize;
+    color: #35B99F;
+    margin-bottom: .5rem;
+}
+
+section.form .content .head-section .right p{
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    color: #333333;
+}
+
+section.form .content .career-form .btn{
+    margin-top: 2rem;
+}
+
+section.form .content .career-form .form-section{
+    
+    padding-top: 2rem;
+}
+
+section.form .content .career-form .form-section:nth-child(2){
+    border-bottom: .1rem solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 1rem;
+}
+
+*
+section.form .content .career-form .form-section .title *{
+    margin-bottom: 1rem;
+}
+
+section.form .content .career-form .form-section .title h3{
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    color: #333333;
+}
+
+section.form .content .career-form .form-section .title p{
+    font-weight: normal;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    color: #808080;
+}
+
+section.form .content .career-form .form-section  .fields{
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+}
+
+section.form .content .career-form .form-section  .fields .wrapper{
+    display: flex;
+    margin-bottom: 4rem;
+}
+
+section.form .content .career-form .form-section  .fields .wrapper .row{
+    flex-basis: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+section.form .content .career-form .form-section  .fields .wrapper .row .item{
+    flex-basis: 45%;
+}
+
+section.form .content .career-form .form-section  .fields .wrapper .row .item *{
+    display: block;
+}
+
+section.form .content .career-form .form-section  .fields .wrapper .row .item small{
+    color: red;
+    display: inline;
+}
+section.form .content .career-form .form-section  .fields .wrapper .row .item label{
+    margin-bottom: .5rem;
+    font-weight: 500;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    color: #333333;
+    margin-left: 20px;
+    font-family:"CeraPRO-Regular" !important;
+}
+
+section.form .content .career-form .form-section  .fields .wrapper .row .item .additional{
+    margin-bottom: .5rem;
+    font-weight: 500;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    color: #333333;
+    margin-left: 20px;
+    font-family:"CeraPRO-Light" !important;
+}
+
+
+section.form .content .career-form .form-section  .fields .wrapper .row .item input,
+section.form .content .career-form .form-section  .fields .wrapper .row .item .select-style{
+    padding: .5rem .8rem;
+    background: #f8f8f8;
+    border: 2px solid #c1f0f6;
+    border-radius: .5rem;
+    /* height: 46px; */
+    height: 4rem;
+    width: 100%;
+    font-weight: normal;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    position: relative;
+    font-family:"CeraPRO-Regular" !important;
+}
+
+section.form .content .career-form .form-section  .fields .wrapper .row .item .select-style{
+    height: 3rem;
+    padding: 1px 1px;
+    background: #f8f8f8;
+    border: 2px solid #c1f0f6;
+    border-radius: .5rem;
+    /* height: 46px; */
+    height: 4rem;
+    width: 100%;
+    font-weight: normal;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    color: #ececec;
+    position: relative;
+    font-family:"CeraPRO-Regular" !important;
+}
+
+section.form .content .career-form .form-section  .fields .wrapper .row .item .select-style *{
+    font-size: 1.6rem;
+    font-family:"CeraPRO-Regular" !important;
+    color: gray;
+}
+section.form .content .career-form .form-section  .fields .wrapper .row .item .select-style{
+    background: #f8f8f8 url('../../careercredit/images/arrow.png') no-repeat 95% 50%;
+}
+
+/* section.form .content .career-form .form-section  .fields .wrapper .row .item .select-style::before{
+    content: '';
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border: .1rem solid #333333;
+    border-top: .2rem solid transparent;
+    border-left: .2rem solid transparent;
+    position: absolute;
+    transform: rotate(45deg);
+    right: 1.5rem;
+    top:1.5rem;
+    /* pointer-events: all; *
+} */
+
+section.form .content .career-form .form-section  .fields .wrapper .row .item .select-style select{
+    padding: 1.3rem .8rem;
+    width: 100%;
+    /* width: 130%; */
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+}
+
+section.form .content .career-form .form-section  .fields .wrapper .row .item .select-style select:focus{
+    outline: none;
+}
+
+
+
+
+/* alert */
+
+
+.footer{
+    background-color: #04201a;
+    display: flex;
+    padding: 10px;
+    flex-wrap: wrap;
+    margin-top: 5rem;
+    position: relative;
+}
+
+
+  .footer .first{
+      width: auto;
+      margin-left: 30px;
+      margin-top: 20px;
+      height: 140px;
+    }
+
+      .footer .second, .footer .third{
+        width: auto;
+        margin-left: 30px;
+        margin-top: 50px;
+        height: 140px;
+        
+
+    }
+
+.footer .first img{
+width: 100px;
+margin: 15px 0 20px 40px;  
+}
+.footer .first p, .footer .second a, .footer .third a{
+color: rgb(195, 245, 230);
+font-family:"CeraPRO-Regular" !important;
+margin-left: 40px;
+margin-bottom: 1px;
+font-size: 1.3rem;
+line-height: 1.4rem;
+text-decoration: none;
+
+}
+.footer .first p:after,
+.footer .second p:after,
+.footer .third p:after{
+text-align:left;
+}
+.footer .second, .footer .third {
+border-left: 1.5px solid rgb(42, 134, 118);
+
+} 
+.footer .second p, .footer .third p{
+margin-top: 5px;
+
+}
+
+.footer .fourth{
+float: left;
+
+}
+.footer .fourth .copy, .footer .fourth .icons, .footer .fourth .touch {
+width: 390px;
+margin-left: 30px;
+margin-top: 30px;
+display: flex;
+float: left;
+
+} 
+.footer .fourth .icons{
+margin-left: 70px;
+}
+.footer .fourth .touch {
+margin-left: 19px;
+}
+.footer .fourth h6 {
+color: rgb(204, 243, 231);
+font-family:"CeraPRO-Regular" !important;
+margin-left: 20px;
+font-size: 1.3rem;
+margin-top: 10px;
+font-weight: normal;
+
+}   
+.footer .fourth h6:after{
+text-align: center;
+font-family:"CeraPRO-Regular" !important;
+}
+
+
+.footer .fourth .icons .fa {
+width: 15px;
+height:15px;
+border-radius: 50%;
+padding: 8.5px;
+font-size: 16px;
+margin: 10px 0px 0 10px;
+background-color: rgb(20, 97, 82);
+}     
+.fourth .icons a{
+padding: 20px;
+text-decoration: none;
+color: white;
+
+}
+.footer .fourth .icons .fa-twitter{
+background-color:rgb(106, 207, 173);
+}

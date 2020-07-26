@@ -1,0 +1,172 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Career Credit Form2</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
+        <link href="{% static 'home/careercredit/css/career_credit_signup2.css' %}" rel="stylesheet">
+        <link href="C:\Users\OVI\Downloads\linuxjobber2\Django\Linuxjobber\asset\home\careercredit\css\career_credit_signup2.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        </head>
+    <body>
+        <section class="banner">
+            <div class="content content-pad">
+                <nav class="nav-bar">
+                    <a href="#"><img src="{% static 'home/careercredit/images/logo.png' %}" alt="Career Credit Logo" /></a>
+                    <a href="/career_credit" class="employer"><h3 style="background-color: #35B99F; border-radius: .9rem; width: 100%;">Become an Employer</h3></a>
+                    <a href = '#' class = 'contact'><h3>Contact Us</h3></a>
+                    <a href='/career_credit_contact' class='about'><h3>About Us</h3></a>
+                    <a href='/career_credit_employer'class='home'><h3>Home</h3></a>
+                </nav>
+            </div>
+        </section>            
+        
+        <div id='bar2'>
+            <section class='divide2'>
+                <h2>Application Form</h2>
+                <p>Fill in the form below and continue</p>
+                 <div class="bar3">
+                     <img src="{% static 'home/careercredit/images/presentation2.png' %}" style="margin-bottom: -40px;">
+                    <img src="C:/Users/OVI/Downloads/images/presentation2.png" style="margin-bottom: -40px;">
+                    <div class="info" style="margin-bottom: 30px">
+                        <span class="first" style="color: grey;">Personal Information</span> 
+                        <span class="second" style="padding-left: 200px;">Reference Information</span>
+                    </div>
+                    <h6>The internship is for college students only. We need references
+                        (2 classmates and 1 Professor) to verify the information you have provided.
+                        <br>Please note that fields with (<small>*</small>) are compulsory
+                    </h6>
+                 </div>
+            </section>
+    </div>
+
+
+        <section class="form">
+            <div class="content content-pad">
+                <div class="head-section">
+                </div>
+                <form class="career-form" method="post" action="." autocomplete="on">
+                    {% csrf_token %}
+                    <div class="form-section">
+                        <div class="fields">
+                            <div class="wrapper">
+                                <div class="row">
+                                    <div class="item">
+                                        <label>First Classmate</label>
+                                        <label class="additional">Fullname<small>*</small></label>
+                                        <input type="text" placeholder="Enter Classmate's fullname" name="last_name"
+                                            onkeyup="this.value=this.value.replace(/[^a-zA-Z\s]*$/,'');" required/>
+                                    </div>
+                                    <div class="item">
+                                        <label style="visibility: hidden;">Email</label>
+                                        <label>E-mail<small>*</small></label>
+                                        <input type="email" placeholder="Classmate's Email" name="email" required/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wrapper">
+                                <div class="row">
+                                    <div class="item">
+                                        <label>Second Classmate</label>
+                                        <label class="additional">Fullname<small>*</small></label>
+                                        <input type="text" placeholder="Enter Classmate's Fullname" name="other_name"
+                                            onkeyup="this.value=this.value.replace(/[^a-zA-Z\s]*$/,'');" />
+                                    </div>
+                                    <div class="item">
+                                        <label style="visibility: hidden;">Email</label>
+                                        <label>E-mail<small>*</small></label>
+                                        <input type="email" placeholder="Classmate's Email" name="email" required/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wrapper">
+                                <div class="row">
+                                    <div class="item">
+                                        <label>Lecturer/Professor</label>
+                                        <label class="additional">Fullname<small>*</small></label>
+                                        <input type="text" placeholder="Enter Lecturer/Professor's Fullname" name="Lecturere"
+                                            onkeyup="this.value=this.value.replace(/[^a-zA-Z\s]*$/,'');" required />
+                                    </div>
+                                    <div class="item">
+                                        <label style="visibility: hidden;">Email</label>
+                                        <label>E-mail<small>*</small></label>
+                                        <input type="email" placeholder="Lecturer/Professor's Email" name="email" required/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width: 100%; background-color: red; display: inline-block;">
+                        <div class='submit2'>
+                            <button class="btn2" type="submit" onclick="history.back()">Previous</button>
+                        </div>
+                        <div class='submit'>
+                            <button class="btn" type="submit">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <div id='bar7'>
+            <div class='footer'>
+                  <div class='first'>
+                    <h3><a href='/career_credit'><img src="{% static 'home/careercredit/images/logo.png' %}"></a></h3>
+                      <p>6301 Ivy Lane, Greenbelt,</p>
+                      <p>Maryland 20770.</p>
+                  </div>
+                  <div class='second'>
+                      <p><a href='#'>Apply now</a></p>
+                      <p><a href='#'>Benefits</a></p>
+                      <p><a href='#'>Application requirements</a></p>
+                      <p><a href='#'>LinuxJobbber official website</a></p>
+                      <p><a href='#'>Privacy</a></p>
+                  </div>
+                  <div class='third'>
+                      <p><a href='#'>About</a></p>
+                      <p><a href='#'>Steps and process</a></p>
+                      <p><a href='#'>Internship status</a></p>
+                      <p><a href='#'>Frequently asked questions</a></p>
+                      <p><a href='#'>Terms and conditions</a></p>
+                  </div>
+                  
+                <div class= 'fourth'>
+                    <div class='copy'>
+                        <h6>&copy; 2020 Linuxjobber INC.</h6>
+                    </div>
+                    <div class='icons'>
+                        <a href="https://linkedin.com/" target = "_blank" class = 'fa fa-linkedin'></a>
+                        <a href="https://pinterest.com/" target = "_blank" class = 'fa fa-pinterest'></a>
+                        <a href="https://twitter.com/" target = "_blank" class = 'fa fa-twitter'></a>
+                        <a href="https://facebook.com/" target = "_blank" class = 'fa fa-facebook'></a>
+                    </div>
+                    <div class='touch'>
+                        <h6>(+1) 443 538 0988 </br>careers@careecredit.org</h6>
+                    </div>
+                </div>
+            </div>  
+          </div>
+
+        <script>
+           // var select_style = document.getElementsByClassName("select-style");
+            //for (i = 0; i < select_style.length; i++) {
+               //let selElmnt = select_style[i].getElementsByTagName("select")[0];
+               //select_style[i].addEventListener("click", function(e) {
+                   //console.log('before select click');
+
+                   // let s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+                   // console.log(s);
+                   // s.click();
+              // });
+            //}
+
+
+        </script>
+    </body>
+</html>

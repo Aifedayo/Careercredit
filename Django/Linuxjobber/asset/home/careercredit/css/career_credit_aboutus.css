@@ -1,0 +1,538 @@
+@font-face {font-family: "CeraPRO-Light";
+    src: url("../../careercredit/fonts/CeraPro-Light.ttf"); /* IE9*/
+    src: url("1fa7b40f4644596654d7ed3c41c25bae.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("1fa7b40f4644596654d7ed3c41c25bae.woff2") format("woff2"), /* chrome、firefox */
+    url("1fa7b40f4644596654d7ed3c41c25bae.woff") format("woff"), /* chrome、firefox */
+    url("../../careercredit/fonts/CeraPro-Light.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url("1fa7b40f4644596654d7ed3c41c25bae.svg#CeraPRO-Light") format("svg"); /* iOS 4.1- */
+  }
+  @font-face {font-family: "Cera PRO Medium";
+
+ src: url("../../careercredit/fonts/Cera Pro Medium.otf"); /* IE9*/
+ src: url("1fa7b40f4644596654d7ed3c41c25bae.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+ url("1fa7b40f4644596654d7ed3c41c25bae.woff2") format("woff2"), /* chrome、firefox */
+ url("1fa7b40f4644596654d7ed3c41c25bae.woff") format("woff"), /* chrome、firefox */
+ url("../../careercredit/fonts/Cera Pro Medium.otf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+ url("1fa7b40f4644596654d7ed3c41c25bae.svg#Cera PRO Medium") format("svg"); /* iOS 4.1- */
+}
+
+@font-face {font-family: "CeraPro-Regular";
+src: url("../../careercredit/fonts/CeraPro-Regular.otf"); /* IE9*/
+src: url("1fa7b40f4644596654d7ed3c41c25bae.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+url("1fa7b40f4644596654d7ed3c41c25bae.woff2") format("woff2"), /* chrome、firefox */
+url("1fa7b40f4644596654d7ed3c41c25bae.woff") format("woff"), /* chrome、firefox */
+url("../../careercredit/fonts/CeraPro-Regular.otf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+url("1fa7b40f4644596654d7ed3c41c25bae.svg#CeraPro-Regular.otf") format("svg"); /* iOS 4.1- */
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    /* box-sizing: border-box; */
+}
+
+
+
+html body *{
+    font-family: 'CeraPRO-Regular';
+    font-style: normal;
+}
+section.banner .head {
+
+    width: 100%;                
+    height: 1100px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('../../careercredit/images/back1.png');
+    margin-bottom: 100px;
+}
+     
+section.banner .head h2 {
+    color: rgb(112, 192, 165);
+    font-size: 20px;
+    margin: 20px 10px 10px 50px;
+    font-family: "Cera PRO Medium" !important;
+    float: left;
+    display: block;
+    font-weight: bolder;
+    }
+
+    section.banner .head .right{
+    margin:5px 50px 10px 0;
+    } 
+
+    section.banner .head .right a{
+    color: white;
+    border-radius: 10px;
+    width: 250px;
+    padding: 6px;
+    margin-right: 8px;
+    margin-top:15px;
+    text-align: center;
+    float: right;
+    }
+
+    section.banner .head .right h3{
+    
+    font-family: "Cera PRO Medium" !important;
+    font-size: 24px;
+    text-decoration: none;
+    }
+    section.banner .head .right a:hover{
+    background-color:#1EBEA5;
+    color: white;
+    text-decoration: none;
+    }
+    section.banner .head .contain {
+    text-align: center;
+    top: 12rem;
+    padding: 1.2rem;
+    position: relative;
+    }
+
+    section.banner .head section.contain .heading{
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    }
+    
+    section.banner .head section.contain .heading h1 {
+    color: white;
+    position: relative;
+    font-size: 4rem;
+    width: 100%;
+    font-weight: 600;
+    font-family: "Cera PRO Medium" !important;
+    text-align: center;
+    line-height: 6rem;
+    padding: 5px;
+    margin: .8rem;
+    
+    }
+    section.banner .head section.contain p{
+    color: white;
+    font-size: 2.1rem;
+    margin: 1.3rem;
+    }
+    section.content {
+    
+    padding: 0.4rem;
+    
+    }
+
+section.banner .head .right{
+    text-decoration: none;
+    color: white;
+    font-family:"Cera PRO Medium" !important;
+    font-size: 30px;
+    }
+
+    .head-section{
+        width:  100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .head-section .title{
+        padding: 20px;
+        
+    }
+    .title h2{
+        color:rgb(112, 192, 165);
+        text-align: center;
+        margin-top: 100px;
+        font-size: 4rem;
+        font-weight: 700;
+        font-family: 'Cera Pro Medium';
+    }
+    .holder {
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        margin-bottom: 3rem;
+    }
+    #bar1 {
+
+        display:flex;
+        flex-wrap: wrap;
+        position: relative;
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+        background-image: url("C:/Users/OVI/Downloads/images/line.jpg");
+        }
+
+     #bar1 .divide1{
+         
+         justify-content: space-evenly;
+         display: flex;
+         flex-wrap: wrap;
+         text-align: center;
+         width: 100%;
+         margin: auto;
+         padding: 10px;
+     }
+     #bar1 .divide1 .rect, #bar1 .divide1 .rect2 {
+         margin-top: 50px;
+         float: left;
+         width: 490px;
+         text-align: center;
+         height: 690px;
+         background-color: white;
+         border-radius: 50px;
+         box-shadow: 0 8px 16px 0 rgb(219, 219, 219);
+     }
+
+     #bar1 .divide1 .rect p, #bar1 .divide1 .rect2 p{
+         font-size: 30px;
+         font-family: "Cera PRO Medium" !important;    
+         text-align:center;
+         
+     }
+     .rect img, .rect2 img {
+         width: 200px;
+         height: 200px;
+         margin-top: 80px;
+         border-radius: 30px;
+     
+         
+     }
+     .rect small, .rect2 small{
+         font-size: 24px;
+         color:#1EBEA5;
+         font-family: "Cera PRO Medium" !important;
+     }
+     .rect h5, .rect2 h5{
+        
+         text-align: center;
+         padding: 8px;
+         font-family: 'CeraPRO-Regular';
+         margin: 10px 10px 0 10px;
+         font-size: 32px;
+     }
+     
+#bar2 {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin:auto;
+}
+#bar2 .title {
+    width: 100%;
+    margin-top: 20px;
+    
+    font-family: "Cera PRO Medium" !important;
+}
+
+#bar3 {
+    display: flex;
+    flex-wrap: wrap;
+    background-size: cover;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+        background-image: url("C:/Users/OVI/Downloads/images/line.jpg");
+        background-position: center;
+        margin-bottom: 3rem;
+}
+
+#bar3 .wrapper{
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+#bar3 .wrapper .image-box1{
+    float: left;
+    width:250px;
+    height: 380px;
+    text-align: center;
+    margin: auto;
+
+}
+#bar3 .wrapper .image-box1 img{
+    width: 250px;
+    height: 300px;
+}
+
+#bar4 {
+    background-size: cover;
+        background-repeat: no-repeat;
+        
+        background-image: url("C:/Users/OVI/Downloads/images/line.jpg");
+        background-position: center;
+    
+}
+
+#bar4 .wrapper-2{
+    width: 50%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#bar4 .wrapper-2 .image-box1{
+    float: left;
+    width:250px;
+    height: 380px;
+    text-align: center;
+    margin: auto;
+    
+}
+#bar4 .wrapper-2 .image-box1 img{
+    width: 250px;
+    height: 300px;
+    border-radius: 25px;
+}
+
+
+
+
+
+
+
+section.field .head-section .wrapper,
+section.field .head-section2 .wrapper,
+section.field .head-section3 .wrapper{
+margin-top: 5rem;
+margin-bottom: 2rem;
+}
+
+section.field .head-section .wrapper,
+section.field .head-section2 .wrapper,
+section.field .head-section3 .wrapper{
+display: flex;
+margin-bottom: 4rem;
+margin-left: .1rem;
+}
+
+section.field .head-section .wrapper .row,
+section.field .head-section2 .wrapper .row{
+flex-basis: 100%;
+display: flex;
+justify-content: space-around;   
+}
+section.field .head-section3 .wrapper .row{
+flex-basis: 100%;
+display: flex;
+
+}
+
+
+section.field .head-section .wrapper .row .item, 
+section.field .head-section2 .wrapper .row .item{
+flex-basis: 48%;
+margin: .1rem;
+margin: auto;
+text-align: justify;
+line-height: 10px;
+}
+
+section.field .head-section .wrapper .row .item *, 
+section.field .head-section2 .wrapper .row .item *{
+display: block;
+}
+
+section.field .head-section .wrapper .row .item img{
+width: 90%;
+min-height: 370px;
+height: auto;
+border-radius: 8px;
+}
+
+
+section.field .head-section2 .wrapper .row .item img {
+max-width: 80%;
+height: auto;
+margin-left: 2rem;
+}
+section.field .head-section2 .wrapper .row .item .image-box{
+flex-basis: 15%;
+display: flex;
+justify-content: space-between;
+}
+
+section.field .head-section2 .wrapper .row .item .image-box-nasa img{
+    max-width: 250px;
+    height: auto;
+    margin:30px;
+    }
+
+section.field .head-section2 .wrapper .row .item .image-box img{
+max-width: 100px;
+height: auto;
+margin:30px;
+}
+
+section.field .head-section .wrapper .row .item h1{
+position: relative;
+font-size: 4rem;
+width: 100%;
+color:#1EBEA5;
+font-weight: 500;
+font-family: "Cera PRO Medium" !important;
+text-align: center;
+padding: 5px;
+margin-bottom: 20px;
+
+}
+section.field .head-section .wrapper .row .item p{
+text-align: center;
+word-wrap: break-word;
+font-size: 35px;
+margin-top: -10px;
+font-family: "Cera PRO Medium" !important;
+font-weight: 100;
+margin-bottom: 50px;
+}
+
+
+section.field .head-section .wrapper .row .item h4{
+text-align: justify;
+padding: 1.2rem;
+margin: 10px;
+font-size: 30px;
+font-family: "Cera PRO Medium" !important;
+font-weight: 100;
+margin-left: -20px; 
+}
+
+section.field .head-section .wrapper .row .item  h3{
+font-size: 50px;
+margin-bottom: -40px;
+text-align: center;
+color:rgb(201, 252, 235);
+line-height: 70px;
+font-size: 10rem; 
+font-weight: 600;
+}
+section.field .head-section2 .wrapper .row .item h2{
+margin-left: 3rem;
+position: relative;
+font-size: 45px;
+margin-bottom: 5px;
+font-family: "Cera PRO Medium" !important;
+color:rgb(106, 209, 175);
+font-weight: 700;
+}
+section.field .head-section2 .wrapper .row .item p{
+margin-left: 3rem;
+margin-bottom: 5px;
+word-wrap: break-word;
+font-family: "Cera PRO Medium" !important;
+font-size: 25px;
+margin-right: 70px;
+line-height: normal;
+}
+
+
+
+.footer{
+    background-color: #04201a;
+    display: flex;
+    padding: 10px;
+    flex-wrap: wrap;
+    margin-top: 5rem;
+    position: relative;
+}
+
+
+  .footer .first{
+      width: 360px;
+      margin-left: 30px;
+      margin-top: 20px;
+      height: 140px;
+    }
+
+      .footer .second, .footer .third{
+        width: 360px;
+        margin-left: 30px;
+        margin-top: 50px;
+        height: 140px;
+        
+
+    }
+
+.footer .first img{
+width: 100px;
+margin: 15px 0 20px 40px;  
+}
+.footer .first p, .footer .second a, .footer .third a{
+color: rgb(195, 245, 230);
+font-family:"CeraPRO-Regular" !important;
+margin-left: 40px;
+margin-bottom: 1px;
+font-size: 1.3rem;
+line-height: 1.4rem;
+text-decoration: none;
+
+}
+.footer .first p:after,
+.footer .second p:after,
+.footer .third p:after{
+text-align:left;
+}
+.footer .second, .footer .third {
+border-left: 1.5px solid rgb(42, 134, 118);
+
+} 
+.footer .second p, .footer .third p{
+margin-top: 5px;
+
+}
+
+.footer .fourth{
+float: left;
+
+}
+.footer .fourth .copy, .footer .fourth .icons, .footer .fourth .touch {
+width: 360px;
+margin-left: 30px;
+margin-top: 30px;
+display: flex;
+float: left;
+
+} 
+.footer .fourth .icons{
+margin-left: 70px;
+}
+.footer .fourth .touch {
+margin-left: 19px;
+}
+.footer .fourth h6 {
+color: rgb(204, 243, 231);
+font-family:"CeraPRO-Regular" !important;
+margin-left: 20px;
+font-size: 1.3rem;
+margin-top: 10px;
+font-weight: normal;
+
+}   
+.footer .fourth h6:after{
+text-align: center;
+font-family:"CeraPRO-Regular" !important;
+}
+
+
+.footer .fourth .icons .fa {
+width: 15px;
+height:15px;
+border-radius: 50%;
+padding: 8.5px;
+font-size: 16px;
+margin: 10px 0px 0 10px;
+background-color: rgb(20, 97, 82);
+}     
+.fourth .icons a{
+padding: 20px;
+text-decoration: none;
+color: white;
+
+}
+.footer .fourth .icons .fa-twitter{
+background-color:rgb(106, 207, 173);
+}

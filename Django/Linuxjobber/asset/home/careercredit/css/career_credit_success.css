@@ -1,0 +1,242 @@
+
+    @font-face {font-family: "CeraPRO-Light";
+        src: url("../../careercredit/fonts/CeraPro-Light.ttf"); /* IE9*/
+        src: url("1fa7b40f4644596654d7ed3c41c25bae.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+        url("1fa7b40f4644596654d7ed3c41c25bae.woff2") format("woff2"), /* chrome、firefox */
+        url("1fa7b40f4644596654d7ed3c41c25bae.woff") format("woff"), /* chrome、firefox */
+        url("../../careercredit/fonts/CeraPro-Light.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+        url("1fa7b40f4644596654d7ed3c41c25bae.svg#CeraPRO-Light") format("svg"); /* iOS 4.1- */
+      }
+      @font-face {font-family: "Cera PRO Medium";
+    
+     src: url("../../careercredit/fonts/Cera Pro Medium.otf"); /* IE9*/
+     src: url("1fa7b40f4644596654d7ed3c41c25bae.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+     url("1fa7b40f4644596654d7ed3c41c25bae.woff2") format("woff2"), /* chrome、firefox */
+     url("1fa7b40f4644596654d7ed3c41c25bae.woff") format("woff"), /* chrome、firefox */
+     url("../../careercredit/fonts/Cera Pro Medium.otf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+     url("1fa7b40f4644596654d7ed3c41c25bae.svg#Cera PRO Medium") format("svg"); /* iOS 4.1- */
+    }
+    
+    @font-face {font-family: "CeraPro-Regular";
+    src: url("../../careercredit/fonts/CeraPro-Regular.otf"); /* IE9*/
+    src: url("1fa7b40f4644596654d7ed3c41c25bae.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("1fa7b40f4644596654d7ed3c41c25bae.woff2") format("woff2"), /* chrome、firefox */
+    url("1fa7b40f4644596654d7ed3c41c25bae.woff") format("woff"), /* chrome、firefox */
+    url("../../careercredit/fonts/CeraPro-Regular.otf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url("1fa7b40f4644596654d7ed3c41c25bae.svg#CeraPro-Regular.otf") format("svg"); /* iOS 4.1- */
+    }
+
+    *{
+        margin: 0px;
+        padding: 0px;
+        /* box-sizing: border-box; */
+    }
+    
+    section.banner{
+        
+        background:url('../../careercredit/images/form_header.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 6.6rem;
+        margin-bottom: 50px;
+        width: 100%;
+        background-position: center;
+    }
+    
+    
+    
+    section.banner .content .nav-bar{
+        margin-top: .5rem;
+        margin-bottom: auto;
+        }
+    
+    section.banner .content .nav-bar img{
+        margin-left: 3rem;
+        width: 100px;
+    }
+    section.banner .content .nav-bar a{
+        text-decoration: none;
+        color: white;
+        text-align: center;
+        font-family:"Cera PRO Medium" !important;
+            
+    }
+    section.banner .content .nav-bar a:hover{
+        background-color: #35B99F;
+        color: white;
+        
+    }
+    section.banner .content .nav-bar .home,
+    section.banner .content .nav-bar .about,
+    section.banner .content .nav-bar .contact{
+        padding: 6px;
+        margin-top:20px;
+        
+        font-size: 18px;
+        line-height: 1.9rem;
+        letter-spacing: 0.05em;
+        width: 140px;
+        float: right;
+        border-radius: 8px;
+        
+    }
+    section.banner .content .nav-bar .employer{
+        font-size: 18px;
+        line-height: 1.9rem;
+        letter-spacing: 0.05em;
+        width: 240px;
+        float: right;
+        padding: 6px;
+        margin-top: 20px;
+        border-radius: 10px;
+    }
+    section.banner .content .nav-bar a h3{
+        
+        font-weight: bold;
+        
+        text-decoration: none;}
+        
+        .home {
+            margin: auto;
+            position: relative;
+            text-align: center;
+
+        }
+        .alert p{
+            color:white;
+        }
+        .btn {
+            background-color: #35B99F;
+            margin-top: 40px;
+            border: 1px solid #35B99F;
+            padding: 8px;
+            color: white;
+            width: 140px;
+            font-size: 24px;
+            border-radius: 10px;
+            text-align: center;
+            font-family: 'Cera Pro Medium';
+        }
+        .image-box{
+            margin: auto;
+            text-align: center;
+        }
+        .image-box img{
+            width: 200px;
+            height: 200px;
+            margin-bottom: 30px;
+        }
+        .image-box h3{
+            font-family: 'CeraPRO-Regular';
+            font-size: 26px;
+        }
+
+        
+.footer{
+    background-color: #04201a;
+    display: flex;
+    padding: 10px;
+    flex-wrap: wrap;
+    margin-top: 10rem;
+}
+
+
+  .footer .first{
+      width: 360px;
+      margin-left: 30px;
+      margin-top: 20px;
+      height: 140px;
+    }
+
+      .footer .second, .footer .third{
+        width: 360px;
+        margin-left: 30px;
+        margin-top: 50px;
+        height: 140px;
+        
+
+    }
+
+.footer .first img{
+width: 100px;
+margin: 15px 0 20px 40px;  
+}
+.footer .first p, .footer .second a, .footer .third a{
+color: rgb(195, 245, 230);
+font-family:"CeraPRO-Regular" !important;
+margin-left: 40px;
+margin-bottom: 1px;
+font-size: 1.3rem;
+line-height: 1.4rem;
+text-decoration: none;
+
+}
+.footer .first p:after,
+.footer .second p:after,
+.footer .third p:after{
+text-align:left;
+}
+.footer .second, .footer .third {
+border-left: 1.5px solid rgb(42, 134, 118);
+
+} 
+.footer .second p, .footer .third p{
+margin-top: 5px;
+
+}
+
+.footer .fourth{
+float: left;
+
+}
+.footer .fourth .copy, .footer .fourth .icons, .footer .fourth .touch {
+width: 360px;
+margin-left: 30px;
+margin-top: 30px;
+display: flex;
+float: left;
+
+} 
+.footer .fourth .icons{
+margin-left: 70px;
+}
+.footer .fourth .touch {
+margin-left: 19px;
+}
+.footer .fourth h6 {
+color: rgb(204, 243, 231);
+font-family:"CeraPRO-Regular" !important;
+margin-left: 20px;
+font-size: 1.3rem;
+margin-top: 10px;
+font-weight: normal;
+
+}   
+.footer .fourth h6:after{
+text-align: center;
+font-family:"CeraPRO-Regular" !important;
+}
+
+
+.footer .fourth .icons .fa {
+width: 15px;
+height:15px;
+border-radius: 50%;
+padding: 8.5px;
+font-size: 16px;
+margin: 10px 0px 0 10px;
+background-color: rgb(20, 97, 82);
+}     
+.fourth .icons a{
+padding: 20px;
+text-decoration: none;
+color: white;
+
+}
+.footer .fourth .icons .fa-twitter{
+background-color:rgb(106, 207, 173);
+}
+
+
+
+

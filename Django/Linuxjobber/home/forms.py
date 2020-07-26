@@ -149,4 +149,11 @@ class ItPartnershipForm(forms.ModelForm):
 class CareercreditForm(forms.ModelForm):
 	class Meta:
 		model = Careercredit
-		fields = '__all__'	
+		fields = ['last_name','first_name','other_name', 'email', 'phone_number', 'school', 'degree_type',
+					'course_of_study', 'graduating_year']
+
+class CareercreditForm2(forms.ModelForm):
+	class Meta:
+		model = Careercredit
+		fields = ['first_classmate_fullname', 'first_classmate_email', 'second_classmate_fullname', 'second_classmate_email'
+					'lecturer_fullname', 'lecturer_email']

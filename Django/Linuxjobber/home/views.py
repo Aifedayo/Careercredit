@@ -3952,12 +3952,25 @@ def career_credit_form(request):
         career_credit = CareercreditForm(request.POST)
         if career_credit.is_valid():
             career_credit.save()
-            messages.success(request, 'Thanks, we will get back to you soon')
-            return redirect("home:career_credit_form")
+            return redirect("home:career_credit_form2")
         else:
             return render(
                 request, 
                 'home/career_credit_form.html', 
-                {'form':career_credit}
+                {'form':CareercreditForm}
+            )   
+    return TemplateResponse(request, 'home/career_credit_form.html') 
+
+def career_credit_form2(request):
+    if request.method == "POST":
+        career_credit = CareercreditForm(request.POST)
+        if career_credit.is_valid():
+            career_credit.save()
+            return redirect("home:career_credit_student_signup2.html")
+        else:
+            return render(
+                request, 
+                'home/career_credit_form.html', 
+                {'form':CareercreditForm2}
             )   
     return TemplateResponse(request, 'home/career_credit_form.html') 

@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Career Credit Form</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
+        <link href="{% static 'home/careercredit/css/career_credit_signup.css' %}" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="C:\Users\OVI\Downloads\linuxjobber2\Django\Linuxjobber\asset\home\careercredit\css\career_credit_signup.css" rel="stylesheet">
+        
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        </head>
+    <body>
+        <section class="banner">
+            <div class="content content-pad">
+                <nav class="nav-bar">
+                    <a href="#"><img src="{% static 'home/careercredit/images/logo.png' %}" alt="Career Credit Logo" /></a>
+                    <a href="/career_credit" class="employer"><h3 style="background-color: #35B99F; border-radius: .9rem;">Become an Employer</h3></a></button>
+                    <a href = '#' class = 'contact'><h3>Contact Us</h3></a>
+                    <a href='/career_credit_contact' class='about'><h3>About Us</h3></a>
+                    <a href='/career_credit_employer'class='home'><h3>Home</h3></a>
+                </nav>
+            </div>
+        </section>            
+        <section class="centre">
+            <div class="container-image">
+                <img src ="{% static 'home/careercredit/images/Success(1).png' %}">
+            </div>
+            <p>Congratulations<br>Your application has been received. You'll be contacted shortly</p>
+            <div class='submit'>
+                <button class="btn" type="submit" style="margin-bottom: 100px;">Home</button>
+            </div>
+        </section>
+        
+        
+
+        <div id='bar7'>
+            <div class='footer'>
+                  <div class='first'>
+                    <h3><a href='/career_credit'><img src="{% static 'home/careercredit/images/logo.png' %}"></a></h3>
+                      <p>6301 Ivy Lane, Greenbelt,</p>
+                      <p>Maryland 20770.</p>
+                  </div>
+                  <div class='second'>
+                      <p><a href='#'>Apply now</a></p>
+                      <p><a href='#'>Benefits</a></p>
+                      <p><a href='#'>Application requirements</a></p>
+                      <p><a href='#'>LinuxJobbber official website</a></p>
+                      <p><a href='#'>Privacy</a></p>
+                  </div>
+                  <div class='third'>
+                      <p><a href='#'>About</a></p>
+                      <p><a href='#'>Steps and process</a></p>
+                      <p><a href='#'>Internship status</a></p>
+                      <p><a href='#'>Frequently asked questions</a></p>
+                      <p><a href='#'>Terms and conditions</a></p>
+                  </div>
+                  
+                <div class= 'fourth'>
+                    <div class='copy'>
+                        <h6>&copy; 2020 Linuxjobber INC.</h6>
+                    </div>
+                    <div class='icons'>
+                        <a href="https://linkedin.com/" target = "_blank" class = 'fa fa-linkedin'></a>
+                        <a href="https://pinterest.com/" target = "_blank" class = 'fa fa-pinterest'></a>
+                        <a href="https://twitter.com/" target = "_blank" class = 'fa fa-twitter'></a>
+                        <a href="https://facebook.com/" target = "_blank" class = 'fa fa-facebook'></a>
+                    </div>
+                    <div class='touch'>
+                        <h6>(+1) 443 538 0988 </br>careers@careecredit.org</h6>
+                    </div>
+                </div>
+            </div>  
+          </div>
+
+        <script>
+           // var select_style = document.getElementsByClassName("select-style");
+            //for (i = 0; i < select_style.length; i++) {
+               //let selElmnt = select_style[i].getElementsByTagName("select")[0];
+               //select_style[i].addEventListener("click", function(e) {
+                   //console.log('before select click');
+
+                   // let s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+                   // console.log(s);
+                   // s.click();
+              // });
+            //}
+
+
+        </script>
+    </body>
+</html>
